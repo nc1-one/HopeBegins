@@ -8,6 +8,7 @@ import {
   Mail,
   MessageSquare,
   Users,
+  Activity,
 } from 'lucide-react';
 import { analyticsService, ImpactData } from '@/services/analyticsService';
 
@@ -69,6 +70,13 @@ export function ImpactStats() {
       label: 'Hope AI Conversations',
       description:
         'Faith-filled conversations with Hope AI for encouragement and support',
+    },
+    {
+      icon: Activity,
+      value: data?.war_room_users?.toLocaleString() || '0',
+      label: 'War Room Users',
+      description:
+        'People who entered the HopebeginsPrayer War Room to join in prayer',
     },
     {
       icon: Users,

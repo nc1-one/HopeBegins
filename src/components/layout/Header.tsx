@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import headerLogo from '@/assets/images/header-logo.png';
 import { Home, Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { analyticsService } from '@/services/analyticsService';
 
 export function Header() {
   const pathname = usePathname();
@@ -26,7 +27,7 @@ export function Header() {
 
   const navLinks = [
     { href: '/', label: 'Home', icon: Home },
-    { href: '/be-carrier', label: 'I Want to Be a Hope Carrier' },
+    { href: 'https://warroom.hopebegins.today', label: 'War Room' },
     { href: '/give-hope', label: 'Our Impact' },
     { href: '/our-story', label: 'Our Story' },
   ];
@@ -73,8 +74,17 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 className="flex items-center gap-2 text-sm font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins uppercase tracking-wider"
-                onClick={link.href === '/' ? handleHomeClick : undefined}
+                onClick={(e) => {
+                  if (link.href.includes('warroom')) {
+                    analyticsService.recordClick('war_room');
+                  }
+                  if (link.href === '/') {
+                    handleHomeClick(e as any);
+                  }
+                }}
               >
                 {link.icon && <link.icon className="w-4 h-4" />}
                 {link.label}
@@ -104,12 +114,19 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  target={link.href.startsWith('http') ? '_blank' : undefined}
+                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="flex items-center gap-3 text-sm font-bold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins uppercase tracking-wider py-2"
-                  onClick={
-                    link.href === '/'
-                      ? handleHomeClick
-                      : () => setIsMenuOpen(false)
-                  }
+                  onClick={(e) => {
+                    if (link.href.includes('warroom')) {
+                      analyticsService.recordClick('war_room');
+                    }
+                    if (link.href === '/') {
+                      handleHomeClick(e as any);
+                    } else {
+                      setIsMenuOpen(false);
+                    }
+                  }}
                 >
                   {link.icon && <link.icon className="w-5 h-5" />}
                   {link.label}
