@@ -173,7 +173,7 @@ export function DailyHopeForm() {
       </Card>
 
       <p className="text-center text-xs text-zinc-400 font-medium italic">
-        Join 1,000+ others already receiving daily encouragement.
+        Free. One email a day for 21 days.
       </p>
     </div>
   );

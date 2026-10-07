@@ -1,6 +1,7 @@
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { BackToMainMenu } from '@/components/layout/BackToMainMenu';
+import { CrisisBand } from '@/components/layout/CrisisBand';
 
 export default function PublicLayout({
   children,
@@ -12,6 +13,7 @@ export default function PublicLayout({
       <Header />
       <BackToMainMenu />
       <main className="flex-1">{children}</main>
+      <CrisisBand />
       <Footer />
     </div>
   );
