@@ -368,6 +368,8 @@ export default function ActionPlanPage() {
   const [email, setEmail] = useState('');
   const [consent, setConsent] = useState(false);
   const [emailStatus, setEmailStatus] = useState<EmailStatus>('idle');
+  const [website, setWebsite] = useState('');
+  const [formStartedAt, setFormStartedAt] = useState<number | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   const showPlan = saved !== null && !isRetaking;
@@ -596,7 +598,8 @@ export default function ActionPlanPage() {
         email,
         (emailName ?? saved.name).trim(),
         plan,
-        weekSentences
+        weekSentences,
+        { website, startTime: formStartedAt ?? 0 }
       );
       setEmailStatus('sent');
     } catch {
@@ -750,7 +753,21 @@ export default function ActionPlanPage() {
                   don&apos;t see it.
                 </p>
               ) : (
-                <form onSubmit={handleEmail} className="mt-6 space-y-5">
+                <form
+                  onSubmit={handleEmail}
+                  onFocus={() => setFormStartedAt((t) => t ?? Date.now())}
+                  className="mt-6 space-y-5"
+                >
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
+                    className="hidden"
+                  />
                   <div className="grid gap-5 md:grid-cols-2">
                     <div className="space-y-2">
                       <Label

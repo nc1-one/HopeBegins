@@ -1,8 +1,9 @@
-# Action Plan Email: Backend Endpoint
+# Action Plan Email
 
 The public page `/action-plan` asks 9 questions and builds a Hopeful Beginning
-action plan in the browser (`src/lib/actionPlan.ts`). The visitor can ask for
-the plan by email. The frontend calls an endpoint that does not exist yet.
+Plan in the browser (`src/lib/actionPlan.ts`). Visitors can ask for the plan by
+email. The backend endpoint lives in `Hope-Begin-Backend` under
+`apps/action_plans`.
 
 ## Endpoint
 
@@ -19,36 +20,45 @@ the plan by email. The frontend calls an endpoint that does not exist yet.
       "intro": "Start with one or two. Use them every day for a week.",
       "items": [
         {
-          "title": "Plan one small thing each day",
-          "detail": "With low mood, waiting to feel like it doesn't work...",
-          "steps": ["Each evening, choose one thing for tomorrow...", "..."],
-          "link": "https://hopebegins.today/hope-ai"
+          "title": "Talk it through with Hope AI",
+          "detail": "An AI assistant you can chat with at any hour.",
+          "steps": ["..."],
+          "link": "/hope-ai",
+          "link_label": "Chat with Hope"
         }
       ]
     }
-  ]
+  ],
+  "website": "",
+  "startTime": 1791350000000
 }
 ```
 
-- `first_name`, `intro`, `steps` and `link` are optional.
-- `link` can be a web URL or a `tel:` link (the crisis hotline).
-- Respond `2xx` on success. Any non-2xx shows "We couldn't send your plan" in the UI.
+- `first_name`, `intro`, `steps`, `link` and `link_label` are optional.
+- `link` is a site path (`/hope-ai`, made absolute with the backend's
+  `FRONTEND_URL`), a `https://` link to hopebegins.today or
+  warroom.hopebegins.today, the e-coach page `https://m.me/Mayhimalaeveryday`,
+  or a `tel:` number. Anything else is rejected.
+- `website` is a honeypot and must be empty. `startTime` is when the visitor
+  first focused the email form; it must be 3 seconds to 1 hour old.
+- 200 means sent. 400 is a validation or anti-spam failure, 429 a rate limit,
+  503 an SMTP failure. The page shows "We couldn't send your plan" for all of them.
 
-## Requirements
+## Behaviour
 
-- Send one email with the subject "Your Hopeful Beginning Plan". Render the
-  summary, then each section heading, intro and items in order, with steps as a
-  numbered list and links as buttons.
-- Include the e-coach link (https://m.me/Mayhimalaeveryday) near the top:
-  "Want someone to journey with you? Talk to an e-coach on Messenger." (E-coaches
-  are from Himala Everyday.) If a section with heading "Your safety plan"
-  is present, it must be the first section in the email.
-- Use the brand email template used for Daily Hope.
-- Always include the NCMH Crisis Hotline (1553 / 0917 899 8727) in the email footer.
-- Do not subscribe the address to any list. Use it only to send this email
-  (this is what `/privacy` and the consent checkbox promise).
-- Do not store the plan after sending. If a send log is needed, keep only the
-  timestamp and a hash of the email.
-- Rate limit per IP and per email address (for example 5 per hour) and reuse
-  the honeypot pattern from the prayer form to block spam.
-- The quiz answers are never sent to the server. Keep it that way.
+- One email, subject "Your Hopeful Beginning Plan", in the brand colours, with
+  the e-coach box after the summary, or after the safety plan when there is one.
+  The safety plan is always the first section. The NCMH crisis line is always in
+  the footer.
+- Nothing is stored. The address is used only to send this email and is not
+  added to any list (this is what `/privacy` and the consent checkbox promise).
+- Limits: 30 requests per IP per hour (`action_plan_email` throttle) and
+  3 emails per address per day.
+- The quiz answers are never sent to the server.
+
+## Ops note
+
+The IP limit relies on nginx forwarding the client address
+(`proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;`). Without it,
+all visitors share one limit, which also affects the existing `public_form`
+throttle.

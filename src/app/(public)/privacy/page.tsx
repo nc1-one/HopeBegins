@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const LAST_UPDATED = 'October 7, 2026';
-const PRIVACY_EMAIL = 'give@hopebegins.today';
+const PRIVACY_EMAIL = 'connect@hopebegins.today';
 
 const sections = [
   {
