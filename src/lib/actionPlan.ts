@@ -14,7 +14,12 @@
  * when the visitor asks for it by email.
  */
 
-export const ECOACH_URL = 'https://m.me/Mayhimalaeveryday';
+// May Himala Everyday's Facebook page. Phones open the Messenger app through
+// m.me; computers open the page's chat on facebook.com, where most people are
+// already signed in (m.me on a computer lands on a separate messenger.com login).
+export const ECOACH_PAGE_ID = '352008124672499';
+export const ECOACH_APP_URL = `https://m.me/${ECOACH_PAGE_ID}`;
+export const ECOACH_WEB_URL = `https://www.facebook.com/messages/t/${ECOACH_PAGE_ID}`;
 export const WAR_ROOM_URL = 'https://warroom.hopebegins.today';
 
 export type QuestionKey =

@@ -1,11 +1,10 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'Privacy and Confidentiality | HopeBegins',
-  description:
-    'What HopeBegins collects, who can see it, how we protect it, and your rights.',
-};
+export const metadata = pageMetadata(
+  'Privacy and Confidentiality',
+  'What HopeBegins collects, who can see it, how we protect it, and your rights.'
+);
 
 const LAST_UPDATED = 'October 7, 2026';
 const PRIVACY_EMAIL = 'connect@hopebegins.today';

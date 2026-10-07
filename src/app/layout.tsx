@@ -22,9 +22,37 @@ const dmSans = DM_Sans({
   variable: '--font-dm-sans',
 });
 
+const SITE_DESCRIPTION =
+  'Feeling anxious, low or alone? Free support right now: a personal plan, someone to pray for you, and e-coaches on Messenger. In crisis, call NCMH 1553.';
+
 export const metadata: Metadata = {
-  title: 'HopeBegins',
-  description: 'A platform for hope and prayer.',
+  metadataBase: new URL('https://hopebegins.today'),
+  title: {
+    default: 'HopeBegins: Not okay today?',
+    template: '%s | HopeBegins',
+  },
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    type: 'website',
+    siteName: 'HopeBegins',
+    locale: 'en_PH',
+    title: 'Not okay today? HopeBegins',
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: '/og/hopebegins.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Not okay today? HopeBegins',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Not okay today? HopeBegins',
+    description: SITE_DESCRIPTION,
+    images: ['/og/hopebegins.jpg'],
+  },
 };
 
 import EngagementPopout from '@/components/layout/EngagementPopout';

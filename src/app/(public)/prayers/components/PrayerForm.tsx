@@ -26,8 +26,8 @@ export function PrayerForm() {
   const { form, onSubmit, isSubmitting, linkedOrganization } = usePrayerForm();
 
   return (
-    <Card className="max-w-xl mx-auto border-zinc-100 dark:border-zinc-800 shadow-sm bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm">
-      <CardContent className="p-8">
+    <Card className="py-0 border-zinc-100 shadow-sm bg-white">
+      <CardContent className="p-6 md:p-8">
         <Form {...form}>
           <form onSubmit={onSubmit} className="space-y-6">
             <FormField
@@ -35,13 +35,13 @@ export function PrayerForm() {
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                    First Name *
+                  <FormLabel className="text-sm font-medium text-[#6E5F47]">
+                    First name *
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Your first name"
-                      className="bg-zinc-50/50 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800 h-12"
+                      className="bg-white border-zinc-200 h-12"
                       {...field}
                     />
                   </FormControl>
@@ -55,14 +55,14 @@ export function PrayerForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                    Email Address *
+                  <FormLabel className="text-sm font-medium text-[#6E5F47]">
+                    Email *
                   </FormLabel>
                   <FormControl>
                     <Input
                       type="email"
                       placeholder="your@email.com"
-                      className="bg-zinc-50/50 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800 h-12"
+                      className="bg-white border-zinc-200 h-12"
                       {...field}
                     />
                   </FormControl>
@@ -76,15 +76,15 @@ export function PrayerForm() {
               name="category"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                    Prayer Category *
+                  <FormLabel className="text-sm font-medium text-[#6E5F47]">
+                    Category *
                   </FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className="bg-zinc-50/50 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800 h-12">
+                      <SelectTrigger className="bg-white border-zinc-200 h-12">
                         <SelectValue placeholder="Select category..." />
                       </SelectTrigger>
                     </FormControl>
@@ -105,7 +105,7 @@ export function PrayerForm() {
             />
 
             {linkedOrganization && (
-              <p className="rounded-xl bg-zinc-50 px-4 py-3 text-sm text-zinc-600 dark:bg-zinc-950/50 dark:text-zinc-400">
+              <p className="rounded-xl bg-[#EFF3E7] px-4 py-3 text-sm text-[#6E5F47]">
                 Your request will be shared with{' '}
                 <span className="font-bold">{linkedOrganization.name}</span>.
               </p>
@@ -116,13 +116,13 @@ export function PrayerForm() {
               name="content"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                    Prayer Concern *
+                  <FormLabel className="text-sm font-medium text-[#6E5F47]">
+                    What would you like prayer for? *
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Share as much or as little as you'd like..."
-                      className="min-h-[150px] bg-zinc-50/50 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800 resize-none"
+                      className="min-h-[150px] bg-white border-zinc-200 resize-none"
                       {...field}
                     />
                   </FormControl>
@@ -142,11 +142,11 @@ export function PrayerForm() {
                       id="shareFirstName"
                       checked={field.value}
                       onChange={field.onChange}
-                      className="h-4 w-4 rounded border-zinc-300 text-[#6b634d] focus:ring-[#6b634d]"
+                      className="h-4 w-4 rounded border-zinc-300 accent-[#6E5F47] focus:ring-[#6E5F47]"
                     />
                     <label
                       htmlFor="shareFirstName"
-                      className="text-sm text-zinc-500 font-medium cursor-pointer"
+                      className="text-sm text-[#6E5F47] cursor-pointer"
                     >
                       Share my first name with the Hope Carrier
                     </label>
@@ -164,11 +164,11 @@ export function PrayerForm() {
                       id="wantsFollowUp"
                       checked={field.value}
                       onChange={field.onChange}
-                      className="h-4 w-4 rounded border-zinc-300 text-[#6b634d] focus:ring-[#6b634d]"
+                      className="h-4 w-4 rounded border-zinc-300 accent-[#6E5F47] focus:ring-[#6E5F47]"
                     />
                     <label
                       htmlFor="wantsFollowUp"
-                      className="text-sm text-zinc-500 font-medium cursor-pointer"
+                      className="text-sm text-[#6E5F47] cursor-pointer"
                     >
                       I&apos;d like a follow-up encouraging message
                     </label>
@@ -213,13 +213,13 @@ export function PrayerForm() {
 
             <Button
               type="submit"
-              className="w-full h-12 bg-[#b4c392] hover:bg-[#a3b281] text-white font-bold text-sm rounded-lg shadow-sm transition-all duration-200"
+              className="w-full h-12 bg-[#6E5F47] hover:bg-[#5c4f3b] text-white font-poppins font-bold text-base rounded-2xl shadow-lg transition-colors duration-200 focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               ) : (
-                'Submit My Prayer'
+                'Send my prayer request'
               )}
             </Button>
           </form>

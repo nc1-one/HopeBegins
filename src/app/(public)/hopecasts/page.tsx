@@ -6,6 +6,7 @@ import { hopecastService } from '@/services/hopecastService';
 import { CategoryFilter } from './_components/category-filter';
 import { HopecastCard } from './_components/hopecast-card';
 import { Category, Hopecast, HopecastListResponse } from '@/types/hopecast';
+import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 
 export default function HopecastsPage() {
   const [selectedCategoryId, setSelectedCategoryId] = React.useState<
@@ -112,22 +113,19 @@ export default function HopecastsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fcfbf7]/50 pt-24 pb-32 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Header Section */}
-        <div className="text-center mb-16 space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#6b634d] font-poppins leading-[1.2] tracking-tight">
-            I Need to Hear Hope Today
-          </h1>
-          <p className="text-zinc-500 font-medium text-lg max-w-xl mx-auto leading-relaxed opacity-80">
-            Listen to a HopeCast that speaks to where you are.
-          </p>
+    <div className="px-6 pt-6 pb-16">
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-10">
+          <OptionPageHeader
+            title="I Need to Hear Hope Today"
+            subtitle="Pick a topic and listen to a HopeCast that speaks to where you are."
+          />
         </div>
 
         {/* Category Filter Section */}
         <div className="mb-12">
           {isLoadingCategories ? (
-            <div className="flex flex-wrap justify-center gap-2 animate-pulse">
+            <div className="flex flex-wrap gap-2 animate-pulse">
               {[...Array(6)].map((_, i) => (
                 <div key={i} className="h-10 w-24 bg-zinc-100 rounded-full" />
               ))}
@@ -183,17 +181,17 @@ export default function HopecastsPage() {
                   <button
                     onClick={() => setPage((p) => Math.max(1, p - 1))}
                     disabled={page === 1}
-                    className="px-6 py-2 rounded-full border border-zinc-200 text-[#6b634d] font-bold disabled:opacity-30 hover:bg-zinc-50 transition-colors"
+                    className="px-6 py-2 rounded-full border border-zinc-200 bg-white text-[#6E5F47] font-bold disabled:opacity-30 hover:bg-[#EFF3E7] transition-colors"
                   >
                     Previous
                   </button>
-                  <span className="text-[#6b634d] font-bold opacity-60">
+                  <span className="text-[#6E5F47] font-bold">
                     Page {page} of {Math.ceil(hopecastsData.count / pageSize)}
                   </span>
                   <button
                     onClick={() => setPage((p) => p + 1)}
                     disabled={page >= Math.ceil(hopecastsData.count / pageSize)}
-                    className="px-6 py-2 rounded-full border border-zinc-200 text-[#6b634d] font-bold disabled:opacity-30 hover:bg-zinc-50 transition-colors"
+                    className="px-6 py-2 rounded-full border border-zinc-200 bg-white text-[#6E5F47] font-bold disabled:opacity-30 hover:bg-[#EFF3E7] transition-colors"
                   >
                     Next
                   </button>
@@ -201,8 +199,8 @@ export default function HopecastsPage() {
               )}
             </>
           ) : (
-            <div className="text-center py-12 bg-white rounded-3xl border border-zinc-50 shadow-sm">
-              <p className="text-zinc-400 font-medium font-poppins">
+            <div className="py-12 px-6 bg-white rounded-3xl border border-zinc-100">
+              <p className="text-[#6E5F47] font-medium font-poppins">
                 No HopeCasts found for this category yet.
               </p>
             </div>
