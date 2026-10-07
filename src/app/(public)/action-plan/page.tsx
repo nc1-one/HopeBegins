@@ -18,7 +18,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import {
   Answers,
-  ECOACH_URL,
   PlanItem,
   TIME_LABELS,
   TimeOfDay,
@@ -34,6 +33,7 @@ import {
   useSavedPlan,
 } from '@/lib/actionPlanStore';
 import { actionPlanService } from '@/services/actionPlanService';
+import { EcoachLink } from '@/components/ui/EcoachLink';
 import { BreathingExercise } from './components/BreathingExercise';
 import { GroundingExercise } from './components/GroundingExercise';
 
@@ -67,15 +67,13 @@ function ECoachCard() {
             E-coaches from Himala Everyday can help you choose where to start.
           </p>
         </div>
-        <a
-          href={ECOACH_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+        <EcoachLink
+          linkName="ecoach_plan"
           className="inline-flex w-full shrink-0 items-center justify-center rounded-2xl bg-white px-5 py-4 text-center font-poppins font-bold leading-snug text-[#6E5F47] md:w-auto md:px-6 shadow-lg transition-all duration-300 hover:bg-zinc-100 hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50 print:hidden"
         >
           <MessageCircle className="mr-2 w-5 h-5 shrink-0" />
           <span>Talk to an e-coach on Messenger</span>
-        </a>
+        </EcoachLink>
       </CardContent>
     </Card>
   );

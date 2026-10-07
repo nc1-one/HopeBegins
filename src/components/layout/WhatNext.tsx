@@ -11,8 +11,8 @@ import {
   MessageSquare,
   Radio,
 } from 'lucide-react';
-import { TrackedLink } from '@/components/ui/TrackedLink';
-import { ECOACH_URL } from '@/lib/actionPlan';
+import { EcoachLink } from '@/components/ui/EcoachLink';
+import { ECOACH_APP_URL } from '@/lib/actionPlan';
 
 type OptionKey =
   | 'plan'
@@ -35,7 +35,7 @@ const options: Record<
   ecoach: {
     title: 'Talk to an e-coach',
     description: 'A real person from Himala Everyday, on Messenger.',
-    href: ECOACH_URL,
+    href: ECOACH_APP_URL,
     icon: MessageCircle,
   },
   prayers: {
@@ -112,16 +112,13 @@ export function WhatNext() {
               </>
             );
             return key === 'ecoach' ? (
-              <TrackedLink
+              <EcoachLink
                 key={key}
-                href={option.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 linkName="ecoach_what_next"
                 className={cardClass}
               >
                 {body}
-              </TrackedLink>
+              </EcoachLink>
             ) : (
               <Link key={key} href={option.href} className={cardClass}>
                 {body}

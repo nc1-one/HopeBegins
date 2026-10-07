@@ -16,8 +16,7 @@ import {
   Sunrise,
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { TrackedLink } from '@/components/ui/TrackedLink';
-import { ECOACH_URL } from '@/lib/actionPlan';
+import { EcoachLink } from '@/components/ui/EcoachLink';
 import { analyticsService } from '@/services/analyticsService';
 
 // The second step lives at /#start so the browser back button returns to the
@@ -245,13 +244,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
               </Link>
             ))}
 
-            <TrackedLink
-              href={ECOACH_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              linkName="ecoach_menu"
-              className="group block"
-            >
+            <EcoachLink linkName="ecoach_menu" className="group block">
               <Card className="border-none bg-[#6E5F47] text-white transition-all duration-500 hover:shadow-xl hover:shadow-[#6E5F47]/20 group-focus-visible:ring-4 group-focus-visible:ring-[#91AFAA]/40">
                 <CardContent className="p-6 md:px-10 flex flex-col md:flex-row md:items-center gap-6">
                   <div className="self-start md:self-auto p-4 rounded-2xl bg-white text-[#6E5F47] shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 motion-reduce:transition-none">
@@ -271,7 +264,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
                   </span>
                 </CardContent>
               </Card>
-            </TrackedLink>
+            </EcoachLink>
           </div>
 
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">

@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import { BonfireInlineChat } from '@/components/bonfire/BonfireInlineChat';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
-import { TrackedLink } from '@/components/ui/TrackedLink';
-import { ECOACH_URL } from '@/lib/actionPlan';
+import { EcoachLink } from '@/components/ui/EcoachLink';
 
 export default function HopeAIPage() {
   return (
@@ -22,15 +21,12 @@ export default function HopeAIPage() {
             <p className="text-sm text-[#6E5F47]">
               Hope is an AI assistant, not a counselor.
             </p>
-            <TrackedLink
-              href={ECOACH_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <EcoachLink
               linkName="ecoach_hope_ai"
               className="inline-flex items-center justify-center rounded-2xl bg-[#6E5F47] px-6 py-3 font-poppins text-sm font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
             >
               I&apos;d rather talk to a real person: message an e-coach
-            </TrackedLink>
+            </EcoachLink>
             <p className="text-sm">
               <Link
                 href="/prayers"
