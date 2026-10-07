@@ -51,8 +51,7 @@ export function HopeStoriesSection() {
               Stories of Hope
             </h2>
             <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2 font-medium max-w-lg mx-auto leading-relaxed">
-              Real testimonies of how HopeBegins is transforming lives. See what
-              others are saying about their journey with God.
+              What people say about their time with HopeBegins.
             </p>
           </div>
 

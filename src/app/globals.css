@@ -8,6 +8,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-poppins: var(--font-poppins);
+  --font-playfair: var(--font-playfair);
   --font-dm-sans: var(--font-dm-sans);
   --font-sans: var(--font-dm-sans);
   --font-mono: var(--font-geist-mono);
@@ -176,5 +177,33 @@
   }
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: var(--muted-foreground);
+  }
+}
+
+/* Action plan: print only the plan */
+@media print {
+  body:has(#action-plan) * {
+    visibility: hidden;
+  }
+  #action-plan,
+  #action-plan * {
+    visibility: visible;
+  }
+  #action-plan {
+    position: absolute;
+    inset: 0;
+  }
+}
+
+/* Action plan breathing exercise: 4s in, 6s out */
+@keyframes hb-breathe {
+  0% {
+    transform: scale(0.6);
+  }
+  40% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.6);
   }
 }
