@@ -10,11 +10,14 @@ import {
   Heart,
   Lock,
   Mail,
+  MessageCircle,
   MessageSquare,
   Radio,
   Sunrise,
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { TrackedLink } from '@/components/ui/TrackedLink';
+import { ECOACH_URL } from '@/lib/actionPlan';
 import { analyticsService } from '@/services/analyticsService';
 
 // The second step lives at /#start so the browser back button returns to the
@@ -223,6 +226,34 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
                 </Card>
               </Link>
             ))}
+
+            <TrackedLink
+              href={ECOACH_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              linkName="ecoach_menu"
+              className="group block"
+            >
+              <Card className="border-none bg-[#6E5F47] text-white transition-all duration-500 hover:shadow-xl hover:shadow-[#6E5F47]/20 group-focus-visible:ring-4 group-focus-visible:ring-[#91AFAA]/40">
+                <CardContent className="p-6 md:px-10 flex flex-col md:flex-row md:items-center gap-6">
+                  <div className="self-start md:self-auto p-4 rounded-2xl bg-white text-[#6E5F47] shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 motion-reduce:transition-none">
+                    <MessageCircle className="w-7 h-7" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-poppins font-bold text-2xl">
+                      I Want Someone to Journey With Me
+                    </h3>
+                    <p className="mt-1 max-w-xl text-base text-white/85 leading-relaxed">
+                      Talk to an e-coach from Himala Everyday on Messenger.
+                    </p>
+                  </div>
+                  <span className="inline-flex items-center font-poppins font-bold">
+                    Talk to an e-coach
+                    <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
+                  </span>
+                </CardContent>
+              </Card>
+            </TrackedLink>
           </div>
 
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
