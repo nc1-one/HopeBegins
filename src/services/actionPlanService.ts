@@ -7,6 +7,7 @@ interface EmailPlanItem {
   detail: string;
   steps?: string[];
   link?: string;
+  link_label?: string;
 }
 
 export interface EmailActionPlanPayload {
@@ -14,10 +15,9 @@ export interface EmailActionPlanPayload {
   email: string;
   summary: string[];
   sections: { heading: string; intro?: string; items: EmailPlanItem[] }[];
+  website: string;
+  startTime: number;
 }
-
-const absoluteLink = (href?: string) =>
-  href?.startsWith('/') ? `${config.BASE_URL}${href}` : href;
 
 export const actionPlanService = {
   // Backend contract: docs/phase-2/action-plan-email-plan.md
@@ -25,11 +25,14 @@ export const actionPlanService = {
     email: string,
     firstName: string,
     plan: Plan,
-    week: string[] = []
+    week: string[],
+    antiSpam: { website: string; startTime: number }
   ): Promise<void> => {
     const payload: EmailActionPlanPayload = {
       email,
       first_name: firstName || undefined,
+      website: antiSpam.website,
+      startTime: antiSpam.startTime,
       summary: plan.summary,
       sections: [
         ...(week.length > 0
@@ -50,7 +53,9 @@ export const actionPlanService = {
             title: item.title,
             detail: item.detail,
             steps: item.steps,
-            link: absoluteLink(item.href),
+            // Site paths stay relative; the backend adds its own site URL.
+            link: item.href,
+            link_label: item.linkLabel,
           })),
         })),
       ],
