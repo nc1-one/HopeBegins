@@ -69,6 +69,14 @@ export function Footer() {
           <div className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-60 font-poppins">
             Faith-Driven Mental Health Support
           </div>
+          <div className="pt-4">
+            <Link
+              href="/privacy"
+              className="text-xs underline-offset-4 opacity-80 hover:underline hover:opacity-100"
+            >
+              Privacy and Confidentiality
+            </Link>
+          </div>
           <div className="pt-6 text-[10px] opacity-40">
             © 2026 HOPEBEGINS. ALL RIGHTS RESERVED.
           </div>

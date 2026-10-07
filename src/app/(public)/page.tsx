@@ -1,163 +1,34 @@
-import Link from 'next/link';
+import { ArrowRight, Smartphone } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import {
-  Heart,
-  Radio,
-  MessageSquare,
-  Mail,
-  HelpCircle,
-  ArrowRight,
-  HandHeart,
-  Sword,
-} from 'lucide-react';
 import { HopeStoriesSection } from '@/components/sections/HopeStoriesSection';
 import { TrackedLink } from '@/components/ui/TrackedLink';
-
-// Import the logo directly to ensure Next.js handles the path correctly
-// import headerLogo from '@/assets/images/header-logo.png';
+import { LookingForHope } from './components/LookingForHope';
 
 export default function LandingPage() {
-  const mainActions = [
-    {
-      title: 'I Need Someone to Pray for Me',
-      description: 'Share your heart — a Hope Carrier is ready to lift you up',
-      icon: Heart,
-      href: '/prayers',
-      color:
-        'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/20 dark:text-emerald-400',
-    },
-    {
-      title: 'I Need to Hear Hope Today',
-      description: 'Listen to a HopeCast that speaks to where you are',
-      icon: Radio,
-      href: '/hopecasts',
-      color:
-        'bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400',
-    },
-    {
-      title: 'I Need Daily Hope',
-      description:
-        'Start receiving Daily Hope Drops — 21 days of hope in your inbox',
-      icon: Mail,
-      href: '/daily-hope',
-      color: 'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400',
-    },
-    {
-      title: 'I Need to Talk to Hope AI',
-      description: 'Have a faith-filled conversation with Hope, anytime',
-      icon: MessageSquare,
-      href: '/hope-ai',
-      color:
-        'bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400',
-    },
-    {
-      title: "I Don't Have Hope",
-      description: "That's okay — your Hopeful Beginning starts here",
-      icon: HelpCircle,
-      href: '/get-started',
-      color: 'bg-rose-50 text-rose-600 dark:bg-rose-900/20 dark:text-rose-400',
-    },
-    {
-      title: 'I Want To Give Hope',
-      description: 'Plant a Hope Seed — support the mission',
-      icon: HandHeart,
-      href: '/give-hope',
-      color: 'bg-teal-50 text-teal-600 dark:bg-teal-900/20 dark:text-teal-400',
-    },
-  ];
-
   return (
-    <>
-      {/* Hero Section */}
-      <section className="relative pt-40 pb-56 px-6 overflow-hidden min-h-[90vh] flex items-center justify-center bg-black mb-12">
-        {/* Background Video Container */}
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            key="hero-video"
-            className="w-full h-full object-cover object-top"
-          >
-            <source
-              src="/assets/video/Hero-video-banner.mp4"
-              type="video/mp4"
-            />
-          </video>
-          {/* Premium Dark Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/70 z-10" />
-        </div>
-
-        <div className="max-w-5xl mx-auto text-center space-y-8 relative z-20 transition-all duration-700">
-          <h1 className="text-5xl md:text-8xl font-bold text-white leading-[1.1] font-poppins tracking-tight drop-shadow-2xl">
-            HopeBegins <span className="text-[#EFF3E7]">Today.</span>
-          </h1>
-
-          <p className="text-lg md:text-2xl text-zinc-100/90 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-xl">
-            Your journey to overcoming anxiety, depression, and hopelessness
-            starts here. You are not alone.
-          </p>
-        </div>
-      </section>
-
-      {/* Action Cards Section */}
-      <section className="px-6 pb-32">
-        <div className="max-w-5xl mx-auto space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {mainActions.map((action, idx) => (
-              <Link
-                key={idx}
-                href={action.href}
-                className={
-                  idx === mainActions.length - 1 && mainActions.length % 2 !== 0
-                    ? 'md:col-span-2'
-                    : ''
-                }
-              >
-                <Card className="group h-full hover:shadow-xl hover:shadow-emerald-900/5 hover:border-emerald-200/50 dark:hover:border-emerald-800/50 transition-all duration-500 bg-white/90 dark:bg-zinc-900/90 border-zinc-100 dark:border-zinc-800 overflow-hidden">
-                  <CardContent className="p-6 flex items-center gap-6">
-                    <div
-                      className={`p-4 rounded-2xl ${action.color} transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-sm`}
-                    >
-                      <action.icon className="w-6 h-6" />
-                    </div>
-                    <div className="flex-1 text-left">
-                      <h3 className="font-bold text-lg text-zinc-800 dark:text-zinc-200 group-hover:text-[#6b634d] dark:group-hover:text-emerald-400 transition-colors font-poppins">
-                        {action.title}
-                      </h3>
-                      <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1 font-medium leading-relaxed">
-                        {action.description}
-                      </p>
-                    </div>
-                    <ArrowRight className="w-5 h-5 text-zinc-300 group-hover:text-[#6b634d] group-hover:translate-x-1 transition-all opacity-0 group-hover:opacity-100" />
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
+    <LookingForHope>
       {/* War Room Section */}
       <section className="px-6 pb-32">
         <div className="max-w-5xl mx-auto">
           <Card className="bg-gradient-to-br from-[#6b634d] to-zinc-900 border-none overflow-hidden shadow-2xl relative group">
-            <div className="absolute inset-0 bg-[url('/assets/images/noise.png')] opacity-10 mix-blend-overlay"></div>
             <div className="absolute right-0 top-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 group-hover:bg-white/10 transition-colors duration-700"></div>
-            
+
             <CardContent className="p-10 md:p-16 relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-12">
               <div className="flex-1 text-center md:text-left space-y-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm font-semibold tracking-widest uppercase mb-2">
-                  <Sword className="w-4 h-4" />
-                  Join the Fight
+                  <Smartphone className="w-4 h-4" />
+                  Free app
                 </div>
                 <h2 className="text-3xl md:text-5xl font-bold text-white font-poppins leading-tight">
-                  HopebeginsPrayer War Room <br/>
-                  <span className="text-zinc-400 text-2xl md:text-3xl font-medium">by HopeBegins</span>
+                  Prayer War Room <br />
+                  <span className="text-zinc-400 text-2xl md:text-3xl font-medium">
+                    by HopeBegins
+                  </span>
                 </h2>
                 <p className="text-lg text-zinc-300 max-w-xl leading-relaxed">
-                  There is power when we pray together. Join our dedicated War Room and stand with others in prayer. Whether you need prayer or want to pray for others, you are welcome here.
+                  A free app to help you build a stronger prayer life. Follow a
+                  guided prayer time, keep a private prayer journal, and keep
+                  track of answered prayers with family and friends.
                 </p>
                 <div className="pt-4">
                   <TrackedLink
@@ -179,6 +50,6 @@ export default function LandingPage() {
 
       {/* Testimonials Section */}
       <HopeStoriesSection />
-    </>
+    </LookingForHope>
   );
 }
