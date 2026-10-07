@@ -13,9 +13,9 @@ const HopecastContent = React.memo(({ verse }: { verse: string }) => {
   const cleanVerse = verse.replace(/&nbsp;|\u00A0/g, ' ');
 
   return (
-    <div className="bg-[#f2f6ee] p-6 rounded-2xl border border-[#9dbd7b]/10 ql-snow">
+    <div className="bg-[#EFF3E7] p-6 rounded-2xl border border-[#DFE7CF] ql-snow">
       <div
-        className="ql-editor !p-0 font-medium text-zinc-700 [&_p:empty]:min-h-[1.42em]"
+        className="ql-editor !p-0 font-medium text-[#6E5F47] [&_p:empty]:min-h-[1.42em]"
         dangerouslySetInnerHTML={{
           __html: cleanVerse,
         }}
@@ -42,20 +42,20 @@ export function HopecastCard({
 
   return (
     <Card
-      className={`group transition-all duration-300 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_-10px_rgba(157,189,123,0.15)] bg-white rounded-3xl overflow-hidden border-0 shadow-sm ${
-        isPlaying ? 'ring-1 ring-[#9dbd7b]/30' : 'border-zinc-50'
+      className={`group transition-all duration-300 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_-10px_rgba(110,95,71,0.15)] bg-white rounded-3xl overflow-hidden border-0 shadow-sm ${
+        isPlaying ? 'ring-1 ring-[#AEC488]' : 'border-zinc-50'
       }`}
     >
       <CardContent className="px-6 flex flex-col gap-6">
         <div className="flex items-center justify-between gap-6 w-full">
           <div className="flex-1 space-y-3">
-            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#9dbd7b]/80 font-poppins">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6E5F47] font-poppins">
               {categoryName}
             </p>
-            <h3 className="text-2xl font-bold text-[#6b634d] font-poppins leading-tight group-hover:text-[#5a5341] transition-colors">
+            <h3 className="text-2xl font-bold text-[#6E5F47] font-poppins leading-tight">
               {hopecast.title}
             </h3>
-            <div className="flex items-center gap-2 text-sm text-[#9b9482] font-medium">
+            <div className="flex items-center gap-2 text-sm text-[#6E5F47] font-medium">
               <span>{hopecast.name || 'Anonymous'}</span>
               <span className="text-zinc-300 font-bold">·</span>
               <span>{hopecast.duration || 'Daily Hope'}</span>
@@ -66,8 +66,8 @@ export function HopecastCard({
             onClick={() => onPlay?.(hopecast)}
             className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 shadow-sm shrink-0 ${
               isPlaying
-                ? 'bg-[#9dbd7b] text-white shadow-[#9dbd7b]/20 shadow-lg'
-                : 'bg-[#ecf4e6] text-[#9dbd7b] hover:bg-[#9dbd7b] hover:text-white'
+                ? 'bg-[#6E5F47] text-white shadow-[#6E5F47]/20 shadow-lg'
+                : 'bg-[#EFF3E7] text-[#6E5F47] hover:bg-[#6E5F47] hover:text-white'
             }`}
             aria-label={
               isPlaying ? `Pause ${hopecast.title}` : `Play ${hopecast.title}`
@@ -90,7 +90,7 @@ export function HopecastCard({
             {/* Progress Bar */}
             <div className="h-1.5 w-full bg-zinc-100 rounded-full overflow-hidden">
               <div
-                className="h-full bg-[#9dbd7b] transition-all duration-300 ease-linear"
+                className="h-full bg-[#AEC488] transition-all duration-300 ease-linear"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -101,9 +101,9 @@ export function HopecastCard({
             <div className="pt-2">
               <Link
                 href="/prayers"
-                className="w-full inline-flex justify-center items-center py-3 px-4 rounded-xl font-bold text-[#9dbd7b] bg-[#ecf4e6] hover:bg-[#9dbd7b] hover:text-white transition-all duration-300 text-sm"
+                className="w-full inline-flex justify-center items-center py-3 px-4 rounded-2xl font-poppins font-bold text-[#6E5F47] bg-[#EFF3E7] hover:bg-[#6E5F47] hover:text-white transition-colors duration-300 text-sm"
               >
-                Submit A Prayer Request
+                Ask someone to pray for you
               </Link>
             </div>
           </div>

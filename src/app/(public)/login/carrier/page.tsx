@@ -1,7 +1,8 @@
 import { CarrierLoginForm } from './components/CarrierLoginForm';
 
 export const metadata = {
-  title: 'Carrier Login | HopeBegins',
+  title: 'Carrier Login',
+  robots: { index: false },
   description: 'Access the Hope Carrier dashboard and start praying.',
 };
 

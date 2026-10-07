@@ -16,15 +16,15 @@ export function CategoryFilter({
   onSelectCategory,
 }: CategoryFilterProps) {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-3 mb-12 max-w-3xl mx-auto">
+    <div className="flex flex-wrap items-center gap-2 mb-10">
       <Button
         variant="outline"
         onClick={() => onSelectCategory(null)}
         className={cn(
-          'rounded-full px-5 py-2 h-auto text-[13px] font-medium transition-all border-zinc-200 shadow-none',
+          'rounded-full px-5 py-2 h-auto text-sm font-medium transition-all border-zinc-200 shadow-none',
           selectedCategoryId === null
-            ? 'bg-[#9dbd7b] text-white border-[#9dbd7b] hover:bg-[#8da370]'
-            : 'text-zinc-400 hover:text-[#9dbd7b] hover:border-[#9dbd7b] bg-white'
+            ? 'bg-[#6E5F47] text-white border-[#6E5F47] hover:bg-[#5c4f3b] hover:text-white'
+            : 'text-[#6E5F47] hover:bg-[#EFF3E7] hover:border-[#C6D6AC] bg-white'
         )}
       >
         All
@@ -35,10 +35,10 @@ export function CategoryFilter({
           variant="outline"
           onClick={() => onSelectCategory(category.id)}
           className={cn(
-            'rounded-full px-5 py-2 h-auto text-[13px] font-medium transition-all border-zinc-200 shadow-none',
+            'rounded-full px-5 py-2 h-auto text-sm font-medium transition-all border-zinc-200 shadow-none',
             selectedCategoryId === category.id
-              ? 'bg-[#9dbd7b] text-white border-[#9dbd7b] hover:bg-[#8da370]'
-              : 'text-zinc-400 hover:text-[#9dbd7b] hover:border-[#9dbd7b] bg-white'
+              ? 'bg-[#6E5F47] text-white border-[#6E5F47] hover:bg-[#5c4f3b] hover:text-white'
+              : 'text-[#6E5F47] hover:bg-[#EFF3E7] hover:border-[#C6D6AC] bg-white'
           )}
         >
           {category.name}

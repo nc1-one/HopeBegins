@@ -1,7 +1,8 @@
 import { AdminLoginForm } from './components/AdminLoginForm';
 
 export const metadata = {
-  title: 'Admin Login | HopeBegins',
+  title: 'Admin Login',
+  robots: { index: false },
   description: 'Access the HopeBegins management dashboard.',
 };
 
