@@ -23,7 +23,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Loader2 } from 'lucide-react';
 
 export function PrayerForm() {
-  const { form, onSubmit, isSubmitting, organizations } = usePrayerForm();
+  const { form, onSubmit, isSubmitting, linkedOrganization } = usePrayerForm();
 
   return (
     <Card className="max-w-xl mx-auto border-zinc-100 dark:border-zinc-800 shadow-sm bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm">
@@ -104,36 +104,12 @@ export function PrayerForm() {
               )}
             />
 
-            <FormField
-              control={form.control}
-              name="organizationId"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                    Organization (Optional)
-                  </FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value || undefined}
-                  >
-                    <FormControl>
-                      <SelectTrigger className="bg-zinc-50/50 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800 h-12">
-                        <SelectValue placeholder="Select organization..." />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="none">None / Individual</SelectItem>
-                      {organizations.map((org: any) => (
-                        <SelectItem key={org.id} value={org.id}>
-                          {org.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            {linkedOrganization && (
+              <p className="rounded-xl bg-zinc-50 px-4 py-3 text-sm text-zinc-600 dark:bg-zinc-950/50 dark:text-zinc-400">
+                Your request will be shared with{' '}
+                <span className="font-bold">{linkedOrganization.name}</span>.
+              </p>
+            )}
 
             <FormField
               control={form.control}

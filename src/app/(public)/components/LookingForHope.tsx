@@ -109,6 +109,23 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
   );
   const showPaths = hash === START_HASH;
   const pathsHeadingRef = useRef<HTMLHeadingElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // The hero video is 8 MB. Phones, data-saver and reduced-motion visitors
+  // keep the poster image; larger screens play the video.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const connection = (
+      navigator as Navigator & { connection?: { saveData?: boolean } }
+    ).connection;
+    const isLargeScreen = window.matchMedia('(min-width: 768px)').matches;
+    const reduceMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+    if (!isLargeScreen || reduceMotion || connection?.saveData) return;
+    video.play().catch(() => {});
+  }, [showPaths]);
 
   useEffect(() => {
     if (!showPaths) return;
@@ -130,7 +147,8 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
         {/* Background Video Container */}
         <div className="absolute inset-0 -z-10">
           <video
-            autoPlay
+            ref={videoRef}
+            preload="none"
             muted
             loop
             playsInline

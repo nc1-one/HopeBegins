@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useSyncExternalStore } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { prayerSchema } from '@/types/prayer';
@@ -17,6 +17,16 @@ export function usePrayerForm() {
     queryKey: ['organizations', 'public'],
     queryFn: organizationService.getPublicOrganizations,
   });
+
+  // Organisations share /prayers?org=<id> with their members. Everyone
+  // else never sees the organisation field.
+  const orgParam = useSyncExternalStore(
+    () => () => {},
+    () => new URLSearchParams(window.location.search).get('org'),
+    () => null
+  );
+  const linkedOrganization =
+    organizations.find((org: any) => org.id === orgParam) ?? null;
 
   const form = useForm<any>({
     resolver: zodResolver(prayerSchema),
@@ -38,6 +48,12 @@ export function usePrayerForm() {
   useEffect(() => {
     form.setValue('startTime', Date.now());
   }, [form]);
+
+  useEffect(() => {
+    if (linkedOrganization) {
+      form.setValue('organizationId', linkedOrganization.id);
+    }
+  }, [form, linkedOrganization]);
 
   const mutation = useMutation({
     mutationFn: prayerService.createPrayer,
@@ -69,6 +85,6 @@ export function usePrayerForm() {
     form,
     onSubmit: form.handleSubmit(onSubmit),
     isSubmitting: mutation.isPending,
-    organizations,
+    linkedOrganization,
   };
 }
