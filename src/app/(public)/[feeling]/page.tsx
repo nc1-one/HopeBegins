@@ -1,12 +1,18 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowRight, ClipboardList, Heart, MessageCircle } from 'lucide-react';
+import {
+  ArrowRight,
+  ClipboardList,
+  Heart,
+  Languages,
+  MessageCircle,
+} from 'lucide-react';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { ExerciseLauncher } from '@/components/tools/ExerciseLauncher';
 import { MessageSomeone } from '@/components/tools/MessageSomeone';
 import { WorryNote } from '@/components/tools/WorryNote';
-import { feelingPages, getFeelingPage } from '@/lib/feelingPages';
+import { feelingPages, feelingUi, getFeelingPage } from '@/lib/feelingPages';
 import { pageMetadata } from '@/lib/pageMetadata';
 
 // Only the phrases in feelingPages exist; any other root path is a 404.
@@ -23,10 +29,23 @@ export async function generateMetadata({
 }) {
   const page = getFeelingPage((await params).feeling);
   if (!page) return {};
-  return pageMetadata(page.metaTitle, page.metaDescription, {
-    url: `/og/feelings/${page.slug}.jpg`,
-    alt: page.heading,
-  });
+  const pair = getFeelingPage(page.pair);
+  const tagalog = page.lang === 'tl' ? page : pair;
+  const english = page.lang === 'en' ? page : pair;
+  return {
+    ...pageMetadata(page.metaTitle, page.metaDescription, {
+      url: `/og/feelings/${page.slug}.jpg`,
+      alt: page.heading,
+    }),
+    // The Taglish and English pages are language versions of each other.
+    alternates: {
+      canonical: `/${page.slug}`,
+      languages: {
+        ...(tagalog && { 'tl-PH': `/${tagalog.slug}` }),
+        ...(english && { 'en-PH': `/${english.slug}` }),
+      },
+    },
+  };
 }
 
 const cardClass =
@@ -64,6 +83,7 @@ export default async function FeelingPage({
 }) {
   const page = getFeelingPage((await params).feeling);
   if (!page) notFound();
+  const ui = feelingUi[page.lang];
 
   const ecoach = (
     <EcoachLink
@@ -73,8 +93,8 @@ export default async function FeelingPage({
     >
       <StepBody
         icon={MessageCircle}
-        title="Kausapin ang isang e-coach"
-        description="Totoong tao mula sa Himala Everyday, sa Messenger."
+        title={ui.ecoachTitle}
+        description={ui.ecoachText}
       />
     </EcoachLink>
   );
@@ -82,8 +102,8 @@ export default async function FeelingPage({
     <Link key="plan" href="/action-plan" className={cardClass}>
       <StepBody
         icon={ClipboardList}
-        title="Gumawa ng sarili mong plano"
-        description="9 na tanong, libre. Makakakuha ka ng mga hakbang para sa linggong ito."
+        title={ui.planTitle}
+        description={ui.planText}
       />
     </Link>
   );
@@ -91,8 +111,8 @@ export default async function FeelingPage({
     <Link key="prayer" href="/prayers" className={cardClass}>
       <StepBody
         icon={Heart}
-        title="Gusto mo bang ipagdasal ka namin?"
-        description="Magpadala ng prayer request. May Hope Carrier na magdarasal para sa iyo."
+        title={ui.prayerTitle}
+        description={ui.prayerText}
       />
     </Link>
   );
@@ -102,9 +122,17 @@ export default async function FeelingPage({
       : [plan, ecoach, prayer];
 
   return (
-    <div className="px-6 pt-10 pb-16">
+    <div lang={ui.htmlLang} className="px-6 pt-6 pb-16">
       <div className="max-w-5xl mx-auto">
         <div className="max-w-2xl">
+          <Link
+            href={`/${page.pair}`}
+            hrefLang={page.lang === 'tl' ? 'en' : 'tl'}
+            className="mb-6 inline-flex items-center gap-2 -ml-3 rounded-xl px-3 py-2 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
+          >
+            <Languages className="h-4 w-4" />
+            {ui.switchLabel}
+          </Link>
           <OptionPageHeader title={page.heading} subtitle={page.intro} />
 
           {page.talkNow && (
@@ -113,7 +141,7 @@ export default async function FeelingPage({
               className="mt-8 inline-flex items-center justify-center rounded-2xl bg-[#6E5F47] px-6 py-4 font-poppins font-bold text-white shadow-lg transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
             >
               <MessageCircle className="mr-2 h-5 w-5 shrink-0" />
-              Kausapin ang isang e-coach ngayon
+              {ui.talkNow}
             </EcoachLink>
           )}
 
@@ -121,21 +149,21 @@ export default async function FeelingPage({
             <div className="mt-8 rounded-2xl border border-[#AEC488] bg-[#EFF3E7] p-5 text-[#6E5F47]">
               <p>{page.safetyFirst}</p>
               <p className="mt-2">
-                Tumawag ngayon sa NCMH Crisis Hotline, bukas 24/7:{' '}
+                {ui.crisisCall}{' '}
                 <a
                   href="tel:1553"
                   className="font-bold underline underline-offset-4"
                 >
                   1553
                 </a>{' '}
-                o{' '}
+                {ui.or}{' '}
                 <a
                   href="tel:+639178998727"
                   className="font-bold underline underline-offset-4 whitespace-nowrap"
                 >
                   0917 899 8727
                 </a>
-                . Kung nasa panganib ka ngayon, tumawag sa 911.
+                . {ui.danger}
               </p>
             </div>
           )}
@@ -150,11 +178,11 @@ export default async function FeelingPage({
             <div className="mt-5 space-y-4">
               {page.tools.map((tool) =>
                 tool === 'message' ? (
-                  <MessageSomeone key={tool} />
+                  <MessageSomeone key={tool} lang={page.lang} />
                 ) : tool === 'worry-note' ? (
-                  <WorryNote key={tool} />
+                  <WorryNote key={tool} lang={page.lang} />
                 ) : (
-                  <ExerciseLauncher key={tool} kind={tool} />
+                  <ExerciseLauncher key={tool} kind={tool} lang={page.lang} />
                 )
               )}
             </div>
@@ -168,12 +196,12 @@ export default async function FeelingPage({
               <p className="mt-1 text-[#6E5F47] leading-relaxed">
                 {page.tip.body}
               </p>
-              {page.slug === 'wala-akong-kausap' && (
+              {page.tools.includes('message') && (
                 <Link
                   href="/hope-ai"
                   className="mt-3 inline-flex items-center font-poppins font-bold text-[#6E5F47] underline-offset-4 hover:underline"
                 >
-                  Kausapin si Hope AI
+                  {ui.hopeAi}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               )}
@@ -189,7 +217,7 @@ export default async function FeelingPage({
             id="next-title"
             className="font-playfair text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
           >
-            Ano ang susunod?
+            {ui.nextHeading}
           </h2>
           <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
             {nextSteps}
@@ -199,7 +227,7 @@ export default async function FeelingPage({
               href="/#start"
               className="font-bold underline underline-offset-4"
             >
-              Tingnan ang lahat ng paraan para makatulong
+              {ui.seeAll}
             </Link>
           </p>
         </section>

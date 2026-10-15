@@ -70,20 +70,30 @@ export function Footer() {
           <div className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-60 font-poppins">
             Faith-Driven Mental Health Support
           </div>
-          <nav
-            aria-label="Kung ano ang nararamdaman mo"
-            className="flex flex-wrap justify-center gap-x-4 gap-y-2 pt-2 text-xs"
-          >
-            {feelingPages.map((page) => (
-              <Link
-                key={page.slug}
-                href={`/${page.slug}`}
-                className="underline-offset-4 opacity-80 hover:underline hover:opacity-100"
-              >
-                {page.label}
-              </Link>
-            ))}
-          </nav>
+          {(['tl', 'en'] as const).map((lang) => (
+            <nav
+              key={lang}
+              lang={lang}
+              aria-label={
+                lang === 'tl'
+                  ? 'Kung ano ang nararamdaman mo'
+                  : 'What you might be feeling'
+              }
+              className="flex flex-wrap justify-center gap-x-4 gap-y-2 pt-2 text-xs"
+            >
+              {feelingPages
+                .filter((page) => page.lang === lang)
+                .map((page) => (
+                  <Link
+                    key={page.slug}
+                    href={`/${page.slug}`}
+                    className="underline-offset-4 opacity-80 hover:underline hover:opacity-100"
+                  >
+                    {page.label}
+                  </Link>
+                ))}
+            </nav>
+          ))}
           <div className="pt-4">
             <Link
               href="/privacy"
