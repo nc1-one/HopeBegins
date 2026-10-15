@@ -5,12 +5,27 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import headerLogo from '@/assets/images/header-logo.png';
-import { Home, Menu, X } from 'lucide-react';
+import { Home, Menu, Phone, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { usePageLanguage } from '@/lib/pageLanguage';
 import { analyticsService } from '@/services/analyticsService';
+
+const crisisCopy = {
+  en: {
+    short: 'Crisis? 1553',
+    long: 'Crisis? Call 1553',
+    label: 'In crisis? Call the NCMH Crisis Hotline, 1553',
+  },
+  tl: {
+    short: 'Crisis? 1553',
+    long: 'Crisis? Tumawag sa 1553',
+    label: 'Nasa crisis? Tumawag sa NCMH Crisis Hotline, 1553',
+  },
+};
 
 export function Header() {
   const pathname = usePathname();
+  const crisis = crisisCopy[usePageLanguage()];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -51,7 +66,7 @@ export function Header() {
             : 'bg-white/80 dark:bg-black/80 backdrop-blur-md border-white/40 dark:border-zinc-900/40'
         )}
       >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <Link
               href="/"
@@ -63,6 +78,7 @@ export function Header() {
                 alt="HopeBegins Logo"
                 width={170}
                 height={62}
+                className="w-[136px] sm:w-[170px]"
                 style={{ height: 'auto' }}
               />
             </Link>
@@ -75,7 +91,11 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 target={link.href.startsWith('http') ? '_blank' : undefined}
-                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                rel={
+                  link.href.startsWith('http')
+                    ? 'noopener noreferrer'
+                    : undefined
+                }
                 className="flex items-center gap-2 text-sm font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins uppercase tracking-wider"
                 onClick={(e) => {
                   if (link.href.includes('warroom')) {
@@ -92,18 +112,33 @@ export function Header() {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
+          <div className="flex items-center gap-2 lg:ml-6">
+            {/* One tap to the crisis line from every page. */}
+            <a
+              href="tel:1553"
+              aria-label={crisis.label}
+              onClick={() => analyticsService.recordClick('header_crisis_call')}
+              className="inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap rounded-full border border-[#DFE7CF] bg-[#EFF3E7] px-3 text-sm font-bold text-[#6E5F47] transition-colors hover:bg-[#DFE7CF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
+            >
+              <Phone className="h-4 w-4 shrink-0" />
+              <span className="sm:hidden">{crisis.short}</span>
+              <span className="hidden sm:inline">{crisis.long}</span>
+            </a>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden inline-flex h-11 w-11 items-center justify-center text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg transition-colors"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation Dropdown */}
@@ -115,7 +150,11 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   target={link.href.startsWith('http') ? '_blank' : undefined}
-                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  rel={
+                    link.href.startsWith('http')
+                      ? 'noopener noreferrer'
+                      : undefined
+                  }
                   className="flex items-center gap-3 text-sm font-bold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins uppercase tracking-wider py-2"
                   onClick={(e) => {
                     if (link.href.includes('warroom')) {

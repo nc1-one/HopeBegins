@@ -3,6 +3,7 @@
 import Script from 'next/script';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
+import { isCalmPage } from '@/lib/calmPages';
 
 declare global {
   interface Window {
@@ -12,7 +13,9 @@ declare global {
 
 export function BonfireBubbleChat() {
   const pathname = usePathname();
-  const isHopeAIPage = pathname === '/hope-ai';
+  // No bubble on the pages for people who are struggling right now, and
+  // /hope-ai has the chat built in.
+  const hideBubble = isCalmPage(pathname);
 
   useEffect(() => {
     const selector = [
@@ -37,7 +40,7 @@ export function BonfireBubbleChat() {
           return;
         }
 
-        if (isHopeAIPage) {
+        if (hideBubble) {
           if (!('bonfirePreviousDisplay' in element.dataset)) {
             element.dataset.bonfirePreviousDisplay = element.style.display;
           }
@@ -54,7 +57,7 @@ export function BonfireBubbleChat() {
 
     updateBubbleVisibility();
 
-    if (!isHopeAIPage) {
+    if (!hideBubble) {
       window.BonfireChat?.('boot');
     }
 
@@ -64,15 +67,15 @@ export function BonfireBubbleChat() {
     return () => {
       observer.disconnect();
     };
-  }, [isHopeAIPage]);
+  }, [hideBubble]);
 
-  if (isHopeAIPage) {
+  if (hideBubble) {
     return null;
   }
 
   return (
     <>
-      <Script id="bonfire-widget-config" strategy="afterInteractive">
+      <Script id="bonfire-widget-config" strategy="lazyOnload">
         {`
           window.BonfireWidgetConfig = {
             widgetId: "5cf03168-9b0d-4798-a7e0-66d9df4f4f6c"
@@ -82,7 +85,7 @@ export function BonfireBubbleChat() {
       <Script
         id="bonfire-widget"
         src="https://app.heybonfire.com/widget.js"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
     </>
   );
