@@ -13,6 +13,8 @@ import {
 } from 'lucide-react';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { ECOACH_APP_URL } from '@/lib/actionPlan';
+import type { FeelingLang } from '@/lib/feelingPages';
+import { usePageLanguage } from '@/lib/pageLanguage';
 
 type OptionKey =
   | 'plan'
@@ -24,41 +26,64 @@ type OptionKey =
 
 const options: Record<
   OptionKey,
-  { title: string; description: string; href: string; icon: typeof Heart }
+  {
+    title: Record<FeelingLang, string>;
+    description: Record<FeelingLang, string>;
+    href: string;
+    icon: typeof Heart;
+  }
 > = {
   plan: {
-    title: 'Get your free plan',
-    description: '9 quick questions, then small steps for this week.',
+    title: { en: 'Get your free plan', tl: 'Kunin ang libreng plano mo' },
+    description: {
+      en: '9 quick questions, then small steps for this week.',
+      tl: '9 na mabilis na tanong, tapos maliliit na hakbang para ngayong linggo.',
+    },
     href: '/action-plan',
     icon: ClipboardList,
   },
   ecoach: {
-    title: 'Talk to an e-coach',
-    description: 'A real person from Himala Everyday, on Messenger.',
+    title: { en: 'Talk to an e-coach', tl: 'Kausapin ang isang e-coach' },
+    description: {
+      en: 'A real person from Himala Everyday, on Messenger.',
+      tl: 'Totoong tao mula sa Himala Everyday, sa Messenger.',
+    },
     href: ECOACH_APP_URL,
     icon: MessageCircle,
   },
   prayers: {
-    title: 'Ask someone to pray for you',
-    description: 'A Hope Carrier will pray for what you share.',
+    title: { en: 'Ask someone to pray for you', tl: 'Magpadasal' },
+    description: {
+      en: 'A Hope Carrier will pray for what you share.',
+      tl: 'Ipagdarasal ng isang Hope Carrier ang ibabahagi mo.',
+    },
     href: '/prayers',
     icon: Heart,
   },
   hopeAi: {
-    title: 'Talk to Hope AI',
-    description: 'Chat it through with an AI assistant, any time.',
+    title: { en: 'Talk to Hope AI', tl: 'Kausapin si Hope AI' },
+    description: {
+      en: 'Chat it through with an AI assistant, any time.',
+      tl: 'Isang AI assistant na puwede mong i-chat anumang oras.',
+    },
     href: '/hope-ai',
     icon: MessageSquare,
   },
   hopecasts: {
-    title: 'Listen to a HopeCast',
-    description: 'Messages of hope on anxiety, healing and family.',
+    title: { en: 'Listen to a HopeCast', tl: 'Makinig sa isang HopeCast' },
+    description: {
+      en: 'Messages of hope on anxiety, healing and family.',
+      tl: 'Mga mensahe ng pag-asa tungkol sa anxiety, healing, at pamilya.',
+    },
     href: '/hopecasts',
     icon: Radio,
   },
   dailyHope: {
-    title: 'Get Daily Hope',
-    description: 'One encouraging email a day for 21 days.',
+    title: { en: 'Get Daily Hope', tl: 'Kumuha ng Daily Hope' },
+    description: {
+      en: 'One encouraging email a day for 21 days.',
+      tl: 'Isang email na nagpapalakas ng loob araw-araw sa loob ng 21 araw.',
+    },
     href: '/daily-hope',
     icon: Mail,
   },
@@ -77,12 +102,14 @@ const cardClass =
 
 export function WhatNext() {
   const pathname = usePathname();
+  const lang = usePageLanguage();
   const keys = nextSteps[pathname];
   if (!keys) return null;
 
   return (
     <section
       aria-labelledby="what-next-title"
+      lang={lang}
       className="px-6 pb-16 print:hidden"
     >
       <div className="max-w-5xl mx-auto border-t border-[#E2DFDA] pt-10">
@@ -90,7 +117,9 @@ export function WhatNext() {
           id="what-next-title"
           className="font-playfair text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
         >
-          Other ways we can help
+          {lang === 'tl'
+            ? 'Iba pang paraan para makatulong'
+            : 'Other ways we can help'}
         </h2>
         <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
           {keys.map((key) => {
@@ -102,10 +131,10 @@ export function WhatNext() {
                 </div>
                 <div className="flex-1">
                   <p className="font-poppins font-bold text-[#6E5F47]">
-                    {option.title}
+                    {option.title[lang]}
                   </p>
                   <p className="mt-1 text-sm text-[#6E5F47] leading-relaxed">
-                    {option.description}
+                    {option.description[lang]}
                   </p>
                 </div>
                 <ArrowRight className="h-4 w-4 text-[#C5BFB5] transition-all group-hover:translate-x-1 group-hover:text-[#6E5F47] motion-reduce:transition-none" />
