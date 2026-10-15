@@ -27,6 +27,12 @@ const SITE_DESCRIPTION =
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://hopebegins.today'),
+  // Opens full screen when added to an iPhone home screen.
+  appleWebApp: {
+    capable: true,
+    title: 'HopeBegins',
+    statusBarStyle: 'default',
+  },
   title: {
     default: 'HopeBegins: Not okay today?',
     template: '%s | HopeBegins',

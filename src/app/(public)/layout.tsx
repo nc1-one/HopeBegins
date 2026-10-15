@@ -3,6 +3,7 @@ import { Footer } from '@/components/layout/Footer';
 import { BackToMainMenu } from '@/components/layout/BackToMainMenu';
 import { CrisisBand } from '@/components/layout/CrisisBand';
 import { WhatNext } from '@/components/layout/WhatNext';
+import { InstallPromptCatcher } from '@/components/layout/InstallPromptCatcher';
 
 export default function PublicLayout({
   children,
@@ -17,6 +18,7 @@ export default function PublicLayout({
       <WhatNext />
       <CrisisBand />
       <Footer />
+      <InstallPromptCatcher />
     </div>
   );
 }

@@ -23,9 +23,10 @@ import { Card, CardContent } from '@/components/ui/card';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { CalmDownNow } from '@/components/tools/CalmDownNow';
-import { dayOfWeek, useSavedPlan } from '@/lib/actionPlanStore';
-import type { FeelingLang } from '@/lib/feelingPages';
-import { setLanguage, useLanguage } from '@/lib/languagePreference';
+import { dayOfPlan, useSavedPlan } from '@/lib/actionPlanStore';
+import { PLAN_DAYS } from '@/lib/actionPlan';
+import { useLanguage } from '@/lib/languagePreference';
+import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
 import { analyticsService } from '@/services/analyticsService';
 
 // The second step lives at /#start so the browser back button returns to the
@@ -143,11 +144,6 @@ const morePaths = [
   { title: 'I Need Daily Hope', icon: Mail, href: '/daily-hope' },
 ];
 
-const languages: { value: FeelingLang; label: string }[] = [
-  { value: 'en', label: 'English' },
-  { value: 'tl', label: 'Taglish' },
-];
-
 const feelingCardClass =
   'group flex h-full items-center gap-4 rounded-2xl border p-5 transition-all duration-300 hover:shadow-lg hover:shadow-[#6E5F47]/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
 
@@ -192,7 +188,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
   const lang = useLanguage();
   const t = menuCopy[lang];
   const savedPlan = useSavedPlan();
-  const planDay = savedPlan ? dayOfWeek(savedPlan.startedAt) + 1 : 0;
+  const planDay = savedPlan ? dayOfPlan(savedPlan.startedAt) + 1 : 0;
   const pathsHeadingRef = useRef<HTMLHeadingElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -297,24 +293,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
               <ArrowLeft className="w-4 h-4" />
               Back
             </button>
-            <div
-              role="group"
-              aria-label="Language"
-              className="inline-flex rounded-xl border border-[#DFE7CF] bg-white p-1"
-            >
-              {languages.map((option) => (
-                <button
-                  key={option.value}
-                  type="button"
-                  lang={option.value}
-                  aria-pressed={lang === option.value}
-                  onClick={() => setLanguage(option.value)}
-                  className="rounded-lg px-3 py-1.5 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] aria-pressed:bg-[#6E5F47] aria-pressed:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
+            <LanguageSwitch />
           </div>
 
           {savedPlan && (
@@ -328,7 +307,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
                   {t.welcomeBack}
                   {savedPlan.name ? `, ${savedPlan.name}` : ''}.
                 </span>{' '}
-                {planDay <= 7 ? t.planDay(planDay) : t.planSaved}
+                {planDay <= PLAN_DAYS ? t.planDay(planDay) : t.planSaved}
               </span>
               <span className="inline-flex items-center font-poppins font-bold">
                 {t.openPlan}
