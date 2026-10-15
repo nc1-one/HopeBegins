@@ -48,14 +48,12 @@ export function useDailyHopeForm() {
       }),
     onSuccess: (response) => {
       const message =
-        response?.message || 'Welcome to your 21-day Hope Journey!';
+        response?.message || "You're signed up for 21 days of Daily Hope.";
       toast.success(message);
       form.reset();
     },
     onError: (error: any) => {
-      toast.error(
-        error.message || 'Failed to start journey. Please try again.'
-      );
+      toast.error(error.message || 'Something went wrong. Please try again.');
     },
   });
 

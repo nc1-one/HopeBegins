@@ -27,19 +27,14 @@ export default function GuidelinesPage() {
               1. Our Mission
             </h2>
             <p>
-              HopeBegins exists to help individuals rediscover hope, purpose,
-              and healing through a faith-centered and action-driven journey
-              supported by community and technology.
+              HopeBegins gives free, faith-driven support to people dealing with
+              anxiety, depression and hopelessness, through prayer, self-help
+              tools and e-coaching.
             </p>
             <p>
-              As a volunteer, you represent the heart of HopeBegins. Your role
-              is to serve with compassion, humility, integrity, and faithfulness
-              while helping people who may be experiencing anxiety,
-              discouragement, or a loss of purpose.
-            </p>
-            <p className="font-bold text-[#6b634d] dark:text-[#a3b18a] bg-[#fcfdfa] dark:bg-zinc-950 p-6 rounded-2xl border border-emerald-100 dark:border-emerald-900/30 shadow-sm">
-              We believe that hope begins when people encounter truth, love, and
-              a supportive community.
+              As a volunteer, you represent HopeBegins. Serve with compassion,
+              humility, integrity and faithfulness when you help people who may
+              be dealing with anxiety, discouragement or a loss of purpose.
             </p>
           </section>
 
@@ -77,7 +72,7 @@ export default function GuidelinesPage() {
                   <li>Avoid judgment or condemnation</li>
                 </ul>
                 <p className="text-sm text-emerald-600 dark:text-emerald-400 font-bold">
-                  We aim to restore hope, not create pressure or shame.
+                  Never pressure or shame anyone.
                 </p>
               </div>
 
@@ -221,8 +216,7 @@ export default function GuidelinesPage() {
                 <li>Respect the privacy of all users</li>
               </ul>
               <p className="text-sm text-emerald-600 dark:text-emerald-400 font-bold">
-                Technology should always be used to empower people, not exploit
-                them.
+                Never use these tools to exploit anyone.
               </p>
             </div>
 
@@ -240,10 +234,6 @@ export default function GuidelinesPage() {
                 <li>Being accountable in a Christian community</li>
                 <li>Continuing to grow in character and faith</li>
               </ul>
-              <p className="text-sm text-emerald-600 dark:text-emerald-400 font-bold">
-                You cannot pour hope into others if you are not also being
-                spiritually refreshed.
-              </p>
             </div>
 
             <div>
@@ -260,9 +250,6 @@ export default function GuidelinesPage() {
                 <li>Completing assigned responsibilities</li>
                 <li>Communicating clearly with team leaders</li>
               </ul>
-              <p className="text-sm text-emerald-600 dark:text-emerald-400 font-bold">
-                Reliability builds trust and excellence in ministry.
-              </p>
             </div>
 
             <div>
@@ -281,9 +268,6 @@ export default function GuidelinesPage() {
                 </li>
                 <li>Confidential information is never shared online</li>
               </ul>
-              <p className="text-sm text-emerald-600 dark:text-emerald-400 font-bold">
-                Your online presence should encourage hope and integrity.
-              </p>
             </div>
           </section>
 
@@ -336,9 +320,6 @@ export default function GuidelinesPage() {
                 <li>Temporary suspension from volunteering</li>
                 <li>Removal from the HopeBegins volunteer team</li>
               </ul>
-              <p className="text-sm text-zinc-500 font-bold mt-4">
-                This ensures the safety and integrity of the ministry.
-              </p>
             </div>
 
             <div className="bg-emerald-50 dark:bg-emerald-950/30 py-10 px-6 md:px-12 rounded-3xl border border-emerald-100 dark:border-emerald-900/50 shadow-sm text-center">
@@ -378,20 +359,16 @@ export default function GuidelinesPage() {
             </div>
           </section>
 
-          {/* Final Note */}
-          <div className="pt-8 text-center max-w-3xl mx-auto space-y-6 pb-4">
-            <h3 className="text-2xl md:text-3xl font-bold text-[#6b634d] dark:text-[#a3b18a] font-poppins italic">
-              HopeBegins is more than a program.
-            </h3>
-            <p className="text-zinc-500 dark:text-zinc-400 text-lg md:text-xl">
-              It is a community of people committed to helping others rediscover
-              hope, purpose, and healing.
-            </p>
-            <p className="text-zinc-800 dark:text-zinc-200 font-bold text-lg md:text-xl leading-relaxed">
-              Your presence, encouragement, and faithfulness may be the moment
-              where hope begins again for someone.
-            </p>
-          </div>
+          <p className="pt-8 text-center text-zinc-500 dark:text-zinc-400">
+            Questions about this code? Email{' '}
+            <a
+              href="mailto:connect@hopebegins.today"
+              className="font-bold underline underline-offset-4"
+            >
+              connect@hopebegins.today
+            </a>
+            .
+          </p>
         </div>
       </div>
     </div>

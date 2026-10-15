@@ -118,7 +118,7 @@ export default function HopecastsPage() {
         <div className="mb-10">
           <OptionPageHeader
             title="I Need to Hear Hope Today"
-            subtitle="Pick a topic and listen to a HopeCast that speaks to where you are."
+            subtitle="Pick a topic, like anxiety or family, and press play."
           />
         </div>
 

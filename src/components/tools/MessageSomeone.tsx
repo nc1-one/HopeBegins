@@ -7,7 +7,7 @@ import type { FeelingLang } from '@/lib/feelingPages';
 const text = {
   tl: {
     intro:
-      'Pumili ng isang taong pinagkakatiwalaan mo at ipadala ito. Hindi mo kailangang ikuwento agad ang lahat.',
+      'Pumili ng isang taong pinagkakatiwalaan mo at ipadala ito. Puwede mong ikuwento ang iba kapag nag-usap na kayo.',
     message:
       'Hi, puwede ba tayong mag-usap ngayong linggo? Medyo mabigat lang ako lately.',
     copy: 'Kopyahin ang mensahe',
@@ -17,7 +17,7 @@ const text = {
   },
   en: {
     intro:
-      "Pick one person you trust and send them this. You don't have to tell them everything at once.",
+      'Pick one person you trust and send them this. You can say more when you talk.',
     message:
       "Hi, can we talk sometime this week? I've been having a hard time lately.",
     copy: 'Copy the message',
