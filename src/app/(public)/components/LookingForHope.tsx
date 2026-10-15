@@ -5,6 +5,8 @@ import Link from 'next/link';
 import {
   ArrowLeft,
   ArrowRight,
+  BatteryLow,
+  HeartPulse,
   ClipboardList,
   HandHeart,
   Heart,
@@ -12,62 +14,142 @@ import {
   Mail,
   MessageCircle,
   MessageSquare,
+  Moon,
   Radio,
   Sunrise,
+  UserRound,
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { EcoachLink } from '@/components/ui/EcoachLink';
+import { TrackedLink } from '@/components/ui/TrackedLink';
+import { CalmDownNow } from '@/components/tools/CalmDownNow';
+import { dayOfWeek, useSavedPlan } from '@/lib/actionPlanStore';
+import type { FeelingLang } from '@/lib/feelingPages';
+import { setLanguage, useLanguage } from '@/lib/languagePreference';
 import { analyticsService } from '@/services/analyticsService';
 
 // The second step lives at /#start so the browser back button returns to the
 // question, and other pages can link straight past it.
 const START_HASH = '#start';
 
-const featuredPaths = [
+// Each answer opens the page written for that feeling, in the chosen language.
+const feelings = [
   {
-    title: "I Don't Have Hope",
-    description: 'Start Hopeful Beginning, a guided journey in five steps.',
-    cta: 'Start the journey',
-    icon: Sunrise,
-    href: '/get-started',
+    id: 'anxious',
+    icon: HeartPulse,
+    en: {
+      label: 'I feel anxious',
+      hint: 'A 2-minute exercise to calm your body',
+      href: '/how-to-calm-anxiety',
+    },
+    tl: {
+      label: 'Kinakabahan ako',
+      hint: '2-minute na exercise para kumalma',
+      href: '/paano-mawala-ang-anxiety',
+    },
   },
   {
-    title: 'I Need a Plan',
-    description:
-      'Answer 9 quick questions. Get a free, personal plan with steps to manage anxiety, low mood and stress.',
-    cta: 'Get my free plan',
-    icon: ClipboardList,
-    href: '/action-plan',
+    id: 'tired',
+    icon: BatteryLow,
+    en: {
+      label: "I'm tired of everything",
+      hint: 'One small step for today',
+      href: '/tired-of-everything',
+    },
+    tl: {
+      label: 'Pagod na ako',
+      hint: 'Isang maliit na hakbang para ngayong araw',
+      href: '/pagod-na-ako',
+    },
+  },
+  {
+    id: 'alone',
+    icon: UserRound,
+    en: {
+      label: 'I feel alone',
+      hint: 'Someone you can talk to today',
+      href: '/i-feel-alone',
+    },
+    tl: {
+      label: 'Wala akong kausap',
+      hint: 'May makakausap ka ngayon',
+      href: '/wala-akong-kausap',
+    },
+  },
+  {
+    id: 'sleep',
+    icon: Moon,
+    en: {
+      label: "I can't sleep from overthinking",
+      hint: 'What to do tonight',
+      href: '/cant-sleep-overthinking',
+    },
+    tl: {
+      label: 'Hindi ako makatulog sa kakaisip',
+      hint: 'Ano ang gagawin ngayong gabi',
+      href: '/hindi-makatulog-sa-kakaisip',
+    },
+  },
+  {
+    id: 'hopeless',
+    icon: Sunrise,
+    en: {
+      label: "I don't have hope",
+      hint: 'A guided journey in five steps',
+      href: '/get-started',
+    },
+    tl: {
+      label: 'Wala na akong pag-asa',
+      hint: 'Gabay sa limang hakbang, nasa English',
+      href: '/get-started',
+    },
   },
 ];
 
-const paths = [
-  {
-    title: 'I Need Someone to Pray for Me',
-    description: 'Send a prayer request. A Hope Carrier will pray for you.',
-    icon: Heart,
-    href: '/prayers',
+const notSure = {
+  en: {
+    label: "I'm not sure what I feel",
+    hint: 'Answer 9 quick questions and get a free plan made for you',
   },
-  {
-    title: 'I Need to Talk to Hope AI',
-    description: 'Chat with Hope, our AI assistant. Open 24/7.',
-    icon: MessageSquare,
-    href: '/hope-ai',
+  tl: {
+    label: 'Hindi ko alam kung ano ang nararamdaman ko',
+    hint: 'Sagutin ang 9 na tanong at makakuha ng libreng plano. Nasa English.',
   },
-  {
-    title: 'I Need to Hear Hope Today',
-    description:
-      'Listen to HopeCasts on topics like anxiety, family and healing.',
-    icon: Radio,
-    href: '/hopecasts',
+};
+
+const menuCopy = {
+  en: {
+    heading: 'How are you feeling right now?',
+    subtitle: 'Pick the one closest to how you feel.',
+    welcomeBack: 'Welcome back',
+    planDay: (day: number) => `You're on day ${day} of your plan.`,
+    planSaved: 'Your plan is saved on this phone.',
+    openPlan: 'Open my plan',
   },
-  {
-    title: 'I Need Daily Hope',
-    description: 'Get a Daily Hope Drop in your email every day for 21 days.',
-    icon: Mail,
-    href: '/daily-hope',
+  tl: {
+    heading: 'Ano ang nararamdaman mo ngayon?',
+    subtitle: 'Piliin ang pinakamalapit sa nararamdaman mo.',
+    welcomeBack: 'Welcome back',
+    planDay: (day: number) => `Day ${day} mo na sa plano mo.`,
+    planSaved: 'Naka-save ang plano mo sa phone na ito.',
+    openPlan: 'Buksan ang plano ko',
   },
+};
+
+const morePaths = [
+  { title: 'I Need Someone to Pray for Me', icon: Heart, href: '/prayers' },
+  { title: 'I Need to Talk to Hope AI', icon: MessageSquare, href: '/hope-ai' },
+  { title: 'I Need to Hear Hope Today', icon: Radio, href: '/hopecasts' },
+  { title: 'I Need Daily Hope', icon: Mail, href: '/daily-hope' },
 ];
+
+const languages: { value: FeelingLang; label: string }[] = [
+  { value: 'en', label: 'English' },
+  { value: 'tl', label: 'Taglish' },
+];
+
+const feelingCardClass =
+  'group flex h-full items-center gap-4 rounded-2xl border p-5 transition-all duration-300 hover:shadow-lg hover:shadow-[#6E5F47]/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
 
 function subscribeToHash(onChange: () => void) {
   window.addEventListener('hashchange', onChange);
@@ -107,6 +189,10 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
     () => ''
   );
   const showPaths = hash === START_HASH;
+  const lang = useLanguage();
+  const t = menuCopy[lang];
+  const savedPlan = useSavedPlan();
+  const planDay = savedPlan ? dayOfWeek(savedPlan.startedAt) + 1 : 0;
   const pathsHeadingRef = useRef<HTMLHeadingElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -198,17 +284,58 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
     <>
       <section
         aria-labelledby="paths-title"
+        lang={lang}
         className="px-6 pt-10 pb-24 md:pt-14 animate-in fade-in duration-500 motion-reduce:animate-none"
       >
         <div className="max-w-5xl mx-auto">
-          <button
-            type="button"
-            onClick={() => window.history.back()}
-            className="inline-flex items-center gap-2 -ml-3 rounded-xl px-3 py-2 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back
-          </button>
+          <div className="flex items-center justify-between gap-4">
+            <button
+              type="button"
+              onClick={() => window.history.back()}
+              className="inline-flex items-center gap-2 -ml-3 rounded-xl px-3 py-2 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back
+            </button>
+            <div
+              role="group"
+              aria-label="Language"
+              className="inline-flex rounded-xl border border-[#DFE7CF] bg-white p-1"
+            >
+              {languages.map((option) => (
+                <button
+                  key={option.value}
+                  type="button"
+                  lang={option.value}
+                  aria-pressed={lang === option.value}
+                  onClick={() => setLanguage(option.value)}
+                  className="rounded-lg px-3 py-1.5 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] aria-pressed:bg-[#6E5F47] aria-pressed:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {savedPlan && (
+            <TrackedLink
+              href="/action-plan"
+              linkName="menu_welcome_back_plan"
+              className="group mt-6 flex flex-col gap-3 rounded-2xl bg-[#EFF3E7] p-5 text-[#6E5F47] transition-colors hover:bg-[#DFE7CF] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40 md:flex-row md:items-center md:px-8"
+            >
+              <span className="md:flex-1">
+                <span className="font-poppins font-bold">
+                  {t.welcomeBack}
+                  {savedPlan.name ? `, ${savedPlan.name}` : ''}.
+                </span>{' '}
+                {planDay <= 7 ? t.planDay(planDay) : t.planSaved}
+              </span>
+              <span className="inline-flex items-center font-poppins font-bold">
+                {t.openPlan}
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
+              </span>
+            </TrackedLink>
+          )}
 
           <h2
             id="paths-title"
@@ -216,81 +343,110 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
             tabIndex={-1}
             className="mt-6 font-playfair text-4xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em] focus:outline-none"
           >
-            What do you need right now?
+            {t.heading}
           </h2>
+          <p className="mt-3 text-lg text-[#6E5F47]">{t.subtitle}</p>
 
-          <div className="mt-10 space-y-4">
-            {featuredPaths.map((path) => (
-              <Link key={path.href} href={path.href} className="group block">
-                <Card className="border-[#DFE7CF] bg-[#EFF3E7] transition-all duration-500 hover:border-[#C6D6AC] hover:shadow-xl hover:shadow-[#6E5F47]/5 group-focus-visible:ring-4 group-focus-visible:ring-[#91AFAA]/40">
-                  <CardContent className="p-6 md:px-10 flex flex-col md:flex-row md:items-center gap-6">
-                    <div className="self-start md:self-auto p-4 rounded-2xl bg-white text-[#91AFAA] shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 motion-reduce:transition-none">
-                      <path.icon className="w-7 h-7" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-poppins font-bold text-2xl text-[#6E5F47]">
-                        {path.title}
-                      </h3>
-                      <p className="mt-1 max-w-xl text-base text-[#6E5F47] leading-relaxed">
-                        {path.description}
-                      </p>
-                    </div>
-                    <span className="inline-flex items-center font-poppins font-bold text-[#6E5F47]">
-                      {path.cta}
-                      <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
-                    </span>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
+          <div className="mt-8">
+            <CalmDownNow lang={lang} />
+          </div>
 
-            <EcoachLink linkName="ecoach_menu" className="group block">
-              <Card className="border-none bg-[#6E5F47] text-white transition-all duration-500 hover:shadow-xl hover:shadow-[#6E5F47]/20 group-focus-visible:ring-4 group-focus-visible:ring-[#91AFAA]/40">
-                <CardContent className="p-6 md:px-10 flex flex-col md:flex-row md:items-center gap-6">
-                  <div className="self-start md:self-auto p-4 rounded-2xl bg-white text-[#6E5F47] shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 motion-reduce:transition-none">
-                    <MessageCircle className="w-7 h-7" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-poppins font-bold text-2xl">
-                      I Want Someone to Journey With Me
-                    </h3>
-                    <p className="mt-1 max-w-xl text-base text-white/85 leading-relaxed">
-                      Talk to an e-coach from Himala Everyday on Messenger.
-                    </p>
-                  </div>
-                  <span className="inline-flex items-center font-poppins font-bold">
-                    Talk to an e-coach
-                    <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
+          <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
+            {feelings.map((feeling) => {
+              const option = feeling[lang];
+              return (
+                <TrackedLink
+                  key={feeling.id}
+                  href={option.href}
+                  linkName={`menu_feeling_${feeling.id}`}
+                  className={`${feelingCardClass} border-zinc-100 bg-white hover:border-[#DFE7CF]`}
+                >
+                  <span className="rounded-xl bg-[#E9EFEE] p-3 text-[#91AFAA]">
+                    <feeling.icon className="h-5 w-5" />
                   </span>
-                </CardContent>
-              </Card>
-            </EcoachLink>
+                  <span className="flex-1">
+                    <span className="block font-poppins text-lg font-bold text-[#6E5F47]">
+                      {option.label}
+                    </span>
+                    <span className="mt-0.5 block text-sm text-[#6E5F47]">
+                      {option.hint}
+                    </span>
+                  </span>
+                  <ArrowRight className="h-5 w-5 shrink-0 text-[#C5BFB5] transition-all group-hover:translate-x-1 group-hover:text-[#6E5F47] motion-reduce:transition-none" />
+                </TrackedLink>
+              );
+            })}
+            <TrackedLink
+              href="/action-plan"
+              linkName="menu_feeling_unsure"
+              className={`${feelingCardClass} border-[#DFE7CF] bg-[#EFF3E7] hover:border-[#C6D6AC]`}
+            >
+              <span className="rounded-xl bg-white p-3 text-[#91AFAA]">
+                <ClipboardList className="h-5 w-5" />
+              </span>
+              <span className="flex-1">
+                <span className="block font-poppins text-lg font-bold text-[#6E5F47]">
+                  {notSure[lang].label}
+                </span>
+                <span className="mt-0.5 block text-sm text-[#6E5F47]">
+                  {notSure[lang].hint}
+                </span>
+              </span>
+              <ArrowRight className="h-5 w-5 shrink-0 text-[#6E5F47] transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
+            </TrackedLink>
           </div>
 
-          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-            {paths.map((path) => (
-              <Link key={path.href} href={path.href} className="group">
-                <Card className="h-full bg-white border-zinc-100 transition-all duration-500 hover:border-[#DFE7CF] hover:shadow-xl hover:shadow-[#6E5F47]/5 group-focus-visible:ring-4 group-focus-visible:ring-[#91AFAA]/40">
-                  <CardContent className="p-6 flex items-center gap-6">
-                    <div className="p-4 rounded-2xl bg-[#E9EFEE] text-[#91AFAA] shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 motion-reduce:transition-none">
-                      <path.icon className="w-6 h-6" />
-                    </div>
-                    <div className="flex-1 text-left">
-                      <h3 className="font-poppins font-bold text-lg text-[#6E5F47]">
-                        {path.title}
-                      </h3>
-                      <p className="mt-1 text-sm text-[#6E5F47] leading-relaxed">
-                        {path.description}
-                      </p>
-                    </div>
-                    <ArrowRight className="w-5 h-5 shrink-0 text-[#C5BFB5] transition-all group-hover:translate-x-1 group-hover:text-[#6E5F47] motion-reduce:transition-none" />
-                  </CardContent>
-                </Card>
+          <EcoachLink linkName="ecoach_menu" className="group mt-4 block">
+            <Card className="border-none bg-[#6E5F47] text-white transition-all duration-500 hover:shadow-xl hover:shadow-[#6E5F47]/20 group-focus-visible:ring-4 group-focus-visible:ring-[#91AFAA]/40">
+              <CardContent className="p-6 md:px-10 flex flex-col md:flex-row md:items-center gap-6">
+                <div className="self-start md:self-auto p-4 rounded-2xl bg-white text-[#6E5F47] shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 motion-reduce:transition-none">
+                  <MessageCircle className="w-7 h-7" />
+                </div>
+                <div className="flex-1" lang="en">
+                  <h3 className="font-poppins font-bold text-2xl">
+                    I Want Someone to Journey With Me
+                  </h3>
+                  <p className="mt-1 max-w-xl text-base text-white/85 leading-relaxed">
+                    Talk to an e-coach from Himala Everyday on Messenger.
+                  </p>
+                </div>
+                <span
+                  lang="en"
+                  className="inline-flex items-center font-poppins font-bold"
+                >
+                  Talk to an e-coach
+                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
+                </span>
+              </CardContent>
+            </Card>
+          </EcoachLink>
+
+          <h3
+            lang="en"
+            className="mt-10 font-poppins text-sm font-bold uppercase tracking-widest text-[#6E5F47]"
+          >
+            More ways we can help
+          </h3>
+          <div lang="en" className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
+            {morePaths.map((path) => (
+              <Link
+                key={path.href}
+                href={path.href}
+                className="group flex items-center gap-4 rounded-2xl border border-zinc-100 bg-white px-5 py-4 transition-all duration-300 hover:border-[#DFE7CF] hover:shadow-lg hover:shadow-[#6E5F47]/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
+              >
+                <path.icon className="h-5 w-5 shrink-0 text-[#91AFAA]" />
+                <span className="flex-1 font-poppins font-bold text-[#6E5F47]">
+                  {path.title}
+                </span>
+                <ArrowRight className="h-4 w-4 shrink-0 text-[#C5BFB5] transition-all group-hover:translate-x-1 group-hover:text-[#6E5F47] motion-reduce:transition-none" />
               </Link>
             ))}
           </div>
 
-          <p className="mt-6 flex items-start gap-2 text-sm text-[#6E5F47]">
+          <p
+            lang="en"
+            className="mt-6 flex items-start gap-2 text-sm text-[#6E5F47]"
+          >
             <Lock className="mt-0.5 w-4 h-4 shrink-0 text-[#91AFAA]" />
             <span>
               What you share is kept private and confidential.{' '}
@@ -303,7 +459,10 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
             </span>
           </p>
 
-          <div className="mt-10 pt-8 border-t border-[#E2DFDA] flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+          <div
+            lang="en"
+            className="mt-10 pt-8 border-t border-[#E2DFDA] flex flex-col md:flex-row md:items-start md:justify-between gap-6"
+          >
             <Link
               href="/give-hope"
               className="inline-flex items-center gap-3 text-[#6E5F47] hover:underline underline-offset-4 focus-visible:underline focus-visible:outline-none"
