@@ -7,7 +7,7 @@ export const metadata = pageMetadata(
   'What HopeBegins collects, who can see it, how we protect it, and your rights.'
 );
 
-const LAST_UPDATED = 'October 7, 2026';
+const LAST_UPDATED = 'October 15, 2026';
 const PRIVACY_EMAIL = 'connect@hopebegins.today';
 
 const sections = [
@@ -18,6 +18,7 @@ const sections = [
       'Daily Hope Drops: your first name, last name and email.',
       'Hope Stories: your name, occupation, photo and story. We publish a story only after we review and approve it.',
       'Hopeful Beginning Plan: your answers, plan and weekly progress are saved only in your browser on your device, so you can come back to them. They are not sent to us, and you can delete them at any time from the plan page. If you ask us to email your plan, we receive your email, your first name if you give it, and the plan.',
+      'Plan check-in: if you ask us to check on you, we keep your email and first name until we send that one email 7 days later, then delete them.',
       'Hope Carrier applications: the details you give when you apply to volunteer.',
       'Donations: Donorbox processes donations. Your card details go to Donorbox and its payment partners, not to HopeBegins.',
       'Hope AI: chats run on Bonfire (heybonfire.com), a third-party service that processes your messages.',

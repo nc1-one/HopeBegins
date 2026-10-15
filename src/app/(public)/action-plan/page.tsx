@@ -5,6 +5,7 @@ import Link from 'next/link';
 import {
   ArrowLeft,
   ArrowRight,
+  CalendarPlus,
   Check,
   Loader2,
   Lock,
@@ -18,6 +19,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import {
   Answers,
+  Plan,
   PlanItem,
   TIME_LABELS,
   TimeOfDay,
@@ -32,7 +34,13 @@ import {
   updatePlan,
   useSavedPlan,
 } from '@/lib/actionPlanStore';
+import {
+  downloadReminder,
+  googleCalendarUrl,
+  reminderClock,
+} from '@/lib/planReminders';
 import { actionPlanService } from '@/services/actionPlanService';
+import { analyticsService } from '@/services/analyticsService';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { BreathingExercise } from '@/components/tools/BreathingExercise';
 import { GroundingExercise } from '@/components/tools/GroundingExercise';
@@ -42,7 +50,8 @@ type EmailStatus = 'idle' | 'sending' | 'sent' | 'error';
 const planIncludes = [
   'Calming tools you can try right on the page',
   "A step for this week, based on what's weighing on you",
-  'A 7-day tracker to keep you going',
+  'A 7-day tracker, with reminders on your phone at the time you pick',
+  'One check-in email next week, if you want it',
   'An e-coach on Messenger if you want someone to talk it through with',
 ];
 
@@ -52,8 +61,21 @@ const linkClass =
 const chipClass =
   'rounded-full border px-3 py-1.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]';
 
+const reminderButtonClass =
+  'inline-flex items-center rounded-xl border border-[#AEC488] bg-white px-3 py-1.5 text-sm font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]';
+
 const commitmentSentence = (item: PlanItem, time: TimeOfDay) =>
   `${TIME_LABELS[time]}, I will ${item.action}.`;
+
+function weekFromToday() {
+  const date = new Date();
+  date.setDate(date.getDate() + 7);
+  return date.toLocaleDateString('en-US', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+  });
+}
 
 function ECoachCard() {
   return (
@@ -153,7 +175,8 @@ function ToolCard({
   const [isTrying, setIsTrying] = useState(false);
   const isInWeek = time !== undefined;
 
-  const toggleWeek = () =>
+  const toggleWeek = () => {
+    if (!isInWeek) analyticsService.recordClick('plan_tool_add');
     updatePlan((plan) => {
       const commitments = { ...plan.commitments };
       if (commitments[item.id]) {
@@ -163,6 +186,7 @@ function ToolCard({
       }
       return { ...plan, commitments };
     });
+  };
 
   const setTime = (next: TimeOfDay) =>
     updatePlan((plan) => ({
@@ -200,7 +224,10 @@ function ToolCard({
           {item.exercise && !isTrying && (
             <button
               type="button"
-              onClick={() => setIsTrying(true)}
+              onClick={() => {
+                analyticsService.recordClick('plan_tool_try');
+                setIsTrying(true);
+              }}
               className="inline-flex items-center rounded-2xl bg-[#6E5F47] px-5 py-2.5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
             >
               <Play className="mr-2 w-4 h-4" />
@@ -345,6 +372,36 @@ function WeekTracker({
                       );
                     })}
                   </div>
+                  <div className="mt-4 flex flex-col gap-3 border-t border-zinc-100 pt-4 sm:flex-row sm:items-center print:hidden">
+                    <p className="flex items-center gap-2 text-sm text-[#6E5F47] sm:flex-1">
+                      <CalendarPlus className="h-4 w-4 shrink-0 text-[#91AFAA]" />
+                      Remind me {TIME_LABELS[time].toLowerCase()} at{' '}
+                      {reminderClock(time)} for 4 weeks
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <a
+                        href={googleCalendarUrl(tool, time)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() =>
+                          analyticsService.recordClick('plan_reminder_google')
+                        }
+                        className={reminderButtonClass}
+                      >
+                        Google Calendar
+                      </a>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          analyticsService.recordClick('plan_reminder_ics');
+                          downloadReminder(tool, time);
+                        }}
+                        className={reminderButtonClass}
+                      >
+                        iPhone or Outlook
+                      </button>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             );
@@ -355,6 +412,210 @@ function WeekTracker({
   );
 }
 
+function CheckInCard({
+  saved,
+  plan,
+  weekSentences,
+}: {
+  saved: SavedPlan;
+  plan: Plan;
+  weekSentences: string[];
+}) {
+  const [firstName, setFirstName] = useState(saved.name);
+  const [email, setEmail] = useState('');
+  const [checkIn, setCheckIn] = useState(false);
+  const [sendPlan, setSendPlan] = useState(false);
+  const [website, setWebsite] = useState('');
+  const [formStartedAt, setFormStartedAt] = useState<number | null>(null);
+  const [status, setStatus] = useState<EmailStatus>('idle');
+  const [done, setDone] = useState({ checkIn: false, plan: false });
+  const checkInDate = weekFromToday();
+
+  const submitLabel =
+    checkIn && sendPlan
+      ? 'Check on me and email my plan'
+      : checkIn
+        ? 'Check on me next week'
+        : sendPlan
+          ? 'Email my plan'
+          : 'Choose one above';
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!checkIn && !sendPlan) return;
+    setStatus('sending');
+    const name = firstName.trim();
+    const antiSpam = { website, startTime: formStartedAt ?? 0 };
+    const [checkInResult, planResult] = await Promise.allSettled([
+      checkIn
+        ? actionPlanService.requestCheckIn(email, name, antiSpam)
+        : Promise.resolve(),
+      sendPlan
+        ? actionPlanService.emailPlan(
+            email,
+            name,
+            plan,
+            weekSentences,
+            antiSpam
+          )
+        : Promise.resolve(),
+    ]);
+    const checkInOk = checkIn && checkInResult.status === 'fulfilled';
+    const planOk = sendPlan && planResult.status === 'fulfilled';
+    if (checkInOk) analyticsService.recordClick('plan_check_in');
+    if (planOk) analyticsService.recordClick('plan_email');
+    setDone({ checkIn: checkInOk, plan: planOk });
+    setStatus(
+      (checkIn && !checkInOk) || (sendPlan && !planOk) ? 'error' : 'sent'
+    );
+  };
+
+  return (
+    <Card className="mt-12 py-0 bg-[#EFF3E7] border-[#DFE7CF] print:hidden">
+      <CardContent className="p-6 md:p-8">
+        <h2 className="font-poppins font-bold text-xl text-[#6E5F47]">
+          Can we check on you next week?
+        </h2>
+        {!done.checkIn && (
+          <p className="mt-2 text-[#6E5F47] leading-relaxed">
+            We&apos;ll send one email on {checkInDate} to ask how you&apos;re
+            doing, with a link back to your plan.
+          </p>
+        )}
+
+        {(done.checkIn || done.plan) && (
+          <div className="mt-4 space-y-1 text-[#6E5F47]" role="status">
+            {done.checkIn && (
+              <p className="font-bold">
+                Done. We&apos;ll email you on {checkInDate}.
+              </p>
+            )}
+            {done.plan && (
+              <p>
+                Your plan is on its way to {email}. Check your spam folder if
+                you don&apos;t see it.
+              </p>
+            )}
+          </div>
+        )}
+
+        {status !== 'sent' && (
+          <form
+            onSubmit={handleSubmit}
+            onFocus={() => setFormStartedAt((t) => t ?? Date.now())}
+            className="mt-6 space-y-5"
+          >
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+              className="hidden"
+            />
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="space-y-2">
+                <Label htmlFor="plan-first-name" className="text-[#6E5F47]">
+                  First name (optional)
+                </Label>
+                <Input
+                  id="plan-first-name"
+                  autoComplete="given-name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  className="bg-white"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="plan-email" className="text-[#6E5F47]">
+                  Email
+                </Label>
+                <Input
+                  id="plan-email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-white"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <label className="flex items-start gap-3 text-sm text-[#6E5F47]">
+                <input
+                  type="checkbox"
+                  checked={checkIn}
+                  onChange={(e) => setCheckIn(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 accent-[#6E5F47]"
+                />
+                <span>
+                  <span className="font-bold">Check on me in 7 days.</span>{' '}
+                  HopeBegins will use my email only for this one email, then
+                  delete it.
+                </span>
+              </label>
+              <label className="flex items-start gap-3 text-sm text-[#6E5F47]">
+                <input
+                  type="checkbox"
+                  checked={sendPlan}
+                  onChange={(e) => setSendPlan(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 accent-[#6E5F47]"
+                />
+                <span>
+                  <span className="font-bold">Email me my plan now</span>, so I
+                  have it on any device.
+                </span>
+              </label>
+            </div>
+
+            {status === 'error' && (
+              <p className="text-sm text-red-700" role="alert">
+                {checkIn && !done.checkIn && sendPlan && !done.plan
+                  ? "We couldn't reach you."
+                  : checkIn && !done.checkIn
+                    ? "We couldn't set up your check-in."
+                    : "We couldn't send your plan."}{' '}
+                Check the email address and try again
+                {sendPlan && !done.plan ? ', or print the plan instead' : ''}.
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={status === 'sending' || (!checkIn && !sendPlan)}
+              className="inline-flex items-center justify-center rounded-2xl bg-[#6E5F47] px-8 py-4 font-poppins font-bold text-white shadow-lg transition-all duration-300 hover:bg-[#5c4f3b] hover:shadow-xl disabled:opacity-60 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
+            >
+              {status === 'sending' && (
+                <Loader2 className="mr-2 w-4 h-4 animate-spin" />
+              )}
+              {submitLabel}
+            </button>
+          </form>
+        )}
+
+        <p className="mt-6 flex items-start gap-2 text-sm text-[#6E5F47]">
+          <Lock className="mt-0.5 w-4 h-4 shrink-0 text-[#91AFAA]" />
+          <span>
+            Your answers and progress are saved only on this device. We receive
+            your email only for what you tick above. See our{' '}
+            <Link
+              href="/privacy"
+              className="font-bold underline underline-offset-4"
+            >
+              privacy policy
+            </Link>
+            .
+          </span>
+        </p>
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function ActionPlanPage() {
   const saved = useSavedPlan();
   const [isRetaking, setIsRetaking] = useState(false);
@@ -362,12 +623,6 @@ export default function ActionPlanPage() {
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [name, setName] = useState('');
-  const [emailName, setEmailName] = useState<string | null>(null);
-  const [email, setEmail] = useState('');
-  const [consent, setConsent] = useState(false);
-  const [emailStatus, setEmailStatus] = useState<EmailStatus>('idle');
-  const [website, setWebsite] = useState('');
-  const [formStartedAt, setFormStartedAt] = useState<number | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   const showPlan = saved !== null && !isRetaking;
@@ -387,6 +642,7 @@ export default function ActionPlanPage() {
       setCurrent(current + 1);
       return;
     }
+    analyticsService.recordClick('plan_done');
     savePlan({
       name: name.trim(),
       answers: nextAnswers,
@@ -395,7 +651,6 @@ export default function ActionPlanPage() {
       checks: {},
     });
     setIsRetaking(false);
-    setEmailStatus('idle');
   };
 
   const handlePrevious = () => {
@@ -460,6 +715,7 @@ export default function ActionPlanPage() {
               className="mt-10"
               onSubmit={(event) => {
                 event.preventDefault();
+                analyticsService.recordClick('plan_start');
                 setHasStarted(true);
               }}
             >
@@ -588,23 +844,6 @@ export default function ActionPlanPage() {
     .filter((tool) => saved.commitments[tool.id])
     .map((tool) => commitmentSentence(tool, saved.commitments[tool.id]));
 
-  const handleEmail = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setEmailStatus('sending');
-    try {
-      await actionPlanService.emailPlan(
-        email,
-        (emailName ?? saved.name).trim(),
-        plan,
-        weekSentences,
-        { website, startTime: formStartedAt ?? 0 }
-      );
-      setEmailStatus('sent');
-    } catch {
-      setEmailStatus('error');
-    }
-  };
-
   return (
     <div className="px-6 pt-6 pb-24">
       <div className="max-w-5xl mx-auto">
@@ -712,6 +951,13 @@ export default function ActionPlanPage() {
 
             <WeekTracker saved={saved} tools={tools} />
 
+            <CheckInCard
+              key={saved.startedAt}
+              saved={saved}
+              plan={plan}
+              weekSentences={weekSentences}
+            />
+
             {otherSections.map((section) => (
               <section key={section.id} className="mt-12">
                 <h2 className="font-playfair text-3xl md:text-4xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
@@ -734,116 +980,6 @@ export default function ActionPlanPage() {
               </section>
             ))}
           </div>
-
-          <Card className="mt-12 py-0 bg-white border-zinc-100 print:hidden">
-            <CardContent className="p-6 md:p-8">
-              <h2 className="font-poppins font-bold text-xl text-[#6E5F47]">
-                Get your plan by email
-              </h2>
-              <p className="mt-2 text-[#6E5F47]">
-                Keep it in your inbox, with your week and every link, so you can
-                come back to it anywhere.
-              </p>
-
-              {emailStatus === 'sent' ? (
-                <p className="mt-4 text-[#6E5F47]" role="status">
-                  Sent to {email}. Check your inbox, and your spam folder if you
-                  don&apos;t see it.
-                </p>
-              ) : (
-                <form
-                  onSubmit={handleEmail}
-                  onFocus={() => setFormStartedAt((t) => t ?? Date.now())}
-                  className="mt-6 space-y-5"
-                >
-                  <input
-                    type="text"
-                    name="website"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    aria-hidden
-                    value={website}
-                    onChange={(e) => setWebsite(e.target.value)}
-                    className="hidden"
-                  />
-                  <div className="grid gap-5 md:grid-cols-2">
-                    <div className="space-y-2">
-                      <Label
-                        htmlFor="plan-first-name"
-                        className="text-[#6E5F47]"
-                      >
-                        First name (optional)
-                      </Label>
-                      <Input
-                        id="plan-first-name"
-                        autoComplete="given-name"
-                        value={emailName ?? saved.name}
-                        onChange={(e) => setEmailName(e.target.value)}
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="plan-email" className="text-[#6E5F47]">
-                        Email
-                      </Label>
-                      <Input
-                        id="plan-email"
-                        type="email"
-                        required
-                        autoComplete="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                      />
-                    </div>
-                  </div>
-
-                  <label className="flex items-start gap-3 text-sm text-[#6E5F47]">
-                    <input
-                      type="checkbox"
-                      required
-                      checked={consent}
-                      onChange={(e) => setConsent(e.target.checked)}
-                      className="mt-0.5 h-4 w-4 accent-[#6E5F47]"
-                    />
-                    <span>
-                      Send this plan to my email. HopeBegins will use my email
-                      only to send this plan. See our{' '}
-                      <Link
-                        href="/privacy"
-                        className="font-bold underline underline-offset-4"
-                      >
-                        privacy policy
-                      </Link>
-                      .
-                    </span>
-                  </label>
-
-                  {emailStatus === 'error' && (
-                    <p className="text-sm text-red-700" role="alert">
-                      We couldn&apos;t send your plan. Check the email address
-                      and try again, or print the plan instead.
-                    </p>
-                  )}
-
-                  <button
-                    type="submit"
-                    disabled={emailStatus === 'sending'}
-                    className="inline-flex items-center justify-center rounded-2xl bg-[#6E5F47] px-8 py-4 font-poppins font-bold text-white shadow-lg transition-all duration-300 hover:bg-[#5c4f3b] hover:shadow-xl disabled:opacity-60 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
-                  >
-                    {emailStatus === 'sending' && (
-                      <Loader2 className="mr-2 w-4 h-4 animate-spin" />
-                    )}
-                    Email my plan
-                  </button>
-                </form>
-              )}
-
-              <p className="mt-6 flex items-start gap-2 text-sm text-[#6E5F47]">
-                <Lock className="mt-0.5 w-4 h-4 shrink-0 text-[#91AFAA]" />
-                Your answers and progress are saved only on this device. If you
-                ask us to email your plan, we use your email only to send it.
-              </p>
-            </CardContent>
-          </Card>
 
           <div className="mt-6 flex flex-wrap gap-3 print:hidden">
             <button

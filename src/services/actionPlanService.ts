@@ -66,4 +66,22 @@ export const actionPlanService = {
       body: JSON.stringify(payload),
     });
   },
+
+  // One email in 7 days asking how they are. Only the address and name are
+  // stored, and the backend deletes them once the email is sent.
+  requestCheckIn: async (
+    email: string,
+    firstName: string,
+    antiSpam: { website: string; startTime: number }
+  ): Promise<void> => {
+    await fetchWithAuth(`${config.API_URL}/action-plans/check-in/`, {
+      method: 'POST',
+      body: JSON.stringify({
+        email,
+        first_name: firstName || undefined,
+        website: antiSpam.website,
+        startTime: antiSpam.startTime,
+      }),
+    });
+  },
 };
