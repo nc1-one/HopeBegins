@@ -190,6 +190,10 @@ const ui = {
     deleteConfirm: 'Delete your plan and progress from this device?',
     weekSection: 'Your 4 weeks',
     weekSectionDetail: 'Use it on most days for the next 4 weeks.',
+    todayTitle: 'Today',
+    doneToday: 'Done today',
+    didToday: 'Done',
+    seeWeeks: 'See your 4 weeks',
   },
   tl: {
     locale: 'fil-PH',
@@ -317,6 +321,10 @@ const ui = {
     weekSection: 'Ang 4 na linggo mo',
     weekSectionDetail:
       'Gawin ito sa karamihan ng araw sa susunod na 4 na linggo.',
+    todayTitle: 'Ngayong araw',
+    doneToday: 'Nagawa ko ngayon',
+    didToday: 'Nagawa',
+    seeWeeks: 'Tingnan ang 4 na linggo mo',
   },
 };
 
@@ -613,6 +621,95 @@ function ProgressCard({
   );
 }
 
+function toggleDay(toolId: string, day: number) {
+  updatePlan((plan) => {
+    const checks = Array.from(
+      { length: PLAN_DAYS },
+      (_, i) => plan.checks[toolId]?.[i] === true
+    );
+    checks[day] = !checks[day];
+    return { ...plan, checks: { ...plan.checks, [toolId]: checks } };
+  });
+}
+
+/**
+ * For someone coming back: today's tools at the top of the plan, ticked in
+ * one tap, so they don't scroll past the whole plan to reach the calendar.
+ */
+function TodayCard({
+  saved,
+  tools,
+  lang,
+  t,
+}: {
+  saved: SavedPlan;
+  tools: PlanItem[];
+  lang: PlanLang;
+  t: Copy;
+}) {
+  const today = dayOfPlan(saved.startedAt);
+  const committed = tools.filter((tool) => saved.commitments[tool.id]);
+  if (committed.length === 0 || today < 1 || today >= PLAN_DAYS) return null;
+
+  return (
+    <section
+      aria-labelledby="today-title"
+      className="mb-6 rounded-2xl border border-[#DFE7CF] bg-white p-5 print:hidden"
+    >
+      <h2
+        id="today-title"
+        className="font-poppins font-bold text-lg text-[#6E5F47]"
+      >
+        {t.todayTitle}
+      </h2>
+      <ul className="mt-3 space-y-3">
+        {committed.map((tool) => {
+          const checks = saved.checks[tool.id] ?? [];
+          const isDone = checks[today] === true;
+          return (
+            <li
+              key={tool.id}
+              className="flex flex-col gap-3 sm:flex-row sm:items-center"
+            >
+              <div className="sm:flex-1">
+                <p className="text-[#6E5F47]">
+                  {commitmentSentence(tool, saved.commitments[tool.id], lang)}
+                </p>
+                <p className="text-sm text-[#6E5F47]">
+                  {t.daysDone(checks.filter(Boolean).length)}
+                </p>
+              </div>
+              <button
+                type="button"
+                aria-pressed={isDone}
+                onClick={() => {
+                  if (!isDone) analyticsService.recordClick('plan_today_done');
+                  toggleDay(tool.id, today);
+                }}
+                className={`inline-flex min-h-11 shrink-0 items-center justify-center rounded-2xl border px-5 font-poppins font-bold transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40 ${
+                  isDone
+                    ? 'border-[#AEC488] bg-[#EFF3E7] text-[#6E5F47]'
+                    : 'border-[#6E5F47] bg-[#6E5F47] text-white hover:bg-[#5c4f3b]'
+                }`}
+              >
+                {isDone && <Check className="mr-2 h-4 w-4" />}
+                {isDone ? t.didToday : t.doneToday}
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+      <a
+        href="#your-weeks"
+        className="mt-4 inline-flex min-h-11 items-center font-poppins font-bold text-[#6E5F47] underline-offset-4 hover:underline"
+      >
+        {t.seeWeeks}
+        <ArrowRight className="ml-2 h-4 w-4" />
+      </a>
+    </section>
+  );
+}
+
 function HabitTracker({
   saved,
   tools,
@@ -637,18 +734,8 @@ function HabitTracker({
   const currentWeek = Math.min(Math.floor(today / 7) + 1, WEEKS);
   const committed = tools.filter((tool) => saved.commitments[tool.id]);
 
-  const toggleDay = (toolId: string, day: number) =>
-    updatePlan((plan) => {
-      const checks = Array.from(
-        { length: PLAN_DAYS },
-        (_, i) => plan.checks[toolId]?.[i] === true
-      );
-      checks[day] = !checks[day];
-      return { ...plan, checks: { ...plan.checks, [toolId]: checks } };
-    });
-
   return (
-    <section className="mt-12">
+    <section id="your-weeks" className="mt-12 scroll-mt-24">
       <h2 className={sectionHeadingClass}>{t.trackerTitle}</h2>
       <p className="mt-3 font-poppins text-[#6E5F47] tracking-[-0.022em]">
         {t.trackerIntro}
@@ -1176,7 +1263,7 @@ export default function ActionPlanPage() {
 
   if (!showPlan && !showQuestions) {
     return (
-      <div className="px-6 pt-6 pb-24">
+      <div lang={lang} className="px-6 pt-6 pb-24">
         <div className="max-w-5xl mx-auto">
           <div className="max-w-2xl">
             {header}
@@ -1243,7 +1330,7 @@ export default function ActionPlanPage() {
 
   if (showQuestions) {
     return (
-      <div className="px-6 pt-6 pb-24">
+      <div lang={lang} className="px-6 pt-6 pb-24">
         <div className="max-w-5xl mx-auto">
           <div className="max-w-2xl">
             {header}
@@ -1351,7 +1438,7 @@ export default function ActionPlanPage() {
         : null;
 
   return (
-    <div className="px-6 pt-6 pb-24">
+    <div lang={lang} className="px-6 pt-6 pb-24">
       <div className="max-w-5xl mx-auto">
         <div className="max-w-2xl">
           {header}
@@ -1375,6 +1462,8 @@ export default function ActionPlanPage() {
                 </p>
               )
             )}
+
+            <TodayCard saved={saved} tools={tools} lang={lang} t={t} />
 
             <h1
               ref={headingRef}
