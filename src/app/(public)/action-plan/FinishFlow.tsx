@@ -6,7 +6,11 @@ import { EcoachLink } from '@/components/ui/EcoachLink';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { PLAN_DAYS, type PlanItem, type PlanLang } from '@/lib/actionPlan';
-import { updatePlan, type SavedPlan } from '@/lib/actionPlanStore';
+import {
+  restartFourWeeks,
+  updatePlan,
+  type SavedPlan,
+} from '@/lib/actionPlanStore';
 import { drawHopeCard } from '@/lib/hopeCardImage';
 import { analyticsService } from '@/services/analyticsService';
 
@@ -241,14 +245,7 @@ export function FinishFlow({
     const tool = tools.find((item) => item.id === (card?.toolId ?? toolId));
     if (!tool) return;
     analyticsService.recordClick('plan_restart_4_weeks');
-    updatePlan((plan) => ({
-      ...plan,
-      startedAt: new Date().toISOString(),
-      commitments: {
-        [tool.id]: plan.commitments[tool.id] ?? tool.defaultTime ?? 'morning',
-      },
-      checks: {},
-    }));
+    restartFourWeeks(tool.id, tool.defaultTime ?? 'morning');
     onClose();
   };
 
