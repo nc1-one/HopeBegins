@@ -1,13 +1,12 @@
 'use client';
 
-import { Building2 } from 'lucide-react';
 import Script from 'next/script';
 
 export function DonationForm() {
   return (
-    <section className="px-6 pb-16 max-w-3xl mx-auto">
+    <section aria-label="Donation form">
       {/* Donorbox Embed */}
-      <div className="flex justify-center items-center w-full mb-12 md:pl-4">
+      <div className="w-full">
         <Script src="https://donorbox.org/widget.js" strategy="lazyOnload" />
         <iframe
           src="https://donorbox.org/embed/hope-begins-plant-a-hope-seed"
@@ -19,7 +18,12 @@ export function DonationForm() {
           scrolling="no"
           height="900px"
           width="100%"
-          style={{ maxWidth: '500px', minWidth: '250px', maxHeight: 'none', margin: '0 auto', display: 'block' }}
+          style={{
+            maxWidth: '500px',
+            minWidth: '250px',
+            maxHeight: 'none',
+            display: 'block',
+          }}
           allow="payment"
         />
       </div>

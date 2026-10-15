@@ -23,25 +23,23 @@ const ALLOCATIONS = [
 
 export function AllocationBreakdown() {
   return (
-    <section className="px-6 pb-8 max-w-2xl mx-auto">
-      <div className="bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-2xl p-8 shadow-sm">
-        <h2 className="text-xl font-bold text-zinc-800 dark:text-zinc-100 font-poppins text-center mb-6">
-          Where Your Hope Seed Goes
+    <section aria-labelledby="allocation-title">
+      <div className="rounded-2xl border border-zinc-100 bg-white p-6 md:p-8">
+        <h2
+          id="allocation-title"
+          className="mb-6 font-poppins text-xl font-bold text-[#6E5F47]"
+        >
+          Where your Hope Seed goes
         </h2>
         <div className="space-y-4">
           {ALLOCATIONS.map((item) => (
             <div key={item.label} className="flex items-start gap-4">
-              <div
-                className="shrink-0 h-12 w-14 rounded-xl flex items-center justify-center text-sm font-bold"
-                style={{ backgroundColor: '#eff3e8', color: '#acc487' }}
-              >
+              <div className="flex h-12 w-14 shrink-0 items-center justify-center rounded-xl bg-[#EFF3E7] text-sm font-bold text-[#6E5F47] tabular-nums">
                 {item.percent}
               </div>
               <div>
-                <p className="font-bold text-zinc-700 dark:text-zinc-200 text-sm">
-                  {item.label}
-                </p>
-                <p className="text-xs text-zinc-400 leading-relaxed mt-0.5">
+                <p className="font-bold text-[#6E5F47]">{item.label}</p>
+                <p className="mt-0.5 text-sm text-[#6E5F47] leading-relaxed">
                   {item.description}
                 </p>
               </div>

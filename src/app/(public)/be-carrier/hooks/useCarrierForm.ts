@@ -36,7 +36,7 @@ export function useCarrierForm() {
     onSuccess: (data: any) => {
       notify.success(
         data?.message ||
-        'Your application is being reviewed. If approved, we will send a temporary password to your email.'
+          'Your application is being reviewed. If approved, we will send a temporary password to your email.'
       );
       form.reset();
     },

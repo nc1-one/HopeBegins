@@ -3,7 +3,6 @@
 import { Fragment, useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
-  Anchor,
   BookOpen,
   ChevronRight,
   Compass,
@@ -141,59 +140,49 @@ export default function GetStartedPage() {
 
   return (
     <div className="min-h-screen bg-[#fcfdfa] dark:bg-zinc-950 pb-20">
-      <div className="max-w-3xl mx-auto px-6 pt-12">
-        <div className="text-center mb-12">
-          <h1 className="text-balance font-playfair text-4xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em] mb-3">
+      <div className="max-w-3xl mx-auto px-6 pt-6">
+        <div className="mb-6">
+          <h1 className="text-balance font-playfair text-4xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
             {pageContent.page_title}
           </h1>
-          <p className="font-poppins text-lg text-[#6E5F47] tracking-[-0.022em]">
+          <p className="mt-3 font-poppins text-lg text-[#6E5F47] tracking-[-0.022em]">
             {pageContent.page_subtitle}
           </p>
         </div>
 
-        <div className="flex justify-between items-start mb-16 relative">
-          <div className="absolute top-5 left-0 right-0 h-0.5 bg-zinc-100 dark:bg-zinc-800 -z-10" />
-          {steps.map((step) => {
-            const status = getStepStatus(step.id);
-
-            return (
-              <div
-                key={step.id}
-                className="flex flex-col items-center gap-2 group relative cursor-pointer flex-1"
-                onClick={() => {
-                  if (
-                    stepOrder.indexOf(step.id) <= stepOrder.indexOf(currentStep)
-                  ) {
-                    setCurrentStep(step.id);
-                  }
-                }}
-              >
-                <div
-                  className={cn(
-                    'w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-300 border-2',
-                    status === 'completed'
-                      ? 'bg-[#AEC488] border-[#AEC488] text-white'
-                      : status === 'active'
-                        ? 'bg-[#6E5F47] border-[#6E5F47] text-white scale-110 shadow-lg shadow-[#6E5F47]/10'
-                        : 'bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 text-zinc-300 dark:text-zinc-600'
-                  )}
-                >
-                  <step.icon className="w-4 h-4 md:w-5 md:h-5" />
-                </div>
-                <span
-                  className={cn(
-                    'text-[7px] min-[400px]:text-[8px] md:text-xs font-bold uppercase tracking-wider font-poppins transition-colors text-center px-0.5 leading-tight',
-                    status === 'upcoming'
-                      ? 'text-zinc-300 dark:text-zinc-700'
-                      : 'text-zinc-500 dark:text-zinc-400'
-                  )}
-                >
-                  {step.label}
-                </span>
-              </div>
-            );
-          })}
-        </div>
+        {/* Where they are in the five steps; finished steps can be revisited. */}
+        <nav aria-label="Steps" className="mb-8">
+          <p className="font-poppins text-sm font-bold text-[#6E5F47]">
+            Step {stepOrder.indexOf(currentStep) + 1} of {steps.length}:{' '}
+            {steps.find((step) => step.id === currentStep)?.label}
+          </p>
+          <ol className="mt-3 flex gap-1.5">
+            {steps.map((step, index) => {
+              const status = getStepStatus(step.id);
+              const canOpen = index <= stepOrder.indexOf(currentStep);
+              return (
+                <li key={step.id} className="flex-1">
+                  <button
+                    type="button"
+                    disabled={!canOpen}
+                    aria-current={status === 'active' ? 'step' : undefined}
+                    aria-label={`Step ${index + 1}: ${step.label}`}
+                    onClick={() => setCurrentStep(step.id)}
+                    className="flex h-11 w-full items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA] rounded-md disabled:cursor-default"
+                  >
+                    <span
+                      className={cn(
+                        'h-1.5 w-full rounded-full',
+                        status === 'upcoming' ? 'bg-[#E2DFDA]' : 'bg-[#AEC488]',
+                        status === 'active' && 'bg-[#6E5F47]'
+                      )}
+                    />
+                  </button>
+                </li>
+              );
+            })}
+          </ol>
+        </nav>
 
         <div className="min-h-[400px]">
           <AnimatePresence mode="wait">
@@ -256,50 +245,44 @@ function WelcomeStep({
   onNext: () => void;
 }) {
   return (
-    <div className="space-y-8 md:space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-      <div className="flex justify-center">
-        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#EFF3E7] flex items-center justify-center text-[#91AFAA]">
-          <Anchor className="w-8 h-8 md:w-10 md:h-10" />
-        </div>
-      </div>
-
-      <div className="text-center space-y-3 md:space-y-4">
-        <h2 className="text-2xl min-[400px]:text-3xl md:text-4xl font-playfair font-normal tracking-[-0.03em] text-[#6E5F47] dark:text-zinc-200 px-2">
+    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700 motion-reduce:animate-none">
+      <div className="space-y-3">
+        <h2 className="text-2xl min-[400px]:text-3xl md:text-4xl font-playfair font-normal tracking-[-0.03em] text-[#6E5F47] dark:text-zinc-200">
           {content.title}
         </h2>
-        <p className="text-zinc-500 dark:text-zinc-400 text-base md:text-lg max-w-xl mx-auto leading-relaxed px-4">
+        <p className="text-[#6E5F47] dark:text-zinc-300 text-base md:text-lg max-w-xl leading-relaxed">
           {renderMultilineText(content.body)}
         </p>
       </div>
 
-      <Card className="border-zinc-100/50 dark:border-zinc-800 shadow-sm bg-[#EFF3E7]/60 dark:bg-emerald-900/10 max-w-xl mx-auto mx-4 sm:mx-auto">
-        <CardContent className="p-6 md:p-8 space-y-6">
-          <h3 className="font-bold text-[#6E5F47] dark:text-zinc-300 text-sm md:text-base">
-            {content.expectations_title}
-          </h3>
-          <div className="space-y-4">
-            {content.expectations.map((item, idx) => (
-              <div key={idx} className="flex items-center gap-4">
-                <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#E9EFEE] text-[#91AFAA] flex items-center justify-center text-xs md:text-sm font-bold">
-                  {idx + 1}
-                </div>
-                <p className="text-zinc-600 dark:text-zinc-400 font-medium text-sm md:text-base">
-                  {item}
-                </p>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-
-      <div className="max-w-xl mx-auto pt-4 px-4 sm:px-0">
+      <div className="max-w-xl">
         <Button
-          className="w-full py-6 md:py-7 rounded-xl bg-[#6E5F47] hover:bg-[#5c4f3b] text-white text-base md:text-lg font-bold shadow-lg shadow-[#6E5F47]/10"
+          className="w-full min-h-12 py-6 rounded-xl bg-[#6E5F47] hover:bg-[#5c4f3b] text-white text-base md:text-lg font-bold shadow-lg shadow-[#6E5F47]/10"
           onClick={onNext}
         >
           {content.button_text}
         </Button>
       </div>
+
+      <Card className="py-0 border-zinc-100/50 dark:border-zinc-800 shadow-sm bg-[#EFF3E7]/60 dark:bg-emerald-900/10 max-w-xl">
+        <CardContent className="p-6 space-y-4">
+          <h3 className="font-bold text-[#6E5F47] dark:text-zinc-300 text-base">
+            {content.expectations_title}
+          </h3>
+          <ol className="space-y-3">
+            {content.expectations.map((item, idx) => (
+              <li key={idx} className="flex items-center gap-4">
+                <span className="w-7 h-7 shrink-0 rounded-full bg-white text-[#6E5F47] flex items-center justify-center text-sm font-bold">
+                  {idx + 1}
+                </span>
+                <span className="text-[#6E5F47] dark:text-zinc-300 text-base">
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </CardContent>
+      </Card>
     </div>
   );
 }

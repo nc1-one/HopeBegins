@@ -1,5 +1,6 @@
 'use client';
 
+import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import { ImpactStats } from './components/ImpactStats';
 import { TestimonialCard } from './components/TestimonialCard';
 import { AllocationBreakdown } from './components/AllocationBreakdown';
@@ -7,33 +8,19 @@ import { DonationForm } from './components/DonationForm';
 
 export default function GiveHopePage() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <main className="flex-1">
-        {/* ── Hero ── */}
-        <section className="relative pt-20 pb-10 px-6 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/50 to-transparent dark:from-emerald-950/20 -z-10" />
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-zinc-800 dark:text-zinc-100 font-poppins tracking-tight">
-              Give Hope
-            </h1>
-            <p className="text-lg text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-              Plant a Hope Seed and help keep HopeBegins free.
-            </p>
-          </div>
-        </section>
-
-        {/* ── Donation Form ── */}
-        <DonationForm />
-
-        {/* ── Impact Stats ── */}
-        <ImpactStats />
-
-        {/* ── Testimonial ── */}
-        <TestimonialCard />
-
-        {/* ── Allocation ── */}
-        <AllocationBreakdown />
-      </main>
+    <div className="px-6 pt-6 pb-24">
+      <div className="max-w-5xl mx-auto">
+        <div className="max-w-2xl space-y-12">
+          <OptionPageHeader
+            title="Give Hope"
+            subtitle="Plant a Hope Seed and help keep HopeBegins free."
+          />
+          <DonationForm />
+          <ImpactStats />
+          <TestimonialCard />
+          <AllocationBreakdown />
+        </div>
+      </div>
     </div>
   );
 }
