@@ -13,14 +13,14 @@ export function Footer() {
           <Button
             variant="outline"
             asChild
-            className="bg-white/10 border-white/20 text-white hover:bg-white/20 rounded-lg px-6 font-poppins font-bold uppercase tracking-widest text-[10px]"
+            className="min-h-11 bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-lg px-6 font-poppins font-bold uppercase tracking-widest text-xs"
           >
             <Link href="/be-carrier">I Want to Be a Hope Carrier</Link>
           </Button>
           <Button
             variant="outline"
             asChild
-            className="bg-white/10 border-white/20 text-white hover:bg-white/20 rounded-lg px-6 font-poppins font-bold uppercase tracking-widest text-[10px]"
+            className="min-h-11 bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-lg px-6 font-poppins font-bold uppercase tracking-widest text-xs"
           >
             <Link href="/login/carrier">Carrier Login</Link>
           </Button>
@@ -40,34 +40,37 @@ export function Footer() {
             </Link>
           </div>
 
-          <div className="flex justify-center gap-6 py-2">
+          <div className="flex justify-center gap-2 py-1">
             <Link
               href="https://www.facebook.com/hopebeginstoday"
               target="_blank"
               rel="noopener noreferrer"
-              className="opacity-60 hover:opacity-100 transition-all transform hover:scale-110"
+              aria-label="HopeBegins on Facebook"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full opacity-90 transition-all hover:bg-white/10 hover:opacity-100"
             >
-              <Facebook size={18} />
+              <Facebook size={20} />
             </Link>
             <Link
               href="https://www.instagram.com/hopebeginstoday"
               target="_blank"
               rel="noopener noreferrer"
-              className="opacity-60 hover:opacity-100 transition-all transform hover:scale-110"
+              aria-label="HopeBegins on Instagram"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full opacity-90 transition-all hover:bg-white/10 hover:opacity-100"
             >
-              <Instagram size={18} />
+              <Instagram size={20} />
             </Link>
             <Link
               href="https://www.linkedin.com/company/hopebeginstoday/"
               target="_blank"
               rel="noopener noreferrer"
-              className="opacity-60 hover:opacity-100 transition-all transform hover:scale-110"
+              aria-label="HopeBegins on LinkedIn"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full opacity-90 transition-all hover:bg-white/10 hover:opacity-100"
             >
-              <Linkedin size={18} />
+              <Linkedin size={20} />
             </Link>
           </div>
 
-          <div className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-60 font-poppins">
+          <div className="text-xs font-bold uppercase tracking-[0.3em] text-white/90 font-poppins">
             Faith-Driven Mental Health Support
           </div>
           {(['tl', 'en'] as const).map((lang) => (
@@ -79,7 +82,7 @@ export function Footer() {
                   ? 'Kung ano ang nararamdaman mo'
                   : 'What you might be feeling'
               }
-              className="flex flex-wrap justify-center gap-x-4 gap-y-2 pt-2 text-xs"
+              className="flex flex-wrap justify-center gap-x-4 pt-1 text-sm"
             >
               {feelingPages
                 .filter((page) => page.lang === lang)
@@ -87,7 +90,7 @@ export function Footer() {
                   <Link
                     key={page.slug}
                     href={`/${page.slug}`}
-                    className="underline-offset-4 opacity-80 hover:underline hover:opacity-100"
+                    className="inline-flex min-h-11 items-center text-white/90 underline-offset-4 hover:text-white hover:underline"
                   >
                     {page.label}
                   </Link>
@@ -97,12 +100,12 @@ export function Footer() {
           <div className="pt-4">
             <Link
               href="/privacy"
-              className="text-xs underline-offset-4 opacity-80 hover:underline hover:opacity-100"
+              className="inline-flex min-h-11 items-center text-sm text-white/90 underline-offset-4 hover:text-white hover:underline"
             >
               Privacy and Confidentiality
             </Link>
           </div>
-          <div className="pt-6 text-[10px] opacity-40">
+          <div className="pt-4 text-xs text-white/85">
             © 2026 HOPEBEGINS. ALL RIGHTS RESERVED.
           </div>
         </div>

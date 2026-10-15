@@ -129,7 +129,7 @@ export default async function FeelingPage({
           <Link
             href={`/${page.pair}`}
             hrefLang={page.lang === 'tl' ? 'en' : 'tl'}
-            className="mb-6 inline-flex items-center gap-2 -ml-3 rounded-xl px-3 py-2 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
+            className="mb-6 inline-flex min-h-11 items-center gap-2 -ml-3 rounded-xl px-3 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
           >
             <Languages className="h-4 w-4" />
             {ui.switchLabel}

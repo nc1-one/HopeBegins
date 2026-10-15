@@ -52,9 +52,9 @@ export function HopecastCard({
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6E5F47] font-poppins">
               {categoryName}
             </p>
-            <h3 className="text-2xl font-bold text-[#6E5F47] font-poppins leading-tight">
+            <h2 className="text-2xl font-bold text-[#6E5F47] font-poppins leading-tight">
               {hopecast.title}
-            </h3>
+            </h2>
             <div className="flex items-center gap-2 text-sm text-[#6E5F47] font-medium">
               <span>{hopecast.name || 'Anonymous'}</span>
               <span className="text-zinc-300 font-bold">·</span>
