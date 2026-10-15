@@ -11,6 +11,7 @@ export function DonationForm() {
         <Script src="https://donorbox.org/widget.js" strategy="lazyOnload" />
         <iframe
           src="https://donorbox.org/embed/hope-begins-plant-a-hope-seed"
+          title="Donation form"
           name="donorbox"
           {...{ allowpaymentrequest: 'true' }}
           seamless

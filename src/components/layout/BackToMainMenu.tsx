@@ -24,7 +24,7 @@ export function BackToMainMenu() {
       <div className="max-w-5xl mx-auto">
         <Link
           href="/#start"
-          className="inline-flex items-center gap-2 -ml-3 rounded-xl px-3 py-2 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
+          className="inline-flex min-h-11 items-center gap-2 -ml-3 rounded-xl px-3 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to main menu

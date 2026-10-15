@@ -14,12 +14,12 @@ const crisisCopy = {
   en: {
     short: 'Crisis? 1553',
     long: 'Crisis? Call 1553',
-    label: 'In crisis? Call the NCMH Crisis Hotline, 1553',
+    hotline: 'NCMH Crisis Hotline',
   },
   tl: {
     short: 'Crisis? 1553',
     long: 'Crisis? Tumawag sa 1553',
-    label: 'Nasa crisis? Tumawag sa NCMH Crisis Hotline, 1553',
+    hotline: 'NCMH Crisis Hotline',
   },
 };
 
@@ -116,13 +116,13 @@ export function Header() {
             {/* One tap to the crisis line from every page. */}
             <a
               href="tel:1553"
-              aria-label={crisis.label}
               onClick={() => analyticsService.recordClick('header_crisis_call')}
               className="inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap rounded-full border border-[#DFE7CF] bg-[#EFF3E7] px-3 text-sm font-bold text-[#6E5F47] transition-colors hover:bg-[#DFE7CF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
             >
               <Phone className="h-4 w-4 shrink-0" />
               <span className="sm:hidden">{crisis.short}</span>
               <span className="hidden sm:inline">{crisis.long}</span>
+              <span className="sr-only">, {crisis.hotline}</span>
             </a>
 
             {/* Mobile Menu Button */}

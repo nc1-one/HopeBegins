@@ -24,7 +24,7 @@ export function LanguageSwitch() {
           lang={option.value}
           aria-pressed={lang === option.value}
           onClick={() => setLanguage(option.value)}
-          className="rounded-lg px-3 py-1.5 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] aria-pressed:bg-[#6E5F47] aria-pressed:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
+          className="min-h-11 rounded-lg px-4 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] aria-pressed:bg-[#6E5F47] aria-pressed:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
         >
           {option.label}
         </button>
