@@ -25,6 +25,7 @@ import { TrackedLink } from '@/components/ui/TrackedLink';
 import { CalmDownNow } from '@/components/tools/CalmDownNow';
 import { dayOfPlan, useSavedPlan } from '@/lib/actionPlanStore';
 import { PLAN_DAYS } from '@/lib/actionPlan';
+import type { FeelingLang } from '@/lib/feelingPages';
 import { useLanguage } from '@/lib/languagePreference';
 import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
 import { analyticsService } from '@/services/analyticsService';
@@ -126,6 +127,13 @@ const menuCopy = {
     planDay: (day: number) => `You're on day ${day} of your plan.`,
     planSaved: 'Your plan is saved on this phone.',
     openPlan: 'Open my plan',
+    ecoachTitle: 'I Want Someone to Journey With Me',
+    ecoachText: 'Talk to an e-coach from Himala Everyday on Messenger.',
+    ecoachButton: 'Talk to an e-coach',
+    moreWays: 'More ways we can help',
+    privacy: 'What you share is kept private and confidential.',
+    privacyLink: 'Read our privacy policy',
+    donate: 'Here to donate instead?',
   },
   tl: {
     heading: 'Ano ang nararamdaman mo ngayon?',
@@ -134,14 +142,43 @@ const menuCopy = {
     planDay: (day: number) => `Day ${day} mo na sa plano mo.`,
     planSaved: 'Naka-save ang plano mo sa phone na ito.',
     openPlan: 'Buksan ang plano ko',
+    ecoachTitle: 'Gusto ko ng kasama sa pinagdadaanan ko',
+    ecoachText: 'Kausapin ang isang e-coach ng Himala Everyday sa Messenger.',
+    ecoachButton: 'Kausapin ang e-coach',
+    moreWays: 'Iba pang paraan para makatulong',
+    privacy: 'Pribado at kumpidensyal ang lahat ng ibinabahagi mo.',
+    privacyLink: 'Basahin ang privacy policy namin',
+    donate: 'Gusto mo bang mag-donate?',
   },
 };
 
 const morePaths = [
-  { title: 'I Need Someone to Pray for Me', icon: Heart, href: '/prayers' },
-  { title: 'I Need to Talk to Hope AI', icon: MessageSquare, href: '/hope-ai' },
-  { title: 'I Need to Hear Hope Today', icon: Radio, href: '/hopecasts' },
-  { title: 'I Need Daily Hope', icon: Mail, href: '/daily-hope' },
+  {
+    title: { en: 'I Need Someone to Pray for Me', tl: 'Ipagdasal ninyo ako' },
+    icon: Heart,
+    href: '/prayers',
+  },
+  {
+    title: {
+      en: 'I Need to Talk to Hope AI',
+      tl: 'Gusto kong kausapin si Hope AI',
+    },
+    icon: MessageSquare,
+    href: '/hope-ai',
+  },
+  {
+    title: {
+      en: 'I Need to Hear Hope Today',
+      tl: 'Gusto kong makarinig ng pag-asa ngayon',
+    },
+    icon: Radio,
+    href: '/hopecasts',
+  },
+  {
+    title: { en: 'I Need Daily Hope', tl: 'Gusto ko ng Daily Hope' },
+    icon: Mail,
+    href: '/daily-hope',
+  },
 ];
 
 const feelingCardClass =
@@ -156,18 +193,34 @@ function subscribeToHash(onChange: () => void) {
   };
 }
 
-function CrisisLine({ className }: { className?: string }) {
+const crisisCopy = {
+  en: {
+    lead: 'In crisis or thinking of ending your life? Call the NCMH Crisis Hotline, 24/7:',
+    or: 'or',
+  },
+  tl: {
+    lead: 'Nasa crisis ka ba o naiisip mong tapusin ang buhay mo? Tumawag sa NCMH Crisis Hotline, 24/7:',
+    or: 'o',
+  },
+};
+
+function CrisisLine({
+  className,
+  lang = 'en',
+}: {
+  className?: string;
+  lang?: FeelingLang;
+}) {
   return (
-    <p className={`text-sm leading-relaxed ${className ?? ''}`}>
-      In crisis or thinking of ending your life? Call the NCMH Crisis Hotline,
-      24/7:{' '}
+    <p lang={lang} className={`text-sm leading-relaxed ${className ?? ''}`}>
+      {crisisCopy[lang].lead}{' '}
       <a
         href="tel:1553"
         className="font-bold underline underline-offset-4 whitespace-nowrap"
       >
         1553
       </a>{' '}
-      or{' '}
+      {crisisCopy[lang].or}{' '}
       <a
         href="tel:+639178998727"
         className="font-bold underline underline-offset-4 whitespace-nowrap"
@@ -381,32 +434,26 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
                 <div className="self-start md:self-auto p-4 rounded-2xl bg-white text-[#6E5F47] shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 motion-reduce:transition-none">
                   <MessageCircle className="w-7 h-7" />
                 </div>
-                <div className="flex-1" lang="en">
-                  <h3 className="font-poppins font-bold text-2xl">
-                    I Want Someone to Journey With Me
-                  </h3>
+                <div className="flex-1">
+                  <h2 className="font-poppins font-bold text-2xl">
+                    {t.ecoachTitle}
+                  </h2>
                   <p className="mt-1 max-w-xl text-base text-white/85 leading-relaxed">
-                    Talk to an e-coach from Himala Everyday on Messenger.
+                    {t.ecoachText}
                   </p>
                 </div>
-                <span
-                  lang="en"
-                  className="inline-flex items-center font-poppins font-bold"
-                >
-                  Talk to an e-coach
+                <span className="inline-flex items-center font-poppins font-bold">
+                  {t.ecoachButton}
                   <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
                 </span>
               </CardContent>
             </Card>
           </EcoachLink>
 
-          <h3
-            lang="en"
-            className="mt-10 font-poppins text-sm font-bold uppercase tracking-widest text-[#6E5F47]"
-          >
-            More ways we can help
-          </h3>
-          <div lang="en" className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
+          <h2 className="mt-10 font-poppins text-sm font-bold uppercase tracking-widest text-[#6E5F47]">
+            {t.moreWays}
+          </h2>
+          <div className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
             {morePaths.map((path) => (
               <Link
                 key={path.href}
@@ -415,41 +462,38 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
               >
                 <path.icon className="h-5 w-5 shrink-0 text-[#91AFAA]" />
                 <span className="flex-1 font-poppins font-bold text-[#6E5F47]">
-                  {path.title}
+                  {path.title[lang]}
                 </span>
                 <ArrowRight className="h-4 w-4 shrink-0 text-[#C5BFB5] transition-all group-hover:translate-x-1 group-hover:text-[#6E5F47] motion-reduce:transition-none" />
               </Link>
             ))}
           </div>
 
-          <p
-            lang="en"
-            className="mt-6 flex items-start gap-2 text-sm text-[#6E5F47]"
-          >
+          <p className="mt-6 flex items-start gap-2 text-sm text-[#6E5F47]">
             <Lock className="mt-0.5 w-4 h-4 shrink-0 text-[#91AFAA]" />
             <span>
-              What you share is kept private and confidential.{' '}
+              {t.privacy}{' '}
               <Link
                 href="/privacy"
                 className="font-bold underline underline-offset-4"
               >
-                Read our privacy policy
+                {t.privacyLink}
               </Link>
             </span>
           </p>
 
-          <div
-            lang="en"
-            className="mt-10 pt-8 border-t border-[#E2DFDA] flex flex-col md:flex-row md:items-start md:justify-between gap-6"
-          >
+          <div className="mt-10 pt-8 border-t border-[#E2DFDA] flex flex-col md:flex-row md:items-start md:justify-between gap-6">
             <Link
               href="/give-hope"
               className="inline-flex items-center gap-3 text-[#6E5F47] hover:underline underline-offset-4 focus-visible:underline focus-visible:outline-none"
             >
               <HandHeart className="w-5 h-5 text-[#91AFAA]" />
-              <span className="font-bold">Here to donate instead?</span>
+              <span className="font-bold">{t.donate}</span>
             </Link>
-            <CrisisLine className="max-w-md text-[#6E5F47] md:text-right" />
+            <CrisisLine
+              lang={lang}
+              className="max-w-md text-[#6E5F47] md:text-right"
+            />
           </div>
         </div>
       </section>
