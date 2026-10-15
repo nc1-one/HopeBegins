@@ -32,14 +32,15 @@ export async function generateMetadata({
   const pair = getFeelingPage(page.pair);
   const tagalog = page.lang === 'tl' ? page : pair;
   const english = page.lang === 'en' ? page : pair;
+  const path = `/${page.slug}`;
   return {
-    ...pageMetadata(page.metaTitle, page.metaDescription, {
+    ...pageMetadata(path, page.metaTitle, page.metaDescription, {
       url: `/og/feelings/${page.slug}.jpg`,
       alt: page.heading,
     }),
     // The Taglish and English pages are language versions of each other.
     alternates: {
-      canonical: `/${page.slug}`,
+      canonical: path,
       languages: {
         ...(tagalog && { 'tl-PH': `/${tagalog.slug}` }),
         ...(english && { 'en-PH': `/${english.slug}` }),

@@ -1,6 +1,7 @@
 import { pageMetadata } from '@/lib/pageMetadata';
 
 export const metadata = pageMetadata(
+  '/our-story',
   'Our Story',
   'Why HopeBegins exists, who it is for, and the H.O.P.E. framework behind it.'
 );

@@ -1,6 +1,7 @@
 import { pageMetadata } from '@/lib/pageMetadata';
 
 export const metadata = pageMetadata(
+  '/guidelines',
   'Volunteer Code of Conduct',
   'How HopeBegins volunteers care for people, keep what they share confidential, and respond to a crisis.'
 );

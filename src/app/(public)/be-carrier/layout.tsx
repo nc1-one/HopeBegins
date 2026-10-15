@@ -1,6 +1,7 @@
 import { pageMetadata } from '@/lib/pageMetadata';
 
 export const metadata = pageMetadata(
+  '/be-carrier',
   'Become a Hope Carrier',
   'Volunteer to pray for people who send prayer requests to HopeBegins.'
 );
