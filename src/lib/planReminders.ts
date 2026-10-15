@@ -1,4 +1,5 @@
-import type { PlanItem, TimeOfDay } from './actionPlan';
+import type { PlanItem, PlanLang, TimeOfDay } from './actionPlan';
+import { downloadFile } from './download';
 
 /**
  * Daily calendar reminders for a tool in the visitor's week. The event is
@@ -42,19 +43,20 @@ function firstReminder(time: TimeOfDay, now: Date) {
   return start;
 }
 
-const title = (item: PlanItem) => `HopeBegins: ${item.action}`;
+const title = (item: PlanItem) => `HopeBegins: ${item.title}`;
 
-const details = (item: PlanItem) =>
+const details = (item: PlanItem, lang: PlanLang) =>
   [
     item.detail,
     ...(item.steps ?? []).map((step, i) => `${i + 1}. ${step}`),
     '',
-    `Your plan: ${PLAN_URL}`,
+    `${lang === 'tl' ? 'Ang plano mo' : 'Your plan'}: ${PLAN_URL}`,
   ].join('\n');
 
 export function googleCalendarUrl(
   item: PlanItem,
   time: TimeOfDay,
+  lang: PlanLang,
   now = new Date()
 ) {
   const start = firstReminder(time, now);
@@ -62,7 +64,7 @@ export function googleCalendarUrl(
   const params = new URLSearchParams({
     action: 'TEMPLATE',
     text: title(item),
-    details: details(item),
+    details: details(item, lang),
     dates: `${localStamp(start)}/${localStamp(end)}`,
     recur: `RRULE:FREQ=DAILY;COUNT=${REMINDER_DAYS}`,
   });
@@ -81,7 +83,12 @@ const fold = (line: string) =>
   line.length <= 75 ? line : (line.match(/.{1,73}/g) ?? [line]).join('\r\n ');
 
 /** An .ics file for Apple Calendar, Outlook and most other calendar apps. */
-export function reminderIcs(item: PlanItem, time: TimeOfDay, now = new Date()) {
+export function reminderIcs(
+  item: PlanItem,
+  time: TimeOfDay,
+  lang: PlanLang,
+  now = new Date()
+) {
   const start = firstReminder(time, now);
   const end = new Date(start.getTime() + EVENT_MINUTES * 60_000);
   return [
@@ -97,7 +104,7 @@ export function reminderIcs(item: PlanItem, time: TimeOfDay, now = new Date()) {
     `DTEND:${localStamp(end)}`,
     `RRULE:FREQ=DAILY;COUNT=${REMINDER_DAYS}`,
     `SUMMARY:${escapeText(title(item))}`,
-    `DESCRIPTION:${escapeText(details(item))}`,
+    `DESCRIPTION:${escapeText(details(item, lang))}`,
     `URL:${PLAN_URL}`,
     'BEGIN:VALARM',
     'ACTION:DISPLAY',
@@ -111,14 +118,14 @@ export function reminderIcs(item: PlanItem, time: TimeOfDay, now = new Date()) {
     .join('\r\n');
 }
 
-export function downloadReminder(item: PlanItem, time: TimeOfDay) {
-  const blob = new Blob([reminderIcs(item, time)], { type: 'text/calendar' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = `hopebegins-${item.id}.ics`;
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+export function downloadReminder(
+  item: PlanItem,
+  time: TimeOfDay,
+  lang: PlanLang
+) {
+  downloadFile(
+    `hopebegins-${item.id}.ics`,
+    reminderIcs(item, time, lang),
+    'text/calendar'
+  );
 }

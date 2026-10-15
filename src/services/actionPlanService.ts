@@ -1,6 +1,6 @@
 import { fetchWithAuth } from './api';
 import { config } from '@/config';
-import type { Plan } from '@/lib/actionPlan';
+import type { Plan, PlanLang } from '@/lib/actionPlan';
 
 interface EmailPlanItem {
   title: string;
@@ -15,6 +15,7 @@ export interface EmailActionPlanPayload {
   email: string;
   summary: string[];
   sections: { heading: string; intro?: string; items: EmailPlanItem[] }[];
+  lang: PlanLang;
   website: string;
   startTime: number;
 }
@@ -25,23 +26,26 @@ export const actionPlanService = {
     email: string,
     firstName: string,
     plan: Plan,
-    week: string[],
-    antiSpam: { website: string; startTime: number }
+    lang: PlanLang,
+    antiSpam: { website: string; startTime: number },
+    // The tools they added, written as commitments in the plan's language.
+    week: { heading: string; detail: string; items: string[] }
   ): Promise<void> => {
     const payload: EmailActionPlanPayload = {
       email,
       first_name: firstName || undefined,
+      lang,
       website: antiSpam.website,
       startTime: antiSpam.startTime,
       summary: plan.summary,
       sections: [
-        ...(week.length > 0
+        ...(week.items.length > 0
           ? [
               {
-                heading: 'Your week',
-                items: week.map((commitment) => ({
+                heading: week.heading,
+                items: week.items.map((commitment) => ({
                   title: commitment,
-                  detail: 'Do it every day for the next 7 days.',
+                  detail: week.detail,
                 })),
               },
             ]
@@ -72,6 +76,7 @@ export const actionPlanService = {
   requestCheckIn: async (
     email: string,
     firstName: string,
+    lang: PlanLang,
     antiSpam: { website: string; startTime: number }
   ): Promise<void> => {
     await fetchWithAuth(`${config.API_URL}/action-plans/check-in/`, {
@@ -79,6 +84,7 @@ export const actionPlanService = {
       body: JSON.stringify({
         email,
         first_name: firstName || undefined,
+        lang,
         website: antiSpam.website,
         startTime: antiSpam.startTime,
       }),

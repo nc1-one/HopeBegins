@@ -1,18 +1,32 @@
 'use client';
 
 import { useSyncExternalStore } from 'react';
-import type { Answers, TimeOfDay } from './actionPlan';
+import {
+  PLAN_DAYS,
+  type Answers,
+  type QuestionKey,
+  type TimeOfDay,
+} from './actionPlan';
 
 /**
  * The visitor's plan, saved only in this browser so they can come back to it
- * and tick off their week. Nothing here is sent to HopeBegins.
+ * and tick off their 4 weeks. Nothing here is sent to HopeBegins.
  */
 export interface SavedPlan {
   name: string;
   answers: Answers;
   startedAt: string;
   commitments: Record<string, TimeOfDay>;
+  /** One entry per day of the plan, true when the tool was done that day. */
   checks: Record<string, boolean[]>;
+  /** Mood and worry scores from each check-in, oldest first. */
+  history?: CheckInRecord[];
+}
+
+export interface CheckInRecord {
+  date: string;
+  mood: number;
+  anxiety: number;
 }
 
 const KEY = 'hopebegins.plan.v1';
@@ -83,11 +97,107 @@ export function clearPlan() {
   write(null);
 }
 
-/** 0-based day of the 7-day week, counted from the day the plan was made. */
-export function dayOfWeek(startedAt: string) {
-  const start = new Date(startedAt);
+/** Whole days from a date to today; 0 on the day itself. */
+export function daysSince(iso: string) {
+  const start = new Date(iso);
   start.setHours(0, 0, 0, 0);
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   return Math.round((today.getTime() - start.getTime()) / 86_400_000);
+}
+
+/** 0-based day of the plan, counted from the day it was made. */
+export const dayOfPlan = (startedAt: string) => daysSince(startedAt);
+
+/**
+ * Asks the browser not to clear the plan when space runs low or the site
+ * goes unvisited. Browsers decide on their own; nothing breaks if they say no.
+ */
+export function requestPersistentStorage() {
+  navigator.storage?.persist?.().catch(() => {});
+}
+
+// A backup is a file the visitor keeps. It never passes through HopeBegins.
+const BACKUP_KIND = 'hopebegins-plan';
+const QUESTION_KEYS: QuestionKey[] = [
+  'down',
+  'interest',
+  'nervous',
+  'worry',
+  'sleep',
+  'weight',
+  'support',
+  'faith',
+  'safety',
+];
+const TIMES: TimeOfDay[] = ['morning', 'midday', 'evening', 'bedtime'];
+
+export function planBackup(plan: SavedPlan) {
+  return JSON.stringify(
+    { kind: BACKUP_KIND, version: 1, savedAt: new Date().toISOString(), plan },
+    null,
+    2
+  );
+}
+
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === 'object' && value !== null && !Array.isArray(value);
+
+/** Reads a backup file, keeping only fields the plan understands. */
+export function readBackup(text: string): SavedPlan | null {
+  let data: unknown;
+  try {
+    data = JSON.parse(text);
+  } catch {
+    return null;
+  }
+  if (!isRecord(data) || data.kind !== BACKUP_KIND || !isRecord(data.plan)) {
+    return null;
+  }
+  const plan = data.plan;
+  if (
+    typeof plan.startedAt !== 'string' ||
+    Number.isNaN(Date.parse(plan.startedAt)) ||
+    !isRecord(plan.answers)
+  ) {
+    return null;
+  }
+
+  const answers: Answers = {};
+  for (const key of QUESTION_KEYS) {
+    const value = plan.answers[key];
+    if (typeof value === 'string' && value.length <= 20) answers[key] = value;
+  }
+  const commitments: Record<string, TimeOfDay> = {};
+  for (const [id, time] of Object.entries(
+    isRecord(plan.commitments) ? plan.commitments : {}
+  )) {
+    if (TIMES.includes(time as TimeOfDay)) commitments[id] = time as TimeOfDay;
+  }
+  const checks: Record<string, boolean[]> = {};
+  for (const [id, days] of Object.entries(
+    isRecord(plan.checks) ? plan.checks : {}
+  )) {
+    if (Array.isArray(days)) {
+      checks[id] = days.slice(0, PLAN_DAYS).map((day) => day === true);
+    }
+  }
+  const history = (Array.isArray(plan.history) ? plan.history : [])
+    .filter(
+      (entry): entry is CheckInRecord =>
+        isRecord(entry) &&
+        typeof entry.date === 'string' &&
+        typeof entry.mood === 'number' &&
+        typeof entry.anxiety === 'number'
+    )
+    .map(({ date, mood, anxiety }) => ({ date, mood, anxiety }));
+
+  return {
+    name: typeof plan.name === 'string' ? plan.name.slice(0, 60) : '',
+    answers,
+    startedAt: plan.startedAt,
+    commitments,
+    checks,
+    history,
+  };
 }

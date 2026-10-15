@@ -17,7 +17,7 @@ const sections = [
       'Prayer requests: your name, email, the message you write, and the category and organization you choose.',
       'Daily Hope Drops: your first name, last name and email.',
       'Hope Stories: your name, occupation, photo and story. We publish a story only after we review and approve it.',
-      'Hopeful Beginning Plan: your answers, plan and weekly progress are saved only in your browser on your device, so you can come back to them. They are not sent to us, and you can delete them at any time from the plan page. If you ask us to email your plan, we receive your email, your first name if you give it, and the plan.',
+      'Hopeful Beginning Plan: your answers, plan and progress are saved only in your browser on your device, so you can come back to them. They are not sent to us, and you can delete them at any time from the plan page. If you download a backup file, it stays with you; we never receive it. If you ask us to email your plan, we receive your email, your first name if you give it, and the plan.',
       'Plan check-in: if you ask us to check on you, we keep your email and first name until we send that one email 7 days later, then delete them.',
       'Hope Carrier applications: the details you give when you apply to volunteer.',
       'Donations: Donorbox processes donations. Your card details go to Donorbox and its payment partners, not to HopeBegins.',
