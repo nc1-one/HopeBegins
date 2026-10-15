@@ -1,8 +1,14 @@
+import type { Metadata } from 'next';
 import { ArrowRight, Smartphone } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { HopeStoriesSection } from '@/components/sections/HopeStoriesSection';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { LookingForHope } from './components/LookingForHope';
+
+// Set here, not in the root layout, which every page would inherit.
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 export default function LandingPage() {
   return (

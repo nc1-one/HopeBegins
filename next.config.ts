@@ -3,6 +3,17 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
+  async redirects() {
+    // One address for Google: www.hopebegins.today goes to hopebegins.today.
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.hopebegins.today' }],
+        destination: 'https://hopebegins.today/:path*',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

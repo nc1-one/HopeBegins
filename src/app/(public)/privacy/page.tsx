@@ -2,6 +2,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import Link from 'next/link';
 
 export const metadata = pageMetadata(
+  '/privacy',
   'Privacy and Confidentiality',
   'What HopeBegins collects, who can see it, how we protect it, and your rights.'
 );

@@ -1,6 +1,7 @@
 import { pageMetadata } from '@/lib/pageMetadata';
 
 export const metadata = pageMetadata(
+  '/hopecasts',
   'HopeCasts: listen to messages of hope',
   'Listen to HopeCasts on anxiety, healing, family, grief and faith, whenever you need to hear hope.'
 );
