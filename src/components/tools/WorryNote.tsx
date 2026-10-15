@@ -5,15 +5,17 @@ import type { FeelingLang } from '@/lib/feelingPages';
 
 const copy = {
   tl: {
-    doneTitle: 'Nakasulat na. Bukas na natin ito haharapin.',
-    doneText: 'Hindi ito nawala, nakatabi lang. Ngayon, huminga muna tayo.',
+    doneTitle: 'Nakasulat na.',
+    doneText:
+      'Kung bumalik ito sa isip mo ngayong gabi, sabihin sa sarili mo na bukas mo na ito iisipin. Ngayon, subukan ang paghinga sa ibaba.',
     label: 'Ano ang iniisip mo ngayon? Isulat dito, kahit magulo.',
     privacy: 'Hindi namin ito sine-save o ipinapadala kahit saan.',
     button: 'Itabi muna para bukas',
   },
   en: {
-    doneTitle: "It's written down. We'll deal with it tomorrow.",
-    doneText: "It isn't gone, just set aside. Now let's breathe.",
+    doneTitle: "It's written down.",
+    doneText:
+      "If it comes back tonight, tell yourself you'll think about it tomorrow. Now try the breathing below.",
     label: "What's on your mind right now? Write it here, even if it's messy.",
     privacy: "We don't save this or send it anywhere.",
     button: 'Set it aside for tomorrow',

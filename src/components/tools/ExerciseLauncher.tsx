@@ -57,9 +57,9 @@ export function ExerciseLauncher({
       </p>
       {isOpen ? (
         kind === 'breathe' ? (
-          <BreathingExercise onClose={() => setIsOpen(false)} />
+          <BreathingExercise onClose={() => setIsOpen(false)} lang={lang} />
         ) : (
-          <GroundingExercise onClose={() => setIsOpen(false)} />
+          <GroundingExercise onClose={() => setIsOpen(false)} lang={lang} />
         )
       ) : (
         <button

@@ -41,18 +41,18 @@ export const feelingPages: FeelingPage[] = [
     pair: 'tired-of-everything',
     metaTitle: 'Pagod na ako: ano ang gagawin kapag pagod ka na sa lahat',
     metaDescription:
-      'Pagod na sa lahat? Hindi mo kailangang ayusin ang lahat ngayon. Subukan ang isang 2-minute na paghinga, makipag-usap sa isang e-coach, o gumawa ng libreng plano.',
+      'Pagod na sa lahat? Subukan ang 2-minute na paghinga, kausapin ang isang e-coach sa Messenger, o gumawa ng libreng plano para sa linggong ito.',
     label: 'Pagod na ako',
     heading: 'Pagod na ako.',
     intro:
-      'Minsan hindi lang katawan ang napapagod, pati isip at puso. Hindi mo kailangang ayusin ang lahat ngayon. Isang maliit na hakbang muna.',
+      'Kapag pagod ka na sa lahat, mabigat gawin kahit ang maliliit na bagay. Magsimula muna tayo sa dalawang minutong paghinga.',
     safetyFirst:
-      'Kung pagod ka na sa buhay at naiisip mong ayaw mo nang mabuhay, hindi mo kailangang harapin ito nang mag-isa.',
+      'Kung pagod ka na sa buhay o naiisip mong ayaw mo nang mabuhay, kausapin mo ang isang tao ngayon.',
     toolsHeading: 'Huminga muna tayo',
     tools: ['breathe'],
     tip: {
       title: 'Isang maliit na bagay para sa araw na ito',
-      body: 'Pumili ng isang bagay na kaya mong tapusin sa loob ng 10 minuto: maligo, kumain, o lumabas sandali. Sapat na iyon ngayong araw. Kadalasan, sumusunod ang gaan ng loob pagkatapos gumawa, hindi bago.',
+      body: 'Pumili ng isang bagay na kaya mong tapusin sa loob ng 10 minuto: maligo, kumain, o lumabas sandali. Sapat na iyon ngayong araw. Kadalasan, gumagaan nang kaunti ang pakiramdam pagkatapos mong gawin ito.',
     },
     firstStep: 'ecoach',
   },
@@ -66,12 +66,12 @@ export const feelingPages: FeelingPage[] = [
     label: 'Wala akong kausap',
     heading: 'Wala akong kausap.',
     intro:
-      'Mabigat kapag pakiramdam mo walang nakikinig. May makakausap ka ngayon, at hindi mo kailangang magpaliwanag nang mahaba.',
+      'Mabigat kapag pakiramdam mo walang nakikinig. May makakausap ka ngayon.',
     toolsHeading: 'Isang mensahe lang',
     tools: ['message'],
     tip: {
       title: 'Kung gabi na at gusto mo lang mag-type',
-      body: 'Nandiyan si Hope AI, isang AI assistant na puwede mong kausapin anumang oras. Hindi siya counselor, pero makakatulong siyang ilabas ang nasa isip mo.',
+      body: 'Si Hope AI ay isang AI assistant, hindi counselor. Puwede mo siyang i-chat anumang oras, kahit hatinggabi.',
     },
     firstStep: 'ecoach',
     talkNow: true,
@@ -86,12 +86,12 @@ export const feelingPages: FeelingPage[] = [
     label: 'Paano mawala ang anxiety',
     heading: 'Paano mawala ang anxiety?',
     intro:
-      'Kapag kumakabog ang dibdib at hindi mapakali ang isip, may magagawa ka ngayon mismo. Hindi nito tatanggalin agad ang lahat, pero makakatulong itong kumalma ang katawan mo.',
+      'Kapag kumakabog ang dibdib at hindi mapakali ang isip, subukan ang dalawang exercise sa ibaba. Tinutulungan nitong kumalma ang katawan mo.',
     toolsHeading: 'Subukan natin ito ngayon',
     tools: ['breathe', 'ground'],
     tip: {
       title: 'Bakit gumagana ang paghinga',
-      body: 'Kapag mas mahaba ang paghinga palabas kaysa papasok, sinasabihan nito ang katawan mo na ligtas ka. Kung madalas itong mangyari sa iyo, makakatulong ang isang plano at ang pakikipag-usap sa isang counselor.',
+      body: 'Kapag mas mahaba ang paghinga palabas kaysa papasok, bumabagal ang tibok ng puso mo at kumakalma ang katawan. Kung madalas itong mangyari sa iyo, makakatulong ang isang plano at ang pakikipag-usap sa isang counselor.',
     },
     firstStep: 'plan',
   },
@@ -105,7 +105,7 @@ export const feelingPages: FeelingPage[] = [
     label: 'Hindi makatulog sa kakaisip',
     heading: 'Hindi ako makatulog sa kakaisip.',
     intro:
-      'Gabi na pero ayaw tumigil ng isip mo. Hindi mo kailangang lutasin ngayong gabi ang lahat ng iniisip mo. Subukan natin ito.',
+      'Gabi na pero ayaw tumigil ng isip mo. Isulat muna ang paulit-ulit mong iniisip, tapos subukan ang dahan-dahang paghinga.',
     toolsHeading: 'Ilabas muna ang iniisip',
     tools: ['worry-note', 'breathe'],
     tip: {
@@ -120,18 +120,18 @@ export const feelingPages: FeelingPage[] = [
     pair: 'pagod-na-ako',
     metaTitle: "Tired of everything? What to do when you're exhausted",
     metaDescription:
-      "Tired of everything? You don't have to fix it all today. Try a 2-minute breathing exercise, talk to an e-coach, or make a free plan.",
+      'Tired of everything? Try a 2-minute breathing exercise, talk to an e-coach on Messenger, or make a free plan for this week.',
     label: 'Tired of everything',
     heading: "I'm tired of everything.",
     intro:
-      "Sometimes it isn't just your body that's tired. Your mind and heart are tired too. You don't have to fix everything today. One small step first.",
+      "When you're tired of everything, even small things feel heavy. Start with two minutes of slow breathing.",
     safetyFirst:
-      "If you're tired of living and thinking you'd rather not be here, you don't have to face this alone.",
+      "If you're tired of living or thinking you'd rather not be here, please talk to someone now.",
     toolsHeading: "Let's breathe first",
     tools: ['breathe'],
     tip: {
       title: 'One small thing for today',
-      body: "Pick one thing you can finish in 10 minutes: take a shower, eat something, or step outside for a bit. That's enough for today. Feeling lighter often comes after doing, not before.",
+      body: "Pick one thing you can finish in 10 minutes: take a shower, eat something, or step outside for a bit. That's enough for today. You'll often feel a little lighter once it's done.",
     },
     firstStep: 'ecoach',
   },
@@ -145,12 +145,12 @@ export const feelingPages: FeelingPage[] = [
     label: 'I feel alone',
     heading: 'I feel alone.',
     intro:
-      "It's heavy when it feels like no one is listening. Someone can talk with you today, and you don't have to explain everything.",
+      "It's hard when it feels like no one is listening. You can talk to someone today.",
     toolsHeading: 'Just one message',
     tools: ['message'],
     tip: {
       title: "If it's late and you just want to type",
-      body: "Hope AI is an AI assistant you can talk to any time. It isn't a counselor, but it can help you get what's on your mind out.",
+      body: 'Hope AI is an AI assistant, not a counselor. You can chat with it any time, even in the middle of the night.',
     },
     firstStep: 'ecoach',
     talkNow: true,
@@ -165,12 +165,12 @@ export const feelingPages: FeelingPage[] = [
     label: 'How to calm anxiety',
     heading: 'How do I calm my anxiety?',
     intro:
-      "When your heart is racing and your mind won't settle, there is something you can do right now. It won't make everything go away at once, but it can help your body calm down.",
+      "When your heart is racing and your mind won't settle, try the two exercises below. They help your body calm down.",
     toolsHeading: 'Try this now',
     tools: ['breathe', 'ground'],
     tip: {
       title: 'Why breathing helps',
-      body: "When you breathe out for longer than you breathe in, it tells your body you're safe. If this happens to you often, a plan and talking to a counselor can help.",
+      body: 'When you breathe out for longer than you breathe in, your heart rate slows and your body starts to settle. If this happens to you often, a plan and talking to a counselor can help.',
     },
     firstStep: 'plan',
   },
@@ -184,7 +184,7 @@ export const feelingPages: FeelingPage[] = [
     label: "Can't sleep from overthinking",
     heading: "I can't sleep. I keep overthinking.",
     intro:
-      "It's late and your mind won't stop. You don't have to solve everything you're thinking about tonight. Let's try this.",
+      "It's late and your mind won't stop. Write down what keeps going round in your head, then try the slow breathing.",
     toolsHeading: 'Get it out of your head first',
     tools: ['worry-note', 'breathe'],
     tip: {
