@@ -9,54 +9,62 @@ import {
 import Link from 'next/link';
 import { X, Sparkles } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import { isCalmPage } from '@/lib/calmPages';
 
 import { useQuery } from '@tanstack/react-query';
+
+// Shown at most once per visit, and never on the pages for people who are
+// struggling right now.
+const SHOWN_KEY = 'hopebegins.popout.shown';
+
+const alreadyShown = () => {
+  try {
+    return sessionStorage.getItem(SHOWN_KEY) === '1';
+  } catch {
+    return false;
+  }
+};
 
 const EngagementPopout = () => {
   const pathname = usePathname();
   const [currentItem, setCurrentItem] = useState<PopoutItem | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
+  const isHidden =
+    !pathname || pathname.startsWith('/admin') || isCalmPage(pathname);
+
   const { data: settings } = useQuery({
     queryKey: ['popout-public'],
     queryFn: () => siteSettingsService.getPublicPopouts(),
     staleTime: 5 * 60 * 1000, // 5 minutes
-    enabled: !!pathname && !pathname.startsWith('/admin'),
+    enabled: !isHidden,
   });
 
   useEffect(() => {
-    // Don't show on admin dashboard
-    if (pathname?.startsWith('/admin')) return;
-
+    if (isHidden || alreadyShown()) return;
     if (!settings || !settings.is_enabled || settings.items.length === 0)
       return;
 
-    const showRandomPopout = () => {
+    let hideTimer: ReturnType<typeof setTimeout>;
+    const showTimer = setTimeout(() => {
       const randomIndex = Math.floor(Math.random() * settings.items.length);
       setCurrentItem(settings.items[randomIndex]);
       setIsVisible(true);
-
-      // Hide after 10 seconds
-      setTimeout(() => {
-        setIsVisible(false);
-      }, 10000);
-    };
-
-    // Initial delay before first popout
-    const initialDelay = setTimeout(showRandomPopout, 5000);
-
-    const interval = setInterval(
-      showRandomPopout,
-      settings.interval_seconds * 1000
-    );
+      try {
+        sessionStorage.setItem(SHOWN_KEY, '1');
+      } catch {
+        // Storage blocked: it may show again on the next page.
+      }
+      hideTimer = setTimeout(() => setIsVisible(false), 10000);
+    }, 5000);
 
     return () => {
-      clearInterval(interval);
-      clearTimeout(initialDelay);
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
     };
-  }, [settings]);
+  }, [settings, isHidden]);
 
-  if (pathname?.startsWith('/admin') || !settings || !settings.is_enabled || !currentItem)
+  if (isHidden || !settings || !settings.is_enabled || !currentItem)
     return null;
 
   return (
@@ -121,10 +129,12 @@ const EngagementPopout = () => {
             />
 
             <button
+              type="button"
+              aria-label="Close"
               onClick={() => setIsVisible(false)}
-              className="absolute top-3 right-3 p-1.5 text-zinc-400 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/20 rounded-full transition-all opacity-0 group-hover:opacity-100 z-20"
+              className="absolute top-1 right-1 inline-flex h-11 w-11 items-center justify-center text-zinc-500 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/20 rounded-full transition-all z-20"
             >
-              <X size={14} />
+              <X size={16} />
             </button>
           </div>
         </motion.div>
