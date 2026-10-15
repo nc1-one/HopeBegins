@@ -21,6 +21,16 @@ export interface SavedPlan {
   checks: Record<string, boolean[]>;
   /** Mood and worry scores from each check-in, oldest first. */
   history?: CheckInRecord[];
+  /** Made at the end of the 4 weeks. Like the rest of the plan, it never leaves this device. */
+  hopeCard?: HopeCard;
+}
+
+export interface HopeCard {
+  /** The tool that helped most. */
+  toolId: string;
+  warningSigns: string;
+  people: string[];
+  madeAt: string;
 }
 
 export interface CheckInRecord {
@@ -192,6 +202,24 @@ export function readBackup(text: string): SavedPlan | null {
     )
     .map(({ date, mood, anxiety }) => ({ date, mood, anxiety }));
 
+  const card = isRecord(plan.hopeCard) ? plan.hopeCard : null;
+  const hopeCard: HopeCard | undefined =
+    card && typeof card.toolId === 'string'
+      ? {
+          toolId: card.toolId.slice(0, 40),
+          warningSigns:
+            typeof card.warningSigns === 'string'
+              ? card.warningSigns.slice(0, 300)
+              : '',
+          people: (Array.isArray(card.people) ? card.people : [])
+            .filter((person): person is string => typeof person === 'string')
+            .slice(0, 2)
+            .map((person) => person.slice(0, 40)),
+          madeAt:
+            typeof card.madeAt === 'string' ? card.madeAt : plan.startedAt,
+        }
+      : undefined;
+
   return {
     name: typeof plan.name === 'string' ? plan.name.slice(0, 60) : '',
     answers,
@@ -199,5 +227,6 @@ export function readBackup(text: string): SavedPlan | null {
     commitments,
     checks,
     history,
+    ...(hopeCard && { hopeCard }),
   };
 }
