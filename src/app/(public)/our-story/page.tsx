@@ -9,17 +9,16 @@ const STORY_SECTIONS = [
   {
     title: 'Our Mission',
     content:
-      'HopeBegins exists to provide faith-driven mental health support to individuals experiencing anxiety, depression, and hopelessness. We believe everyone deserves hope.',
+      'HopeBegins gives free, faith-driven mental health support to people dealing with anxiety, depression and hopelessness.',
   },
   {
     title: 'Our Vision',
-    content:
-      'A world where no one faces their darkest moments alone — where hope is always within reach, and faith meets you right where you are.',
+    content: 'That no one in their darkest moments has to look far for help.',
   },
   {
     title: 'How It Started',
     content:
-      'HopeBegins was born from a simple conviction: that faith and compassion can transform lives. What started as a small prayer initiative has grown into a global platform.',
+      'HopeBegins started as a small prayer initiative. Today people come to it to ask for prayer, make a self-help plan and talk to an e-coach.',
   },
   {
     title: 'The H.O.P.E. Framework',
@@ -40,7 +39,7 @@ export default function OurStoryPage() {
               Our Story
             </h1>
             <p className="text-lg text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-              How HopeBegins began and why it matters.
+              How HopeBegins started and what it does.
             </p>
           </div>
         </section>

@@ -61,7 +61,7 @@ export function usePrayerForm() {
       queryClient.invalidateQueries({ queryKey: ['prayers'] });
       notify.success(
         data?.message ||
-        'Your prayer has been submitted. We are praying for you!'
+        'Your prayer request was sent. A Hope Carrier will pray for you.'
       );
       form.reset();
     },

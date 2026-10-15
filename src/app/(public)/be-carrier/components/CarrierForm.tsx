@@ -135,7 +135,7 @@ export function CarrierForm() {
                   </FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="Share your heart..."
+                      placeholder="A few sentences is enough"
                       className="min-h-[150px] bg-zinc-50/50 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800 resize-none"
                       {...field}
                     />

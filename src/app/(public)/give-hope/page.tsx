@@ -17,7 +17,7 @@ export default function GiveHopePage() {
               Give Hope
             </h1>
             <p className="text-lg text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-              Plant a Hope Seed — support the mission.
+              Plant a Hope Seed and help keep HopeBegins free.
             </p>
           </div>
         </section>

@@ -36,53 +36,49 @@ export function ImpactStats() {
       value: data?.prayers?.toLocaleString() || '2,847',
       label: 'Prayers Lifted',
       description:
-        'Individual prayer requests received and prayed over by our Hope Carriers',
+        'Prayer requests received and prayed for by our Hope Carriers',
     },
     {
       icon: Shield,
       value: data?.carriers?.toLocaleString() || '38',
       label: 'Active Hope Carriers',
-      description: 'Dedicated volunteers praying daily for those in need',
+      description: 'Volunteers who pray for the requests we receive',
     },
     {
       icon: Headphones,
       value: data?.listeners?.toLocaleString() || '12,540',
       label: 'HopeCast Listeners',
-      description: 'People who have listened to encouragement and found peace',
+      description: 'People who have listened to a HopeCast',
     },
     {
       icon: Mail,
       value: data?.subscribers?.toLocaleString() || '1,263',
       label: 'Daily Hope Drops Subscribers',
-      description:
-        'Individuals on the 21-day journey receiving hope in their inbox',
+      description: 'People signed up for 21 days of Daily Hope emails',
     },
     {
       icon: Heart,
       value: data?.journeys?.toLocaleString() || '847',
       label: 'Hopeful Beginning Journeys',
-      description:
-        "People who started their journey from 'I don't have hope' to finding it",
+      description: 'People who started the Hopeful Beginning journey',
     },
     {
       icon: MessageSquare,
       value: '5,312',
       label: 'Hope AI Conversations',
-      description:
-        'Faith-filled conversations with Hope AI for encouragement and support',
+      description: 'Chats with Hope AI',
     },
     {
       icon: Activity,
       value: data?.war_room_users?.toLocaleString() || '0',
       label: 'War Room Users',
-      description:
-        'People who entered the HopebeginsPrayer War Room to join in prayer',
+      description: 'People who have used the Prayer War Room app',
     },
     {
       icon: Users,
       value: data ? `${data.lives_touched.toLocaleString()}+` : '4,150+',
       label: 'Lives Touched',
-      description: 'Total individuals impacted through all HopeBegins programs',
+      description: 'People reached across all HopeBegins programs',
     },
   ];
 
@@ -93,8 +89,8 @@ export function ImpactStats() {
           Our Current Impact
         </h2>
         <p className="text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed max-w-md mx-auto italic">
-          Every Hope Seed you plant, helps us reach more people. See our actual
-          and current numbers by God&apos;s grace.
+          Every Hope Seed helps us reach more people. These are our numbers so
+          far, by God&apos;s grace.
         </p>
       </div>
 

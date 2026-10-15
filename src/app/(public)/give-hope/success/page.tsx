@@ -31,8 +31,8 @@ export default function DonationSuccessPage() {
             Hope Seed Planted!
           </h1>
           <p className="text-zinc-500 font-medium leading-relaxed">
-            Thank you for your generous support. Your contribution helps us
-            spread hope to those who need it most.
+            Thank you. Your gift helps keep HopeBegins free for people who need
+            it.
           </p>
         </motion.div>
 
@@ -91,7 +91,7 @@ export default function DonationSuccessPage() {
             href="/daily-hope"
             className="group inline-flex items-center gap-2 text-[#a3b281] font-black italic tracking-tight hover:underline"
           >
-            Start your own Journey of Hope{' '}
+            Need support yourself? Start here{' '}
             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>

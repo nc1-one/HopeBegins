@@ -300,7 +300,7 @@ export function buildPlan(answers: Answers): Plan {
         exercise: 'breathe',
         title: 'Slow your breathing',
         detail:
-          'Breathe in through your nose for 4 counts, then out through your mouth for 6. Keep going for 2 minutes. A longer out-breath tells your body it is safe.',
+          'Breathe in through your nose for 4 counts, then out through your mouth for 6. Keep going for 2 minutes. A longer out-breath slows your heart rate.',
         steps: [
           'Use it when you feel tense.',
           'Practise once a day when calm.',
