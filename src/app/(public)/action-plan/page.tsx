@@ -34,8 +34,8 @@ import {
 } from '@/lib/actionPlanStore';
 import { actionPlanService } from '@/services/actionPlanService';
 import { EcoachLink } from '@/components/ui/EcoachLink';
-import { BreathingExercise } from './components/BreathingExercise';
-import { GroundingExercise } from './components/GroundingExercise';
+import { BreathingExercise } from '@/components/tools/BreathingExercise';
+import { GroundingExercise } from '@/components/tools/GroundingExercise';
 
 type EmailStatus = 'idle' | 'sending' | 'sent' | 'error';
 
