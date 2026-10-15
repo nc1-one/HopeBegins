@@ -126,6 +126,7 @@ const menuCopy = {
     welcomeBack: 'Welcome back',
     planDay: (day: number) => `You're on day ${day} of your plan.`,
     planSaved: 'Your plan is saved on this phone.',
+    afterSaved: 'Your Hope Card and monthly check-in are here.',
     openPlan: 'Open my plan',
     ecoachTitle: 'I Want Someone to Journey With Me',
     ecoachText: 'Talk to an e-coach from Himala Everyday on Messenger.',
@@ -141,6 +142,7 @@ const menuCopy = {
     welcomeBack: 'Welcome back',
     planDay: (day: number) => `Day ${day} mo na sa plano mo.`,
     planSaved: 'Naka-save ang plano mo sa phone na ito.',
+    afterSaved: 'Nandito ang Hope Card at monthly check-in mo.',
     openPlan: 'Buksan ang plano ko',
     ecoachTitle: 'Gusto ko ng kasama sa pinagdadaanan ko',
     ecoachText: 'Kausapin ang isang e-coach ng Himala Everyday sa Messenger.',
@@ -360,7 +362,11 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
                   {t.welcomeBack}
                   {savedPlan.name ? `, ${savedPlan.name}` : ''}.
                 </span>{' '}
-                {planDay <= PLAN_DAYS ? t.planDay(planDay) : t.planSaved}
+                {savedPlan.hopeCard && planDay >= PLAN_DAYS
+                  ? t.afterSaved
+                  : planDay <= PLAN_DAYS
+                    ? t.planDay(planDay)
+                    : t.planSaved}
               </span>
               <span className="inline-flex items-center font-poppins font-bold">
                 {t.openPlan}

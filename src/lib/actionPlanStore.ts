@@ -230,3 +230,13 @@ export function readBackup(text: string): SavedPlan | null {
     ...(hopeCard && { hopeCard }),
   };
 }
+
+/** Starts a fresh 4 weeks with one tool. Check-ins and the Hope Card stay. */
+export function restartFourWeeks(toolId: string, time: TimeOfDay) {
+  updatePlan((plan) => ({
+    ...plan,
+    startedAt: new Date().toISOString(),
+    commitments: { [toolId]: plan.commitments[toolId] ?? time },
+    checks: {},
+  }));
+}

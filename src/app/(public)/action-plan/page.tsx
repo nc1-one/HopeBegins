@@ -65,6 +65,8 @@ import { EcoachLink } from '@/components/ui/EcoachLink';
 import { BreathingExercise } from '@/components/tools/BreathingExercise';
 import { GroundingExercise } from '@/components/tools/GroundingExercise';
 import { FinishFlow, type FinishStep } from './FinishFlow';
+import { MonthlyCheckIn } from './MonthlyCheckIn';
+import { AfterwardsPanel } from './AfterwardsPanel';
 
 type EmailStatus = 'idle' | 'sending' | 'sent' | 'error';
 
@@ -96,6 +98,7 @@ const ui = {
     previous: 'Previous',
     welcomeDay: (name: string, day: number) =>
       `Welcome back${name ? `, ${name}` : ''}. This is day ${day} of your 4 weeks.`,
+    welcomeBack: (name: string) => `Welcome back${name ? `, ${name}` : ''}.`,
     checkInDueTitle: (name: string) =>
       `It's been a week since your last check-in${name ? `, ${name}` : ''}.`,
     checkInDueText: 'Take it again to see what has changed.',
@@ -227,6 +230,7 @@ const ui = {
     previous: 'Bumalik',
     welcomeDay: (name: string, day: number) =>
       `Welcome back${name ? `, ${name}` : ''}. Day ${day} mo na sa 4 na linggo.`,
+    welcomeBack: (name: string) => `Welcome back${name ? `, ${name}` : ''}.`,
     checkInDueTitle: (name: string) =>
       `Isang linggo na mula sa huling check-in mo${name ? `, ${name}` : ''}.`,
     checkInDueText: 'Sagutan ulit para makita kung ano ang nagbago.',
@@ -1188,7 +1192,9 @@ export default function ActionPlanPage() {
   const [answers, setAnswers] = useState<Answers>({});
   const [name, setName] = useState('');
   // The end of the 4 weeks: a last check-in, then the finish steps.
-  const [finish, setFinish] = useState<'checkin' | FinishStep | null>(null);
+  const [finish, setFinish] = useState<
+    'checkin' | 'monthly' | FinishStep | null
+  >(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   const showPlan = saved !== null && !isRetaking;
@@ -1468,6 +1474,35 @@ export default function ActionPlanPage() {
           }
         : null;
 
+  // After the 4 weeks, once the Hope Card is made.
+  const isAfter = Boolean(saved.hopeCard) && day >= PLAN_DAYS - 1;
+  const cardTool = plan.allTools.find(
+    (tool) => tool.id === saved.hopeCard?.toolId
+  );
+
+  if (finish === 'monthly') {
+    return (
+      <div lang={lang} className="px-6 pt-6 pb-24">
+        <div className="max-w-5xl mx-auto">
+          <div className="max-w-2xl">
+            {header}
+            <MonthlyCheckIn
+              saved={saved}
+              tool={cardTool}
+              lang={lang}
+              onClose={() => setFinish(null)}
+              onOpenCard={() => setFinish('view')}
+              onFullCheckIn={() => {
+                setFinish(null);
+                handleRetake();
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (finish && finish !== 'checkin') {
     // Tools in their 4 weeks first, then the rest of the plan's tools.
     const choices = [
@@ -1523,14 +1558,26 @@ export default function ActionPlanPage() {
             ) : (
               day >= 1 && (
                 <p className="mb-6 rounded-2xl bg-[#EFF3E7] px-5 py-3 font-poppins text-[#6E5F47] print:hidden">
-                  {t.welcomeDay(saved.name, day + 1)}
+                  {day >= PLAN_DAYS || isAfter
+                    ? t.welcomeBack(saved.name)
+                    : t.welcomeDay(saved.name, day + 1)}
                 </p>
               )
             )}
 
+            {isAfter && (
+              <AfterwardsPanel
+                saved={saved}
+                tool={cardTool}
+                lang={lang}
+                onMonthly={() => setFinish('monthly')}
+                onOpenCard={() => setFinish('view')}
+              />
+            )}
+
             <TodayCard saved={saved} tools={tools} lang={lang} t={t} />
 
-            {saved.hopeCard && (
+            {saved.hopeCard && !isAfter && (
               <section
                 aria-labelledby="hope-card-title"
                 className="mb-6 rounded-2xl border border-[#DFE7CF] bg-[#EFF3E7] p-5 print:hidden"

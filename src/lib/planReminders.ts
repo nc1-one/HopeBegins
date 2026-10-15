@@ -43,30 +43,23 @@ function firstReminder(time: TimeOfDay, now: Date) {
   return start;
 }
 
-const title = (item: PlanItem) => `HopeBegins: ${item.title}`;
+interface CalendarEvent {
+  id: string;
+  title: string;
+  details: string;
+  start: Date;
+  minutes: number;
+  rrule: string;
+}
 
-const details = (item: PlanItem, lang: PlanLang) =>
-  [
-    item.detail,
-    ...(item.steps ?? []).map((step, i) => `${i + 1}. ${step}`),
-    '',
-    `${lang === 'tl' ? 'Ang plano mo' : 'Your plan'}: ${PLAN_URL}`,
-  ].join('\n');
-
-export function googleCalendarUrl(
-  item: PlanItem,
-  time: TimeOfDay,
-  lang: PlanLang,
-  now = new Date()
-) {
-  const start = firstReminder(time, now);
-  const end = new Date(start.getTime() + EVENT_MINUTES * 60_000);
+function googleUrl(event: CalendarEvent) {
+  const end = new Date(event.start.getTime() + event.minutes * 60_000);
   const params = new URLSearchParams({
     action: 'TEMPLATE',
-    text: title(item),
-    details: details(item, lang),
-    dates: `${localStamp(start)}/${localStamp(end)}`,
-    recur: `RRULE:FREQ=DAILY;COUNT=${REMINDER_DAYS}`,
+    text: event.title,
+    details: event.details,
+    dates: `${localStamp(event.start)}/${localStamp(end)}`,
+    recur: `RRULE:${event.rrule}`,
   });
   return `https://calendar.google.com/calendar/render?${params}`;
 }
@@ -76,21 +69,15 @@ const escapeText = (text: string) =>
     .replace(/\\/g, '\\\\')
     .replace(/\n/g, '\\n')
     .replace(/,/g, '\\,')
-    .replace(/;/g, '\\;');
+    .replace(/;/g, '\;');
 
 // Calendar files keep lines to 75 characters; longer ones continue after a space.
 const fold = (line: string) =>
   line.length <= 75 ? line : (line.match(/.{1,73}/g) ?? [line]).join('\r\n ');
 
 /** An .ics file for Apple Calendar, Outlook and most other calendar apps. */
-export function reminderIcs(
-  item: PlanItem,
-  time: TimeOfDay,
-  lang: PlanLang,
-  now = new Date()
-) {
-  const start = firstReminder(time, now);
-  const end = new Date(start.getTime() + EVENT_MINUTES * 60_000);
+function icsText(event: CalendarEvent, now: Date) {
+  const end = new Date(event.start.getTime() + event.minutes * 60_000);
   return [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
@@ -98,17 +85,17 @@ export function reminderIcs(
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
     'BEGIN:VEVENT',
-    `UID:${item.id}-${localStamp(start)}@hopebegins.today`,
+    `UID:${event.id}-${localStamp(event.start)}@hopebegins.today`,
     `DTSTAMP:${utcStamp(now)}`,
-    `DTSTART:${localStamp(start)}`,
+    `DTSTART:${localStamp(event.start)}`,
     `DTEND:${localStamp(end)}`,
-    `RRULE:FREQ=DAILY;COUNT=${REMINDER_DAYS}`,
-    `SUMMARY:${escapeText(title(item))}`,
-    `DESCRIPTION:${escapeText(details(item, lang))}`,
+    `RRULE:${event.rrule}`,
+    `SUMMARY:${escapeText(event.title)}`,
+    `DESCRIPTION:${escapeText(event.details)}`,
     `URL:${PLAN_URL}`,
     'BEGIN:VALARM',
     'ACTION:DISPLAY',
-    `DESCRIPTION:${escapeText(title(item))}`,
+    `DESCRIPTION:${escapeText(event.title)}`,
     'TRIGGER:PT0M',
     'END:VALARM',
     'END:VEVENT',
@@ -116,6 +103,43 @@ export function reminderIcs(
   ]
     .map(fold)
     .join('\r\n');
+}
+
+const toolEvent = (
+  item: PlanItem,
+  time: TimeOfDay,
+  lang: PlanLang,
+  now: Date
+): CalendarEvent => ({
+  id: item.id,
+  title: `HopeBegins: ${item.title}`,
+  details: [
+    item.detail,
+    ...(item.steps ?? []).map((step, i) => `${i + 1}. ${step}`),
+    '',
+    `${lang === 'tl' ? 'Ang plano mo' : 'Your plan'}: ${PLAN_URL}`,
+  ].join('\n'),
+  start: firstReminder(time, now),
+  minutes: EVENT_MINUTES,
+  rrule: `FREQ=DAILY;COUNT=${REMINDER_DAYS}`,
+});
+
+export function googleCalendarUrl(
+  item: PlanItem,
+  time: TimeOfDay,
+  lang: PlanLang,
+  now = new Date()
+) {
+  return googleUrl(toolEvent(item, time, lang, now));
+}
+
+export function reminderIcs(
+  item: PlanItem,
+  time: TimeOfDay,
+  lang: PlanLang,
+  now = new Date()
+) {
+  return icsText(toolEvent(item, time, lang, now), now);
 }
 
 export function downloadReminder(
@@ -126,6 +150,39 @@ export function downloadReminder(
   downloadFile(
     `hopebegins-${item.id}.ics`,
     reminderIcs(item, time, lang),
+    'text/calendar'
+  );
+}
+
+/** After the 4 weeks: a reminder once a month for 6 months, at 7 PM. */
+export const MONTHLY_REMINDERS = 6;
+
+function monthlyEvent(lang: PlanLang, now: Date): CalendarEvent {
+  const start = new Date(now);
+  start.setMonth(start.getMonth() + 1);
+  start.setHours(19, 0, 0, 0);
+  return {
+    id: 'monthly-check-in',
+    title: 'HopeBegins: 1-minute check-in',
+    details:
+      lang === 'tl'
+        ? `Buksan ang plano mo at sagutan ang 1-minute check-in: ${PLAN_URL}`
+        : `Open your plan and take the 1-minute check-in: ${PLAN_URL}`,
+    start,
+    minutes: 5,
+    rrule: `FREQ=MONTHLY;COUNT=${MONTHLY_REMINDERS}`,
+  };
+}
+
+export function monthlyGoogleUrl(lang: PlanLang, now = new Date()) {
+  return googleUrl(monthlyEvent(lang, now));
+}
+
+export function downloadMonthlyReminder(lang: PlanLang) {
+  const now = new Date();
+  downloadFile(
+    'hopebegins-monthly-check-in.ics',
+    icsText(monthlyEvent(lang, now), now),
     'text/calendar'
   );
 }
