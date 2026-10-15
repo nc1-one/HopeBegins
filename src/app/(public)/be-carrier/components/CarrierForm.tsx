@@ -20,8 +20,8 @@ export function CarrierForm() {
   const { form, onSubmit, isSubmitting } = useCarrierForm();
 
   return (
-    <Card className="max-w-xl mx-auto border-zinc-100 dark:border-zinc-800 shadow-sm bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm">
-      <CardContent className="p-8">
+    <Card className="py-0 border-zinc-100 shadow-sm bg-white">
+      <CardContent className="p-6 md:p-8">
         <Form {...form}>
           <form onSubmit={onSubmit} className="space-y-6">
             <FormField
@@ -29,7 +29,7 @@ export function CarrierForm() {
               name="first_name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold uppercase tracking-wider text-zinc-500">
+                  <FormLabel className="text-sm font-medium text-[#6E5F47]">
                     First Name *
                   </FormLabel>
                   <FormControl>
@@ -49,7 +49,7 @@ export function CarrierForm() {
               name="last_name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold uppercase tracking-wider text-zinc-500">
+                  <FormLabel className="text-sm font-medium text-[#6E5F47]">
                     Last Name *
                   </FormLabel>
                   <FormControl>
@@ -69,7 +69,7 @@ export function CarrierForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold uppercase tracking-wider text-zinc-500">
+                  <FormLabel className="text-sm font-medium text-[#6E5F47]">
                     Email Address *
                   </FormLabel>
                   <FormControl>
@@ -90,7 +90,7 @@ export function CarrierForm() {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold uppercase tracking-wider text-zinc-500">
+                  <FormLabel className="text-sm font-medium text-[#6E5F47]">
                     Phone (optional)
                   </FormLabel>
                   <FormControl>
@@ -110,7 +110,7 @@ export function CarrierForm() {
               name="church_community"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold uppercase tracking-wider text-zinc-500">
+                  <FormLabel className="text-sm font-medium text-[#6E5F47]">
                     Church / Community (optional)
                   </FormLabel>
                   <FormControl>
@@ -130,7 +130,7 @@ export function CarrierForm() {
               name="carrier_reason"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold uppercase tracking-wider text-zinc-500">
+                  <FormLabel className="text-sm font-medium text-[#6E5F47]">
                     Why do you want to be a Hope Carrier? *
                   </FormLabel>
                   <FormControl>
@@ -218,7 +218,7 @@ export function CarrierForm() {
 
             <Button
               type="submit"
-              className="w-full h-12 bg-[#b4c392] hover:bg-[#a3b281] text-white font-bold text-sm rounded-lg shadow-sm transition-all duration-200"
+              className="w-full h-12 rounded-2xl bg-[#6E5F47] font-poppins font-bold text-white shadow-sm transition-colors hover:bg-[#5c4f3b]"
               disabled={isSubmitting}
             >
               {isSubmitting ? (

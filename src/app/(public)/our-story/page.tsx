@@ -1,27 +1,24 @@
-'use client';
-
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
+import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import { StorySection } from './components/StorySection';
 
 const STORY_SECTIONS = [
   {
-    title: 'Our Mission',
+    title: 'Our mission',
     content:
       'HopeBegins gives free, faith-driven mental health support to people dealing with anxiety, depression and hopelessness.',
   },
   {
-    title: 'Our Vision',
+    title: 'Our vision',
     content: 'That no one in their darkest moments has to look far for help.',
   },
   {
-    title: 'How It Started',
+    title: 'How it started',
     content:
       'HopeBegins started as a small prayer initiative. Today people come to it to ask for prayer, make a self-help plan and talk to an e-coach.',
   },
   {
-    title: 'The H.O.P.E. Framework',
+    title: 'The H.O.P.E. framework',
     content:
       'Heal from the past, Overcome present challenges, find Purpose in your story, and Embrace a hopeful future.',
   },
@@ -29,46 +26,28 @@ const STORY_SECTIONS = [
 
 export default function OurStoryPage() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <main className="flex-1">
-        {/* ── Hero Section ── */}
-        <section className="relative pt-20 pb-16 px-6 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/50 to-transparent dark:from-emerald-950/20 -z-10" />
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-zinc-800 dark:text-zinc-100 font-poppins tracking-tight">
-              Our Story
-            </h1>
-            <p className="text-lg text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-              How HopeBegins started and what it does.
-            </p>
-          </div>
-        </section>
-
-        {/* ── Sections ── */}
-        <section className="px-6 pb-16 max-w-2xl mx-auto space-y-6">
-          {STORY_SECTIONS.map((section, idx) => (
-            <motion.div
-              key={section.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: idx * 0.1 }}
-            >
-              <StorySection title={section.title}>
+    <div className="px-6 pt-6 pb-24">
+      <div className="max-w-5xl mx-auto">
+        <div className="max-w-2xl">
+          <OptionPageHeader
+            title="Our Story"
+            subtitle="How HopeBegins started and what it does."
+          />
+          <div className="mt-10 space-y-4">
+            {STORY_SECTIONS.map((section) => (
+              <StorySection key={section.title} title={section.title}>
                 {section.content}
               </StorySection>
-            </motion.div>
-          ))}
-        </section>
-
-        {/* ── Back to Home ── */}
-        <div className="flex justify-center pb-24 px-6">
-          <Link href="/">
-            <Button className="bg-[#b4c392] hover:bg-[#a3b281] text-white font-bold font-poppins uppercase tracking-widest text-xs h-12 px-10 rounded-full shadow-sm transition-all duration-200">
-              Back to Home
-            </Button>
+            ))}
+          </div>
+          <Link
+            href="/#start"
+            className="mt-10 inline-flex min-h-11 items-center rounded-2xl bg-[#6E5F47] px-6 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
+          >
+            See how we can help
           </Link>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

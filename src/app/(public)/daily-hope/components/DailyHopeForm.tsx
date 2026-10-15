@@ -12,17 +12,12 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { Loader2, Calendar, Target, Sparkles } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Loader2 } from 'lucide-react';
 
 const DAYS_PREVIEW = [
-  { day: 1, title: 'The Seed of Hope', icon: <Sparkles className="h-4 w-4" /> },
-  { day: 2, title: 'Roots of Faith', icon: <Target className="h-4 w-4" /> },
-  {
-    day: 3,
-    title: 'Light in Darkness',
-    icon: <Calendar className="h-4 w-4" />,
-  },
+  { day: 1, title: 'The Seed of Hope' },
+  { day: 2, title: 'Roots of Faith' },
+  { day: 3, title: 'Light in Darkness' },
 ];
 
 export function DailyHopeForm() {
@@ -30,29 +25,6 @@ export function DailyHopeForm() {
 
   return (
     <div className="space-y-8">
-      {/* Journey Preview */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {DAYS_PREVIEW.map((item, index) => (
-          <motion.div
-            key={item.day}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            className="bg-white p-4 rounded-2xl border border-zinc-100 flex flex-col items-center text-center space-y-2"
-          >
-            <div className="h-8 w-8 rounded-full bg-[#E9EFEE] flex items-center justify-center text-[#91AFAA]">
-              {item.icon}
-            </div>
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#6E5F47]">
-                Day {item.day}
-              </span>
-              <p className="text-sm font-bold text-[#6E5F47]">{item.title}</p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
       <Card className="py-0 border-zinc-100 shadow-sm bg-white">
         <CardContent className="p-6 md:p-8">
           <Form {...form}>
@@ -173,6 +145,17 @@ export function DailyHopeForm() {
       <p className="text-sm text-[#6E5F47]">
         Free. One email a day for 21 days.
       </p>
+
+      <div className="rounded-2xl bg-[#EFF3E7] p-5 text-[#6E5F47]">
+        <p className="font-poppins font-bold">Your first three days</p>
+        <ol className="mt-2 space-y-1">
+          {DAYS_PREVIEW.map((item) => (
+            <li key={item.day}>
+              Day {item.day}: {item.title}
+            </li>
+          ))}
+        </ol>
+      </div>
     </div>
   );
 }

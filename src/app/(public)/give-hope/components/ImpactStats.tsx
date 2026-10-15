@@ -83,12 +83,15 @@ export function ImpactStats() {
   ];
 
   return (
-    <section className="px-6 pb-10 max-w-2xl mx-auto">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-black text-zinc-800 dark:text-zinc-100 font-poppins mb-3 italic tracking-tighter">
-          Our Current Impact
+    <section aria-labelledby="impact-title">
+      <div className="mb-6">
+        <h2
+          id="impact-title"
+          className="font-playfair text-3xl md:text-4xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
+        >
+          Our current impact
         </h2>
-        <p className="text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed max-w-md mx-auto italic">
+        <p className="mt-3 font-poppins text-[#6E5F47] leading-relaxed">
           Every Hope Seed helps us reach more people. These are our numbers so
           far, by God&apos;s grace.
         </p>
@@ -98,29 +101,26 @@ export function ImpactStats() {
         {STATS.map((stat) => (
           <div
             key={stat.label}
-            className="bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-3xl p-6 shadow-xl shadow-zinc-200/40 dark:shadow-none hover:shadow-2xl hover:border-brand-muted transition-all duration-300 group"
+            className="rounded-2xl border border-zinc-100 bg-white p-6"
           >
             <div className="flex items-center gap-4 mb-3">
-              <div
-                className="p-3 rounded-2xl transition-transform group-hover:scale-110 group-hover:rotate-3"
-                style={{ backgroundColor: '#eff3e8' }}
-              >
-                <stat.icon className="h-5 w-5" style={{ color: '#acc487' }} />
+              <div className="rounded-xl bg-[#E9EFEE] p-3 text-[#91AFAA]">
+                <stat.icon className="h-5 w-5" />
               </div>
               <div className="flex flex-col">
                 {loading ? (
                   <div className="h-8 w-16 bg-zinc-100 animate-pulse rounded-lg" />
                 ) : (
-                  <span className="text-3xl font-black text-zinc-800 dark:text-zinc-100 font-poppins italic tracking-tighter">
+                  <span className="font-poppins text-3xl font-bold text-[#6E5F47] tabular-nums">
                     {stat.value}
                   </span>
                 )}
               </div>
             </div>
-            <p className="text-sm font-black uppercase tracking-widest text-zinc-400 mb-2 group-hover:text-brand transition-colors">
+            <p className="mb-1 font-poppins font-bold text-[#6E5F47]">
               {stat.label}
             </p>
-            <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium">
+            <p className="text-sm text-[#6E5F47] leading-relaxed">
               {stat.description}
             </p>
           </div>
