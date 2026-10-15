@@ -57,6 +57,21 @@ export const metadata: Metadata = {
 
 import EngagementPopout from '@/components/layout/EngagementPopout';
 
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'HopeBegins',
+  url: 'https://hopebegins.today',
+  logo: 'https://hopebegins.today/og/hopebegins.jpg',
+  description: SITE_DESCRIPTION,
+  email: 'connect@hopebegins.today',
+  sameAs: [
+    'https://www.facebook.com/hopebeginstoday',
+    'https://www.instagram.com/hopebeginstoday',
+    'https://www.linkedin.com/company/hopebeginstoday/',
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -84,6 +99,12 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={dmSans.className} suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
         <Providers>
           {children}
           <EngagementPopout />

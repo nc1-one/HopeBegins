@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { config } from '@/config';
+import { feelingSlugs } from '@/lib/feelingPages';
 
 const publicRoutes = [
   '',
@@ -14,6 +15,7 @@ const publicRoutes = [
   '/be-carrier',
   '/guidelines',
   '/privacy',
+  ...feelingSlugs,
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

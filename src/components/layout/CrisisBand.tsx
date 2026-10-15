@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import { feelingSlugs } from '@/lib/feelingPages';
 
 // Help pages where someone in distress may land straight from a link.
 const HELP_PAGES = [
@@ -10,6 +11,7 @@ const HELP_PAGES = [
   '/hope-ai',
   '/hopecasts',
   '/daily-hope',
+  ...feelingSlugs,
 ];
 
 export function CrisisBand() {
