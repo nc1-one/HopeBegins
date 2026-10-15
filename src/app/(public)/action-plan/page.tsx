@@ -64,6 +64,7 @@ import { analyticsService } from '@/services/analyticsService';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { BreathingExercise } from '@/components/tools/BreathingExercise';
 import { GroundingExercise } from '@/components/tools/GroundingExercise';
+import { FinishFlow, type FinishStep } from './FinishFlow';
 
 type EmailStatus = 'idle' | 'sending' | 'sent' | 'error';
 
@@ -101,7 +102,12 @@ const ui = {
     doneTitle: (name: string) =>
       `You've done 4 weeks${name ? `, ${name}` : ''}.`,
     doneText:
-      'Take the check-in once more to see how far you have come, and keep the tool that helped most.',
+      'Finish with one last check-in, choose the tool that helped most, and make your Hope Card.',
+    finishButton: 'Finish my 4 weeks',
+    hopeCardTitle: 'Your Hope Card',
+    hopeCardText:
+      'Your tool, your warning signs and your people, for the days that get hard again.',
+    openCard: 'Open my Hope Card',
     takeAgain: 'Take the check-in again',
     planTitle: (name: string) =>
       name ? `${name}'s Hopeful Beginning Plan` : 'Your Hopeful Beginning Plan',
@@ -227,7 +233,12 @@ const ui = {
     doneTitle: (name: string) =>
       `Natapos mo ang 4 na linggo${name ? `, ${name}` : ''}.`,
     doneText:
-      'Sagutan ulit ang check-in para makita kung gaano ka na kalayo, at ituloy ang tool na pinakanakatulong.',
+      'Tapusin sa huling check-in, piliin ang tool na pinakanakatulong, at gawin ang Hope Card mo.',
+    finishButton: 'Tapusin ang 4 na linggo ko',
+    hopeCardTitle: 'Ang Hope Card mo',
+    hopeCardText:
+      'Ang tool mo, mga warning sign, at mga taong malalapitan mo, para sa mga araw na bumigat ulit.',
+    openCard: 'Buksan ang Hope Card ko',
     takeAgain: 'Sagutan ulit ang check-in',
     planTitle: (name: string) =>
       name
@@ -1176,6 +1187,8 @@ export default function ActionPlanPage() {
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [name, setName] = useState('');
+  // The end of the 4 weeks: a last check-in, then the finish steps.
+  const [finish, setFinish] = useState<'checkin' | FinishStep | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   const showPlan = saved !== null && !isRetaking;
@@ -1213,6 +1226,7 @@ export default function ActionPlanPage() {
           record,
         ],
       }));
+      if (finish === 'checkin') setFinish('tool');
     } else {
       savePlan({
         name: name.trim(),
@@ -1232,6 +1246,7 @@ export default function ActionPlanPage() {
       setCurrent(current - 1);
     } else if (isRetaking) {
       setIsRetaking(false);
+      setFinish(null);
     } else {
       setHasStarted(false);
     }
@@ -1243,6 +1258,12 @@ export default function ActionPlanPage() {
     setCurrent(0);
     setIsRetaking(true);
     window.scrollTo({ top: 0 });
+  };
+
+  const startFinish = () => {
+    analyticsService.recordClick('plan_finish_start');
+    handleRetake();
+    setFinish('checkin');
   };
 
   const handleDelete = () => {
@@ -1431,11 +1452,55 @@ export default function ActionPlanPage() {
     .map((tool) => commitmentSentence(tool, saved.commitments[tool.id], lang));
 
   const banner =
-    day >= PLAN_DAYS
-      ? { title: t.doneTitle(saved.name), text: t.doneText }
-      : sinceCheckIn >= 7
-        ? { title: t.checkInDueTitle(saved.name), text: t.checkInDueText }
+    day >= PLAN_DAYS - 1 && !saved.hopeCard
+      ? {
+          title: t.doneTitle(saved.name),
+          text: t.doneText,
+          button: t.finishButton,
+          onClick: startFinish,
+        }
+      : sinceCheckIn >= 7 && day < PLAN_DAYS
+        ? {
+            title: t.checkInDueTitle(saved.name),
+            text: t.checkInDueText,
+            button: t.takeAgain,
+            onClick: handleRetake,
+          }
         : null;
+
+  if (finish && finish !== 'checkin') {
+    // Tools in their 4 weeks first, then the rest of the plan's tools.
+    const choices = [
+      ...tools.filter((tool) => saved.commitments[tool.id]),
+      ...tools.filter((tool) => !saved.commitments[tool.id]),
+      ...plan.allTools.filter(
+        (tool) =>
+          tool.id === saved.hopeCard?.toolId &&
+          !tools.some((item) => item.id === tool.id)
+      ),
+    ];
+    return (
+      <div lang={lang} className="px-6 pt-6 pb-24">
+        <div className="max-w-5xl mx-auto">
+          <div className="max-w-2xl">
+            {header}
+            <FinishFlow
+              saved={saved}
+              tools={choices}
+              lang={lang}
+              start={finish}
+              onClose={() => setFinish(null)}
+              progress={
+                history.length >= 2 ? (
+                  <ProgressCard history={history} locale={t.locale} t={t} />
+                ) : null
+              }
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div lang={lang} className="px-6 pt-6 pb-24">
@@ -1449,10 +1514,10 @@ export default function ActionPlanPage() {
                 <p className="mt-1">{banner.text}</p>
                 <button
                   type="button"
-                  onClick={handleRetake}
-                  className="mt-3 rounded-2xl bg-[#6E5F47] px-5 py-2.5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
+                  onClick={banner.onClick}
+                  className="mt-3 min-h-11 rounded-2xl bg-[#6E5F47] px-5 py-2.5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
                 >
-                  {t.takeAgain}
+                  {banner.button}
                 </button>
               </div>
             ) : (
@@ -1464,6 +1529,28 @@ export default function ActionPlanPage() {
             )}
 
             <TodayCard saved={saved} tools={tools} lang={lang} t={t} />
+
+            {saved.hopeCard && (
+              <section
+                aria-labelledby="hope-card-title"
+                className="mb-6 rounded-2xl border border-[#DFE7CF] bg-[#EFF3E7] p-5 print:hidden"
+              >
+                <h2
+                  id="hope-card-title"
+                  className="font-poppins font-bold text-lg text-[#6E5F47]"
+                >
+                  {t.hopeCardTitle}
+                </h2>
+                <p className="mt-1 text-[#6E5F47]">{t.hopeCardText}</p>
+                <button
+                  type="button"
+                  onClick={() => setFinish('view')}
+                  className="mt-3 inline-flex min-h-11 items-center rounded-2xl bg-[#6E5F47] px-5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
+                >
+                  {t.openCard}
+                </button>
+              </section>
+            )}
 
             <h1
               ref={headingRef}
