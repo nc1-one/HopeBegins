@@ -40,7 +40,7 @@ export function WorryNote({ lang = 'tl' }: { lang?: FeelingLang }) {
 
   if (isDone) {
     return (
-      <div className="rounded-2xl bg-[#EFF3E7] p-6">
+      <div className="rounded-2xl bg-[#EFF3E7] p-6 hb-step-in">
         <p
           ref={doneRef}
           tabIndex={-1}

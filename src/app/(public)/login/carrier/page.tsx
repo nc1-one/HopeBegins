@@ -15,7 +15,7 @@ export default function CarrierLoginPage() {
         <div className="absolute bottom-[-10%] left-[-5%] w-[50%] h-[50%] rounded-full bg-emerald-500/5 blur-[120px]" />
       </div>
 
-      <div className="mb-12 flex flex-col items-center gap-4 animate-in fade-in slide-in-from-top-4 duration-700">
+      <div className="mb-12 flex flex-col items-center gap-4 hb-step-in">
         <div className="text-center">
           <h1 className="text-2xl font-black text-zinc-900 dark:text-zinc-50 font-poppins tracking-tighter uppercase italic">
             HopeBegins
@@ -26,7 +26,7 @@ export default function CarrierLoginPage() {
         </div>
       </div>
 
-      <div className="w-full flex justify-center animate-in fade-in zoom-in-95 duration-500 delay-200">
+      <div className="w-full flex justify-center hb-step-in">
         <CarrierLoginForm />
       </div>
 

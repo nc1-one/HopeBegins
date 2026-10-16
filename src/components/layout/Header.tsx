@@ -157,6 +157,7 @@ export function Header() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
             >
               {isMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -167,39 +168,50 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile Navigation Dropdown */}
-        {isMenuOpen && (
-          <div className="lg:hidden bg-white dark:bg-zinc-950 border-b border-zinc-100 dark:border-zinc-900 py-6 px-6 animate-in fade-in slide-in-from-top-4 duration-300">
-            <div className="flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  target={link.href.startsWith('http') ? '_blank' : undefined}
-                  rel={
-                    link.href.startsWith('http')
-                      ? 'noopener noreferrer'
-                      : undefined
-                  }
-                  className="flex min-h-11 items-center gap-3 text-sm font-bold text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins uppercase tracking-wider"
-                  onClick={(e) => {
-                    if (link.href.includes('warroom')) {
-                      analyticsService.recordClick('war_room');
+        {/* Mobile Navigation: slides open and closed. */}
+        <div
+          id="mobile-menu"
+          inert={!isMenuOpen}
+          className={cn(
+            'lg:hidden grid transition-[grid-template-rows,opacity] duration-300 ease-[var(--hb-ease-out)]',
+            isMenuOpen
+              ? 'grid-rows-[1fr] opacity-100'
+              : 'grid-rows-[0fr] opacity-0'
+          )}
+        >
+          <div className="overflow-hidden">
+            <div className="bg-white dark:bg-zinc-950 border-b border-zinc-100 dark:border-zinc-900 py-4 px-6">
+              <div className="flex flex-col gap-1">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={
+                      link.href.startsWith('http')
+                        ? 'noopener noreferrer'
+                        : undefined
                     }
-                    if (link.href === '/') {
-                      handleHomeClick(e as any);
-                    } else {
-                      setIsMenuOpen(false);
-                    }
-                  }}
-                >
-                  {link.icon && <link.icon className="w-5 h-5" />}
-                  {link.label}
-                </Link>
-              ))}
+                    className="flex min-h-11 items-center gap-3 text-sm font-bold text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins uppercase tracking-wider"
+                    onClick={(e) => {
+                      if (link.href.includes('warroom')) {
+                        analyticsService.recordClick('war_room');
+                      }
+                      if (link.href === '/') {
+                        handleHomeClick(e as any);
+                      } else {
+                        setIsMenuOpen(false);
+                      }
+                    }}
+                  >
+                    {link.icon && <link.icon className="w-5 h-5" />}
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
-        )}
+        </div>
       </nav>
     </header>
   );

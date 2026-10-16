@@ -24,6 +24,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { CalmDownNow } from '@/components/tools/CalmDownNow';
+import { HeroMedia } from './HeroMedia';
 import { dayOfPlan, useSavedPlan } from '@/lib/actionPlanStore';
 import { PLAN_DAYS } from '@/lib/actionPlan';
 import type { FeelingLang } from '@/lib/feelingPages';
@@ -255,23 +256,6 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
     lastTool;
   const [autoOpen, setAutoOpen] = useState<GuidedTool | undefined>();
   const pathsHeadingRef = useRef<HTMLHeadingElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // The hero video is 8 MB. Phones, data-saver and reduced-motion visitors
-  // keep the poster image; larger screens play the video.
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    const connection = (
-      navigator as Navigator & { connection?: { saveData?: boolean } }
-    ).connection;
-    const isLargeScreen = window.matchMedia('(min-width: 768px)').matches;
-    const reduceMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
-    if (!isLargeScreen || reduceMotion || connection?.saveData) return;
-    video.play().catch(() => {});
-  }, [showPaths]);
 
   useEffect(() => {
     if (!showPaths) return;
@@ -299,24 +283,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
         aria-labelledby="looking-for-hope-title"
         className="relative isolate flex min-h-[calc(100svh-6rem)] flex-col overflow-hidden bg-black"
       >
-        {/* Background Video Container */}
-        <div className="absolute inset-0 -z-10">
-          <video
-            ref={videoRef}
-            preload="none"
-            muted
-            loop
-            playsInline
-            poster="/assets/images/hero-poster.jpg"
-            className="w-full h-full object-cover object-top"
-          >
-            <source
-              src="/assets/video/Hero-video-banner.mp4"
-              type="video/mp4"
-            />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/35 to-black/75" />
-        </div>
+        <HeroMedia />
 
         <div className="flex flex-1 flex-col items-center justify-center px-6 py-16 text-center">
           <h1
@@ -329,7 +296,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
           <button
             type="button"
             onClick={handleStart}
-            className="group mt-10 inline-flex items-center justify-center rounded-2xl bg-white px-10 py-4 font-poppins text-lg font-bold text-[#6E5F47] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-zinc-100 hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50 motion-reduce:hover:translate-y-0"
+            className="group mt-10 inline-flex items-center justify-center rounded-2xl bg-white px-10 py-4 font-poppins text-lg font-bold text-[#6E5F47] shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-zinc-100 hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50 motion-reduce:hover:translate-y-0"
           >
             That&apos;s me
             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
@@ -386,7 +353,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
       <section
         aria-labelledby="paths-title"
         lang={lang}
-        className="px-6 pt-10 pb-24 md:pt-14 animate-in fade-in duration-500 motion-reduce:animate-none"
+        className="px-6 pt-10 pb-24 md:pt-14 hb-step-in"
       >
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center justify-between gap-4">
@@ -491,7 +458,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
           <EcoachLink linkName="ecoach_menu" className="group mt-4 block">
             <Card className="border-none bg-[#6E5F47] text-white transition-all duration-500 hover:shadow-xl hover:shadow-[#6E5F47]/20 group-focus-visible:ring-4 group-focus-visible:ring-[#91AFAA]/40">
               <CardContent className="p-6 md:px-10 flex flex-col md:flex-row md:items-center gap-6">
-                <div className="self-start md:self-auto p-4 rounded-2xl bg-white text-[#6E5F47] shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 motion-reduce:transition-none">
+                <div className="self-start md:self-auto p-4 rounded-2xl bg-white text-[#6E5F47] shadow-sm transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none">
                   <MessageCircle className="w-7 h-7" />
                 </div>
                 <div className="flex-1">
