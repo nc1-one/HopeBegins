@@ -355,13 +355,13 @@ const ui = {
 type Copy = (typeof ui)['en'];
 
 const linkClass =
-  'mt-3 inline-flex items-center font-poppins font-bold text-[#6E5F47] underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none print:hidden';
+  'mt-2 inline-flex min-h-11 items-center font-poppins font-bold text-[#6E5F47] underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none print:hidden';
 
 const chipClass =
-  'rounded-full border px-3 py-1.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]';
+  'inline-flex min-h-11 items-center rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]';
 
 const reminderButtonClass =
-  'inline-flex items-center rounded-xl border border-[#AEC488] bg-white px-3 py-1.5 text-sm font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]';
+  'inline-flex min-h-11 items-center rounded-xl border border-[#AEC488] bg-white px-4 text-sm font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]';
 
 const secondaryButtonClass =
   'inline-flex items-center gap-2 rounded-2xl border border-[#AEC488] bg-white px-5 py-2.5 font-poppins font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
@@ -808,6 +808,8 @@ function HabitTracker({
     .slice(0, 7)
     .map((date) => date.toLocaleDateString(t.locale, { weekday: 'short' }));
   const currentWeek = Math.min(Math.floor(today / 7) + 1, WEEKS);
+  // Reminders cover the days left in the 4 weeks, and stop being offered after.
+  const daysLeft = PLAN_DAYS - today;
   const committed = tools.filter((tool) => saved.commitments[tool.id]);
 
   return (
@@ -837,7 +839,7 @@ function HabitTracker({
                     <p className="font-poppins font-bold text-[#6E5F47]">
                       {commitmentSentence(tool, time, lang)}
                     </p>
-                    <p className="shrink-0 font-poppins font-bold text-[#91AFAA] tabular-nums">
+                    <p className="shrink-0 font-poppins font-bold text-[#6E5F47] tabular-nums">
                       {t.daysDone(doneCount)}
                     </p>
                   </div>
@@ -880,7 +882,7 @@ function HabitTracker({
                             }),
                             isDone
                           )}
-                          className={`flex h-10 items-center justify-center rounded-xl border text-xs font-medium tabular-nums transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA] disabled:cursor-not-allowed disabled:opacity-40 ${
+                          className={`flex h-11 items-center justify-center rounded-xl border text-xs font-medium tabular-nums transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA] disabled:cursor-not-allowed disabled:opacity-40 ${
                             isDone
                               ? 'border-[#AEC488] bg-[#AEC488] text-white'
                               : isToday
@@ -897,35 +899,37 @@ function HabitTracker({
                       );
                     })}
                   </div>
-                  <div className="mt-4 flex flex-col gap-3 border-t border-zinc-100 pt-4 sm:flex-row sm:items-center print:hidden">
-                    <p className="flex items-center gap-2 text-sm text-[#6E5F47] sm:flex-1">
-                      <CalendarPlus className="h-4 w-4 shrink-0 text-[#91AFAA]" />
-                      {t.remindMe(time)}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      <a
-                        href={googleCalendarUrl(tool, time, lang)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() =>
-                          analyticsService.recordClick('plan_reminder_google')
-                        }
-                        className={reminderButtonClass}
-                      >
-                        Google Calendar
-                      </a>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          analyticsService.recordClick('plan_reminder_ics');
-                          downloadReminder(tool, time, lang);
-                        }}
-                        className={reminderButtonClass}
-                      >
-                        {t.otherCalendar}
-                      </button>
+                  {daysLeft > 1 && (
+                    <div className="mt-4 flex flex-col gap-3 border-t border-zinc-100 pt-4 sm:flex-row sm:items-center print:hidden">
+                      <p className="flex items-center gap-2 text-sm text-[#6E5F47] sm:flex-1">
+                        <CalendarPlus className="h-4 w-4 shrink-0 text-[#91AFAA]" />
+                        {t.remindMe(time)}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <a
+                          href={googleCalendarUrl(tool, time, lang, daysLeft)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() =>
+                            analyticsService.recordClick('plan_reminder_google')
+                          }
+                          className={reminderButtonClass}
+                        >
+                          Google Calendar
+                        </a>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            analyticsService.recordClick('plan_reminder_ics');
+                            downloadReminder(tool, time, lang, daysLeft);
+                          }}
+                          className={reminderButtonClass}
+                        >
+                          {t.otherCalendar}
+                        </button>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </CardContent>
               </Card>
             );
@@ -1217,6 +1221,7 @@ function RestoreBackup({ t }: { t: Copy }) {
     analyticsService.recordClick('plan_backup_restore');
     savePlan(plan);
     requestPersistentStorage();
+    window.scrollTo({ top: 0 });
   };
 
   return (
@@ -1227,7 +1232,11 @@ function RestoreBackup({ t }: { t: Copy }) {
         type="file"
         accept=".json,application/json"
         className="hidden"
-        onChange={(e) => restore(e.target.files?.[0])}
+        onChange={(e) => {
+          restore(e.target.files?.[0]);
+          // So picking the same file again still works.
+          e.target.value = '';
+        }}
       />
       <button
         type="button"
@@ -1503,7 +1512,7 @@ export default function ActionPlanPage() {
                 <button
                   type="button"
                   onClick={handlePrevious}
-                  className="mt-6 inline-flex items-center gap-2 -ml-3 rounded-xl px-3 py-2 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
+                  className="mt-6 inline-flex min-h-11 items-center gap-2 -ml-3 rounded-xl px-3 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   {t.previous}
@@ -1668,6 +1677,7 @@ export default function ActionPlanPage() {
         <div className="max-w-2xl">
           {header}
           <div id="action-plan">
+            <h1 className="sr-only">{t.planTitle(saved.name)}</h1>
             {banner
               ? !banner.isWeekly && bannerCard
               : day >= 1 && (
@@ -1715,13 +1725,13 @@ export default function ActionPlanPage() {
               </section>
             )}
 
-            <h1
+            <h2
               ref={headingRef}
               tabIndex={-1}
               className="text-balance font-playfair text-4xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em] focus:outline-none"
             >
               {t.planTitle(saved.name)}
-            </h1>
+            </h2>
             <p className="mt-4 font-poppins text-[#6E5F47] tracking-[-0.022em]">
               {t.madeOn(madeOn)}{' '}
               {plan.needsSafetyPlan ? t.startSafety : t.startTools}

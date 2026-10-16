@@ -55,7 +55,7 @@ export function CarrierLoginForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 ml-1">
+                  <FormLabel className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 ml-1">
                     Email Identity
                   </FormLabel>
                   <FormControl>
@@ -79,12 +79,12 @@ export function CarrierLoginForm() {
               render={({ field }) => (
                 <FormItem>
                   <div className="flex items-center justify-between ml-1 mb-1">
-                    <FormLabel className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400">
+                    <FormLabel className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600">
                       Security Key
                     </FormLabel>
                     <Link
                       href="/forgot-password"
-                      className="text-[10px] font-black uppercase tracking-widest text-[#b4c392] hover:text-[#a3b281] transition-colors"
+                      className="inline-flex min-h-11 items-center text-xs font-black uppercase tracking-widest text-[#6E5F47] hover:text-[#5c4f3b] transition-colors"
                     >
                       Forgot?
                     </Link>
@@ -107,13 +107,13 @@ export function CarrierLoginForm() {
 
             <Button
               type="submit"
-              className="w-full h-14 bg-[#b4c392] hover:bg-[#a3b281] text-white font-black text-xs uppercase tracking-[0.2em] rounded-2xl shadow-xl shadow-[#b4c392]/20 transition-all duration-500 mt-4 group"
+              className="w-full h-14 bg-[#6E5F47] hover:bg-[#5c4f3b] text-white font-black text-xs uppercase tracking-[0.2em] rounded-2xl shadow-xl shadow-[#6E5F47]/20 transition-all duration-500 mt-4 group"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
                 <Loader2 className="w-5 h-5 animate-spin" />
               ) : (
-                <span className="flex items-center gap-3 group-hover:scale-105 transition-transform">
+                <span className="flex items-center gap-3">
                   Enter Command Hub
                 </span>
               )}
