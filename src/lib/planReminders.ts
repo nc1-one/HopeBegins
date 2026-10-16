@@ -47,6 +47,8 @@ interface CalendarEvent {
   id: string;
   title: string;
   details: string;
+  /** Where the reminder opens. */
+  url: string;
   start: Date;
   minutes: number;
   rrule: string;
@@ -69,7 +71,7 @@ const escapeText = (text: string) =>
     .replace(/\\/g, '\\\\')
     .replace(/\n/g, '\\n')
     .replace(/,/g, '\\,')
-    .replace(/;/g, '\;');
+    .replace(/;/g, '\\;');
 
 // Calendar files keep lines to 75 characters; longer ones continue after a space.
 const fold = (line: string) =>
@@ -92,7 +94,7 @@ function icsText(event: CalendarEvent, now: Date) {
     `RRULE:${event.rrule}`,
     `SUMMARY:${escapeText(event.title)}`,
     `DESCRIPTION:${escapeText(event.details)}`,
-    `URL:${PLAN_URL}`,
+    `URL:${event.url}`,
     'BEGIN:VALARM',
     'ACTION:DISPLAY',
     `DESCRIPTION:${escapeText(event.title)}`,
@@ -110,19 +112,24 @@ const toolEvent = (
   time: TimeOfDay,
   lang: PlanLang,
   now: Date
-): CalendarEvent => ({
-  id: item.id,
-  title: `HopeBegins: ${item.title}`,
-  details: [
-    item.detail,
-    ...(item.steps ?? []).map((step, i) => `${i + 1}. ${step}`),
-    '',
-    `${lang === 'tl' ? 'Ang plano mo' : 'Your plan'}: ${PLAN_URL}`,
-  ].join('\n'),
-  start: firstReminder(time, now),
-  minutes: EVENT_MINUTES,
-  rrule: `FREQ=DAILY;COUNT=${REMINDER_DAYS}`,
-});
+): CalendarEvent => {
+  // Opens the plan on today's card for this tool, in their language.
+  const url = `${PLAN_URL}?tool=${item.id}${lang === 'tl' ? '&lang=tl' : ''}`;
+  return {
+    id: item.id,
+    title: `HopeBegins: ${item.title}`,
+    url,
+    details: [
+      item.detail,
+      ...(item.steps ?? []).map((step, i) => `${i + 1}. ${step}`),
+      '',
+      `${lang === 'tl' ? 'Ang plano mo' : 'Your plan'}: ${url}`,
+    ].join('\n'),
+    start: firstReminder(time, now),
+    minutes: EVENT_MINUTES,
+    rrule: `FREQ=DAILY;COUNT=${REMINDER_DAYS}`,
+  };
+};
 
 export function googleCalendarUrl(
   item: PlanItem,
@@ -164,6 +171,7 @@ function monthlyEvent(lang: PlanLang, now: Date): CalendarEvent {
   return {
     id: 'monthly-check-in',
     title: 'HopeBegins: 1-minute check-in',
+    url: PLAN_URL,
     details:
       lang === 'tl'
         ? `Buksan ang plano mo at sagutan ang 1-minute check-in: ${PLAN_URL}`

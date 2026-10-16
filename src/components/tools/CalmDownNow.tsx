@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Wind } from 'lucide-react';
 import { BreathingExercise } from './BreathingExercise';
 import { GroundingExercise } from './GroundingExercise';
-import { analyticsService } from '@/services/analyticsService';
+import { analyticsService, type ToolSource } from '@/services/analyticsService';
 import type { FeelingLang } from '@/lib/feelingPages';
 
 const copy = {
@@ -23,14 +23,34 @@ const copy = {
 type Exercise = 'breathe' | 'ground';
 
 /** One tap to the breathing or 5-4-3-2-1 exercise, right where you are. */
-export function CalmDownNow({ lang }: { lang: FeelingLang }) {
+export function CalmDownNow({
+  lang,
+  autoOpen,
+}: {
+  lang: FeelingLang;
+  /** A returning visitor's own tool, opened from the home page. */
+  autoOpen?: Exercise;
+}) {
   const t = copy[lang];
-  const [open, setOpen] = useState<Exercise | null>(null);
+  const [open, setOpen] = useState<Exercise | null>(autoOpen ?? null);
+  const [source, setSource] = useState<ToolSource>(autoOpen ? 'home' : 'menu');
+  const buttons = useRef<Record<Exercise, HTMLButtonElement | null>>({
+    breathe: null,
+    ground: null,
+  });
 
   const toggle = (exercise: Exercise) => {
     if (open !== exercise)
       analyticsService.recordClick(`menu_calm_${exercise}`);
+    setSource('menu');
     setOpen(open === exercise ? null : exercise);
+  };
+
+  // Back to the button that opened it once the exercise closes.
+  const close = () => {
+    const opened = open;
+    setOpen(null);
+    if (opened) requestAnimationFrame(() => buttons.current[opened]?.focus());
   };
 
   return (
@@ -44,6 +64,9 @@ export function CalmDownNow({ lang }: { lang: FeelingLang }) {
           {(['breathe', 'ground'] as const).map((exercise) => (
             <button
               key={exercise}
+              ref={(el) => {
+                buttons.current[exercise] = el;
+              }}
               type="button"
               aria-pressed={open === exercise}
               onClick={() => toggle(exercise)}
@@ -55,18 +78,10 @@ export function CalmDownNow({ lang }: { lang: FeelingLang }) {
         </div>
       </div>
       {open === 'breathe' && (
-        <BreathingExercise
-          lang={lang}
-          source="menu"
-          onClose={() => setOpen(null)}
-        />
+        <BreathingExercise lang={lang} source={source} onClose={close} />
       )}
       {open === 'ground' && (
-        <GroundingExercise
-          lang={lang}
-          source="menu"
-          onClose={() => setOpen(null)}
-        />
+        <GroundingExercise lang={lang} source={source} onClose={close} />
       )}
     </div>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useSyncExternalStore } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import {
   ArrowLeft,
@@ -15,6 +15,7 @@ import {
   MessageCircle,
   MessageSquare,
   Moon,
+  Play,
   Radio,
   Sunrise,
   UserRound,
@@ -27,6 +28,7 @@ import { dayOfPlan, useSavedPlan } from '@/lib/actionPlanStore';
 import { PLAN_DAYS } from '@/lib/actionPlan';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { useLanguage } from '@/lib/languagePreference';
+import { isGuidedTool, useLastTool, type GuidedTool } from '@/lib/myTool';
 import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
 import { analyticsService } from '@/services/analyticsService';
 
@@ -183,6 +185,9 @@ const morePaths = [
   },
 ];
 
+const heroSecondaryClass =
+  'inline-flex min-h-11 items-center justify-center rounded-2xl border border-white/70 px-5 font-poppins font-bold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50';
+
 const feelingCardClass =
   'group flex h-full items-center gap-4 rounded-2xl border p-5 transition-all duration-300 hover:shadow-lg hover:shadow-[#6E5F47]/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
 
@@ -244,6 +249,16 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
   const t = menuCopy[lang];
   const savedPlan = useSavedPlan();
   const planDay = savedPlan ? dayOfPlan(savedPlan.startedAt) + 1 : 0;
+  const lastTool = useLastTool();
+  // A returning visitor's own tool: the guided one in their plan or on
+  // their Hope Card, else the last one they finished on this phone.
+  const myTool: GuidedTool | null =
+    Object.keys(savedPlan?.commitments ?? {}).find(isGuidedTool) ??
+    (isGuidedTool(savedPlan?.hopeCard?.toolId)
+      ? savedPlan.hopeCard.toolId
+      : null) ??
+    lastTool;
+  const [autoOpen, setAutoOpen] = useState<GuidedTool | undefined>();
   const pathsHeadingRef = useRef<HTMLHeadingElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -271,6 +286,15 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
 
   const handleStart = () => {
     analyticsService.recordClick('looking_for_hope');
+    setAutoOpen(undefined);
+    window.location.hash = START_HASH;
+  };
+
+  // Straight to their tool, opened at the top of the menu.
+  const startMyTool = () => {
+    if (!myTool) return;
+    analyticsService.recordClick(`home_my_tool_${myTool}`);
+    setAutoOpen(myTool);
     window.location.hash = START_HASH;
   };
 
@@ -315,6 +339,37 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
             That&apos;s me
             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
           </button>
+
+          {(myTool || savedPlan) && (
+            <div className="mt-8 flex flex-col items-center gap-3">
+              <p className="font-poppins text-white">
+                Welcome back{savedPlan?.name ? `, ${savedPlan.name}` : ''}.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                {myTool && (
+                  <button
+                    type="button"
+                    onClick={startMyTool}
+                    className={heroSecondaryClass}
+                  >
+                    <Play className="mr-2 h-4 w-4" />
+                    {myTool === 'breathe'
+                      ? 'Start my breathing'
+                      : 'Start my 5-4-3-2-1'}
+                  </button>
+                )}
+                {savedPlan && (
+                  <TrackedLink
+                    href="/action-plan"
+                    linkName="home_open_plan"
+                    className={heroSecondaryClass}
+                  >
+                    Open my plan
+                  </TrackedLink>
+                )}
+              </div>
+            </div>
+          )}
 
           <Link
             href="/give-hope"
@@ -386,7 +441,11 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
           <p className="mt-3 text-lg text-[#6E5F47]">{t.subtitle}</p>
 
           <div className="mt-8">
-            <CalmDownNow lang={lang} />
+            <CalmDownNow
+              key={autoOpen ?? 'menu'}
+              lang={lang}
+              autoOpen={autoOpen}
+            />
           </div>
 
           <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
