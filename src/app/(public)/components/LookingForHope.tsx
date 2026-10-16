@@ -29,12 +29,14 @@ import { PLAN_DAYS } from '@/lib/actionPlan';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { useLanguage } from '@/lib/languagePreference';
 import { isGuidedTool, useLastTool, type GuidedTool } from '@/lib/myTool';
+import {
+  START_HASH,
+  closeStartMenu,
+  openStartMenu,
+  subscribeToHash,
+} from '@/lib/startMenu';
 import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
 import { analyticsService } from '@/services/analyticsService';
-
-// The second step lives at /#start so the browser back button returns to the
-// question, and other pages can link straight past it.
-const START_HASH = '#start';
 
 // Each answer opens the page written for that feeling, in the chosen language.
 const feelings = [
@@ -124,6 +126,7 @@ const notSure = {
 const menuCopy = {
   en: {
     heading: 'How are you feeling right now?',
+    back: 'Back',
     subtitle: 'Pick the one closest to how you feel.',
     welcomeBack: 'Welcome back',
     planDay: (day: number) => `You're on day ${day} of your plan.`,
@@ -141,6 +144,7 @@ const menuCopy = {
   tl: {
     heading: 'Ano ang nararamdaman mo ngayon?',
     subtitle: 'Piliin ang pinakamalapit sa nararamdaman mo.',
+    back: 'Bumalik',
     welcomeBack: 'Welcome back',
     planDay: (day: number) => `Day ${day} mo na sa plano mo.`,
     planSaved: 'Naka-save ang plano mo sa phone na ito.',
@@ -190,15 +194,6 @@ const heroSecondaryClass =
 
 const feelingCardClass =
   'group flex h-full items-center gap-4 rounded-2xl border p-5 transition-all duration-300 hover:shadow-lg hover:shadow-[#6E5F47]/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
-
-function subscribeToHash(onChange: () => void) {
-  window.addEventListener('hashchange', onChange);
-  window.addEventListener('popstate', onChange);
-  return () => {
-    window.removeEventListener('hashchange', onChange);
-    window.removeEventListener('popstate', onChange);
-  };
-}
 
 const crisisCopy = {
   en: {
@@ -287,7 +282,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
   const handleStart = () => {
     analyticsService.recordClick('looking_for_hope');
     setAutoOpen(undefined);
-    window.location.hash = START_HASH;
+    openStartMenu();
   };
 
   // Straight to their tool, opened at the top of the menu.
@@ -295,7 +290,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
     if (!myTool) return;
     analyticsService.recordClick(`home_my_tool_${myTool}`);
     setAutoOpen(myTool);
-    window.location.hash = START_HASH;
+    openStartMenu();
   };
 
   if (!showPaths) {
@@ -373,7 +368,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
 
           <Link
             href="/give-hope"
-            className="mt-6 text-sm text-white/80 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:text-white focus-visible:underline focus-visible:outline-none"
+            className="mt-4 inline-flex min-h-11 items-center text-sm text-white/80 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:text-white focus-visible:underline focus-visible:outline-none"
           >
             Here to donate instead?
           </Link>
@@ -397,11 +392,11 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
           <div className="flex items-center justify-between gap-4">
             <button
               type="button"
-              onClick={() => window.history.back()}
+              onClick={closeStartMenu}
               className="inline-flex min-h-11 items-center gap-2 -ml-3 rounded-xl px-3 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
             >
               <ArrowLeft className="w-4 h-4" />
-              Back
+              {t.back}
             </button>
             <LanguageSwitch />
           </div>
@@ -550,7 +545,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
           <div className="mt-10 pt-8 border-t border-[#E2DFDA] flex flex-col md:flex-row md:items-start md:justify-between gap-6">
             <Link
               href="/give-hope"
-              className="inline-flex items-center gap-3 text-[#6E5F47] hover:underline underline-offset-4 focus-visible:underline focus-visible:outline-none"
+              className="inline-flex min-h-11 items-center gap-3 text-[#6E5F47] hover:underline underline-offset-4 focus-visible:underline focus-visible:outline-none"
             >
               <HandHeart className="w-5 h-5 text-[#91AFAA]" />
               <span className="font-bold">{t.donate}</span>

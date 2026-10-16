@@ -60,7 +60,7 @@ export function AdminLoginForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 ml-1">
+                  <FormLabel className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 ml-1">
                     Email Address
                   </FormLabel>
                   <FormControl>
@@ -83,7 +83,7 @@ export function AdminLoginForm() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 ml-1">
+                  <FormLabel className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 ml-1">
                     Password
                   </FormLabel>
                   <FormControl>
@@ -98,7 +98,11 @@ export function AdminLoginForm() {
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-brand transition-colors"
+                        aria-label={
+                          showPassword ? 'Hide password' : 'Show password'
+                        }
+                        aria-pressed={showPassword}
+                        className="absolute right-1 top-1/2 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-xl text-zinc-500 hover:text-brand transition-colors"
                       >
                         {showPassword ? (
                           <EyeOff className="w-4 h-4" />

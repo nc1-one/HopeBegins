@@ -111,6 +111,7 @@ const toolEvent = (
   item: PlanItem,
   time: TimeOfDay,
   lang: PlanLang,
+  days: number,
   now: Date
 ): CalendarEvent => {
   // Opens the plan on today's card for this tool, in their language.
@@ -127,7 +128,8 @@ const toolEvent = (
     ].join('\n'),
     start: firstReminder(time, now),
     minutes: EVENT_MINUTES,
-    rrule: `FREQ=DAILY;COUNT=${REMINDER_DAYS}`,
+    // Only the days left in their 4 weeks.
+    rrule: `FREQ=DAILY;COUNT=${Math.max(1, Math.min(days, REMINDER_DAYS))}`,
   };
 };
 
@@ -135,28 +137,31 @@ export function googleCalendarUrl(
   item: PlanItem,
   time: TimeOfDay,
   lang: PlanLang,
+  days = REMINDER_DAYS,
   now = new Date()
 ) {
-  return googleUrl(toolEvent(item, time, lang, now));
+  return googleUrl(toolEvent(item, time, lang, days, now));
 }
 
 export function reminderIcs(
   item: PlanItem,
   time: TimeOfDay,
   lang: PlanLang,
+  days = REMINDER_DAYS,
   now = new Date()
 ) {
-  return icsText(toolEvent(item, time, lang, now), now);
+  return icsText(toolEvent(item, time, lang, days, now), now);
 }
 
 export function downloadReminder(
   item: PlanItem,
   time: TimeOfDay,
-  lang: PlanLang
+  lang: PlanLang,
+  days = REMINDER_DAYS
 ) {
   downloadFile(
     `hopebegins-${item.id}.ics`,
-    reminderIcs(item, time, lang),
+    reminderIcs(item, time, lang, days),
     'text/calendar'
   );
 }
