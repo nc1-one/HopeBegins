@@ -91,7 +91,7 @@ export const feelingPages: FeelingPage[] = [
     label: 'Paano mawala ang anxiety',
     heading: 'Paano mawala ang anxiety?',
     intro:
-      'Kapag kumakabog ang dibdib at hindi mapakali ang isip, subukan ang isa sa mga ito. Makakatulong ang mga ito para kumalma ang katawan at isip mo.',
+      'Kapag kumakabog ang dibdib at hindi mapakali ang isip, subukan ang isa sa mga ito. Nakakatulong ang paghinga at ang 5-4-3-2-1 para kumalma ang katawan mo. Ang laro naman, bibigyan ng ibang gagawin ang isip mo.',
     toolsHeading: 'Subukan natin ito ngayon',
     tools: ['breathe', 'ground', 'game'],
     tip: {
@@ -170,7 +170,7 @@ export const feelingPages: FeelingPage[] = [
     label: 'How to calm anxiety',
     heading: 'How do I calm my anxiety?',
     intro:
-      "When your heart is racing and your mind won't settle, try one of these. They help your body and your mind settle down.",
+      "When your heart is racing and your mind won't settle, try one of these. Breathing and 5-4-3-2-1 help your body calm down. The game gives your mind something else to do.",
     toolsHeading: 'Try this now',
     tools: ['breathe', 'ground', 'game'],
     tip: {
