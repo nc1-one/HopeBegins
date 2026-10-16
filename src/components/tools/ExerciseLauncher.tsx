@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Play } from 'lucide-react';
 import { BreathingExercise } from './BreathingExercise';
 import { GroundingExercise } from './GroundingExercise';
@@ -46,6 +46,12 @@ export function ExerciseLauncher({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const exercise = exercises[lang][kind];
+  const startRef = useRef<HTMLButtonElement>(null);
+  // Back to the start button once the exercise closes.
+  const close = () => {
+    setIsOpen(false);
+    requestAnimationFrame(() => startRef.current?.focus());
+  };
 
   return (
     <div className="rounded-2xl border border-zinc-100 bg-white p-6">
@@ -57,20 +63,13 @@ export function ExerciseLauncher({
       </p>
       {isOpen ? (
         kind === 'breathe' ? (
-          <BreathingExercise
-            onClose={() => setIsOpen(false)}
-            lang={lang}
-            source="feeling"
-          />
+          <BreathingExercise onClose={close} lang={lang} source="feeling" />
         ) : (
-          <GroundingExercise
-            onClose={() => setIsOpen(false)}
-            lang={lang}
-            source="feeling"
-          />
+          <GroundingExercise onClose={close} lang={lang} source="feeling" />
         )
       ) : (
         <button
+          ref={startRef}
           type="button"
           onClick={() => setIsOpen(true)}
           className="mt-4 inline-flex items-center rounded-2xl bg-[#6E5F47] px-5 py-2.5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"

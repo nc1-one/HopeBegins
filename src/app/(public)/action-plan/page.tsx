@@ -55,6 +55,7 @@ import {
   useHomeScreenStatus,
 } from '@/lib/installPrompt';
 import { setLanguage, useLanguage } from '@/lib/languagePreference';
+import { forgetTool } from '@/lib/myTool';
 import {
   downloadReminder,
   googleCalendarUrl,
@@ -481,6 +482,12 @@ function ToolCard({
   const [isTrying, setIsTrying] = useState(false);
   // Decided when the tool opens, so the note matches what finishing does.
   const [willTick, setWillTick] = useState(false);
+  const tryRef = useRef<HTMLButtonElement>(null);
+  // Back to "Try it now" once the exercise closes.
+  const closeTry = () => {
+    setIsTrying(false);
+    requestAnimationFrame(() => tryRef.current?.focus());
+  };
   const time = saved.commitments[item.id];
   const isInWeek = time !== undefined;
 
@@ -532,7 +539,7 @@ function ToolCard({
           <BreathingExercise
             lang={lang}
             source="plan"
-            onClose={() => setIsTrying(false)}
+            onClose={closeTry}
             onFinish={handleFinish}
             doneNote={willTick ? t.tickedToday : undefined}
           />
@@ -541,7 +548,7 @@ function ToolCard({
           <GroundingExercise
             lang={lang}
             source="plan"
-            onClose={() => setIsTrying(false)}
+            onClose={closeTry}
             onFinish={handleFinish}
             doneNote={willTick ? t.tickedToday : undefined}
           />
@@ -550,6 +557,7 @@ function ToolCard({
         <div className="mt-5 flex flex-wrap gap-3 print:hidden">
           {item.exercise && !isTrying && (
             <button
+              ref={tryRef}
               type="button"
               onClick={() => {
                 analyticsService.recordClick('plan_tool_try');
@@ -719,7 +727,11 @@ function TodayCard({
           const checks = saved.checks[tool.id] ?? [];
           const isDone = checks[today] === true;
           return (
-            <li key={tool.id} className="space-y-3">
+            <li
+              key={tool.id}
+              id={`today-${tool.id}`}
+              className="scroll-mt-24 space-y-3"
+            >
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <div className="sm:flex-1">
                   <p className="text-[#6E5F47]">
@@ -1263,10 +1275,24 @@ export default function ActionPlanPage() {
   }, [showPlan, showQuestions, current]);
 
   // Links from Taglish pages open the plan in Taglish (?lang=tl).
+  const reminderTool = useRef<string | null>(null);
   useEffect(() => {
-    const requested = new URLSearchParams(window.location.search).get('lang');
+    const params = new URLSearchParams(window.location.search);
+    const requested = params.get('lang');
     if (requested === 'tl' || requested === 'en') setLanguage(requested);
+    // A reminder (?tool=breathe) opens on that tool in the Today card.
+    reminderTool.current = params.get('tool');
   }, []);
+  useEffect(() => {
+    const id = reminderTool.current;
+    if (!id || !saved) return;
+    const row = document.getElementById(`today-${id}`);
+    if (!row) return;
+    reminderTool.current = null;
+    row.scrollIntoView({ block: 'center' });
+    const buttons = row.querySelectorAll<HTMLButtonElement>('button');
+    buttons[buttons.length - 1]?.focus({ preventScroll: true });
+  }, [saved]);
 
   const handleAnswer = (value: string) => {
     const nextAnswers = { ...answers, [question.key]: value };
@@ -1337,6 +1363,7 @@ export default function ActionPlanPage() {
   const handleDelete = () => {
     if (!window.confirm(t.deleteConfirm)) return;
     clearPlan();
+    forgetTool();
     setAnswers({});
     setCurrent(0);
     setName('');

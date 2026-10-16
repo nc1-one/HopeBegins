@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { ChevronDown, Play } from 'lucide-react';
 import { BreathingExercise } from '@/components/tools/BreathingExercise';
 import { GroundingExercise } from '@/components/tools/GroundingExercise';
@@ -68,9 +68,17 @@ export function UseMyTool({
     }
   }, [tool.id]);
 
+  const startRef = useRef<HTMLButtonElement>(null);
+
   const open = () => {
     setWillTick(canTickToday(saved, tool.id));
     setIsOpen(true);
+  };
+
+  // Back to the start button once the exercise closes.
+  const close = () => {
+    setIsOpen(false);
+    requestAnimationFrame(() => startRef.current?.focus());
   };
 
   if (!tool.exercise) {
@@ -107,7 +115,12 @@ export function UseMyTool({
   return (
     <div>
       {!isOpen && (
-        <button type="button" onClick={open} className={buttonClassName}>
+        <button
+          ref={startRef}
+          type="button"
+          onClick={open}
+          className={buttonClassName}
+        >
           <Play className="mr-2 h-4 w-4" />
           {label ?? t.useNow}
         </button>
@@ -116,7 +129,7 @@ export function UseMyTool({
         <BreathingExercise
           lang={lang}
           source="plan"
-          onClose={() => setIsOpen(false)}
+          onClose={close}
           onFinish={handleFinish}
           doneNote={willTick ? t.ticked : undefined}
         />
@@ -125,7 +138,7 @@ export function UseMyTool({
         <GroundingExercise
           lang={lang}
           source="plan"
-          onClose={() => setIsOpen(false)}
+          onClose={close}
           onFinish={handleFinish}
           doneNote={willTick ? t.ticked : undefined}
         />

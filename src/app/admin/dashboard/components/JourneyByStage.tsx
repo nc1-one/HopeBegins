@@ -440,7 +440,17 @@ export function JourneyByStage({
               },
               {
                 label: '"Welcome back" to their plan',
-                values: [n('menu_welcome_back_plan'), '–'],
+                values: [
+                  n('menu_welcome_back_plan') + n('home_open_plan'),
+                  '–',
+                ],
+              },
+              {
+                label: 'Returning: "Start my breathing" on the home page',
+                values: [
+                  sumWhere(t, (name) => name.startsWith('home_my_tool_')),
+                  '–',
+                ],
               },
               {
                 label: '"I don\'t have hope" journey visits',
@@ -457,6 +467,10 @@ export function JourneyByStage({
           <Table
             columns={['"Calm down now" on the menu', 'Started', 'Finished']}
             rows={toolRows('menu')}
+          />
+          <Table
+            columns={['Their tool, from the home page', 'Started', 'Finished']}
+            rows={toolRows('home')}
           />
         </StageCard>
 
@@ -670,7 +684,7 @@ export function JourneyByStage({
                 values: [
                   anyTool('ground', 'start'),
                   anyTool('ground', 'done'),
-                  '–',
+                  anyTool('ground', 'stop'),
                 ],
               },
             ]}

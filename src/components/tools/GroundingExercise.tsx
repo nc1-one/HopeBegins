@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { analyticsService, type ToolSource } from '@/services/analyticsService';
 import type { FeelingLang } from '@/lib/feelingPages';
+import { rememberTool } from '@/lib/myTool';
 
 const counts = [5, 4, 3, 2, 1];
 
@@ -16,6 +17,9 @@ const copy = {
       'Name 1 thing you can taste',
     ],
     hint: 'Say them out loud or in your head. Take your time.',
+    label: '5-4-3-2-1 grounding',
+    stepOf: (step: number) => `Step ${step} of 5.`,
+    stop: 'Stop',
     next: 'Next',
     finish: 'Finish',
     doneTitle: "That's all five.",
@@ -31,6 +35,9 @@ const copy = {
       'Magbanggit ng 1 lasa sa bibig mo',
     ],
     hint: 'Sabihin nang malakas o sa isip lang. Dahan-dahan lang.',
+    label: '5-4-3-2-1 grounding',
+    stepOf: (step: number) => `Hakbang ${step} ng 5.`,
+    stop: 'Itigil',
     next: 'Susunod',
     finish: 'Tapos na',
     doneTitle: 'Tapos na ang lima.',
@@ -60,6 +67,15 @@ export function GroundingExercise({
   const [step, setStep] = useState(0);
   const isDone = step >= counts.length;
   const counted = useRef({ start: false, done: false });
+  const boxRef = useRef<HTMLDivElement>(null);
+  const doneRef = useRef<HTMLParagraphElement>(null);
+
+  // Screen readers land in the exercise when it opens, and on the finish.
+  useEffect(() => {
+    const target = isDone ? doneRef.current : boxRef.current;
+    target?.focus({ preventScroll: true });
+    target?.scrollIntoView({ block: 'nearest' });
+  }, [isDone]);
 
   useEffect(() => {
     if (counted.current.start) return;
@@ -71,14 +87,25 @@ export function GroundingExercise({
     if (!isDone || counted.current.done) return;
     counted.current.done = true;
     analyticsService.recordClick(`tool_ground_done_${source}`);
+    rememberTool('ground');
     onFinish?.();
   }, [isDone, source, onFinish]);
 
   return (
-    <div className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 text-center">
+    <div
+      ref={boxRef}
+      tabIndex={-1}
+      role="group"
+      aria-label={t.label}
+      className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 text-center focus:outline-none"
+    >
       {isDone ? (
         <>
-          <p className="font-poppins font-bold text-lg text-[#6E5F47]">
+          <p
+            ref={doneRef}
+            tabIndex={-1}
+            className="font-poppins font-bold text-lg text-[#6E5F47] focus:outline-none"
+          >
             {t.doneTitle}
           </p>
           <p className="mt-1 text-[#6E5F47]">{t.doneText}</p>
@@ -110,16 +137,29 @@ export function GroundingExercise({
             className="mt-1 font-poppins font-bold text-lg text-[#6E5F47]"
             aria-live="polite"
           >
+            <span className="sr-only">{t.stepOf(step + 1)} </span>
             {t.prompts[step]}
           </p>
           <p className="mt-1 text-sm text-[#6E5F47]">{t.hint}</p>
-          <button
-            type="button"
-            onClick={() => setStep((s) => s + 1)}
-            className="mt-5 rounded-2xl bg-[#6E5F47] px-6 py-3 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
-          >
-            {step === counts.length - 1 ? t.finish : t.next}
-          </button>
+          <div className="mt-5 flex justify-center gap-3">
+            <button
+              type="button"
+              onClick={() => setStep((s) => s + 1)}
+              className="rounded-2xl bg-[#6E5F47] px-6 py-3 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
+            >
+              {step === counts.length - 1 ? t.finish : t.next}
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                analyticsService.recordClick(`tool_ground_stop_${source}`);
+                onClose();
+              }}
+              className="rounded-2xl px-5 py-3 font-poppins font-bold text-[#6E5F47] transition-colors hover:bg-[#DFE7CF] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
+            >
+              {t.stop}
+            </button>
+          </div>
         </>
       )}
     </div>

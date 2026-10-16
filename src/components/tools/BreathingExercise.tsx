@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { analyticsService, type ToolSource } from '@/services/analyticsService';
 import type { FeelingLang } from '@/lib/feelingPages';
+import { rememberTool } from '@/lib/myTool';
 
 const BREATHE_IN = 4;
 const BREATHE_OUT = 6;
@@ -11,6 +12,7 @@ const CYCLE = BREATHE_IN + BREATHE_OUT;
 
 const copy = {
   en: {
+    label: 'Slow breathing',
     breatheIn: 'Breathe in',
     breatheOut: 'Breathe out',
     round: (round: number) =>
@@ -23,6 +25,7 @@ const copy = {
     close: 'Close',
   },
   tl: {
+    label: 'Dahan-dahang paghinga',
     breatheIn: 'Hinga papasok',
     breatheOut: 'Hinga palabas',
     round: (round: number) =>
@@ -59,6 +62,15 @@ export function BreathingExercise({
 
   const isDone = elapsed >= CYCLE * ROUNDS;
   const counted = useRef({ start: false, done: false });
+  const boxRef = useRef<HTMLDivElement>(null);
+  const doneRef = useRef<HTMLParagraphElement>(null);
+
+  // Screen readers land in the exercise when it opens, and on the finish.
+  useEffect(() => {
+    const target = isDone ? doneRef.current : boxRef.current;
+    target?.focus({ preventScroll: true });
+    target?.scrollIntoView({ block: 'nearest' });
+  }, [isDone]);
 
   useEffect(() => {
     if (counted.current.start) return;
@@ -70,6 +82,7 @@ export function BreathingExercise({
     if (!isDone || counted.current.done) return;
     counted.current.done = true;
     analyticsService.recordClick(`tool_breathe_done_${source}`);
+    rememberTool('breathe');
     onFinish?.();
   }, [isDone, source, onFinish]);
   const inCycle = elapsed % CYCLE;
@@ -86,7 +99,11 @@ export function BreathingExercise({
   if (isDone) {
     return (
       <div className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 text-center">
-        <p className="font-poppins font-bold text-lg text-[#6E5F47]">
+        <p
+          ref={doneRef}
+          tabIndex={-1}
+          className="font-poppins font-bold text-lg text-[#6E5F47] focus:outline-none"
+        >
           {t.doneTitle}
         </p>
         <p className="mt-1 text-[#6E5F47]">{t.doneText}</p>
@@ -105,7 +122,13 @@ export function BreathingExercise({
   }
 
   return (
-    <div className="mt-5 rounded-2xl bg-[#EFF3E7] p-6">
+    <div
+      ref={boxRef}
+      tabIndex={-1}
+      role="group"
+      aria-label={t.label}
+      className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 focus:outline-none"
+    >
       <div className="flex flex-col items-center">
         <div className="relative flex h-44 w-44 items-center justify-center">
           <div
