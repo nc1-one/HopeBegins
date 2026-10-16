@@ -11,7 +11,7 @@ const publicRoutes = [
   '/hopecasts',
   '/daily-hope',
   '/give-hope',
-  '/our-story',
+  '/our-approach',
   '/be-carrier',
   '/guidelines',
   '/privacy',

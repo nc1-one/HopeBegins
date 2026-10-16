@@ -36,6 +36,7 @@ const OTHER_PAGES: [string, string][] = [
   ['hopecasts', 'HopeCasts'],
   ['daily_hope', 'Daily Hope'],
   ['give_hope', 'Give Hope'],
+  ['our_approach', 'Our Approach'],
 ];
 
 const cardClass = 'border-none shadow-2xl bg-white dark:bg-zinc-900 p-6';

@@ -6,6 +6,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     // One address for Google: www.hopebegins.today goes to hopebegins.today.
     return [
+      // Our Story became Our approach.
+      {
+        source: '/our-story',
+        destination: '/our-approach',
+        permanent: true,
+      },
       {
         source: '/:path*',
         has: [{ type: 'host', value: 'www.hopebegins.today' }],

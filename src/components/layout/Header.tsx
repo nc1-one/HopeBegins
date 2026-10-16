@@ -45,7 +45,7 @@ export function Header() {
     { href: '/', label: 'Home', icon: Home },
     { href: 'https://warroom.hopebegins.today', label: 'War Room' },
     { href: '/give-hope', label: 'Our Impact' },
-    { href: '/our-story', label: 'Our Story' },
+    { href: '/our-approach', label: 'Our Approach' },
   ];
 
   const handleHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
