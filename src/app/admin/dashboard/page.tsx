@@ -7,11 +7,14 @@ import { useDashboard } from './hooks/useDashboard';
 import { StatCards } from './components/StatCards';
 import { DashboardCharts } from './components/DashboardCharts';
 import { RecentPrayers } from './components/RecentPrayers';
+import { VisitorsAndTools } from './components/VisitorsAndTools';
 
 export default function AdminDashboard() {
   const {
     stats,
     analytics,
+    clicks,
+    isClicksLoading,
     dateRange,
     handleDateChange,
     isLoading,
@@ -63,6 +66,9 @@ export default function AdminDashboard() {
 
       {/* ── Stat Cards ── */}
       <StatCards stats={stats} isLoading={isLoading} />
+
+      {/* ── Visitors and tool use ── */}
+      <VisitorsAndTools clicks={clicks} isLoading={isClicksLoading} />
 
       {/* ── Charts ── */}
       <DashboardCharts analytics={analytics} isLoading={isLoading} />

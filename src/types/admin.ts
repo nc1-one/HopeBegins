@@ -231,3 +231,13 @@ export interface AnalyticsData {
     end_date: string;
   };
 }
+
+/** Anonymous visit and tool counts from /analytics/clicks/. */
+export interface ClickAnalytics {
+  date_range: { start_date: string; end_date: string };
+  /** First day with daily counts; earlier events only appear in all_time. */
+  tracked_since: string | null;
+  totals: Record<string, number>;
+  daily: { date: string; link_name: string; count: number }[];
+  all_time: Record<string, number>;
+}

@@ -30,6 +30,16 @@ export function useDashboard() {
       adminService.getAnalytics(dateRange.startDate, dateRange.endDate),
   });
 
+  const {
+    data: clicks,
+    isLoading: isClicksLoading,
+    refetch: refetchClicks,
+  } = useQuery({
+    queryKey: ['admin', 'clicks', dateRange],
+    queryFn: () =>
+      adminService.getClickAnalytics(dateRange.startDate, dateRange.endDate),
+  });
+
   const handleDateChange = (start: string, end: string) => {
     setDateRange({ startDate: start, endDate: end });
   };
@@ -37,6 +47,8 @@ export function useDashboard() {
   return {
     stats,
     analytics,
+    clicks,
+    isClicksLoading,
     dateRange,
     handleDateChange,
     isLoading: isStatsLoading || isAnalyticsLoading,
@@ -44,6 +56,7 @@ export function useDashboard() {
     refetch: () => {
       refetchStats();
       refetchAnalytics();
+      refetchClicks();
     },
   };
 }

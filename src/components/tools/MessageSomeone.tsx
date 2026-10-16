@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 import { Check, Copy } from 'lucide-react';
 import type { FeelingLang } from '@/lib/feelingPages';
+import { analyticsService } from '@/services/analyticsService';
 
 const text = {
   tl: {
@@ -37,6 +38,7 @@ export function MessageSomeone({ lang = 'tl' }: { lang?: FeelingLang }) {
     try {
       await navigator.clipboard.writeText(t.message);
       setCopied(true);
+      analyticsService.recordClick('tool_message_copy');
     } catch {
       // Clipboard blocked: select the message so it can be copied by hand.
       const node = messageRef.current;

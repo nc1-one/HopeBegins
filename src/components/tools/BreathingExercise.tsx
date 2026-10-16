@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { analyticsService } from '@/services/analyticsService';
 import type { FeelingLang } from '@/lib/feelingPages';
 
 const BREATHE_IN = 4;
@@ -48,6 +49,19 @@ export function BreathingExercise({
   const [isPaused, setIsPaused] = useState(false);
 
   const isDone = elapsed >= CYCLE * ROUNDS;
+  const counted = useRef({ start: false, done: false });
+
+  useEffect(() => {
+    if (counted.current.start) return;
+    counted.current.start = true;
+    analyticsService.recordClick('tool_breathe_start');
+  }, []);
+
+  useEffect(() => {
+    if (!isDone || counted.current.done) return;
+    counted.current.done = true;
+    analyticsService.recordClick('tool_breathe_done');
+  }, [isDone]);
   const inCycle = elapsed % CYCLE;
   const isBreathingIn = inCycle < BREATHE_IN;
   const count = isBreathingIn ? BREATHE_IN - inCycle : CYCLE - inCycle;
