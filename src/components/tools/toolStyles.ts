@@ -1,6 +1,6 @@
 /** Shared looks for the guided tools, matching breathing and 5-4-3-2-1. */
 export const panelClass =
-  'mt-5 rounded-2xl bg-[#EFF3E7] p-6 text-[#6E5F47] focus:outline-none';
+  'mt-5 rounded-2xl bg-[#EFF3E7] p-6 text-[#6E5F47] focus:outline-none hb-panel-in';
 export const primaryClass =
   'inline-flex min-h-11 items-center justify-center rounded-2xl bg-[#6E5F47] px-6 py-3 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50';
 export const secondaryClass =
