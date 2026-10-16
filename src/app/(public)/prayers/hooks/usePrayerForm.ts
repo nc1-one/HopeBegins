@@ -67,7 +67,7 @@ export function usePrayerForm() {
     },
     onError: (error: any) => {
       notify.error(
-        error.message || 'Failed to submit prayer. Please try again.'
+        error.message || "Your request didn't go through. Please try again."
       );
     },
   });

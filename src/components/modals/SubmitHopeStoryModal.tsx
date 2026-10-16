@@ -35,23 +35,23 @@ const formSchema = z.object({
   occupation: z.string().optional(),
   testimonial: z
     .string()
-    .min(10, 'Testimonial must be at least 10 characters')
+    .min(10, 'Please write at least 10 characters.')
     .refine((val) => val.split(/\s+/).filter(Boolean).length <= MAX_WORDS, {
-      message: `Testimonial must be ${MAX_WORDS} words or less`,
+      message: `Please keep it to ${MAX_WORDS} words or fewer.`,
     }),
   photo: z
     .any()
     .refine(
       (files) =>
         !files || files?.length === 0 || files?.[0]?.size <= MAX_FILE_SIZE,
-      'Max image size is 5MB.'
+      'That photo is too big. Please use one under 5 MB.'
     )
     .refine(
       (files) =>
         !files ||
         files?.length === 0 ||
         ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
-      'Only .jpg, .jpeg, .png and .webp formats are supported.'
+      'Please use a JPG, PNG or WebP photo.'
     )
     .optional(),
 });
@@ -91,9 +91,7 @@ export function SubmitHopeStoryModal({
       };
 
       await hopeStoryService.submitStory(data);
-      toast.success(
-        'Hope story submitted successfully! It will be reviewed by our team.'
-      );
+      toast.success("Thank you. We'll read it before it goes up.");
       form.reset();
       setPreviewUrl(null);
       onClose();
@@ -101,7 +99,7 @@ export function SubmitHopeStoryModal({
       toast.error(
         error?.response?.data?.message ||
           error?.message ||
-          'Failed to submit hope story. Please try again.'
+          "Your story didn't go through. Please try again."
       );
     } finally {
       setIsSubmitting(false);
@@ -131,8 +129,8 @@ export function SubmitHopeStoryModal({
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      title="Share Your Hope Story"
-      description="Submit how HopeBegins helped you in your journey. Share your testimonial here."
+      title="Share your story"
+      description="How did HopeBegins help you? Tell us in your own words."
       icon={<Heart className="h-6 w-6 text-rose-500 fill-rose-500" />}
     >
       <Form {...form}>
@@ -142,9 +140,9 @@ export function SubmitHopeStoryModal({
             name="full_name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Full Name for Display</FormLabel>
+                <FormLabel>Name to show</FormLabel>
                 <FormControl>
-                  <Input placeholder="John Doe" {...field} />
+                  <Input placeholder="Juan dela Cruz" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -156,9 +154,9 @@ export function SubmitHopeStoryModal({
             name="occupation"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Occupation (Optional)</FormLabel>
+                <FormLabel>Occupation (optional)</FormLabel>
                 <FormControl>
-                  <Input placeholder="Teacher, Student, etc." {...field} />
+                  <Input placeholder="Teacher, student, nurse" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -171,7 +169,7 @@ export function SubmitHopeStoryModal({
             render={({ field }) => (
               <FormItem>
                 <div className="flex justify-between items-center">
-                  <FormLabel>Testimonial</FormLabel>
+                  <FormLabel>Your story</FormLabel>
                   <span
                     className={`text-xs font-medium ${wordCount > MAX_WORDS ? 'text-red-500' : 'text-zinc-400'}`}
                   >
@@ -180,7 +178,7 @@ export function SubmitHopeStoryModal({
                 </div>
                 <FormControl>
                   <Textarea
-                    placeholder="Share your story here..."
+                    placeholder="Write it here"
                     className="min-h-[120px] resize-none"
                     {...field}
                   />
@@ -195,7 +193,7 @@ export function SubmitHopeStoryModal({
             name="photo"
             render={({ field: { onChange, onBlur, name, ref } }) => (
               <FormItem>
-                <FormLabel>Upload Photo</FormLabel>
+                <FormLabel>Photo (optional)</FormLabel>
                 <FormControl>
                   <div className="space-y-4">
                     {!previewUrl ? (
@@ -203,10 +201,10 @@ export function SubmitHopeStoryModal({
                         <div className="flex flex-col items-center justify-center pt-5 pb-6">
                           <Upload className="w-8 h-8 text-zinc-400 mb-2" />
                           <p className="text-sm text-zinc-500 font-medium">
-                            Click to upload photo
+                            Tap to add a photo
                           </p>
                           <p className="text-xs text-zinc-400 mt-1">
-                            Portrait photos work best (Max 5MB)
+                            Portrait photos work best (up to 5 MB)
                           </p>
                         </div>
                         <input
@@ -235,6 +233,7 @@ export function SubmitHopeStoryModal({
                         <button
                           type="button"
                           onClick={removeImage}
+                          aria-label="Remove photo"
                           className="absolute inset-0 flex items-center justify-center bg-black/50 text-white transition-opacity opacity-0 group-hover:opacity-100"
                         >
                           <X className="h-5 w-5" />
@@ -254,7 +253,7 @@ export function SubmitHopeStoryModal({
               className="w-full h-12 rounded-2xl text-base font-bold"
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Submitting...' : 'Submit Story'}
+              {isSubmitting ? 'Sending…' : 'Send my story'}
             </Button>
             <Button
               type="button"

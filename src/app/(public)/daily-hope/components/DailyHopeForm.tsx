@@ -143,7 +143,7 @@ export function DailyHopeForm() {
       </Card>
 
       <p className="text-sm text-[#6E5F47]">
-        Free. One email a day for 21 days.
+        Day 1 arrives right after you sign up.
       </p>
 
       <div className="rounded-2xl bg-[#EFF3E7] p-5 text-[#6E5F47]">

@@ -1,34 +1,65 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import headerLogo from '@/assets/images/header-logo.png';
-import { Button } from '@/components/ui/button';
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { feelingPages } from '@/lib/feelingPages';
 
+const linkClass =
+  'inline-flex min-h-11 items-center text-sm text-white/90 underline-offset-4 hover:text-white hover:underline focus-visible:underline focus-visible:outline-none';
+const headingClass = 'text-balance font-poppins text-sm font-bold text-white';
+const socialClass =
+  'inline-flex h-11 w-11 items-center justify-center rounded-full opacity-90 transition-all hover:bg-white/10 hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60';
+
+const columns: {
+  heading: string;
+  lang?: 'tl' | 'en';
+  links: { href: string; label: string }[];
+}[] = [
+  {
+    heading: 'Kung ano ang nararamdaman mo',
+    lang: 'tl',
+    links: feelingPages
+      .filter((page) => page.lang === 'tl')
+      .map((page) => ({ href: `/${page.slug}`, label: page.label })),
+  },
+  {
+    heading: 'What you might be feeling',
+    lang: 'en',
+    links: feelingPages
+      .filter((page) => page.lang === 'en')
+      .map((page) => ({ href: `/${page.slug}`, label: page.label })),
+  },
+  {
+    heading: 'Free help',
+    links: [
+      { href: '/laro-muna', label: 'Laro muna: Find the pair' },
+      { href: '/action-plan', label: 'Make your free plan' },
+      { href: '/prayers', label: 'Ask for prayer' },
+      { href: '/hope-ai', label: 'Talk to Hope AI' },
+      { href: '/our-approach', label: 'Our approach' },
+    ],
+  },
+  {
+    heading: 'Hope Carriers',
+    links: [
+      { href: '/be-carrier', label: 'Be a Hope Carrier' },
+      { href: '/login/carrier', label: 'Hope Carrier login' },
+      { href: '/give-hope', label: 'Give' },
+      { href: '/privacy', label: 'Privacy and confidentiality' },
+    ],
+  },
+];
+
 export function Footer() {
   return (
-    <footer className="bg-[#6b634d] py-10 px-6 text-white mt-auto">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex flex-wrap justify-center gap-3 mb-6">
-          <Button
-            variant="outline"
-            asChild
-            className="min-h-11 bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-lg px-6 font-poppins font-bold uppercase tracking-widest text-xs"
-          >
-            <Link href="/be-carrier">I Want to Be a Hope Carrier</Link>
-          </Button>
-          <Button
-            variant="outline"
-            asChild
-            className="min-h-11 bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-lg px-6 font-poppins font-bold uppercase tracking-widest text-xs"
-          >
-            <Link href="/login/carrier">Carrier Login</Link>
-          </Button>
-        </div>
-
-        <div className="text-center space-y-4">
-          <div className="flex justify-center opacity-90 transition-opacity hover:opacity-100">
-            <Link href="/">
+    <footer className="mt-auto bg-[#6b634d] px-6 py-12 text-white">
+      <div className="mx-auto max-w-5xl">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div>
+            <Link
+              href="/"
+              className="inline-block opacity-90 hover:opacity-100"
+            >
               <Image
                 src={headerLogo}
                 alt="HopeBegins Logo"
@@ -38,15 +69,17 @@ export function Footer() {
                 className="brightness-0 invert"
               />
             </Link>
+            <p className="mt-2 font-poppins text-sm text-white/90">
+              Faith-driven mental health support
+            </p>
           </div>
-
-          <div className="flex justify-center gap-2 py-1">
+          <div className="-ml-3 flex gap-1 md:ml-0 md:-mr-3">
             <Link
               href="https://www.facebook.com/hopebeginstoday"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="HopeBegins on Facebook"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full opacity-90 transition-all hover:bg-white/10 hover:opacity-100"
+              className={socialClass}
             >
               <Facebook size={20} />
             </Link>
@@ -55,7 +88,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="HopeBegins on Instagram"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full opacity-90 transition-all hover:bg-white/10 hover:opacity-100"
+              className={socialClass}
             >
               <Instagram size={20} />
             </Link>
@@ -64,51 +97,37 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="HopeBegins on LinkedIn"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full opacity-90 transition-all hover:bg-white/10 hover:opacity-100"
+              className={socialClass}
             >
               <Linkedin size={20} />
             </Link>
           </div>
+        </div>
 
-          <div className="text-xs font-bold uppercase tracking-[0.3em] text-white/90 font-poppins">
-            Faith-Driven Mental Health Support
-          </div>
-          {(['tl', 'en'] as const).map((lang) => (
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {columns.map((column) => (
             <nav
-              key={lang}
-              lang={lang}
-              aria-label={
-                lang === 'tl'
-                  ? 'Kung ano ang nararamdaman mo'
-                  : 'What you might be feeling'
-              }
-              className="flex flex-wrap justify-center gap-x-4 pt-1 text-sm"
+              key={column.heading}
+              lang={column.lang}
+              aria-label={column.heading}
             >
-              {feelingPages
-                .filter((page) => page.lang === lang)
-                .map((page) => (
-                  <Link
-                    key={page.slug}
-                    href={`/${page.slug}`}
-                    className="inline-flex min-h-11 items-center text-white/90 underline-offset-4 hover:text-white hover:underline"
-                  >
-                    {page.label}
-                  </Link>
+              <p className={headingClass}>{column.heading}</p>
+              <ul className="mt-2">
+                {column.links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className={linkClass}>
+                      {link.label}
+                    </Link>
+                  </li>
                 ))}
+              </ul>
             </nav>
           ))}
-          <div className="pt-4">
-            <Link
-              href="/privacy"
-              className="inline-flex min-h-11 items-center text-sm text-white/90 underline-offset-4 hover:text-white hover:underline"
-            >
-              Privacy and Confidentiality
-            </Link>
-          </div>
-          <div className="pt-4 text-xs text-white/85">
-            © 2026 HOPEBEGINS. ALL RIGHTS RESERVED.
-          </div>
         </div>
+
+        <p className="mt-10 border-t border-white/15 pt-6 text-xs text-white/85">
+          © 2026 HopeBegins. All rights reserved.
+        </p>
       </div>
     </footer>
   );

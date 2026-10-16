@@ -9,8 +9,8 @@ export default function HopeAIPage() {
       <div className="max-w-5xl mx-auto">
         <div className="max-w-2xl">
           <OptionPageHeader
-            title="I Need to Talk to Hope AI"
-            subtitle="Talk it through with Hope, an AI assistant, at any hour of the day or night."
+            title="I need to talk to Hope AI"
+            subtitle="Talk it through with Hope AI at any hour of the day or night."
           />
 
           <div className="mt-8 flex min-h-[560px] flex-col overflow-hidden rounded-3xl border border-zinc-100 bg-white shadow-sm">
@@ -19,7 +19,8 @@ export default function HopeAIPage() {
 
           <div className="mt-6 space-y-3">
             <p className="text-sm text-[#6E5F47]">
-              Hope is an AI assistant, not a counselor.
+              Hope AI is an AI assistant. It can&apos;t counsel you or help in
+              an emergency.
             </p>
             <EcoachLink
               linkName="ecoach_hope_ai"

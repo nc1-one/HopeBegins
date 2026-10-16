@@ -50,7 +50,7 @@ export async function generateMetadata({
 }
 
 const cardClass =
-  'group flex h-full flex-col gap-3 rounded-2xl border border-zinc-100 bg-white p-5 transition-all duration-300 hover:border-[#DFE7CF] hover:shadow-lg hover:shadow-[#6E5F47]/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
+  'group flex h-full items-center gap-4 rounded-2xl border border-zinc-100 bg-white p-5 transition-all lg:flex-col lg:items-start lg:gap-3 duration-300 hover:border-[#DFE7CF] hover:shadow-lg hover:shadow-[#6E5F47]/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
 
 function StepBody({
   icon: Icon,
@@ -63,7 +63,7 @@ function StepBody({
 }) {
   return (
     <>
-      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#E9EFEE] text-[#91AFAA]">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#E9EFEE] text-[#91AFAA]">
         <Icon className="h-5 w-5" />
       </div>
       <div className="flex-1">
@@ -72,7 +72,7 @@ function StepBody({
           {description}
         </p>
       </div>
-      <ArrowRight className="h-4 w-4 text-[#C5BFB5] transition-all group-hover:translate-x-1 group-hover:text-[#6E5F47] motion-reduce:transition-none" />
+      <ArrowRight className="h-4 w-4 shrink-0 text-[#C5BFB5] transition-all group-hover:translate-x-1 group-hover:text-[#6E5F47] motion-reduce:transition-none" />
     </>
   );
 }
@@ -224,7 +224,7 @@ export default async function FeelingPage({
           >
             {ui.nextHeading}
           </h2>
-          <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
             {nextSteps}
           </div>
           <p className="mt-6 text-sm text-[#6E5F47]">

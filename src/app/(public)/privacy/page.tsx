@@ -15,7 +15,7 @@ const sections = [
     title: 'What we collect',
     items: [
       'Prayer requests: your name, email, the message you write, and the category and organization you choose.',
-      'Daily Hope Drops: your first name, last name and email.',
+      'Daily Hope emails: your first name, last name and email.',
       'Hope Stories: your name, occupation, photo and story. We publish a story only after we review and approve it.',
       'Hopeful Beginning Plan: your answers, plan, progress and Hope Card are saved only in your browser on your device, so you can come back to them. They are not sent to us, and you can delete them at any time from the plan page. If you download a backup file, it stays with you; we never receive it. If you ask us to email your plan, we receive your email, your first name if you give it, and the plan.',
       'Plan check-in: if you ask us to check on you, we keep your email and first name until we send that one email 7 days later, then delete them.',
@@ -62,81 +62,83 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <div className="px-6 pt-10 pb-24">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="font-playfair text-4xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
-          Privacy and Confidentiality
-        </h1>
-        <p className="mt-4 text-sm text-[#6E5F47]">
-          Last updated {LAST_UPDATED}
-        </p>
-        <p className="mt-6 font-poppins text-lg text-[#6E5F47] leading-relaxed tracking-[-0.022em]">
-          People share personal and painful things with HopeBegins. This page
-          explains what we collect, who can see it, how we protect it, and the
-          choices you have.
-        </p>
+      <div className="max-w-5xl mx-auto">
+        <div className="max-w-3xl">
+          <h1 className="font-playfair text-4xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
+            Privacy and Confidentiality
+          </h1>
+          <p className="mt-4 text-sm text-[#6E5F47]">
+            Last updated {LAST_UPDATED}
+          </p>
+          <p className="mt-6 font-poppins text-lg text-[#6E5F47] leading-relaxed tracking-[-0.022em]">
+            People share personal and painful things with HopeBegins. This page
+            explains what we collect, who can see it, how we protect it, and the
+            choices you have.
+          </p>
 
-        <div className="mt-12 space-y-10">
-          {sections.map((section) => (
-            <section key={section.title}>
+          <div className="mt-12 space-y-10">
+            {sections.map((section) => (
+              <section key={section.title}>
+                <h2 className="font-poppins font-bold text-xl text-[#6E5F47]">
+                  {section.title}
+                </h2>
+                <ul className="mt-4 space-y-3 list-disc pl-5 marker:text-[#AEC488]">
+                  {section.items.map((item) => (
+                    <li key={item} className="text-[#6E5F47] leading-relaxed">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+
+            <section>
               <h2 className="font-poppins font-bold text-xl text-[#6E5F47]">
-                {section.title}
+                Contact us
               </h2>
-              <ul className="mt-4 space-y-3 list-disc pl-5 marker:text-[#AEC488]">
-                {section.items.map((item) => (
-                  <li key={item} className="text-[#6E5F47] leading-relaxed">
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <p className="mt-4 text-[#6E5F47] leading-relaxed">
+                To make a request about your information, email{' '}
+                <a
+                  href={`mailto:${PRIVACY_EMAIL}`}
+                  className="font-bold underline underline-offset-4"
+                >
+                  {PRIVACY_EMAIL}
+                </a>
+                . Read the Hope Carrier{' '}
+                <Link
+                  href="/guidelines"
+                  className="font-bold underline underline-offset-4"
+                >
+                  Code of Conduct
+                </Link>
+                .
+              </p>
             </section>
-          ))}
 
-          <section>
-            <h2 className="font-poppins font-bold text-xl text-[#6E5F47]">
-              Contact us
-            </h2>
-            <p className="mt-4 text-[#6E5F47] leading-relaxed">
-              To make a request about your information, email{' '}
-              <a
-                href={`mailto:${PRIVACY_EMAIL}`}
-                className="font-bold underline underline-offset-4"
-              >
-                {PRIVACY_EMAIL}
-              </a>
-              . Read the Hope Carrier{' '}
-              <Link
-                href="/guidelines"
-                className="font-bold underline underline-offset-4"
-              >
-                Code of Conduct
-              </Link>
-              .
-            </p>
-          </section>
-
-          <section className="rounded-2xl bg-[#EFF3E7] p-6">
-            <h2 className="font-poppins font-bold text-xl text-[#6E5F47]">
-              HopeBegins is not an emergency service
-            </h2>
-            <p className="mt-3 text-[#6E5F47] leading-relaxed">
-              If you are in crisis or thinking of ending your life, call the
-              NCMH Crisis Hotline, open 24/7:{' '}
-              <a
-                href="tel:1553"
-                className="font-bold underline underline-offset-4"
-              >
-                1553
-              </a>{' '}
-              or{' '}
-              <a
-                href="tel:+639178998727"
-                className="font-bold underline underline-offset-4 whitespace-nowrap"
-              >
-                0917 899 8727
-              </a>
-              . If you are in immediate danger, call 911.
-            </p>
-          </section>
+            <section className="rounded-2xl bg-[#EFF3E7] p-6">
+              <h2 className="font-poppins font-bold text-xl text-[#6E5F47]">
+                HopeBegins is not an emergency service
+              </h2>
+              <p className="mt-3 text-[#6E5F47] leading-relaxed">
+                If you are in crisis or thinking of ending your life, call the
+                NCMH Crisis Hotline, open 24/7:{' '}
+                <a
+                  href="tel:1553"
+                  className="font-bold underline underline-offset-4"
+                >
+                  1553
+                </a>{' '}
+                or{' '}
+                <a
+                  href="tel:+639178998727"
+                  className="font-bold underline underline-offset-4 whitespace-nowrap"
+                >
+                  0917 899 8727
+                </a>
+                . If you are in immediate danger, call 911.
+              </p>
+            </section>
+          </div>
         </div>
       </div>
     </div>

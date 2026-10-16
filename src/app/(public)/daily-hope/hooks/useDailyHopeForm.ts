@@ -9,9 +9,11 @@ import { dailyHopeService } from '@/services/dailyHopeService';
 import { toast } from 'sonner';
 
 const dailyHopeSchema = z.object({
-  firstName: z.string().min(2, { message: 'First name is required' }),
-  lastName: z.string().min(1, { message: 'Last name is required' }),
-  email: z.string().email({ message: 'Please enter a valid email address' }),
+  firstName: z.string().min(2, { message: 'Please enter your first name.' }),
+  lastName: z.string().min(1, { message: 'Please enter your last name.' }),
+  email: z
+    .string()
+    .email({ message: "That email doesn't look right. Please check it." }),
   website: z.string().optional(),
   lastNameHoney: z.string().optional(),
   startTime: z.number().optional(),

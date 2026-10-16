@@ -9,8 +9,8 @@ export default function DailyHopePage() {
       <div className="max-w-5xl mx-auto">
         <div className="max-w-2xl">
           <OptionPageHeader
-            title="I Need Daily Hope"
-            subtitle="Get a Daily Hope Drop in your inbox: a short message of encouragement, every day for 21 days."
+            title="I need Daily Hope"
+            subtitle="A short, encouraging email every day for 21 days. Free."
           />
           <div className="mt-8">
             <DailyHopeForm />

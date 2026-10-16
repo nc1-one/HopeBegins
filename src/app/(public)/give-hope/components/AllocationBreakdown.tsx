@@ -1,23 +1,24 @@
 const ALLOCATIONS = [
   {
     percent: '40%',
-    label: 'Technology & Platform',
-    description: 'Keeping HopeBegins accessible and free for everyone',
+    label: 'Keeping the site running',
+    description: 'So HopeBegins stays up and free for everyone',
   },
   {
     percent: '30%',
-    label: 'Content Creation',
-    description: 'Producing HopeCasts, devotionals, and Daily Hope Drops',
+    label: 'New HopeCasts and devotionals',
+    description:
+      'Recording HopeCasts and writing devotionals and Daily Hope emails',
   },
   {
     percent: '20%',
-    label: 'Outreach & Growth',
-    description: 'Reaching more people who need hope',
+    label: 'Reaching more people',
+    description: 'Helping more Filipinos who are struggling find HopeBegins',
   },
   {
     percent: '10%',
-    label: 'Operations',
-    description: 'Supporting the team and volunteers behind HopeBegins',
+    label: 'Supporting the team',
+    description: 'Helping the team and volunteers who keep HopeBegins going',
   },
 ];
 
@@ -29,7 +30,7 @@ export function AllocationBreakdown() {
           id="allocation-title"
           className="mb-6 font-poppins text-xl font-bold text-[#6E5F47]"
         >
-          Where your Hope Seed goes
+          Where your gift goes
         </h2>
         <div className="space-y-4">
           {ALLOCATIONS.map((item) => (

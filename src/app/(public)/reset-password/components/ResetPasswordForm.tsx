@@ -40,20 +40,19 @@ export function ResetPasswordForm() {
               <CheckCircle2 className="w-8 h-8" />
             </div>
           </div>
-          <CardTitle className="text-3xl font-black italic tracking-tighter text-zinc-900 dark:text-zinc-50 uppercase">
-            Success!
+          <CardTitle className="text-3xl font-black italic tracking-tighter text-zinc-900 dark:text-zinc-50">
+            Password changed
           </CardTitle>
           <CardDescription className="text-zinc-500 font-medium px-6">
-            Your password has been reset successfully. Redirecting you to
-            login...
+            Your new password is set. Taking you to the login page…
           </CardDescription>
         </CardHeader>
         <CardContent className="px-8 pb-10">
           <Link
             href={loginHref}
-            className="w-full h-14 bg-[#6E5F47] hover:bg-[#5c4f3b] text-white font-black text-xs uppercase tracking-[0.2em] rounded-2xl shadow-xl shadow-[#6E5F47]/20 transition-all flex items-center justify-center"
+            className="w-full h-14 bg-[#6E5F47] hover:bg-[#5c4f3b] text-white font-bold text-base rounded-2xl shadow-xl shadow-[#6E5F47]/20 transition-all flex items-center justify-center"
           >
-            Go to Login
+            Go to login
           </Link>
         </CardContent>
       </Card>
@@ -68,18 +67,21 @@ export function ResetPasswordForm() {
             <Lock className="w-8 h-8" />
           </div>
         </div>
-        <CardTitle className="text-3xl font-black italic tracking-tighter text-zinc-900 dark:text-zinc-50 uppercase">
-          New Password
+        <CardTitle className="text-3xl font-black italic tracking-tighter text-zinc-900 dark:text-zinc-50">
+          Set a new password
         </CardTitle>
         <CardDescription className="text-zinc-500 font-medium px-6">
-          Set a strong, secure password for your hub.
+          Choose a password with at least 8 characters.
         </CardDescription>
       </CardHeader>
       <CardContent className="px-8 pb-10">
         {!hasToken ? (
-          <div className="mb-6 p-4 rounded-2xl bg-rose-50 dark:bg-rose-900/20 border border-rose-100 dark:border-rose-800 flex items-center gap-3 text-rose-600 dark:text-rose-400 text-xs font-bold uppercase tracking-tight">
+          <div className="mb-6 p-4 rounded-2xl bg-rose-50 dark:bg-rose-900/20 border border-rose-100 dark:border-rose-800 flex items-center gap-3 text-rose-600 dark:text-rose-400 text-sm font-bold">
             <AlertCircle className="w-4 h-4 flex-shrink-0" />
-            <p>Invalid or expired reset link. Please request a new one.</p>
+            <p>
+              This link has expired or doesn&apos;t work. Please ask for a new
+              one.
+            </p>
           </div>
         ) : (
           <Form {...form}>
@@ -89,8 +91,8 @@ export function ResetPasswordForm() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 ml-1">
-                      New Security Key
+                    <FormLabel className="text-sm font-bold text-zinc-600 ml-1">
+                      New password
                     </FormLabel>
                     <FormControl>
                       <div className="relative group">
@@ -113,8 +115,8 @@ export function ResetPasswordForm() {
                 name="confirm_password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 ml-1">
-                      Confirm Security Key
+                    <FormLabel className="text-sm font-bold text-zinc-600 ml-1">
+                      Type the new password again
                     </FormLabel>
                     <FormControl>
                       <div className="relative group">
@@ -134,14 +136,14 @@ export function ResetPasswordForm() {
 
               <Button
                 type="submit"
-                className="w-full h-14 bg-[#6E5F47] hover:bg-[#5c4f3b] text-white font-black text-xs uppercase tracking-[0.2em] rounded-2xl shadow-xl shadow-[#6E5F47]/20 transition-all duration-500 mt-4 group"
+                className="w-full h-14 bg-[#6E5F47] hover:bg-[#5c4f3b] text-white font-bold text-base rounded-2xl shadow-xl shadow-[#6E5F47]/20 transition-all duration-500 mt-4 group"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
                   <Loader2 className="w-5 h-5 animate-spin" />
                 ) : (
                   <span className="flex items-center gap-3">
-                    Reset Security Key
+                    Save new password
                   </span>
                 )}
               </Button>
@@ -152,10 +154,10 @@ export function ResetPasswordForm() {
         <div className="mt-8 flex justify-center">
           <Link
             href={loginHref}
-            className="flex min-h-11 items-center gap-2 text-xs font-black uppercase tracking-widest text-[#6E5F47] hover:text-[#5c4f3b] transition-colors group"
+            className="flex min-h-11 items-center gap-2 text-sm font-bold text-[#6E5F47] hover:text-[#5c4f3b] transition-colors group"
           >
             <ArrowLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
-            Back to Login
+            Back to login
           </Link>
         </div>
       </CardContent>

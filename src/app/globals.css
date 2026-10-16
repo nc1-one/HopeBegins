@@ -291,6 +291,35 @@
   }
 }
 
+/* Find the pair: a found pair gives a small nod. */
+@keyframes hb-pop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Find the pair: card backs woven like a banig mat. */
+.hb-banig {
+  background-color: #dfe7cf;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgb(174 196 136 / 0.5) 0 7px,
+      transparent 7px 14px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgb(255 255 255 / 0.6) 0 7px,
+      transparent 7px 14px
+    );
+}
+
 /* Our approach: the journey line fills in as you scroll past it. */
 @keyframes hb-grow {
   from {

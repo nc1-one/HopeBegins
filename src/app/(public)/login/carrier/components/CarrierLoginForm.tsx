@@ -32,17 +32,16 @@ export function CarrierLoginForm() {
             <ShieldCheck className="w-8 h-8" />
           </div>
         </div>
-        <CardTitle className="text-3xl font-black italic tracking-tighter text-zinc-900 dark:text-zinc-50 uppercase">
-          Carrier Login
+        <CardTitle className="text-3xl font-black italic tracking-tighter text-zinc-900 dark:text-zinc-50">
+          Welcome back
         </CardTitle>
         <CardDescription className="text-zinc-500 font-medium px-6">
-          Welcome back! Access your hub to continue standing in the gap for
-          others.
+          Log in to see the prayer requests waiting for you.
         </CardDescription>
       </CardHeader>
       <CardContent className="px-8 pb-10">
         {error && (
-          <div className="mb-6 p-4 rounded-2xl bg-rose-50 dark:bg-rose-900/20 border border-rose-100 dark:border-rose-800 flex items-center gap-3 text-rose-600 dark:text-rose-400 text-xs font-bold uppercase tracking-tight">
+          <div className="mb-6 p-4 rounded-2xl bg-rose-50 dark:bg-rose-900/20 border border-rose-100 dark:border-rose-800 flex items-center gap-3 text-rose-600 dark:text-rose-400 text-sm font-bold">
             <AlertCircle className="w-4 h-4 flex-shrink-0" />
             <p>{error}</p>
           </div>
@@ -55,8 +54,8 @@ export function CarrierLoginForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 ml-1">
-                    Email Identity
+                  <FormLabel className="text-sm font-bold text-zinc-600 ml-1">
+                    Email
                   </FormLabel>
                   <FormControl>
                     <div className="relative group">
@@ -79,14 +78,14 @@ export function CarrierLoginForm() {
               render={({ field }) => (
                 <FormItem>
                   <div className="flex items-center justify-between ml-1 mb-1">
-                    <FormLabel className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600">
-                      Security Key
+                    <FormLabel className="text-sm font-bold text-zinc-600">
+                      Password
                     </FormLabel>
                     <Link
                       href="/forgot-password"
-                      className="inline-flex min-h-11 items-center text-xs font-black uppercase tracking-widest text-[#6E5F47] hover:text-[#5c4f3b] transition-colors"
+                      className="inline-flex min-h-11 items-center text-sm font-bold text-[#6E5F47] hover:text-[#5c4f3b] transition-colors"
                     >
-                      Forgot?
+                      Forgot your password?
                     </Link>
                   </div>
                   <FormControl>
@@ -107,15 +106,13 @@ export function CarrierLoginForm() {
 
             <Button
               type="submit"
-              className="w-full h-14 bg-[#6E5F47] hover:bg-[#5c4f3b] text-white font-black text-xs uppercase tracking-[0.2em] rounded-2xl shadow-xl shadow-[#6E5F47]/20 transition-all duration-500 mt-4 group"
+              className="w-full h-14 bg-[#6E5F47] hover:bg-[#5c4f3b] text-white font-bold text-base rounded-2xl shadow-xl shadow-[#6E5F47]/20 transition-all duration-500 mt-4 group"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
                 <Loader2 className="w-5 h-5 animate-spin" />
               ) : (
-                <span className="flex items-center gap-3">
-                  Enter Command Hub
-                </span>
+                <span className="flex items-center gap-3">Log in</span>
               )}
             </Button>
           </form>

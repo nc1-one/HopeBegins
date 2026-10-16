@@ -37,6 +37,7 @@ const OTHER_PAGES: [string, string][] = [
   ['daily_hope', 'Daily Hope'],
   ['give_hope', 'Give Hope'],
   ['our_approach', 'Our Approach'],
+  ['laro_muna', 'Laro muna (the game page)'],
 ];
 
 const cardClass = 'border-none shadow-2xl bg-white dark:bg-zinc-900 p-6';
@@ -185,6 +186,11 @@ export function JourneyByStage({
       values: [tool('ground', 'start', source), tool('ground', 'done', source)],
     },
   ];
+  // Games played and finished: a new game counts as a new start.
+  const gameRow = (source: string): Row => ({
+    label: 'Find the pair game',
+    values: [tool('game', 'start', source), tool('game', 'done', source)],
+  });
   // Every page together, including the first days before tools noted where
   // they were used.
   const anyTool = (
@@ -390,6 +396,7 @@ export function JourneyByStage({
             columns={['Tool on a feeling page', 'Started', 'Finished']}
             rows={[
               ...toolRows('feeling'),
+              gameRow('feeling'),
               {
                 label: 'One small thing',
                 values: [
@@ -471,7 +478,7 @@ export function JourneyByStage({
           />
           <Table
             columns={['"Calm down now" on the menu', 'Started', 'Finished']}
-            rows={toolRows('menu')}
+            rows={[...toolRows('menu'), gameRow('menu')]}
           />
           <Table
             columns={['Their tool, from the home page', 'Started', 'Finished']}
@@ -725,6 +732,15 @@ export function JourneyByStage({
                 values: [
                   sumWhere(t, (name) => name.startsWith('tool_make_plan_')),
                   '–',
+                  '–',
+                  '–',
+                ],
+              },
+              {
+                label: 'Find the pair game',
+                values: [
+                  anyTool('game', 'start'),
+                  anyTool('game', 'done'),
                   '–',
                   '–',
                 ],

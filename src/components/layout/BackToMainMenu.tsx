@@ -14,6 +14,7 @@ const OPTION_PAGES = [
   '/hopecasts',
   '/daily-hope',
   '/give-hope',
+  '/laro-muna',
 ];
 
 export function BackToMainMenu() {
