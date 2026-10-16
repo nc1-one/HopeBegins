@@ -1,9 +1,9 @@
 import { CarrierLoginForm } from './components/CarrierLoginForm';
 
 export const metadata = {
-  title: 'Carrier Login',
+  title: 'Hope Carrier login',
   robots: { index: false },
-  description: 'Access the Hope Carrier dashboard and start praying.',
+  description: 'Log in to see the prayer requests waiting for you.',
 };
 
 export default function CarrierLoginPage() {
@@ -20,8 +20,8 @@ export default function CarrierLoginPage() {
           <h1 className="text-2xl font-black text-zinc-900 dark:text-zinc-50 font-poppins tracking-tighter uppercase italic">
             HopeBegins
           </h1>
-          <p className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.4em] mt-1 pr-1 border-r-2 border-[#b4c392]">
-            Carrier Portal
+          <p className="text-xs font-bold text-zinc-600 tracking-wide mt-1 pr-1 border-r-2 border-[#b4c392]">
+            Hope Carrier login
           </p>
         </div>
       </div>
@@ -30,8 +30,8 @@ export default function CarrierLoginPage() {
         <CarrierLoginForm />
       </div>
 
-      <footer className="mt-12 text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em]">
-        © 2026 HOPEBEGINS. STANDING IN THE GAP.
+      <footer className="mt-12 text-xs font-medium text-zinc-600">
+        © 2026 HopeBegins
       </footer>
     </div>
   );

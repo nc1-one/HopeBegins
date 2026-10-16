@@ -3,7 +3,7 @@ import { z } from 'zod';
 export const carrierApplicationSchema = z.object({
   first_name: z.string().min(1, 'First name is required'),
   last_name: z.string().min(1, 'Last name is required'),
-  email: z.string().email('Invalid email address'),
+  email: z.string().email("That email doesn't look right. Please check it."),
   phone: z.string().optional(),
   church_community: z.string().optional(),
   carrier_reason: z

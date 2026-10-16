@@ -7,7 +7,7 @@ import {
   Testimonial,
 } from '@/components/ui/testimonial-carousel';
 import { SubmitHopeStoryModal } from '@/components/modals/SubmitHopeStoryModal';
-import { Heart, Plus } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import hopeStoryService from '@/services/hopeStoryService';
 
 export function HopeStoriesSection() {
@@ -23,7 +23,7 @@ export function HopeStoriesSection() {
           id: story.id,
           content: story.testimonial,
           name: story.full_name,
-          role: story.occupation || 'Hope Participant',
+          role: story.occupation || undefined,
           avatar: story.photo || '', // Fallback handled in carousel or CSS
         }));
         setStories(mappedStories);
@@ -40,34 +40,38 @@ export function HopeStoriesSection() {
   }, []);
 
   return (
-    <section className="px-6 pb-32">
-      <div className="max-w-5xl mx-auto space-y-8 text-center">
-        <div className="flex flex-col items-center gap-4">
-          <div className="p-3 bg-rose-50 dark:bg-rose-900/20 rounded-2xl">
-            <Heart className="h-6 w-6 text-rose-500 fill-rose-500" />
-          </div>
+    <section aria-labelledby="stories-title" className="px-6 pb-24">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2 className="text-3xl font-bold font-poppins text-zinc-900 dark:text-zinc-100 tracking-tight">
-              Stories of Hope
+            <h2
+              id="stories-title"
+              className="font-playfair text-3xl md:text-5xl text-[#6E5F47] leading-[1.02] tracking-[-0.03em]"
+            >
+              Stories of hope
             </h2>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2 font-medium max-w-lg mx-auto leading-relaxed">
+            <p className="mt-3 max-w-lg text-[#6E5F47] leading-relaxed">
               What people say about their time with HopeBegins.
             </p>
           </div>
-
           <Button
             onClick={() => setIsModalOpen(true)}
-            className="mt-2 rounded-2xl px-6 h-12 font-bold shadow-lg shadow-rose-500/20"
+            className="self-start rounded-2xl bg-[#6E5F47] px-6 h-12 font-poppins font-bold text-white hover:bg-[#5c4f3b] md:self-auto"
           >
             <Plus className="h-4 w-4 mr-2" />
-            Submit Your Hope Story
+            Share your story
           </Button>
         </div>
 
         <div className="mt-8">
           {loading ? (
-            <div className="h-[500px] flex items-center justify-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-rose-500"></div>
+            <div className="flex gap-4 overflow-hidden" aria-hidden>
+              {[0, 1, 2].map((key) => (
+                <div
+                  key={key}
+                  className="h-72 w-[85%] shrink-0 animate-pulse rounded-3xl bg-[#EFF3E7] sm:w-[26rem]"
+                />
+              ))}
             </div>
           ) : (
             <TestimonialCarousel

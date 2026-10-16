@@ -1,16 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import {
-  Heart,
-  Shield,
-  Headphones,
-  Mail,
-  MessageSquare,
-  Users,
-  Activity,
-} from 'lucide-react';
+import { Heart, Shield, Headphones, Mail, Users, Activity } from 'lucide-react';
 import { analyticsService, ImpactData } from '@/services/analyticsService';
+
+// Shown when the numbers can't be loaded. Never a made-up figure.
+const NO_DATA = '–';
+
+const count = (value?: number) => value?.toLocaleString() ?? NO_DATA;
 
 export function ImpactStats() {
   const [data, setData] = useState<ImpactData | null>(null);
@@ -33,52 +30,47 @@ export function ImpactStats() {
   const STATS = [
     {
       icon: Heart,
-      value: data?.prayers?.toLocaleString() || '2,847',
-      label: 'Prayers Lifted',
-      description:
-        'Prayer requests received and prayed for by our Hope Carriers',
+      value: count(data?.prayers),
+      label: 'Prayer requests received',
+      description: 'Requests sent to our Hope Carriers to pray for',
     },
     {
       icon: Shield,
-      value: data?.carriers?.toLocaleString() || '38',
-      label: 'Active Hope Carriers',
+      value: count(data?.carriers),
+      label: 'Hope Carriers',
       description: 'Volunteers who pray for the requests we receive',
     },
     {
       icon: Headphones,
-      value: data?.listeners?.toLocaleString() || '12,540',
-      label: 'HopeCast Listeners',
-      description: 'People who have listened to a HopeCast',
+      value: count(data?.listeners),
+      label: 'HopeCast plays',
+      description: 'Times someone pressed play on a HopeCast',
     },
     {
       icon: Mail,
-      value: data?.subscribers?.toLocaleString() || '1,263',
-      label: 'Daily Hope Drops Subscribers',
-      description: 'People signed up for 21 days of Daily Hope emails',
+      value: count(data?.subscribers),
+      label: 'Getting Daily Hope now',
+      description: 'People partway through their 21 days of Daily Hope emails',
     },
     {
       icon: Heart,
-      value: data?.journeys?.toLocaleString() || '847',
-      label: 'Hopeful Beginning Journeys',
-      description: 'People who started the Hopeful Beginning journey',
-    },
-    {
-      icon: MessageSquare,
-      value: '5,312',
-      label: 'Hope AI Conversations',
-      description: 'Chats with Hope AI',
+      value: count(data?.journeys),
+      label: 'Daily Hope sign-ups',
+      description: 'Everyone who has signed up for Daily Hope so far',
     },
     {
       icon: Activity,
-      value: data?.war_room_users?.toLocaleString() || '0',
-      label: 'War Room Users',
-      description: 'People who have used the Prayer War Room app',
+      value: count(data?.war_room_users),
+      label: 'Prayer War Room visits',
+      description:
+        'Times someone opened the Prayer War Room app from HopeBegins',
     },
     {
       icon: Users,
-      value: data ? `${data.lives_touched.toLocaleString()}+` : '4,150+',
-      label: 'Lives Touched',
-      description: 'People reached across all HopeBegins programs',
+      value: count(data?.lives_touched),
+      label: 'People reached',
+      description:
+        'Daily Hope sign-ups, HopeCast plays and Hope Carriers added up. One person may be counted more than once.',
     },
   ];
 
@@ -92,8 +84,8 @@ export function ImpactStats() {
           Our current impact
         </h2>
         <p className="mt-3 font-poppins text-[#6E5F47] leading-relaxed">
-          Every Hope Seed helps us reach more people. These are our numbers so
-          far, by God&apos;s grace.
+          Every gift helps us reach more people. These are our numbers so far,
+          by God&apos;s grace.
         </p>
       </div>
 

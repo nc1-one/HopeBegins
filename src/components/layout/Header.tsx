@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import headerLogo from '@/assets/images/header-logo.png';
-import { Home, Menu, Phone, X } from 'lucide-react';
+import { Gamepad2, Home, Menu, Phone, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { usePageLanguage } from '@/lib/pageLanguage';
 import { analyticsService } from '@/services/analyticsService';
@@ -43,9 +43,10 @@ export function Header() {
 
   const navLinks = [
     { href: '/', label: 'Home', icon: Home },
-    { href: 'https://warroom.hopebegins.today', label: 'War Room' },
-    { href: '/give-hope', label: 'Our Impact' },
-    { href: '/our-approach', label: 'Our Approach' },
+    { href: '/laro-muna', label: 'Laro muna', icon: Gamepad2 },
+    { href: '/our-approach', label: 'Our approach' },
+    { href: 'https://warroom.hopebegins.today', label: 'Prayer War Room' },
+    { href: '/give-hope', label: 'Give' },
   ];
 
   const handleHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
@@ -91,7 +92,8 @@ export function Header() {
             : 'bg-white/80 dark:bg-black/80 backdrop-blur-md border-white/40 dark:border-zinc-900/40'
         )}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-3">
+        {/* 64rem of content plus the 1.5rem gutters: the same edges as every page. */}
+        <div className="max-w-[67rem] mx-auto px-6 py-4 flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <Link
               href="/"
@@ -121,7 +123,7 @@ export function Header() {
                     ? 'noopener noreferrer'
                     : undefined
                 }
-                className="flex items-center gap-2 text-sm font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins uppercase tracking-wider"
+                className="flex items-center gap-2 text-sm font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins"
                 onClick={(e) => {
                   if (link.href.includes('warroom')) {
                     analyticsService.recordClick('war_room');
@@ -192,7 +194,7 @@ export function Header() {
                         ? 'noopener noreferrer'
                         : undefined
                     }
-                    className="flex min-h-11 items-center gap-3 text-sm font-bold text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins uppercase tracking-wider"
+                    className="flex min-h-11 items-center gap-3 text-sm font-bold text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins"
                     onClick={(e) => {
                       if (link.href.includes('warroom')) {
                         analyticsService.recordClick('war_room');

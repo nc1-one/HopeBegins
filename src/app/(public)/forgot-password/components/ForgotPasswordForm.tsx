@@ -37,13 +37,13 @@ export function ForgotPasswordForm() {
             )}
           </div>
         </div>
-        <CardTitle className="text-3xl font-black italic tracking-tighter text-zinc-900 dark:text-zinc-50 uppercase">
-          {isSent ? 'Check Your Email' : 'Forgot Password'}
+        <CardTitle className="text-3xl font-black italic tracking-tighter text-zinc-900 dark:text-zinc-50">
+          {isSent ? 'Check your email' : 'Forgot your password?'}
         </CardTitle>
         <CardDescription className="text-zinc-500 font-medium px-6">
           {isSent
-            ? "We've sent a recovery link to your inbox. Please check your email to continue."
-            : "No worries! Enter the email associated with your account and we'll send you a link to reset your password."}
+            ? 'We sent a link to your email. Open it to set a new password.'
+            : "Type the email you log in with and we'll send you a link to set a new password."}
         </CardDescription>
       </CardHeader>
       <CardContent className="px-8 pb-10">
@@ -55,8 +55,8 @@ export function ForgotPasswordForm() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 ml-1">
-                      Email Address
+                    <FormLabel className="text-sm font-bold text-zinc-600 ml-1">
+                      Email
                     </FormLabel>
                     <FormControl>
                       <div className="relative group">
@@ -75,14 +75,14 @@ export function ForgotPasswordForm() {
 
               <Button
                 type="submit"
-                className="w-full h-14 bg-[#6E5F47] hover:bg-[#5c4f3b] text-white font-black text-xs uppercase tracking-[0.2em] rounded-2xl shadow-xl shadow-[#6E5F47]/20 transition-all duration-500 mt-4 group"
+                className="w-full h-14 bg-[#6E5F47] hover:bg-[#5c4f3b] text-white font-bold text-base rounded-2xl shadow-xl shadow-[#6E5F47]/20 transition-all duration-500 mt-4 group"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
                   <Loader2 className="w-5 h-5 animate-spin" />
                 ) : (
                   <span className="flex items-center gap-3">
-                    Send Recovery Link
+                    Send me a link
                   </span>
                 )}
               </Button>
@@ -91,15 +91,14 @@ export function ForgotPasswordForm() {
         ) : (
           <div className="text-center space-y-6">
             <p className="text-sm text-zinc-500 font-medium italic">
-              Didn&apos;t receive the email? Check your spam folder or try
-              again.
+              Didn&apos;t get it? Check your spam folder or try again.
             </p>
             <Button
               onClick={() => setIsSent(false)}
               variant="ghost"
-              className="w-full h-14 bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-600 dark:text-zinc-300 font-black text-xs uppercase tracking-[0.2em] rounded-2xl transition-all"
+              className="w-full h-14 bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-600 dark:text-zinc-300 font-bold text-base rounded-2xl transition-all"
             >
-              Try Different Email
+              Use a different email
             </Button>
           </div>
         )}
@@ -107,10 +106,10 @@ export function ForgotPasswordForm() {
         <div className="mt-8 flex justify-center">
           <Link
             href="/login/carrier"
-            className="flex min-h-11 items-center gap-2 text-xs font-black uppercase tracking-widest text-[#6E5F47] hover:text-[#5c4f3b] transition-colors group"
+            className="flex min-h-11 items-center gap-2 text-sm font-bold text-[#6E5F47] hover:text-[#5c4f3b] transition-colors group"
           >
             <ArrowLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
-            Back to Login
+            Back to login
           </Link>
         </div>
       </CardContent>

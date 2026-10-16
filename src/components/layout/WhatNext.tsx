@@ -96,10 +96,11 @@ const nextSteps: Record<string, OptionKey[]> = {
   '/hope-ai': ['plan', 'prayers', 'hopecasts'],
   '/hopecasts': ['plan', 'ecoach', 'dailyHope'],
   '/daily-hope': ['plan', 'hopecasts', 'ecoach'],
+  '/laro-muna': ['plan', 'ecoach', 'hopeAi'],
 };
 
 const cardClass =
-  'group flex h-full flex-col gap-3 rounded-2xl border border-zinc-100 bg-white p-5 transition-all duration-300 hover:border-[#DFE7CF] hover:shadow-lg hover:shadow-[#6E5F47]/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
+  'group flex h-full items-center gap-4 rounded-2xl border border-zinc-100 bg-white p-5 transition-all lg:flex-col lg:items-start lg:gap-3 duration-300 hover:border-[#DFE7CF] hover:shadow-lg hover:shadow-[#6E5F47]/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
 
 export function WhatNext() {
   const pathname = usePathname();
@@ -119,15 +120,15 @@ export function WhatNext() {
           className="font-playfair text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
         >
           {lang === 'tl'
-            ? 'Iba pang paraan para makatulong'
+            ? 'Iba pa naming maitutulong sa iyo'
             : 'Other ways we can help'}
         </h2>
-        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
           {keys.map((key, index) => {
             const option = options[key];
             const body = (
               <>
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#E9EFEE] text-[#91AFAA]">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#E9EFEE] text-[#91AFAA]">
                   <option.icon className="h-5 w-5" />
                 </div>
                 <div className="flex-1">
@@ -138,7 +139,7 @@ export function WhatNext() {
                     {option.description[lang]}
                   </p>
                 </div>
-                <ArrowRight className="h-4 w-4 text-[#C5BFB5] transition-all group-hover:translate-x-1 group-hover:text-[#6E5F47] motion-reduce:transition-none" />
+                <ArrowRight className="h-4 w-4 shrink-0 text-[#C5BFB5] transition-all group-hover:translate-x-1 group-hover:text-[#6E5F47] motion-reduce:transition-none" />
               </>
             );
             return (

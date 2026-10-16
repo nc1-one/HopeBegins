@@ -39,11 +39,6 @@ const CLIPS: Clip[] = [
     large: '/assets/video/hero/manila-dawn-lg.mp4',
     still: '/assets/images/hero/manila-dawn.jpg',
   },
-  {
-    id: 'rain-window',
-    large: '/assets/video/hero/rain-window-lg.mp4',
-    still: '/assets/images/hero/rain-window.jpg',
-  },
 ];
 
 const SESSION_KEY = 'hopebegins.heroClip';
@@ -163,24 +158,29 @@ export function HeroMedia() {
           ))}
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80" />
       </div>
-      {/* Moving backgrounds get a pause button, per WCAG 2.2.2. */}
+      {/* Moving backgrounds get a pause button, per WCAG 2.2.2. It sits top
+          right, on the page's grid, clear of the crisis line. */}
       {mode?.play && isVisible && (
-        <button
-          type="button"
-          onClick={togglePause}
-          aria-label={
-            isPaused
-              ? 'Play the background video'
-              : 'Pause the background video'
-          }
-          className="absolute right-4 bottom-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-black/40 text-white/90 backdrop-blur-sm transition-colors hover:bg-black/60 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50"
-        >
-          {isPaused ? (
-            <Play className="h-4 w-4" />
-          ) : (
-            <Pause className="h-4 w-4" />
-          )}
-        </button>
+        <div className="pointer-events-none absolute inset-x-0 top-4 z-10 px-6">
+          <div className="mx-auto flex max-w-5xl justify-end">
+            <button
+              type="button"
+              onClick={togglePause}
+              aria-label={
+                isPaused
+                  ? 'Play the background video'
+                  : 'Pause the background video'
+              }
+              className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-black/40 text-white/90 backdrop-blur-sm transition-colors hover:bg-black/60 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50"
+            >
+              {isPaused ? (
+                <Play className="h-4 w-4" />
+              ) : (
+                <Pause className="h-4 w-4" />
+              )}
+            </button>
+          </div>
+        </div>
       )}
     </>
   );

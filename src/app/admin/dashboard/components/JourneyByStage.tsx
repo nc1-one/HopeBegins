@@ -37,6 +37,7 @@ const OTHER_PAGES: [string, string][] = [
   ['daily_hope', 'Daily Hope'],
   ['give_hope', 'Give Hope'],
   ['our_approach', 'Our Approach'],
+  ['laro_muna', 'Laro muna (the game page)'],
 ];
 
 const cardClass = 'border-none shadow-2xl bg-white dark:bg-zinc-900 p-6';
@@ -171,7 +172,7 @@ export function JourneyByStage({
   const t = clicks.totals;
   const n = (name: string) => t[name] ?? 0;
   const tool = (
-    kind: 'breathe' | 'ground',
+    kind: 'breathe' | 'ground' | 'game',
     step: 'start' | 'done',
     source: string
   ) => n(`tool_${kind}_${step}_${source}`);
@@ -188,10 +189,15 @@ export function JourneyByStage({
       values: [tool('ground', 'start', source), tool('ground', 'done', source)],
     },
   ];
+  // Games played and finished: a new game counts as a new start.
+  const gameRow = (source: string): Row => ({
+    label: 'Find the pair game',
+    values: [tool('game', 'start', source), tool('game', 'done', source)],
+  });
   // Every page together, including the first days before tools noted where
   // they were used.
   const anyTool = (
-    kind: 'breathe' | 'ground',
+    kind: 'breathe' | 'ground' | 'game',
     step: 'start' | 'done' | 'stop'
   ) => sumWhere(t, (name) => name.startsWith(`tool_${kind}_${step}`));
   // A count recorded first without the tool's name, then per tool.
@@ -393,6 +399,7 @@ export function JourneyByStage({
             columns={['Tool on a feeling page', 'Started', 'Finished']}
             rows={[
               ...toolRows('feeling'),
+              gameRow('feeling'),
               {
                 label: 'Message to someone (copied)',
                 values: [n('tool_message_copy'), '–'],
@@ -467,7 +474,7 @@ export function JourneyByStage({
           />
           <Table
             columns={['"Calm down now" on the menu', 'Started', 'Finished']}
-            rows={toolRows('menu')}
+            rows={[...toolRows('menu'), gameRow('menu')]}
           />
           <Table
             columns={['Their tool, from the home page', 'Started', 'Finished']}
@@ -686,6 +693,14 @@ export function JourneyByStage({
                   anyTool('ground', 'start'),
                   anyTool('ground', 'done'),
                   anyTool('ground', 'stop'),
+                ],
+              },
+              {
+                label: 'Find the pair game',
+                values: [
+                  anyTool('game', 'start'),
+                  anyTool('game', 'done'),
+                  '–',
                 ],
               },
             ]}

@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 import { Wind } from 'lucide-react';
 import { BreathingExercise } from './BreathingExercise';
+import { FindThePair } from './FindThePair';
 import { GroundingExercise } from './GroundingExercise';
 import { analyticsService, type ToolSource } from '@/services/analyticsService';
 import type { FeelingLang } from '@/lib/feelingPages';
@@ -11,25 +12,27 @@ const copy = {
   en: {
     prompt: 'Need to calm down first?',
     breathe: 'Breathe for 2 minutes',
-    ground: 'Try 5-4-3-2-1',
+    ground: 'Use your 5 senses',
+    game: 'Play a quick game',
   },
   tl: {
     prompt: 'Kailangan mo bang kumalma muna?',
     breathe: 'Huminga nang 2 minuto',
-    ground: 'Subukan ang 5-4-3-2-1',
+    ground: 'Gamitin ang 5 senses mo',
+    game: 'Maglaro saglit',
   },
 };
 
-type Exercise = 'breathe' | 'ground';
+type Exercise = 'breathe' | 'ground' | 'game';
 
-/** One tap to the breathing or 5-4-3-2-1 exercise, right where you are. */
+/** One tap to breathing, 5-4-3-2-1 or the quick game, right where you are. */
 export function CalmDownNow({
   lang,
   autoOpen,
 }: {
   lang: FeelingLang;
   /** A returning visitor's own tool, opened from the home page. */
-  autoOpen?: Exercise;
+  autoOpen?: 'breathe' | 'ground';
 }) {
   const t = copy[lang];
   const [open, setOpen] = useState<Exercise | null>(autoOpen ?? null);
@@ -37,6 +40,7 @@ export function CalmDownNow({
   const buttons = useRef<Record<Exercise, HTMLButtonElement | null>>({
     breathe: null,
     ground: null,
+    game: null,
   });
 
   const toggle = (exercise: Exercise) => {
@@ -55,13 +59,13 @@ export function CalmDownNow({
 
   return (
     <div className="rounded-2xl border border-[#DFE7CF] bg-white p-5 md:px-8">
-      <div className="flex flex-col gap-4 md:flex-row md:items-center">
-        <p className="flex items-center gap-3 font-poppins font-bold text-[#6E5F47] md:flex-1">
+      <div className="flex flex-col gap-4">
+        <p className="flex items-center gap-3 font-poppins font-bold text-[#6E5F47]">
           <Wind className="h-5 w-5 shrink-0 text-[#91AFAA]" />
           {t.prompt}
         </p>
         <div className="flex flex-wrap gap-2">
-          {(['breathe', 'ground'] as const).map((exercise) => (
+          {(['breathe', 'ground', 'game'] as const).map((exercise) => (
             <button
               key={exercise}
               ref={(el) => {
@@ -82,6 +86,11 @@ export function CalmDownNow({
       )}
       {open === 'ground' && (
         <GroundingExercise lang={lang} source={source} onClose={close} />
+      )}
+      {open === 'game' && (
+        <div className="mt-5">
+          <FindThePair lang={lang} source={source} onClose={close} />
+        </div>
       )}
     </div>
   );

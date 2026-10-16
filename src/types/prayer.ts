@@ -12,7 +12,7 @@ export interface Organization {
 export const prayerSchema = z.object({
   id: z.string().uuid().optional(),
   title: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Invalid email address'),
+  email: z.string().email("That email doesn't look right. Please check it."),
   content: z.string().min(10, 'Prayer concern must be at least 10 characters'),
   category: z.enum([
     'GENERAL',

@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import {
   BookOpen,
   ChevronRight,
+  ClipboardList,
   Compass,
   Headphones,
   Heart,
@@ -18,6 +19,7 @@ import {
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { EcoachLink } from '@/components/ui/EcoachLink';
 import { cn } from '@/lib/utils';
 import { dailyHopeService } from '@/services/dailyHopeService';
 import {
@@ -139,98 +141,102 @@ export default function GetStartedPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fcfdfa] dark:bg-zinc-950 pb-20">
-      <div className="max-w-3xl mx-auto px-6 pt-6">
-        <div className="mb-6">
-          <h1 className="text-balance font-playfair text-4xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
-            {pageContent.page_title}
-          </h1>
-          <p className="mt-3 font-poppins text-lg text-[#6E5F47] tracking-[-0.022em]">
-            {pageContent.page_subtitle}
-          </p>
-        </div>
+    <div className="bg-[#fcfdfa] dark:bg-zinc-950 px-6 pb-16">
+      <div className="max-w-5xl mx-auto pt-6">
+        <div className="max-w-2xl">
+          <div className="mb-6">
+            <h1 className="text-balance font-playfair text-4xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
+              {pageContent.page_title}
+            </h1>
+            <p className="mt-3 font-poppins text-lg text-[#6E5F47] tracking-[-0.022em]">
+              {pageContent.page_subtitle}
+            </p>
+          </div>
 
-        {/* Where they are in the five steps; finished steps can be revisited. */}
-        <nav aria-label="Steps" className="mb-8">
-          <p className="font-poppins text-sm font-bold text-[#6E5F47]">
-            Step {stepOrder.indexOf(currentStep) + 1} of {steps.length}:{' '}
-            {steps.find((step) => step.id === currentStep)?.label}
-          </p>
-          <ol className="mt-3 flex gap-1.5">
-            {steps.map((step, index) => {
-              const status = getStepStatus(step.id);
-              const canOpen = index <= stepOrder.indexOf(currentStep);
-              return (
-                <li key={step.id} className="flex-1">
-                  <button
-                    type="button"
-                    disabled={!canOpen}
-                    aria-current={status === 'active' ? 'step' : undefined}
-                    aria-label={`Step ${index + 1}: ${step.label}`}
-                    onClick={() => setCurrentStep(step.id)}
-                    className="flex h-11 w-full items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA] rounded-md disabled:cursor-default"
-                  >
-                    <span
-                      className={cn(
-                        'h-1.5 w-full rounded-full',
-                        status === 'upcoming' ? 'bg-[#E2DFDA]' : 'bg-[#AEC488]',
-                        status === 'active' && 'bg-[#6E5F47]'
-                      )}
-                    />
-                  </button>
-                </li>
-              );
-            })}
-          </ol>
-        </nav>
+          {/* Where they are in the five steps; finished steps can be revisited. */}
+          <nav aria-label="Steps" className="mb-8">
+            <p className="font-poppins text-sm font-bold text-[#6E5F47]">
+              Step {stepOrder.indexOf(currentStep) + 1} of {steps.length}:{' '}
+              {steps.find((step) => step.id === currentStep)?.label}
+            </p>
+            <ol className="mt-3 flex gap-1.5">
+              {steps.map((step, index) => {
+                const status = getStepStatus(step.id);
+                const canOpen = index <= stepOrder.indexOf(currentStep);
+                return (
+                  <li key={step.id} className="flex-1">
+                    <button
+                      type="button"
+                      disabled={!canOpen}
+                      aria-current={status === 'active' ? 'step' : undefined}
+                      aria-label={`Step ${index + 1}: ${step.label}`}
+                      onClick={() => setCurrentStep(step.id)}
+                      className="flex h-11 w-full items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA] rounded-md disabled:cursor-default"
+                    >
+                      <span
+                        className={cn(
+                          'h-1.5 w-full rounded-full',
+                          status === 'upcoming'
+                            ? 'bg-[#E2DFDA]'
+                            : 'bg-[#AEC488]',
+                          status === 'active' && 'bg-[#6E5F47]'
+                        )}
+                      />
+                    </button>
+                  </li>
+                );
+              })}
+            </ol>
+          </nav>
 
-        <div className="min-h-[400px]">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={
-                currentStep + (currentStep === 'prayer' ? prayerSubStep : '')
-              }
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-            >
-              {currentStep === 'welcome' && (
-                <WelcomeStep
-                  content={pageContent.welcome_section}
-                  onNext={handleNext}
-                />
-              )}
-              {currentStep === 'word' && (
-                <WordStep
-                  content={pageContent.word_section}
-                  onBack={handlePrevious}
-                  onNext={handleNext}
-                />
-              )}
-              {currentStep === 'prayer' && (
-                <PrayerStep
-                  content={pageContent.prayer_section}
-                  subStep={prayerSubStep}
-                  onBack={handlePrevious}
-                  onNext={handleNext}
-                />
-              )}
-              {currentStep === 'devotional' && (
-                <DevotionalStep
-                  content={pageContent.devotional_section}
-                  onBack={handlePrevious}
-                  onNext={handleNext}
-                />
-              )}
-              {currentStep === 'next-steps' && (
-                <NextStepsStep
-                  content={pageContent.next_steps_section}
-                  crisisContent={pageContent.crisis_section}
-                />
-              )}
-            </motion.div>
-          </AnimatePresence>
+          <div className="min-h-[400px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={
+                  currentStep + (currentStep === 'prayer' ? prayerSubStep : '')
+                }
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+              >
+                {currentStep === 'welcome' && (
+                  <WelcomeStep
+                    content={pageContent.welcome_section}
+                    onNext={handleNext}
+                  />
+                )}
+                {currentStep === 'word' && (
+                  <WordStep
+                    content={pageContent.word_section}
+                    onBack={handlePrevious}
+                    onNext={handleNext}
+                  />
+                )}
+                {currentStep === 'prayer' && (
+                  <PrayerStep
+                    content={pageContent.prayer_section}
+                    subStep={prayerSubStep}
+                    onBack={handlePrevious}
+                    onNext={handleNext}
+                  />
+                )}
+                {currentStep === 'devotional' && (
+                  <DevotionalStep
+                    content={pageContent.devotional_section}
+                    onBack={handlePrevious}
+                    onNext={handleNext}
+                  />
+                )}
+                {currentStep === 'next-steps' && (
+                  <NextStepsStep
+                    content={pageContent.next_steps_section}
+                    crisisContent={pageContent.crisis_section}
+                  />
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </div>
@@ -541,6 +547,46 @@ function NextStepsStep({
       </div>
 
       <div className="space-y-3 max-w-md mx-auto pt-8 px-4 sm:px-0">
+        {/* Always a person and a plan first, whatever the editable steps say. */}
+        <EcoachLink
+          linkName="ecoach_get_started"
+          className="group block rounded-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
+        >
+          <Card className="border-none bg-[#6E5F47] text-white transition-shadow duration-300 hover:shadow-md mb-3">
+            <CardContent className="p-4 flex items-center gap-4">
+              <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-[#6E5F47]">
+                <MessageCircle className="w-5 h-5" />
+              </div>
+              <span className="flex-1">
+                <span className="block font-bold text-sm md:text-base">
+                  Talk to a real person
+                </span>
+                <span className="block text-sm text-white/85">
+                  An e-coach from Himala Everyday, on Messenger.
+                </span>
+              </span>
+              <ChevronRight className="w-5 h-5 text-white/70" />
+            </CardContent>
+          </Card>
+        </EcoachLink>
+        <Link href="/action-plan">
+          <Card className="group border-zinc-100 dark:border-zinc-800/50 hover:border-[#C6D6AC] dark:hover:border-[#AEC488]/30 transition-all duration-300 hover:shadow-md cursor-pointer mb-3">
+            <CardContent className="p-4 flex items-center gap-4">
+              <div className="w-10 h-10 rounded-lg bg-[#EFF3E7] dark:bg-emerald-900/20 flex items-center justify-center text-[#91AFAA] group-hover:scale-110 transition-transform">
+                <ClipboardList className="w-5 h-5" />
+              </div>
+              <span className="flex-1">
+                <span className="block font-bold text-sm md:text-base text-zinc-700 dark:text-zinc-200 group-hover:text-[#6E5F47]">
+                  Make your free plan
+                </span>
+                <span className="block text-sm text-zinc-500 dark:text-zinc-400">
+                  9 quick questions, then small steps for this week.
+                </span>
+              </span>
+              <ChevronRight className="w-5 h-5 text-zinc-300 group-hover:text-[#91AFAA] transition-colors" />
+            </CardContent>
+          </Card>
+        </Link>
         {content.actions.map((action, idx) => {
           const ActionIcon = getActionIcon(action.icon);
 

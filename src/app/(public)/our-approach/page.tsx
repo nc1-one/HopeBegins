@@ -3,12 +3,14 @@ import {
   ArrowRight,
   BookHeart,
   ClipboardList,
+  Gamepad2,
   HandHeart,
   Headphones,
   Lock,
   Mail,
   MessageCircle,
   MessageSquare,
+  NotebookPen,
   Phone,
   Smartphone,
   Sparkles,
@@ -23,7 +25,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 export const metadata = pageMetadata(
   '/our-approach',
   'Our Approach',
-  'How HopeBegins walks with you from the moment you realize something is wrong until you are through it: the six stages, our goals, why we exist, and the tools we give you.'
+  'How HopeBegins helps, from the moment something feels wrong to months later: the six stages, our goals, why we exist and every free tool.'
 );
 
 /*
@@ -58,7 +60,7 @@ const STAGES = [
     link: { href: '/pagod-na-ako', label: 'See "Pagod na ako"' },
   },
   {
-    name: 'First contact',
+    name: 'Telling us how you feel',
     text: 'You tell us how you feel today. We point you to one next step: calm down now, a page for that feeling, or a person to talk to.',
     link: { href: '/#start', label: 'Open "How are you feeling?"' },
   },
@@ -98,6 +100,18 @@ const PRODUCTS: Product[] = [
     href: '/how-to-calm-anxiety',
   },
   {
+    icon: Gamepad2,
+    title: 'Find the pair',
+    text: 'A 2-minute card game with jeepneys, mangoes and parols, for when your thoughts keep going round.',
+    href: '/laro-muna',
+  },
+  {
+    icon: NotebookPen,
+    title: 'Worry note',
+    text: 'Write down what keeps you up at night, then put it away until morning. It stays on your phone.',
+    href: '/cant-sleep-overthinking',
+  },
+  {
     icon: ClipboardList,
     title: 'Hopeful Beginning Plan',
     text: 'A free plan from 9 questions, with a 4-week tracker and reminders. It stays on your phone.',
@@ -123,8 +137,8 @@ const PRODUCTS: Product[] = [
   },
   {
     icon: Sunrise,
-    title: 'A guided journey',
-    text: 'Five steps for the days when you feel you have no hope left.',
+    title: 'Five steps for hopeless days',
+    text: 'A short video, a guided prayer and a Bible reading, for when you feel you have no hope left.',
     href: '/get-started',
   },
   {
@@ -136,29 +150,29 @@ const PRODUCTS: Product[] = [
   {
     icon: Headphones,
     title: 'HopeCasts',
-    text: 'Short audio messages on topics like anxiety and family. Press play.',
+    text: 'Short audio messages on things like anxiety and family.',
     href: '/hopecasts',
   },
   {
     icon: Mail,
-    title: 'Daily Hope Drops',
-    text: 'A short message in your email every day for 21 days.',
+    title: 'Daily Hope',
+    text: 'A short, encouraging email every day for 21 days.',
     href: '/daily-hope',
   },
   {
     icon: Smartphone,
     title: 'Prayer War Room',
-    text: 'A free app for building a prayer life: guided prayer time, a private journal, answered prayers.',
+    text: 'A free prayer app with guided prayer time, a private journal and a list of answered prayers.',
     href: 'https://warroom.hopebegins.today',
     external: true,
   },
 ];
 
 const HOPE = [
-  ['Heal', 'from the past'],
-  ['Overcome', 'present challenges'],
-  ['Purpose', 'found in your story'],
-  ['Embrace', 'a hopeful future'],
+  ['Heal', 'what still hurts from the past'],
+  ['Overcome', 'what you face today'],
+  ['Purpose', 'your reason to keep going'],
+  ['Embrace', 'a future with hope in it'],
 ];
 
 const eyebrowClass =
@@ -226,32 +240,29 @@ export default function OurApproachPage() {
             style={{ animationDelay: '120ms' }}
           >
             HopeBegins is free, faith-driven mental health support for
-            Filipinos. We meet you the moment you realize something is wrong,
-            stay with you through the hard weeks, and make sure you leave with a
-            tool you keep using.
+            Filipinos. You get help the moment something feels wrong, and you
+            leave with a tool you can keep using.
           </p>
         </header>
 
         {/* Why */}
         <Reveal as="section" className="mt-20 md:mt-28">
-          <div className="grid gap-10 md:grid-cols-[1fr_1.2fr] md:gap-16">
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
             <div>
               <p className={eyebrowClass}>Why HopeBegins</p>
               <h2 className={sectionTitleClass}>
-                No one in their darkest moments should have to look far for
-                help.
+                When you&apos;re at your lowest, help should be one tap away.
               </h2>
             </div>
-            <div className="space-y-5 text-lg text-[#6E5F47] leading-relaxed md:pt-8">
+            <div className="space-y-5 text-lg text-[#6E5F47] leading-relaxed lg:pt-8">
               <p>
-                HopeBegins started as a small prayer initiative. Today people
-                come to it to ask for prayer, make a self-help plan and talk to
-                an e-coach.
+                HopeBegins started as a small group that prayed for people.
+                Today people come to ask for prayer, make a plan for the week
+                and talk to an e-coach.
               </p>
               <p>
-                Our mission is to give free, faith-driven mental health support
-                to people dealing with anxiety, depression and hopelessness, in
-                English or Taglish, on the phone in their hand.
+                We want anyone who feels anxious or low to find free help on
+                their phone, in English or Taglish.
               </p>
             </div>
           </div>
@@ -290,13 +301,12 @@ export default function OurApproachPage() {
         {/* The journey */}
         <section className="mt-20 md:mt-28" aria-labelledby="journey-title">
           <Reveal>
-            <p className={eyebrowClass}>The journey</p>
+            <p className={eyebrowClass}>Step by step</p>
             <h2 id="journey-title" className={sectionTitleClass}>
               From the first search to months later.
             </h2>
             <p className="mt-4 max-w-2xl text-lg text-[#6E5F47] leading-relaxed">
-              Six stages, each with one clear next step, so you are never left
-              wondering what to do.
+              Six stages. Each one has a clear next step.
             </p>
           </Reveal>
           <ol className="relative mt-12">
@@ -352,25 +362,17 @@ export default function OurApproachPage() {
           </ol>
         </section>
 
-        {/* Tools and products */}
+        {/* What you can use */}
         <section className="mt-20 md:mt-28" aria-labelledby="tools-title">
           <Reveal>
-            <p className={eyebrowClass}>Tools and products</p>
+            <p className={eyebrowClass}>What you can use</p>
             <h2 id="tools-title" className={sectionTitleClass}>
               Everything HopeBegins gives you, free.
             </h2>
           </Reveal>
           <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {PRODUCTS.map((product, index) => (
-              <Reveal
-                key={product.title}
-                as="li"
-                delay={(index % 3) * 80}
-                // Ten tools: the last one spans the row instead of sitting alone.
-                className={
-                  index === PRODUCTS.length - 1 ? 'lg:col-span-3' : undefined
-                }
-              >
+              <Reveal key={product.title} as="li" delay={(index % 3) * 80}>
                 <ProductCard product={product} />
               </Reveal>
             ))}
@@ -381,10 +383,10 @@ export default function OurApproachPage() {
         <Reveal as="section" className="mt-20 md:mt-28">
           <div className="rounded-[2rem] bg-[#6E5F47] p-8 text-white md:p-14">
             <p className="font-poppins text-xs font-bold uppercase tracking-[0.18em] text-white/80">
-              Built with care
+              How we work
             </p>
             <h2 className="mt-3 text-balance font-playfair text-3xl md:text-5xl leading-[1.02] tracking-[-0.03em]">
-              The H.O.P.E. framework
+              What HOPE stands for
             </h2>
             <dl className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {HOPE.map(([word, rest]) => (
@@ -397,13 +399,12 @@ export default function OurApproachPage() {
                 </div>
               ))}
             </dl>
-            <ul className="mt-10 grid gap-5 border-t border-white/15 pt-8 md:grid-cols-3">
+            <ul className="mt-10 grid gap-5 border-t border-white/15 pt-8 lg:grid-cols-3">
               <li className="flex gap-3">
                 <Sparkles className="mt-1 h-5 w-5 shrink-0 text-[#AEC488]" />
                 <p className="text-white/90 leading-relaxed">
-                  The plan uses proven self-help methods from cognitive
-                  behavioral therapy (CBT) and the World Health
-                  Organization&apos;s stress guide.
+                  The plan&apos;s steps come from CBT, a common talk therapy,
+                  and the World Health Organization&apos;s stress guide.
                 </p>
               </li>
               <li className="flex gap-3">

@@ -16,8 +16,8 @@ export default function ForgotPasswordPage() {
           <h1 className="text-2xl font-black text-zinc-900 dark:text-zinc-50 font-poppins tracking-tighter uppercase italic">
             HopeBegins
           </h1>
-          <p className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.4em] mt-1 pr-1 border-r-2 border-[#b4c392]">
-            Password Recovery
+          <p className="text-xs font-bold text-zinc-600 tracking-wide mt-1 pr-1 border-r-2 border-[#b4c392]">
+            Password help
           </p>
         </div>
       </div>
@@ -26,8 +26,8 @@ export default function ForgotPasswordPage() {
         <ForgotPasswordForm />
       </div>
 
-      <footer className="mt-12 text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em]">
-        © 2026 HOPEBEGINS. STANDING IN THE GAP.
+      <footer className="mt-12 text-xs font-medium text-zinc-600">
+        © 2026 HopeBegins
       </footer>
     </div>
   );

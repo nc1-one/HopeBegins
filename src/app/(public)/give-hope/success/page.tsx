@@ -33,11 +33,10 @@ export default function DonationSuccessPage() {
         <div className="max-w-2xl">
           <CheckCircle2 className="h-12 w-12 text-[#91AFAA]" />
           <h1 className="mt-6 text-balance font-playfair text-4xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
-            Hope Seed planted
+            Thank you for your gift
           </h1>
           <p className="mt-4 max-w-xl font-poppins text-lg text-[#6E5F47] leading-[1.4]">
-            Thank you. Your gift helps keep HopeBegins free for people who need
-            it.
+            It helps keep HopeBegins free for the next person who needs it.
           </p>
 
           <div className="mt-8 rounded-2xl border border-zinc-100 bg-white p-6 space-y-6">

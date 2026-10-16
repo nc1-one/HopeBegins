@@ -41,13 +41,13 @@ export function useResetPassword() {
 
   useEffect(() => {
     if (!uidb64 || !token) {
-      notify.error('Invalid password reset link.');
+      notify.error("This reset link doesn't work. Please ask for a new one.");
     }
   }, [uidb64, token]);
 
   const onSubmit = async (values: ResetPasswordValues) => {
     if (!uidb64 || !token) {
-      notify.error('Missing reset token. Please request a new link.');
+      notify.error("This reset link doesn't work. Please ask for a new one.");
       return;
     }
 
@@ -59,12 +59,14 @@ export function useResetPassword() {
         new_password: values.password,
       });
       setIsSuccess(true);
-      notify.success('Password reset successfully!');
+      notify.success('Your new password is set.');
       setTimeout(() => {
         router.push(loginHref);
       }, 3000);
     } catch (error: any) {
-      notify.error(error.message || 'Failed to reset password.');
+      notify.error(
+        error.message || "Your password didn't change. Please try again."
+      );
     } finally {
       setIsSubmitting(false);
     }
