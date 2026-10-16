@@ -32,12 +32,16 @@ export default function HopecastsPage() {
   });
 
   // Fetch hopecasts
-  const { data: hopecastsData, isLoading: isLoadingHopecasts } =
-    useQuery<HopecastListResponse>({
-      queryKey: ['hopecasts', selectedCategoryId, page],
-      queryFn: () =>
-        hopecastService.getHopecasts(selectedCategoryId, page, pageSize),
-    });
+  const {
+    data: hopecastsData,
+    isLoading: isLoadingHopecasts,
+    isError: hopecastsFailed,
+    refetch: retryHopecasts,
+  } = useQuery<HopecastListResponse>({
+    queryKey: ['hopecasts', selectedCategoryId, page],
+    queryFn: () =>
+      hopecastService.getHopecasts(selectedCategoryId, page, pageSize),
+  });
 
   const hopecasts = hopecastsData?.results || [];
 
@@ -143,7 +147,7 @@ export default function HopecastsPage() {
         <div className="space-y-6">
           {isLoadingHopecasts ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-pulse">
-              {[...Array(6)].map((_, i) => (
+              {[...Array(2)].map((_, i) => (
                 <div
                   key={i}
                   className="bg-white rounded-3xl border border-zinc-100 shadow-sm p-6 flex flex-col gap-6 h-[140px]"
@@ -181,7 +185,7 @@ export default function HopecastsPage() {
                   <button
                     onClick={() => setPage((p) => Math.max(1, p - 1))}
                     disabled={page === 1}
-                    className="px-6 py-2 rounded-full border border-zinc-200 bg-white text-[#6E5F47] font-bold disabled:opacity-30 hover:bg-[#EFF3E7] transition-colors"
+                    className="min-h-11 px-6 rounded-full border border-zinc-200 bg-white text-[#6E5F47] font-bold disabled:opacity-30 hover:bg-[#EFF3E7] transition-colors"
                   >
                     Previous
                   </button>
@@ -191,13 +195,30 @@ export default function HopecastsPage() {
                   <button
                     onClick={() => setPage((p) => p + 1)}
                     disabled={page >= Math.ceil(hopecastsData.count / pageSize)}
-                    className="px-6 py-2 rounded-full border border-zinc-200 bg-white text-[#6E5F47] font-bold disabled:opacity-30 hover:bg-[#EFF3E7] transition-colors"
+                    className="min-h-11 px-6 rounded-full border border-zinc-200 bg-white text-[#6E5F47] font-bold disabled:opacity-30 hover:bg-[#EFF3E7] transition-colors"
                   >
                     Next
                   </button>
                 </div>
               )}
             </>
+          ) : hopecastsFailed ? (
+            <div
+              role="alert"
+              className="py-12 px-6 bg-white rounded-3xl border border-zinc-100"
+            >
+              <p className="text-[#6E5F47] font-medium font-poppins">
+                We couldn&apos;t load HopeCasts. Check your connection and try
+                again.
+              </p>
+              <button
+                type="button"
+                onClick={() => retryHopecasts()}
+                className="mt-4 inline-flex min-h-11 items-center rounded-2xl bg-[#6E5F47] px-5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
+              >
+                Try again
+              </button>
+            </div>
           ) : (
             <div className="py-12 px-6 bg-white rounded-3xl border border-zinc-100">
               <p className="text-[#6E5F47] font-medium font-poppins">

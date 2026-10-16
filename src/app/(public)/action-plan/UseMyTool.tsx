@@ -95,7 +95,7 @@ export function UseMyTool({
           {isOpen ? t.hideHow : (label ?? t.showHow)}
         </button>
         {isOpen && (
-          <div className="mt-3 rounded-2xl bg-[#EFF3E7] p-5 text-[#6E5F47]">
+          <div className="mt-3 rounded-2xl bg-[#EFF3E7] p-5 text-[#6E5F47] hb-panel-in">
             <p className="font-poppins font-bold">{tool.title}</p>
             <p className="mt-1 leading-relaxed">{tool.detail}</p>
             {tool.steps && (

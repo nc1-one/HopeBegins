@@ -86,7 +86,7 @@ export function HopecastCard({
 
         {/* Player Controls & Quote Section */}
         {isPlaying && (
-          <div className="space-y-4 animate-in fade-in slide-in-from-top-2 duration-500">
+          <div className="space-y-4 hb-panel-in">
             {/* Progress Bar */}
             <div className="h-1.5 w-full bg-zinc-100 rounded-full overflow-hidden">
               <div

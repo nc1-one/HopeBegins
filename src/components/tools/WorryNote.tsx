@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { analyticsService } from '@/services/analyticsService';
 
@@ -31,11 +31,21 @@ export function WorryNote({ lang = 'tl' }: { lang?: FeelingLang }) {
   const t = copy[lang];
   const [text, setText] = useState('');
   const [isDone, setIsDone] = useState(false);
+  const doneRef = useRef<HTMLParagraphElement>(null);
+
+  // Screen readers hear the done message once the note is set aside.
+  useEffect(() => {
+    if (isDone) doneRef.current?.focus();
+  }, [isDone]);
 
   if (isDone) {
     return (
-      <div className="rounded-2xl bg-[#EFF3E7] p-6">
-        <p className="font-poppins font-bold text-lg text-[#6E5F47]">
+      <div className="rounded-2xl bg-[#EFF3E7] p-6 hb-step-in">
+        <p
+          ref={doneRef}
+          tabIndex={-1}
+          className="font-poppins font-bold text-lg text-[#6E5F47] focus:outline-none"
+        >
           {t.doneTitle}
         </p>
         <p className="mt-1 text-[#6E5F47]">{t.doneText}</p>
@@ -64,7 +74,7 @@ export function WorryNote({ lang = 'tl' }: { lang?: FeelingLang }) {
           analyticsService.recordClick('tool_worry_note');
         }}
         disabled={!text.trim()}
-        className="mt-4 rounded-2xl bg-[#6E5F47] px-5 py-2.5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] disabled:opacity-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
+        className="mt-4 min-h-11 rounded-2xl bg-[#6E5F47] px-5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] disabled:opacity-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
       >
         {t.button}
       </button>

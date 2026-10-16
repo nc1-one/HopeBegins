@@ -108,7 +108,7 @@ export function GroundingExercise({
       tabIndex={-1}
       role="group"
       aria-label={t.label}
-      className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 text-center focus:outline-none"
+      className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 text-center focus:outline-none hb-panel-in"
     >
       <div className="flex justify-center gap-1.5" aria-hidden>
         {counts.map((count, i) => (

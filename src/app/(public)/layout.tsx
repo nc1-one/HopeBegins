@@ -5,6 +5,7 @@ import { CrisisBand } from '@/components/layout/CrisisBand';
 import { WhatNext } from '@/components/layout/WhatNext';
 import { InstallPromptCatcher } from '@/components/layout/InstallPromptCatcher';
 import { PageVisitTracker } from '@/components/layout/PageVisitTracker';
+import { OfflineSupport } from '@/components/layout/OfflineSupport';
 
 export default function PublicLayout({
   children,
@@ -21,6 +22,7 @@ export default function PublicLayout({
       <Footer />
       <InstallPromptCatcher />
       <PageVisitTracker />
+      <OfflineSupport />
     </div>
   );
 }

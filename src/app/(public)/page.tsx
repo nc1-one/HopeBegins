@@ -3,6 +3,7 @@ import { ArrowRight, Smartphone } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { HopeStoriesSection } from '@/components/sections/HopeStoriesSection';
 import { TrackedLink } from '@/components/ui/TrackedLink';
+import { Reveal } from '@/components/ui/Reveal';
 import { LookingForHope } from './components/LookingForHope';
 
 // Set here, not in the root layout, which every page would inherit.
@@ -15,7 +16,7 @@ export default function LandingPage() {
     <LookingForHope>
       {/* War Room Section */}
       <section className="px-6 pb-32">
-        <div className="max-w-5xl mx-auto">
+        <Reveal className="max-w-5xl mx-auto">
           <Card className="bg-gradient-to-br from-[#6b634d] to-zinc-900 border-none overflow-hidden shadow-2xl relative group">
             <div className="absolute right-0 top-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 group-hover:bg-white/10 transition-colors duration-700"></div>
 
@@ -42,7 +43,7 @@ export default function LandingPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     linkName="war_room"
-                    className="inline-flex items-center justify-center bg-white text-zinc-900 hover:bg-zinc-100 transition-all duration-300 font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 group/btn"
+                    className="inline-flex items-center justify-center bg-white text-zinc-900 hover:bg-zinc-100 transition-all duration-200 font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 group/btn"
                   >
                     Enter War Room
                     <ArrowRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
@@ -51,11 +52,13 @@ export default function LandingPage() {
               </div>
             </CardContent>
           </Card>
-        </div>
+        </Reveal>
       </section>
 
       {/* Testimonials Section */}
-      <HopeStoriesSection />
+      <Reveal>
+        <HopeStoriesSection />
+      </Reveal>
     </LookingForHope>
   );
 }
