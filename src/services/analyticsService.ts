@@ -11,6 +11,9 @@ export interface ImpactData {
   war_room_users?: number;
 }
 
+/** Where a tool was opened: a feeling page (stage 1), the menu (2) or the plan (3). */
+export type ToolSource = 'feeling' | 'menu' | 'plan';
+
 export const analyticsService = {
   getImpactData: async (): Promise<ImpactData> => {
     return fetchWithAuth(`${config.API_URL}/analytics/impact/`);

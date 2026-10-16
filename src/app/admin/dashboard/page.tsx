@@ -7,7 +7,7 @@ import { useDashboard } from './hooks/useDashboard';
 import { StatCards } from './components/StatCards';
 import { DashboardCharts } from './components/DashboardCharts';
 import { RecentPrayers } from './components/RecentPrayers';
-import { VisitorsAndTools } from './components/VisitorsAndTools';
+import { JourneyByStage } from './components/JourneyByStage';
 
 export default function AdminDashboard() {
   const {
@@ -67,8 +67,8 @@ export default function AdminDashboard() {
       {/* ── Stat Cards ── */}
       <StatCards stats={stats} isLoading={isLoading} />
 
-      {/* ── Visitors and tool use ── */}
-      <VisitorsAndTools clicks={clicks} isLoading={isClicksLoading} />
+      {/* ── The journey, stage by stage ── */}
+      <JourneyByStage clicks={clicks} isLoading={isClicksLoading} />
 
       {/* ── Charts ── */}
       <DashboardCharts analytics={analytics} isLoading={isLoading} />
