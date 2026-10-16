@@ -98,6 +98,16 @@ export function BreathingExercise({
   // Offered in the first minute, while switching still means stopping sooner.
   const canShorten = rounds === ROUNDS && elapsed < CYCLE * SHORT_ROUNDS;
 
+  // Pause when they switch apps, so the count and the circle stay together.
+  useEffect(() => {
+    const pauseWhenHidden = () => {
+      if (document.hidden) setIsPaused(true);
+    };
+    document.addEventListener('visibilitychange', pauseWhenHidden);
+    return () =>
+      document.removeEventListener('visibilitychange', pauseWhenHidden);
+  }, []);
+
   useEffect(() => {
     if (isPaused || isDone) return;
     const id = window.setInterval(() => setElapsed((s) => s + 1), 1000);
