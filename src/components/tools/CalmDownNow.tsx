@@ -55,10 +55,18 @@ export function CalmDownNow({ lang }: { lang: FeelingLang }) {
         </div>
       </div>
       {open === 'breathe' && (
-        <BreathingExercise lang={lang} onClose={() => setOpen(null)} />
+        <BreathingExercise
+          lang={lang}
+          source="menu"
+          onClose={() => setOpen(null)}
+        />
       )}
       {open === 'ground' && (
-        <GroundingExercise lang={lang} onClose={() => setOpen(null)} />
+        <GroundingExercise
+          lang={lang}
+          source="menu"
+          onClose={() => setOpen(null)}
+        />
       )}
     </div>
   );

@@ -512,10 +512,18 @@ function ToolCard({
         <ItemBody item={item} />
 
         {isTrying && item.exercise === 'breathe' && (
-          <BreathingExercise lang={lang} onClose={() => setIsTrying(false)} />
+          <BreathingExercise
+            lang={lang}
+            source="plan"
+            onClose={() => setIsTrying(false)}
+          />
         )}
         {isTrying && item.exercise === 'ground' && (
-          <GroundingExercise lang={lang} onClose={() => setIsTrying(false)} />
+          <GroundingExercise
+            lang={lang}
+            source="plan"
+            onClose={() => setIsTrying(false)}
+          />
         )}
 
         <div className="mt-5 flex flex-wrap gap-3 print:hidden">

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { analyticsService } from '@/services/analyticsService';
+import { analyticsService, type ToolSource } from '@/services/analyticsService';
 import type { FeelingLang } from '@/lib/feelingPages';
 
 const BREATHE_IN = 4;
@@ -40,9 +40,12 @@ const copy = {
 export function BreathingExercise({
   onClose,
   lang = 'en',
+  source,
 }: {
   onClose: () => void;
   lang?: FeelingLang;
+  /** Where it was opened, so the dashboard can count tools per journey stage. */
+  source: ToolSource;
 }) {
   const t = copy[lang];
   const [elapsed, setElapsed] = useState(0);
@@ -54,14 +57,14 @@ export function BreathingExercise({
   useEffect(() => {
     if (counted.current.start) return;
     counted.current.start = true;
-    analyticsService.recordClick('tool_breathe_start');
-  }, []);
+    analyticsService.recordClick(`tool_breathe_start_${source}`);
+  }, [source]);
 
   useEffect(() => {
     if (!isDone || counted.current.done) return;
     counted.current.done = true;
-    analyticsService.recordClick('tool_breathe_done');
-  }, [isDone]);
+    analyticsService.recordClick(`tool_breathe_done_${source}`);
+  }, [isDone, source]);
   const inCycle = elapsed % CYCLE;
   const isBreathingIn = inCycle < BREATHE_IN;
   const count = isBreathingIn ? BREATHE_IN - inCycle : CYCLE - inCycle;
