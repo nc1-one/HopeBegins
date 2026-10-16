@@ -22,7 +22,7 @@ const sections = [
       'Hope Carrier applications: the details you give when you apply to volunteer.',
       'Donations: Donorbox processes donations. Your card details go to Donorbox and its payment partners, not to HopeBegins.',
       'Hope AI: chats run on Bonfire (heybonfire.com), a third-party service that processes your messages.',
-      'Site usage: Google Analytics and our own count of which links are clicked.',
+      'Site usage: our own count of page visits and of taps on links and tools. It has no cookies, no names and nothing you type, and we use no outside analytics.',
     ],
   },
   {

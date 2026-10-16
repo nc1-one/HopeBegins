@@ -1579,6 +1579,26 @@ export default function ActionPlanPage() {
     </div>
   );
 
+  const renderSection = (section: (typeof otherSections)[number]) => (
+    <section key={section.id} className="mt-12">
+      <h2 className={sectionHeadingClass}>{section.heading}</h2>
+      {section.intro && (
+        <p className="mt-3 font-poppins text-[#6E5F47] tracking-[-0.022em]">
+          {section.intro}
+        </p>
+      )}
+      <div className="mt-5 space-y-3">
+        {section.items.map((item) => (
+          <PlanItemCard
+            key={item.id}
+            item={item}
+            emphasis={item.id === 'professional'}
+          />
+        ))}
+      </div>
+    </section>
+  );
+
   // After the 4 weeks, once the Hope Card is made.
   const isAfter = Boolean(saved.hopeCard) && day >= PLAN_DAYS - 1;
   const cardTool = plan.allTools.find(
@@ -1768,6 +1788,11 @@ export default function ActionPlanPage() {
 
             <HabitTracker saved={saved} tools={tools} lang={lang} t={t} />
 
+            {/* This week's step sits with the daily tools, before saving and email. */}
+            {otherSections
+              .filter((section) => section.id === 'week')
+              .map(renderSection)}
+
             <CheckInCard
               key={saved.startedAt}
               saved={saved}
@@ -1779,25 +1804,9 @@ export default function ActionPlanPage() {
 
             <SavePlanCard saved={saved} t={t} />
 
-            {otherSections.map((section) => (
-              <section key={section.id} className="mt-12">
-                <h2 className={sectionHeadingClass}>{section.heading}</h2>
-                {section.intro && (
-                  <p className="mt-3 font-poppins text-[#6E5F47] tracking-[-0.022em]">
-                    {section.intro}
-                  </p>
-                )}
-                <div className="mt-5 space-y-3">
-                  {section.items.map((item) => (
-                    <PlanItemCard
-                      key={item.id}
-                      item={item}
-                      emphasis={item.id === 'professional'}
-                    />
-                  ))}
-                </div>
-              </section>
-            ))}
+            {otherSections
+              .filter((section) => section.id !== 'week')
+              .map(renderSection)}
           </div>
 
           <div className="mt-12 flex flex-wrap gap-3 print:hidden">
