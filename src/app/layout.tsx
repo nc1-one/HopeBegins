@@ -3,7 +3,6 @@ import { Poppins, DM_Sans, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import Providers from '@/components/Providers';
 import { BonfireBubbleChat } from '@/components/bonfire/BonfireBubbleChat';
-import Script from 'next/script';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -88,23 +87,6 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} ${dmSans.variable} ${playfair.variable}`}
     >
-      <head>
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-FBGY484963"
-          strategy="lazyOnload"
-        />
-        {/* Analytics loads after the page so it never delays the first screen. */}
-        <Script id="google-analytics" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-FBGY484963');
-          `}
-        </Script>
-      </head>
       <body className={dmSans.className} suppressHydrationWarning>
         <script
           type="application/ld+json"
