@@ -8,7 +8,12 @@
  * follows WHO safe-messaging guidance: no methods, always hope and a number.
  */
 
-export type FeelingTool = 'breathe' | 'ground' | 'message' | 'worry-note';
+export type FeelingTool =
+  | 'breathe'
+  | 'ground'
+  | 'one-thing'
+  | 'message'
+  | 'worry-note';
 export type FeelingLang = 'tl' | 'en';
 
 export interface FeelingPage {
@@ -45,15 +50,11 @@ export const feelingPages: FeelingPage[] = [
     label: 'Pagod na ako',
     heading: 'Pagod na ako.',
     intro:
-      'Kapag pagod ka na sa lahat, mabigat gawin kahit ang maliliit na bagay. Magsimula muna tayo sa dalawang minutong paghinga.',
+      'Kapag pagod ka na sa lahat, mabigat gawin kahit ang maliliit na bagay. Magsimula sa isang maliit na bagay, o sa dalawang minutong paghinga.',
     safetyFirst:
       'Kung pagod ka na sa buhay o naiisip mong ayaw mo nang mabuhay, kausapin mo ang isang tao ngayon.',
-    toolsHeading: 'Huminga muna tayo',
-    tools: ['breathe'],
-    tip: {
-      title: 'Isang maliit na bagay para sa araw na ito',
-      body: 'Pumili ng isang bagay na kaya mong tapusin sa loob ng 10 minuto: maligo, kumain, o lumabas sandali. Sapat na iyon ngayong araw. Kadalasan, gumagaan nang kaunti ang pakiramdam pagkatapos mong gawin ito.',
-    },
+    toolsHeading: 'Magsimula sa maliit',
+    tools: ['one-thing', 'breathe'],
     firstStep: 'ecoach',
   },
   {
@@ -124,15 +125,11 @@ export const feelingPages: FeelingPage[] = [
     label: 'Tired of everything',
     heading: "I'm tired of everything.",
     intro:
-      "When you're tired of everything, even small things feel heavy. Start with two minutes of slow breathing.",
+      "When you're tired of everything, even small things feel heavy. Start with one small thing, or two minutes of slow breathing.",
     safetyFirst:
       "If you're tired of living or thinking you'd rather not be here, please talk to someone now.",
-    toolsHeading: "Let's breathe first",
-    tools: ['breathe'],
-    tip: {
-      title: 'One small thing for today',
-      body: "Pick one thing you can finish in 10 minutes: take a shower, eat something, or step outside for a bit. That's enough for today. You'll often feel a little lighter once it's done.",
-    },
+    toolsHeading: 'Start small',
+    tools: ['one-thing', 'breathe'],
     firstStep: 'ecoach',
   },
   {

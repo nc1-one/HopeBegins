@@ -169,11 +169,8 @@ export function JourneyByStage({
 
   const t = clicks.totals;
   const n = (name: string) => t[name] ?? 0;
-  const tool = (
-    kind: 'breathe' | 'ground',
-    step: 'start' | 'done',
-    source: string
-  ) => n(`tool_${kind}_${step}_${source}`);
+  const tool = (kind: string, step: 'start' | 'done', source: string) =>
+    n(`tool_${kind}_${step}_${source}`);
   const toolRows = (source: string): Row[] => [
     {
       label: 'Slow breathing',
@@ -190,7 +187,7 @@ export function JourneyByStage({
   // Every page together, including the first days before tools noted where
   // they were used.
   const anyTool = (
-    kind: 'breathe' | 'ground',
+    kind: string,
     step: 'start' | 'done' | 'stop' | 'checked' | 'short'
   ) => sumWhere(t, (name) => name.startsWith(`tool_${kind}_${step}`));
   // A count recorded first without the tool's name, then per tool.
@@ -392,6 +389,13 @@ export function JourneyByStage({
             columns={['Tool on a feeling page', 'Started', 'Finished']}
             rows={[
               ...toolRows('feeling'),
+              {
+                label: 'One small thing',
+                values: [
+                  tool('one-thing', 'start', 'feeling'),
+                  tool('one-thing', 'done', 'feeling'),
+                ],
+              },
               {
                 label: 'Message to someone (copied)',
                 values: [n('tool_message_copy'), '–'],
@@ -699,6 +703,22 @@ export function JourneyByStage({
                   anyTool('ground', 'checked'),
                 ],
               },
+              ...(
+                [
+                  ['one-thing', 'One small thing'],
+                  ['worry-time', 'Worry time'],
+                  ['unhook', 'Unhook from a heavy thought'],
+                  ['reasons', 'Reasons to keep going'],
+                ] as const
+              ).map(([kind, label]) => ({
+                label,
+                values: [
+                  anyTool(kind, 'start'),
+                  anyTool(kind, 'done'),
+                  '–',
+                  anyTool(kind, 'checked'),
+                ],
+              })),
               {
                 label: 'Tapped "Make a free plan" after a tool',
                 values: [

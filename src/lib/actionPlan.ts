@@ -69,6 +69,16 @@ export const TIME_LABELS: Record<PlanLang, Record<TimeOfDay, string>> = {
   },
 };
 
+/** The guided tools that can run right on the page. */
+export type PlanExercise =
+  | 'breathe'
+  | 'ground'
+  | 'one-thing'
+  | 'worry-time'
+  | 'unhook'
+  | 'reasons'
+  | 'message';
+
 export interface PlanItem {
   id: string;
   title: string;
@@ -83,7 +93,8 @@ export interface PlanItem {
   action?: string;
   defaultTime?: TimeOfDay;
   /** Daily tools with a guided version on the page. */
-  exercise?: 'breathe' | 'ground';
+  /** A guided version of the tool that runs on the page. */
+  exercise?: PlanExercise;
 }
 
 export interface PlanSection {
@@ -452,6 +463,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
       lowMood,
       {
         id: 'one-thing',
+        exercise: 'one-thing',
         action: t(
           'plan one small thing for tomorrow',
           'magpaplano ako ng isang maliit na gagawin bukas'
@@ -485,6 +497,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
       hopeless || needsSafetyPlan,
       {
         id: 'reasons',
+        exercise: 'reasons',
         action: t(
           'read my reasons to keep going',
           'babasahin ko ang mga dahilan ko para magpatuloy'
@@ -528,6 +541,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
       Number(answers.worry ?? 0) >= 2 || anxiety >= 3,
       {
         id: 'worry-time',
+        exercise: 'worry-time',
         action: t(
           'take my 15-minute worry time',
           'gagawin ko ang 15-minute worry time ko'
@@ -643,6 +657,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
       anxious || lowMood,
       {
         id: 'unhook',
+        exercise: 'unhook',
         action: t(
           'notice and name one heavy thought',
           'papansinin at papangalanan ko ang isang mabigat na isip'
@@ -776,6 +791,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
     case 'lonely':
       week.push({
         id: 'connect',
+        exercise: 'message',
         title: t(
           'Make one small contact each day',
           'Makipag-ugnayan sa isang tao araw-araw'
@@ -815,6 +831,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
   if (answers.support === 'no') {
     week.push({
       id: 'reach-out',
+      exercise: 'message',
       title: t('Reach out to one person', 'Kumausap ng isang tao'),
       detail: t(
         'Pick one person you trust and send: "Can we talk this week? I\'ve been having a hard time."',
@@ -824,6 +841,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
   } else if (answers.support === 'sometimes') {
     week.push({
       id: 'reach-out',
+      exercise: 'message',
       title: t('Set a time to talk', 'Magtakda ng oras para mag-usap'),
       detail: t(
         'Choose a day this week and tell someone you trust that you would like to talk.',
@@ -840,7 +858,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
   if (wantsFaith) {
     sections.push({
       id: 'faith',
-      heading: 'Faith',
+      heading: t('Faith', 'Pananampalataya'),
       items: [
         {
           id: 'quiet-time',

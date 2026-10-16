@@ -4,10 +4,17 @@ import { useRef, useState } from 'react';
 import { Play } from 'lucide-react';
 import { BreathingExercise } from './BreathingExercise';
 import { GroundingExercise } from './GroundingExercise';
+import { OneSmallThing } from './OneSmallThing';
 import type { FeelingLang } from '@/lib/feelingPages';
 
 const exercises = {
   tl: {
+    'one-thing': {
+      title: 'Isang maliit na bagay para sa araw na ito',
+      description:
+        'Pumili ng isang bagay na kaya mong tapusin sa loob ng 10 minuto, tulad ng maligo, kumain, o lumabas sandali. Sapat na iyon ngayong araw.',
+      start: 'Pumili ng maliit kong gagawin',
+    },
     breathe: {
       title: 'Dahan-dahang paghinga',
       description:
@@ -22,6 +29,12 @@ const exercises = {
     },
   },
   en: {
+    'one-thing': {
+      title: 'One small thing for today',
+      description:
+        "Pick one thing you can finish in 10 minutes, like a shower, something to eat, or a few minutes outside. That's enough for today.",
+      start: 'Pick my small thing',
+    },
     breathe: {
       title: 'Slow breathing',
       description:
@@ -41,7 +54,7 @@ export function ExerciseLauncher({
   kind,
   lang = 'tl',
 }: {
-  kind: 'breathe' | 'ground';
+  kind: 'breathe' | 'ground' | 'one-thing';
   lang?: FeelingLang;
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,8 +77,10 @@ export function ExerciseLauncher({
       {isOpen ? (
         kind === 'breathe' ? (
           <BreathingExercise onClose={close} lang={lang} source="feeling" />
-        ) : (
+        ) : kind === 'ground' ? (
           <GroundingExercise onClose={close} lang={lang} source="feeling" />
+        ) : (
+          <OneSmallThing onClose={close} lang={lang} source="feeling" />
         )
       ) : (
         <button

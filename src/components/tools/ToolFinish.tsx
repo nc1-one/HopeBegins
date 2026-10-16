@@ -16,8 +16,6 @@ import { analyticsService, type ToolSource } from '@/services/analyticsService';
  * answered is counted, never what they said.
  */
 
-type Kind = 'breathe' | 'ground';
-
 const copy = {
   en: {
     question: 'Compared to before you started, how do you feel?',
@@ -69,14 +67,21 @@ export function ToolFinish({
   title,
   text,
   doneNote,
+  nextTime,
+  ask = true,
   onClose,
 }: {
-  kind: Kind;
+  /** The tool's id, which is also its id in the plan. */
+  kind: string;
   lang: FeelingLang;
   source: ToolSource;
   title: string;
   text: string;
   doneNote?: string;
+  /** "Come back to it next time …", for tools other than breathing and grounding. */
+  nextTime?: string;
+  /** Ask how they feel. Off for tools that are about writing, not relief. */
+  ask?: boolean;
   onClose: () => void;
 }) {
   const t = copy[lang];
@@ -128,7 +133,7 @@ export function ToolFinish({
         <p className="mt-2 text-sm font-bold text-[#6E5F47]">{doneNote}</p>
       )}
 
-      {felt === null ? (
+      {!ask ? null : felt === null ? (
         <fieldset className="mt-5">
           <legend className="mx-auto font-poppins font-bold text-[#6E5F47]">
             {t.question}
@@ -150,7 +155,10 @@ export function ToolFinish({
         <div className="mt-5 space-y-4" aria-live="polite">
           <p className="text-[#6E5F47]">
             {felt === 'calmer'
-              ? t.calmer(t.when[kind])
+              ? t.calmer(
+                  nextTime ??
+                    (kind === 'ground' ? t.when.ground : t.when.breathe)
+                )
               : felt === 'same'
                 ? t.same
                 : t.worse}

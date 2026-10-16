@@ -51,6 +51,7 @@ const copy = {
     cardName: 'My Hope Card',
     toolHeading: 'My tool',
     signsHeading: 'When it comes back, I notice',
+    reasonsHeading: 'My reasons to keep going',
     peopleHeading: 'People I can reach out to',
     crisisHeading: 'If it gets dark',
     crisisLine: 'NCMH Crisis Hotline, 24/7: 1553 or 0917 899 8727',
@@ -103,6 +104,7 @@ const copy = {
     cardName: 'Ang Hope Card ko',
     toolHeading: 'Ang tool ko',
     signsHeading: 'Kapag bumabalik ito, napapansin ko',
+    reasonsHeading: 'Ang mga dahilan ko para magpatuloy',
     peopleHeading: 'Mga taong malalapitan ko',
     crisisHeading: 'Kapag sobrang bigat na',
     crisisLine: 'NCMH Crisis Hotline, 24/7: 1553 o 0917 899 8727',
@@ -230,6 +232,9 @@ export function FinishFlow({
     setIsMaking(true);
     analyticsService.recordClick('plan_hope_card_image');
     const sections = [{ heading: t.toolHeading, lines: toolLines }];
+    if (saved.reasons?.length) {
+      sections.push({ heading: t.reasonsHeading, lines: saved.reasons });
+    }
     if (card.warningSigns) {
       sections.push({ heading: t.signsHeading, lines: [card.warningSigns] });
     }
@@ -453,6 +458,18 @@ export function FinishFlow({
               </>
             )}
           </section>
+          {saved.reasons && saved.reasons.length > 0 && (
+            <section className="rounded-2xl border border-[#DFE7CF] bg-white p-5">
+              <h3 className="font-poppins font-bold text-[#6E5F47]">
+                {t.reasonsHeading}
+              </h3>
+              <ul className="mt-1 list-disc space-y-1 pl-5 text-[#6E5F47] marker:text-[#AEC488]">
+                {saved.reasons.map((reason, i) => (
+                  <li key={`${i}-${reason}`}>{reason}</li>
+                ))}
+              </ul>
+            </section>
+          )}
           {card.warningSigns && (
             <section className="rounded-2xl border border-[#DFE7CF] bg-white p-5">
               <h3 className="font-poppins font-bold text-[#6E5F47]">

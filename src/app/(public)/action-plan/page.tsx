@@ -41,6 +41,7 @@ import {
   dayOfPlan,
   daysSince,
   markTodayDone,
+  MAX_SAFETY_LENGTH,
   planBackup,
   readBackup,
   requestPersistentStorage,
@@ -56,6 +57,7 @@ import {
 } from '@/lib/installPrompt';
 import { setLanguage, useLanguage } from '@/lib/languagePreference';
 import { forgetTool } from '@/lib/myTool';
+import { clearToolNotes } from '@/lib/toolNotes';
 import { calmerCount, clearToolChecks, useToolChecks } from '@/lib/toolChecks';
 import {
   downloadReminder,
@@ -65,8 +67,7 @@ import {
 import { actionPlanService } from '@/services/actionPlanService';
 import { analyticsService } from '@/services/analyticsService';
 import { EcoachLink } from '@/components/ui/EcoachLink';
-import { BreathingExercise } from '@/components/tools/BreathingExercise';
-import { GroundingExercise } from '@/components/tools/GroundingExercise';
+import { ToolExercise } from '@/components/tools/ToolExercise';
 import { FinishFlow, type FinishStep } from './FinishFlow';
 import { MonthlyCheckIn } from './MonthlyCheckIn';
 import { AfterwardsPanel } from './AfterwardsPanel';
@@ -207,6 +208,8 @@ const ui = {
     doneToday: 'Done today',
     didToday: 'Done',
     startTool: 'Start',
+    safetyWrite: 'Write yours',
+    safetySaved: 'What you write here is saved only on this phone.',
     tickedToday: 'Ticked for today in your 4 weeks.',
     calmerAfter: (calmer: number, total: number) =>
       `You felt calmer after it ${calmer} of ${total} ${total === 1 ? 'time' : 'times'}.`,
@@ -349,6 +352,8 @@ const ui = {
     doneToday: 'Nagawa ko ngayon',
     didToday: 'Nagawa',
     startTool: 'Simulan',
+    safetyWrite: 'Isulat ang sa iyo',
+    safetySaved: 'Naka-save lang sa phone na ito ang isusulat mo dito.',
     tickedToday: 'Na-tick na ito para sa araw na ito sa 4 na linggo mo.',
     calmerAfter: (calmer: number, total: number) =>
       `Mas kumalma ka pagkatapos nito ${calmer} sa ${total} beses.`,
@@ -449,10 +454,15 @@ function ItemBody({ item }: { item: PlanItem }) {
 function PlanItemCard({
   item,
   emphasis,
+  lang,
+  t,
 }: {
   item: PlanItem;
   emphasis?: boolean;
+  lang: PlanLang;
+  t: Copy;
 }) {
+  const [isTrying, setIsTrying] = useState(false);
   return (
     <Card
       className={
@@ -466,6 +476,68 @@ function PlanItemCard({
           {item.title}
         </h3>
         <ItemBody item={item} />
+        {item.exercise &&
+          (isTrying ? (
+            <ToolExercise
+              kind={item.exercise}
+              lang={lang}
+              source="plan"
+              onClose={() => setIsTrying(false)}
+            />
+          ) : (
+            <button
+              type="button"
+              onClick={() => setIsTrying(true)}
+              className={`mt-5 print:hidden ${toolButtonClass}`}
+            >
+              <Play className="mr-2 h-4 w-4" />
+              {t.tryNow}
+            </button>
+          ))}
+      </CardContent>
+    </Card>
+  );
+}
+
+/** A safety plan step with a place to write their own answer, kept on the phone. */
+function SafetyStepCard({
+  item,
+  saved,
+  t,
+}: {
+  item: PlanItem;
+  saved: SavedPlan;
+  t: Copy;
+}) {
+  const fieldId = `safety-${item.id}`;
+  return (
+    <Card className="py-0 bg-[#EFF3E7] border-[#AEC488]">
+      <CardContent className="p-6">
+        <h3 className="font-poppins font-bold text-lg text-[#6E5F47]">
+          {item.title}
+        </h3>
+        <ItemBody item={item} />
+        <label
+          htmlFor={fieldId}
+          className="mt-4 block text-sm font-bold text-[#6E5F47]"
+        >
+          {t.safetyWrite}
+          <span className="sr-only">: {item.title}</span>
+        </label>
+        <textarea
+          id={fieldId}
+          rows={2}
+          maxLength={MAX_SAFETY_LENGTH}
+          value={saved.safetyPlan?.[item.id] ?? ''}
+          onChange={(event) => {
+            const text = event.target.value;
+            updatePlan((plan) => ({
+              ...plan,
+              safetyPlan: { ...plan.safetyPlan, [item.id]: text },
+            }));
+          }}
+          className="mt-2 w-full rounded-xl border border-[#DFE7CF] bg-white p-3 text-[#6E5F47] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40 print:border-zinc-300"
+        />
       </CardContent>
     </Card>
   );
@@ -546,17 +618,9 @@ function ToolCard({
           </p>
         )}
 
-        {isTrying && item.exercise === 'breathe' && (
-          <BreathingExercise
-            lang={lang}
-            source="plan"
-            onClose={closeTry}
-            onFinish={handleFinish}
-            doneNote={willTick ? t.tickedToday : undefined}
-          />
-        )}
-        {isTrying && item.exercise === 'ground' && (
-          <GroundingExercise
+        {isTrying && item.exercise && (
+          <ToolExercise
+            kind={item.exercise}
             lang={lang}
             source="plan"
             onClose={closeTry}
@@ -1376,6 +1440,7 @@ export default function ActionPlanPage() {
     clearPlan();
     forgetTool();
     clearToolChecks();
+    clearToolNotes();
     setAnswers({});
     setCurrent(0);
     setName('');
@@ -1749,9 +1814,15 @@ export default function ActionPlanPage() {
                 )}
                 <div className="mt-5 space-y-3">
                   {safety.items.map((item) => (
-                    <PlanItemCard key={item.id} item={item} emphasis />
+                    <SafetyStepCard
+                      key={item.id}
+                      item={item}
+                      saved={saved}
+                      t={t}
+                    />
                   ))}
                 </div>
+                <p className="mt-3 text-sm text-[#6E5F47]">{t.safetySaved}</p>
               </section>
             )}
 
@@ -1805,6 +1876,8 @@ export default function ActionPlanPage() {
                       key={item.id}
                       item={item}
                       emphasis={item.id === 'professional'}
+                      lang={lang}
+                      t={t}
                     />
                   ))}
                 </div>

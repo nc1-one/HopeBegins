@@ -23,7 +23,15 @@ export interface SavedPlan {
   history?: CheckInRecord[];
   /** Made at the end of the 4 weeks. Like the rest of the plan, it never leaves this device. */
   hopeCard?: HopeCard;
+  /** "My reasons to keep going", written in the plan. */
+  reasons?: string[];
+  /** What they wrote under each step of the safety plan, by step id. */
+  safetyPlan?: Record<string, string>;
 }
+
+export const MAX_REASONS = 8;
+export const MAX_REASON_LENGTH = 80;
+export const MAX_SAFETY_LENGTH = 300;
 
 export interface HopeCard {
   /** The tool that helped most. */
@@ -220,6 +228,19 @@ export function readBackup(text: string): SavedPlan | null {
         }
       : undefined;
 
+  const reasons = (Array.isArray(plan.reasons) ? plan.reasons : [])
+    .filter((reason): reason is string => typeof reason === 'string')
+    .slice(0, MAX_REASONS)
+    .map((reason) => reason.slice(0, MAX_REASON_LENGTH));
+  const safetyPlan: Record<string, string> = {};
+  for (const [id, text] of Object.entries(
+    isRecord(plan.safetyPlan) ? plan.safetyPlan : {}
+  )) {
+    if (typeof text === 'string' && id.length <= 40) {
+      safetyPlan[id] = text.slice(0, MAX_SAFETY_LENGTH);
+    }
+  }
+
   return {
     name: typeof plan.name === 'string' ? plan.name.slice(0, 60) : '',
     answers,
@@ -228,6 +249,8 @@ export function readBackup(text: string): SavedPlan | null {
     checks,
     history,
     ...(hopeCard && { hopeCard }),
+    ...(reasons.length > 0 && { reasons }),
+    ...(Object.keys(safetyPlan).length > 0 && { safetyPlan }),
   };
 }
 
