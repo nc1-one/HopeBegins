@@ -360,13 +360,13 @@ const ui = {
 type Copy = (typeof ui)['en'];
 
 const linkClass =
-  'mt-3 inline-flex items-center font-poppins font-bold text-[#6E5F47] underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none print:hidden';
+  'mt-2 inline-flex min-h-11 items-center font-poppins font-bold text-[#6E5F47] underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none print:hidden';
 
 const chipClass =
-  'rounded-full border px-3 py-1.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]';
+  'inline-flex min-h-11 items-center rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]';
 
 const reminderButtonClass =
-  'inline-flex items-center rounded-xl border border-[#AEC488] bg-white px-3 py-1.5 text-sm font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]';
+  'inline-flex min-h-11 items-center rounded-xl border border-[#AEC488] bg-white px-4 text-sm font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]';
 
 const secondaryButtonClass =
   'inline-flex items-center gap-2 rounded-2xl border border-[#AEC488] bg-white px-5 py-2.5 font-poppins font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
@@ -603,7 +603,7 @@ function ToolCard({
         </div>
 
         {isInWeek && time && (
-          <div className="mt-4 rounded-2xl bg-[#EFF3E7] p-4 print:bg-transparent print:p-0">
+          <div className="mt-4 rounded-2xl bg-[#EFF3E7] p-4 print:bg-transparent print:p-0 hb-panel-in">
             <p className="text-sm text-[#6E5F47] print:hidden">{t.whenDo}</p>
             <div className="mt-2 flex flex-wrap gap-2 print:hidden">
               {(Object.keys(TIME_LABELS[lang]) as TimeOfDay[]).map((option) => (
@@ -819,6 +819,8 @@ function HabitTracker({
     .slice(0, 7)
     .map((date) => date.toLocaleDateString(t.locale, { weekday: 'short' }));
   const currentWeek = Math.min(Math.floor(today / 7) + 1, WEEKS);
+  // Reminders cover the days left in the 4 weeks, and stop being offered after.
+  const daysLeft = PLAN_DAYS - today;
   const committed = tools.filter((tool) => saved.commitments[tool.id]);
 
   return (
@@ -848,7 +850,7 @@ function HabitTracker({
                     <p className="font-poppins font-bold text-[#6E5F47]">
                       {commitmentSentence(tool, time, lang)}
                     </p>
-                    <p className="shrink-0 font-poppins font-bold text-[#91AFAA] tabular-nums">
+                    <p className="shrink-0 font-poppins font-bold text-[#6E5F47] tabular-nums">
                       {t.daysDone(doneCount)}
                     </p>
                   </div>
@@ -891,7 +893,7 @@ function HabitTracker({
                             }),
                             isDone
                           )}
-                          className={`flex h-10 items-center justify-center rounded-xl border text-xs font-medium tabular-nums transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA] disabled:cursor-not-allowed disabled:opacity-40 ${
+                          className={`flex h-11 items-center justify-center rounded-xl border text-xs font-medium tabular-nums transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA] disabled:cursor-not-allowed disabled:opacity-40 ${
                             isDone
                               ? 'border-[#AEC488] bg-[#AEC488] text-white'
                               : isToday
@@ -908,35 +910,37 @@ function HabitTracker({
                       );
                     })}
                   </div>
-                  <div className="mt-4 flex flex-col gap-3 border-t border-zinc-100 pt-4 sm:flex-row sm:items-center print:hidden">
-                    <p className="flex items-center gap-2 text-sm text-[#6E5F47] sm:flex-1">
-                      <CalendarPlus className="h-4 w-4 shrink-0 text-[#91AFAA]" />
-                      {t.remindMe(time)}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      <a
-                        href={googleCalendarUrl(tool, time, lang)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() =>
-                          analyticsService.recordClick('plan_reminder_google')
-                        }
-                        className={reminderButtonClass}
-                      >
-                        Google Calendar
-                      </a>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          analyticsService.recordClick('plan_reminder_ics');
-                          downloadReminder(tool, time, lang);
-                        }}
-                        className={reminderButtonClass}
-                      >
-                        {t.otherCalendar}
-                      </button>
+                  {daysLeft > 1 && (
+                    <div className="mt-4 flex flex-col gap-3 border-t border-zinc-100 pt-4 sm:flex-row sm:items-center print:hidden">
+                      <p className="flex items-center gap-2 text-sm text-[#6E5F47] sm:flex-1">
+                        <CalendarPlus className="h-4 w-4 shrink-0 text-[#91AFAA]" />
+                        {t.remindMe(time)}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <a
+                          href={googleCalendarUrl(tool, time, lang, daysLeft)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() =>
+                            analyticsService.recordClick('plan_reminder_google')
+                          }
+                          className={reminderButtonClass}
+                        >
+                          Google Calendar
+                        </a>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            analyticsService.recordClick('plan_reminder_ics');
+                            downloadReminder(tool, time, lang, daysLeft);
+                          }}
+                          className={reminderButtonClass}
+                        >
+                          {t.otherCalendar}
+                        </button>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </CardContent>
               </Card>
             );
@@ -1228,6 +1232,7 @@ function RestoreBackup({ t }: { t: Copy }) {
     analyticsService.recordClick('plan_backup_restore');
     savePlan(plan);
     requestPersistentStorage();
+    window.scrollTo({ top: 0 });
   };
 
   return (
@@ -1238,7 +1243,11 @@ function RestoreBackup({ t }: { t: Copy }) {
         type="file"
         accept=".json,application/json"
         className="hidden"
-        onChange={(e) => restore(e.target.files?.[0])}
+        onChange={(e) => {
+          restore(e.target.files?.[0]);
+          // So picking the same file again still works.
+          e.target.value = '';
+        }}
       />
       <button
         type="button"
@@ -1484,38 +1493,44 @@ export default function ActionPlanPage() {
                   </div>
                 </div>
 
-                {question.stem && (
-                  <p className="mt-6 text-sm text-[#6E5F47]">{question.stem}</p>
-                )}
-                <h1
-                  ref={headingRef}
-                  tabIndex={-1}
-                  className={`${question.stem ? 'mt-2' : 'mt-6'} font-poppins font-bold text-xl md:text-2xl text-[#6E5F47] focus:outline-none`}
-                >
-                  {question.prompt}
-                </h1>
-                {question.note && (
-                  <p className="mt-2 text-sm text-[#6E5F47]">{question.note}</p>
-                )}
+                <div key={current} className="hb-step-in">
+                  {question.stem && (
+                    <p className="mt-6 text-sm text-[#6E5F47]">
+                      {question.stem}
+                    </p>
+                  )}
+                  <h1
+                    ref={headingRef}
+                    tabIndex={-1}
+                    className={`${question.stem ? 'mt-2' : 'mt-6'} font-poppins font-bold text-xl md:text-2xl text-[#6E5F47] focus:outline-none`}
+                  >
+                    {question.prompt}
+                  </h1>
+                  {question.note && (
+                    <p className="mt-2 text-sm text-[#6E5F47]">
+                      {question.note}
+                    </p>
+                  )}
 
-                <div className="mt-6 grid gap-3">
-                  {question.options.map((option) => (
-                    <button
-                      key={option.value}
-                      type="button"
-                      onClick={() => handleAnswer(option.value)}
-                      aria-pressed={answers[question.key] === option.value}
-                      className="w-full rounded-2xl border border-zinc-200 bg-white px-5 py-4 text-left font-poppins font-medium text-[#6E5F47] transition-colors hover:border-[#AEC488] hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40 aria-pressed:border-[#AEC488] aria-pressed:bg-[#EFF3E7]"
-                    >
-                      {option.label}
-                    </button>
-                  ))}
+                  <div className="mt-6 grid gap-3">
+                    {question.options.map((option) => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => handleAnswer(option.value)}
+                        aria-pressed={answers[question.key] === option.value}
+                        className="w-full rounded-2xl border border-zinc-200 bg-white px-5 py-4 text-left font-poppins font-medium text-[#6E5F47] transition-colors hover:border-[#AEC488] hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40 aria-pressed:border-[#AEC488] aria-pressed:bg-[#EFF3E7]"
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 <button
                   type="button"
                   onClick={handlePrevious}
-                  className="mt-6 inline-flex items-center gap-2 -ml-3 rounded-xl px-3 py-2 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
+                  className="mt-6 inline-flex min-h-11 items-center gap-2 -ml-3 rounded-xl px-3 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   {t.previous}
@@ -1591,6 +1606,26 @@ export default function ActionPlanPage() {
     </div>
   );
 
+  const renderSection = (section: (typeof otherSections)[number]) => (
+    <section key={section.id} className="mt-12">
+      <h2 className={sectionHeadingClass}>{section.heading}</h2>
+      {section.intro && (
+        <p className="mt-3 font-poppins text-[#6E5F47] tracking-[-0.022em]">
+          {section.intro}
+        </p>
+      )}
+      <div className="mt-5 space-y-3">
+        {section.items.map((item) => (
+          <PlanItemCard
+            key={item.id}
+            item={item}
+            emphasis={item.id === 'professional'}
+          />
+        ))}
+      </div>
+    </section>
+  );
+
   // After the 4 weeks, once the Hope Card is made.
   const isAfter = Boolean(saved.hopeCard) && day >= PLAN_DAYS - 1;
   const cardTool = plan.allTools.find(
@@ -1660,6 +1695,7 @@ export default function ActionPlanPage() {
         <div className="max-w-2xl">
           {header}
           <div id="action-plan">
+            <h1 className="sr-only">{t.planTitle(saved.name)}</h1>
             {banner
               ? !banner.isWeekly && bannerCard
               : day >= 1 && (
@@ -1707,13 +1743,13 @@ export default function ActionPlanPage() {
               </section>
             )}
 
-            <h1
+            <h2
               ref={headingRef}
               tabIndex={-1}
               className="text-balance font-playfair text-4xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em] focus:outline-none"
             >
               {t.planTitle(saved.name)}
-            </h1>
+            </h2>
             <p className="mt-4 font-poppins text-[#6E5F47] tracking-[-0.022em]">
               {t.madeOn(madeOn)}{' '}
               {plan.needsSafetyPlan ? t.startSafety : t.startTools}
@@ -1780,6 +1816,11 @@ export default function ActionPlanPage() {
 
             <HabitTracker saved={saved} tools={tools} lang={lang} t={t} />
 
+            {/* This week's step sits with the daily tools, before saving and email. */}
+            {otherSections
+              .filter((section) => section.id === 'week')
+              .map(renderSection)}
+
             <CheckInCard
               key={saved.startedAt}
               saved={saved}
@@ -1791,25 +1832,9 @@ export default function ActionPlanPage() {
 
             <SavePlanCard saved={saved} t={t} />
 
-            {otherSections.map((section) => (
-              <section key={section.id} className="mt-12">
-                <h2 className={sectionHeadingClass}>{section.heading}</h2>
-                {section.intro && (
-                  <p className="mt-3 font-poppins text-[#6E5F47] tracking-[-0.022em]">
-                    {section.intro}
-                  </p>
-                )}
-                <div className="mt-5 space-y-3">
-                  {section.items.map((item) => (
-                    <PlanItemCard
-                      key={item.id}
-                      item={item}
-                      emphasis={item.id === 'professional'}
-                    />
-                  ))}
-                </div>
-              </section>
-            ))}
+            {otherSections
+              .filter((section) => section.id !== 'week')
+              .map(renderSection)}
           </div>
 
           <div className="mt-12 flex flex-wrap gap-3 print:hidden">

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Image, { StaticImageData } from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -55,6 +55,10 @@ export function TestimonialCarousel({
     Math.floor(testimonials.length / 2)
   );
   const [isHovered, setIsHovered] = useState(false);
+  // Autoplay stops for good once someone taps, swipes or uses the arrows,
+  // and never runs for people who ask for less motion.
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
@@ -68,18 +72,20 @@ export function TestimonialCarousel({
 
   // Auto-play interval
   useEffect(() => {
-    if (isHovered) return;
+    if (isHovered || hasInteracted || reduceMotion) return;
     const timer = setInterval(() => {
       handleNext();
     }, autoPlayInterval);
     return () => clearInterval(timer);
-  }, [handleNext, autoPlayInterval, isHovered]);
+  }, [handleNext, autoPlayInterval, isHovered, hasInteracted, reduceMotion]);
 
   return (
     <div
       className="relative w-full max-w-5xl mx-auto py-16 px-4 flex flex-col items-center justify-center overflow-hidden h-[750px] md:h-[700px]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onPointerDown={() => setHasInteracted(true)}
+      onFocusCapture={() => setHasInteracted(true)}
     >
       <div
         className="absolute top-1/2 left-0 right-0 flex justify-center items-center h-[600px] -translate-y-1/2"
@@ -105,7 +111,6 @@ export function TestimonialCarousel({
           const scale = isCenter ? 1 : 1 - absDiff * 0.15;
           const zIndex = 50 - absDiff;
           const opacity = isCenter ? 1 : Math.max(0.2, 1 - absDiff * 0.3);
-          const blurAmount = isCenter ? 0 : absDiff * 2;
 
           // Darker/faded style for non-center items
           const cardBg = isCenter
@@ -123,10 +128,9 @@ export function TestimonialCarousel({
                 scale: scale,
                 zIndex: zIndex,
                 opacity: opacity,
-                filter: `blur(${blurAmount}px)`,
               }}
               transition={{
-                duration: 0.6,
+                duration: 0.5,
                 ease: [0.32, 0.72, 0, 1], // Custom snappy spring-like cubic bezier
               }}
             >
@@ -145,9 +149,9 @@ export function TestimonialCarousel({
               </p>
 
               <div className="mt-auto pt-4 border-t border-zinc-100 dark:border-zinc-800 w-full">
-                <h4 className="font-bold text-zinc-900 dark:text-white font-poppins text-base md:text-lg">
+                <h3 className="font-bold text-zinc-900 dark:text-white font-poppins text-base md:text-lg">
                   {testimonial.name}
-                </h4>
+                </h3>
                 {testimonial.role && (
                   <p className="text-xs md:text-sm text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-widest mt-1">
                     {testimonial.role}
@@ -164,14 +168,14 @@ export function TestimonialCarousel({
         <button
           onClick={handlePrev}
           aria-label="Previous testimonial"
-          className="p-3 rounded-full bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-zinc-400 hover:text-emerald-600 hover:border-emerald-200 dark:hover:border-emerald-800 shadow-sm transition-all hover:scale-110 active:scale-95"
+          className="p-3 rounded-full bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-zinc-400 hover:text-emerald-600 hover:border-emerald-200 dark:hover:border-emerald-800 shadow-sm transition-[color,border-color,transform] duration-200 active:scale-95"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button
           onClick={handleNext}
           aria-label="Next testimonial"
-          className="p-3 rounded-full bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-zinc-400 hover:text-emerald-600 hover:border-emerald-200 dark:hover:border-emerald-800 shadow-sm transition-all hover:scale-110 active:scale-95"
+          className="p-3 rounded-full bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-zinc-400 hover:text-emerald-600 hover:border-emerald-200 dark:hover:border-emerald-800 shadow-sm transition-[color,border-color,transform] duration-200 active:scale-95"
         >
           <ChevronRight className="w-5 h-5" />
         </button>

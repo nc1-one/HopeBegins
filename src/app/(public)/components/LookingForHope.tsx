@@ -24,17 +24,20 @@ import { Card, CardContent } from '@/components/ui/card';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { CalmDownNow } from '@/components/tools/CalmDownNow';
+import { HeroMedia } from './HeroMedia';
 import { dayOfPlan, useSavedPlan } from '@/lib/actionPlanStore';
 import { PLAN_DAYS } from '@/lib/actionPlan';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { useLanguage } from '@/lib/languagePreference';
 import { isGuidedTool, useLastTool, type GuidedTool } from '@/lib/myTool';
+import {
+  START_HASH,
+  closeStartMenu,
+  openStartMenu,
+  subscribeToHash,
+} from '@/lib/startMenu';
 import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
 import { analyticsService } from '@/services/analyticsService';
-
-// The second step lives at /#start so the browser back button returns to the
-// question, and other pages can link straight past it.
-const START_HASH = '#start';
 
 // Each answer opens the page written for that feeling, in the chosen language.
 const feelings = [
@@ -124,6 +127,7 @@ const notSure = {
 const menuCopy = {
   en: {
     heading: 'How are you feeling right now?',
+    back: 'Back',
     subtitle: 'Pick the one closest to how you feel.',
     welcomeBack: 'Welcome back',
     planDay: (day: number) => `You're on day ${day} of your plan.`,
@@ -141,6 +145,7 @@ const menuCopy = {
   tl: {
     heading: 'Ano ang nararamdaman mo ngayon?',
     subtitle: 'Piliin ang pinakamalapit sa nararamdaman mo.',
+    back: 'Bumalik',
     welcomeBack: 'Welcome back',
     planDay: (day: number) => `Day ${day} mo na sa plano mo.`,
     planSaved: 'Naka-save ang plano mo sa phone na ito.',
@@ -190,15 +195,6 @@ const heroSecondaryClass =
 
 const feelingCardClass =
   'group flex h-full items-center gap-4 rounded-2xl border p-5 transition-all duration-300 hover:shadow-lg hover:shadow-[#6E5F47]/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
-
-function subscribeToHash(onChange: () => void) {
-  window.addEventListener('hashchange', onChange);
-  window.addEventListener('popstate', onChange);
-  return () => {
-    window.removeEventListener('hashchange', onChange);
-    window.removeEventListener('popstate', onChange);
-  };
-}
 
 const crisisCopy = {
   en: {
@@ -260,23 +256,6 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
     lastTool;
   const [autoOpen, setAutoOpen] = useState<GuidedTool | undefined>();
   const pathsHeadingRef = useRef<HTMLHeadingElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // The hero video is 8 MB. Phones, data-saver and reduced-motion visitors
-  // keep the poster image; larger screens play the video.
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    const connection = (
-      navigator as Navigator & { connection?: { saveData?: boolean } }
-    ).connection;
-    const isLargeScreen = window.matchMedia('(min-width: 768px)').matches;
-    const reduceMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
-    if (!isLargeScreen || reduceMotion || connection?.saveData) return;
-    video.play().catch(() => {});
-  }, [showPaths]);
 
   useEffect(() => {
     if (!showPaths) return;
@@ -287,7 +266,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
   const handleStart = () => {
     analyticsService.recordClick('looking_for_hope');
     setAutoOpen(undefined);
-    window.location.hash = START_HASH;
+    openStartMenu();
   };
 
   // Straight to their tool, opened at the top of the menu.
@@ -295,7 +274,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
     if (!myTool) return;
     analyticsService.recordClick(`home_my_tool_${myTool}`);
     setAutoOpen(myTool);
-    window.location.hash = START_HASH;
+    openStartMenu();
   };
 
   if (!showPaths) {
@@ -304,24 +283,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
         aria-labelledby="looking-for-hope-title"
         className="relative isolate flex min-h-[calc(100svh-6rem)] flex-col overflow-hidden bg-black"
       >
-        {/* Background Video Container */}
-        <div className="absolute inset-0 -z-10">
-          <video
-            ref={videoRef}
-            preload="none"
-            muted
-            loop
-            playsInline
-            poster="/assets/images/hero-poster.jpg"
-            className="w-full h-full object-cover object-top"
-          >
-            <source
-              src="/assets/video/Hero-video-banner.mp4"
-              type="video/mp4"
-            />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/35 to-black/75" />
-        </div>
+        <HeroMedia />
 
         <div className="flex flex-1 flex-col items-center justify-center px-6 py-16 text-center">
           <h1
@@ -334,7 +296,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
           <button
             type="button"
             onClick={handleStart}
-            className="group mt-10 inline-flex items-center justify-center rounded-2xl bg-white px-10 py-4 font-poppins text-lg font-bold text-[#6E5F47] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-zinc-100 hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50 motion-reduce:hover:translate-y-0"
+            className="group mt-10 inline-flex items-center justify-center rounded-2xl bg-white px-10 py-4 font-poppins text-lg font-bold text-[#6E5F47] shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-zinc-100 hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50 motion-reduce:hover:translate-y-0"
           >
             That&apos;s me
             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
@@ -373,7 +335,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
 
           <Link
             href="/give-hope"
-            className="mt-6 text-sm text-white/80 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:text-white focus-visible:underline focus-visible:outline-none"
+            className="mt-4 inline-flex min-h-11 items-center text-sm text-white/80 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:text-white focus-visible:underline focus-visible:outline-none"
           >
             Here to donate instead?
           </Link>
@@ -391,17 +353,17 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
       <section
         aria-labelledby="paths-title"
         lang={lang}
-        className="px-6 pt-10 pb-24 md:pt-14 animate-in fade-in duration-500 motion-reduce:animate-none"
+        className="px-6 pt-10 pb-24 md:pt-14 hb-step-in"
       >
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center justify-between gap-4">
             <button
               type="button"
-              onClick={() => window.history.back()}
+              onClick={closeStartMenu}
               className="inline-flex min-h-11 items-center gap-2 -ml-3 rounded-xl px-3 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
             >
               <ArrowLeft className="w-4 h-4" />
-              Back
+              {t.back}
             </button>
             <LanguageSwitch />
           </div>
@@ -496,7 +458,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
           <EcoachLink linkName="ecoach_menu" className="group mt-4 block">
             <Card className="border-none bg-[#6E5F47] text-white transition-all duration-500 hover:shadow-xl hover:shadow-[#6E5F47]/20 group-focus-visible:ring-4 group-focus-visible:ring-[#91AFAA]/40">
               <CardContent className="p-6 md:px-10 flex flex-col md:flex-row md:items-center gap-6">
-                <div className="self-start md:self-auto p-4 rounded-2xl bg-white text-[#6E5F47] shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 motion-reduce:transition-none">
+                <div className="self-start md:self-auto p-4 rounded-2xl bg-white text-[#6E5F47] shadow-sm transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none">
                   <MessageCircle className="w-7 h-7" />
                 </div>
                 <div className="flex-1">
@@ -550,7 +512,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
           <div className="mt-10 pt-8 border-t border-[#E2DFDA] flex flex-col md:flex-row md:items-start md:justify-between gap-6">
             <Link
               href="/give-hope"
-              className="inline-flex items-center gap-3 text-[#6E5F47] hover:underline underline-offset-4 focus-visible:underline focus-visible:outline-none"
+              className="inline-flex min-h-11 items-center gap-3 text-[#6E5F47] hover:underline underline-offset-4 focus-visible:underline focus-visible:outline-none"
             >
               <HandHeart className="w-5 h-5 text-[#91AFAA]" />
               <span className="font-bold">{t.donate}</span>

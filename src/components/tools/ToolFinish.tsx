@@ -115,7 +115,7 @@ export function ToolFinish({
   };
 
   return (
-    <div className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 text-center">
+    <div className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 text-center hb-step-in">
       <p
         ref={titleRef}
         tabIndex={-1}

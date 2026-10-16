@@ -204,7 +204,7 @@ export default async function FeelingPage({
               {page.tools.includes('message') && (
                 <Link
                   href="/hope-ai"
-                  className="mt-3 inline-flex items-center font-poppins font-bold text-[#6E5F47] underline-offset-4 hover:underline"
+                  className="mt-3 inline-flex min-h-11 items-center font-poppins font-bold text-[#6E5F47] underline-offset-4 hover:underline"
                 >
                   {ui.hopeAi}
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -230,7 +230,7 @@ export default async function FeelingPage({
           <p className="mt-6 text-sm text-[#6E5F47]">
             <Link
               href="/#start"
-              className="font-bold underline underline-offset-4"
+              className="inline-flex min-h-11 items-center font-bold underline underline-offset-4"
             >
               {ui.seeAll}
             </Link>

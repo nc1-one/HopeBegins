@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -9,6 +9,7 @@ import { Home, Menu, Phone, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { usePageLanguage } from '@/lib/pageLanguage';
 import { analyticsService } from '@/services/analyticsService';
+import { START_HASH, closeStartMenu } from '@/lib/startMenu';
 
 const crisisCopy = {
   en: {
@@ -44,7 +45,7 @@ export function Header() {
     { href: '/', label: 'Home', icon: Home },
     { href: 'https://warroom.hopebegins.today', label: 'War Room' },
     { href: '/give-hope', label: 'Our Impact' },
-    { href: '/our-story', label: 'Our Story' },
+    { href: '/our-approach', label: 'Our Approach' },
   ];
 
   const handleHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
@@ -52,13 +53,37 @@ export function Header() {
 
     event.preventDefault();
     setIsMenuOpen(false);
+    // On the menu (/#start), Home goes back to "Not okay today?".
+    if (window.location.hash === START_HASH) closeStartMenu();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // The mobile menu closes on Escape or a tap anywhere outside it.
+  const navRef = useRef<HTMLElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      setIsMenuOpen(false);
+      toggleRef.current?.focus();
+    };
+    const onPointer = (event: PointerEvent) => {
+      if (!navRef.current?.contains(event.target as Node)) setIsMenuOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('pointerdown', onPointer);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('pointerdown', onPointer);
+    };
+  }, [isMenuOpen]);
 
   return (
     <header className="sticky top-0 z-50">
       {/* Navigation */}
       <nav
+        ref={navRef}
         className={cn(
           'transition-all duration-300 border-b',
           hasScrolled || isMenuOpen
@@ -127,10 +152,12 @@ export function Header() {
 
             {/* Mobile Menu Button */}
             <button
+              ref={toggleRef}
               className="lg:hidden inline-flex h-11 w-11 items-center justify-center text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
             >
               {isMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -141,39 +168,50 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile Navigation Dropdown */}
-        {isMenuOpen && (
-          <div className="lg:hidden bg-white dark:bg-zinc-950 border-b border-zinc-100 dark:border-zinc-900 py-6 px-6 animate-in fade-in slide-in-from-top-4 duration-300">
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  target={link.href.startsWith('http') ? '_blank' : undefined}
-                  rel={
-                    link.href.startsWith('http')
-                      ? 'noopener noreferrer'
-                      : undefined
-                  }
-                  className="flex items-center gap-3 text-sm font-bold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins uppercase tracking-wider py-2"
-                  onClick={(e) => {
-                    if (link.href.includes('warroom')) {
-                      analyticsService.recordClick('war_room');
+        {/* Mobile Navigation: slides open and closed. */}
+        <div
+          id="mobile-menu"
+          inert={!isMenuOpen}
+          className={cn(
+            'lg:hidden grid transition-[grid-template-rows,opacity] duration-300 ease-[var(--hb-ease-out)]',
+            isMenuOpen
+              ? 'grid-rows-[1fr] opacity-100'
+              : 'grid-rows-[0fr] opacity-0'
+          )}
+        >
+          <div className="overflow-hidden">
+            <div className="bg-white dark:bg-zinc-950 border-b border-zinc-100 dark:border-zinc-900 py-4 px-6">
+              <div className="flex flex-col gap-1">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={
+                      link.href.startsWith('http')
+                        ? 'noopener noreferrer'
+                        : undefined
                     }
-                    if (link.href === '/') {
-                      handleHomeClick(e as any);
-                    } else {
-                      setIsMenuOpen(false);
-                    }
-                  }}
-                >
-                  {link.icon && <link.icon className="w-5 h-5" />}
-                  {link.label}
-                </Link>
-              ))}
+                    className="flex min-h-11 items-center gap-3 text-sm font-bold text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins uppercase tracking-wider"
+                    onClick={(e) => {
+                      if (link.href.includes('warroom')) {
+                        analyticsService.recordClick('war_room');
+                      }
+                      if (link.href === '/') {
+                        handleHomeClick(e as any);
+                      } else {
+                        setIsMenuOpen(false);
+                      }
+                    }}
+                  >
+                    {link.icon && <link.icon className="w-5 h-5" />}
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
-        )}
+        </div>
       </nav>
     </header>
   );
