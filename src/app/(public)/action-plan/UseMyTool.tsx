@@ -2,8 +2,7 @@
 
 import { useCallback, useRef, useState } from 'react';
 import { ChevronDown, Play } from 'lucide-react';
-import { BreathingExercise } from '@/components/tools/BreathingExercise';
-import { GroundingExercise } from '@/components/tools/GroundingExercise';
+import { ToolExercise } from '@/components/tools/ToolExercise';
 import { PLAN_DAYS, type PlanItem, type PlanLang } from '@/lib/actionPlan';
 import {
   dayOfPlan,
@@ -29,7 +28,7 @@ const copy = {
     useNow: 'Gamitin ang tool ko ngayon',
     showHow: 'Ipakita kung paano',
     hideHow: 'Itago ang mga hakbang',
-    ticked: 'Na-tick na ito para sa araw na ito sa 4 na linggo mo.',
+    ticked: 'Na-tick na para ngayong araw.',
   },
 };
 
@@ -125,17 +124,9 @@ export function UseMyTool({
           {label ?? t.useNow}
         </button>
       )}
-      {isOpen && tool.exercise === 'breathe' && (
-        <BreathingExercise
-          lang={lang}
-          source="plan"
-          onClose={close}
-          onFinish={handleFinish}
-          doneNote={willTick ? t.ticked : undefined}
-        />
-      )}
-      {isOpen && tool.exercise === 'ground' && (
-        <GroundingExercise
+      {isOpen && (
+        <ToolExercise
+          kind={tool.exercise}
           lang={lang}
           source="plan"
           onClose={close}

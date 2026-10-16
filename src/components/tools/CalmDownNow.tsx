@@ -1,7 +1,8 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { Wind } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, Wind } from 'lucide-react';
 import { BreathingExercise } from './BreathingExercise';
 import { FindThePair } from './FindThePair';
 import { GroundingExercise } from './GroundingExercise';
@@ -14,12 +15,14 @@ const copy = {
     breathe: 'Breathe for 2 minutes',
     ground: 'Use your 5 senses',
     game: 'Play a quick game',
+    allTools: 'See all the tools',
   },
   tl: {
     prompt: 'Kailangan mo bang kumalma muna?',
     breathe: 'Huminga nang 2 minuto',
     ground: 'Gamitin ang 5 senses mo',
     game: 'Maglaro saglit',
+    allTools: 'Tingnan lahat ng tool',
   },
 };
 
@@ -80,6 +83,13 @@ export function CalmDownNow({
             </button>
           ))}
         </div>
+        <Link
+          href={lang === 'tl' ? '/tools?lang=tl' : '/tools'}
+          className="inline-flex min-h-11 w-fit items-center gap-2 text-sm font-medium text-[#6E5F47] underline underline-offset-4 hover:text-[#5c4f3b]"
+        >
+          {t.allTools}
+          <ArrowRight className="h-4 w-4" />
+        </Link>
       </div>
       {open === 'breathe' && (
         <BreathingExercise lang={lang} source={source} onClose={close} />

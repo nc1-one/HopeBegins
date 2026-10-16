@@ -8,13 +8,13 @@ import { analyticsService } from '@/services/analyticsService';
 const text = {
   tl: {
     intro:
-      'Pumili ng isang taong pinagkakatiwalaan mo at ipadala ito. Puwede mong ikuwento ang iba kapag nag-usap na kayo.',
+      'Pumili ng isang taong pinagkakatiwalaan mo at i-send ito. Puwede mong ikuwento ang iba kapag nag-usap na kayo.',
     message:
       'Hi, puwede ba tayong mag-usap ngayong linggo? Medyo mabigat lang ako lately.',
-    copy: 'Kopyahin ang mensahe',
-    copied: 'Nakopya na',
+    copy: 'I-copy ang message',
+    copied: 'Na-copy na',
     manual:
-      'Naka-highlight na ang mensahe. Pindutin ito nang matagal para kopyahin.',
+      'Naka-highlight na ang message. Pindutin ito nang matagal para i-copy.',
   },
   en: {
     intro:

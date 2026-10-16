@@ -191,6 +191,13 @@ export default async function FeelingPage({
                 )
               )}
             </div>
+            <Link
+              href={page.lang === 'tl' ? '/tools?lang=tl' : '/tools'}
+              className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#6E5F47] underline underline-offset-4 hover:text-[#5c4f3b]"
+            >
+              {ui.allTools}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </section>
 
           {page.tip && (

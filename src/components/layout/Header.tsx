@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import headerLogo from '@/assets/images/header-logo.png';
-import { Gamepad2, Home, Menu, Phone, X } from 'lucide-react';
+import { Home, Menu, Phone, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { usePageLanguage } from '@/lib/pageLanguage';
 import { analyticsService } from '@/services/analyticsService';
@@ -43,7 +43,7 @@ export function Header() {
 
   const navLinks = [
     { href: '/', label: 'Home', icon: Home },
-    { href: '/laro-muna', label: 'Laro muna', icon: Gamepad2 },
+    { href: '/tools', label: 'Tools' },
     { href: '/our-approach', label: 'Our approach' },
     { href: 'https://warroom.hopebegins.today', label: 'Prayer War Room' },
     { href: '/give-hope', label: 'Give' },

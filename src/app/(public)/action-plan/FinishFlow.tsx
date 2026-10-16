@@ -14,6 +14,7 @@ import {
 import { drawHopeCard } from '@/lib/hopeCardImage';
 import { analyticsService } from '@/services/analyticsService';
 import { UseMyTool } from './UseMyTool';
+import { calmerCount, useToolChecks } from '@/lib/toolChecks';
 
 /**
  * The end of the 4 weeks: see what changed, pick the tool that helped most,
@@ -30,6 +31,8 @@ const copy = {
     doneIntro: 'Here is what changed, and what you kept doing.',
     daysTitle: 'Days you did each tool',
     daysOf: (n: number) => `${n} of ${PLAN_DAYS} days`,
+    calmerOf: (calmer: number, total: number) =>
+      `Calmer after it ${calmer} of ${total} ${total === 1 ? 'time' : 'times'}`,
     pickTitle: 'Which tool helped you most?',
     pickHint: 'You will keep this one on your Hope Card.',
     next: 'Next: make my Hope Card',
@@ -48,8 +51,9 @@ const copy = {
     cardName: 'My Hope Card',
     toolHeading: 'My tool',
     signsHeading: 'When it comes back, I notice',
+    reasonsHeading: 'My reasons to keep going',
     peopleHeading: 'People I can reach out to',
-    crisisHeading: 'If it gets dark',
+    crisisHeading: "If you're in crisis",
     crisisLine: 'NCMH Crisis Hotline, 24/7: 1553 or 0917 899 8727',
     ecoachLine: 'E-coach on Messenger: facebook.com/Mayhimalaeveryday',
     call: 'Call 1553',
@@ -80,13 +84,15 @@ const copy = {
     doneIntro: 'Ito ang nagbago, at ang mga tuloy-tuloy mong ginawa.',
     daysTitle: 'Ilang araw mo ginawa ang bawat tool',
     daysOf: (n: number) => `${n} sa ${PLAN_DAYS} araw`,
+    calmerOf: (calmer: number, total: number) =>
+      `Mas kumalma ${calmer} sa ${total} beses`,
     pickTitle: 'Aling tool ang pinakanakatulong sa iyo?',
     pickHint: 'Ito ang ilalagay mo sa Hope Card mo.',
     next: 'Susunod: gawin ang Hope Card ko',
     cardTitle: 'Gawin ang Hope Card mo',
     cardIntro:
-      'Isang maliit na card para sa mga araw na bumigat ulit. Mananatili ito sa phone na ito. Hindi ito nakikita ng HopeBegins.',
-    signsLabel: 'Ano ang palatandaan na bumabalik ito?',
+      'Isang maliit na card para sa mga araw na bumigat ulit. Sa phone mo lang naka-save ito. Hindi ito nakikita ng HopeBegins.',
+    signsLabel: 'Ano ang senyales na bumabalik ito?',
     signsHint:
       'Mga warning sign mo, gaya ng hindi makatulog, hindi kumakain, o umiiwas sa mga tao.',
     peopleLabel: 'Dalawang taong puwede mong lapitan',
@@ -98,8 +104,9 @@ const copy = {
     cardName: 'Ang Hope Card ko',
     toolHeading: 'Ang tool ko',
     signsHeading: 'Kapag bumabalik ito, napapansin ko',
+    reasonsHeading: 'Ang mga dahilan ko para magpatuloy',
     peopleHeading: 'Mga taong malalapitan ko',
-    crisisHeading: 'Kapag sobrang bigat na',
+    crisisHeading: 'Kung nasa crisis ka',
     crisisLine: 'NCMH Crisis Hotline, 24/7: 1553 o 0917 899 8727',
     ecoachLine: 'E-coach sa Messenger: facebook.com/Mayhimalaeveryday',
     call: 'Tumawag sa 1553',
@@ -155,6 +162,7 @@ export function FinishFlow({
   onClose: () => void;
 }) {
   const t = copy[lang];
+  const toolChecks = useToolChecks();
   const committed = tools.filter((tool) => saved.commitments[tool.id]);
   const mostDone = [...committed].sort(
     (a, b) => daysDone(saved, b.id) - daysDone(saved, a.id)
@@ -224,6 +232,9 @@ export function FinishFlow({
     setIsMaking(true);
     analyticsService.recordClick('plan_hope_card_image');
     const sections = [{ heading: t.toolHeading, lines: toolLines }];
+    if (saved.reasons?.length) {
+      sections.push({ heading: t.reasonsHeading, lines: saved.reasons });
+    }
     if (card.warningSigns) {
       sections.push({ heading: t.signsHeading, lines: [card.warningSigns] });
     }
@@ -267,7 +278,17 @@ export function FinishFlow({
             <ul className="mt-3 space-y-2 text-[#6E5F47]">
               {committed.map((tool) => (
                 <li key={tool.id} className="flex justify-between gap-4">
-                  <span>{tool.title}</span>
+                  <span>
+                    {tool.title}
+                    {calmerCount(toolChecks, tool.id).total > 0 && (
+                      <span className="block text-sm">
+                        {t.calmerOf(
+                          calmerCount(toolChecks, tool.id).calmer,
+                          calmerCount(toolChecks, tool.id).total
+                        )}
+                      </span>
+                    )}
+                  </span>
                   <span className="shrink-0 font-bold tabular-nums">
                     {t.daysOf(daysDone(saved, tool.id))}
                   </span>
@@ -437,6 +458,18 @@ export function FinishFlow({
               </>
             )}
           </section>
+          {saved.reasons && saved.reasons.length > 0 && (
+            <section className="rounded-2xl border border-[#DFE7CF] bg-white p-5">
+              <h3 className="font-poppins font-bold text-[#6E5F47]">
+                {t.reasonsHeading}
+              </h3>
+              <ul className="mt-1 list-disc space-y-1 pl-5 text-[#6E5F47] marker:text-[#AEC488]">
+                {saved.reasons.map((reason, i) => (
+                  <li key={`${i}-${reason}`}>{reason}</li>
+                ))}
+              </ul>
+            </section>
+          )}
           {card.warningSigns && (
             <section className="rounded-2xl border border-[#DFE7CF] bg-white p-5">
               <h3 className="font-poppins font-bold text-[#6E5F47]">

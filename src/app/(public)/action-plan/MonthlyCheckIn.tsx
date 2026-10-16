@@ -88,12 +88,12 @@ const copy = {
         text: 'Ituloy ang tool mo sa mga araw na kailangan mo. Magche-check in ulit tayo sa susunod na buwan.',
       },
       watch: {
-        title: 'May mga palatandaan nang lumalabas.',
-        text: 'Ito ang tamang panahon para gamitin ulit ang tool mo, bago pa ito bumigat. Subukan ito araw-araw ngayong linggo.',
+        title: 'Mukhang may mga senyales na.',
+        text: 'Ngayon ang tamang oras para gamitin ulit ang tool mo, bago pa ito bumigat. Subukan ito araw-araw ngayong linggo.',
       },
       returning: {
         title: 'Mukhang bumabalik ito.',
-        text: 'Nalampasan mo na ito dati, at alam mo kung ano ang nakatulong. Magsimula ulit ng 4 na linggo gamit ang tool mo, sabihan ang isa sa mga tao mo, at kumausap ng e-coach ngayong linggo. Kung mananatiling mataas ang scores mo, magpatingin sa counselor.',
+        text: 'Nalampasan mo na ito dati, at alam mo kung ano ang nakatulong. Magsimula ulit ng 4 na linggo gamit ang tool mo, sabihan ang isa sa mga tao mo, at kumausap ng e-coach ngayong linggo. Kung mataas pa rin ang scores mo, magpatingin sa counselor.',
       },
       safety: {
         title: 'Kumausap ng isang tao ngayon.',

@@ -5,11 +5,18 @@ import { Play } from 'lucide-react';
 import { BreathingExercise } from './BreathingExercise';
 import { FindThePair } from './FindThePair';
 import { GroundingExercise } from './GroundingExercise';
+import { OneSmallThing } from './OneSmallThing';
 import type { FeelingLang } from '@/lib/feelingPages';
 import type { ToolSource } from '@/services/analyticsService';
 
 const exercises = {
   tl: {
+    'one-thing': {
+      title: 'Isang maliit na bagay para sa araw na ito',
+      description:
+        'Pumili ng isang bagay na kaya mong tapusin sa loob ng 10 minuto, tulad ng maligo, kumain, o lumabas sandali. Sapat na iyon ngayong araw.',
+      start: 'Pumili ng maliit kong gagawin',
+    },
     breathe: {
       title: 'Dahan-dahang paghinga',
       description:
@@ -19,7 +26,7 @@ const exercises = {
     ground: {
       title: '5-4-3-2-1 grounding',
       description:
-        'Kapag inaatake ka ng kaba, ibalik ang isip mo sa paligid gamit ang 5 senses mo.',
+        'Kapag inaatake ka ng kaba, ibalik ang isip mo sa paligid gamit ang 5 senses mo. Mga 2 minuto.',
       start: 'Simulan ang 5-4-3-2-1',
     },
     game: {
@@ -30,6 +37,12 @@ const exercises = {
     },
   },
   en: {
+    'one-thing': {
+      title: 'One small thing for today',
+      description:
+        "Pick one thing you can finish in 10 minutes, like a shower, something to eat, or a few minutes outside. That's enough for today.",
+      start: 'Pick my small thing',
+    },
     breathe: {
       title: 'Slow breathing',
       description:
@@ -39,7 +52,7 @@ const exercises = {
     ground: {
       title: 'Ground yourself with 5-4-3-2-1',
       description:
-        'When anxiety hits, bring your mind back to where you are using your five senses.',
+        'When anxiety hits, bring your mind back to where you are using your five senses. About 2 minutes.',
       start: 'Start 5-4-3-2-1',
     },
     game: {
@@ -56,7 +69,7 @@ export function ExerciseLauncher({
   lang = 'tl',
   source = 'feeling',
 }: {
-  kind: 'breathe' | 'ground' | 'game';
+  kind: 'breathe' | 'ground' | 'one-thing' | 'game';
   lang?: FeelingLang;
   source?: ToolSource;
 }) {
@@ -82,6 +95,8 @@ export function ExerciseLauncher({
           <BreathingExercise onClose={close} lang={lang} source={source} />
         ) : kind === 'ground' ? (
           <GroundingExercise onClose={close} lang={lang} source={source} />
+        ) : kind === 'one-thing' ? (
+          <OneSmallThing onClose={close} lang={lang} source={source} />
         ) : (
           <div className="mt-5">
             <FindThePair onClose={close} lang={lang} source={source} />

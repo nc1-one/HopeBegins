@@ -38,6 +38,7 @@ const OTHER_PAGES: [string, string][] = [
   ['give_hope', 'Give Hope'],
   ['our_approach', 'Our Approach'],
   ['laro_muna', 'Laro muna (the game page)'],
+  ['tools', 'Tools for hard moments'],
 ];
 
 const cardClass = 'border-none shadow-2xl bg-white dark:bg-zinc-900 p-6';
@@ -171,11 +172,8 @@ export function JourneyByStage({
 
   const t = clicks.totals;
   const n = (name: string) => t[name] ?? 0;
-  const tool = (
-    kind: 'breathe' | 'ground' | 'game',
-    step: 'start' | 'done',
-    source: string
-  ) => n(`tool_${kind}_${step}_${source}`);
+  const tool = (kind: string, step: 'start' | 'done', source: string) =>
+    n(`tool_${kind}_${step}_${source}`);
   const toolRows = (source: string): Row[] => [
     {
       label: 'Slow breathing',
@@ -197,8 +195,8 @@ export function JourneyByStage({
   // Every page together, including the first days before tools noted where
   // they were used.
   const anyTool = (
-    kind: 'breathe' | 'ground' | 'game',
-    step: 'start' | 'done' | 'stop'
+    kind: string,
+    step: 'start' | 'done' | 'stop' | 'checked' | 'short'
   ) => sumWhere(t, (name) => name.startsWith(`tool_${kind}_${step}`));
   // A count recorded first without the tool's name, then per tool.
   const withPerTool = (base: string) =>
@@ -400,6 +398,13 @@ export function JourneyByStage({
             rows={[
               ...toolRows('feeling'),
               gameRow('feeling'),
+              {
+                label: 'One small thing',
+                values: [
+                  tool('one-thing', 'start', 'feeling'),
+                  tool('one-thing', 'done', 'feeling'),
+                ],
+              },
               {
                 label: 'Message to someone (copied)',
                 values: [n('tool_message_copy'), '–'],
@@ -677,7 +682,13 @@ export function JourneyByStage({
             ]}
           />
           <Table
-            columns={['Tools, every page', 'Started', 'Finished', 'Stopped']}
+            columns={[
+              'Tools, every page',
+              'Started',
+              'Finished',
+              'Stopped',
+              'Said how they felt',
+            ]}
             rows={[
               {
                 label: 'Slow breathing',
@@ -685,7 +696,12 @@ export function JourneyByStage({
                   anyTool('breathe', 'start'),
                   anyTool('breathe', 'done'),
                   anyTool('breathe', 'stop'),
+                  anyTool('breathe', 'checked'),
                 ],
+              },
+              {
+                label: 'Breathing: chose 1 minute',
+                values: [anyTool('breathe', 'short'), '–', '–', '–'],
               },
               {
                 label: '5-4-3-2-1 grounding',
@@ -693,6 +709,32 @@ export function JourneyByStage({
                   anyTool('ground', 'start'),
                   anyTool('ground', 'done'),
                   anyTool('ground', 'stop'),
+                  anyTool('ground', 'checked'),
+                ],
+              },
+              ...(
+                [
+                  ['one-thing', 'One small thing'],
+                  ['worry-time', 'Worry time'],
+                  ['unhook', 'Unhook from a heavy thought'],
+                  ['reasons', 'Reasons to keep going'],
+                ] as const
+              ).map(([kind, label]) => ({
+                label,
+                values: [
+                  anyTool(kind, 'start'),
+                  anyTool(kind, 'done'),
+                  '–',
+                  anyTool(kind, 'checked'),
+                ],
+              })),
+              {
+                label: 'Tapped "Make a free plan" after a tool',
+                values: [
+                  sumWhere(t, (name) => name.startsWith('tool_make_plan_')),
+                  '–',
+                  '–',
+                  '–',
                 ],
               },
               {
@@ -700,6 +742,7 @@ export function JourneyByStage({
                 values: [
                   anyTool('game', 'start'),
                   anyTool('game', 'done'),
+                  '–',
                   '–',
                 ],
               },
