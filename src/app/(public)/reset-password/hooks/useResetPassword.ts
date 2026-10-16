@@ -27,6 +27,9 @@ export function useResetPassword() {
   const searchParams = useSearchParams();
   const uidb64 = searchParams.get('uid');
   const token = searchParams.get('token');
+  // Admin invites send people to the admin sign-in instead.
+  const loginHref =
+    searchParams.get('for') === 'admin' ? '/admin/login' : '/login/carrier';
 
   const form = useForm<ResetPasswordValues>({
     resolver: zodResolver(resetPasswordSchema),
@@ -58,7 +61,7 @@ export function useResetPassword() {
       setIsSuccess(true);
       notify.success('Password reset successfully!');
       setTimeout(() => {
-        router.push('/login/carrier');
+        router.push(loginHref);
       }, 3000);
     } catch (error: any) {
       notify.error(error.message || 'Failed to reset password.');
@@ -73,5 +76,6 @@ export function useResetPassword() {
     isSubmitting,
     isSuccess,
     hasToken: !!(uidb64 && token),
+    loginHref,
   };
 }

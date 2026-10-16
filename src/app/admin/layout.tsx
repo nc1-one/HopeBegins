@@ -14,6 +14,7 @@ import {
   X,
   Building2,
   MousePointer2,
+  UserCog,
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useMutation } from '@tanstack/react-query';
@@ -29,7 +30,8 @@ export default function AdminLayout({
 }) {
   const pathname = usePathname();
   const router = useRouter();
-  const { logout: clearUserStore } = useUserStore();
+  const { user, logout: clearUserStore } = useUserStore();
+  const isSuperAdmin = (user as { role?: string } | null)?.role === 'admin';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isLoginPage = pathname === '/admin/login';
 
@@ -126,8 +128,19 @@ export default function AdminLayout({
       icon: Heart,
     },
     { label: 'Pop-outs', href: '/admin/manage-popouts', icon: MousePointer2 },
-    { label: 'Financials', href: '/admin/donations', icon: BarChart3 },
-  ];
+    {
+      label: 'Financials',
+      href: '/admin/donations',
+      icon: BarChart3,
+      superAdminOnly: true,
+    },
+    {
+      label: 'Admin team',
+      href: '/admin/team',
+      icon: UserCog,
+      superAdminOnly: true,
+    },
+  ].filter((item) => isSuperAdmin || !item.superAdminOnly);
 
   if (isLoginPage) {
     return <AdminAuthGuard>{children}</AdminAuthGuard>;
@@ -198,7 +211,7 @@ export default function AdminLayout({
                     {logoutMutation.isPending ? 'Logging out...' : 'Logout'}
                   </p>
                   <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">
-                    Super Admin
+                    {isSuperAdmin ? 'Super Admin' : 'Admin'}
                   </p>
                 </div>
               </div>

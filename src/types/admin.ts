@@ -110,7 +110,7 @@ export interface HopeCarrier {
   id: string;
   username: string;
   email: string;
-  role: 'admin' | 'carrier' | 'user';
+  role: 'admin' | 'staff' | 'carrier' | 'user';
   is_approved: boolean;
   first_name: string;
   last_name: string;
@@ -240,4 +240,27 @@ export interface ClickAnalytics {
   totals: Record<string, number>;
   daily: { date: string; link_name: string; count: number }[];
   all_time: Record<string, number>;
+}
+
+// ─────────────────────────────────────────────
+// Admin team (super admin only)
+// ─────────────────────────────────────────────
+
+export interface AdminTeamMember {
+  id: string;
+  email: string;
+  first_name: string;
+  last_name: string;
+  role: 'admin' | 'staff';
+  is_active: boolean;
+  /** False until they open the invite link and set a password. */
+  has_password: boolean;
+  date_joined: string;
+  last_login: string | null;
+}
+
+export interface AddAdminPayload {
+  first_name: string;
+  last_name: string;
+  email: string;
 }

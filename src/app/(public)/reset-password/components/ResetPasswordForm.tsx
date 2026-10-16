@@ -28,7 +28,7 @@ import {
 import { useResetPassword } from '../hooks/useResetPassword';
 
 export function ResetPasswordForm() {
-  const { form, onSubmit, isSubmitting, isSuccess, hasToken } =
+  const { form, onSubmit, isSubmitting, isSuccess, hasToken, loginHref } =
     useResetPassword();
 
   if (isSuccess) {
@@ -50,7 +50,7 @@ export function ResetPasswordForm() {
         </CardHeader>
         <CardContent className="px-8 pb-10">
           <Link
-            href="/login/carrier"
+            href={loginHref}
             className="w-full h-14 bg-[#b4c392] hover:bg-[#a3b281] text-white font-black text-xs uppercase tracking-[0.2em] rounded-2xl shadow-xl shadow-[#b4c392]/20 transition-all flex items-center justify-center"
           >
             Go to Login
@@ -151,7 +151,7 @@ export function ResetPasswordForm() {
 
         <div className="mt-8 flex justify-center">
           <Link
-            href="/login/carrier"
+            href={loginHref}
             className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#b4c392] hover:text-[#a3b281] transition-colors group"
           >
             <ArrowLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
