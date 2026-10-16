@@ -28,7 +28,7 @@ const copy = {
     useNow: 'Gamitin ang tool ko ngayon',
     showHow: 'Ipakita kung paano',
     hideHow: 'Itago ang mga hakbang',
-    ticked: 'Na-tick na ito para sa araw na ito sa 4 na linggo mo.',
+    ticked: 'Na-tick na para ngayong araw.',
   },
 };
 

@@ -46,7 +46,7 @@ const copy = {
     intro:
       'Isulat ang mga tao, plano, at maliliit na bagay na mahalaga sa iyo. Basahin ang mga ito sa mabibigat na araw.',
     example:
-      'Halimbawa: ang bunso kong kapatid, ang pagtatapos ko sa pag-aaral, ang aso ko, ang dagat.',
+      'Halimbawa: ang bunso kong kapatid, makatapos ng pag-aaral, ang aso ko, ang dagat.',
     addLabel: 'Isang dahilan',
     add: 'Idagdag',
     listTitle: 'Ang mga dahilan ko',

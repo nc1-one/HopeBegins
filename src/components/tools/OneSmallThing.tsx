@@ -48,8 +48,7 @@ const copy = {
     close: 'Close',
     stop: 'Stop',
     doneTitle: 'You did it.',
-    doneText:
-      'Small things count. Doing comes first, and feeling better often follows.',
+    doneText: 'Small things count. Feeling better often comes after doing.',
     nextTime: 'you feel stuck or heavy',
   },
   tl: {
@@ -63,7 +62,7 @@ const copy = {
       'Uminom ng isang basong tubig',
       'Ayusin ang isang maliit na sulok',
       'Mag-message sa isang tao',
-      '10 minuto sa isang gawaing matagal ko nang ipinagpapaliban',
+      '10 minuto sa isang gawaing matagal ko nang pinagpapaliban',
     ],
     ownLabel: 'O isulat ang sa iyo',
     useOwn: 'Ito na',

@@ -97,6 +97,7 @@ const nextSteps: Record<string, OptionKey[]> = {
   '/hopecasts': ['plan', 'ecoach', 'dailyHope'],
   '/daily-hope': ['plan', 'hopecasts', 'ecoach'],
   '/laro-muna': ['plan', 'ecoach', 'hopeAi'],
+  '/tools': ['plan', 'ecoach', 'prayers'],
 };
 
 const cardClass =

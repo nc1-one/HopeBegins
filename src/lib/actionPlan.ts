@@ -289,7 +289,7 @@ const questionText: {
     },
     note: {
       en: 'Your answer stays on this device. It tells us what to put first in your plan.',
-      tl: 'Mananatili ang sagot mo sa device na ito. Ginagamit lang ito para malaman kung ano ang uunahin sa plano mo.',
+      tl: 'Sa phone mo lang naka-save ang sagot mo. Ginagamit lang ito para malaman kung ano ang uunahin sa plano mo.',
     },
     options: frequency,
   },
@@ -332,7 +332,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
     summary.push(
       t(
         'Low mood or loss of interest on many days.',
-        'Mababang mood o kawalan ng gana sa maraming araw.'
+        'Malungkot o walang gana sa maraming araw.'
       )
     );
   } else if (mood > 0) {
@@ -369,8 +369,8 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
   if (summary.length === 0) {
     summary.push(
       t(
-        'You are mostly coping. This plan helps you keep it that way.',
-        'Okay ka naman sa karamihan. Tutulungan ka ng planong ito na manatiling ganoon.'
+        "You're doing okay most days. This plan helps keep it that way.",
+        "Kaya mo naman halos araw-araw. Makakatulong ang planong ito para tuloy-tuloy 'yan."
       )
     );
   }
@@ -382,7 +382,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
       id: 'safety',
       heading: t('Your safety plan', 'Ang safety plan mo'),
       intro: t(
-        'Do this first. Fill it in today, save it on your phone, and use it when things get dark.',
+        'Do this first. Fill it in today, save it on your phone, and use it when it all feels too heavy.',
         'Unahin ito. Sagutan ngayong araw, i-save sa phone mo, at gamitin kapag sobrang bigat na.'
       ),
       items: [
@@ -394,7 +394,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           ),
           detail: t(
             'Write down the thoughts, feelings or situations that come before your worst moments.',
-            'Isulat ang mga isip, pakiramdam, o sitwasyon na nauuna bago ang pinakamabibigat mong sandali.'
+            'Isulat ang mga naiisip, pakiramdam, o sitwasyon na nauuna bago ang pinakamabibigat mong sandali.'
           ),
         },
         {
@@ -405,7 +405,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           ),
           detail: t(
             'List 3 things that take your mind off it for a while, like a walk, music, a shower or cleaning.',
-            'Maglista ng 3 bagay na nakakapagpalipat ng isip mo, gaya ng paglalakad, music, pagligo, o paglilinis.'
+            'Maglista ng 3 bagay na nakakalibang sa iyo sandali, gaya ng paglalakad, music, pagligo, o paglilinis.'
           ),
         },
         {
@@ -416,7 +416,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           ),
           detail: t(
             'Name a person you can sit with or a place you can go to be around others, even without talking about it.',
-            'Pangalanan ang isang taong puwede mong samahan o lugar na may ibang tao, kahit hindi mo pag-usapan ang nararamdaman mo.'
+            'Isipin ang isang taong puwede mong samahan o lugar na may ibang tao, kahit hindi mo pag-usapan ang nararamdaman mo.'
           ),
         },
         {
@@ -474,21 +474,21 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           'Magplano ng isang maliit na gagawin bawat araw'
         ),
         detail: t(
-          "With low mood, waiting to feel like it doesn't work. Doing comes first, and feeling better follows.",
-          'Kapag mababa ang mood, hindi gumagana ang paghihintay na ganahan ka. Gumawa muna, at susunod ang gaan ng pakiramdam.'
+          "With low mood, waiting to feel like it doesn't work. Start small. The energy often comes after.",
+          'Kapag malungkot ka, bihirang dumating ang gana kung hihintayin mo. Kumilos muna nang kaunti, madalas sumusunod ang gaan.'
         ),
         steps: [
           t(
             'Each evening, choose one thing for tomorrow: something you used to enjoy, or a small task you have been putting off.',
-            'Tuwing gabi, pumili ng isang gagawin bukas: isang bagay na dati mong kinagigiliwan, o isang maliit na gawaing matagal mo nang ipinagpapaliban.'
+            'Tuwing gabi, pumili ng isang gagawin bukas: isang bagay na dati mong ine-enjoy, o isang maliit na gawaing matagal mo nang pinagpapaliban.'
           ),
           t(
             'Make it small enough to finish in 10 minutes.',
-            'Gawin itong sapat na maliit para matapos sa loob ng 10 minuto.'
+            'Dapat maliit lang, kaya mong tapusin sa loob ng 10 minuto.'
           ),
           t(
             'Do it even if you do not feel like it, then notice how you feel after.',
-            'Gawin ito kahit hindi mo gusto, tapos pansinin ang pakiramdam mo pagkatapos.'
+            'Gawin ito kahit wala kang gana, tapos pansinin ang pakiramdam mo pagkatapos.'
           ),
         ],
       },
@@ -574,7 +574,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         id: 'sleep',
         action: t(
           'wake up at my set time',
-          'gigising ako sa oras na itinakda ko'
+          'gigising ako sa oras na pinili ko'
         ),
         defaultTime: 'morning',
         title: t('Reset your sleep', 'Ayusin ang tulog mo'),
@@ -604,7 +604,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         id: 'sleep',
         action: t(
           'get up with my alarm and get daylight',
-          'babangon ako sa alarm at lalabas sa liwanag ng araw'
+          'babangon ako sa alarm at magpapaaraw'
         ),
         defaultTime: 'morning',
         title: t(
@@ -613,7 +613,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         ),
         detail: t(
           'Set an alarm, get up when it rings, and get daylight within the first hour.',
-          'Mag-set ng alarm, bumangon pagtunog nito, at lumabas sa liwanag ng araw sa loob ng unang oras.'
+          'Mag-set ng alarm, bumangon pagtunog nito, at magpaaraw sa loob ng unang oras.'
         ),
       },
     ],
@@ -628,8 +628,8 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         defaultTime: 'midday',
         exercise: 'ground',
         title: t(
-          'Ground yourself with 5-4-3-2-1',
-          'Mag-ground gamit ang 5-4-3-2-1'
+          'Use your 5 senses (5-4-3-2-1)',
+          'Gamitin ang 5 senses mo (5-4-3-2-1)'
         ),
         detail: t(
           'When worry or panic builds, name 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell and 1 you can taste.',
@@ -649,7 +649,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         ),
         detail: t(
           'A walk outside counts. Daylight and movement both lift mood and help sleep.',
-          'Pasok na ang paglalakad sa labas. Ang liwanag ng araw at paggalaw ay parehong nakakapagpagaan ng mood at nakakatulong sa tulog.'
+          'Pasok na ang paglalakad sa labas. Ang pagpapaaraw at paggalaw ay parehong nakakagaan ng mood at nakakatulong sa tulog.'
         ),
       },
     ],
@@ -663,7 +663,10 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           'papansinin at papangalanan ko ang isang mabigat na isip'
         ),
         defaultTime: 'midday',
-        title: t('Unhook from heavy thoughts', 'Kumawala sa mabibigat na isip'),
+        title: t(
+          'Step back from a heavy thought',
+          'Lumayo nang kaunti sa mabigat na isip'
+        ),
         detail: t(
           'When a hard thought grabs you, name it: "I\'m having the thought that I\'m not good enough." Then bring your attention back to what you are doing.',
           'Kapag may mabigat na isip na kumapit sa iyo, pangalanan ito: "Napapansin kong iniisip ko na hindi ako sapat." Tapos ibalik ang atensyon mo sa ginagawa mo.'
@@ -760,8 +763,8 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           'Magplano ng isang tapat na pag-uusap'
         ),
         detail: t(
-          'Choose a calm moment. Start with "I feel ... when ... I need ...". Talk about one thing, not everything.',
-          'Pumili ng kalmadong pagkakataon. Magsimula sa "Nararamdaman ko ... kapag ... Kailangan ko ...". Isang bagay lang ang pag-usapan, hindi lahat.'
+          'Choose a calm moment. Start with "I feel ... when ... I need ...". Stick to one thing for now.',
+          'Pumili ng kalmadong pagkakataon. Isang bagay lang muna ang pag-usapan. Simulan sa: "Nasasaktan ako kapag ... Sana ..."'
         ),
       });
       break;
@@ -781,10 +784,13 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
     case 'grief':
       week.push({
         id: 'grief',
-        title: t('Make space for grief', 'Bigyan ng puwang ang pagdadalamhati'),
+        title: t(
+          'Give your grief some time each day',
+          'Bigyan ng oras ang lungkot araw-araw'
+        ),
         detail: t(
           'Grief comes in waves. Give it some time each day: look at photos, write to the person, or talk about them. Keep simple routines like meals and sleep.',
-          'Dumarating nang paalon-alon ang lungkot. Bigyan ito ng kaunting oras araw-araw: tingnan ang mga litrato, sumulat sa taong nawala, o pag-usapan siya. Panatilihin ang simpleng routine gaya ng pagkain at pagtulog.'
+          'Dumarating nang paalon-alon ang lungkot. Bigyan ito ng kaunting oras araw-araw: tingnan ang mga litrato, sumulat sa taong nawala, o pag-usapan siya. Ituloy ang simpleng routine gaya ng pagkain at pagtulog.'
         ),
       });
       break;
@@ -794,7 +800,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         exercise: 'message',
         title: t(
           'Make one small contact each day',
-          'Makipag-ugnayan sa isang tao araw-araw'
+          'Mag-message o kumustahin ang isang tao araw-araw'
         ),
         detail: t(
           'A message, a call or a hello. This month, join one group: a class, a faith group or volunteering.',
@@ -842,7 +848,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
     week.push({
       id: 'reach-out',
       exercise: 'message',
-      title: t('Set a time to talk', 'Magtakda ng oras para mag-usap'),
+      title: t('Set a time to talk', 'Mag-set ng oras para mag-usap'),
       detail: t(
         'Choose a day this week and tell someone you trust that you would like to talk.',
         'Pumili ng araw ngayong linggo at sabihan ang taong pinagkakatiwalaan mo na gusto mong makipag-usap.'
@@ -888,7 +894,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
 
   sections.push({
     id: 'track',
-    heading: t('Track your progress', 'Bantayan ang progress mo'),
+    heading: t("See what's changed", 'Silipin kung ano na ang nagbago'),
     items: [
       {
         id: 'retake',
@@ -913,8 +919,8 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         'Kumausap ng doktor o counselor'
       ),
       detail: t(
-        'Your answers suggest a professional check-up is worth it. Screening tools like this one flag when talking to someone trained can help. This plan does not replace professional care.',
-        'Ayon sa mga sagot mo, makabubuting magpatingin sa isang professional. Ang mga screening tool na gaya nito ay nagpapakita kung kailan makakatulong ang pakikipag-usap sa isang trained na tao. Hindi pumapalit ang planong ito sa professional care.'
+        "From your answers, it's a good time to see a doctor or counselor. A quick check-in like this can only spot the signs. A trained person can help with what's behind them. This plan doesn't replace that.",
+        'Base sa mga sagot mo, magandang magpatingin ka na sa doktor o counselor. Nakikita lang ng check-in na ito ang mga senyales. Sila ang makakatulong sa pinanggagalingan nito. Hindi kayang palitan ng planong ito ang tulong nila.'
       ),
     });
   }
@@ -926,7 +932,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
       'Isang AI assistant na puwede mong i-chat anumang oras.'
     ),
     href: '/hope-ai',
-    linkLabel: t('Chat with Hope', 'I-chat si Hope'),
+    linkLabel: t('Chat with Hope AI', 'I-chat si Hope AI'),
   });
   if (wantsFaith) {
     support.push({

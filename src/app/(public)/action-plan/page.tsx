@@ -82,7 +82,7 @@ const ui = {
     locale: 'en-US',
     introTitle: 'Get your free Hopeful Beginning Plan',
     introText:
-      'Answer 9 quick questions about how you have been. You will get a personal plan with simple steps to manage anxiety, low mood and stress, starting today.',
+      "Answer 9 quick questions about how you've been. You'll get a few small steps made for you, and you can start today.",
     includes: [
       'Calming tools you can try right on the page',
       "A step for this week, based on what's weighing on you",
@@ -94,7 +94,7 @@ const ui = {
     start: 'Start my plan',
     introNote: 'About 2 minutes. Free. Your answers stay on this device.',
     method:
-      "Built on proven self-help methods from cognitive behavioural therapy (CBT) and the World Health Organization's stress guide. This check-in is not a diagnosis and does not replace professional care.",
+      "The steps come from CBT, a common talk therapy, and the World Health Organization's stress guide. This isn't a diagnosis, and it doesn't replace seeing a doctor or counselor.",
     restorePrompt: 'Made a plan before and saved a backup?',
     restore: 'Restore from a backup',
     restoreError: 'That file is not a HopeBegins plan backup.',
@@ -124,7 +124,7 @@ const ui = {
     startTools:
       'Pick 1 or 2 daily tools, add them to your 4 weeks, then tick them off each day.',
     answersShow: 'What your answers show',
-    notDiagnosis: 'This is not a diagnosis. It is a starting point.',
+    notDiagnosis: "This isn't a diagnosis. It helps you pick where to start.",
     changedTitle: 'What has changed',
     lowMood: 'Low mood',
     worry: 'Worry',
@@ -134,7 +134,7 @@ const ui = {
     same: 'About the same as your first check-in. That is common in the first weeks. Keep going, and talk to an e-coach if you feel stuck.',
     worse:
       'Your scores have gone up since your first check-in. Please talk to someone this week: an e-coach, a counselor or a person you trust.',
-    ecoachTitle: 'Want someone to journey with you?',
+    ecoachTitle: 'Want someone to go through this with you?',
     ecoachText:
       'E-coaches from Himala Everyday can help you choose where to start.',
     ecoachButton: 'Talk to an e-coach on Messenger',
@@ -147,8 +147,7 @@ const ui = {
     trackerTitle: 'Your 4 weeks',
     trackerIntro:
       "Tick each day you do it. Missed a day? Pick it up the next day. Missed days don't undo your progress.",
-    trackerHabit:
-      'Habits take weeks to stick. Aim for most days, not every day.',
+    trackerHabit: 'Habits take weeks to stick. Most days is enough.',
     trackerEmpty:
       'Choose "Add to my 4 weeks" on 1 or 2 tools above. They will show up here so you can tick them off each day.',
     daysDone: (done: number) => `${done} of ${PLAN_DAYS} days`,
@@ -175,13 +174,13 @@ const ui = {
     submitCheckIn: 'Check on me next week',
     submitPlan: 'Email my plan',
     submitNone: 'Choose one above',
-    errorBoth: "We couldn't reach you.",
+    errorBoth: "That didn't go through.",
     errorCheckIn: "We couldn't set up your check-in.",
     errorPlan: "We couldn't send your plan.",
     errorTry: 'Check the email address and try again',
     errorPrint: ', or print the plan instead',
     emailPrivacy:
-      'Your answers and progress are saved only on this device. We receive your email only for what you tick above. See our',
+      'Your answers and progress are saved only on this device. We only use your email for what you ticked above. See our',
     privacyPolicy: 'privacy policy',
     saveTitle: 'Save my plan',
     saved:
@@ -220,7 +219,7 @@ const ui = {
     locale: 'fil-PH',
     introTitle: 'Kunin ang libreng Hopeful Beginning Plan mo',
     introText:
-      'Sagutin ang 9 na mabilis na tanong tungkol sa pinagdadaanan mo. Makakakuha ka ng personal na plano na may simpleng hakbang para sa anxiety, mababang mood, at stress, simula ngayon.',
+      'Sagutin ang 9 na mabilis na tanong tungkol sa pinagdadaanan mo. Bibigyan ka namin ng ilang maliliit na hakbang na puwede mong simulan ngayon.',
     includes: [
       'Mga pampakalmang tool na masusubukan mo agad dito',
       'Isang hakbang para ngayong linggo, base sa pinakamabigat sa loob mo',
@@ -231,9 +230,9 @@ const ui = {
     nameLabel: 'Ano ang itatawag namin sa iyo? (optional)',
     start: 'Simulan ang plano ko',
     introNote:
-      'Mga 2 minuto. Libre. Mananatili ang mga sagot mo sa device na ito.',
+      'Mga 2 minuto. Libre. Sa phone mo lang naka-save ang mga sagot mo.',
     method:
-      'Batay sa mga subok nang self-help method mula sa cognitive behavioural therapy (CBT) at sa stress guide ng World Health Organization. Hindi ito diagnosis at hindi ito pumapalit sa professional care.',
+      'Galing ang mga hakbang sa CBT (isang uri ng talk therapy) at sa stress guide ng World Health Organization. Hindi ito diagnosis, at hindi nito mapapalitan ang pagpapatingin sa doktor o counselor.',
     restorePrompt: 'Nakagawa ka na ba ng plano at may backup ka?',
     restore: 'Ibalik mula sa backup',
     restoreError: 'Hindi HopeBegins plan backup ang file na iyan.',
@@ -265,7 +264,8 @@ const ui = {
     startTools:
       'Pumili ng 1 o 2 daily tool, idagdag sa 4 na linggo mo, at i-tick araw-araw.',
     answersShow: 'Ano ang ipinapakita ng mga sagot mo',
-    notDiagnosis: 'Hindi ito diagnosis. Panimula lang ito.',
+    notDiagnosis:
+      'Hindi ito diagnosis. Tinutulungan ka lang nitong pumili kung saan magsisimula.',
     changedTitle: 'Ano ang nagbago',
     lowMood: 'Mababang mood',
     worry: 'Pag-aalala',
@@ -290,7 +290,7 @@ const ui = {
     trackerIntro:
       'I-tick ang bawat araw na nagawa mo. May araw na hindi mo nagawa? Ituloy lang kinabukasan. Hindi nabubura ang progress mo dahil doon.',
     trackerHabit:
-      'Ilang linggo bago maging habit ang isang bagay. Sikaping magawa ito sa karamihan ng araw, hindi kailangang araw-araw.',
+      'Ilang linggo bago masanay. Okay na kung karamihan ng araw mo itong nagawa.',
     trackerEmpty:
       'Piliin ang "Idagdag sa 4 na linggo ko" sa 1 o 2 tool sa itaas. Lalabas sila dito para ma-tick mo araw-araw.',
     daysDone: (done: number) => `${done} sa ${PLAN_DAYS} araw`,
@@ -299,7 +299,7 @@ const ui = {
     dayLabel: (date: string, done: boolean) =>
       `${date}${done ? ', nagawa' : ''}`,
     remindMe: (time: TimeOfDay) =>
-      `Paalalahanan ako ${TIME_LABELS.tl[time].toLowerCase()} nang ${reminderClock(time)} sa loob ng 4 na linggo`,
+      `I-remind ako ${TIME_LABELS.tl[time].toLowerCase()} nang ${reminderClock(time)} sa loob ng 4 na linggo`,
     otherCalendar: 'iPhone o Outlook',
     checkInTitle: 'Puwede ka ba naming kumustahin sa susunod na linggo?',
     checkInText: (date: string) =>
@@ -318,13 +318,13 @@ const ui = {
     submitCheckIn: 'Kumustahin ako next week',
     submitPlan: 'I-email ang plano ko',
     submitNone: 'Pumili muna sa itaas',
-    errorBoth: 'Hindi ka namin ma-reach.',
+    errorBoth: 'Hindi ito natuloy.',
     errorCheckIn: 'Hindi namin ma-set up ang check-in mo.',
     errorPlan: 'Hindi namin maipadala ang plano mo.',
     errorTry: 'Tingnan ang email address at subukan ulit',
     errorPrint: ', o i-print na lang ang plano',
     emailPrivacy:
-      'Naka-save lang sa device na ito ang mga sagot at progress mo. Natatanggap lang namin ang email mo para sa mga pinili mo sa itaas. Basahin ang',
+      'Naka-save lang sa device na ito ang mga sagot at progress mo. Gagamitin lang namin ang email mo para sa mga pinili mo sa itaas. Basahin ang',
     privacyPolicy: 'privacy policy',
     saveTitle: 'I-save ang plano ko',
     saved:
@@ -332,7 +332,7 @@ const ui = {
     saveWhy:
       'May mga phone na nagbubura ng data ng website kapag isang linggo itong hindi nabuksan. Para hindi mawala ang 4 na linggo mo:',
     homeInstalled:
-      'Binuksan mo ang HopeBegins mula sa home screen mo, kaya mananatili ang plano mo sa phone na ito.',
+      'Binuksan mo ang HopeBegins mula sa home screen mo, kaya hindi mawawala ang plano mo sa phone na ito.',
     homeButton: 'Idagdag ang HopeBegins sa home screen ko',
     homeIphone:
       'Idagdag ang HopeBegins sa home screen mo: i-tap ang Share, tapos "Add to Home Screen". Doon mo buksan ang plano mo.',
@@ -340,7 +340,7 @@ const ui = {
       'Idagdag ang HopeBegins sa home screen mo: buksan ang menu ng browser, tapos "Add to Home screen".',
     backupTitle: 'Mag-download ng backup',
     backupText:
-      'Isang maliit na file na may plano at progress mo. Itago ito nang pribado. Kung mawala ang plano mo o magpalit ka ng phone, buksan ang hopebegins.today/action-plan at piliin ang "Ibalik mula sa backup".',
+      'Isang maliit na file na may plano at progress mo. Huwag itong ipasa sa iba. Kung mawala ang plano mo o magpalit ka ng phone, buksan ang hopebegins.today/action-plan at piliin ang "Ibalik mula sa backup".',
     backupButton: 'I-download ang backup ko',
     print: 'I-print o i-save bilang PDF',
     deletePlan: 'Burahin ang plano ko sa device na ito',
@@ -354,10 +354,10 @@ const ui = {
     startTool: 'Simulan',
     safetyWrite: 'Isulat ang sa iyo',
     safetySaved: 'Naka-save lang sa phone na ito ang isusulat mo dito.',
-    tickedToday: 'Na-tick na ito para sa araw na ito sa 4 na linggo mo.',
+    tickedToday: 'Na-tick na para ngayong araw.',
     calmerAfter: (calmer: number, total: number) =>
       `Mas kumalma ka pagkatapos nito ${calmer} sa ${total} beses.`,
-    todayAfterBreak: 'Buti at nandito ka ulit. Simulan natin sa araw na ito.',
+    todayAfterBreak: 'Buti bumalik ka. Simulan natin ngayong araw.',
     seeWeeks: 'Tingnan ang 4 na linggo mo',
   },
 };
@@ -604,7 +604,7 @@ function ToolCard({
     >
       <CardContent className="p-6">
         {isFirst && (
-          <p className="mb-2 inline-flex rounded-full bg-[#EFF3E7] px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#6E5F47]">
+          <p className="mb-2 inline-flex rounded-full bg-[#EFF3E7] px-3 py-1 text-sm font-bold text-[#6E5F47]">
             {t.startHere}
           </p>
         )}

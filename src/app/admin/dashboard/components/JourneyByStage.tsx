@@ -38,6 +38,7 @@ const OTHER_PAGES: [string, string][] = [
   ['give_hope', 'Give Hope'],
   ['our_approach', 'Our Approach'],
   ['laro_muna', 'Laro muna (the game page)'],
+  ['tools', 'Tools for hard moments'],
 ];
 
 const cardClass = 'border-none shadow-2xl bg-white dark:bg-zinc-900 p-6';

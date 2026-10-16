@@ -53,7 +53,7 @@ const copy = {
     signsHeading: 'When it comes back, I notice',
     reasonsHeading: 'My reasons to keep going',
     peopleHeading: 'People I can reach out to',
-    crisisHeading: 'If it gets dark',
+    crisisHeading: "If you're in crisis",
     crisisLine: 'NCMH Crisis Hotline, 24/7: 1553 or 0917 899 8727',
     ecoachLine: 'E-coach on Messenger: facebook.com/Mayhimalaeveryday',
     call: 'Call 1553',
@@ -91,8 +91,8 @@ const copy = {
     next: 'Susunod: gawin ang Hope Card ko',
     cardTitle: 'Gawin ang Hope Card mo',
     cardIntro:
-      'Isang maliit na card para sa mga araw na bumigat ulit. Mananatili ito sa phone na ito. Hindi ito nakikita ng HopeBegins.',
-    signsLabel: 'Ano ang palatandaan na bumabalik ito?',
+      'Isang maliit na card para sa mga araw na bumigat ulit. Sa phone mo lang naka-save ito. Hindi ito nakikita ng HopeBegins.',
+    signsLabel: 'Ano ang senyales na bumabalik ito?',
     signsHint:
       'Mga warning sign mo, gaya ng hindi makatulog, hindi kumakain, o umiiwas sa mga tao.',
     peopleLabel: 'Dalawang taong puwede mong lapitan',
@@ -106,7 +106,7 @@ const copy = {
     signsHeading: 'Kapag bumabalik ito, napapansin ko',
     reasonsHeading: 'Ang mga dahilan ko para magpatuloy',
     peopleHeading: 'Mga taong malalapitan ko',
-    crisisHeading: 'Kapag sobrang bigat na',
+    crisisHeading: 'Kung nasa crisis ka',
     crisisLine: 'NCMH Crisis Hotline, 24/7: 1553 o 0917 899 8727',
     ecoachLine: 'E-coach sa Messenger: facebook.com/Mayhimalaeveryday',
     call: 'Tumawag sa 1553',

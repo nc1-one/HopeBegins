@@ -32,6 +32,7 @@ const columns: {
   {
     heading: 'Free help',
     links: [
+      { href: '/tools', label: 'Tools for hard moments' },
       { href: '/laro-muna', label: 'Laro muna: Find the pair' },
       { href: '/action-plan', label: 'Make your free plan' },
       { href: '/prayers', label: 'Ask for prayer' },

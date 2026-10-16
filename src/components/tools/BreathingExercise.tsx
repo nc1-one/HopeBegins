@@ -23,6 +23,8 @@ const copy = {
     resume: 'Resume',
     stop: 'Stop',
     shorter: 'Make it 1 minute',
+    buzz: 'Vibrate with each breath',
+    buzzHint: 'Close your eyes if you like, and follow the buzz.',
     doneTitle: (rounds: number) =>
       rounds === SHORT_ROUNDS ? '1 minute done.' : '2 minutes done.',
     doneText: 'Notice how your body feels now compared to when you started.',
@@ -37,6 +39,8 @@ const copy = {
     resume: 'Ituloy',
     stop: 'Itigil',
     shorter: 'Gawing 1 minuto',
+    buzz: 'Mag-vibrate sa bawat hinga',
+    buzzHint: 'Puwede kang pumikit at sundan ang vibrate.',
     doneTitle: (rounds: number) =>
       rounds === SHORT_ROUNDS
         ? 'Tapos na ang 1 minuto.'
@@ -66,6 +70,9 @@ export function BreathingExercise({
   const [elapsed, setElapsed] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [rounds, setRounds] = useState(ROUNDS);
+  const [buzz, setBuzz] = useState(false);
+  // Android phones can buzz on each breath; iPhones and computers can't.
+  const canBuzz = typeof navigator !== 'undefined' && 'vibrate' in navigator;
 
   const isDone = elapsed >= CYCLE * rounds;
   const counted = useRef({ start: false, done: false });
@@ -93,6 +100,12 @@ export function BreathingExercise({
   }, [isDone, source, onFinish]);
   const inCycle = elapsed % CYCLE;
   const isBreathingIn = inCycle < BREATHE_IN;
+
+  // One short buzz to breathe in, a softer double buzz to breathe out.
+  useEffect(() => {
+    if (!buzz || isPaused || isDone) return;
+    navigator.vibrate(isBreathingIn ? 120 : [40, 80, 40]);
+  }, [buzz, isBreathingIn, isPaused, isDone]);
   const count = isBreathingIn ? BREATHE_IN - inCycle : CYCLE - inCycle;
   const round = Math.min(Math.floor(elapsed / CYCLE) + 1, rounds);
   // Offered in the first minute, while switching still means stopping sooner.
@@ -178,6 +191,21 @@ export function BreathingExercise({
             {t.stop}
           </button>
         </div>
+        {canBuzz && (
+          <div className="mt-3 flex flex-col items-center">
+            <button
+              type="button"
+              aria-pressed={buzz}
+              onClick={() => setBuzz((on) => !on)}
+              className="min-h-11 rounded-xl px-3 text-sm font-medium text-[#6E5F47] underline underline-offset-4 hover:bg-[#DFE7CF] aria-pressed:bg-[#DFE7CF] aria-pressed:no-underline focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
+            >
+              {t.buzz}
+            </button>
+            {buzz && (
+              <p className="mt-1 text-sm text-[#6E5F47]">{t.buzzHint}</p>
+            )}
+          </div>
+        )}
         {canShorten && (
           <button
             type="button"

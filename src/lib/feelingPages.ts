@@ -215,6 +215,7 @@ export const feelingUi = {
     prayerText:
       'Magpadala ng prayer request. May Hope Carrier na magdarasal para sa iyo.',
     seeAll: 'Tingnan lahat ng maitutulong namin',
+    allTools: 'Tingnan lahat ng tool',
   },
   en: {
     htmlLang: 'en',
@@ -232,6 +233,7 @@ export const feelingUi = {
     prayerTitle: 'Would you like us to pray for you?',
     prayerText: 'Send a prayer request. A Hope Carrier will pray for you.',
     seeAll: 'See all the ways we can help',
+    allTools: 'See all the tools',
   },
 } as const;
 

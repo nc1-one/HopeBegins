@@ -8,14 +8,14 @@ import { ToolFinish } from './ToolFinish';
 import { inputClass, panelClass, primaryClass, quietClass } from './toolStyles';
 
 /**
- * Unhook from a heavy thought: type it, read it back as "I'm having the
+ * Step back from a heavy thought: type it, read it back as "I'm having the
  * thought that…", then turn back to what you were doing. Nothing typed here
  * is saved anywhere.
  */
 
 const copy = {
   en: {
-    label: 'Unhook from a heavy thought',
+    label: 'Step back from a heavy thought',
     thoughtLabel: 'What is the thought? A few words is enough.',
     privacy: "What you type here isn't saved anywhere.",
     next: 'Next',
@@ -33,14 +33,14 @@ const copy = {
     nextTime: 'a hard thought grabs you',
   },
   tl: {
-    label: 'Kumawala sa mabigat na isip',
+    label: 'Lumayo nang kaunti sa mabigat na isip',
     thoughtLabel: 'Ano ang iniisip mo? Ilang salita lang.',
     privacy: 'Hindi naka-save kahit saan ang itina-type mo dito.',
     next: 'Susunod',
     readTitle: 'Basahin ito nang isang beses, dahan-dahan:',
     frame: (thought: string) => `Napapansin kong iniisip ko na ${thought}.`,
     readHint:
-      'Puwede mong mapansin ang isang isip nang hindi ito kinokontra o sinusunod.',
+      'Puwede mong mapansin ang naiisip mo nang hindi ito kinokontra o sinusunod.',
     backLabel:
       'Ngayon, ibalik ang atensyon mo. Ano ang ginagawa mo, o ano ang susunod mong gagawin?',
     finish: 'Tapos na',
