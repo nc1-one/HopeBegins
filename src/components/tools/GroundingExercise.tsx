@@ -97,7 +97,7 @@ export function GroundingExercise({
       tabIndex={-1}
       role="group"
       aria-label={t.label}
-      className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 text-center focus:outline-none"
+      className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 text-center focus:outline-none hb-panel-in"
     >
       {isDone ? (
         <>
@@ -126,11 +126,14 @@ export function GroundingExercise({
             {counts.map((count, i) => (
               <span
                 key={count}
-                className={`h-1.5 w-8 rounded-full ${i <= step ? 'bg-[#AEC488]' : 'bg-white'}`}
+                className={`h-1.5 w-8 rounded-full transition-colors duration-300 ${i <= step ? 'bg-[#AEC488]' : 'bg-white'}`}
               />
             ))}
           </div>
-          <p className="mt-5 font-playfair text-6xl text-[#6E5F47]">
+          <p
+            key={step}
+            className="mt-5 font-playfair text-6xl text-[#6E5F47] hb-step-in"
+          >
             {counts[step]}
           </p>
           <p

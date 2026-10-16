@@ -190,10 +190,10 @@ export default function GetStartedPage() {
               key={
                 currentStep + (currentStep === 'prayer' ? prayerSubStep : '')
               }
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.4 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
             >
               {currentStep === 'welcome' && (
                 <WelcomeStep
@@ -245,7 +245,7 @@ function WelcomeStep({
   onNext: () => void;
 }) {
   return (
-    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700 motion-reduce:animate-none">
+    <div className="space-y-6">
       <div className="space-y-3">
         <h2 className="text-2xl min-[400px]:text-3xl md:text-4xl font-playfair font-normal tracking-[-0.03em] text-[#6E5F47] dark:text-zinc-200">
           {content.title}
@@ -297,7 +297,7 @@ function WordStep({
   onBack: () => void;
 }) {
   return (
-    <div className="space-y-8 md:space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+    <div className="space-y-8 md:space-y-12">
       <div className="text-center space-y-3 md:space-y-4 px-4">
         <h2 className="text-2xl md:text-3xl font-playfair font-normal tracking-[-0.03em] text-[#6E5F47] dark:text-zinc-200">
           {content.title}
@@ -524,7 +524,7 @@ function NextStepsStep({
   crisisContent: JourneyCrisisSection;
 }) {
   return (
-    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+    <div className="space-y-8">
       <div className="flex justify-center mb-6">
         <div className="w-16 h-16 rounded-full bg-[#EFF3E7] flex items-center justify-center text-[#91AFAA]">
           <Compass className="w-8 h-8" />

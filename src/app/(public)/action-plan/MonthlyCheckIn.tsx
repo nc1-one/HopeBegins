@@ -210,7 +210,7 @@ export function MonthlyCheckIn({
   if (result) {
     const r = t.results[result];
     return (
-      <div className="space-y-6">
+      <div className="space-y-6 hb-step-in">
         <h1
           ref={headingRef}
           tabIndex={-1}
@@ -319,7 +319,10 @@ export function MonthlyCheckIn({
     : question.options;
 
   return (
-    <div className="rounded-2xl border border-zinc-100 bg-white p-6 md:p-8">
+    <div
+      key={current}
+      className="rounded-2xl border border-zinc-100 bg-white p-6 md:p-8 hb-step-in"
+    >
       <div className="flex items-center justify-between gap-4 text-sm text-[#6E5F47]">
         <span className="font-poppins font-bold">{t.title}</span>
         <span>{t.questionOf(current + 1, questions.length)}</span>

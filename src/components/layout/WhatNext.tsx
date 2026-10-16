@@ -11,6 +11,7 @@ import {
   MessageSquare,
   Radio,
 } from 'lucide-react';
+import { Reveal } from '@/components/ui/Reveal';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { ECOACH_APP_URL } from '@/lib/actionPlan';
 import type { FeelingLang } from '@/lib/feelingPages';
@@ -122,7 +123,7 @@ export function WhatNext() {
             : 'Other ways we can help'}
         </h2>
         <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
-          {keys.map((key) => {
+          {keys.map((key, index) => {
             const option = options[key];
             const body = (
               <>
@@ -140,27 +141,26 @@ export function WhatNext() {
                 <ArrowRight className="h-4 w-4 text-[#C5BFB5] transition-all group-hover:translate-x-1 group-hover:text-[#6E5F47] motion-reduce:transition-none" />
               </>
             );
-            return key === 'ecoach' ? (
-              <EcoachLink
-                key={key}
-                linkName="ecoach_what_next"
-                className={cardClass}
-              >
-                {body}
-              </EcoachLink>
-            ) : (
-              <Link
-                key={key}
-                href={
-                  // The plan opens in the page's language.
-                  key === 'plan' && lang === 'tl'
-                    ? `${option.href}?lang=tl`
-                    : option.href
-                }
-                className={cardClass}
-              >
-                {body}
-              </Link>
+            return (
+              <Reveal key={key} delay={index * 80}>
+                {key === 'ecoach' ? (
+                  <EcoachLink linkName="ecoach_what_next" className={cardClass}>
+                    {body}
+                  </EcoachLink>
+                ) : (
+                  <Link
+                    href={
+                      // The plan opens in the page's language.
+                      key === 'plan' && lang === 'tl'
+                        ? `${option.href}?lang=tl`
+                        : option.href
+                    }
+                    className={cardClass}
+                  >
+                    {body}
+                  </Link>
+                )}
+              </Reveal>
             );
           })}
         </div>

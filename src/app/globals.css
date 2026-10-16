@@ -207,3 +207,102 @@
     transform: scale(0.6);
   }
 }
+
+/*
+ * Motion, after Apple's Human Interface Guidelines: short, eased so things
+ * arrive quickly and settle gently, only where something actually changes,
+ * and off for anyone who asks for less motion.
+ */
+:root {
+  /* Arrives fast, settles softly, like iOS sheets and cards. */
+  --hb-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --hb-ease-in-out: cubic-bezier(0.32, 0.72, 0, 1);
+  --hb-quick: 180ms;
+  --hb-base: 320ms;
+  --hb-slow: 560ms;
+}
+
+@keyframes hb-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hb-rise {
+  from {
+    transform: translateY(8px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes hb-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer utilities {
+  /* A new page after a tap: rises into place. No fade, so the first screen is never held back. */
+  .hb-page-in {
+    animation: hb-rise var(--hb-slow) var(--hb-ease-out) both;
+  }
+  /* A step that replaces the one before it: a question, a tool step, a result. */
+  .hb-step-in {
+    animation: hb-fade-up var(--hb-base) var(--hb-ease-out) both;
+  }
+  /* A panel opening in place: a tool, a time picker, the steps of a tool. */
+  .hb-panel-in {
+    animation: hb-scale-in var(--hb-base) var(--hb-ease-out) both;
+    transform-origin: top center;
+  }
+  /* Scroll reveals, set by <Reveal>: hidden only once the script has run. */
+  [data-reveal='waiting'] {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  [data-reveal='shown'] {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity var(--hb-slow) var(--hb-ease-out),
+      transform var(--hb-slow) var(--hb-ease-out);
+    transition-delay: var(--hb-reveal-delay, 0ms);
+  }
+}
+
+/* Buttons give under the finger, the way iOS controls do. */
+@media (hover: none) {
+  button:not(:disabled):active,
+  a[class*='rounded-2xl']:active,
+  a[class*='rounded-full']:active {
+    scale: 0.97;
+  }
+}
+
+/* Everything above, and every other animation, stops for reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -98,7 +98,7 @@ export function BreathingExercise({
 
   if (isDone) {
     return (
-      <div className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 text-center">
+      <div className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 text-center hb-step-in">
         <p
           ref={doneRef}
           tabIndex={-1}
@@ -127,7 +127,7 @@ export function BreathingExercise({
       tabIndex={-1}
       role="group"
       aria-label={t.label}
-      className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 focus:outline-none"
+      className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 focus:outline-none hb-panel-in"
     >
       <div className="flex flex-col items-center">
         <div className="relative flex h-44 w-44 items-center justify-center">

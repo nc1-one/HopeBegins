@@ -592,7 +592,7 @@ function ToolCard({
         </div>
 
         {isInWeek && time && (
-          <div className="mt-4 rounded-2xl bg-[#EFF3E7] p-4 print:bg-transparent print:p-0">
+          <div className="mt-4 rounded-2xl bg-[#EFF3E7] p-4 print:bg-transparent print:p-0 hb-panel-in">
             <p className="text-sm text-[#6E5F47] print:hidden">{t.whenDo}</p>
             <div className="mt-2 flex flex-wrap gap-2 print:hidden">
               {(Object.keys(TIME_LABELS[lang]) as TimeOfDay[]).map((option) => (
@@ -1481,32 +1481,38 @@ export default function ActionPlanPage() {
                   </div>
                 </div>
 
-                {question.stem && (
-                  <p className="mt-6 text-sm text-[#6E5F47]">{question.stem}</p>
-                )}
-                <h1
-                  ref={headingRef}
-                  tabIndex={-1}
-                  className={`${question.stem ? 'mt-2' : 'mt-6'} font-poppins font-bold text-xl md:text-2xl text-[#6E5F47] focus:outline-none`}
-                >
-                  {question.prompt}
-                </h1>
-                {question.note && (
-                  <p className="mt-2 text-sm text-[#6E5F47]">{question.note}</p>
-                )}
+                <div key={current} className="hb-step-in">
+                  {question.stem && (
+                    <p className="mt-6 text-sm text-[#6E5F47]">
+                      {question.stem}
+                    </p>
+                  )}
+                  <h1
+                    ref={headingRef}
+                    tabIndex={-1}
+                    className={`${question.stem ? 'mt-2' : 'mt-6'} font-poppins font-bold text-xl md:text-2xl text-[#6E5F47] focus:outline-none`}
+                  >
+                    {question.prompt}
+                  </h1>
+                  {question.note && (
+                    <p className="mt-2 text-sm text-[#6E5F47]">
+                      {question.note}
+                    </p>
+                  )}
 
-                <div className="mt-6 grid gap-3">
-                  {question.options.map((option) => (
-                    <button
-                      key={option.value}
-                      type="button"
-                      onClick={() => handleAnswer(option.value)}
-                      aria-pressed={answers[question.key] === option.value}
-                      className="w-full rounded-2xl border border-zinc-200 bg-white px-5 py-4 text-left font-poppins font-medium text-[#6E5F47] transition-colors hover:border-[#AEC488] hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40 aria-pressed:border-[#AEC488] aria-pressed:bg-[#EFF3E7]"
-                    >
-                      {option.label}
-                    </button>
-                  ))}
+                  <div className="mt-6 grid gap-3">
+                    {question.options.map((option) => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => handleAnswer(option.value)}
+                        aria-pressed={answers[question.key] === option.value}
+                        className="w-full rounded-2xl border border-zinc-200 bg-white px-5 py-4 text-left font-poppins font-medium text-[#6E5F47] transition-colors hover:border-[#AEC488] hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40 aria-pressed:border-[#AEC488] aria-pressed:bg-[#EFF3E7]"
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 <button

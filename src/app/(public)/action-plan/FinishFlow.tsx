@@ -253,7 +253,7 @@ export function FinishFlow({
 
   if (step === 'tool') {
     return (
-      <div className="space-y-8">
+      <div className="space-y-8 hb-step-in">
         <h1 tabIndex={-1} className={headingClass}>
           {t.doneHeading(saved.name)}
         </h1>
@@ -315,7 +315,7 @@ export function FinishFlow({
 
   if (step === 'card') {
     return (
-      <form onSubmit={saveCard} className="space-y-8">
+      <form onSubmit={saveCard} className="space-y-8 hb-step-in">
         <button
           type="button"
           onClick={() => setStep('tool')}
@@ -387,7 +387,7 @@ export function FinishFlow({
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 hb-step-in">
       <button type="button" onClick={onClose} className={backClass}>
         <ArrowLeft className="h-4 w-4" />
         {t.toPlan}
