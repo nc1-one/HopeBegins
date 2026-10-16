@@ -191,7 +191,7 @@ export function JourneyByStage({
   // they were used.
   const anyTool = (
     kind: 'breathe' | 'ground',
-    step: 'start' | 'done' | 'stop'
+    step: 'start' | 'done' | 'stop' | 'checked' | 'short'
   ) => sumWhere(t, (name) => name.startsWith(`tool_${kind}_${step}`));
   // A count recorded first without the tool's name, then per tool.
   const withPerTool = (base: string) =>
@@ -669,7 +669,13 @@ export function JourneyByStage({
             ]}
           />
           <Table
-            columns={['Tools, every page', 'Started', 'Finished', 'Stopped']}
+            columns={[
+              'Tools, every page',
+              'Started',
+              'Finished',
+              'Stopped',
+              'Said how they felt',
+            ]}
             rows={[
               {
                 label: 'Slow breathing',
@@ -677,7 +683,12 @@ export function JourneyByStage({
                   anyTool('breathe', 'start'),
                   anyTool('breathe', 'done'),
                   anyTool('breathe', 'stop'),
+                  anyTool('breathe', 'checked'),
                 ],
+              },
+              {
+                label: 'Breathing: chose 1 minute',
+                values: [anyTool('breathe', 'short'), '–', '–', '–'],
               },
               {
                 label: '5-4-3-2-1 grounding',
@@ -685,6 +696,16 @@ export function JourneyByStage({
                   anyTool('ground', 'start'),
                   anyTool('ground', 'done'),
                   anyTool('ground', 'stop'),
+                  anyTool('ground', 'checked'),
+                ],
+              },
+              {
+                label: 'Tapped "Make a free plan" after a tool',
+                values: [
+                  sumWhere(t, (name) => name.startsWith('tool_make_plan_')),
+                  '–',
+                  '–',
+                  '–',
                 ],
               },
             ]}

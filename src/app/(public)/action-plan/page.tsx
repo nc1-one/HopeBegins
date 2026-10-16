@@ -56,6 +56,7 @@ import {
 } from '@/lib/installPrompt';
 import { setLanguage, useLanguage } from '@/lib/languagePreference';
 import { forgetTool } from '@/lib/myTool';
+import { calmerCount, clearToolChecks, useToolChecks } from '@/lib/toolChecks';
 import {
   downloadReminder,
   googleCalendarUrl,
@@ -207,6 +208,8 @@ const ui = {
     didToday: 'Done',
     startTool: 'Start',
     tickedToday: 'Ticked for today in your 4 weeks.',
+    calmerAfter: (calmer: number, total: number) =>
+      `You felt calmer after it ${calmer} of ${total} ${total === 1 ? 'time' : 'times'}.`,
     todayAfterBreak: 'Good to see you. Start with today.',
     seeWeeks: 'See your 4 weeks',
   },
@@ -347,6 +350,8 @@ const ui = {
     didToday: 'Nagawa',
     startTool: 'Simulan',
     tickedToday: 'Na-tick na ito para sa araw na ito sa 4 na linggo mo.',
+    calmerAfter: (calmer: number, total: number) =>
+      `Mas kumalma ka pagkatapos nito ${calmer} sa ${total} beses.`,
     todayAfterBreak: 'Buti at nandito ka ulit. Simulan natin sa araw na ito.',
     seeWeeks: 'Tingnan ang 4 na linggo mo',
   },
@@ -490,6 +495,7 @@ function ToolCard({
   };
   const time = saved.commitments[item.id];
   const isInWeek = time !== undefined;
+  const helped = calmerCount(useToolChecks(), item.id);
 
   const handleFinish = useCallback(() => {
     if (markTodayDone(item.id)) {
@@ -534,6 +540,11 @@ function ToolCard({
           {item.title}
         </h3>
         <ItemBody item={item} />
+        {helped.total > 0 && (
+          <p className="mt-3 text-sm font-bold text-[#6E5F47]">
+            {t.calmerAfter(helped.calmer, helped.total)}
+          </p>
+        )}
 
         {isTrying && item.exercise === 'breathe' && (
           <BreathingExercise
@@ -1364,6 +1375,7 @@ export default function ActionPlanPage() {
     if (!window.confirm(t.deleteConfirm)) return;
     clearPlan();
     forgetTool();
+    clearToolChecks();
     setAnswers({});
     setCurrent(0);
     setName('');

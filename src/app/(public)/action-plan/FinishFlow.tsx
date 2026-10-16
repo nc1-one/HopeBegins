@@ -14,6 +14,7 @@ import {
 import { drawHopeCard } from '@/lib/hopeCardImage';
 import { analyticsService } from '@/services/analyticsService';
 import { UseMyTool } from './UseMyTool';
+import { calmerCount, useToolChecks } from '@/lib/toolChecks';
 
 /**
  * The end of the 4 weeks: see what changed, pick the tool that helped most,
@@ -30,6 +31,8 @@ const copy = {
     doneIntro: 'Here is what changed, and what you kept doing.',
     daysTitle: 'Days you did each tool',
     daysOf: (n: number) => `${n} of ${PLAN_DAYS} days`,
+    calmerOf: (calmer: number, total: number) =>
+      `Calmer after it ${calmer} of ${total} ${total === 1 ? 'time' : 'times'}`,
     pickTitle: 'Which tool helped you most?',
     pickHint: 'You will keep this one on your Hope Card.',
     next: 'Next: make my Hope Card',
@@ -80,6 +83,8 @@ const copy = {
     doneIntro: 'Ito ang nagbago, at ang mga tuloy-tuloy mong ginawa.',
     daysTitle: 'Ilang araw mo ginawa ang bawat tool',
     daysOf: (n: number) => `${n} sa ${PLAN_DAYS} araw`,
+    calmerOf: (calmer: number, total: number) =>
+      `Mas kumalma ${calmer} sa ${total} beses`,
     pickTitle: 'Aling tool ang pinakanakatulong sa iyo?',
     pickHint: 'Ito ang ilalagay mo sa Hope Card mo.',
     next: 'Susunod: gawin ang Hope Card ko',
@@ -155,6 +160,7 @@ export function FinishFlow({
   onClose: () => void;
 }) {
   const t = copy[lang];
+  const toolChecks = useToolChecks();
   const committed = tools.filter((tool) => saved.commitments[tool.id]);
   const mostDone = [...committed].sort(
     (a, b) => daysDone(saved, b.id) - daysDone(saved, a.id)
@@ -267,7 +273,17 @@ export function FinishFlow({
             <ul className="mt-3 space-y-2 text-[#6E5F47]">
               {committed.map((tool) => (
                 <li key={tool.id} className="flex justify-between gap-4">
-                  <span>{tool.title}</span>
+                  <span>
+                    {tool.title}
+                    {calmerCount(toolChecks, tool.id).total > 0 && (
+                      <span className="block text-sm">
+                        {t.calmerOf(
+                          calmerCount(toolChecks, tool.id).calmer,
+                          calmerCount(toolChecks, tool.id).total
+                        )}
+                      </span>
+                    )}
+                  </span>
                   <span className="shrink-0 font-bold tabular-nums">
                     {t.daysOf(daysDone(saved, tool.id))}
                   </span>

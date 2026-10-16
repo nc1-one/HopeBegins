@@ -17,7 +17,7 @@ const exercises = {
     ground: {
       title: '5-4-3-2-1 grounding',
       description:
-        'Kapag umaatake ang kaba, ibalik ang isip sa paligid mo gamit ang limang pandama.',
+        'Kapag umaatake ang kaba, ibalik ang isip sa paligid mo gamit ang limang pandama. Mga 2 minuto.',
       start: 'Simulan ang 5-4-3-2-1',
     },
   },
@@ -31,7 +31,7 @@ const exercises = {
     ground: {
       title: 'Ground yourself with 5-4-3-2-1',
       description:
-        'When anxiety hits, bring your mind back to where you are using your five senses.',
+        'When anxiety hits, bring your mind back to where you are using your five senses. About 2 minutes.',
       start: 'Start 5-4-3-2-1',
     },
   },

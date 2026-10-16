@@ -4,10 +4,12 @@ import { useEffect, useRef, useState } from 'react';
 import { analyticsService, type ToolSource } from '@/services/analyticsService';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { rememberTool } from '@/lib/myTool';
+import { ToolFinish } from './ToolFinish';
 
 const BREATHE_IN = 4;
 const BREATHE_OUT = 6;
 const ROUNDS = 12; // 12 x 10 seconds = 2 minutes
+const SHORT_ROUNDS = 6; // 1 minute, for a bad moment
 const CYCLE = BREATHE_IN + BREATHE_OUT;
 
 const copy = {
@@ -15,28 +17,32 @@ const copy = {
     label: 'Slow breathing',
     breatheIn: 'Breathe in',
     breatheOut: 'Breathe out',
-    round: (round: number) =>
-      `Round ${round} of ${ROUNDS}. In through your nose, out through your mouth.`,
+    round: (round: number, rounds: number) =>
+      `Round ${round} of ${rounds}. In through your nose, out through your mouth.`,
     pause: 'Pause',
     resume: 'Resume',
     stop: 'Stop',
-    doneTitle: '2 minutes done.',
+    shorter: 'Make it 1 minute',
+    doneTitle: (rounds: number) =>
+      rounds === SHORT_ROUNDS ? '1 minute done.' : '2 minutes done.',
     doneText: 'Notice how your body feels now compared to when you started.',
-    close: 'Close',
   },
   tl: {
     label: 'Dahan-dahang paghinga',
     breatheIn: 'Hinga papasok',
     breatheOut: 'Hinga palabas',
-    round: (round: number) =>
-      `Round ${round} ng ${ROUNDS}. Papasok sa ilong, palabas sa bibig.`,
+    round: (round: number, rounds: number) =>
+      `Round ${round} ng ${rounds}. Papasok sa ilong, palabas sa bibig.`,
     pause: 'I-pause',
     resume: 'Ituloy',
     stop: 'Itigil',
-    doneTitle: 'Tapos na ang 2 minuto.',
+    shorter: 'Gawing 1 minuto',
+    doneTitle: (rounds: number) =>
+      rounds === SHORT_ROUNDS
+        ? 'Tapos na ang 1 minuto.'
+        : 'Tapos na ang 2 minuto.',
     doneText:
       'Pansinin ang pakiramdam ng katawan mo ngayon kumpara noong nagsimula ka.',
-    close: 'Isara',
   },
 };
 
@@ -59,18 +65,18 @@ export function BreathingExercise({
   const t = copy[lang];
   const [elapsed, setElapsed] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [rounds, setRounds] = useState(ROUNDS);
 
-  const isDone = elapsed >= CYCLE * ROUNDS;
+  const isDone = elapsed >= CYCLE * rounds;
   const counted = useRef({ start: false, done: false });
   const boxRef = useRef<HTMLDivElement>(null);
-  const doneRef = useRef<HTMLParagraphElement>(null);
 
-  // Screen readers land in the exercise when it opens, and on the finish.
+  // Screen readers land in the exercise when it opens. The finish screen
+  // takes focus itself.
   useEffect(() => {
-    const target = isDone ? doneRef.current : boxRef.current;
-    target?.focus({ preventScroll: true });
-    target?.scrollIntoView({ block: 'nearest' });
-  }, [isDone]);
+    boxRef.current?.focus({ preventScroll: true });
+    boxRef.current?.scrollIntoView({ block: 'nearest' });
+  }, []);
 
   useEffect(() => {
     if (counted.current.start) return;
@@ -88,7 +94,9 @@ export function BreathingExercise({
   const inCycle = elapsed % CYCLE;
   const isBreathingIn = inCycle < BREATHE_IN;
   const count = isBreathingIn ? BREATHE_IN - inCycle : CYCLE - inCycle;
-  const round = Math.min(Math.floor(elapsed / CYCLE) + 1, ROUNDS);
+  const round = Math.min(Math.floor(elapsed / CYCLE) + 1, rounds);
+  // Offered in the first minute, while switching still means stopping sooner.
+  const canShorten = rounds === ROUNDS && elapsed < CYCLE * SHORT_ROUNDS;
 
   useEffect(() => {
     if (isPaused || isDone) return;
@@ -98,26 +106,15 @@ export function BreathingExercise({
 
   if (isDone) {
     return (
-      <div className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 text-center">
-        <p
-          ref={doneRef}
-          tabIndex={-1}
-          className="font-poppins font-bold text-lg text-[#6E5F47] focus:outline-none"
-        >
-          {t.doneTitle}
-        </p>
-        <p className="mt-1 text-[#6E5F47]">{t.doneText}</p>
-        {doneNote && (
-          <p className="mt-2 text-sm font-bold text-[#6E5F47]">{doneNote}</p>
-        )}
-        <button
-          type="button"
-          onClick={onClose}
-          className="mt-4 rounded-2xl bg-[#6E5F47] px-6 py-3 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
-        >
-          {t.close}
-        </button>
-      </div>
+      <ToolFinish
+        kind="breathe"
+        lang={lang}
+        source={source}
+        title={t.doneTitle(rounds)}
+        text={t.doneText}
+        doneNote={doneNote}
+        onClose={onClose}
+      />
     );
   }
 
@@ -151,8 +148,8 @@ export function BreathingExercise({
             </p>
           </div>
         </div>
-        <p className="mt-4 text-sm text-[#6E5F47]">{t.round(round)}</p>
-        <div className="mt-4 flex gap-3">
+        <p className="mt-4 text-sm text-[#6E5F47]">{t.round(round, rounds)}</p>
+        <div className="mt-4 flex flex-wrap justify-center gap-3">
           <button
             type="button"
             onClick={() => setIsPaused((p) => !p)}
@@ -171,6 +168,18 @@ export function BreathingExercise({
             {t.stop}
           </button>
         </div>
+        {canShorten && (
+          <button
+            type="button"
+            onClick={() => {
+              analyticsService.recordClick(`tool_breathe_short_${source}`);
+              setRounds(SHORT_ROUNDS);
+            }}
+            className="mt-3 min-h-11 rounded-xl px-3 text-sm font-medium text-[#6E5F47] underline underline-offset-4 hover:bg-[#DFE7CF] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
+          >
+            {t.shorter}
+          </button>
+        )}
       </div>
     </div>
   );
