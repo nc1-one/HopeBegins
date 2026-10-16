@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { adminService } from '@/services/adminService';
 import { useUserStore } from '@/store/useUserStore';
 import { notify } from '@/lib/notifications';
+import { isAdminRole } from '@/lib/adminRoles';
 
 const loginSchema = z.object({
   email: z.string().email('Invalid email address'),
@@ -35,7 +36,7 @@ export function useAdminLogin() {
       const refreshToken = tokenData.refresh;
       const userData = tokenData.user || tokenData;
 
-      if (userData.role !== 'admin') {
+      if (!isAdminRole(userData.role)) {
         notify.error(
           'Access Denied',
           'Only administrators can access this portal.'

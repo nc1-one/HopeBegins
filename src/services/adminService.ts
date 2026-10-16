@@ -15,6 +15,8 @@ import type {
   DonationStats,
   AnalyticsData,
   ClickAnalytics,
+  AdminTeamMember,
+  AddAdminPayload,
 } from '@/types/admin';
 
 // ─────────────────────────────────────────────
@@ -392,6 +394,40 @@ export const adminService = {
       end_date: endDate,
     });
     return fetchWithAuth(`${config.API_URL}/analytics/clicks/?${params}`, {
+      headers: authHeader(),
+    });
+  },
+
+  // ─────────────────────────────────────────────
+  // Admin team (super admin only)
+  // ─────────────────────────────────────────────
+
+  getAdminTeam: async (): Promise<AdminTeamMember[]> => {
+    return fetchWithAuth(`${config.API_URL}/users/admins/`, {
+      headers: authHeader(),
+    });
+  },
+
+  /** Adds an admin without the financials and emails them an invite. */
+  addAdmin: async (payload: AddAdminPayload): Promise<AdminTeamMember> => {
+    return fetchWithAuth(`${config.API_URL}/users/admins/`, {
+      method: 'POST',
+      headers: authHeader(),
+      body: JSON.stringify(payload),
+    });
+  },
+
+  resendAdminInvite: async (id: string): Promise<AdminTeamMember> => {
+    return fetchWithAuth(`${config.API_URL}/users/admins/${id}/resend/`, {
+      method: 'POST',
+      headers: authHeader(),
+    });
+  },
+
+  /** Signs them out and stops them signing in again. */
+  removeAdmin: async (id: string): Promise<AdminTeamMember> => {
+    return fetchWithAuth(`${config.API_URL}/users/admins/${id}/remove/`, {
+      method: 'POST',
       headers: authHeader(),
     });
   },

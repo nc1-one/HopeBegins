@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useUserStore } from '@/store/useUserStore';
 import { Loader2 } from 'lucide-react';
+import { isAdminRole, isSuperAdminPath } from '@/lib/adminRoles';
 
 export function AdminAuthGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -28,10 +29,16 @@ export function AdminAuthGuard({ children }: { children: React.ReactNode }) {
         const parsedUser = JSON.parse(savedUser);
 
         // Enforce admin role
-        if (parsedUser.role !== 'admin') {
+        if (!isAdminRole(parsedUser.role)) {
           localStorage.removeItem('adminToken');
           localStorage.removeItem('adminUser');
           router.push('/admin/login');
+          return;
+        }
+
+        // Financials and the admin team are for the super admin only.
+        if (parsedUser.role !== 'admin' && isSuperAdminPath(pathname)) {
+          router.replace('/admin/dashboard');
           return;
         }
 
