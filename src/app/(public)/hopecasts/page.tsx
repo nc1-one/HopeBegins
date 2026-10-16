@@ -121,7 +121,7 @@ export default function HopecastsPage() {
       <div className="max-w-5xl mx-auto">
         <div className="mb-10">
           <OptionPageHeader
-            title="I Need to Hear Hope Today"
+            title="I need to hear hope today"
             subtitle="Pick a topic, like anxiety or family, and press play."
           />
         </div>
@@ -222,7 +222,7 @@ export default function HopecastsPage() {
           ) : (
             <div className="py-12 px-6 bg-white rounded-3xl border border-zinc-100">
               <p className="text-[#6E5F47] font-medium font-poppins">
-                No HopeCasts found for this category yet.
+                No HopeCasts on this topic yet. Try another one.
               </p>
             </div>
           )}

@@ -927,7 +927,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
   }
   support.push({
     id: 'daily-hope',
-    title: t('Get Daily Hope Drops', 'Kumuha ng Daily Hope Drops'),
+    title: t('Get Daily Hope by email', 'Kumuha ng Daily Hope sa email'),
     detail: t(
       'A message in your email every day for 21 days.',
       'Isang mensahe sa email mo araw-araw sa loob ng 21 araw. Nasa English.'

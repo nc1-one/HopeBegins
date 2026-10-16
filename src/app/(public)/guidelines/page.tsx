@@ -20,7 +20,7 @@ export default function GuidelinesPage() {
             {/* Section 1 */}
             <section className="space-y-4">
               <h2 className="font-playfair text-3xl text-[#6E5F47] leading-tight tracking-[-0.02em] mt-8">
-                1. Our Mission
+                1. Our mission
               </h2>
               <p>
                 HopeBegins gives free, faith-driven support to people dealing
@@ -38,14 +38,14 @@ export default function GuidelinesPage() {
             {/* Section 2 */}
             <section className="space-y-6">
               <h2 className="font-playfair text-3xl text-[#6E5F47] leading-tight tracking-[-0.02em] mt-8">
-                2. Core Values for Every Volunteer
+                2. Core values for every volunteer
               </h2>
               <p>Every HopeBegins volunteer commits to the following values:</p>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white p-6 rounded-2xl border border-zinc-100">
                   <h3 className="font-poppins text-xl font-bold text-[#6E5F47] mb-2">
-                    Faith-Centered Service
+                    Faith-centered service
                   </h3>
                   <p>We honor God in the way we serve others.</p>
                   <p className="italic text-zinc-500 my-3 font-semibold">
@@ -60,7 +60,7 @@ export default function GuidelinesPage() {
 
                 <div className="bg-white p-6 rounded-2xl border border-zinc-100">
                   <h3 className="font-poppins text-xl font-bold text-[#6E5F47] mb-2">
-                    Compassion Before Correction
+                    Compassion before correction
                   </h3>
                   <p>Many people we serve are hurting. Volunteers must:</p>
                   <ul className="list-disc pl-5 mt-3 space-y-1 text-sm text-zinc-500 mb-3">
@@ -75,7 +75,7 @@ export default function GuidelinesPage() {
 
                 <div className="bg-white p-6 rounded-2xl border border-zinc-100">
                   <h3 className="font-poppins text-xl font-bold text-[#6E5F47] mb-2">
-                    Integrity and Honesty
+                    Integrity and honesty
                   </h3>
                   <p>
                     Volunteers must represent HopeBegins truthfully and
@@ -91,17 +91,12 @@ export default function GuidelinesPage() {
 
                 <div className="bg-white p-6 rounded-2xl border border-zinc-100">
                   <h3 className="font-poppins text-xl font-bold text-[#6E5F47] mb-2">
-                    Humility in Service
+                    Humility in service
                   </h3>
                   <p>
-                    Serving at HopeBegins is not about recognition or influence.
-                    It is about:
+                    Serve quietly and support others, so people see Christ in
+                    how you treat them.
                   </p>
-                  <ul className="list-disc pl-5 mt-3 space-y-1 text-sm text-zinc-500">
-                    <li>Serving quietly</li>
-                    <li>Supporting others</li>
-                    <li>Reflecting Christ-like character</li>
-                  </ul>
                 </div>
               </div>
             </section>
@@ -109,14 +104,14 @@ export default function GuidelinesPage() {
             {/* Section 3 */}
             <section className="space-y-6">
               <h2 className="font-playfair text-3xl text-[#6E5F47] leading-tight tracking-[-0.02em] mt-12">
-                3. Volunteer Conduct Expectations
+                3. Volunteer conduct expectations
               </h2>
               <p>All volunteers agree to the following behavioral standards.</p>
 
               <div className="space-y-8 pl-4 border-l-2 border-zinc-100 dark:border-zinc-800">
                 <div>
                   <h3 className="font-poppins text-lg font-bold text-[#6E5F47]">
-                    Respect and Dignity
+                    Respect and dignity
                   </h3>
                   <p className="my-2">
                     Treat everyone with respect regardless of:
@@ -155,7 +150,7 @@ export default function GuidelinesPage() {
 
                 <div>
                   <h3 className="font-poppins text-lg font-bold text-[#6E5F47]">
-                    Healthy Boundaries
+                    Healthy boundaries
                   </h3>
                   <p className="my-2">
                     Volunteers must maintain appropriate relational boundaries.
@@ -177,11 +172,11 @@ export default function GuidelinesPage() {
 
                 <div>
                   <h3 className="font-poppins text-lg font-bold text-[#6E5F47]">
-                    Safe Communication
+                    Safe communication
                   </h3>
                   <p className="my-2 text-[#6E5F47] font-bold">
-                    All communication should be: Respectful, Encouraging, and
-                    Free from manipulation or coercion.
+                    All communication should be respectful, encouraging and free
+                    from manipulation or coercion.
                   </p>
                   <p className="mb-2 mt-2">Volunteers must avoid:</p>
                   <ul className="list-disc pl-5 space-y-1 text-zinc-500 text-base">
@@ -200,11 +195,11 @@ export default function GuidelinesPage() {
             <section className="space-y-10">
               <div>
                 <h2 className="font-playfair text-3xl text-[#6E5F47] leading-tight tracking-[-0.02em] mt-12 mb-4">
-                  4. Digital and AI Responsibility
+                  4. Digital and AI responsibility
                 </h2>
                 <p>
-                  HopeBegins utilizes technology and AI tools to support
-                  coaching and encouragement. Volunteers must:
+                  HopeBegins uses technology and AI tools to support coaching
+                  and encouragement. Volunteers must:
                 </p>
                 <ul className="list-disc pl-5 my-3 space-y-1 text-zinc-500">
                   <li>Use digital tools responsibly</li>
@@ -219,7 +214,7 @@ export default function GuidelinesPage() {
 
               <div>
                 <h2 className="font-playfair text-3xl text-[#6E5F47] leading-tight tracking-[-0.02em] mt-8 mb-4">
-                  5. Commitment to Spiritual Growth
+                  5. Commitment to spiritual growth
                 </h2>
                 <p>
                   HopeBegins volunteers are encouraged to maintain a healthy
@@ -235,7 +230,7 @@ export default function GuidelinesPage() {
 
               <div>
                 <h2 className="font-playfair text-3xl text-[#6E5F47] leading-tight tracking-[-0.02em] mt-8 mb-4">
-                  6. Professionalism and Reliability
+                  6. Professionalism and reliability
                 </h2>
                 <p>
                   Volunteers must demonstrate commitment and responsibility.
@@ -251,7 +246,7 @@ export default function GuidelinesPage() {
 
               <div>
                 <h2 className="font-playfair text-3xl text-[#6E5F47] leading-tight tracking-[-0.02em] mt-8 mb-4">
-                  7. Social Media Guidelines
+                  7. Social media guidelines
                 </h2>
                 <p>
                   Volunteers represent HopeBegins both online and offline.
@@ -278,7 +273,7 @@ export default function GuidelinesPage() {
                 <div className="relative z-10">
                   <h2 className="text-2xl md:text-3xl font-bold text-rose-800 dark:text-rose-300 font-poppins flex items-center gap-3 mb-6">
                     <ShieldAlert className="w-8 h-8 shrink-0" />
-                    8. Safety and Crisis Awareness
+                    8. Safety and crisis awareness
                   </h2>
 
                   <p className="text-rose-800 dark:text-rose-400 font-bold mb-2">
@@ -324,7 +319,7 @@ export default function GuidelinesPage() {
                   <CheckCircle2 className="w-10 h-10 text-[#91AFAA]" />
                 </div>
                 <h2 className="font-playfair text-3xl text-[#6E5F47] leading-tight tracking-[-0.02em] mb-4">
-                  10. Volunteer Commitment
+                  10. Volunteer commitment
                 </h2>
                 <p className="text-[#6E5F47] font-bold mb-6">
                   By volunteering with HopeBegins, I commit to:

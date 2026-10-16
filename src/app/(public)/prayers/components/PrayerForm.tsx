@@ -77,7 +77,7 @@ export function PrayerForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-sm font-medium text-[#6E5F47]">
-                    Category *
+                    Topic (optional)
                   </FormLabel>
                   <Select
                     onValueChange={field.onChange}
@@ -85,17 +85,19 @@ export function PrayerForm() {
                   >
                     <FormControl>
                       <SelectTrigger className="bg-white border-zinc-200 h-12">
-                        <SelectValue placeholder="Select category..." />
+                        <SelectValue placeholder="Choose a topic" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
                       <SelectItem value="GENERAL">General</SelectItem>
                       <SelectItem value="ANXIETY_FEAR">
-                        Anxiety & Fear
+                        Worry or fear
                       </SelectItem>
                       <SelectItem value="HEALTH">Health</SelectItem>
-                      <SelectItem value="FINANCE">Finance</SelectItem>
-                      <SelectItem value="RELATIONSHIP">Relationship</SelectItem>
+                      <SelectItem value="FINANCE">Money</SelectItem>
+                      <SelectItem value="RELATIONSHIP">
+                        Family or relationships
+                      </SelectItem>
                       <SelectItem value="OTHER">Other</SelectItem>
                     </SelectContent>
                   </Select>
@@ -170,7 +172,7 @@ export function PrayerForm() {
                       htmlFor="wantsFollowUp"
                       className="text-sm text-[#6E5F47] cursor-pointer"
                     >
-                      I&apos;d like a follow-up encouraging message
+                      Send me a short note of encouragement after
                     </label>
                   </div>
                 )}

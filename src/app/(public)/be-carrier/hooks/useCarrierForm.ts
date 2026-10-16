@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -36,13 +35,13 @@ export function useCarrierForm() {
     onSuccess: (data: any) => {
       notify.success(
         data?.message ||
-          'Your application is being reviewed. If approved, we will send a temporary password to your email.'
+          "Thank you. We'll read your application, and if it's approved we'll email you a temporary password."
       );
       form.reset();
     },
     onError: (error: any) => {
       notify.error(
-        error.message || 'Failed to submit application. Please try again.'
+        error.message || "Your application didn't go through. Please try again."
       );
     },
   });

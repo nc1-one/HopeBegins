@@ -12,7 +12,7 @@ import { notify } from '@/lib/notifications';
 import { fetchWithAuth } from '@/services/api';
 
 const loginSchema = z.object({
-  email: z.string().email('Please enter a valid email address'),
+  email: z.string().email("That email doesn't look right. Please check it."),
   password: z.string().min(6, 'Password must be at least 6 characters'),
 });
 

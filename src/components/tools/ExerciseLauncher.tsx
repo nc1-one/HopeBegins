@@ -3,8 +3,10 @@
 import { useRef, useState } from 'react';
 import { Play } from 'lucide-react';
 import { BreathingExercise } from './BreathingExercise';
+import { FindThePair } from './FindThePair';
 import { GroundingExercise } from './GroundingExercise';
 import type { FeelingLang } from '@/lib/feelingPages';
+import type { ToolSource } from '@/services/analyticsService';
 
 const exercises = {
   tl: {
@@ -17,8 +19,14 @@ const exercises = {
     ground: {
       title: '5-4-3-2-1 grounding',
       description:
-        'Kapag umaatake ang kaba, ibalik ang isip sa paligid mo gamit ang limang pandama.',
+        'Kapag inaatake ka ng kaba, ibalik ang isip mo sa paligid gamit ang 5 senses mo.',
       start: 'Simulan ang 5-4-3-2-1',
+    },
+    game: {
+      title: 'Hanapin ang kapares',
+      description:
+        'Mabilis na card game para sa mga oras na paulit-ulit ang iniisip mo. Mga 2 minuto.',
+      start: 'Maglaro na',
     },
   },
   en: {
@@ -34,15 +42,23 @@ const exercises = {
         'When anxiety hits, bring your mind back to where you are using your five senses.',
       start: 'Start 5-4-3-2-1',
     },
+    game: {
+      title: 'Find the pair',
+      description:
+        'A quick card game for when your thoughts keep going round. About 2 minutes.',
+      start: 'Play now',
+    },
   },
 };
 
 export function ExerciseLauncher({
   kind,
   lang = 'tl',
+  source = 'feeling',
 }: {
-  kind: 'breathe' | 'ground';
+  kind: 'breathe' | 'ground' | 'game';
   lang?: FeelingLang;
+  source?: ToolSource;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const exercise = exercises[lang][kind];
@@ -63,9 +79,13 @@ export function ExerciseLauncher({
       </p>
       {isOpen ? (
         kind === 'breathe' ? (
-          <BreathingExercise onClose={close} lang={lang} source="feeling" />
+          <BreathingExercise onClose={close} lang={lang} source={source} />
+        ) : kind === 'ground' ? (
+          <GroundingExercise onClose={close} lang={lang} source={source} />
         ) : (
-          <GroundingExercise onClose={close} lang={lang} source="feeling" />
+          <div className="mt-5">
+            <FindThePair onClose={close} lang={lang} source={source} />
+          </div>
         )
       ) : (
         <button

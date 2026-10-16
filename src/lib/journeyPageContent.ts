@@ -164,7 +164,7 @@ export const DEFAULT_JOURNEY_PAGE_CONTENT: JourneyPageContent = {
       },
       {
         title: 'Acknowledge',
-        text: "Name what you're feeling, like sadness, fear or tiredness, without judging yourself for it. Breathe in slowly.",
+        text: "Name what you're feeling, like sadness, fear or tiredness. Breathe in slowly.",
       },
       {
         title: 'Release',
@@ -194,7 +194,7 @@ export const DEFAULT_JOURNEY_PAGE_CONTENT: JourneyPageContent = {
     verse_reference: 'Hebrews 6:19',
     good_news_title: 'The Good News',
     good_news_body:
-      "God loves you, and that love doesn't depend on what you've done. He sent His Son, Jesus, so you would never walk through darkness alone. You can come to Him as you are today.",
+      "God loves you as you are, and that love doesn't depend on what you've done. He sent His Son, Jesus, to be with you, even on your darkest days. You can talk to Him today.",
     reflection_title: 'Reflect on this:',
     reflection_prompt:
       'What would change if you believed, even a little, that tomorrow could be different?',
@@ -206,12 +206,12 @@ export const DEFAULT_JOURNEY_PAGE_CONTENT: JourneyPageContent = {
     description: "You've finished all five steps. Here are ways to keep going.",
     actions: [
       {
-        title: 'I Need Someone to Pray for Me',
+        title: 'Ask someone to pray for you',
         href: '/prayers',
         icon: 'heart',
       },
       {
-        title: 'Start Daily Hope Drops',
+        title: 'Get Daily Hope by email',
         href: '/daily-hope',
         icon: 'mail',
       },

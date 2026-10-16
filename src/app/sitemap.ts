@@ -12,6 +12,7 @@ const publicRoutes = [
   '/daily-hope',
   '/give-hope',
   '/our-approach',
+  '/laro-muna',
   '/be-carrier',
   '/guidelines',
   '/privacy',

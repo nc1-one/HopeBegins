@@ -13,7 +13,7 @@ export default function GiveHopePage() {
         <div className="max-w-2xl space-y-12">
           <OptionPageHeader
             title="Give Hope"
-            subtitle="Plant a Hope Seed and help keep HopeBegins free."
+            subtitle="Give a gift to keep HopeBegins free for the next person."
           />
           <DonationForm />
           <ImpactStats />

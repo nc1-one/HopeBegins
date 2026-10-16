@@ -30,7 +30,7 @@ export function CarrierForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-sm font-medium text-[#6E5F47]">
-                    First Name *
+                    First name *
                   </FormLabel>
                   <FormControl>
                     <Input
@@ -50,7 +50,7 @@ export function CarrierForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-sm font-medium text-[#6E5F47]">
-                    Last Name *
+                    Last name *
                   </FormLabel>
                   <FormControl>
                     <Input
@@ -70,7 +70,7 @@ export function CarrierForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-sm font-medium text-[#6E5F47]">
-                    Email Address *
+                    Email *
                   </FormLabel>
                   <FormControl>
                     <Input
@@ -111,7 +111,7 @@ export function CarrierForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-sm font-medium text-[#6E5F47]">
-                    Church / Community (optional)
+                    Church or community (optional)
                   </FormLabel>
                   <FormControl>
                     <Input

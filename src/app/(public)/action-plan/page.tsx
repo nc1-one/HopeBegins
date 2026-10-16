@@ -900,8 +900,8 @@ function HabitTracker({
                     })}
                   </div>
                   {daysLeft > 1 && (
-                    <div className="mt-4 flex flex-col gap-3 border-t border-zinc-100 pt-4 sm:flex-row sm:items-center print:hidden">
-                      <p className="flex items-center gap-2 text-sm text-[#6E5F47] sm:flex-1">
+                    <div className="mt-4 flex flex-col gap-3 border-t border-zinc-100 pt-4 print:hidden">
+                      <p className="flex items-center gap-2 text-sm text-[#6E5F47]">
                         <CalendarPlus className="h-4 w-4 shrink-0 text-[#91AFAA]" />
                         {t.remindMe(time)}
                       </p>
@@ -1434,7 +1434,7 @@ export default function ActionPlanPage() {
               />
               <button
                 type="submit"
-                className="group mt-6 inline-flex items-center justify-center rounded-2xl bg-[#6E5F47] px-10 py-4 font-poppins text-lg font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#5c4f3b] hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50 motion-reduce:hover:translate-y-0"
+                className="group mt-6 flex w-fit items-center justify-center rounded-2xl bg-[#6E5F47] px-10 py-4 font-poppins text-lg font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#5c4f3b] hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50 motion-reduce:hover:translate-y-0"
               >
                 {t.start}
                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
@@ -1825,26 +1825,28 @@ export default function ActionPlanPage() {
               .map(renderSection)}
           </div>
 
-          <div className="mt-12 flex flex-wrap gap-3 print:hidden">
-            <button
-              type="button"
-              onClick={() => window.print()}
-              className="inline-flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white px-6 py-3 font-poppins font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
-            >
-              <Printer className="w-4 h-4" />
-              {t.print}
-            </button>
-            <button
-              type="button"
-              onClick={handleRetake}
-              className="inline-flex items-center gap-2 rounded-2xl px-6 py-3 font-poppins font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
-            >
-              {t.takeAgain}
-            </button>
+          <div className="mt-12 print:hidden">
+            <div className="flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={() => window.print()}
+                className="inline-flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white px-6 py-3 font-poppins font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
+              >
+                <Printer className="w-4 h-4" />
+                {t.print}
+              </button>
+              <button
+                type="button"
+                onClick={handleRetake}
+                className="inline-flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white px-6 py-3 font-poppins font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
+              >
+                {t.takeAgain}
+              </button>
+            </div>
             <button
               type="button"
               onClick={handleDelete}
-              className="inline-flex items-center gap-2 rounded-2xl px-6 py-3 font-poppins font-medium text-sm text-[#6E5F47] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
+              className="mt-4 inline-flex min-h-11 items-center rounded-lg font-poppins text-sm font-medium text-[#6E5F47] underline underline-offset-4 hover:text-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
             >
               {t.deletePlan}
             </button>

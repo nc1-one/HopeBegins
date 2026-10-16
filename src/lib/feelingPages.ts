@@ -8,7 +8,12 @@
  * follows WHO safe-messaging guidance: no methods, always hope and a number.
  */
 
-export type FeelingTool = 'breathe' | 'ground' | 'message' | 'worry-note';
+export type FeelingTool =
+  | 'breathe'
+  | 'ground'
+  | 'game'
+  | 'message'
+  | 'worry-note';
 export type FeelingLang = 'tl' | 'en';
 
 export interface FeelingPage {
@@ -71,7 +76,7 @@ export const feelingPages: FeelingPage[] = [
     tools: ['message'],
     tip: {
       title: 'Kung gabi na at gusto mo lang mag-type',
-      body: 'Si Hope AI ay isang AI assistant, hindi counselor. Puwede mo siyang i-chat anumang oras, kahit hatinggabi.',
+      body: 'AI assistant si Hope AI. Hindi siya makakapag-counsel o makakatulong sa emergency, pero puwede mo siyang i-chat anumang oras, kahit hatinggabi.',
     },
     firstStep: 'ecoach',
     talkNow: true,
@@ -82,15 +87,15 @@ export const feelingPages: FeelingPage[] = [
     pair: 'how-to-calm-anxiety',
     metaTitle: 'Paano mawala ang anxiety: 2-minute na paraan para kumalma',
     metaDescription:
-      'Kumakabog ang dibdib at hindi mapakali ang isip? Subukan ang 2-minute na paghinga at ang 5-4-3-2-1 grounding, pagkatapos gumawa ng libreng plano para sa anxiety.',
+      'Kumakabog ang dibdib at hindi mapakali ang isip? Subukan ang 2-minute na paghinga, ang 5-4-3-2-1 grounding o isang mabilis na laro, tapos gumawa ng libreng plano para sa anxiety.',
     label: 'Paano mawala ang anxiety',
     heading: 'Paano mawala ang anxiety?',
     intro:
-      'Kapag kumakabog ang dibdib at hindi mapakali ang isip, subukan ang dalawang exercise sa ibaba. Tinutulungan nitong kumalma ang katawan mo.',
+      'Kapag kumakabog ang dibdib at hindi mapakali ang isip, subukan ang isa sa mga ito. Makakatulong ang mga ito para kumalma ang katawan at isip mo.',
     toolsHeading: 'Subukan natin ito ngayon',
-    tools: ['breathe', 'ground'],
+    tools: ['breathe', 'ground', 'game'],
     tip: {
-      title: 'Bakit gumagana ang paghinga',
+      title: 'Bakit nakakatulong ang paghinga',
       body: 'Kapag mas mahaba ang paghinga palabas kaysa papasok, bumabagal ang tibok ng puso mo at kumakalma ang katawan. Kung madalas itong mangyari sa iyo, makakatulong ang isang plano at ang pakikipag-usap sa isang counselor.',
     },
     firstStep: 'plan',
@@ -110,7 +115,7 @@ export const feelingPages: FeelingPage[] = [
     tools: ['worry-note', 'breathe'],
     tip: {
       title: 'Kung gising ka pa rin pagkalipas ng mga 20 minuto',
-      body: 'Bumangon muna at gumawa ng tahimik na bagay sa malamlam na ilaw, gaya ng pagbabasa, hanggang antukin ka. Iwasan muna ang cellphone. Bukas, subukang gumising sa parehong oras.',
+      body: 'Bumangon muna at gumawa ng tahimik na bagay sa dim na ilaw, gaya ng pagbabasa, hanggang antukin ka. Iwasan muna ang cellphone. Bukas, subukang gumising sa parehong oras.',
     },
     firstStep: 'plan',
   },
@@ -150,7 +155,7 @@ export const feelingPages: FeelingPage[] = [
     tools: ['message'],
     tip: {
       title: "If it's late and you just want to type",
-      body: 'Hope AI is an AI assistant, not a counselor. You can chat with it any time, even in the middle of the night.',
+      body: "Hope AI is an AI assistant. It can't counsel you or help in an emergency, but you can chat with it any time, even in the middle of the night.",
     },
     firstStep: 'ecoach',
     talkNow: true,
@@ -161,13 +166,13 @@ export const feelingPages: FeelingPage[] = [
     pair: 'paano-mawala-ang-anxiety',
     metaTitle: 'How to calm anxiety right now: a 2-minute exercise',
     metaDescription:
-      "Heart racing and your mind won't settle? Try 2-minute breathing and 5-4-3-2-1 grounding, then make a free plan for anxiety.",
+      "Heart racing and your mind won't settle? Try 2-minute breathing, 5-4-3-2-1 grounding or a quick game, then make a free plan for anxiety.",
     label: 'How to calm anxiety',
     heading: 'How do I calm my anxiety?',
     intro:
-      "When your heart is racing and your mind won't settle, try the two exercises below. They help your body calm down.",
+      "When your heart is racing and your mind won't settle, try one of these. They help your body and your mind settle down.",
     toolsHeading: 'Try this now',
-    tools: ['breathe', 'ground'],
+    tools: ['breathe', 'ground', 'game'],
     tip: {
       title: 'Why breathing helps',
       body: 'When you breathe out for longer than you breathe in, your heart rate slows and your body starts to settle. If this happens to you often, a plan and talking to a counselor can help.',
@@ -216,7 +221,7 @@ export const feelingUi = {
     prayerTitle: 'Gusto mo bang ipagdasal ka namin?',
     prayerText:
       'Magpadala ng prayer request. May Hope Carrier na magdarasal para sa iyo.',
-    seeAll: 'Tingnan ang lahat ng paraan para makatulong',
+    seeAll: 'Tingnan lahat ng maitutulong namin',
   },
   en: {
     htmlLang: 'en',

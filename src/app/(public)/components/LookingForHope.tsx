@@ -102,12 +102,12 @@ const feelings = [
     icon: Sunrise,
     en: {
       label: "I don't have hope",
-      hint: 'A guided journey in five steps',
+      hint: 'A short video, a prayer and a Bible reading',
       href: '/get-started',
     },
     tl: {
       label: 'Wala na akong pag-asa',
-      hint: 'Gabay sa limang hakbang, nasa English',
+      hint: 'Video, dasal at Bible reading (English)',
       href: '/get-started',
     },
   },
@@ -120,7 +120,7 @@ const notSure = {
   },
   tl: {
     label: 'Hindi ko alam kung ano ang nararamdaman ko',
-    hint: 'Sagutin ang 9 na tanong at makakuha ng libreng plano.',
+    hint: 'Sagutin ang 9 na mabilis na tanong at kunin ang libreng plano mo',
   },
 };
 
@@ -134,11 +134,14 @@ const menuCopy = {
     planSaved: 'Your plan is saved on this phone.',
     afterSaved: 'Your Hope Card and monthly check-in are here.',
     openPlan: 'Open my plan',
+    startMy: { breathe: 'Start my breathing', ground: 'Start my 5-4-3-2-1' },
     ecoachTitle: 'I Want Someone to Journey With Me',
-    ecoachText: 'Talk to an e-coach from Himala Everyday on Messenger.',
+    ecoachText:
+      'Chat with a real person, an e-coach from Himala Everyday, on Messenger.',
     ecoachButton: 'Talk to an e-coach',
     moreWays: 'More ways we can help',
-    privacy: 'What you share is kept private and confidential.',
+    privacy:
+      'Only the people helping you see what you share. Your plan stays on your phone.',
     privacyLink: 'Read our privacy policy',
     donate: 'Here to donate instead?',
   },
@@ -151,11 +154,17 @@ const menuCopy = {
     planSaved: 'Naka-save ang plano mo sa phone na ito.',
     afterSaved: 'Nandito ang Hope Card at monthly check-in mo.',
     openPlan: 'Buksan ang plano ko',
+    startMy: {
+      breathe: 'Simulan ang paghinga ko',
+      ground: 'Simulan ang 5-4-3-2-1 ko',
+    },
     ecoachTitle: 'Gusto ko ng kasama sa pinagdadaanan ko',
-    ecoachText: 'Kausapin ang isang e-coach ng Himala Everyday sa Messenger.',
+    ecoachText:
+      'Mag-chat sa isang totoong tao, e-coach ng Himala Everyday, sa Messenger.',
     ecoachButton: 'Kausapin ang e-coach',
-    moreWays: 'Iba pang paraan para makatulong',
-    privacy: 'Pribado at kumpidensyal ang lahat ng ibinabahagi mo.',
+    moreWays: 'Iba pa naming maitutulong sa iyo',
+    privacy:
+      'Ang mga tumutulong lang sa iyo ang nakakakita ng ibinabahagi mo. Sa phone mo lang naka-save ang plano mo.',
     privacyLink: 'Basahin ang privacy policy namin',
     donate: 'Gusto mo bang mag-donate?',
   },
@@ -163,13 +172,13 @@ const menuCopy = {
 
 const morePaths = [
   {
-    title: { en: 'I Need Someone to Pray for Me', tl: 'Ipagdasal ninyo ako' },
+    title: { en: 'I need someone to pray for me', tl: 'Ipagdasal ninyo ako' },
     icon: Heart,
     href: '/prayers',
   },
   {
     title: {
-      en: 'I Need to Talk to Hope AI',
+      en: 'I need to talk to Hope AI',
       tl: 'Gusto kong kausapin si Hope AI',
     },
     icon: MessageSquare,
@@ -177,14 +186,17 @@ const morePaths = [
   },
   {
     title: {
-      en: 'I Need to Hear Hope Today',
-      tl: 'Gusto kong makarinig ng pag-asa ngayon',
+      en: 'I need to hear hope today',
+      tl: 'Makinig ng mensahe ng pag-asa',
     },
     icon: Radio,
     href: '/hopecasts',
   },
   {
-    title: { en: 'I Need Daily Hope', tl: 'Gusto ko ng Daily Hope' },
+    title: {
+      en: 'Send me Daily Hope by email',
+      tl: 'Padalhan ako ng Daily Hope sa email (English)',
+    },
     icon: Mail,
     href: '/daily-hope',
   },
@@ -304,8 +316,9 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
 
           {(myTool || savedPlan) && (
             <div className="mt-8 flex flex-col items-center gap-3">
-              <p className="font-poppins text-white">
-                Welcome back{savedPlan?.name ? `, ${savedPlan.name}` : ''}.
+              <p lang={lang} className="font-poppins text-white">
+                {t.welcomeBack}
+                {savedPlan?.name ? `, ${savedPlan.name}` : ''}.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 {myTool && (
@@ -315,9 +328,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
                     className={heroSecondaryClass}
                   >
                     <Play className="mr-2 h-4 w-4" />
-                    {myTool === 'breathe'
-                      ? 'Start my breathing'
-                      : 'Start my 5-4-3-2-1'}
+                    <span lang={lang}>{t.startMy[myTool]}</span>
                   </button>
                 )}
                 {savedPlan && (
@@ -326,7 +337,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
                     linkName="home_open_plan"
                     className={heroSecondaryClass}
                   >
-                    Open my plan
+                    <span lang={lang}>{t.openPlan}</span>
                   </TrackedLink>
                 )}
               </div>
@@ -335,14 +346,15 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
 
           <Link
             href="/give-hope"
+            lang={lang}
             className="mt-4 inline-flex min-h-11 items-center text-sm text-white/80 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:text-white focus-visible:underline focus-visible:outline-none"
           >
-            Here to donate instead?
+            {t.donate}
           </Link>
         </div>
 
         <div className="mx-auto max-w-2xl px-6 pb-28 text-center md:pb-8">
-          <CrisisLine className="text-white/80" />
+          <CrisisLine lang={lang} className="text-white/80" />
         </div>
       </section>
     );
@@ -477,7 +489,7 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
             </Card>
           </EcoachLink>
 
-          <h2 className="mt-10 font-poppins text-sm font-bold uppercase tracking-widest text-[#6E5F47]">
+          <h2 className="mt-10 font-poppins text-lg font-bold text-[#6E5F47]">
             {t.moreWays}
           </h2>
           <div className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
