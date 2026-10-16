@@ -3,8 +3,8 @@ import { LaroMuna } from './LaroMuna';
 
 export const metadata = pageMetadata(
   '/laro-muna',
-  'Laro muna: a quick game for a busy mind',
-  'A free 2-minute memory game with jeepneys, mangoes and parols, for when your thoughts keep looping. No sign-up, nothing to download.'
+  'Laro muna: quick games for a busy mind',
+  'Free short games for when your thoughts keep looping: match jeepneys and mangoes, fly a kite at sunset, or drive a jeepney to the sea one small mission at a time. No sign-up.'
 );
 
 export default function LaroMunaPage() {

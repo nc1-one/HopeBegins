@@ -61,7 +61,7 @@ export function CalmDownNow({
   };
 
   return (
-    <div className="rounded-2xl border border-[#DFE7CF] bg-white p-5 md:px-8">
+    <div className="rounded-2xl bg-[#EFF3E7] p-5">
       <div className="flex flex-col gap-4">
         <p className="flex items-center gap-3 font-poppins font-bold text-[#6E5F47]">
           <Wind className="h-5 w-5 shrink-0 text-[#91AFAA]" />

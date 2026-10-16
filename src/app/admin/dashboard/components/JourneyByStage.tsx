@@ -746,6 +746,33 @@ export function JourneyByStage({
                   '–',
                 ],
               },
+              {
+                label: 'Saranggola (kite game)',
+                values: [
+                  anyTool('kite', 'start'),
+                  anyTool('kite', 'done'),
+                  '–',
+                  '–',
+                ],
+              },
+              {
+                label: 'The trip: opened / missions done',
+                values: [
+                  anyTool('mission', 'start'),
+                  anyTool('mission', 'done'),
+                  '–',
+                  '–',
+                ],
+              },
+              {
+                label: 'The trip: reached the sea',
+                values: [
+                  sumWhere(t, (name) => name.startsWith('tool_mission_trip_')),
+                  '–',
+                  '–',
+                  '–',
+                ],
+              },
             ]}
           />
           <Table

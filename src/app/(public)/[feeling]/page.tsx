@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
   ArrowRight,
+  ChevronRight,
   ClipboardList,
   Heart,
   Languages,
@@ -9,6 +10,7 @@ import {
 } from 'lucide-react';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import { EcoachLink } from '@/components/ui/EcoachLink';
+import { groupClass, rowClass } from '@/components/ui/listStyles';
 import { ExerciseLauncher } from '@/components/tools/ExerciseLauncher';
 import { MessageSomeone } from '@/components/tools/MessageSomeone';
 import { WorryNote } from '@/components/tools/WorryNote';
@@ -49,9 +51,6 @@ export async function generateMetadata({
   };
 }
 
-const cardClass =
-  'group flex h-full items-center gap-4 rounded-2xl border border-zinc-100 bg-white p-5 transition-all lg:flex-col lg:items-start lg:gap-3 duration-300 hover:border-[#DFE7CF] hover:shadow-lg hover:shadow-[#6E5F47]/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
-
 function StepBody({
   icon: Icon,
   title,
@@ -63,16 +62,16 @@ function StepBody({
 }) {
   return (
     <>
-      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#E9EFEE] text-[#91AFAA]">
-        <Icon className="h-5 w-5" />
-      </div>
-      <div className="flex-1">
-        <p className="font-poppins font-bold text-[#6E5F47]">{title}</p>
-        <p className="mt-1 text-sm text-[#6E5F47] leading-relaxed">
+      <Icon className="h-5 w-5 shrink-0 text-[#91AFAA]" />
+      <span className="flex-1">
+        <span className="block font-poppins font-bold text-[#6E5F47]">
+          {title}
+        </span>
+        <span className="block text-sm text-[#6E5F47]/85 leading-relaxed">
           {description}
-        </p>
-      </div>
-      <ArrowRight className="h-4 w-4 shrink-0 text-[#C5BFB5] transition-all group-hover:translate-x-1 group-hover:text-[#6E5F47] motion-reduce:transition-none" />
+        </span>
+      </span>
+      <ChevronRight className="h-4 w-4 shrink-0 text-[#C5BFB5] group-hover:text-[#6E5F47]" />
     </>
   );
 }
@@ -90,7 +89,7 @@ export default async function FeelingPage({
     <EcoachLink
       key="ecoach"
       linkName={`ecoach_feeling_${page.slug}`}
-      className={cardClass}
+      className={rowClass}
     >
       <StepBody
         icon={MessageCircle}
@@ -103,7 +102,7 @@ export default async function FeelingPage({
     <Link
       key="plan"
       href={page.lang === 'tl' ? '/action-plan?lang=tl' : '/action-plan'}
-      className={cardClass}
+      className={rowClass}
     >
       <StepBody
         icon={ClipboardList}
@@ -113,7 +112,7 @@ export default async function FeelingPage({
     </Link>
   );
   const prayer = (
-    <Link key="prayer" href="/prayers" className={cardClass}>
+    <Link key="prayer" href="/prayers" className={rowClass}>
       <StepBody
         icon={Heart}
         title={ui.prayerTitle}
@@ -121,10 +120,11 @@ export default async function FeelingPage({
       />
     </Link>
   );
-  const nextSteps =
+  const nextSteps = (
     page.firstStep === 'ecoach'
       ? [ecoach, plan, prayer]
-      : [plan, ecoach, prayer];
+      : [plan, ecoach, prayer]
+  ).map((step) => <li key={step.key}>{step}</li>);
 
   return (
     <div lang={ui.htmlLang} className="px-6 pt-6 pb-16">
@@ -223,17 +223,15 @@ export default async function FeelingPage({
 
         <section
           aria-labelledby="next-title"
-          className="mt-12 border-t border-[#E2DFDA] pt-10"
+          className="mt-12 max-w-2xl border-t border-[#E2DFDA] pt-10"
         >
           <h2
             id="next-title"
-            className="font-playfair text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
+            className="font-playfair text-2xl md:text-3xl text-[#6E5F47] leading-[1.05] tracking-[-0.03em]"
           >
             {ui.nextHeading}
           </h2>
-          <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
-            {nextSteps}
-          </div>
+          <ul className={`mt-5 ${groupClass}`}>{nextSteps}</ul>
           <p className="mt-6 text-sm text-[#6E5F47]">
             <Link
               href="/#start"
