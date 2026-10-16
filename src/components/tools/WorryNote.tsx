@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import type { FeelingLang } from '@/lib/feelingPages';
+import { analyticsService } from '@/services/analyticsService';
 
 const copy = {
   tl: {
@@ -60,6 +61,7 @@ export function WorryNote({ lang = 'tl' }: { lang?: FeelingLang }) {
         onClick={() => {
           setText('');
           setIsDone(true);
+          analyticsService.recordClick('tool_worry_note');
         }}
         disabled={!text.trim()}
         className="mt-4 rounded-2xl bg-[#6E5F47] px-5 py-2.5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] disabled:opacity-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"

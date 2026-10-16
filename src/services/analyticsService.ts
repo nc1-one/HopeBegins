@@ -25,4 +25,19 @@ export const analyticsService = {
       console.error(`Failed to record click for ${linkName}:`, error);
     }
   },
+  /**
+   * Counts a page visit once per browser session, with no cookies or IDs:
+   * a reload or coming back to the page in the same session isn't counted
+   * again.
+   */
+  recordVisit: (page: string) => {
+    const key = `hopebegins.visited.${page}`;
+    try {
+      if (sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key, '1');
+    } catch {
+      // Storage blocked: count it anyway.
+    }
+    analyticsService.recordClick(`visit_${page}`);
+  },
 };

@@ -14,6 +14,7 @@ import type {
   Donation,
   DonationStats,
   AnalyticsData,
+  ClickAnalytics,
 } from '@/types/admin';
 
 // ─────────────────────────────────────────────
@@ -375,6 +376,22 @@ export const adminService = {
     if (params.toString()) url += `?${params.toString()}`;
 
     return fetchWithAuth(url, {
+      headers: authHeader(),
+    });
+  },
+
+  /**
+   * Visits and tool use (anonymous counts) for a date range.
+   */
+  getClickAnalytics: async (
+    startDate: string,
+    endDate: string
+  ): Promise<ClickAnalytics> => {
+    const params = new URLSearchParams({
+      start_date: startDate,
+      end_date: endDate,
+    });
+    return fetchWithAuth(`${config.API_URL}/analytics/clicks/?${params}`, {
       headers: authHeader(),
     });
   },

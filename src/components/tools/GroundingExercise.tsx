@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { analyticsService } from '@/services/analyticsService';
 import type { FeelingLang } from '@/lib/feelingPages';
 
 const counts = [5, 4, 3, 2, 1];
@@ -49,6 +50,19 @@ export function GroundingExercise({
   const t = copy[lang];
   const [step, setStep] = useState(0);
   const isDone = step >= counts.length;
+  const counted = useRef({ start: false, done: false });
+
+  useEffect(() => {
+    if (counted.current.start) return;
+    counted.current.start = true;
+    analyticsService.recordClick('tool_ground_start');
+  }, []);
+
+  useEffect(() => {
+    if (!isDone || counted.current.done) return;
+    counted.current.done = true;
+    analyticsService.recordClick('tool_ground_done');
+  }, [isDone]);
 
   return (
     <div className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 text-center">
