@@ -100,7 +100,11 @@ export default async function FeelingPage({
     </EcoachLink>
   );
   const plan = (
-    <Link key="plan" href="/action-plan" className={cardClass}>
+    <Link
+      key="plan"
+      href={page.lang === 'tl' ? '/action-plan?lang=tl' : '/action-plan'}
+      className={cardClass}
+    >
       <StepBody
         icon={ClipboardList}
         title={ui.planTitle}

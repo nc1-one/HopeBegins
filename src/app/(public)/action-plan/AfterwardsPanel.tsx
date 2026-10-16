@@ -18,6 +18,7 @@ import {
 } from '@/lib/actionPlanStore';
 import { downloadMonthlyReminder, monthlyGoogleUrl } from '@/lib/planReminders';
 import { analyticsService } from '@/services/analyticsService';
+import { UseMyTool } from './UseMyTool';
 
 /**
  * After the 4 weeks: an open door back. The monthly check-in, a reminder
@@ -41,6 +42,7 @@ const copy = {
     otherCalendar: 'iPhone or Outlook',
     cardTitle: 'Your Hope Card',
     openCard: 'Open my Hope Card',
+    yourTool: 'Your tool',
     restart: 'Start another 4 weeks',
     ecoach: 'Talk to an e-coach',
     giveTitle: 'Help someone else',
@@ -64,6 +66,7 @@ const copy = {
     otherCalendar: 'iPhone o Outlook',
     cardTitle: 'Ang Hope Card mo',
     openCard: 'Buksan ang Hope Card ko',
+    yourTool: 'Ang tool mo',
     restart: 'Magsimula ng panibagong 4 na linggo',
     ecoach: 'Kausapin ang e-coach',
     giveTitle: 'Tumulong sa iba',
@@ -189,6 +192,18 @@ export function AfterwardsPanel({
           </div>
         </div>
       </div>
+
+      {tool && (
+        <div className="rounded-2xl border border-[#DFE7CF] bg-white p-5">
+          <p className="text-sm text-[#6E5F47]">{t.yourTool}</p>
+          <p className="mt-1 font-poppins font-bold text-[#6E5F47]">
+            {tool.title}
+          </p>
+          <div className="mt-3">
+            <UseMyTool tool={tool} saved={saved} lang={lang} />
+          </div>
+        </div>
+      )}
 
       <div className="flex flex-wrap gap-3">
         {saved.hopeCard && (

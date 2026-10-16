@@ -13,6 +13,7 @@ import {
 } from '@/lib/actionPlanStore';
 import { drawHopeCard } from '@/lib/hopeCardImage';
 import { analyticsService } from '@/services/analyticsService';
+import { UseMyTool } from './UseMyTool';
 
 /**
  * The end of the 4 weeks: see what changed, pick the tool that helped most,
@@ -184,12 +185,13 @@ export function FinishFlow({
 
   const card = saved.hopeCard;
   const cardTool = tools.find((tool) => tool.id === (card?.toolId ?? toolId));
+  // The how-to first, so the card works on its own months later.
   const toolLines = cardTool
     ? [
         cardTool.title,
-        ...(cardTool.steps?.map((stepText, i) => `${i + 1}. ${stepText}`) ?? [
-          cardTool.detail,
-        ]),
+        cardTool.detail,
+        ...(cardTool.steps?.map((stepText, i) => `${i + 1}. ${stepText}`) ??
+          []),
       ]
     : [];
   // Only shown once the card exists.
@@ -419,14 +421,18 @@ export function FinishFlow({
                 <p className="mt-1 font-bold text-[#6E5F47]">
                   {cardTool.title}
                 </p>
-                {cardTool.steps ? (
+                <p className="mt-1 text-[#6E5F47]">{cardTool.detail}</p>
+                {cardTool.steps && (
                   <ol className="mt-2 list-decimal space-y-1 pl-5 text-[#6E5F47] marker:font-bold marker:text-[#91AFAA]">
                     {cardTool.steps.map((stepText) => (
                       <li key={stepText}>{stepText}</li>
                     ))}
                   </ol>
-                ) : (
-                  <p className="mt-1 text-[#6E5F47]">{cardTool.detail}</p>
+                )}
+                {cardTool.exercise && (
+                  <div className="mt-4">
+                    <UseMyTool tool={cardTool} saved={saved} lang={lang} />
+                  </div>
                 )}
               </>
             )}

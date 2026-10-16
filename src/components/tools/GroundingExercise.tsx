@@ -44,11 +44,17 @@ export function GroundingExercise({
   onClose,
   lang = 'en',
   source,
+  onFinish,
+  doneNote,
 }: {
   onClose: () => void;
   lang?: FeelingLang;
   /** Where it was opened, so the dashboard can count tools per journey stage. */
   source: ToolSource;
+  /** Called once when the exercise is finished. */
+  onFinish?: () => void;
+  /** An extra line on the finish screen, such as "Ticked for today". */
+  doneNote?: string;
 }) {
   const t = copy[lang];
   const [step, setStep] = useState(0);
@@ -65,7 +71,8 @@ export function GroundingExercise({
     if (!isDone || counted.current.done) return;
     counted.current.done = true;
     analyticsService.recordClick(`tool_ground_done_${source}`);
-  }, [isDone, source]);
+    onFinish?.();
+  }, [isDone, source, onFinish]);
 
   return (
     <div className="mt-5 rounded-2xl bg-[#EFF3E7] p-6 text-center">
@@ -75,6 +82,9 @@ export function GroundingExercise({
             {t.doneTitle}
           </p>
           <p className="mt-1 text-[#6E5F47]">{t.doneText}</p>
+          {doneNote && (
+            <p className="mt-2 text-sm font-bold text-[#6E5F47]">{doneNote}</p>
+          )}
           <button
             type="button"
             onClick={onClose}

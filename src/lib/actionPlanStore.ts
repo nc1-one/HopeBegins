@@ -232,6 +232,28 @@ export function readBackup(text: string): SavedPlan | null {
 }
 
 /** Starts a fresh 4 weeks with one tool. Check-ins and the Hope Card stay. */
+/**
+ * Ticks today for a tool in the 4 weeks, for example when its exercise is
+ * finished. Returns false when there is nothing to tick: the tool isn't in
+ * the 4 weeks, today is outside them, or it's already ticked.
+ */
+export function markTodayDone(toolId: string): boolean {
+  let ticked = false;
+  updatePlan((plan) => {
+    const day = dayOfPlan(plan.startedAt);
+    if (!plan.commitments[toolId] || day < 0 || day >= PLAN_DAYS) return plan;
+    if (plan.checks[toolId]?.[day] === true) return plan;
+    const checks = Array.from(
+      { length: PLAN_DAYS },
+      (_, i) => plan.checks[toolId]?.[i] === true
+    );
+    checks[day] = true;
+    ticked = true;
+    return { ...plan, checks: { ...plan.checks, [toolId]: checks } };
+  });
+  return ticked;
+}
+
 export function restartFourWeeks(toolId: string, time: TimeOfDay) {
   updatePlan((plan) => ({
     ...plan,
