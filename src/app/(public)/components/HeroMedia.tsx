@@ -127,7 +127,10 @@ export function HeroMedia() {
           src="/assets/images/hero-poster.jpg"
           alt=""
           fill
-          priority
+          // The first screen's picture: fetched first and never lazy.
+          preload
+          fetchPriority="high"
+          loading="eager"
           sizes="100vw"
           className="object-cover object-top"
         />
