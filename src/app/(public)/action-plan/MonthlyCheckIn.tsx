@@ -17,6 +17,7 @@ import {
   type SavedPlan,
 } from '@/lib/actionPlanStore';
 import { analyticsService } from '@/services/analyticsService';
+import { UseMyTool } from './UseMyTool';
 
 /**
  * After the 4 weeks: a 1-minute check-in once a month. Mood, worry, their
@@ -64,6 +65,7 @@ const copy = {
     call: 'Call 1553',
     ecoach: 'Talk to an e-coach',
     openCard: 'Open my Hope Card',
+    yourTool: 'Your tool',
     restart: 'Start another 4 weeks',
     fullCheckIn: 'Take the full check-in and make a safety plan',
     toPlan: 'Back to my plan',
@@ -101,6 +103,7 @@ const copy = {
     call: 'Tumawag sa 1553',
     ecoach: 'Kausapin ang e-coach',
     openCard: 'Buksan ang Hope Card ko',
+    yourTool: 'Ang tool mo',
     restart: 'Magsimula ng panibagong 4 na linggo',
     fullCheckIn: 'Sagutan ang buong check-in at gumawa ng safety plan',
     toPlan: 'Bumalik sa plano ko',
@@ -232,6 +235,18 @@ export function MonthlyCheckIn({
             </p>
           )}
         </div>
+
+        {(result === 'watch' || result === 'returning') && tool && (
+          <div className="rounded-2xl border border-[#DFE7CF] bg-white p-5">
+            <p className="text-sm text-[#6E5F47]">{t.yourTool}</p>
+            <p className="mt-1 font-poppins font-bold text-[#6E5F47]">
+              {tool.title}
+            </p>
+            <div className="mt-3">
+              <UseMyTool tool={tool} saved={saved} lang={lang} />
+            </div>
+          </div>
+        )}
 
         <div className="flex flex-wrap gap-3">
           {result === 'safety' && (

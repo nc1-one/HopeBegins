@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import {
   ArrowLeft,
@@ -40,6 +40,7 @@ import {
   clearPlan,
   dayOfPlan,
   daysSince,
+  markTodayDone,
   planBackup,
   readBackup,
   requestPersistentStorage,
@@ -53,7 +54,7 @@ import {
   useCanPromptInstall,
   useHomeScreenStatus,
 } from '@/lib/installPrompt';
-import { useLanguage } from '@/lib/languagePreference';
+import { setLanguage, useLanguage } from '@/lib/languagePreference';
 import {
   downloadReminder,
   googleCalendarUrl,
@@ -67,6 +68,7 @@ import { GroundingExercise } from '@/components/tools/GroundingExercise';
 import { FinishFlow, type FinishStep } from './FinishFlow';
 import { MonthlyCheckIn } from './MonthlyCheckIn';
 import { AfterwardsPanel } from './AfterwardsPanel';
+import { UseMyTool, canTickToday, toolButtonClass } from './UseMyTool';
 
 type EmailStatus = 'idle' | 'sending' | 'sent' | 'error';
 
@@ -202,6 +204,9 @@ const ui = {
     todayTitle: 'Today',
     doneToday: 'Done today',
     didToday: 'Done',
+    startTool: 'Start',
+    tickedToday: 'Ticked for today in your 4 weeks.',
+    todayAfterBreak: 'Good to see you. Start with today.',
     seeWeeks: 'See your 4 weeks',
   },
   tl: {
@@ -339,6 +344,9 @@ const ui = {
     todayTitle: 'Ngayong araw',
     doneToday: 'Nagawa ko ngayon',
     didToday: 'Nagawa',
+    startTool: 'Simulan',
+    tickedToday: 'Na-tick na ito para sa araw na ito sa 4 na linggo mo.',
+    todayAfterBreak: 'Buti at nandito ka ulit. Simulan natin sa araw na ito.',
     seeWeeks: 'Tingnan ang 4 na linggo mo',
   },
 };
@@ -460,21 +468,30 @@ function PlanItemCard({
 function ToolCard({
   item,
   isFirst,
-  time,
+  saved,
   lang,
   t,
 }: {
   item: PlanItem;
   isFirst: boolean;
-  time?: TimeOfDay;
+  saved: SavedPlan;
   lang: PlanLang;
   t: Copy;
 }) {
   const [isTrying, setIsTrying] = useState(false);
+  // Decided when the tool opens, so the note matches what finishing does.
+  const [willTick, setWillTick] = useState(false);
+  const time = saved.commitments[item.id];
   const isInWeek = time !== undefined;
 
+  const handleFinish = useCallback(() => {
+    if (markTodayDone(item.id)) {
+      analyticsService.recordClick(`plan_today_done_${item.id}`);
+    }
+  }, [item.id]);
+
   const toggleWeek = () => {
-    if (!isInWeek) analyticsService.recordClick('plan_tool_add');
+    if (!isInWeek) analyticsService.recordClick(`plan_tool_add_${item.id}`);
     updatePlan((plan) => {
       const commitments = { ...plan.commitments };
       if (commitments[item.id]) {
@@ -516,6 +533,8 @@ function ToolCard({
             lang={lang}
             source="plan"
             onClose={() => setIsTrying(false)}
+            onFinish={handleFinish}
+            doneNote={willTick ? t.tickedToday : undefined}
           />
         )}
         {isTrying && item.exercise === 'ground' && (
@@ -523,6 +542,8 @@ function ToolCard({
             lang={lang}
             source="plan"
             onClose={() => setIsTrying(false)}
+            onFinish={handleFinish}
+            doneNote={willTick ? t.tickedToday : undefined}
           />
         )}
 
@@ -532,6 +553,7 @@ function ToolCard({
               type="button"
               onClick={() => {
                 analyticsService.recordClick('plan_tool_try');
+                setWillTick(canTickToday(saved, item.id));
                 setIsTrying(true);
               }}
               className="inline-flex items-center rounded-2xl bg-[#6E5F47] px-5 py-2.5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
@@ -673,6 +695,10 @@ function TodayCard({
   const today = dayOfPlan(saved.startedAt);
   const committed = tools.filter((tool) => saved.commitments[tool.id]);
   if (committed.length === 0 || today < 1 || today >= PLAN_DAYS) return null;
+  // Back after a day or more without ticking: start with today, no tally.
+  const isBackAfterBreak =
+    today >= 2 &&
+    committed.every((tool) => saved.checks[tool.id]?.[today - 1] !== true);
 
   return (
     <section
@@ -685,39 +711,54 @@ function TodayCard({
       >
         {t.todayTitle}
       </h2>
-      <ul className="mt-3 space-y-3">
+      {isBackAfterBreak && (
+        <p className="mt-1 text-[#6E5F47]">{t.todayAfterBreak}</p>
+      )}
+      <ul className="mt-3 space-y-4">
         {committed.map((tool) => {
           const checks = saved.checks[tool.id] ?? [];
           const isDone = checks[today] === true;
           return (
-            <li
-              key={tool.id}
-              className="flex flex-col gap-3 sm:flex-row sm:items-center"
-            >
-              <div className="sm:flex-1">
-                <p className="text-[#6E5F47]">
-                  {commitmentSentence(tool, saved.commitments[tool.id], lang)}
-                </p>
-                <p className="text-sm text-[#6E5F47]">
-                  {t.daysDone(checks.filter(Boolean).length)}
-                </p>
+            <li key={tool.id} className="space-y-3">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <div className="sm:flex-1">
+                  <p className="text-[#6E5F47]">
+                    {commitmentSentence(tool, saved.commitments[tool.id], lang)}
+                  </p>
+                  <p className="text-sm text-[#6E5F47]">
+                    {t.daysDone(checks.filter(Boolean).length)}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  aria-pressed={isDone}
+                  onClick={() => {
+                    if (!isDone) {
+                      analyticsService.recordClick(
+                        `plan_today_done_${tool.id}`
+                      );
+                    }
+                    toggleDay(tool.id, today);
+                  }}
+                  className={`inline-flex min-h-11 shrink-0 items-center justify-center rounded-2xl border px-5 font-poppins font-bold transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40 ${
+                    isDone
+                      ? 'border-[#AEC488] bg-[#EFF3E7] text-[#6E5F47]'
+                      : 'border-[#6E5F47] bg-[#6E5F47] text-white hover:bg-[#5c4f3b]'
+                  }`}
+                >
+                  {isDone && <Check className="mr-2 h-4 w-4" />}
+                  {isDone ? t.didToday : t.doneToday}
+                </button>
               </div>
-              <button
-                type="button"
-                aria-pressed={isDone}
-                onClick={() => {
-                  if (!isDone) analyticsService.recordClick('plan_today_done');
-                  toggleDay(tool.id, today);
-                }}
-                className={`inline-flex min-h-11 shrink-0 items-center justify-center rounded-2xl border px-5 font-poppins font-bold transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40 ${
-                  isDone
-                    ? 'border-[#AEC488] bg-[#EFF3E7] text-[#6E5F47]'
-                    : 'border-[#6E5F47] bg-[#6E5F47] text-white hover:bg-[#5c4f3b]'
-                }`}
-              >
-                {isDone && <Check className="mr-2 h-4 w-4" />}
-                {isDone ? t.didToday : t.doneToday}
-              </button>
+              {tool.exercise && (
+                <UseMyTool
+                  tool={tool}
+                  saved={saved}
+                  lang={lang}
+                  label={t.startTool}
+                  buttonClassName={`${toolButtonClass} w-full sm:w-auto`}
+                />
+              )}
             </li>
           );
         })}
@@ -810,7 +851,14 @@ function HabitTracker({
                           key={day}
                           type="button"
                           disabled={isFuture}
-                          onClick={() => toggleDay(tool.id, day)}
+                          onClick={() => {
+                            if (!isDone) {
+                              analyticsService.recordClick(
+                                `plan_grid_tick_${tool.id}`
+                              );
+                            }
+                            toggleDay(tool.id, day);
+                          }}
                           aria-pressed={isDone}
                           aria-label={t.dayLabel(
                             date.toLocaleDateString(t.locale, {
@@ -1214,6 +1262,12 @@ export default function ActionPlanPage() {
     headingRef.current?.focus({ preventScroll: true });
   }, [showPlan, showQuestions, current]);
 
+  // Links from Taglish pages open the plan in Taglish (?lang=tl).
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get('lang');
+    if (requested === 'tl' || requested === 'en') setLanguage(requested);
+  }, []);
+
   const handleAnswer = (value: string) => {
     const nextAnswers = { ...answers, [question.key]: value };
     setAnswers(nextAnswers);
@@ -1329,6 +1383,7 @@ export default function ActionPlanPage() {
                 event.preventDefault();
                 analyticsService.recordClick('plan_start');
                 setHasStarted(true);
+                window.scrollTo({ top: 0 });
               }}
             >
               <Label htmlFor="plan-name" className="text-[#6E5F47]">
@@ -1468,6 +1523,7 @@ export default function ActionPlanPage() {
   const banner =
     day >= PLAN_DAYS - 1 && !saved.hopeCard
       ? {
+          isWeekly: false,
           title: t.doneTitle(saved.name),
           text: t.doneText,
           button: t.finishButton,
@@ -1475,12 +1531,26 @@ export default function ActionPlanPage() {
         }
       : sinceCheckIn >= 7 && day < PLAN_DAYS
         ? {
+            isWeekly: true,
             title: t.checkInDueTitle(saved.name),
             text: t.checkInDueText,
             button: t.takeAgain,
             onClick: handleRetake,
           }
         : null;
+  const bannerCard = banner && (
+    <div className="mb-6 rounded-2xl bg-[#EFF3E7] px-5 py-4 text-[#6E5F47] print:hidden">
+      <p className="font-poppins font-bold">{banner.title}</p>
+      <p className="mt-1">{banner.text}</p>
+      <button
+        type="button"
+        onClick={banner.onClick}
+        className="mt-3 min-h-11 rounded-2xl bg-[#6E5F47] px-5 py-2.5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
+      >
+        {banner.button}
+      </button>
+    </div>
+  );
 
   // After the 4 weeks, once the Hope Card is made.
   const isAfter = Boolean(saved.hopeCard) && day >= PLAN_DAYS - 1;
@@ -1551,27 +1621,15 @@ export default function ActionPlanPage() {
         <div className="max-w-2xl">
           {header}
           <div id="action-plan">
-            {banner ? (
-              <div className="mb-6 rounded-2xl bg-[#EFF3E7] px-5 py-4 text-[#6E5F47] print:hidden">
-                <p className="font-poppins font-bold">{banner.title}</p>
-                <p className="mt-1">{banner.text}</p>
-                <button
-                  type="button"
-                  onClick={banner.onClick}
-                  className="mt-3 min-h-11 rounded-2xl bg-[#6E5F47] px-5 py-2.5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
-                >
-                  {banner.button}
-                </button>
-              </div>
-            ) : (
-              day >= 1 && (
-                <p className="mb-6 rounded-2xl bg-[#EFF3E7] px-5 py-3 font-poppins text-[#6E5F47] print:hidden">
-                  {day >= PLAN_DAYS || isAfter
-                    ? t.welcomeBack(saved.name)
-                    : t.welcomeDay(saved.name, day + 1)}
-                </p>
-              )
-            )}
+            {banner
+              ? !banner.isWeekly && bannerCard
+              : day >= 1 && (
+                  <p className="mb-6 rounded-2xl bg-[#EFF3E7] px-5 py-3 font-poppins text-[#6E5F47] print:hidden">
+                    {day >= PLAN_DAYS || isAfter
+                      ? t.welcomeBack(saved.name)
+                      : t.welcomeDay(saved.name, day + 1)}
+                  </p>
+                )}
 
             {isAfter && (
               <AfterwardsPanel
@@ -1584,6 +1642,9 @@ export default function ActionPlanPage() {
             )}
 
             <TodayCard saved={saved} tools={tools} lang={lang} t={t} />
+
+            {/* The weekly check-in comes after today's tools. */}
+            {banner?.isWeekly && bannerCard}
 
             {saved.hopeCard && !isAfter && (
               <section
@@ -1670,7 +1731,7 @@ export default function ActionPlanPage() {
                     key={item.id}
                     item={item}
                     isFirst={idx === 0}
-                    time={saved.commitments[item.id]}
+                    saved={saved}
                     lang={lang}
                     t={t}
                   />

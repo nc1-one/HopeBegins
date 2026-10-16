@@ -41,11 +41,17 @@ export function BreathingExercise({
   onClose,
   lang = 'en',
   source,
+  onFinish,
+  doneNote,
 }: {
   onClose: () => void;
   lang?: FeelingLang;
   /** Where it was opened, so the dashboard can count tools per journey stage. */
   source: ToolSource;
+  /** Called once when the exercise is finished. */
+  onFinish?: () => void;
+  /** An extra line on the finish screen, such as "Ticked for today". */
+  doneNote?: string;
 }) {
   const t = copy[lang];
   const [elapsed, setElapsed] = useState(0);
@@ -64,7 +70,8 @@ export function BreathingExercise({
     if (!isDone || counted.current.done) return;
     counted.current.done = true;
     analyticsService.recordClick(`tool_breathe_done_${source}`);
-  }, [isDone, source]);
+    onFinish?.();
+  }, [isDone, source, onFinish]);
   const inCycle = elapsed % CYCLE;
   const isBreathingIn = inCycle < BREATHE_IN;
   const count = isBreathingIn ? BREATHE_IN - inCycle : CYCLE - inCycle;
@@ -83,6 +90,9 @@ export function BreathingExercise({
           {t.doneTitle}
         </p>
         <p className="mt-1 text-[#6E5F47]">{t.doneText}</p>
+        {doneNote && (
+          <p className="mt-2 text-sm font-bold text-[#6E5F47]">{doneNote}</p>
+        )}
         <button
           type="button"
           onClick={onClose}
@@ -129,7 +139,10 @@ export function BreathingExercise({
           </button>
           <button
             type="button"
-            onClick={onClose}
+            onClick={() => {
+              analyticsService.recordClick(`tool_breathe_stop_${source}`);
+              onClose();
+            }}
             className="rounded-2xl px-5 py-2.5 font-poppins font-bold text-[#6E5F47] transition-colors hover:bg-[#DFE7CF] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
           >
             {t.stop}

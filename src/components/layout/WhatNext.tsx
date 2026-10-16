@@ -149,7 +149,16 @@ export function WhatNext() {
                 {body}
               </EcoachLink>
             ) : (
-              <Link key={key} href={option.href} className={cardClass}>
+              <Link
+                key={key}
+                href={
+                  // The plan opens in the page's language.
+                  key === 'plan' && lang === 'tl'
+                    ? `${option.href}?lang=tl`
+                    : option.href
+                }
+                className={cardClass}
+              >
                 {body}
               </Link>
             );

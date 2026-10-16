@@ -11,6 +11,7 @@ import {
   YAxis,
 } from 'recharts';
 import { Card } from '@/components/ui/card';
+import { buildPlan } from '@/lib/actionPlan';
 import { feelingPages } from '@/lib/feelingPages';
 import type { ClickAnalytics } from '@/types/admin';
 
@@ -38,6 +39,11 @@ const OTHER_PAGES: [string, string][] = [
 ];
 
 const cardClass = 'border-none shadow-2xl bg-white dark:bg-zinc-900 p-6';
+
+// Every plan tool's English name, for the per-tool counts.
+const TOOL_TITLES: Record<string, string> = Object.fromEntries(
+  buildPlan({}, 'en').allTools.map((tool) => [tool.id, tool.title])
+);
 
 type Row = { label: string; values: (number | string)[] };
 
@@ -183,8 +189,24 @@ export function JourneyByStage({
   ];
   // Every page together, including the first days before tools noted where
   // they were used.
-  const anyTool = (kind: 'breathe' | 'ground', step: 'start' | 'done') =>
-    sumWhere(t, (name) => name.startsWith(`tool_${kind}_${step}`));
+  const anyTool = (
+    kind: 'breathe' | 'ground',
+    step: 'start' | 'done' | 'stop'
+  ) => sumWhere(t, (name) => name.startsWith(`tool_${kind}_${step}`));
+  // A count recorded first without the tool's name, then per tool.
+  const withPerTool = (base: string) =>
+    n(base) + sumWhere(t, (name) => name.startsWith(`${base}_`));
+  const perTool = (base: string, id: string) => n(`${base}_${id}`);
+  const toolsAdded = withPerTool('plan_tool_add');
+  const todayTicks = withPerTool('plan_today_done');
+  const gridTicks = sumWhere(t, (name) => name.startsWith('plan_grid_tick_'));
+  const toolIds = Object.keys(TOOL_TITLES).filter(
+    (id) =>
+      perTool('plan_tool_add', id) +
+        perTool('plan_today_done', id) +
+        perTool('plan_grid_tick', id) >
+      0
+  );
 
   const feelingVisits = sumWhere(t, (name) =>
     name.startsWith('visit_feeling_')
@@ -218,7 +240,7 @@ export function JourneyByStage({
     {
       stage: 4,
       name: 'The weeks after',
-      value: n('plan_today_done'),
+      value: todayTicks + gridTicks,
       label: `days ticked · ${n('plan_check_in_again').toLocaleString()} weekly check-ins`,
     },
     {
@@ -457,7 +479,7 @@ export function JourneyByStage({
               },
               {
                 label: 'Added a tool to their 4 weeks',
-                values: [n('plan_tool_add'), '–'],
+                values: [toolsAdded, '–'],
               },
               {
                 label: 'Added a phone reminder',
@@ -500,8 +522,12 @@ export function JourneyByStage({
             columns={['Step', 'Count']}
             rows={[
               {
-                label: 'Ticked "Done today" (taps)',
-                values: [n('plan_today_done')],
+                label: 'Ticked "Done today" or finished the tool',
+                values: [todayTicks],
+              },
+              {
+                label: 'Ticked a day on the 4-week grid',
+                values: [gridTicks],
               },
               {
                 label: 'Took the weekly check-in again',
@@ -513,6 +539,19 @@ export function JourneyByStage({
               },
             ]}
           />
+          {toolIds.length > 0 && (
+            <Table
+              columns={['Tool', 'Added', 'Days ticked']}
+              rows={toolIds.map((id) => ({
+                label: TOOL_TITLES[id],
+                values: [
+                  perTool('plan_tool_add', id),
+                  perTool('plan_today_done', id) +
+                    perTool('plan_grid_tick', id),
+                ],
+              }))}
+            />
+          )}
         </StageCard>
 
         <StageCard
@@ -616,18 +655,23 @@ export function JourneyByStage({
             ]}
           />
           <Table
-            columns={['Tools, every page', 'Started', 'Finished']}
+            columns={['Tools, every page', 'Started', 'Finished', 'Stopped']}
             rows={[
               {
                 label: 'Slow breathing',
                 values: [
                   anyTool('breathe', 'start'),
                   anyTool('breathe', 'done'),
+                  anyTool('breathe', 'stop'),
                 ],
               },
               {
                 label: '5-4-3-2-1 grounding',
-                values: [anyTool('ground', 'start'), anyTool('ground', 'done')],
+                values: [
+                  anyTool('ground', 'start'),
+                  anyTool('ground', 'done'),
+                  '–',
+                ],
               },
             ]}
           />

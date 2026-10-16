@@ -115,7 +115,7 @@ const notSure = {
   },
   tl: {
     label: 'Hindi ko alam kung ano ang nararamdaman ko',
-    hint: 'Sagutin ang 9 na tanong at makakuha ng libreng plano. Nasa English.',
+    hint: 'Sagutin ang 9 na tanong at makakuha ng libreng plano.',
   },
 };
 
