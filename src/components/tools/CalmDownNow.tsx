@@ -64,22 +64,34 @@ export function CalmDownNow({
 
   return (
     <div>
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-        <p className="font-poppins font-bold text-[#6E5F47]">{t.prompt}</p>
-        {shown.map((exercise) => (
-          <button
-            key={exercise}
-            ref={(el) => {
-              buttons.current[exercise] = el;
-            }}
-            type="button"
-            aria-pressed={open === exercise}
-            onClick={() => toggle(exercise)}
-            className="min-h-11 rounded-full border border-[#AEC488] bg-white px-5 font-poppins text-sm font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] aria-pressed:bg-[#DFE7CF] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
-          >
-            {t[exercise]}
-          </button>
-        ))}
+      <div className="flex flex-wrap items-center gap-x-2">
+        <p className="text-[#6E5F47]">{t.prompt}</p>
+        {/* The choices stay together on one line. */}
+        <span className="inline-flex items-center gap-x-2">
+          {shown.map((exercise, index) => [
+            index > 0 && (
+              <span
+                key={`dot-${exercise}`}
+                aria-hidden
+                className="text-[#6E5F47]"
+              >
+                ·
+              </span>
+            ),
+            <button
+              key={exercise}
+              ref={(el) => {
+                buttons.current[exercise] = el;
+              }}
+              type="button"
+              aria-pressed={open === exercise}
+              onClick={() => toggle(exercise)}
+              className="min-h-11 rounded-lg px-1 font-bold text-[#6E5F47] underline underline-offset-4 transition-colors hover:text-[#5c4f3b] aria-pressed:no-underline aria-pressed:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
+            >
+              {t[exercise]}
+            </button>,
+          ])}
+        </span>
       </div>
       {open === 'breathe' && (
         <BreathingExercise lang={lang} source={source} onClose={close} />

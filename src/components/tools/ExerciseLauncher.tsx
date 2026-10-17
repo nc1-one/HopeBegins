@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { Play } from 'lucide-react';
 import { BreathingExercise } from './BreathingExercise';
 import { FindThePair } from './FindThePair';
 import { GroundingExercise } from './GroundingExercise';
@@ -109,7 +108,6 @@ export function ExerciseLauncher({
           onClick={() => setIsOpen(true)}
           className="mt-4 inline-flex items-center rounded-2xl bg-[#6E5F47] px-5 py-2.5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
         >
-          <Play className="mr-2 h-4 w-4" />
           {exercise.start}
         </button>
       )}

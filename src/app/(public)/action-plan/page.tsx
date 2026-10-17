@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowLeft,
@@ -11,7 +12,6 @@ import {
   Loader2,
   Lock,
   MessageCircle,
-  Play,
   Plus,
   Printer,
   Smartphone,
@@ -56,6 +56,7 @@ import {
   useHomeScreenStatus,
 } from '@/lib/installPrompt';
 import { setLanguage, useLanguage } from '@/lib/languagePreference';
+import { PHOTOS } from '@/lib/photos';
 import { forgetTool } from '@/lib/myTool';
 import { clearToolNotes } from '@/lib/toolNotes';
 import { calmerCount, clearToolChecks, useToolChecks } from '@/lib/toolChecks';
@@ -476,7 +477,6 @@ function PlanItemCard({
               onClick={() => setIsTrying(true)}
               className={`mt-5 print:hidden ${toolButtonClass}`}
             >
-              <Play className="mr-2 h-4 w-4" />
               {t.tryNow}
             </button>
           ))}
@@ -627,7 +627,6 @@ function ToolCard({
               }}
               className="inline-flex items-center rounded-2xl bg-[#6E5F47] px-5 py-2.5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
             >
-              <Play className="mr-2 w-4 h-4" />
               {t.tryNow}
             </button>
           )}
@@ -1449,12 +1448,29 @@ export default function ActionPlanPage() {
     </div>
   );
 
+  // A real morning in Valencia, Philippines: the plan's one picture.
+  const morningPhoto = (
+    <div className="relative mb-8 aspect-[16/9] overflow-hidden rounded-xl bg-[#EFF3E7] print:hidden">
+      <Image
+        src={PHOTOS.morning}
+        alt=""
+        fill
+        preload
+        fetchPriority="high"
+        loading="eager"
+        sizes="(min-width: 768px) 672px, 100vw"
+        className="object-cover"
+      />
+    </div>
+  );
+
   if (!showPlan && !showQuestions) {
     return (
       <div lang={lang} className="px-6 pt-6 pb-24">
         <div className="max-w-5xl mx-auto">
           <div className="max-w-2xl">
             {header}
+            {morningPhoto}
             <h1 className="text-balance font-playfair text-5xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
               {t.introTitle}
             </h1>
@@ -1732,6 +1748,7 @@ export default function ActionPlanPage() {
       <div className="max-w-5xl mx-auto">
         <div className="max-w-2xl">
           {header}
+          {morningPhoto}
           <div id="action-plan">
             <h1 className="sr-only">{t.planTitle(saved.name)}</h1>
             {banner

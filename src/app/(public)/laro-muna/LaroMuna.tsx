@@ -5,7 +5,6 @@ import { ChevronRight } from 'lucide-react';
 import { FindThePair } from '@/components/tools/FindThePair';
 import { Saranggola } from '@/components/tools/Saranggola';
 import { Biyahe } from '@/components/tools/Biyahe';
-import { PairIcon } from '@/components/tools/pairIcons';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
 import { groupClass, rowClass } from '@/components/ui/listStyles';
@@ -14,29 +13,6 @@ import { setLanguage, useLanguage } from '@/lib/languagePreference';
 
 type Game = 'pair' | 'kite' | 'trip';
 type Text = Record<FeelingLang, string>;
-
-/** A small kite for the list, drawn like the one in the game. */
-function KiteIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 64 64" aria-hidden className={className}>
-      <path
-        d="M30 46c-4 4-8 3-11 6s-5 6-9 6"
-        stroke="#6E5F47"
-        strokeWidth="2"
-        fill="none"
-        strokeLinecap="round"
-      />
-      <path d="M32 6 18 28l14 22Z" fill="#D9644A" />
-      <path d="M32 6 46 28 32 50Z" fill="#F4C152" />
-      <path
-        d="M32 6v44M18 28h28"
-        stroke="#fff"
-        strokeWidth="1.5"
-        opacity="0.85"
-      />
-    </svg>
-  );
-}
 
 const GAMES: { id: Game; title: Text; text: Text }[] = [
   {
@@ -119,14 +95,6 @@ export function LaroMuna() {
                   onClick={() => setOpen(open === game.id ? null : game.id)}
                   className={`${rowClass} w-full text-left`}
                 >
-                  {game.id === 'kite' ? (
-                    <KiteIcon className="h-10 w-10 shrink-0" />
-                  ) : (
-                    <PairIcon
-                      id={game.id === 'pair' ? 'parol' : 'jeepney'}
-                      className="h-10 w-10 shrink-0"
-                    />
-                  )}
                   <span className="flex-1">
                     <span className="block font-poppins font-bold text-[#6E5F47]">
                       {game.title[lang]}

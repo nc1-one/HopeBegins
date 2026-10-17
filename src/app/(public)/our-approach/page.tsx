@@ -1,10 +1,12 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { HopeStoriesSection } from '@/components/sections/HopeStoriesSection';
-import { EcoachLink } from '@/components/ui/EcoachLink';
 import { Reveal } from '@/components/ui/Reveal';
-import { groupClass, rowClass } from '@/components/ui/listStyles';
 import { pageMetadata } from '@/lib/pageMetadata';
+import { PHOTOS } from '@/lib/photos';
+import { ApproachOffers, type Offer } from './ApproachOffers';
+import { ApproachSteps, type ApproachStep } from './ApproachSteps';
 
 export const metadata = pageMetadata(
   '/our-approach',
@@ -20,60 +22,58 @@ export const metadata = pageMetadata(
 
 const GOALS = [
   {
-    title: 'Help in the first minute.',
+    title: 'Help in the first minute',
     text: 'Every feeling page starts with something to do right now.',
   },
   {
-    title: 'A plan made for you.',
+    title: 'A plan made for you',
     text: '9 questions, then small steps for your week.',
   },
   {
-    title: 'A tool you keep using.',
+    title: 'A tool you keep using',
     text: '4 weeks of practice and a Hope Card to keep.',
   },
   {
-    title: 'Someone to turn to.',
+    title: 'Someone to turn to',
     text: 'E-coaches, Hope Carriers, and the crisis line on every page.',
   },
 ];
 
-const STAGES = [
+const STAGES: ApproachStep[] = [
   {
     name: 'The moment you realize',
-    text: 'You search "pagod na ako" and land on a page with something to do right now.',
+    text: 'You search "pagod na ako" late at night and land on a page with something to do right now.',
+    photo: 'sleep',
     link: { href: '/pagod-na-ako', label: 'See "Pagod na ako"' },
   },
   {
     name: 'Telling us how you feel',
-    text: 'You pick how you feel, and we show you one next step.',
+    text: 'You pick how you feel, and we show you one next step, or a real person to talk to.',
+    photo: 'talk',
     link: { href: '/#start', label: 'Open "How are you feeling?"' },
   },
   {
     name: 'The first hour',
     text: 'You answer 9 questions and get your Hopeful Beginning Plan.',
+    photo: 'morning',
     link: { href: '/action-plan', label: 'Make your plan' },
   },
   {
     name: 'The weeks after',
-    text: 'You practise your tool most days for 4 weeks, with reminders.',
+    text: 'You practise your tool most days for 4 weeks, with reminders on your phone.',
+    photo: 'unsure',
   },
   {
     name: 'Getting through it',
     text: 'You see how far you have come, and keep what helped on your Hope Card.',
+    photo: 'hope',
   },
   {
     name: 'Afterwards',
     text: 'A 1-minute check-in each month, and help one tap away if things come back.',
+    photo: 'dawn',
   },
 ];
-
-interface Offer {
-  title: string;
-  text: string;
-  href?: string;
-  ecoach?: boolean;
-  external?: boolean;
-}
 
 const OFFERS: { title: string; items: Offer[] }[] = [
   {
@@ -144,218 +144,178 @@ const OFFERS: { title: string; items: Offer[] }[] = [
   },
 ];
 
-const h2Class =
-  'text-balance font-playfair text-3xl md:text-4xl text-[#6E5F47] leading-[1.05] tracking-[-0.03em]';
+const HOW = [
+  {
+    title: 'The method',
+    text: "The plan's steps come from CBT, a common talk therapy, and the World Health Organization's stress guide.",
+  },
+  {
+    title: 'Your privacy',
+    text: 'Your plan, answers and Hope Card stay on your phone. We only get your email if you ask us to send something.',
+  },
+  {
+    title: 'In a crisis',
+    text: 'The NCMH Crisis Hotline, 1553, is one tap away on every page, 24/7.',
+  },
+];
 
-function OfferRow({ offer }: { offer: Offer }) {
-  const body = (
-    <>
-      <span className="flex-1">
-        <span className="block font-poppins font-bold text-[#6E5F47]">
-          {offer.title}
-        </span>
-        <span className="block text-sm text-[#6E5F47]/85 leading-relaxed">
-          {offer.text}
-        </span>
-      </span>
-      <ChevronRight className="h-4 w-4 shrink-0 text-[#C5BFB5] group-hover:text-[#6E5F47]" />
-    </>
-  );
-  if (offer.ecoach) {
-    return (
-      <EcoachLink linkName="ecoach_our_approach" className={rowClass}>
-        {body}
-      </EcoachLink>
-    );
-  }
-  if (offer.external) {
-    return (
-      <a
-        href={offer.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={rowClass}
-      >
-        {body}
-      </a>
-    );
-  }
-  return (
-    <Link href={offer.href ?? '/'} className={rowClass}>
-      {body}
-    </Link>
-  );
-}
+const h2Class =
+  'text-balance font-playfair text-3xl md:text-5xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]';
 
 export default function OurApproachPage() {
   return (
-    <div className="overflow-x-clip pt-10 pb-24 md:pt-16">
+    <div className="overflow-x-clip pt-10 md:pt-16">
       <div className="px-6">
         <div className="mx-auto max-w-5xl">
-          <div className="max-w-2xl">
-            <h1 className="text-balance font-playfair text-5xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
-              We walk with you until you&apos;re through it.
-            </h1>
-            <p
-              className="mt-6 font-poppins text-lg text-[#6E5F47] leading-[1.45] tracking-[-0.022em] hb-step-in"
-              style={{ animationDelay: '120ms' }}
-            >
-              HopeBegins is free, faith-driven mental health support for
-              Filipinos. You get help the moment something feels wrong, and you
-              leave with a tool you can keep using.
-            </p>
+          <h1 className="max-w-3xl text-balance font-playfair text-5xl md:text-7xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
+            We walk with you until you&apos;re through it.
+          </h1>
+          <p
+            className="mt-6 max-w-2xl font-poppins text-lg md:text-xl text-[#6E5F47] leading-[1.4] tracking-[-0.022em] hb-step-in"
+            style={{ animationDelay: '120ms' }}
+          >
+            HopeBegins is free, faith-driven mental health support for
+            Filipinos. You get help the moment something feels wrong, and you
+            leave with a tool you can keep using.
+          </p>
+          <div className="relative mt-10 aspect-[4/3] overflow-hidden rounded-xl bg-[#EFF3E7] md:aspect-[21/9]">
+            <Image
+              src={PHOTOS.hope}
+              alt="A fisherman poling his boat across the water at sunrise"
+              fill
+              preload
+              fetchPriority="high"
+              loading="eager"
+              sizes="(min-width: 1024px) 1024px, 100vw"
+              className="object-cover hb-photo-settle"
+            />
+          </div>
 
-            <Reveal as="section" className="mt-16">
-              <h2 className={h2Class}>Why we started</h2>
-              <div className="mt-4 space-y-4 text-lg text-[#6E5F47] leading-relaxed">
-                <p>
-                  HopeBegins started as a small group that prayed for people.
-                  Today people come to ask for prayer, make a plan for the week
-                  and talk to an e-coach.
-                </p>
-                <p>
-                  When you&apos;re at your lowest, help should be one tap away.
-                  We want anyone who feels anxious or low to find it on their
-                  phone, in English or Taglish.
-                </p>
-              </div>
+          <Reveal
+            as="section"
+            className="mt-20 grid gap-6 md:mt-28 md:grid-cols-[1fr_1.3fr] md:gap-14"
+          >
+            <h2 className={h2Class}>Why we started</h2>
+            <div className="space-y-4 text-lg text-[#6E5F47] leading-relaxed">
+              <p>
+                HopeBegins started as a small group that prayed for people.
+                Today people come to ask for prayer, make a plan for the week
+                and talk to an e-coach.
+              </p>
+              <p>
+                When you&apos;re at your lowest, help should be one tap away. We
+                want anyone who feels anxious or low to find it on their phone,
+                in English or Taglish.
+              </p>
+            </div>
+          </Reveal>
+
+          <section aria-labelledby="goals-title" className="mt-20 md:mt-28">
+            <Reveal>
+              <h2 id="goals-title" className={h2Class}>
+                What we aim for
+              </h2>
             </Reveal>
-
-            <Reveal as="section" className="mt-16">
-              <h2 className={h2Class}>What we aim for</h2>
-              <ol className="mt-5 space-y-4 text-[#6E5F47]">
-                {GOALS.map((goal, index) => (
-                  <li key={goal.title} className="flex gap-4">
-                    <span className="font-playfair text-2xl leading-none text-[#AEC488] tabular-nums">
-                      {index + 1}
+            <ol className="mt-10 grid gap-x-12 gap-y-10 sm:grid-cols-2">
+              {GOALS.map((goal, index) => (
+                <Reveal
+                  key={goal.title}
+                  as="li"
+                  delay={index * 90}
+                  className="flex gap-5"
+                >
+                  <span className="font-playfair text-5xl leading-none text-[#AEC488] tabular-nums">
+                    {index + 1}
+                  </span>
+                  <span>
+                    <span className="block font-poppins text-xl font-bold text-[#6E5F47]">
+                      {goal.title}
                     </span>
-                    <p className="leading-relaxed">
-                      <span className="font-poppins font-bold">
-                        {goal.title}
-                      </span>{' '}
+                    <span className="mt-1 block text-[#6E5F47] leading-relaxed">
                       {goal.text}
-                    </p>
-                  </li>
-                ))}
-              </ol>
-            </Reveal>
-
-            <section className="mt-16" aria-labelledby="steps-title">
-              <Reveal>
-                <h2 id="steps-title" className={h2Class}>
-                  Step by step, from the first search to months later
-                </h2>
-              </Reveal>
-              <ol className="relative mt-8">
-                {/* The line fills in as you scroll, where the browser supports it. */}
-                <span
-                  aria-hidden
-                  className="absolute left-[15px] top-2 bottom-2 w-0.5 rounded-full bg-[#DFE7CF]"
-                />
-                <span
-                  aria-hidden
-                  className="hb-timeline-fill absolute left-[15px] top-2 bottom-2 w-0.5 origin-top rounded-full bg-[#AEC488]"
-                />
-                {STAGES.map((stage, index) => (
-                  <Reveal
-                    key={stage.name}
-                    as="li"
-                    className="relative grid grid-cols-[32px_1fr] gap-4 pb-8 last:pb-0"
-                  >
-                    <span
-                      aria-hidden
-                      className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#AEC488] bg-[#FCFDFA] font-poppins text-sm font-bold text-[#6E5F47]"
-                    >
-                      {index + 1}
                     </span>
-                    <div className="pt-0.5">
-                      <h3 className="font-poppins text-lg font-bold text-[#6E5F47]">
-                        {stage.name}
-                      </h3>
-                      <p className="mt-1 text-[#6E5F47] leading-relaxed">
-                        {stage.text}
-                      </p>
-                      {stage.link && (
-                        <Link
-                          href={stage.link.href}
-                          className="mt-1 inline-flex min-h-11 items-center font-poppins text-sm font-bold text-[#6E5F47] underline underline-offset-4"
-                        >
-                          {stage.link.label}
-                        </Link>
-                      )}
-                    </div>
-                  </Reveal>
-                ))}
-              </ol>
-            </section>
-
-            <section className="mt-16" aria-labelledby="offers-title">
-              <Reveal>
-                <h2 id="offers-title" className={h2Class}>
-                  What you can use, all free
-                </h2>
-              </Reveal>
-              {OFFERS.map((group) => (
-                <Reveal key={group.title} className="mt-8">
-                  <h3 className="font-poppins font-bold text-[#6E5F47]">
-                    {group.title}
-                  </h3>
-                  <ul className={`mt-3 ${groupClass}`}>
-                    {group.items.map((offer) => (
-                      <li key={offer.title}>
-                        <OfferRow offer={offer} />
-                      </li>
-                    ))}
-                  </ul>
+                  </span>
                 </Reveal>
               ))}
-            </section>
+            </ol>
+          </section>
 
-            <Reveal as="section" className="mt-16">
-              <h2 className={h2Class}>How we work</h2>
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-[#6E5F47] leading-relaxed marker:text-[#AEC488]">
-                <li>
-                  The plan&apos;s steps come from CBT, a common talk therapy,
-                  and the World Health Organization&apos;s stress guide.
-                </li>
-                <li>
-                  Your plan, answers and Hope Card stay on your phone. We only
-                  get your email if you ask us to send something.
-                </li>
-                <li>
-                  The NCMH Crisis Hotline, 1553, is one tap away on every page,
-                  24/7.
-                </li>
-              </ul>
+          <section aria-labelledby="steps-title" className="mt-20 md:mt-28">
+            <Reveal>
+              <h2 id="steps-title" className={h2Class}>
+                Step by step, from the first search to months later
+              </h2>
             </Reveal>
-          </div>
+            <ApproachSteps steps={STAGES} />
+          </section>
+
+          <section aria-labelledby="offers-title" className="mt-20 md:mt-28">
+            <Reveal>
+              <h2 id="offers-title" className={h2Class}>
+                What you can use, all free
+              </h2>
+            </Reveal>
+            <ApproachOffers groups={OFFERS} />
+          </section>
+
+          <section
+            aria-labelledby="how-title"
+            className="mt-20 border-t border-[#E2DFDA] pt-12 md:mt-28"
+          >
+            <h2 id="how-title" className="sr-only">
+              How we work
+            </h2>
+            <ul className="grid gap-8 md:grid-cols-3">
+              {HOW.map((item, index) => (
+                <Reveal key={item.title} as="li" delay={index * 90}>
+                  <p className="font-poppins text-lg font-bold text-[#6E5F47]">
+                    {item.title}
+                  </p>
+                  <p className="mt-2 text-[#6E5F47] leading-relaxed">
+                    {item.text}
+                  </p>
+                </Reveal>
+              ))}
+            </ul>
+          </section>
         </div>
       </div>
 
-      <div className="mt-20">
+      <div className="mt-20 md:mt-28">
         <HopeStoriesSection />
       </div>
 
-      <Reveal as="section" className="px-6 text-center">
-        <h2 className="text-balance font-playfair text-4xl md:text-5xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
-          Not okay today?
-        </h2>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Link
-            href="/#start"
-            className="inline-flex min-h-11 items-center rounded-2xl bg-[#6E5F47] px-8 py-3 font-poppins text-lg font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
-          >
-            That&apos;s me
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-          <Link
-            href="/action-plan"
-            className="inline-flex min-h-11 items-center rounded-2xl border border-[#AEC488] bg-white px-8 py-3 font-poppins text-lg font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
-          >
-            Make my free plan
-          </Link>
-        </div>
-      </Reveal>
+      {/* The end: a real dawn, and the same first step as the home page. */}
+      <section className="relative isolate overflow-hidden">
+        <Image
+          src={PHOTOS.dawn}
+          alt=""
+          fill
+          sizes="100vw"
+          className="-z-10 object-cover hb-photo-settle"
+        />
+        <div className="absolute inset-0 -z-10 bg-black/55" />
+        <Reveal className="px-6 py-24 text-center md:py-32">
+          <h2 className="text-balance font-playfair text-5xl md:text-7xl text-white leading-[0.95] tracking-[-0.04em]">
+            Not okay <em className="text-[#EFF3E7]">today</em>?
+          </h2>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Link
+              href="/#start"
+              className="inline-flex min-h-12 items-center rounded-2xl bg-white px-8 font-poppins text-lg font-bold text-[#6E5F47] transition-colors hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50"
+            >
+              That&apos;s me
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+            <Link
+              href="/action-plan"
+              className="inline-flex min-h-12 items-center rounded-2xl border border-white/70 px-8 font-poppins text-lg font-bold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50"
+            >
+              Make my free plan
+            </Link>
+          </div>
+        </Reveal>
+      </section>
     </div>
   );
 }

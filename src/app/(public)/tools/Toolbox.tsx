@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
@@ -11,6 +12,7 @@ import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
 import { useSavedPlan } from '@/lib/actionPlanStore';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { setLanguage, useLanguage } from '@/lib/languagePreference';
+import { PHOTOS, type PhotoId } from '@/lib/photos';
 
 /**
  * Every tool in one place, grouped by what is happening right now. Each one
@@ -171,9 +173,18 @@ const TOOLS: Record<ToolKind, Tool> = {
   },
 };
 
-const GROUPS: { id: string; title: Text; tools: ToolKind[] }[] = [
+const GROUPS: {
+  id: string;
+  /** The words under the photo you pick. */
+  label: Text;
+  photo: PhotoId;
+  title: Text;
+  tools: ToolKind[];
+}[] = [
   {
     id: 'tight',
+    label: { en: 'Chest is tight', tl: 'Masikip ang dibdib' },
+    photo: 'anxious',
     title: {
       en: "When your chest is tight or you're panicking",
       tl: 'Kapag masikip ang dibdib mo o nagpa-panic ka',
@@ -182,6 +193,8 @@ const GROUPS: { id: string; title: Text; tools: ToolKind[] }[] = [
   },
   {
     id: 'loop',
+    label: { en: "Thoughts won't stop", tl: 'Ayaw tumigil ng isip' },
+    photo: 'sleep',
     title: {
       en: "When your thoughts won't stop",
       tl: 'Kapag ayaw tumigil ng isip mo',
@@ -190,6 +203,8 @@ const GROUPS: { id: string; title: Text; tools: ToolKind[] }[] = [
   },
   {
     id: 'break',
+    label: { en: 'Need a break', tl: 'Kailangan ng pahinga' },
+    photo: 'morning',
     title: {
       en: 'When you need a break from your head',
       tl: 'Kapag kailangan mo ng pahinga sa kakaisip',
@@ -198,6 +213,8 @@ const GROUPS: { id: string; title: Text; tools: ToolKind[] }[] = [
   },
   {
     id: 'stuck',
+    label: { en: "Can't get going", tl: 'Walang ganang kumilos' },
+    photo: 'tired',
     title: {
       en: "When you can't get going",
       tl: 'Kapag wala kang ganang kumilos',
@@ -206,6 +223,8 @@ const GROUPS: { id: string; title: Text; tools: ToolKind[] }[] = [
   },
   {
     id: 'alone',
+    label: { en: 'Feel alone', tl: 'Parang mag-isa' },
+    photo: 'alone',
     title: {
       en: 'When you feel alone',
       tl: 'Kapag pakiramdam mo mag-isa ka',
@@ -214,6 +233,8 @@ const GROUPS: { id: string; title: Text; tools: ToolKind[] }[] = [
   },
   {
     id: 'reason',
+    label: { en: 'Need a reason', tl: 'Kailangan ng dahilan' },
+    photo: 'hope',
     title: {
       en: 'When you need a reason to keep going',
       tl: 'Kapag kailangan mo ng dahilan para magpatuloy',
@@ -226,6 +247,7 @@ const copy = {
   en: {
     title: 'Tools for hard moments',
     subtitle: 'What you type here stays on your phone.',
+    pick: "What's happening?",
     needsPlan: 'Your reasons are kept with your plan on this phone.',
     makePlan: 'Make your free plan first',
     crisis:
@@ -237,6 +259,7 @@ const copy = {
   tl: {
     title: 'Mga tool para sa mabibigat na sandali',
     subtitle: 'Sa phone mo lang naiiwan ang anumang i-type mo dito.',
+    pick: 'Ano ang nangyayari?',
     needsPlan:
       'Naka-save ang mga dahilan mo kasama ng plano mo sa phone na ito.',
     makePlan: 'Gumawa muna ng libreng plano',
@@ -254,12 +277,15 @@ function ToolCard({
   isOpen,
   onOpen,
   onClose,
+  delay,
 }: {
   kind: ToolKind;
   lang: FeelingLang;
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
+  /** Rows arrive one after another when a situation is picked. */
+  delay: number;
 }) {
   const tool = TOOLS[kind];
   const t = copy[lang];
@@ -274,7 +300,7 @@ function ToolCard({
   };
 
   return (
-    <li>
+    <li className="hb-step-in" style={{ animationDelay: `${delay}ms` }}>
       {/* One row per tool: tap it and the tool opens right under it. */}
       <button
         ref={rowRef}
@@ -343,7 +369,10 @@ function ToolCard({
 export function Toolbox() {
   const lang = useLanguage();
   const t = copy[lang];
+  const [active, setActive] = useState(GROUPS[0].id);
   const [open, setOpen] = useState<ToolKind | null>(null);
+  const tabs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const group = GROUPS.find((item) => item.id === active) ?? GROUPS[0];
 
   // Links from Taglish pages open the tools in Taglish (?lang=tl).
   useEffect(() => {
@@ -351,68 +380,168 @@ export function Toolbox() {
     if (requested === 'tl' || requested === 'en') setLanguage(requested);
   }, []);
 
+  const select = (id: string) => {
+    setActive(id);
+    setOpen(null);
+  };
+
+  // Arrow keys move between the photos, like any set of tabs.
+  const onTabKey = (event: React.KeyboardEvent) => {
+    const index = GROUPS.findIndex((item) => item.id === active);
+    const last = GROUPS.length - 1;
+    const next =
+      event.key === 'ArrowRight'
+        ? (index + 1) % GROUPS.length
+        : event.key === 'ArrowLeft'
+          ? (index + last) % GROUPS.length
+          : event.key === 'Home'
+            ? 0
+            : event.key === 'End'
+              ? last
+              : -1;
+    if (next < 0) return;
+    event.preventDefault();
+    select(GROUPS[next].id);
+    tabs.current[GROUPS[next].id]?.focus();
+  };
+
   return (
     <div lang={lang} className="px-6 pt-6 pb-16">
       <div className="max-w-5xl mx-auto">
-        <div className="max-w-2xl">
-          <div className="mb-6 flex justify-end">
+        <div className="flex flex-col-reverse gap-6 md:flex-row md:items-start md:justify-between">
+          <OptionPageHeader title={t.title} subtitle={t.subtitle} />
+          <div className="self-end md:self-auto">
             <LanguageSwitch />
           </div>
-          <OptionPageHeader title={t.title} subtitle={t.subtitle} />
-          {GROUPS.map((group) => (
-            <section
-              key={group.id}
-              id={group.id}
-              aria-labelledby={`${group.id}-title`}
-              className="mt-10 scroll-mt-28"
-            >
-              <h2
-                id={`${group.id}-title`}
-                className="font-poppins text-lg font-bold text-[#6E5F47]"
-              >
-                {group.title[lang]}
-              </h2>
-              {group.id === 'reason' && (
-                <div className="mt-4 rounded-2xl border border-[#AEC488] bg-[#EFF3E7] p-5 text-[#6E5F47]">
-                  <p>
-                    {t.crisis}{' '}
-                    <a
-                      href="tel:1553"
-                      className="font-bold underline underline-offset-4"
-                    >
-                      1553
-                    </a>{' '}
-                    {t.or}{' '}
-                    <a
-                      href="tel:+639178998727"
-                      className="whitespace-nowrap font-bold underline underline-offset-4"
-                    >
-                      0917 899 8727
-                    </a>
-                  </p>
-                  <EcoachLink
-                    linkName="ecoach_tools_reason"
-                    className="mt-2 inline-flex min-h-11 items-center font-bold underline underline-offset-4"
-                  >
-                    {t.ecoach}
-                  </EcoachLink>
-                </div>
-              )}
-              <ul className={`mt-3 ${groupClass}`}>
-                {group.tools.map((kind) => (
-                  <ToolCard
-                    key={kind}
-                    kind={kind}
-                    lang={lang}
-                    isOpen={open === kind}
-                    onOpen={() => setOpen(kind)}
-                    onClose={() => setOpen(null)}
-                  />
-                ))}
-              </ul>
-            </section>
-          ))}
         </div>
+
+        <p
+          id="tools-pick"
+          className="mt-10 font-poppins font-semibold text-[#6E5F47]"
+        >
+          {t.pick}
+        </p>
+        <div
+          role="tablist"
+          aria-labelledby="tools-pick"
+          onKeyDown={onTabKey}
+          className="-mx-6 mt-3 flex snap-x scroll-px-6 gap-4 overflow-x-auto px-6 pt-1 pb-3 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-6 md:overflow-visible md:px-0 [&::-webkit-scrollbar]:hidden"
+        >
+          {GROUPS.map((item) => {
+            const isActive = item.id === active;
+            return (
+              <button
+                key={item.id}
+                ref={(el) => {
+                  tabs.current[item.id] = el;
+                }}
+                type="button"
+                role="tab"
+                id={`tab-${item.id}`}
+                aria-selected={isActive}
+                aria-controls="tools-panel"
+                tabIndex={isActive ? 0 : -1}
+                onClick={() => select(item.id)}
+                className="group w-28 shrink-0 snap-start text-left focus-visible:outline-none md:w-auto"
+              >
+                <span
+                  className={`relative block aspect-square overflow-hidden rounded-xl bg-[#EFF3E7] ring-offset-2 ring-offset-[#FCFDFA] transition-[transform,box-shadow] duration-[var(--hb-base)] ease-[var(--hb-ease-out)] group-focus-visible:ring-4 group-focus-visible:ring-[#91AFAA]/60 ${
+                    isActive
+                      ? 'ring-2 ring-[#6E5F47]'
+                      : 'group-hover:-translate-y-0.5'
+                  }`}
+                >
+                  <Image
+                    src={PHOTOS[item.photo]}
+                    alt=""
+                    fill
+                    sizes="(min-width: 768px) 160px, 112px"
+                    className={`object-cover transition-[filter,transform] duration-[var(--hb-slow)] ease-[var(--hb-ease-out)] ${
+                      isActive
+                        ? 'scale-105'
+                        : 'saturate-[0.8] group-hover:saturate-100'
+                    }`}
+                  />
+                </span>
+                <span
+                  className={`mt-2 block font-poppins text-sm leading-snug text-[#6E5F47] ${
+                    isActive ? 'font-bold' : 'font-medium'
+                  }`}
+                >
+                  {item.label[lang]}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        <section
+          id="tools-panel"
+          role="tabpanel"
+          aria-labelledby={`tab-${group.id}`}
+          className="mt-8 border-t border-[#E2DFDA] pt-8 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-10"
+        >
+          {/* The picked photo, large, crossfading from the last one. */}
+          <div className="relative hidden aspect-[4/5] overflow-hidden rounded-xl bg-[#EFF3E7] md:sticky md:top-28 md:block md:self-start">
+            {GROUPS.map((item) => (
+              <Image
+                key={item.id}
+                src={PHOTOS[item.photo]}
+                alt=""
+                fill
+                sizes="400px"
+                className={`object-cover transition-opacity duration-[var(--hb-slow)] ease-[var(--hb-ease-out)] ${
+                  item.id === active ? 'opacity-100' : 'opacity-0'
+                }`}
+              />
+            ))}
+          </div>
+
+          <div key={group.id}>
+            <h2 className="font-playfair text-3xl md:text-4xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em] hb-step-in">
+              {group.title[lang]}
+            </h2>
+            {group.id === 'reason' && (
+              <div className="mt-5 rounded-2xl border border-[#AEC488] bg-[#EFF3E7] p-5 text-[#6E5F47] hb-step-in">
+                <p>
+                  {t.crisis}{' '}
+                  <a
+                    href="tel:1553"
+                    className="font-bold underline underline-offset-4"
+                  >
+                    1553
+                  </a>{' '}
+                  {t.or}{' '}
+                  <a
+                    href="tel:+639178998727"
+                    className="whitespace-nowrap font-bold underline underline-offset-4"
+                  >
+                    0917 899 8727
+                  </a>
+                </p>
+                <EcoachLink
+                  linkName="ecoach_tools_reason"
+                  className="mt-2 inline-flex min-h-11 items-center font-bold underline underline-offset-4"
+                >
+                  {t.ecoach}
+                </EcoachLink>
+              </div>
+            )}
+            <ul className={`mt-5 ${groupClass}`}>
+              {group.tools.map((kind, index) => (
+                <ToolCard
+                  key={kind}
+                  kind={kind}
+                  lang={lang}
+                  delay={80 + index * 70}
+                  isOpen={open === kind}
+                  onOpen={() => setOpen(kind)}
+                  onClose={() => setOpen(null)}
+                />
+              ))}
+            </ul>
+          </div>
+        </section>
       </div>
     </div>
   );
