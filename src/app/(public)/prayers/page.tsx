@@ -10,7 +10,7 @@ export default function PrayersPage() {
         <div className="max-w-2xl">
           <OptionPageHeader
             title="I need someone to pray for me"
-            subtitle="Share what's on your heart. A Hope Carrier will pray for you."
+            subtitle="A Hope Carrier will pray for you."
           />
           <div className="mt-8">
             <PrayerForm />

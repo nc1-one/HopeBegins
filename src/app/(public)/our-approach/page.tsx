@@ -21,49 +21,49 @@ export const metadata = pageMetadata(
 const GOALS = [
   {
     title: 'Help in the first minute.',
-    text: 'Every page that names a feeling starts with something you can do right where you are.',
+    text: 'Every feeling page starts with something to do right now.',
   },
   {
     title: 'A plan made for you.',
-    text: 'Answer 9 questions and get a free plan for your week, in English or Taglish.',
+    text: '9 questions, then small steps for your week.',
   },
   {
     title: 'A tool you keep using.',
-    text: 'Four weeks of practice, a Hope Card at the end, and a short check-in each month after.',
+    text: '4 weeks of practice and a Hope Card to keep.',
   },
   {
     title: 'Someone to turn to.',
-    text: 'E-coaches on Messenger, Hope Carriers who pray for you, and the crisis line on every page.',
+    text: 'E-coaches, Hope Carriers, and the crisis line on every page.',
   },
 ];
 
 const STAGES = [
   {
     name: 'The moment you realize',
-    text: 'You search what you feel in your own words, like "pagod na ako", and land on a page with something you can do right now.',
+    text: 'You search "pagod na ako" and land on a page with something to do right now.',
     link: { href: '/pagod-na-ako', label: 'See "Pagod na ako"' },
   },
   {
     name: 'Telling us how you feel',
-    text: 'You pick the feeling closest to yours, and we point you to one next step: calm down, a page for that feeling, or a person to talk to.',
+    text: 'You pick how you feel, and we show you one next step.',
     link: { href: '/#start', label: 'Open "How are you feeling?"' },
   },
   {
     name: 'The first hour',
-    text: 'You answer 9 quick questions and get your Hopeful Beginning Plan: what your answers show, tools to try now, and one step for this week.',
+    text: 'You answer 9 questions and get your Hopeful Beginning Plan.',
     link: { href: '/action-plan', label: 'Make your plan' },
   },
   {
     name: 'The weeks after',
-    text: 'You practise your tool most days for 4 weeks, with phone reminders and a weekly check-in to see what has changed.',
+    text: 'You practise your tool most days for 4 weeks, with reminders.',
   },
   {
     name: 'Getting through it',
-    text: 'After 4 weeks you see how far you have come, and keep the tool that helped most on your Hope Card.',
+    text: 'You see how far you have come, and keep what helped on your Hope Card.',
   },
   {
     name: 'Afterwards',
-    text: 'A 1-minute check-in once a month. If things come back, your tool, your people and an e-coach are one tap away.',
+    text: 'A 1-minute check-in each month, and help one tap away if things come back.',
   },
 ];
 
@@ -81,12 +81,12 @@ const OFFERS: { title: string; items: Offer[] }[] = [
     items: [
       {
         title: 'Tools for hard moments',
-        text: 'Slow breathing, 5-4-3-2-1, worry time and more. A few minutes each.',
+        text: 'Breathing, 5-4-3-2-1, worry time and more.',
         href: '/tools',
       },
       {
         title: 'Games',
-        text: 'Find the pair, Saranggola and The trip, for when your head is too full.',
+        text: 'Find the pair, Saranggola and The trip.',
         href: '/laro-muna',
       },
     ],
@@ -96,17 +96,17 @@ const OFFERS: { title: string; items: Offer[] }[] = [
     items: [
       {
         title: 'E-coaches',
-        text: 'Real people from Himala Everyday who listen and help you choose where to start, on Messenger.',
+        text: 'Real people from Himala Everyday, on Messenger.',
         ecoach: true,
       },
       {
         title: 'Hope Carriers',
-        text: 'Volunteers who pray for the requests people send. You choose what to share.',
+        text: 'Volunteers who pray for your request.',
         href: '/prayers',
       },
       {
         title: 'Hope AI',
-        text: 'An AI assistant you can talk things through with at any hour.',
+        text: 'An AI assistant, any hour.',
         href: '/hope-ai',
       },
     ],
@@ -116,27 +116,27 @@ const OFFERS: { title: string; items: Offer[] }[] = [
     items: [
       {
         title: 'Hopeful Beginning Plan',
-        text: 'A free plan from 9 questions, a 4-week tracker and a Hope Card. It stays on your phone.',
+        text: 'A free plan that stays on your phone.',
         href: '/action-plan',
       },
       {
         title: 'Five steps for hopeless days',
-        text: 'A short video, a guided prayer and a Bible reading.',
+        text: 'A video, a prayer and a Bible reading.',
         href: '/get-started',
       },
       {
         title: 'Daily Hope',
-        text: 'A short, encouraging email every day for 21 days.',
+        text: 'An encouraging email a day for 21 days.',
         href: '/daily-hope',
       },
       {
         title: 'HopeCasts',
-        text: 'Short audio messages on things like anxiety and family.',
+        text: 'Short audio messages of hope.',
         href: '/hopecasts',
       },
       {
         title: 'Prayer War Room',
-        text: 'A free prayer app with guided prayer time and a private journal.',
+        text: 'A free prayer app.',
         href: 'https://warroom.hopebegins.today',
         external: true,
       },

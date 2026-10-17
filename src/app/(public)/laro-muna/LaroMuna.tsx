@@ -5,7 +5,6 @@ import { ChevronRight } from 'lucide-react';
 import { FindThePair } from '@/components/tools/FindThePair';
 import { Saranggola } from '@/components/tools/Saranggola';
 import { Biyahe } from '@/components/tools/Biyahe';
-import { ExerciseLauncher } from '@/components/tools/ExerciseLauncher';
 import { PairIcon } from '@/components/tools/pairIcons';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
@@ -69,15 +68,11 @@ const GAMES: { id: Game; title: Text; text: Text }[] = [
 const copy = {
   en: {
     title: 'Play for a bit.',
-    subtitle:
-      'Short games for when your head is too full. Pick one, and play as long as you like.',
-    after: 'If your body still feels tense after playing',
+    subtitle: 'Short games for when your head is too full.',
   },
   tl: {
     title: 'Laro muna.',
-    subtitle:
-      "Maiikling laro para sa mga oras na puno ang isip mo. Pumili ng isa, at maglaro hangga't gusto mo.",
-    after: 'Kung tensyonado pa rin ang katawan mo pagkatapos maglaro',
+    subtitle: 'Maiikling laro para sa mga oras na puno ang isip mo.',
   },
 };
 
@@ -160,18 +155,6 @@ export function LaroMuna() {
               </li>
             ))}
           </ul>
-
-          <section aria-labelledby="after-title" className="mt-10">
-            <h2
-              id="after-title"
-              className="font-poppins font-bold text-lg text-[#6E5F47]"
-            >
-              {t.after}
-            </h2>
-            <div className="mt-3">
-              <ExerciseLauncher kind="breathe" lang={lang} source="page" />
-            </div>
-          </section>
         </div>
       </div>
     </div>
