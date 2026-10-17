@@ -2,22 +2,11 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import {
-  Clock,
-  Footprints,
-  Gamepad2,
-  Hand,
-  Heart,
-  MessageCircle,
-  NotebookPen,
-  Play,
-  Unlink,
-  Wind,
-  type LucideIcon,
-} from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import { ToolExercise, type ToolKind } from '@/components/tools/ToolExercise';
 import { EcoachLink } from '@/components/ui/EcoachLink';
+import { groupClass, rowClass } from '@/components/ui/listStyles';
 import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
 import { useSavedPlan } from '@/lib/actionPlanStore';
 import type { FeelingLang } from '@/lib/feelingPages';
@@ -32,17 +21,14 @@ import { setLanguage, useLanguage } from '@/lib/languagePreference';
 type Text = Record<FeelingLang, string>;
 
 interface Tool {
-  icon: LucideIcon;
   minutes: Text;
   title: Text;
   text: Text;
   why: Text;
-  start: Text;
 }
 
 const TOOLS: Record<ToolKind, Tool> = {
   breathe: {
-    icon: Wind,
     minutes: { en: '1 to 2 min', tl: '1 hanggang 2 min' },
     title: { en: 'Slow breathing', tl: 'Dahan-dahang paghinga' },
     text: {
@@ -53,10 +39,8 @@ const TOOLS: Record<ToolKind, Tool> = {
       en: 'A longer breath out slows your heart and helps your body settle.',
       tl: 'Kapag mas mahaba ang exhale, bumabagal ang tibok ng puso at kumakalma ang katawan.',
     },
-    start: { en: 'Start breathing', tl: 'Simulan ang paghinga' },
   },
   ground: {
-    icon: Hand,
     minutes: { en: '2 min', tl: '2 min' },
     title: {
       en: 'Use your 5 senses (5-4-3-2-1)',
@@ -70,10 +54,8 @@ const TOOLS: Record<ToolKind, Tool> = {
       en: 'Your senses bring your attention back to where you are, away from the worry.',
       tl: 'Ibinabalik ng senses mo ang atensyon mo sa paligid, palayo sa inaalala mo.',
     },
-    start: { en: 'Start 5-4-3-2-1', tl: 'Simulan ang 5-4-3-2-1' },
   },
   game: {
-    icon: Gamepad2,
     minutes: { en: '2 min', tl: '2 min' },
     title: { en: 'Find the pair', tl: 'Hanapin ang kapares' },
     text: {
@@ -84,10 +66,20 @@ const TOOLS: Record<ToolKind, Tool> = {
       en: 'Keeping a few cards in mind leaves less room for the thoughts going round.',
       tl: 'Kapag may ilang card kang tinatandaan, nababawasan ang puwang ng paulit-ulit na isip.',
     },
-    start: { en: 'Play now', tl: 'Maglaro na' },
+  },
+  kite: {
+    minutes: { en: '1 min', tl: '1 min' },
+    title: { en: 'Saranggola', tl: 'Saranggola' },
+    text: {
+      en: 'Fly a kite from morning to sunset and catch the stars. Hold to lift, let go to glide.',
+      tl: 'Paliparin ang saranggola mula umaga hanggang paglubog ng araw at hulihin ang mga bituin. I-hold para tumaas, bitawan para dumausdos.',
+    },
+    why: {
+      en: 'Following something that moves, and breathing with it, gives a busy mind somewhere to rest.',
+      tl: 'Kapag may sinusundan kang gumagalaw at sinasabayan mo ng hinga, may mapagpapahingahan ang abalang isip.',
+    },
   },
   unhook: {
-    icon: Unlink,
     minutes: { en: '2 min', tl: '2 min' },
     title: {
       en: 'Step back from a heavy thought',
@@ -101,10 +93,8 @@ const TOOLS: Record<ToolKind, Tool> = {
       en: 'Noticing a thought as a thought puts a little space between you and it. Nothing you type is saved.',
       tl: 'Kapag napansin mong isip lang ito, nagkakaroon ng kaunting distansya. Walang naka-save sa itina-type mo.',
     },
-    start: { en: 'Start', tl: 'Simulan' },
   },
   'worry-time': {
-    icon: Clock,
     minutes: { en: '15 min a day', tl: '15 min araw-araw' },
     title: { en: 'Worry time', tl: 'Worry time' },
     text: {
@@ -115,10 +105,8 @@ const TOOLS: Record<ToolKind, Tool> = {
       en: 'Giving worry its own time makes it easier to set it down for the rest of the day.',
       tl: 'Kapag may sariling oras ang pag-aalala, mas madali itong bitawan sa natitirang oras ng araw.',
     },
-    start: { en: 'Open worry time', tl: 'Buksan ang worry time' },
   },
   'worry-note': {
-    icon: NotebookPen,
     minutes: { en: '2 min, at night', tl: '2 min, sa gabi' },
     title: { en: 'Worry note', tl: 'Worry note' },
     text: {
@@ -129,10 +117,8 @@ const TOOLS: Record<ToolKind, Tool> = {
       en: "Getting it out of your head and onto the page can make it easier to rest. It isn't saved or sent anywhere.",
       tl: 'Kapag nailabas mo sa isip at naisulat, mas madaling makapagpahinga. Hindi ito naka-save o ipinapadala kahit saan.',
     },
-    start: { en: 'Write it down', tl: 'Isulat' },
   },
   'one-thing': {
-    icon: Footprints,
     minutes: { en: '10 min', tl: '10 min' },
     title: { en: 'One small thing', tl: 'Isang maliit na bagay' },
     text: {
@@ -143,10 +129,20 @@ const TOOLS: Record<ToolKind, Tool> = {
       en: 'When you feel low, the energy often comes after you start, rarely before.',
       tl: 'Kapag malungkot ka, kadalasang dumarating ang gana pagkatapos mong magsimula, bihira bago.',
     },
-    start: { en: 'Pick my small thing', tl: 'Pumili ng maliit kong gagawin' },
+  },
+  trip: {
+    minutes: { en: '1 to 5 min each', tl: '1 hanggang 5 min bawat isa' },
+    title: { en: 'The trip', tl: 'Biyahe' },
+    text: {
+      en: 'Tiny real-life missions, like a glass of water or 2 minutes outside, drive a jeepney from home to the sea.',
+      tl: 'Maliliit na misyon, gaya ng isang basong tubig o 2 minuto sa labas, ang magdadala sa dyip mula bahay hanggang dagat.',
+    },
+    why: {
+      en: 'On low days, small real steps tend to lift your mood more than waiting until you feel ready.',
+      tl: 'Sa mabibigat na araw, mas nakakagaan ang maliliit na totoong hakbang kaysa hintaying maging handa ka.',
+    },
   },
   message: {
-    icon: MessageCircle,
     minutes: { en: '1 min', tl: '1 min' },
     title: { en: 'Message someone', tl: 'Mag-message sa isang tao' },
     text: {
@@ -157,10 +153,8 @@ const TOOLS: Record<ToolKind, Tool> = {
       en: 'One message is easier to send than starting a whole conversation.',
       tl: 'Mas madaling magpadala ng isang mensahe kaysa magsimula ng mahabang usapan.',
     },
-    start: { en: 'Show me a message', tl: 'Ipakita ang mensahe' },
   },
   reasons: {
-    icon: Heart,
     minutes: { en: '5 min', tl: '5 min' },
     title: {
       en: 'My reasons to keep going',
@@ -174,7 +168,6 @@ const TOOLS: Record<ToolKind, Tool> = {
       en: 'Your own reasons, in your own words, are there when it is hard to think of any.',
       tl: 'Nandiyan ang sarili mong mga dahilan, sa sarili mong salita, kapag mahirap mag-isip ng kahit isa.',
     },
-    start: { en: 'Write my reasons', tl: 'Isulat ang mga dahilan ko' },
   },
 };
 
@@ -195,7 +188,16 @@ const GROUPS: { id: string; chip: Text; title: Text; tools: ToolKind[] }[] = [
       en: "When your thoughts won't stop",
       tl: 'Kapag ayaw tumigil ng isip mo',
     },
-    tools: ['game', 'unhook', 'worry-time', 'worry-note'],
+    tools: ['unhook', 'worry-time', 'worry-note'],
+  },
+  {
+    id: 'break',
+    chip: { en: 'Need a break', tl: 'Kailangan ng pahinga' },
+    title: {
+      en: 'When you need a break from your head',
+      tl: 'Kapag kailangan mo ng pahinga sa kakaisip',
+    },
+    tools: ['game', 'kite'],
   },
   {
     id: 'stuck',
@@ -204,7 +206,7 @@ const GROUPS: { id: string; chip: Text; title: Text; tools: ToolKind[] }[] = [
       en: "When you can't get going",
       tl: 'Kapag wala kang ganang kumilos',
     },
-    tools: ['one-thing'],
+    tools: ['one-thing', 'trip'],
   },
   {
     id: 'alone',
@@ -232,7 +234,6 @@ const copy = {
     subtitle:
       "Pick what's happening right now. Each tool takes a few minutes and works right here. Nothing you type leaves this phone.",
     jump: "What's happening?",
-    why: 'Why this helps',
     needsPlan: 'Your reasons are kept with your plan on this phone.',
     makePlan: 'Make your free plan first',
     crisis:
@@ -250,7 +251,6 @@ const copy = {
     subtitle:
       'Piliin kung ano ang nangyayari ngayon. Ilang minuto lang ang bawat tool at dito mo mismo gagawin. Hindi lumalabas sa phone na ito ang anumang i-type mo.',
     jump: 'Ano ang nangyayari?',
-    why: 'Bakit ito nakakatulong',
     needsPlan:
       'Naka-save ang mga dahilan mo kasama ng plano mo sa phone na ito.',
     makePlan: 'Gumawa muna ng libreng plano',
@@ -265,9 +265,6 @@ const copy = {
     close: 'Isara',
   },
 };
-
-const buttonClass =
-  'mt-4 inline-flex min-h-11 items-center rounded-2xl bg-[#6E5F47] px-5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50';
 
 function ToolCard({
   kind,
@@ -284,56 +281,52 @@ function ToolCard({
 }) {
   const tool = TOOLS[kind];
   const t = copy[lang];
-  const startRef = useRef<HTMLButtonElement>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
+  const rowRef = useRef<HTMLButtonElement>(null);
   const plan = useSavedPlan();
-
-  // Most tools take focus when they open; for the others (the note and the
-  // message), focus moves into the panel so it isn't lost with the button.
-  useEffect(() => {
-    if (!isOpen) return;
-    const id = requestAnimationFrame(() => {
-      const panel = panelRef.current;
-      if (panel && !panel.contains(document.activeElement)) {
-        panel.focus({ preventScroll: true });
-      }
-    });
-    return () => cancelAnimationFrame(id);
-  }, [isOpen]);
   const needsPlan = kind === 'reasons' && !plan;
 
-  // Back to the start button once the tool closes.
+  // Back to the row once the tool closes.
   const close = () => {
     onClose();
-    requestAnimationFrame(() => startRef.current?.focus());
+    requestAnimationFrame(() => rowRef.current?.focus());
   };
 
   return (
-    <li className="rounded-2xl border border-zinc-100 bg-white p-5 md:p-6">
-      <div className="flex items-start gap-4">
-        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#E9EFEE] text-[#6E5F47]">
-          <tool.icon className="h-5 w-5" />
-        </span>
-        <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <h3 className="font-poppins text-lg font-bold text-[#6E5F47]">
+    <li>
+      {/* One row per tool: tap it and the tool opens right under it. */}
+      <button
+        ref={rowRef}
+        type="button"
+        aria-expanded={isOpen}
+        onClick={isOpen ? close : onOpen}
+        className={`${rowClass} w-full text-left`}
+      >
+        <span className="min-w-0 flex-1">
+          <span className="flex flex-wrap items-baseline gap-x-3">
+            <span className="font-poppins font-bold text-[#6E5F47]">
               {tool.title[lang]}
-            </h3>
-            <span className="text-sm text-[#6E5F47]/80">
+            </span>
+            <span className="text-sm text-[#6E5F47]/75">
               {tool.minutes[lang]}
             </span>
-          </div>
-          <p className="mt-1 text-[#6E5F47] leading-relaxed">
+          </span>
+          <span className="block text-sm text-[#6E5F47]/85 leading-relaxed">
             {tool.text[lang]}
+          </span>
+        </span>
+        <ChevronRight
+          className={`h-4 w-4 shrink-0 text-[#C5BFB5] transition-transform duration-[var(--hb-quick)] group-hover:text-[#6E5F47] ${
+            isOpen ? 'rotate-90' : ''
+          }`}
+        />
+      </button>
+      {isOpen && (
+        <div className="px-3 pb-4 sm:px-5">
+          <p className="px-2 text-sm text-[#6E5F47] leading-relaxed sm:px-0">
+            {tool.why[lang]}
           </p>
-          <details className="mt-1 text-[#6E5F47]">
-            <summary className="inline-flex min-h-11 cursor-pointer items-center text-sm font-medium underline underline-offset-4">
-              {t.why}
-            </summary>
-            <p className="pb-1 text-sm leading-relaxed">{tool.why[lang]}</p>
-          </details>
           {needsPlan ? (
-            <p className="mt-2 text-sm text-[#6E5F47]">
+            <p className="mt-3 px-2 text-sm text-[#6E5F47] sm:px-0">
               {t.needsPlan}{' '}
               <Link
                 href={lang === 'tl' ? '/action-plan?lang=tl' : '/action-plan'}
@@ -343,32 +336,24 @@ function ToolCard({
               </Link>
             </p>
           ) : (
-            !isOpen && (
-              <button
-                ref={startRef}
-                type="button"
-                onClick={onOpen}
-                className={buttonClass}
-              >
-                <Play className="mr-2 h-4 w-4" />
-                {tool.start[lang]}
-              </button>
-            )
-          )}
-        </div>
-      </div>
-      {isOpen && (
-        <div ref={panelRef} tabIndex={-1} className="focus:outline-none">
-          <ToolExercise kind={kind} lang={lang} source="page" onClose={close} />
-          {/* These two have no close button of their own. */}
-          {(kind === 'message' || kind === 'worry-note') && (
-            <button
-              type="button"
-              onClick={close}
-              className="mt-3 inline-flex min-h-11 items-center rounded-xl px-3 text-sm font-medium text-[#6E5F47] underline underline-offset-4 hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
-            >
-              {t.close}
-            </button>
+            <>
+              <ToolExercise
+                kind={kind}
+                lang={lang}
+                source="page"
+                onClose={close}
+              />
+              {/* These two have no close button of their own. */}
+              {(kind === 'message' || kind === 'worry-note') && (
+                <button
+                  type="button"
+                  onClick={close}
+                  className="mt-3 inline-flex min-h-11 items-center rounded-xl px-3 text-sm font-medium text-[#6E5F47] underline underline-offset-4 hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
+                >
+                  {t.close}
+                </button>
+              )}
+            </>
           )}
         </div>
       )}
@@ -453,7 +438,7 @@ export function Toolbox() {
                   </EcoachLink>
                 </div>
               )}
-              <ul className="mt-4 space-y-4">
+              <ul className={`mt-4 ${groupClass}`}>
                 {group.tools.map((kind) => (
                   <ToolCard
                     key={kind}

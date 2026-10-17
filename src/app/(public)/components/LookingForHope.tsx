@@ -6,9 +6,9 @@ import {
   ArrowLeft,
   ArrowRight,
   BatteryLow,
+  ChevronRight,
   HeartPulse,
   ClipboardList,
-  HandHeart,
   Heart,
   Lock,
   Mail,
@@ -20,7 +20,6 @@ import {
   Sunrise,
   UserRound,
 } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { CalmDownNow } from '@/components/tools/CalmDownNow';
@@ -37,6 +36,7 @@ import {
   subscribeToHash,
 } from '@/lib/startMenu';
 import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
+import { groupClass, rowClass } from '@/components/ui/listStyles';
 import { analyticsService } from '@/services/analyticsService';
 
 // Each answer opens the page written for that feeling, in the chosen language.
@@ -205,9 +205,6 @@ const morePaths = [
 const heroSecondaryClass =
   'inline-flex min-h-11 items-center justify-center rounded-2xl border border-white/70 px-5 font-poppins font-bold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50';
 
-const feelingCardClass =
-  'group flex h-full items-center gap-4 rounded-2xl border p-5 transition-all duration-300 hover:shadow-lg hover:shadow-[#6E5F47]/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
-
 const crisisCopy = {
   en: {
     lead: 'In crisis or thinking of ending your life? Call the NCMH Crisis Hotline, 24/7:',
@@ -246,7 +243,7 @@ function CrisisLine({
   );
 }
 
-export function LookingForHope({ children }: { children?: React.ReactNode }) {
+export function LookingForHope() {
   const hash = useSyncExternalStore(
     subscribeToHash,
     () => window.location.hash,
@@ -360,14 +357,18 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
     );
   }
 
+  const calmDown = (
+    <CalmDownNow key={autoOpen ?? 'menu'} lang={lang} autoOpen={autoOpen} />
+  );
+
   return (
-    <>
-      <section
-        aria-labelledby="paths-title"
-        lang={lang}
-        className="px-6 pt-10 pb-24 md:pt-14 hb-step-in"
-      >
-        <div className="max-w-5xl mx-auto">
+    <section
+      aria-labelledby="paths-title"
+      lang={lang}
+      className="px-6 pt-8 pb-20 md:pt-12 hb-step-in"
+    >
+      <div className="max-w-5xl mx-auto">
+        <div className="max-w-2xl">
           <div className="flex items-center justify-between gap-4">
             <button
               type="button"
@@ -384,9 +385,9 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
             <TrackedLink
               href="/action-plan"
               linkName="menu_welcome_back_plan"
-              className="group mt-6 flex flex-col gap-3 rounded-2xl bg-[#EFF3E7] p-5 text-[#6E5F47] transition-colors hover:bg-[#DFE7CF] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40 md:flex-row md:items-center md:px-8"
+              className="mt-6 flex items-center justify-between gap-4 rounded-2xl bg-[#EFF3E7] px-5 py-4 text-[#6E5F47] transition-colors hover:bg-[#DFE7CF] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
             >
-              <span className="md:flex-1">
+              <span>
                 <span className="font-poppins font-bold">
                   {t.welcomeBack}
                   {savedPlan.name ? `, ${savedPlan.name}` : ''}.
@@ -397,9 +398,8 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
                     ? t.planDay(planDay)
                     : t.planSaved}
               </span>
-              <span className="inline-flex items-center font-poppins font-bold">
+              <span className="shrink-0 font-poppins font-bold underline underline-offset-4">
                 {t.openPlan}
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
               </span>
             </TrackedLink>
           )}
@@ -408,105 +408,97 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
             id="paths-title"
             ref={pathsHeadingRef}
             tabIndex={-1}
-            className="mt-6 font-playfair text-4xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em] focus:outline-none"
+            className="mt-6 font-playfair text-4xl md:text-5xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em] focus:outline-none"
           >
             {t.heading}
           </h1>
           <p className="mt-3 text-lg text-[#6E5F47]">{t.subtitle}</p>
 
-          <div className="mt-8">
-            <CalmDownNow
-              key={autoOpen ?? 'menu'}
-              lang={lang}
-              autoOpen={autoOpen}
-            />
-          </div>
+          {/* Their own tool, when they came from "Start my breathing". */}
+          {autoOpen && <div className="mt-6">{calmDown}</div>}
 
-          <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
+          <ul className={`mt-6 ${groupClass}`}>
             {feelings.map((feeling) => {
               const option = feeling[lang];
               return (
-                <TrackedLink
-                  key={feeling.id}
-                  href={option.href}
-                  linkName={`menu_feeling_${feeling.id}`}
-                  className={`${feelingCardClass} border-zinc-100 bg-white hover:border-[#DFE7CF]`}
-                >
-                  <span className="rounded-xl bg-[#E9EFEE] p-3 text-[#91AFAA]">
-                    <feeling.icon className="h-5 w-5" />
-                  </span>
-                  <span className="flex-1">
-                    <span className="block font-poppins text-lg font-bold text-[#6E5F47]">
-                      {option.label}
+                <li key={feeling.id}>
+                  <TrackedLink
+                    href={option.href}
+                    linkName={`menu_feeling_${feeling.id}`}
+                    className={rowClass}
+                  >
+                    <feeling.icon className="h-5 w-5 shrink-0 text-[#91AFAA]" />
+                    <span className="flex-1">
+                      <span className="block font-poppins font-bold text-[#6E5F47]">
+                        {option.label}
+                      </span>
+                      <span className="block text-sm text-[#6E5F47]/85">
+                        {option.hint}
+                      </span>
                     </span>
-                    <span className="mt-0.5 block text-sm text-[#6E5F47]">
-                      {option.hint}
-                    </span>
-                  </span>
-                  <ArrowRight className="h-5 w-5 shrink-0 text-[#C5BFB5] transition-all group-hover:translate-x-1 group-hover:text-[#6E5F47] motion-reduce:transition-none" />
-                </TrackedLink>
+                    <ChevronRight className="h-4 w-4 shrink-0 text-[#C5BFB5] group-hover:text-[#6E5F47]" />
+                  </TrackedLink>
+                </li>
               );
             })}
-            <TrackedLink
-              href="/action-plan"
-              linkName="menu_feeling_unsure"
-              className={`${feelingCardClass} border-[#DFE7CF] bg-[#EFF3E7] hover:border-[#C6D6AC]`}
-            >
-              <span className="rounded-xl bg-white p-3 text-[#91AFAA]">
-                <ClipboardList className="h-5 w-5" />
-              </span>
-              <span className="flex-1">
-                <span className="block font-poppins text-lg font-bold text-[#6E5F47]">
-                  {notSure[lang].label}
+            <li>
+              <TrackedLink
+                href="/action-plan"
+                linkName="menu_feeling_unsure"
+                className={`${rowClass} bg-[#F5F8EF]`}
+              >
+                <ClipboardList className="h-5 w-5 shrink-0 text-[#91AFAA]" />
+                <span className="flex-1">
+                  <span className="block font-poppins font-bold text-[#6E5F47]">
+                    {notSure[lang].label}
+                  </span>
+                  <span className="block text-sm text-[#6E5F47]/85">
+                    {notSure[lang].hint}
+                  </span>
                 </span>
-                <span className="mt-0.5 block text-sm text-[#6E5F47]">
-                  {notSure[lang].hint}
-                </span>
-              </span>
-              <ArrowRight className="h-5 w-5 shrink-0 text-[#6E5F47] transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
-            </TrackedLink>
-          </div>
+                <ChevronRight className="h-4 w-4 shrink-0 text-[#C5BFB5] group-hover:text-[#6E5F47]" />
+              </TrackedLink>
+            </li>
+          </ul>
 
-          <EcoachLink linkName="ecoach_menu" className="group mt-4 block">
-            <Card className="border-none bg-[#6E5F47] text-white transition-all duration-500 hover:shadow-xl hover:shadow-[#6E5F47]/20 group-focus-visible:ring-4 group-focus-visible:ring-[#91AFAA]/40">
-              <CardContent className="p-6 md:px-10 flex flex-col md:flex-row md:items-center gap-6">
-                <div className="self-start md:self-auto p-4 rounded-2xl bg-white text-[#6E5F47] shadow-sm transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none">
-                  <MessageCircle className="w-7 h-7" />
-                </div>
-                <div className="flex-1">
-                  <h2 className="font-poppins font-bold text-2xl">
-                    {t.ecoachTitle}
-                  </h2>
-                  <p className="mt-1 max-w-xl text-base text-white/85 leading-relaxed">
-                    {t.ecoachText}
-                  </p>
-                </div>
-                <span className="inline-flex items-center font-poppins font-bold">
-                  {t.ecoachButton}
-                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
+          {!autoOpen && <div className="mt-6">{calmDown}</div>}
+
+          <EcoachLink
+            linkName="ecoach_menu"
+            className="group mt-6 block rounded-2xl bg-[#6E5F47] px-5 py-5 text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50 md:px-6"
+          >
+            <span className="flex items-start gap-4">
+              <MessageCircle className="mt-1 h-5 w-5 shrink-0 text-[#DFE7CF]" />
+              <span className="flex-1">
+                <span className="block font-poppins text-lg font-bold">
+                  {t.ecoachTitle}
                 </span>
-              </CardContent>
-            </Card>
+                <span className="mt-1 block text-white/85 leading-relaxed">
+                  {t.ecoachText}
+                </span>
+                <span className="mt-3 inline-flex items-center font-poppins font-bold underline underline-offset-4">
+                  {t.ecoachButton}
+                </span>
+              </span>
+            </span>
           </EcoachLink>
 
           <h2 className="mt-10 font-poppins text-lg font-bold text-[#6E5F47]">
             {t.moreWays}
           </h2>
-          <div className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
+          <ul className={`mt-3 ${groupClass}`}>
             {morePaths.map((path) => (
-              <Link
-                key={path.href}
-                href={path.href}
-                className="group flex items-center gap-4 rounded-2xl border border-zinc-100 bg-white px-5 py-4 transition-all duration-300 hover:border-[#DFE7CF] hover:shadow-lg hover:shadow-[#6E5F47]/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
-              >
-                <path.icon className="h-5 w-5 shrink-0 text-[#91AFAA]" />
-                <span className="flex-1 font-poppins font-bold text-[#6E5F47]">
-                  {path.title[lang]}
-                </span>
-                <ArrowRight className="h-4 w-4 shrink-0 text-[#C5BFB5] transition-all group-hover:translate-x-1 group-hover:text-[#6E5F47] motion-reduce:transition-none" />
-              </Link>
+              <li key={path.href}>
+                <Link href={path.href} className={rowClass}>
+                  <path.icon className="h-5 w-5 shrink-0 text-[#91AFAA]" />
+                  <span className="flex-1 font-poppins font-bold text-[#6E5F47]">
+                    {path.title[lang]}
+                  </span>
+                  <ChevronRight className="h-4 w-4 shrink-0 text-[#C5BFB5] group-hover:text-[#6E5F47]" />
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
 
           <p className="mt-6 flex items-start gap-2 text-sm text-[#6E5F47]">
             <Lock className="mt-0.5 w-4 h-4 shrink-0 text-[#91AFAA]" />
@@ -521,23 +513,12 @@ export function LookingForHope({ children }: { children?: React.ReactNode }) {
             </span>
           </p>
 
-          <div className="mt-10 pt-8 border-t border-[#E2DFDA] flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-            <Link
-              href="/give-hope"
-              className="inline-flex min-h-11 items-center gap-3 text-[#6E5F47] hover:underline underline-offset-4 focus-visible:underline focus-visible:outline-none"
-            >
-              <HandHeart className="w-5 h-5 text-[#91AFAA]" />
-              <span className="font-bold">{t.donate}</span>
-            </Link>
-            <CrisisLine
-              lang={lang}
-              className="max-w-md text-[#6E5F47] md:text-right"
-            />
-          </div>
+          <CrisisLine
+            lang={lang}
+            className="mt-8 border-t border-[#E2DFDA] pt-6 text-[#6E5F47]"
+          />
         </div>
-      </section>
-
-      {children}
-    </>
+      </div>
+    </section>
   );
 }
