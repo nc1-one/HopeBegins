@@ -83,13 +83,6 @@ const ui = {
     introTitle: 'Get your free Hopeful Beginning Plan',
     introText:
       "Answer 9 quick questions about how you've been. You'll get a few small steps made for you, and you can start today.",
-    includes: [
-      'Calming tools you can try right on the page',
-      "A step for this week, based on what's weighing on you",
-      'A 4-week habit tracker, with reminders on your phone at the time you pick',
-      'One check-in email next week, if you want it',
-      'An e-coach on Messenger if you want someone to talk it through with',
-    ],
     nameLabel: 'What should we call you? (optional)',
     start: 'Start my plan',
     introNote: 'About 2 minutes. Free. Your answers stay on this device.',
@@ -220,13 +213,6 @@ const ui = {
     introTitle: 'Kunin ang libreng Hopeful Beginning Plan mo',
     introText:
       'Sagutin ang 9 na mabilis na tanong tungkol sa pinagdadaanan mo. Bibigyan ka namin ng ilang maliliit na hakbang na puwede mong simulan ngayon.',
-    includes: [
-      'Mga pampakalmang tool na masusubukan mo agad dito',
-      'Isang hakbang para ngayong linggo, base sa pinakamabigat sa loob mo',
-      'Isang 4-week habit tracker, may reminder sa phone mo sa oras na pipiliin mo',
-      'Isang check-in email sa susunod na linggo, kung gusto mo',
-      'Isang e-coach sa Messenger kung gusto mo ng makakausap',
-    ],
     nameLabel: 'Ano ang itatawag namin sa iyo? (optional)',
     start: 'Simulan ang plano ko',
     introNote:
@@ -1300,8 +1286,8 @@ function RestoreBackup({ t }: { t: Copy }) {
   };
 
   return (
-    <div className="mt-8 rounded-2xl border border-dashed border-[#C5BFB5] p-5 text-[#6E5F47]">
-      <p>{t.restorePrompt}</p>
+    <div className="mt-4 text-sm text-[#6E5F47]">
+      <span>{t.restorePrompt}</span>{' '}
       <input
         ref={inputRef}
         type="file"
@@ -1319,7 +1305,7 @@ function RestoreBackup({ t }: { t: Copy }) {
           setError(false);
           inputRef.current?.click();
         }}
-        className={`mt-3 ${secondaryButtonClass}`}
+        className="inline-flex min-h-11 items-center gap-1.5 font-bold underline underline-offset-4 hover:text-[#5c4f3b]"
       >
         <Upload className="h-4 w-4" />
         {t.restore}
@@ -1475,23 +1461,8 @@ export default function ActionPlanPage() {
             <p className="mt-6 font-poppins text-lg md:text-xl text-[#6E5F47] leading-[1.4] tracking-[-0.022em]">
               {t.introText}
             </p>
-
-            <ul className="mt-8 space-y-3">
-              {t.includes.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-[#6E5F47]"
-                >
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#EFF3E7]">
-                    <Check className="w-4 h-4 text-[#91AFAA]" />
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-
             <form
-              className="mt-10"
+              className="mt-8"
               onSubmit={(event) => {
                 event.preventDefault();
                 analyticsService.recordClick('plan_start');

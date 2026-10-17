@@ -1,8 +1,6 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import Link from 'next/link';
-import { ArrowRight, Wind } from 'lucide-react';
 import { BreathingExercise } from './BreathingExercise';
 import { FindThePair } from './FindThePair';
 import { GroundingExercise } from './GroundingExercise';
@@ -11,24 +9,25 @@ import type { FeelingLang } from '@/lib/feelingPages';
 
 const copy = {
   en: {
-    prompt: 'Need to calm down first?',
-    breathe: 'Breathe for 2 minutes',
+    prompt: 'Need a minute first?',
+    breathe: 'Breathe',
     ground: 'Use your 5 senses',
-    game: 'Play a quick game',
-    allTools: 'See all the tools',
+    game: 'Play a game',
   },
   tl: {
-    prompt: 'Kailangan mo bang kumalma muna?',
-    breathe: 'Huminga nang 2 minuto',
+    prompt: 'Pahinga muna?',
+    breathe: 'Huminga',
     ground: 'Gamitin ang 5 senses mo',
-    game: 'Maglaro saglit',
-    allTools: 'Tingnan lahat ng tool',
+    game: 'Maglaro',
   },
 };
 
 type Exercise = 'breathe' | 'ground' | 'game';
 
-/** One tap to breathing, 5-4-3-2-1 or the quick game, right where you are. */
+/**
+ * One quiet line: breathe or play, right where you are. 5-4-3-2-1 opens
+ * here only as a returning visitor's own tool; it has its own pages.
+ */
 export function CalmDownNow({
   lang,
   autoOpen,
@@ -60,36 +59,27 @@ export function CalmDownNow({
     if (opened) requestAnimationFrame(() => buttons.current[opened]?.focus());
   };
 
+  const shown: Exercise[] =
+    open === 'ground' ? ['breathe', 'ground', 'game'] : ['breathe', 'game'];
+
   return (
-    <div className="rounded-2xl bg-[#EFF3E7] p-5">
-      <div className="flex flex-col gap-4">
-        <p className="flex items-center gap-3 font-poppins font-bold text-[#6E5F47]">
-          <Wind className="h-5 w-5 shrink-0 text-[#91AFAA]" />
-          {t.prompt}
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {(['breathe', 'ground', 'game'] as const).map((exercise) => (
-            <button
-              key={exercise}
-              ref={(el) => {
-                buttons.current[exercise] = el;
-              }}
-              type="button"
-              aria-pressed={open === exercise}
-              onClick={() => toggle(exercise)}
-              className="rounded-2xl border border-[#AEC488] bg-white px-5 py-2.5 font-poppins font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] aria-pressed:bg-[#DFE7CF] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
-            >
-              {t[exercise]}
-            </button>
-          ))}
-        </div>
-        <Link
-          href={lang === 'tl' ? '/tools?lang=tl' : '/tools'}
-          className="inline-flex min-h-11 w-fit items-center gap-2 text-sm font-medium text-[#6E5F47] underline underline-offset-4 hover:text-[#5c4f3b]"
-        >
-          {t.allTools}
-          <ArrowRight className="h-4 w-4" />
-        </Link>
+    <div>
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        <p className="font-poppins font-bold text-[#6E5F47]">{t.prompt}</p>
+        {shown.map((exercise) => (
+          <button
+            key={exercise}
+            ref={(el) => {
+              buttons.current[exercise] = el;
+            }}
+            type="button"
+            aria-pressed={open === exercise}
+            onClick={() => toggle(exercise)}
+            className="min-h-11 rounded-full border border-[#AEC488] bg-white px-5 font-poppins text-sm font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] aria-pressed:bg-[#DFE7CF] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
+          >
+            {t[exercise]}
+          </button>
+        ))}
       </div>
       {open === 'breathe' && (
         <BreathingExercise lang={lang} source={source} onClose={close} />

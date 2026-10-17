@@ -3,8 +3,6 @@ import { notFound } from 'next/navigation';
 import {
   ArrowRight,
   ChevronRight,
-  ClipboardList,
-  Heart,
   Languages,
   MessageCircle,
 } from 'lucide-react';
@@ -51,27 +49,13 @@ export async function generateMetadata({
   };
 }
 
-function StepBody({
-  icon: Icon,
-  title,
-  description,
-}: {
-  icon: typeof Heart;
-  title: string;
-  description: string;
-}) {
+function StepBody({ title }: { title: string }) {
   return (
     <>
-      <Icon className="h-5 w-5 shrink-0 text-[#91AFAA]" />
-      <span className="flex-1">
-        <span className="block font-poppins font-bold text-[#6E5F47]">
-          {title}
-        </span>
-        <span className="block text-sm text-[#6E5F47]/85 leading-relaxed">
-          {description}
-        </span>
+      <span className="flex-1 font-poppins font-bold text-[#6E5F47]">
+        {title}
       </span>
-      <ChevronRight className="h-4 w-4 shrink-0 text-[#C5BFB5] group-hover:text-[#6E5F47]" />
+      <ChevronRight className="h-5 w-5 shrink-0 text-[#C5BFB5] group-hover:text-[#6E5F47]" />
     </>
   );
 }
@@ -91,11 +75,7 @@ export default async function FeelingPage({
       linkName={`ecoach_feeling_${page.slug}`}
       className={rowClass}
     >
-      <StepBody
-        icon={MessageCircle}
-        title={ui.ecoachTitle}
-        description={ui.ecoachText}
-      />
+      <StepBody title={ui.ecoachTitle} />
     </EcoachLink>
   );
   const plan = (
@@ -104,20 +84,12 @@ export default async function FeelingPage({
       href={page.lang === 'tl' ? '/action-plan?lang=tl' : '/action-plan'}
       className={rowClass}
     >
-      <StepBody
-        icon={ClipboardList}
-        title={ui.planTitle}
-        description={ui.planText}
-      />
+      <StepBody title={ui.planTitle} />
     </Link>
   );
   const prayer = (
     <Link key="prayer" href="/prayers" className={rowClass}>
-      <StepBody
-        icon={Heart}
-        title={ui.prayerTitle}
-        description={ui.prayerText}
-      />
+      <StepBody title={ui.prayerTitle} />
     </Link>
   );
   const nextSteps = (
@@ -191,13 +163,6 @@ export default async function FeelingPage({
                 )
               )}
             </div>
-            <Link
-              href={page.lang === 'tl' ? '/tools?lang=tl' : '/tools'}
-              className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#6E5F47] underline underline-offset-4 hover:text-[#5c4f3b]"
-            >
-              {ui.allTools}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
           </section>
 
           {page.tip && (
@@ -232,14 +197,6 @@ export default async function FeelingPage({
             {ui.nextHeading}
           </h2>
           <ul className={`mt-5 ${groupClass}`}>{nextSteps}</ul>
-          <p className="mt-6 text-sm text-[#6E5F47]">
-            <Link
-              href="/#start"
-              className="inline-flex min-h-11 items-center font-bold underline underline-offset-4"
-            >
-              {ui.seeAll}
-            </Link>
-          </p>
         </section>
       </div>
     </div>

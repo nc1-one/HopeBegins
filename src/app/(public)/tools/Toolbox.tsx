@@ -171,10 +171,9 @@ const TOOLS: Record<ToolKind, Tool> = {
   },
 };
 
-const GROUPS: { id: string; chip: Text; title: Text; tools: ToolKind[] }[] = [
+const GROUPS: { id: string; title: Text; tools: ToolKind[] }[] = [
   {
     id: 'tight',
-    chip: { en: 'Chest is tight', tl: 'Masikip ang dibdib' },
     title: {
       en: "When your chest is tight or you're panicking",
       tl: 'Kapag masikip ang dibdib mo o nagpa-panic ka',
@@ -183,7 +182,6 @@ const GROUPS: { id: string; chip: Text; title: Text; tools: ToolKind[] }[] = [
   },
   {
     id: 'loop',
-    chip: { en: "Thoughts won't stop", tl: 'Ayaw tumigil ng isip' },
     title: {
       en: "When your thoughts won't stop",
       tl: 'Kapag ayaw tumigil ng isip mo',
@@ -192,7 +190,6 @@ const GROUPS: { id: string; chip: Text; title: Text; tools: ToolKind[] }[] = [
   },
   {
     id: 'break',
-    chip: { en: 'Need a break', tl: 'Kailangan ng pahinga' },
     title: {
       en: 'When you need a break from your head',
       tl: 'Kapag kailangan mo ng pahinga sa kakaisip',
@@ -201,7 +198,6 @@ const GROUPS: { id: string; chip: Text; title: Text; tools: ToolKind[] }[] = [
   },
   {
     id: 'stuck',
-    chip: { en: "Can't get going", tl: 'Walang ganang kumilos' },
     title: {
       en: "When you can't get going",
       tl: 'Kapag wala kang ganang kumilos',
@@ -210,7 +206,6 @@ const GROUPS: { id: string; chip: Text; title: Text; tools: ToolKind[] }[] = [
   },
   {
     id: 'alone',
-    chip: { en: 'Feel alone', tl: 'Parang mag-isa' },
     title: {
       en: 'When you feel alone',
       tl: 'Kapag pakiramdam mo mag-isa ka',
@@ -219,7 +214,6 @@ const GROUPS: { id: string; chip: Text; title: Text; tools: ToolKind[] }[] = [
   },
   {
     id: 'reason',
-    chip: { en: 'Need a reason', tl: 'Kailangan ng dahilan' },
     title: {
       en: 'When you need a reason to keep going',
       tl: 'Kapag kailangan mo ng dahilan para magpatuloy',
@@ -231,26 +225,18 @@ const GROUPS: { id: string; chip: Text; title: Text; tools: ToolKind[] }[] = [
 const copy = {
   en: {
     title: 'Tools for hard moments',
-    subtitle:
-      "Pick what's happening right now. Each tool takes a few minutes and works right here. Nothing you type leaves this phone.",
-    jump: "What's happening?",
+    subtitle: 'What you type here stays on your phone.',
     needsPlan: 'Your reasons are kept with your plan on this phone.',
     makePlan: 'Make your free plan first',
     crisis:
       "If you're thinking of ending your life, call the NCMH Crisis Hotline now, open 24/7:",
     or: 'or',
     ecoach: 'Or talk to an e-coach on Messenger',
-    planTitle: 'Want these in a plan made for you?',
-    planText:
-      'Answer 9 quick questions and get the tools that fit how you have been, with a 4-week tracker.',
-    planButton: 'Make my free plan',
     close: 'Close',
   },
   tl: {
     title: 'Mga tool para sa mabibigat na sandali',
-    subtitle:
-      'Piliin kung ano ang nangyayari ngayon. Ilang minuto lang ang bawat tool at dito mo mismo gagawin. Hindi lumalabas sa phone na ito ang anumang i-type mo.',
-    jump: 'Ano ang nangyayari?',
+    subtitle: 'Sa phone mo lang naiiwan ang anumang i-type mo dito.',
     needsPlan:
       'Naka-save ang mga dahilan mo kasama ng plano mo sa phone na ito.',
     makePlan: 'Gumawa muna ng libreng plano',
@@ -258,10 +244,6 @@ const copy = {
       'Kung naiisip mong tapusin ang buhay mo, tumawag ngayon sa NCMH Crisis Hotline, bukas 24/7:',
     or: 'o',
     ecoach: 'O kausapin ang isang e-coach sa Messenger',
-    planTitle: 'Gusto mo bang nasa isang plano ang mga ito?',
-    planText:
-      'Sagutin ang 9 na mabilis na tanong at makuha ang mga tool na bagay sa pinagdadaanan mo, may 4-week tracker.',
-    planButton: 'Gumawa ng libreng plano ko',
     close: 'Isara',
   },
 };
@@ -310,9 +292,6 @@ function ToolCard({
               {tool.minutes[lang]}
             </span>
           </span>
-          <span className="block text-sm text-[#6E5F47]/85 leading-relaxed">
-            {tool.text[lang]}
-          </span>
         </span>
         <ChevronRight
           className={`h-4 w-4 shrink-0 text-[#C5BFB5] transition-transform duration-[var(--hb-quick)] group-hover:text-[#6E5F47] ${
@@ -323,7 +302,7 @@ function ToolCard({
       {isOpen && (
         <div className="px-3 pb-4 sm:px-5">
           <p className="px-2 text-sm text-[#6E5F47] leading-relaxed sm:px-0">
-            {tool.why[lang]}
+            {tool.text[lang]} {tool.why[lang]}
           </p>
           {needsPlan ? (
             <p className="mt-3 px-2 text-sm text-[#6E5F47] sm:px-0">
@@ -380,35 +359,16 @@ export function Toolbox() {
             <LanguageSwitch />
           </div>
           <OptionPageHeader title={t.title} subtitle={t.subtitle} />
-
-          <nav aria-label={t.jump} className="mt-8">
-            <p className="font-poppins text-sm font-bold text-[#6E5F47]">
-              {t.jump}
-            </p>
-            <ul className="mt-2 flex flex-wrap gap-2">
-              {GROUPS.map((group) => (
-                <li key={group.id}>
-                  <a
-                    href={`#${group.id}`}
-                    className="inline-flex min-h-11 items-center rounded-full border border-[#DFE7CF] bg-white px-4 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
-                  >
-                    {group.chip[lang]}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
           {GROUPS.map((group) => (
             <section
               key={group.id}
               id={group.id}
               aria-labelledby={`${group.id}-title`}
-              className="mt-12 scroll-mt-28"
+              className="mt-10 scroll-mt-28"
             >
               <h2
                 id={`${group.id}-title`}
-                className="font-playfair text-2xl md:text-3xl text-[#6E5F47] leading-[1.05] tracking-[-0.03em]"
+                className="font-poppins text-lg font-bold text-[#6E5F47]"
               >
                 {group.title[lang]}
               </h2>
@@ -438,7 +398,7 @@ export function Toolbox() {
                   </EcoachLink>
                 </div>
               )}
-              <ul className={`mt-4 ${groupClass}`}>
+              <ul className={`mt-3 ${groupClass}`}>
                 {group.tools.map((kind) => (
                   <ToolCard
                     key={kind}
@@ -452,17 +412,6 @@ export function Toolbox() {
               </ul>
             </section>
           ))}
-
-          <section className="mt-14 rounded-2xl bg-[#6E5F47] p-6 text-white md:p-8">
-            <h2 className="font-poppins text-xl font-bold">{t.planTitle}</h2>
-            <p className="mt-2 text-white/85 leading-relaxed">{t.planText}</p>
-            <Link
-              href={lang === 'tl' ? '/action-plan?lang=tl' : '/action-plan'}
-              className="mt-4 inline-flex min-h-11 items-center rounded-2xl bg-white px-5 font-poppins font-bold text-[#6E5F47] transition-colors hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50"
-            >
-              {t.planButton}
-            </Link>
-          </section>
         </div>
       </div>
     </div>

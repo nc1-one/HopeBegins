@@ -10,7 +10,7 @@ export default function HopeAIPage() {
         <div className="max-w-2xl">
           <OptionPageHeader
             title="I need to talk to Hope AI"
-            subtitle="Talk it through with Hope AI at any hour of the day or night."
+            subtitle="Any hour, day or night."
           />
 
           <div className="mt-8 flex min-h-[560px] flex-col overflow-hidden rounded-3xl border border-zinc-100 bg-white shadow-sm">
