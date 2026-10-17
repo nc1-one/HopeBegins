@@ -337,6 +337,23 @@
   }
 }
 
+/* Our approach: a wide photo settles as it scrolls into view. */
+@keyframes hb-settle {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@supports (animation-timeline: view()) {
+  .hb-photo-settle {
+    animation: hb-settle linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+  }
+}
+
 /* Everything above, and every other animation, stops for reduced motion. */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -351,7 +368,8 @@
     opacity: 1 !important;
     transform: none !important;
   }
-  .hb-timeline-fill {
+  .hb-timeline-fill,
+  .hb-photo-settle {
     animation: none !important;
     transform: none !important;
   }

@@ -22,12 +22,6 @@ interface Clip {
 
 const CLIPS: Clip[] = [
   {
-    id: 'jeepney',
-    small: '/assets/video/hero/jeepney-sm.mp4',
-    large: '/assets/video/hero/jeepney-lg.mp4',
-    still: '/assets/images/hero/jeepney.jpg',
-  },
-  {
     id: 'night-study',
     small: '/assets/video/hero/night-study-sm.mp4',
     large: '/assets/video/hero/night-study-lg.mp4',
@@ -119,7 +113,7 @@ export function HeroMedia() {
     <>
       <div className="absolute inset-0 -z-10" aria-hidden>
         <Image
-          src="/assets/images/hero-poster.jpg"
+          src="/assets/images/hero/manila-dawn.jpg"
           alt=""
           fill
           // The first screen's picture: fetched first and never lazy.

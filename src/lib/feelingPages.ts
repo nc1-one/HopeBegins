@@ -17,6 +17,9 @@ export type FeelingTool =
   | 'worry-note';
 export type FeelingLang = 'tl' | 'en';
 
+/** Which of the real photos in photos.ts heads the page. */
+export type FeelingPhoto = 'anxious' | 'tired' | 'alone' | 'sleep';
+
 export interface FeelingPage {
   slug: string;
   lang: FeelingLang;
@@ -29,6 +32,7 @@ export interface FeelingPage {
   label: string;
   heading: string;
   intro: string;
+  photo: FeelingPhoto;
   /** Show the crisis line near the top, for phrases that can signal suicidal thoughts. */
   safetyFirst?: string;
   toolsHeading: string;
@@ -43,6 +47,7 @@ export interface FeelingPage {
 export const feelingPages: FeelingPage[] = [
   {
     slug: 'pagod-na-ako',
+    photo: 'tired',
     lang: 'tl',
     pair: 'tired-of-everything',
     metaTitle: 'Pagod na ako: ano ang gagawin kapag pagod ka na sa lahat',
@@ -60,6 +65,7 @@ export const feelingPages: FeelingPage[] = [
   },
   {
     slug: 'wala-akong-kausap',
+    photo: 'alone',
     lang: 'tl',
     pair: 'i-feel-alone',
     metaTitle: 'Wala akong kausap: may makakausap ka ngayon',
@@ -80,6 +86,7 @@ export const feelingPages: FeelingPage[] = [
   },
   {
     slug: 'paano-mawala-ang-anxiety',
+    photo: 'anxious',
     lang: 'tl',
     pair: 'how-to-calm-anxiety',
     metaTitle: 'Paano mawala ang anxiety: 2-minute na paraan para kumalma',
@@ -99,6 +106,7 @@ export const feelingPages: FeelingPage[] = [
   },
   {
     slug: 'hindi-makatulog-sa-kakaisip',
+    photo: 'sleep',
     lang: 'tl',
     pair: 'cant-sleep-overthinking',
     metaTitle: 'Hindi makatulog sa kakaisip: ano ang gagawin ngayong gabi',
@@ -118,6 +126,7 @@ export const feelingPages: FeelingPage[] = [
   },
   {
     slug: 'tired-of-everything',
+    photo: 'tired',
     lang: 'en',
     pair: 'pagod-na-ako',
     metaTitle: "Tired of everything? What to do when you're exhausted",
@@ -135,6 +144,7 @@ export const feelingPages: FeelingPage[] = [
   },
   {
     slug: 'i-feel-alone',
+    photo: 'alone',
     lang: 'en',
     pair: 'wala-akong-kausap',
     metaTitle: 'I feel alone: someone can talk with you today',
@@ -155,6 +165,7 @@ export const feelingPages: FeelingPage[] = [
   },
   {
     slug: 'how-to-calm-anxiety',
+    photo: 'anxious',
     lang: 'en',
     pair: 'paano-mawala-ang-anxiety',
     metaTitle: 'How to calm anxiety right now: a 2-minute exercise',
@@ -174,6 +185,7 @@ export const feelingPages: FeelingPage[] = [
   },
   {
     slug: 'cant-sleep-overthinking',
+    photo: 'sleep',
     lang: 'en',
     pair: 'hindi-makatulog-sa-kakaisip',
     metaTitle: "Can't sleep from overthinking? What to do tonight",
