@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useRef, useState } from 'react';
-import { ChevronDown, Play } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { ToolExercise } from '@/components/tools/ToolExercise';
 import { PLAN_DAYS, type PlanItem, type PlanLang } from '@/lib/actionPlan';
 import {
@@ -120,7 +120,6 @@ export function UseMyTool({
           onClick={open}
           className={buttonClassName}
         >
-          <Play className="mr-2 h-4 w-4" />
           {label ?? t.useNow}
         </button>
       )}

@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, ChevronRight, Play } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { CalmDownNow } from '@/components/tools/CalmDownNow';
@@ -12,6 +13,7 @@ import { PLAN_DAYS } from '@/lib/actionPlan';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { useLanguage } from '@/lib/languagePreference';
 import { isGuidedTool, useLastTool, type GuidedTool } from '@/lib/myTool';
+import { PHOTOS, type PhotoId } from '@/lib/photos';
 import {
   START_HASH,
   closeStartMenu,
@@ -19,13 +21,13 @@ import {
   subscribeToHash,
 } from '@/lib/startMenu';
 import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
-import { groupClass, rowClass } from '@/components/ui/listStyles';
 import { analyticsService } from '@/services/analyticsService';
 
 // Each answer opens the page written for that feeling, in the chosen language.
 const feelings = [
   {
     id: 'anxious',
+    photo: 'anxious' as PhotoId,
     en: {
       label: 'I feel anxious',
       href: '/how-to-calm-anxiety',
@@ -37,6 +39,7 @@ const feelings = [
   },
   {
     id: 'tired',
+    photo: 'tired' as PhotoId,
     en: {
       label: "I'm tired of everything",
       href: '/tired-of-everything',
@@ -48,6 +51,7 @@ const feelings = [
   },
   {
     id: 'alone',
+    photo: 'alone' as PhotoId,
     en: {
       label: 'I feel alone',
       href: '/i-feel-alone',
@@ -59,6 +63,7 @@ const feelings = [
   },
   {
     id: 'sleep',
+    photo: 'sleep' as PhotoId,
     en: {
       label: "I can't sleep from overthinking",
       href: '/cant-sleep-overthinking',
@@ -70,6 +75,7 @@ const feelings = [
   },
   {
     id: 'hopeless',
+    photo: 'hope' as PhotoId,
     en: {
       label: "I don't have hope",
       href: '/get-started',
@@ -97,7 +103,9 @@ const menuCopy = {
     openPlan: 'Open my plan',
     startMy: { breathe: 'Start my breathing', ground: 'Start my 5-4-3-2-1' },
     ecoachTitle: 'I Want Someone to Journey With Me',
-    ecoachText: 'Chat with a real person on Messenger.',
+    ecoachText:
+      'Chat with a real person, an e-coach from Himala Everyday, on Messenger.',
+    ecoachButton: 'Talk to an e-coach',
     moreWays: 'Also here:',
     donate: 'Here to donate instead?',
   },
@@ -114,7 +122,9 @@ const menuCopy = {
       ground: 'Simulan ang 5-4-3-2-1 ko',
     },
     ecoachTitle: 'Gusto ko ng kasama sa pinagdadaanan ko',
-    ecoachText: 'Mag-chat sa totoong tao sa Messenger.',
+    ecoachText:
+      'Mag-chat sa isang totoong tao, e-coach ng Himala Everyday, sa Messenger.',
+    ecoachButton: 'Kausapin ang e-coach',
     moreWays: 'Nandito rin:',
     donate: 'Gusto mo bang mag-donate?',
   },
@@ -249,7 +259,6 @@ export function LookingForHope() {
                     onClick={startMyTool}
                     className={heroSecondaryClass}
                   >
-                    <Play className="mr-2 h-4 w-4" />
                     <span lang={lang}>{t.startMy[myTool]}</span>
                   </button>
                 )}
@@ -293,7 +302,7 @@ export function LookingForHope() {
       className="px-6 pt-8 pb-20 md:pt-12 hb-step-in"
     >
       <div className="max-w-5xl mx-auto">
-        <div className="max-w-2xl">
+        <div>
           <div className="flex items-center justify-between gap-4">
             <button
               type="button"
@@ -310,7 +319,7 @@ export function LookingForHope() {
             <TrackedLink
               href="/action-plan"
               linkName="menu_welcome_back_plan"
-              className="mt-6 flex items-center justify-between gap-4 rounded-2xl bg-[#EFF3E7] px-5 py-4 text-[#6E5F47] transition-colors hover:bg-[#DFE7CF] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
+              className="mt-6 flex max-w-2xl items-center justify-between gap-4 rounded-2xl bg-[#EFF3E7] px-5 py-4 text-[#6E5F47] transition-colors hover:bg-[#DFE7CF] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
             >
               <span>
                 <span className="font-poppins font-bold">
@@ -333,59 +342,88 @@ export function LookingForHope() {
             id="paths-title"
             ref={pathsHeadingRef}
             tabIndex={-1}
-            className="mt-6 font-playfair text-4xl md:text-5xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em] focus:outline-none"
+            className="mt-6 font-playfair text-4xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em] focus:outline-none"
           >
             {t.heading}
           </h1>
 
           {/* Their own tool, when they came from "Start my breathing". */}
-          {autoOpen && <div className="mt-6">{calmDown}</div>}
+          {autoOpen && <div className="mt-6 max-w-2xl">{calmDown}</div>}
 
-          <ul className={`mt-6 ${groupClass}`}>
-            {feelings.map((feeling) => (
-              <li key={feeling.id}>
+          {/* Each feeling is a real photo with its words under it. */}
+          <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-6 md:grid-cols-3 md:gap-x-6 md:gap-y-8">
+            {[
+              ...feelings.map((feeling) => ({
+                id: feeling.id,
+                photo: feeling.photo,
+                label: feeling[lang].label,
+                href: feeling[lang].href,
+              })),
+              {
+                id: 'unsure',
+                photo: 'unsure' as PhotoId,
+                label: notSure[lang],
+                href: '/action-plan',
+              },
+            ].map((item) => (
+              <li key={item.id}>
                 <TrackedLink
-                  href={feeling[lang].href}
-                  linkName={`menu_feeling_${feeling.id}`}
-                  className={rowClass}
+                  href={item.href}
+                  linkName={`menu_feeling_${item.id}`}
+                  className="group block rounded-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50 focus-visible:ring-offset-4 focus-visible:ring-offset-[#FCFDFA]"
                 >
-                  <span className="flex-1 font-poppins text-lg font-bold text-[#6E5F47]">
-                    {feeling[lang].label}
+                  <span className="relative block aspect-square overflow-hidden rounded-xl bg-[#EFF3E7] md:aspect-[4/3]">
+                    <Image
+                      src={PHOTOS[item.photo]}
+                      alt=""
+                      fill
+                      sizes="(min-width: 768px) 320px, 50vw"
+                      className="object-cover transition-transform duration-[var(--hb-slow)] ease-[var(--hb-ease-out)] group-hover:scale-[1.03] motion-reduce:transition-none"
+                    />
                   </span>
-                  <ChevronRight className="h-5 w-5 shrink-0 text-[#C5BFB5] group-hover:text-[#6E5F47]" />
+                  <span className="mt-2 block font-poppins text-[15px] font-semibold leading-snug text-[#6E5F47] md:text-[17px]">
+                    {item.label}
+                  </span>
                 </TrackedLink>
               </li>
             ))}
-            <li>
-              <TrackedLink
-                href="/action-plan"
-                linkName="menu_feeling_unsure"
-                className={rowClass}
-              >
-                <span className="flex-1 font-poppins text-lg font-bold text-[#6E5F47]">
-                  {notSure[lang]}
-                </span>
-                <ChevronRight className="h-5 w-5 shrink-0 text-[#C5BFB5] group-hover:text-[#6E5F47]" />
-              </TrackedLink>
-            </li>
           </ul>
 
-          {!autoOpen && <div className="mt-6">{calmDown}</div>}
+          {!autoOpen && <div className="mt-8">{calmDown}</div>}
 
-          <EcoachLink
-            linkName="ecoach_menu"
-            className="group mt-8 flex items-center gap-4 rounded-2xl bg-[#6E5F47] px-5 py-4 text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
+          <section
+            aria-labelledby="ecoach-title"
+            className="mt-10 grid gap-5 border-t border-[#E2DFDA] pt-10 md:grid-cols-2 md:items-center md:gap-8"
           >
-            <span className="flex-1">
-              <span className="block font-poppins text-lg font-bold">
-                {t.ecoachTitle}
-              </span>
-              <span className="block text-white/85">{t.ecoachText}</span>
+            <span className="relative block aspect-[16/10] overflow-hidden rounded-xl bg-[#EFF3E7]">
+              <Image
+                src={PHOTOS.talk}
+                alt=""
+                fill
+                sizes="(min-width: 768px) 480px, 100vw"
+                className="object-cover"
+              />
             </span>
-            <ChevronRight className="h-5 w-5 shrink-0 text-white/70" />
-          </EcoachLink>
+            <div>
+              <h2
+                id="ecoach-title"
+                className="font-playfair text-3xl md:text-4xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
+              >
+                {t.ecoachTitle}
+              </h2>
+              <p className="mt-3 text-[#6E5F47] leading-relaxed md:text-lg">
+                {t.ecoachText}
+              </p>
+              <EcoachLink
+                linkName="ecoach_menu"
+                className="mt-5 inline-flex min-h-12 items-center rounded-2xl bg-[#6E5F47] px-6 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
+              >
+                {t.ecoachButton}
+              </EcoachLink>
+            </div>
+          </section>
 
-          <p className="mt-6 text-[#6E5F47]">
+          <p className="mt-10 text-[#6E5F47]">
             <span className="font-bold">{t.moreWays}</span>{' '}
             {morePaths.map((path, index) => (
               <span key={path.href}>

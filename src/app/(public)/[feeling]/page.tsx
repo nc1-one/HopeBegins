@@ -1,19 +1,15 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import {
-  ArrowRight,
-  ChevronRight,
-  Languages,
-  MessageCircle,
-} from 'lucide-react';
+import { ArrowRight, Languages, MessageCircle } from 'lucide-react';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import { EcoachLink } from '@/components/ui/EcoachLink';
-import { groupClass, rowClass } from '@/components/ui/listStyles';
 import { ExerciseLauncher } from '@/components/tools/ExerciseLauncher';
 import { MessageSomeone } from '@/components/tools/MessageSomeone';
 import { WorryNote } from '@/components/tools/WorryNote';
 import { feelingPages, feelingUi, getFeelingPage } from '@/lib/feelingPages';
 import { pageMetadata } from '@/lib/pageMetadata';
+import { PHOTOS } from '@/lib/photos';
 
 // Only the phrases in feelingPages exist; any other root path is a 404.
 export const dynamicParams = false;
@@ -49,16 +45,9 @@ export async function generateMetadata({
   };
 }
 
-function StepBody({ title }: { title: string }) {
-  return (
-    <>
-      <span className="flex-1 font-poppins font-bold text-[#6E5F47]">
-        {title}
-      </span>
-      <ChevronRight className="h-5 w-5 shrink-0 text-[#C5BFB5] group-hover:text-[#6E5F47]" />
-    </>
-  );
-}
+// Next steps read as plain links: no boxes, no icons.
+const nextLinkClass =
+  'inline-flex min-h-12 items-center font-poppins text-lg font-semibold text-[#6E5F47] underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none';
 
 export default async function FeelingPage({
   params,
@@ -73,23 +62,23 @@ export default async function FeelingPage({
     <EcoachLink
       key="ecoach"
       linkName={`ecoach_feeling_${page.slug}`}
-      className={rowClass}
+      className={nextLinkClass}
     >
-      <StepBody title={ui.ecoachTitle} />
+      {ui.ecoachTitle}
     </EcoachLink>
   );
   const plan = (
     <Link
       key="plan"
       href={page.lang === 'tl' ? '/action-plan?lang=tl' : '/action-plan'}
-      className={rowClass}
+      className={nextLinkClass}
     >
-      <StepBody title={ui.planTitle} />
+      {ui.planTitle}
     </Link>
   );
   const prayer = (
-    <Link key="prayer" href="/prayers" className={rowClass}>
-      <StepBody title={ui.prayerTitle} />
+    <Link key="prayer" href="/prayers" className={nextLinkClass}>
+      {ui.prayerTitle}
     </Link>
   );
   const nextSteps = (
@@ -110,6 +99,19 @@ export default async function FeelingPage({
             <Languages className="h-4 w-4" />
             {ui.switchLabel}
           </Link>
+          <div className="relative mb-8 aspect-[4/3] overflow-hidden rounded-xl bg-[#EFF3E7] md:aspect-[16/9]">
+            <Image
+              src={PHOTOS[page.photo]}
+              alt=""
+              fill
+              // The page's first picture: fetched first and never lazy.
+              preload
+              fetchPriority="high"
+              loading="eager"
+              sizes="(min-width: 768px) 672px, 100vw"
+              className="object-cover"
+            />
+          </div>
           <OptionPageHeader title={page.heading} subtitle={page.intro} />
 
           {page.talkNow && (
@@ -196,7 +198,7 @@ export default async function FeelingPage({
           >
             {ui.nextHeading}
           </h2>
-          <ul className={`mt-5 ${groupClass}`}>{nextSteps}</ul>
+          <ul className="mt-3">{nextSteps}</ul>
         </section>
       </div>
     </div>

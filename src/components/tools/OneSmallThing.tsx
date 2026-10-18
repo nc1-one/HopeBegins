@@ -154,18 +154,19 @@ export function OneSmallThing({
       {chosen === null ? (
         <>
           <p className="font-poppins font-bold text-lg">{t.pickTitle}</p>
-          <div className="mt-4 flex flex-wrap gap-2">
+          <ul className="mt-3 divide-y divide-[#DFE7CF] border-y border-[#DFE7CF]">
             {t.options.map((option) => (
-              <button
-                key={option}
-                type="button"
-                onClick={() => setChosen(option)}
-                className={secondaryClass}
-              >
-                {option}
-              </button>
+              <li key={option}>
+                <button
+                  type="button"
+                  onClick={() => setChosen(option)}
+                  className="flex min-h-12 w-full items-center text-left text-[#6E5F47] transition-colors hover:bg-white/60 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-[#91AFAA]/40"
+                >
+                  {option}
+                </button>
+              </li>
             ))}
-          </div>
+          </ul>
           <form
             className="mt-5"
             onSubmit={(event) => {
