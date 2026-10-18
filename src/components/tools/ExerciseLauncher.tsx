@@ -6,6 +6,7 @@ import { FindThePair } from './FindThePair';
 import { GroundingExercise } from './GroundingExercise';
 import { OneSmallThing } from './OneSmallThing';
 import type { FeelingLang } from '@/lib/feelingPages';
+import { primaryClass } from './toolStyles';
 import type { ToolSource } from '@/services/analyticsService';
 
 const exercises = {
@@ -14,7 +15,7 @@ const exercises = {
       title: 'Isang maliit na bagay para sa araw na ito',
       description:
         'Pumili ng isang bagay na kaya mong tapusin sa loob ng 10 minuto, tulad ng maligo, kumain, o lumabas sandali. Sapat na iyon ngayong araw.',
-      start: 'Pumili ng maliit kong gagawin',
+      start: 'Pumili ng gagawin',
     },
     breathe: {
       title: 'Dahan-dahang paghinga',
@@ -83,7 +84,7 @@ export function ExerciseLauncher({
 
   return (
     <div className="rounded-2xl border border-zinc-100 bg-white p-6">
-      <h3 className="font-poppins font-bold text-lg text-[#6E5F47]">
+      <h3 className="font-poppins font-semibold text-lg text-[#6E5F47]">
         {exercise.title}
       </h3>
       <p className="mt-1 text-[#6E5F47] leading-relaxed">
@@ -106,7 +107,7 @@ export function ExerciseLauncher({
           ref={startRef}
           type="button"
           onClick={() => setIsOpen(true)}
-          className="mt-4 inline-flex items-center rounded-2xl bg-[#6E5F47] px-5 py-2.5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
+          className={`mt-4 ${primaryClass}`}
         >
           {exercise.start}
         </button>

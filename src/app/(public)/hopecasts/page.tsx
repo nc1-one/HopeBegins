@@ -7,6 +7,8 @@ import { CategoryFilter } from './_components/category-filter';
 import { HopecastCard } from './_components/hopecast-card';
 import { Category, Hopecast, HopecastListResponse } from '@/types/hopecast';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
+import { primaryClass, secondaryClass } from '@/components/tools/toolStyles';
+import { cn } from '@/lib/utils';
 
 export default function HopecastsPage() {
   const [selectedCategoryId, setSelectedCategoryId] = React.useState<
@@ -116,86 +118,74 @@ export default function HopecastsPage() {
     }
   };
 
+  const pageCount = hopecastsData
+    ? Math.ceil(hopecastsData.count / pageSize)
+    : 1;
+
   return (
-    <div className="px-6 pt-6 pb-16">
+    <div className="px-6 pt-6 pb-24">
       <div className="max-w-5xl mx-auto">
-        <div className="mb-10">
+        <div className="max-w-2xl">
           <OptionPageHeader
             title="I need to hear hope today"
             subtitle="Short messages of hope you can listen to."
           />
-        </div>
 
-        {/* Category Filter Section */}
-        <div className="mb-12">
-          {isLoadingCategories ? (
-            <div className="flex flex-wrap gap-2 animate-pulse">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className="h-10 w-24 bg-zinc-100 rounded-full" />
-              ))}
-            </div>
-          ) : (
-            <CategoryFilter
-              categories={categories}
-              selectedCategoryId={selectedCategoryId}
-              onSelectCategory={setSelectedCategoryId}
-            />
-          )}
-        </div>
+          <div className="mt-8 mb-8">
+            {isLoadingCategories ? (
+              <div className="min-h-11" />
+            ) : (
+              <CategoryFilter
+                categories={categories}
+                selectedCategoryId={selectedCategoryId}
+                onSelectCategory={setSelectedCategoryId}
+              />
+            )}
+          </div>
 
-        {/* Hopecast List Section */}
-        <div className="space-y-6">
           {isLoadingHopecasts ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-pulse">
-              {[...Array(2)].map((_, i) => (
-                <div
-                  key={i}
-                  className="bg-white rounded-3xl border border-zinc-100 shadow-sm p-6 flex flex-col gap-6 h-[140px]"
-                >
-                  <div className="flex items-center justify-between gap-6 w-full">
-                    <div className="flex-1 space-y-4">
-                      <div className="h-2 w-20 bg-zinc-100 rounded-full" />
-                      <div className="h-4 w-3/4 bg-zinc-100 rounded-full" />
-                      <div className="h-3 w-1/2 bg-zinc-100/60 rounded-full" />
-                    </div>
-                    <div className="w-14 h-14 rounded-full bg-zinc-100 shrink-0" />
-                  </div>
-                </div>
-              ))}
-            </div>
+            <p className="text-[#6E5F47]">Loading…</p>
           ) : hopecasts.length > 0 ? (
             <>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {hopecasts.map((hopecast) => (
-                  <HopecastCard
+              <ul className="divide-y divide-[#E2DFDA] border-y border-[#E2DFDA]">
+                {hopecasts.map((hopecast, i) => (
+                  <li
                     key={hopecast.id}
-                    hopecast={hopecast}
-                    onPlay={handlePlay}
-                    isPlaying={playingHopecast?.id === hopecast.id && isPlaying}
-                    progress={
-                      playingHopecast?.id === hopecast.id ? progress : 0
-                    }
-                  />
+                    className="py-6 hb-step-in"
+                    style={{ animationDelay: `${Math.min(i, 8) * 60}ms` }}
+                  >
+                    <HopecastCard
+                      hopecast={hopecast}
+                      onPlay={handlePlay}
+                      isPlaying={
+                        playingHopecast?.id === hopecast.id && isPlaying
+                      }
+                      progress={
+                        playingHopecast?.id === hopecast.id ? progress : 0
+                      }
+                    />
+                  </li>
                 ))}
-              </div>
+              </ul>
 
-              {/* Pagination Controls */}
               {hopecastsData && hopecastsData.count > pageSize && (
-                <div className="flex justify-center items-center gap-4 pt-12">
+                <div className="flex items-center gap-4 pt-8">
                   <button
+                    type="button"
                     onClick={() => setPage((p) => Math.max(1, p - 1))}
                     disabled={page === 1}
-                    className="min-h-11 px-6 rounded-full border border-zinc-200 bg-white text-[#6E5F47] font-bold disabled:opacity-30 hover:bg-[#EFF3E7] transition-colors"
+                    className={cn(secondaryClass, 'font-medium')}
                   >
-                    Previous
+                    Back
                   </button>
-                  <span className="text-[#6E5F47] font-bold">
-                    Page {page} of {Math.ceil(hopecastsData.count / pageSize)}
+                  <span className="text-[#6E5F47] font-medium">
+                    Page {page} of {pageCount}
                   </span>
                   <button
+                    type="button"
                     onClick={() => setPage((p) => p + 1)}
-                    disabled={page >= Math.ceil(hopecastsData.count / pageSize)}
-                    className="min-h-11 px-6 rounded-full border border-zinc-200 bg-white text-[#6E5F47] font-bold disabled:opacity-30 hover:bg-[#EFF3E7] transition-colors"
+                    disabled={page >= pageCount}
+                    className={cn(secondaryClass, 'font-medium')}
                   >
                     Next
                   </button>
@@ -203,28 +193,23 @@ export default function HopecastsPage() {
               )}
             </>
           ) : hopecastsFailed ? (
-            <div
-              role="alert"
-              className="py-12 px-6 bg-white rounded-3xl border border-zinc-100"
-            >
-              <p className="text-[#6E5F47] font-medium font-poppins">
+            <div role="alert" className="space-y-4">
+              <p className="text-[#6E5F47]">
                 We couldn&apos;t load HopeCasts. Check your connection and try
                 again.
               </p>
               <button
                 type="button"
                 onClick={() => retryHopecasts()}
-                className="mt-4 inline-flex min-h-11 items-center rounded-2xl bg-[#6E5F47] px-5 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
+                className={primaryClass}
               >
                 Try again
               </button>
             </div>
           ) : (
-            <div className="py-12 px-6 bg-white rounded-3xl border border-zinc-100">
-              <p className="text-[#6E5F47] font-medium font-poppins">
-                No HopeCasts on this topic yet. Try another one.
-              </p>
-            </div>
+            <p className="text-[#6E5F47]">
+              No HopeCasts on this topic yet. Try another one.
+            </p>
           )}
         </div>
       </div>

@@ -1,13 +1,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
 import {
   TestimonialCarousel,
   Testimonial,
 } from '@/components/ui/testimonial-carousel';
 import { SubmitHopeStoryModal } from '@/components/modals/SubmitHopeStoryModal';
-import { Plus } from 'lucide-react';
+import { secondaryClass } from '@/components/tools/toolStyles';
 import hopeStoryService from '@/services/hopeStoryService';
 
 export function HopeStoriesSection() {
@@ -46,7 +45,7 @@ export function HopeStoriesSection() {
           <div>
             <h2
               id="stories-title"
-              className="font-playfair text-3xl md:text-5xl text-[#6E5F47] leading-[1.02] tracking-[-0.03em]"
+              className="font-playfair text-3xl md:text-5xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
             >
               Stories of hope
             </h2>
@@ -54,25 +53,19 @@ export function HopeStoriesSection() {
               What people say about their time with HopeBegins.
             </p>
           </div>
-          <Button
+          <button
+            type="button"
             onClick={() => setIsModalOpen(true)}
-            className="self-start rounded-2xl bg-[#6E5F47] px-6 h-12 font-poppins font-bold text-white hover:bg-[#5c4f3b] md:self-auto"
+            className={`self-start md:self-auto ${secondaryClass}`}
           >
-            <Plus className="h-4 w-4 mr-2" />
             Share your story
-          </Button>
+          </button>
         </div>
 
         <div className="mt-8">
           {loading ? (
-            <div className="flex gap-4 overflow-hidden" aria-hidden>
-              {[0, 1, 2].map((key) => (
-                <div
-                  key={key}
-                  className="h-72 w-[85%] shrink-0 animate-pulse rounded-3xl bg-[#EFF3E7] sm:w-[26rem]"
-                />
-              ))}
-            </div>
+            // Holds the space quietly until the stories arrive.
+            <div className="min-h-64" aria-hidden />
           ) : (
             <TestimonialCarousel
               testimonials={stories.length > 0 ? stories : undefined}

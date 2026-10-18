@@ -32,11 +32,8 @@ export function useCarrierForm() {
 
   const mutation = useMutation({
     mutationFn: userService.applyAsCarrier,
-    onSuccess: (data: any) => {
-      notify.success(
-        data?.message ||
-          "Thank you. We'll read your application, and if it's approved we'll email you a temporary password."
-      );
+    // The form says thank you in place of itself; no pop-up as well.
+    onSuccess: () => {
       form.reset();
     },
     onError: (error: any) => {
@@ -54,5 +51,6 @@ export function useCarrierForm() {
     form,
     onSubmit: form.handleSubmit(onSubmit),
     isSubmitting: mutation.isPending,
+    isSent: mutation.isSuccess,
   };
 }

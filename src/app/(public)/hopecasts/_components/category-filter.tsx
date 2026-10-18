@@ -1,8 +1,9 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { secondaryClass } from '@/components/tools/toolStyles';
 import { cn } from '@/lib/utils';
 import { Category } from '@/types/hopecast';
+import { toSentenceCase } from './sentence-case';
 
 interface CategoryFilterProps {
   categories: Category[];
@@ -10,39 +11,41 @@ interface CategoryFilterProps {
   onSelectCategory: (id: string | null) => void;
 }
 
+const pillClass = cn(
+  secondaryClass,
+  'shrink-0 whitespace-nowrap px-4 text-sm aria-pressed:border-[#6E5F47]'
+);
+
+/** One scrolling row of topics on phones; it wraps on wider screens. */
 export function CategoryFilter({
   categories,
   selectedCategoryId,
   onSelectCategory,
 }: CategoryFilterProps) {
   return (
-    <div className="flex flex-wrap items-center gap-2 mb-10">
-      <Button
-        variant="outline"
+    <div
+      role="group"
+      aria-label="Topics"
+      className="-mx-6 flex gap-2 overflow-x-auto px-6 pb-2 scroll-px-6 md:mx-0 md:flex-wrap md:overflow-visible md:px-0"
+    >
+      <button
+        type="button"
+        aria-pressed={selectedCategoryId === null}
         onClick={() => onSelectCategory(null)}
-        className={cn(
-          'min-h-11 rounded-full px-5 py-2 h-auto text-sm font-medium transition-all border-zinc-200 shadow-none',
-          selectedCategoryId === null
-            ? 'bg-[#6E5F47] text-white border-[#6E5F47] hover:bg-[#5c4f3b] hover:text-white'
-            : 'text-[#6E5F47] hover:bg-[#EFF3E7] hover:border-[#C6D6AC] bg-white'
-        )}
+        className={pillClass}
       >
         All
-      </Button>
+      </button>
       {categories.map((category) => (
-        <Button
+        <button
           key={category.id}
-          variant="outline"
+          type="button"
+          aria-pressed={selectedCategoryId === category.id}
           onClick={() => onSelectCategory(category.id)}
-          className={cn(
-            'min-h-11 rounded-full px-5 py-2 h-auto text-sm font-medium transition-all border-zinc-200 shadow-none',
-            selectedCategoryId === category.id
-              ? 'bg-[#6E5F47] text-white border-[#6E5F47] hover:bg-[#5c4f3b] hover:text-white'
-              : 'text-[#6E5F47] hover:bg-[#EFF3E7] hover:border-[#C6D6AC] bg-white'
-          )}
+          className={pillClass}
         >
-          {category.name}
-        </Button>
+          {toSentenceCase(category.name)}
+        </button>
       ))}
     </div>
   );

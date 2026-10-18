@@ -53,8 +53,8 @@ const nextSteps: Record<string, OptionKey[]> = {
   '/tools': ['plan', 'ecoach', 'prayers'],
 };
 
-const linkClass =
-  'inline-flex min-h-11 items-center underline underline-offset-4 hover:text-[#5c4f3b]';
+// Inline, with padding for a thumb, so a wrapped line keeps its spacing.
+const linkClass = 'py-2.5 underline underline-offset-4 hover:text-[#5c4f3b]';
 
 /** One quiet line under the page: where else to go, if they want to. */
 export function WhatNext() {
@@ -66,32 +66,37 @@ export function WhatNext() {
   return (
     <section lang={lang} className="px-6 pb-12 print:hidden">
       <div className="max-w-5xl mx-auto border-t border-[#E2DFDA] pt-6">
-        <p className="max-w-2xl text-[#6E5F47]">
-          <span className="font-bold">
-            {lang === 'tl' ? 'Nandito rin:' : 'Also here:'}
-          </span>{' '}
+        <p className="max-w-2xl leading-loose text-[#6E5F47]">
+          {lang === 'tl' ? 'Nandito rin:' : 'Also here:'}
           {keys.map((key, index) => {
             const option = options[key];
             return (
               <span key={key}>
-                {index > 0 && <span aria-hidden> · </span>}
-                {key === 'ecoach' ? (
-                  <EcoachLink linkName="ecoach_what_next" className={linkClass}>
-                    {option.title[lang]}
-                  </EcoachLink>
-                ) : (
-                  <Link
-                    href={
-                      // The plan opens in the page's language.
-                      key === 'plan' && lang === 'tl'
-                        ? `${option.href}?lang=tl`
-                        : (option.href ?? '/')
-                    }
-                    className={linkClass}
-                  >
-                    {option.title[lang]}
-                  </Link>
-                )}
+                {' '}
+                {/* The dot stays with the link after it. */}
+                <span className="whitespace-nowrap">
+                  {index > 0 && <span aria-hidden>· </span>}
+                  {key === 'ecoach' ? (
+                    <EcoachLink
+                      linkName="ecoach_what_next"
+                      className={linkClass}
+                    >
+                      {option.title[lang]}
+                    </EcoachLink>
+                  ) : (
+                    <Link
+                      href={
+                        // The plan opens in the page's language.
+                        key === 'plan' && lang === 'tl'
+                          ? `${option.href}?lang=tl`
+                          : (option.href ?? '/')
+                      }
+                      className={linkClass}
+                    >
+                      {option.title[lang]}
+                    </Link>
+                  )}
+                </span>
               </span>
             );
           })}

@@ -2,7 +2,6 @@
 
 import { useCarrierAuth } from '@/hooks/useCarrierAuth';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
@@ -12,39 +11,33 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from '@/components/ui/card';
-import { Loader2, ShieldCheck, Mail, Lock, AlertCircle } from 'lucide-react';
+import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
+import { inputClass, primaryClass } from '@/components/tools/toolStyles';
+import { cn } from '@/lib/utils';
+
+const fieldClass = cn(inputClass, 'h-12 shadow-none');
+const labelClass =
+  'text-sm font-medium text-[#6E5F47] data-[error=true]:text-[#6E5F47]';
+const messageClass = 'text-sm text-[#6E5F47]';
 
 export function CarrierLoginForm() {
   const { form, onSubmit, isSubmitting, error } = useCarrierAuth();
 
   return (
-    <Card className="w-full max-w-md border-zinc-100 dark:border-zinc-800 shadow-2xl shadow-zinc-200/50 dark:shadow-none bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm rounded-[2.5rem] overflow-hidden">
-      <CardHeader className="space-y-1 text-center pb-8 pt-10">
-        <div className="flex justify-center mb-6">
-          <div className="p-4 rounded-[2rem] bg-[#b4c392]/10 text-[#b4c392] ring-8 ring-[#b4c392]/5 transform -rotate-6">
-            <ShieldCheck className="w-8 h-8" />
-          </div>
-        </div>
-        <CardTitle className="text-3xl font-black italic tracking-tighter text-zinc-900 dark:text-zinc-50">
-          Welcome back
-        </CardTitle>
-        <CardDescription className="text-zinc-500 font-medium px-6">
-          Log in to see the prayer requests waiting for you.
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="px-8 pb-10">
+    <div>
+      <OptionPageHeader
+        title="Hope Carrier login"
+        subtitle="Log in to see the prayer requests waiting for you."
+      />
+
+      <div className="mt-8 max-w-md">
         {error && (
-          <div className="mb-6 p-4 rounded-2xl bg-rose-50 dark:bg-rose-900/20 border border-rose-100 dark:border-rose-800 flex items-center gap-3 text-rose-600 dark:text-rose-400 text-sm font-bold">
-            <AlertCircle className="w-4 h-4 flex-shrink-0" />
-            <p>{error}</p>
-          </div>
+          <p
+            role="alert"
+            className="mb-6 rounded-xl bg-[#EFF3E7] px-4 py-3 text-sm text-[#6E5F47]"
+          >
+            {error}
+          </p>
         )}
 
         <Form {...form}>
@@ -54,20 +47,16 @@ export function CarrierLoginForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-zinc-600 ml-1">
-                    Email
-                  </FormLabel>
+                  <FormLabel className={labelClass}>Email</FormLabel>
                   <FormControl>
-                    <div className="relative group">
-                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400 group-focus-within:text-[#b4c392] transition-colors" />
-                      <Input
-                        placeholder="your@email.com"
-                        className="pl-11 h-14 bg-zinc-50/50 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800 focus:border-[#b4c392] focus:ring-[#b4c392]/20 transition-all rounded-2xl font-medium"
-                        {...field}
-                      />
-                    </div>
+                    <Input
+                      placeholder="your@email.com"
+                      autoComplete="email"
+                      className={fieldClass}
+                      {...field}
+                    />
                   </FormControl>
-                  <FormMessage className="text-[10px] font-bold text-rose-500 ml-1" />
+                  <FormMessage className={messageClass} />
                 </FormItem>
               )}
             />
@@ -77,47 +66,36 @@ export function CarrierLoginForm() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <div className="flex items-center justify-between ml-1 mb-1">
-                    <FormLabel className="text-sm font-bold text-zinc-600">
-                      Password
-                    </FormLabel>
-                    <Link
-                      href="/forgot-password"
-                      className="inline-flex min-h-11 items-center text-sm font-bold text-[#6E5F47] hover:text-[#5c4f3b] transition-colors"
-                    >
-                      Forgot your password?
-                    </Link>
-                  </div>
+                  <FormLabel className={labelClass}>Password</FormLabel>
                   <FormControl>
-                    <div className="relative group">
-                      <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400 group-focus-within:text-[#b4c392] transition-colors" />
-                      <Input
-                        type="password"
-                        placeholder="••••••••"
-                        className="pl-11 h-14 bg-zinc-50/50 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800 focus:border-[#b4c392] focus:ring-[#b4c392]/20 transition-all rounded-2xl font-medium"
-                        {...field}
-                      />
-                    </div>
+                    <Input
+                      type="password"
+                      autoComplete="current-password"
+                      className={fieldClass}
+                      {...field}
+                    />
                   </FormControl>
-                  <FormMessage className="text-[10px] font-bold text-rose-500 ml-1" />
+                  <FormMessage className={messageClass} />
+                  <Link
+                    href="/forgot-password"
+                    className="inline-flex min-h-11 items-center justify-self-start text-sm font-medium text-[#6E5F47] underline underline-offset-4 hover:text-[#5c4f3b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA] rounded-md"
+                  >
+                    Forgot your password?
+                  </Link>
                 </FormItem>
               )}
             />
 
-            <Button
+            <button
               type="submit"
-              className="w-full h-14 bg-[#6E5F47] hover:bg-[#5c4f3b] text-white font-bold text-base rounded-2xl shadow-xl shadow-[#6E5F47]/20 transition-all duration-500 mt-4 group"
               disabled={isSubmitting}
+              className={cn(primaryClass, 'w-full min-h-12')}
             >
-              {isSubmitting ? (
-                <Loader2 className="w-5 h-5 animate-spin" />
-              ) : (
-                <span className="flex items-center gap-3">Log in</span>
-              )}
-            </Button>
+              {isSubmitting ? 'Logging in…' : 'Log in'}
+            </button>
           </form>
         </Form>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

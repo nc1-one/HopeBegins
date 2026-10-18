@@ -1,14 +1,6 @@
 'use client';
 
-import {
-  Loader2,
-  Lock,
-  ArrowLeft,
-  CheckCircle2,
-  AlertCircle,
-} from 'lucide-react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
@@ -18,14 +10,19 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from '@/components/ui/card';
+  inputClass,
+  primaryClass,
+  quietClass,
+} from '@/components/tools/toolStyles';
+import { cn } from '@/lib/utils';
 import { useResetPassword } from '../hooks/useResetPassword';
+
+const fieldClass = cn(inputClass, 'h-12 shadow-none');
+const labelClass =
+  'text-sm font-medium text-[#6E5F47] data-[error=true]:text-[#6E5F47]';
+const messageClass = 'text-sm text-[#6E5F47]';
 
 export function ResetPasswordForm() {
   const { form, onSubmit, isSubmitting, isSuccess, hasToken, loginHref } =
@@ -33,56 +30,39 @@ export function ResetPasswordForm() {
 
   if (isSuccess) {
     return (
-      <Card className="w-full max-w-md border-zinc-100 dark:border-zinc-800 shadow-24 shadow-zinc-200/50 dark:shadow-none bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm rounded-[2.5rem] overflow-hidden text-center">
-        <CardHeader className="space-y-1 pb-8 pt-10">
-          <div className="flex justify-center mb-6">
-            <div className="p-4 rounded-[2rem] bg-emerald-50 text-emerald-600 ring-8 ring-emerald-500/5 transform rotate-3">
-              <CheckCircle2 className="w-8 h-8" />
-            </div>
-          </div>
-          <CardTitle className="text-3xl font-black italic tracking-tighter text-zinc-900 dark:text-zinc-50">
-            Password changed
-          </CardTitle>
-          <CardDescription className="text-zinc-500 font-medium px-6">
-            Your new password is set. Taking you to the login page…
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="px-8 pb-10">
+      <div>
+        <OptionPageHeader
+          title="Password changed"
+          subtitle="Your new password is set. Taking you to the login page…"
+        />
+        <div className="mt-8 max-w-md">
           <Link
             href={loginHref}
-            className="w-full h-14 bg-[#6E5F47] hover:bg-[#5c4f3b] text-white font-bold text-base rounded-2xl shadow-xl shadow-[#6E5F47]/20 transition-all flex items-center justify-center"
+            className={cn(primaryClass, 'w-full min-h-12')}
           >
             Go to login
           </Link>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     );
   }
 
   return (
-    <Card className="w-full max-w-md border-zinc-100 dark:border-zinc-800 shadow-24 shadow-zinc-200/50 dark:shadow-none bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm rounded-[2.5rem] overflow-hidden">
-      <CardHeader className="space-y-1 text-center pb-8 pt-10">
-        <div className="flex justify-center mb-6">
-          <div className="p-4 rounded-[2rem] bg-[#b4c392]/10 text-[#b4c392] ring-8 ring-[#b4c392]/5 transform -rotate-3">
-            <Lock className="w-8 h-8" />
-          </div>
-        </div>
-        <CardTitle className="text-3xl font-black italic tracking-tighter text-zinc-900 dark:text-zinc-50">
-          Set a new password
-        </CardTitle>
-        <CardDescription className="text-zinc-500 font-medium px-6">
-          Choose a password with at least 8 characters.
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="px-8 pb-10">
+    <div>
+      <OptionPageHeader
+        title="Set a new password"
+        subtitle="Choose a password with at least 8 characters."
+      />
+
+      <div className="mt-8 max-w-md">
         {!hasToken ? (
-          <div className="mb-6 p-4 rounded-2xl bg-rose-50 dark:bg-rose-900/20 border border-rose-100 dark:border-rose-800 flex items-center gap-3 text-rose-600 dark:text-rose-400 text-sm font-bold">
-            <AlertCircle className="w-4 h-4 flex-shrink-0" />
-            <p>
-              This link has expired or doesn&apos;t work. Please ask for a new
-              one.
-            </p>
-          </div>
+          <p
+            role="alert"
+            className="rounded-xl bg-[#EFF3E7] px-4 py-3 text-sm text-[#6E5F47]"
+          >
+            This link has expired or doesn&apos;t work. Please ask for a new
+            one.
+          </p>
         ) : (
           <Form {...form}>
             <form onSubmit={onSubmit} className="space-y-6">
@@ -91,21 +71,16 @@ export function ResetPasswordForm() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-zinc-600 ml-1">
-                      New password
-                    </FormLabel>
+                    <FormLabel className={labelClass}>New password</FormLabel>
                     <FormControl>
-                      <div className="relative group">
-                        <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400 group-focus-within:text-[#b4c392] transition-colors" />
-                        <Input
-                          type="password"
-                          placeholder="••••••••"
-                          className="pl-11 h-14 bg-zinc-50/50 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800 focus:border-[#b4c392] focus:ring-[#b4c392]/20 transition-all rounded-2xl font-medium"
-                          {...field}
-                        />
-                      </div>
+                      <Input
+                        type="password"
+                        autoComplete="new-password"
+                        className={fieldClass}
+                        {...field}
+                      />
                     </FormControl>
-                    <FormMessage className="text-[10px] font-bold text-rose-500 ml-1" />
+                    <FormMessage className={messageClass} />
                   </FormItem>
                 )}
               />
@@ -115,52 +90,37 @@ export function ResetPasswordForm() {
                 name="confirm_password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-zinc-600 ml-1">
+                    <FormLabel className={labelClass}>
                       Type the new password again
                     </FormLabel>
                     <FormControl>
-                      <div className="relative group">
-                        <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400 group-focus-within:text-[#b4c392] transition-colors" />
-                        <Input
-                          type="password"
-                          placeholder="••••••••"
-                          className="pl-11 h-14 bg-zinc-50/50 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800 focus:border-[#b4c392] focus:ring-[#b4c392]/20 transition-all rounded-2xl font-medium"
-                          {...field}
-                        />
-                      </div>
+                      <Input
+                        type="password"
+                        autoComplete="new-password"
+                        className={fieldClass}
+                        {...field}
+                      />
                     </FormControl>
-                    <FormMessage className="text-[10px] font-bold text-rose-500 ml-1" />
+                    <FormMessage className={messageClass} />
                   </FormItem>
                 )}
               />
 
-              <Button
+              <button
                 type="submit"
-                className="w-full h-14 bg-[#6E5F47] hover:bg-[#5c4f3b] text-white font-bold text-base rounded-2xl shadow-xl shadow-[#6E5F47]/20 transition-all duration-500 mt-4 group"
                 disabled={isSubmitting}
+                className={cn(primaryClass, 'w-full min-h-12')}
               >
-                {isSubmitting ? (
-                  <Loader2 className="w-5 h-5 animate-spin" />
-                ) : (
-                  <span className="flex items-center gap-3">
-                    Save new password
-                  </span>
-                )}
-              </Button>
+                {isSubmitting ? 'Saving…' : 'Save new password'}
+              </button>
             </form>
           </Form>
         )}
 
-        <div className="mt-8 flex justify-center">
-          <Link
-            href={loginHref}
-            className="flex min-h-11 items-center gap-2 text-sm font-bold text-[#6E5F47] hover:text-[#5c4f3b] transition-colors group"
-          >
-            <ArrowLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
-            Back to login
-          </Link>
-        </div>
-      </CardContent>
-    </Card>
+        <Link href={loginHref} className={cn(quietClass, 'mt-8 -ml-5')}>
+          Back to login
+        </Link>
+      </div>
+    </div>
   );
 }

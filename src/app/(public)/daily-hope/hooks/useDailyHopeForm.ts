@@ -48,10 +48,11 @@ export function useDailyHopeForm() {
         last_name_honey: data.lastNameHoney,
         start_time: data.startTime,
       }),
-    onSuccess: (response) => {
-      const message =
-        response?.message || "You're signed up for 21 days of Daily Hope.";
-      toast.success(message);
+    // Our own words, not the server's ("Hope Journey!").
+    onSuccess: () => {
+      toast.success(
+        "You're signed up for 21 days of Daily Hope. Check your email for day 1."
+      );
       form.reset();
     },
     onError: (error: any) => {

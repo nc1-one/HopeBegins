@@ -1,15 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowRight, Languages, MessageCircle } from 'lucide-react';
+import { Languages } from 'lucide-react';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import { EcoachLink } from '@/components/ui/EcoachLink';
+import { Reveal } from '@/components/ui/Reveal';
 import { ExerciseLauncher } from '@/components/tools/ExerciseLauncher';
 import { MessageSomeone } from '@/components/tools/MessageSomeone';
 import { WorryNote } from '@/components/tools/WorryNote';
 import { feelingPages, feelingUi, getFeelingPage } from '@/lib/feelingPages';
 import { pageMetadata } from '@/lib/pageMetadata';
-import { PHOTOS } from '@/lib/photos';
+import { photo, photoTurn } from '@/lib/photos';
+import { primaryClass } from '@/components/tools/toolStyles';
 
 // Only the phrases in feelingPages exist; any other root path is a 404.
 export const dynamicParams = false;
@@ -47,7 +49,7 @@ export async function generateMetadata({
 
 // Next steps read as plain links: no boxes, no icons.
 const nextLinkClass =
-  'inline-flex min-h-12 items-center font-poppins text-lg font-semibold text-[#6E5F47] underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none';
+  'inline-flex min-h-12 items-center font-poppins text-lg font-medium text-[#6E5F47] underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none';
 
 export default async function FeelingPage({
   params,
@@ -57,6 +59,7 @@ export default async function FeelingPage({
   const page = getFeelingPage((await params).feeling);
   if (!page) notFound();
   const ui = feelingUi[page.lang];
+  const topPhoto = photo(page.photo, photoTurn());
 
   const ecoach = (
     <EcoachLink
@@ -101,7 +104,7 @@ export default async function FeelingPage({
           </Link>
           <div className="relative mb-8 aspect-[4/3] overflow-hidden rounded-xl bg-[#EFF3E7] md:aspect-[16/9]">
             <Image
-              src={PHOTOS[page.photo]}
+              src={topPhoto.src}
               alt=""
               fill
               // The page's first picture: fetched first and never lazy.
@@ -117,9 +120,8 @@ export default async function FeelingPage({
           {page.talkNow && (
             <EcoachLink
               linkName={`ecoach_feeling_${page.slug}_top`}
-              className="mt-8 inline-flex items-center justify-center rounded-2xl bg-[#6E5F47] px-6 py-4 font-poppins font-bold text-white shadow-lg transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
+              className={`mt-8 ${primaryClass}`}
             >
-              <MessageCircle className="mr-2 h-5 w-5 shrink-0" />
               {ui.talkNow}
             </EcoachLink>
           )}
@@ -147,7 +149,7 @@ export default async function FeelingPage({
             </div>
           )}
 
-          <section aria-labelledby="tools-title" className="mt-10">
+          <Reveal as="section" aria-labelledby="tools-title" className="mt-10">
             <h2
               id="tools-title"
               className="font-playfair text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
@@ -165,41 +167,44 @@ export default async function FeelingPage({
                 )
               )}
             </div>
-          </section>
+          </Reveal>
 
           {page.tip && (
-            <section className="mt-8 border-l-4 border-[#AEC488] pl-5">
-              <h2 className="font-poppins font-bold text-lg text-[#6E5F47]">
+            <Reveal
+              as="section"
+              className="mt-8 border-l-4 border-[#AEC488] pl-5"
+            >
+              <h2 className="font-playfair text-2xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
                 {page.tip.title}
               </h2>
-              <p className="mt-1 text-[#6E5F47] leading-relaxed">
+              <p className="mt-2 text-[#6E5F47] leading-relaxed">
                 {page.tip.body}
               </p>
               {page.tools.includes('message') && (
                 <Link
                   href="/hope-ai"
-                  className="mt-3 inline-flex min-h-11 items-center font-poppins font-bold text-[#6E5F47] underline-offset-4 hover:underline"
+                  className="mt-2 inline-flex min-h-11 items-center font-poppins font-medium text-[#6E5F47] underline underline-offset-4 hover:text-[#5c4f3b]"
                 >
                   {ui.hopeAi}
-                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               )}
-            </section>
+            </Reveal>
           )}
         </div>
 
-        <section
+        <Reveal
+          as="section"
           aria-labelledby="next-title"
           className="mt-12 max-w-2xl border-t border-[#E2DFDA] pt-10"
         >
           <h2
             id="next-title"
-            className="font-playfair text-2xl md:text-3xl text-[#6E5F47] leading-[1.05] tracking-[-0.03em]"
+            className="font-playfair text-2xl md:text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
           >
             {ui.nextHeading}
           </h2>
           <ul className="mt-3">{nextSteps}</ul>
-        </section>
+        </Reveal>
       </div>
     </div>
   );

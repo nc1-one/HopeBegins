@@ -354,6 +354,23 @@
   }
 }
 
+/* A photo fades in over its sage placeholder once it has loaded (FadeImage). */
+.hb-fade-img {
+  opacity: 0;
+  transition:
+    opacity 700ms var(--hb-ease-out),
+    transform var(--hb-slow) var(--hb-ease-out),
+    filter var(--hb-slow) var(--hb-ease-out);
+}
+.hb-fade-img[data-loaded] {
+  opacity: 1;
+}
+@media (scripting: none) {
+  .hb-fade-img {
+    opacity: 1;
+  }
+}
+
 /* Everything above, and every other animation, stops for reduced motion. */
 @media (prefers-reduced-motion: reduce) {
   *,

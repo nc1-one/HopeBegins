@@ -150,7 +150,7 @@ export function HeroMedia() {
               }`}
             />
           ))}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/75" />
       </div>
       {/* Moving backgrounds get a pause button, per WCAG 2.2.2. It sits top
           right, on the page's grid, clear of the crisis line. */}
