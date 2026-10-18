@@ -12,7 +12,8 @@ import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
 import { useSavedPlan } from '@/lib/actionPlanStore';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { setLanguage, useLanguage } from '@/lib/languagePreference';
-import { PHOTOS, type PhotoId } from '@/lib/photos';
+import { type PhotoId } from '@/lib/photos';
+import { usePhotoPicker } from '@/components/ui/PhotoTurn';
 
 /**
  * Every tool in one place, grouped by what is happening right now. Each one
@@ -370,6 +371,7 @@ export function Toolbox() {
   const lang = useLanguage();
   const t = copy[lang];
   const [active, setActive] = useState(GROUPS[0].id);
+  const pickPhoto = usePhotoPicker();
   const [open, setOpen] = useState<ToolKind | null>(null);
   const tabs = useRef<Record<string, HTMLButtonElement | null>>({});
   const group = GROUPS.find((item) => item.id === active) ?? GROUPS[0];
@@ -452,7 +454,7 @@ export function Toolbox() {
                   }`}
                 >
                   <Image
-                    src={PHOTOS[item.photo]}
+                    src={pickPhoto(item.photo).src}
                     alt=""
                     fill
                     sizes="(min-width: 768px) 160px, 112px"
@@ -463,11 +465,7 @@ export function Toolbox() {
                     }`}
                   />
                 </span>
-                <span
-                  className={`mt-2 block font-poppins text-sm leading-snug text-[#6E5F47] ${
-                    isActive ? 'font-bold' : 'font-medium'
-                  }`}
-                >
+                <span className="mt-2 block font-poppins text-sm font-medium leading-snug text-[#6E5F47]">
                   {item.label[lang]}
                 </span>
               </button>
@@ -481,12 +479,13 @@ export function Toolbox() {
           aria-labelledby={`tab-${group.id}`}
           className="mt-8 border-t border-[#E2DFDA] pt-8 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-10"
         >
-          {/* The picked photo, large, crossfading from the last one. */}
+          {/* The picked photo, large, crossfading from the last one: a
+              second picture of the same moment, not the tab's own. */}
           <div className="relative hidden aspect-[4/5] overflow-hidden rounded-xl bg-[#EFF3E7] md:sticky md:top-28 md:block md:self-start">
             {GROUPS.map((item) => (
               <Image
                 key={item.id}
-                src={PHOTOS[item.photo]}
+                src={pickPhoto(item.photo, 1).src}
                 alt=""
                 fill
                 sizes="400px"

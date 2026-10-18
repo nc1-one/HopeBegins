@@ -41,7 +41,7 @@ export function ApproachOffers({
   const body = (offer: Offer) => (
     <>
       <span className="flex-1">
-        <span className="block font-poppins font-bold text-[#6E5F47]">
+        <span className="block font-poppins font-semibold text-[#6E5F47]">
           {offer.title}
         </span>
         <span className="block text-sm text-[#6E5F47]/85 leading-relaxed">
@@ -73,10 +73,8 @@ export function ApproachOffers({
             aria-controls="offer-panel"
             tabIndex={index === active ? 0 : -1}
             onClick={() => setActive(index)}
-            className={`relative min-h-12 font-poppins text-[15px] text-[#6E5F47] transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40 md:text-base ${
-              index === active
-                ? 'font-bold'
-                : 'font-medium opacity-75 hover:opacity-100'
+            className={`relative min-h-12 font-poppins text-[15px] font-medium text-[#6E5F47] transition-opacity focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40 md:text-base ${
+              index === active ? '' : 'opacity-70 hover:opacity-100'
             }`}
           >
             {group.title}

@@ -2,24 +2,13 @@
 
 import { Fragment, useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import {
-  BookOpen,
-  ChevronRight,
-  ClipboardList,
-  Compass,
-  Headphones,
-  Heart,
-  Mail,
-  MessageCircle,
-  MessageSquare,
-  Phone,
-  Video,
-  Zap,
-} from 'lucide-react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { EcoachLink } from '@/components/ui/EcoachLink';
+import {
+  primaryClass,
+  quietClass,
+  secondaryClass,
+} from '@/components/tools/toolStyles';
 import { cn } from '@/lib/utils';
 import { dailyHopeService } from '@/services/dailyHopeService';
 import {
@@ -28,7 +17,6 @@ import {
 } from '@/services/siteSettingsService';
 import {
   getDefaultJourneyPageContent,
-  JourneyActionIcon,
   JourneyCrisisSection,
   JourneyDevotionalSection,
   JourneyNextStepsSection,
@@ -40,26 +28,15 @@ import {
 
 type Step = JourneyStepKey;
 
-const stepIcons = {
-  welcome: Heart,
-  word: Video,
-  prayer: Zap,
-  devotional: BookOpen,
-  'next-steps': Compass,
-};
-
-const actionIcons = {
-  heart: Heart,
-  mail: Mail,
-  'message-square': MessageSquare,
-  headphones: Headphones,
-};
-
-const crisisIcons = [Phone, MessageCircle, Heart];
-
-function getActionIcon(icon: JourneyActionIcon) {
-  return actionIcons[icon] || Heart;
-}
+const h2Class =
+  'text-balance font-playfair text-2xl md:text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]';
+const h3Class =
+  'font-playfair text-2xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]';
+const bodyClass = 'text-lg leading-relaxed text-[#6E5F47]';
+// Every step's buttons share one height.
+const stepButton = 'min-h-12';
+const nextLinkClass =
+  'inline-flex min-h-12 items-center font-poppins text-lg font-medium text-[#6E5F47] underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none';
 
 function renderMultilineText(text: string) {
   const lines = text.split('\n');
@@ -95,7 +72,6 @@ export default function GetStartedPage() {
   const steps = pageContent.steps.map((step) => ({
     id: step.key,
     label: step.label,
-    icon: stepIcons[step.key],
   }));
 
   const stepOrder = pageContent.steps.map((step) => step.key);
@@ -141,8 +117,8 @@ export default function GetStartedPage() {
   };
 
   return (
-    <div className="bg-[#fcfdfa] dark:bg-zinc-950 px-6 pb-16">
-      <div className="max-w-5xl mx-auto pt-6">
+    <div className="px-6 pt-6 pb-24">
+      <div className="max-w-5xl mx-auto">
         <div className="max-w-2xl">
           <div className="mb-6">
             <h1 className="text-balance font-playfair text-4xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
@@ -155,7 +131,7 @@ export default function GetStartedPage() {
 
           {/* Where they are in the five steps; finished steps can be revisited. */}
           <nav aria-label="Steps" className="mb-8">
-            <p className="font-poppins text-sm font-bold text-[#6E5F47]">
+            <p className="font-poppins text-sm font-medium text-[#6E5F47]">
               Step {stepOrder.indexOf(currentStep) + 1} of {steps.length}:{' '}
               {steps.find((step) => step.id === currentStep)?.label}
             </p>
@@ -231,7 +207,7 @@ export default function GetStartedPage() {
                 {currentStep === 'next-steps' && (
                   <NextStepsStep
                     content={pageContent.next_steps_section}
-                    crisisContent={pageContent.crisis_section}
+                    crisis={pageContent.crisis_section}
                   />
                 )}
               </motion.div>
@@ -243,6 +219,61 @@ export default function GetStartedPage() {
   );
 }
 
+function StepButtons({
+  backText,
+  nextText,
+  onBack,
+  onNext,
+}: {
+  backText?: string;
+  nextText: string;
+  onBack?: () => void;
+  onNext: () => void;
+}) {
+  return (
+    <div className="flex flex-wrap gap-3 pt-2">
+      {onBack && (
+        <button
+          type="button"
+          onClick={onBack}
+          className={cn(secondaryClass, stepButton)}
+        >
+          {backText}
+        </button>
+      )}
+      <button
+        type="button"
+        onClick={onNext}
+        className={cn(primaryClass, stepButton)}
+      >
+        {nextText}
+      </button>
+    </div>
+  );
+}
+
+function StepIntro({ title, text }: { title: string; text?: string }) {
+  return (
+    <div className="space-y-3">
+      <h2 className={h2Class}>{title}</h2>
+      {text && <p className={bodyClass}>{text}</p>}
+    </div>
+  );
+}
+
+function Verse({ text, reference }: { text: string; reference: string }) {
+  return (
+    <figure>
+      <blockquote className="font-playfair text-2xl italic leading-[1.25] tracking-[-0.02em] text-[#6E5F47]">
+        &ldquo;{text}&rdquo;
+      </blockquote>
+      <figcaption className="mt-2 text-sm text-[#6E5F47]/85">
+        {reference}
+      </figcaption>
+    </figure>
+  );
+}
+
 function WelcomeStep({
   content,
   onNext,
@@ -251,44 +282,24 @@ function WelcomeStep({
   onNext: () => void;
 }) {
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <div className="space-y-3">
-        <h2 className="text-2xl min-[400px]:text-3xl md:text-4xl font-playfair font-normal tracking-[-0.03em] text-[#6E5F47] dark:text-zinc-200">
-          {content.title}
-        </h2>
-        <p className="text-[#6E5F47] dark:text-zinc-300 text-base md:text-lg max-w-xl leading-relaxed">
-          {renderMultilineText(content.body)}
-        </p>
+        <h2 className={h2Class}>{content.title}</h2>
+        <p className={bodyClass}>{renderMultilineText(content.body)}</p>
       </div>
 
-      <div className="max-w-xl">
-        <Button
-          className="w-full min-h-12 py-6 rounded-xl bg-[#6E5F47] hover:bg-[#5c4f3b] text-white text-base md:text-lg font-bold shadow-lg shadow-[#6E5F47]/10"
-          onClick={onNext}
-        >
-          {content.button_text}
-        </Button>
+      <div>
+        <h3 className="font-poppins font-medium text-[#6E5F47]">
+          {content.expectations_title}
+        </h3>
+        <ol className="mt-3 list-decimal pl-5 space-y-2 text-[#6E5F47]">
+          {content.expectations.map((item, idx) => (
+            <li key={idx}>{item}</li>
+          ))}
+        </ol>
       </div>
 
-      <Card className="py-0 border-zinc-100/50 dark:border-zinc-800 shadow-sm bg-[#EFF3E7]/60 dark:bg-emerald-900/10 max-w-xl">
-        <CardContent className="p-6 space-y-4">
-          <h3 className="font-bold text-[#6E5F47] dark:text-zinc-300 text-base">
-            {content.expectations_title}
-          </h3>
-          <ol className="space-y-3">
-            {content.expectations.map((item, idx) => (
-              <li key={idx} className="flex items-center gap-4">
-                <span className="w-7 h-7 shrink-0 rounded-full bg-white text-[#6E5F47] flex items-center justify-center text-sm font-bold">
-                  {idx + 1}
-                </span>
-                <span className="text-[#6E5F47] dark:text-zinc-300 text-base">
-                  {item}
-                </span>
-              </li>
-            ))}
-          </ol>
-        </CardContent>
-      </Card>
+      <StepButtons nextText={content.button_text} onNext={onNext} />
     </div>
   );
 }
@@ -303,57 +314,30 @@ function WordStep({
   onBack: () => void;
 }) {
   return (
-    <div className="space-y-8 md:space-y-12">
-      <div className="text-center space-y-3 md:space-y-4 px-4">
-        <h2 className="text-2xl md:text-3xl font-playfair font-normal tracking-[-0.03em] text-[#6E5F47] dark:text-zinc-200">
-          {content.title}
-        </h2>
-        <p className="text-zinc-500 dark:text-zinc-400 text-base md:text-lg">
-          {content.description}
-        </p>
+    <div className="space-y-8">
+      <StepIntro title={content.title} text={content.description} />
+
+      <div className="relative aspect-video overflow-hidden rounded-xl bg-[#EFF3E7]">
+        <iframe
+          width="100%"
+          height="100%"
+          src={content.video_embed_url}
+          title={content.title}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="absolute inset-0 h-full w-full"
+        />
       </div>
 
-      <div className="max-w-2xl mx-auto rounded-3xl overflow-hidden shadow-2xl shadow-[#6E5F47]/10 border-4 border-white dark:border-zinc-900">
-        <div className="aspect-video relative">
-          <iframe
-            width="100%"
-            height="100%"
-            src={content.video_embed_url}
-            title={content.title}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="absolute top-0 left-0 w-full h-full"
-          />
-        </div>
-      </div>
+      <Verse text={content.verse_text} reference={content.verse_reference} />
 
-      <Card className="border-zinc-100/50 dark:border-zinc-800 shadow-sm bg-zinc-50/50 dark:bg-zinc-900/50 max-w-2xl mx-auto">
-        <CardContent className="p-6 space-y-2">
-          <p className="text-[#6E5F47] dark:text-emerald-400 font-bold text-lg italic font-poppins leading-relaxed">
-            &quot;{content.verse_text}&quot;
-          </p>
-          <p className="text-[#6E5F47] dark:text-emerald-500/70 font-bold text-sm">
-            {content.verse_reference}
-          </p>
-        </CardContent>
-      </Card>
-
-      <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto pt-4 px-4 sm:px-0">
-        <Button
-          variant="outline"
-          className="flex-1 py-6 md:py-7 rounded-xl border-zinc-200 text-base md:text-lg font-bold"
-          onClick={onBack}
-        >
-          {content.previous_button_text}
-        </Button>
-        <Button
-          className="flex-1 py-6 md:py-7 rounded-xl bg-[#6E5F47] hover:bg-[#5c4f3b] text-white text-base md:text-lg font-bold shadow-lg shadow-[#6E5F47]/10"
-          onClick={onNext}
-        >
-          {content.next_button_text}
-        </Button>
-      </div>
+      <StepButtons
+        backText={content.previous_button_text}
+        nextText={content.next_button_text}
+        onBack={onBack}
+        onNext={onNext}
+      />
     </div>
   );
 }
@@ -373,66 +357,29 @@ function PrayerStep({
 
   return (
     <div className="space-y-8">
-      <div className="text-center space-y-2">
-        <h2 className="text-2xl font-playfair font-normal tracking-[-0.03em] text-[#6E5F47] dark:text-zinc-200">
-          {content.title}
-        </h2>
-        <p className="text-zinc-500 dark:text-zinc-400 text-sm">
-          {content.description}
+      <StepIntro title={content.title} text={content.description} />
+
+      <div className="flex gap-4">
+        <p className="w-8 shrink-0 font-playfair text-3xl leading-[0.95] text-[#6E5F47]/85">
+          {subStep}
+          <span className="sr-only"> of {content.steps.length}</span>
         </p>
+        <div className="space-y-3">
+          <h3 className={h3Class}>{current.title}</h3>
+          <p className={bodyClass}>{current.text}</p>
+        </div>
       </div>
 
-      <div className="flex gap-2 max-w-md mx-auto">
-        {content.steps.map((_, idx) => {
-          const stepNumber = idx + 1;
-
-          return (
-            <div
-              key={stepNumber}
-              className={cn(
-                'h-1.5 flex-1 rounded-full transition-all duration-500',
-                stepNumber <= subStep
-                  ? 'bg-[#AEC488]'
-                  : 'bg-zinc-100 dark:bg-zinc-800'
-              )}
-            />
-          );
-        })}
-      </div>
-
-      <Card className="border-zinc-100 dark:border-zinc-800 shadow-sm bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm">
-        <CardContent className="p-6 md:p-12 text-center space-y-6 md:space-y-8">
-          <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#EFF3E7] dark:bg-emerald-900/20 text-[#91AFAA] flex items-center justify-center mx-auto text-base md:text-lg font-bold">
-            {subStep}
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg md:text-xl font-bold text-[#6E5F47] font-poppins">
-              {current.title}
-            </h3>
-            <p className="text-zinc-600 dark:text-zinc-300 text-base md:text-lg leading-relaxed max-w-lg mx-auto italic">
-              &quot;{current.text}&quot;
-            </p>
-          </div>
-        </CardContent>
-      </Card>
-
-      <div className="flex gap-4 max-w-md mx-auto">
-        <Button
-          variant="outline"
-          className="flex-1 py-6 rounded-xl border-zinc-200"
-          onClick={onBack}
-        >
-          {content.back_button_text}
-        </Button>
-        <Button
-          className="flex-1 py-6 rounded-xl bg-[#6E5F47] hover:bg-[#5c4f3b] text-white shadow-lg shadow-[#6E5F47]/10"
-          onClick={onNext}
-        >
-          {subStep === content.steps.length
+      <StepButtons
+        backText={content.back_button_text}
+        nextText={
+          subStep === content.steps.length
             ? content.final_button_text
-            : content.next_button_text}
-        </Button>
-      </div>
+            : content.next_button_text
+        }
+        onBack={onBack}
+        onNext={onNext}
+      />
     </div>
   );
 }
@@ -447,217 +394,98 @@ function DevotionalStep({
   onBack: () => void;
 }) {
   return (
-    <div className="space-y-8 px-4 sm:px-0">
-      <div className="text-center space-y-2">
-        <h2 className="text-2xl font-playfair font-normal tracking-[-0.03em] text-[#6E5F47] dark:text-zinc-200">
-          {content.title}
-        </h2>
-        <p className="text-zinc-500 dark:text-zinc-400 text-sm italic">
-          {content.subtitle}
-        </p>
-      </div>
+    <div className="space-y-8">
+      <StepIntro title={content.title} text={content.subtitle} />
 
-      <div className="space-y-4 max-w-2xl mx-auto">
-        {content.content_cards.map((card, idx) => (
-          <Card
-            key={idx}
-            className="border-zinc-100/50 dark:border-zinc-800 shadow-sm bg-white dark:bg-zinc-900"
-          >
-            <CardContent className="p-6">
-              <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed font-medium">
-                {card}
-              </p>
-            </CardContent>
-          </Card>
+      <div className={cn('space-y-4', bodyClass)}>
+        {content.content_cards.map((paragraph, idx) => (
+          <p key={idx}>{paragraph}</p>
         ))}
-
-        <Card className="border-[#DFE7CF] dark:border-emerald-900/50 shadow-sm bg-[#EFF3E7]/60 dark:bg-emerald-900/10">
-          <CardContent className="p-8 text-center space-y-2">
-            <p className="text-[#6E5F47] dark:text-emerald-400 font-bold text-lg italic font-poppins">
-              &quot;{content.verse_text}&quot;
-            </p>
-            <p className="text-[#6E5F47] dark:text-emerald-500/70 font-bold text-sm">
-              {content.verse_reference}
-            </p>
-          </CardContent>
-        </Card>
-
-        <div className="pt-4 space-y-4">
-          <h4 className="text-[#6E5F47] dark:text-zinc-300 font-bold text-lg font-poppins">
-            {content.good_news_title}
-          </h4>
-          <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium">
-            {content.good_news_body}
-          </p>
-        </div>
-
-        <Card className="border-zinc-100/50 dark:border-zinc-800 shadow-sm bg-zinc-50/50 dark:bg-zinc-900/50 mt-8">
-          <CardContent className="p-6 space-y-2">
-            <p className="text-[#6E5F47] dark:text-zinc-200 font-bold">
-              {content.reflection_title}
-            </p>
-            <p className="text-zinc-500 dark:text-zinc-400 italic">
-              {content.reflection_prompt}
-            </p>
-          </CardContent>
-        </Card>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto pt-8">
-        <Button
-          variant="outline"
-          className="flex-1 py-6 rounded-xl border-zinc-200 font-bold"
-          onClick={onBack}
-        >
-          {content.previous_button_text}
-        </Button>
-        <Button
-          className="flex-1 py-6 rounded-xl bg-[#6E5F47] hover:bg-[#5c4f3b] text-white shadow-lg shadow-[#6E5F47]/10 font-bold"
-          onClick={onNext}
-        >
-          {content.next_button_text}
-        </Button>
+      <Verse text={content.verse_text} reference={content.verse_reference} />
+
+      <div className="space-y-3">
+        <h3 className={h3Class}>{content.good_news_title}</h3>
+        <p className={bodyClass}>{content.good_news_body}</p>
       </div>
+
+      <div>
+        <p className="font-poppins font-medium text-[#6E5F47]">
+          {content.reflection_title}
+        </p>
+        <p className={cn('mt-1', bodyClass)}>{content.reflection_prompt}</p>
+      </div>
+
+      <StepButtons
+        backText={content.previous_button_text}
+        nextText={content.next_button_text}
+        onBack={onBack}
+        onNext={onNext}
+      />
     </div>
   );
 }
 
 function NextStepsStep({
   content,
-  crisisContent,
+  crisis,
 }: {
   content: JourneyNextStepsSection;
-  crisisContent: JourneyCrisisSection;
+  crisis: JourneyCrisisSection;
 }) {
   return (
     <div className="space-y-8">
-      <div className="flex justify-center mb-6">
-        <div className="w-16 h-16 rounded-full bg-[#EFF3E7] flex items-center justify-center text-[#91AFAA]">
-          <Compass className="w-8 h-8" />
-        </div>
-      </div>
+      <StepIntro title={content.title} text={content.description} />
 
-      <div className="text-center space-y-4">
-        <h2 className="text-3xl font-playfair font-normal tracking-[-0.03em] text-[#6E5F47] dark:text-zinc-200">
-          {content.title}
-        </h2>
-        <p className="text-zinc-500 dark:text-zinc-400 max-w-md mx-auto leading-relaxed">
-          {content.description}
-        </p>
-      </div>
-
-      <div className="space-y-3 max-w-md mx-auto pt-8 px-4 sm:px-0">
+      <ul className="space-y-1">
         {/* Always a person and a plan first, whatever the editable steps say. */}
-        <EcoachLink
-          linkName="ecoach_get_started"
-          className="group block rounded-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
-        >
-          <Card className="border-none bg-[#6E5F47] text-white transition-shadow duration-300 hover:shadow-md mb-3">
-            <CardContent className="p-4 flex items-center gap-4">
-              <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-[#6E5F47]">
-                <MessageCircle className="w-5 h-5" />
-              </div>
-              <span className="flex-1">
-                <span className="block font-bold text-sm md:text-base">
-                  Talk to a real person
-                </span>
-                <span className="block text-sm text-white/85">
-                  An e-coach from Himala Everyday, on Messenger.
-                </span>
-              </span>
-              <ChevronRight className="w-5 h-5 text-white/70" />
-            </CardContent>
-          </Card>
-        </EcoachLink>
-        <Link href="/action-plan">
-          <Card className="group border-zinc-100 dark:border-zinc-800/50 hover:border-[#C6D6AC] dark:hover:border-[#AEC488]/30 transition-all duration-300 hover:shadow-md cursor-pointer mb-3">
-            <CardContent className="p-4 flex items-center gap-4">
-              <div className="w-10 h-10 rounded-lg bg-[#EFF3E7] dark:bg-emerald-900/20 flex items-center justify-center text-[#91AFAA] group-hover:scale-110 transition-transform">
-                <ClipboardList className="w-5 h-5" />
-              </div>
-              <span className="flex-1">
-                <span className="block font-bold text-sm md:text-base text-zinc-700 dark:text-zinc-200 group-hover:text-[#6E5F47]">
-                  Make your free plan
-                </span>
-                <span className="block text-sm text-zinc-500 dark:text-zinc-400">
-                  9 quick questions, then small steps for this week.
-                </span>
-              </span>
-              <ChevronRight className="w-5 h-5 text-zinc-300 group-hover:text-[#91AFAA] transition-colors" />
-            </CardContent>
-          </Card>
-        </Link>
-        {content.actions.map((action, idx) => {
-          const ActionIcon = getActionIcon(action.icon);
-
-          return (
-            <Link key={idx} href={action.href}>
-              <Card className="group border-zinc-100 dark:border-zinc-800/50 hover:border-[#C6D6AC] dark:hover:border-[#AEC488]/30 transition-all duration-300 hover:shadow-md cursor-pointer mb-3">
-                <CardContent className="p-4 flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-[#EFF3E7] dark:bg-emerald-900/20 flex items-center justify-center text-[#91AFAA] group-hover:scale-110 transition-transform">
-                    <ActionIcon className="w-5 h-5" />
-                  </div>
-                  <span className="flex-1 font-bold text-sm md:text-base text-zinc-700 dark:text-zinc-200 group-hover:text-[#6E5F47] dark:group-hover:text-[#6E5F47] transition-colors">
-                    {action.title}
-                  </span>
-                  <ChevronRight className="w-5 h-5 text-zinc-300 group-hover:text-[#91AFAA] transition-colors" />
-                </CardContent>
-              </Card>
+        <li className="hb-step-in">
+          <EcoachLink linkName="ecoach_get_started" className={nextLinkClass}>
+            Talk to a real person
+          </EcoachLink>
+        </li>
+        <li className="hb-step-in" style={{ animationDelay: '60ms' }}>
+          <Link href="/action-plan" className={nextLinkClass}>
+            Make your free plan
+          </Link>
+        </li>
+        {content.actions.map((action, idx) => (
+          <li
+            key={idx}
+            className="hb-step-in"
+            style={{ animationDelay: `${Math.min(idx + 2, 7) * 60}ms` }}
+          >
+            <Link href={action.href} className={nextLinkClass}>
+              {action.title}
             </Link>
-          );
-        })}
-      </div>
+          </li>
+        ))}
+      </ul>
 
-      <div className="max-w-md mx-auto mt-12 px-4 sm:px-0">
-        <Card className="bg-[#fff9f2] dark:bg-orange-900/10 border-[#ffe4c4] dark:border-orange-900/20">
-          <CardContent className="p-6 text-center space-y-4">
-            <p className="font-bold text-[#8b4513] dark:text-orange-300 text-sm md:text-base text-center">
-              {crisisContent.heading}
-            </p>
-            <div className="space-y-5 pt-2">
-              {crisisContent.contacts.map((contact, contactIdx) => {
-                const ContactIcon =
-                  crisisIcons[contactIdx % crisisIcons.length];
+      {/* Every line the admin lists, more than the band under the page. */}
+      <section className="rounded-2xl border border-[#AEC488] bg-[#EFF3E7] p-5 text-[#6E5F47]">
+        <h2 className="font-playfair text-2xl leading-[0.95] tracking-[-0.04em]">
+          {crisis.heading}
+        </h2>
+        <ul className="mt-4 space-y-4">
+          {crisis.contacts.map((contact, index) => (
+            <li key={index}>
+              <p className="font-poppins font-medium">{contact.title}</p>
+              {contact.lines.map((line, lineIndex) => (
+                <p key={lineIndex} className="mt-1">
+                  {line.label}{' '}
+                  <span className="font-bold tabular-nums">{line.value}</span>
+                </p>
+              ))}
+            </li>
+          ))}
+        </ul>
+      </section>
 
-                return (
-                  <div
-                    key={contactIdx}
-                    className="text-zinc-600 dark:text-zinc-400 text-sm space-y-1 text-left"
-                  >
-                    <div className="flex items-center gap-2 text-zinc-800 dark:text-zinc-200 font-bold mb-2">
-                      <ContactIcon className="w-4 h-4 text-[#91AFAA]" />
-                      <span>{contact.title}</span>
-                    </div>
-                    {contact.lines.map((line, lineIdx) => (
-                      <p
-                        key={lineIdx}
-                        className={cn(
-                          'flex gap-3',
-                          lineIdx < contact.lines.length - 1
-                            ? 'border-b border-orange-900/10 pb-1'
-                            : 'pt-1'
-                        )}
-                      >
-                        <span>{line.label}</span>
-                        <strong>{line.value}</strong>
-                      </p>
-                    ))}
-                  </div>
-                );
-              })}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      <div className="text-center pt-8">
-        <Link
-          href="/"
-          className="text-sm font-bold text-[#6E5F47] hover:underline"
-        >
-          {content.home_link_text}
-        </Link>
-      </div>
+      <Link href="/" className={cn(quietClass, '-ml-5')}>
+        {content.home_link_text}
+      </Link>
     </div>
   );
 }

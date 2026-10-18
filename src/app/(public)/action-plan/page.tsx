@@ -56,7 +56,7 @@ import {
   useHomeScreenStatus,
 } from '@/lib/installPrompt';
 import { setLanguage, useLanguage } from '@/lib/languagePreference';
-import { PHOTOS } from '@/lib/photos';
+import { usePhoto } from '@/components/ui/PhotoTurn';
 import { forgetTool } from '@/lib/myTool';
 import { clearToolNotes } from '@/lib/toolNotes';
 import { calmerCount, clearToolChecks, useToolChecks } from '@/lib/toolChecks';
@@ -94,7 +94,7 @@ const ui = {
     restoreError: 'That file is not a HopeBegins plan backup.',
     questionOf: (n: number, total: number) => `Question ${n} of ${total}`,
     progress: 'Progress',
-    previous: 'Previous',
+    previous: 'Back',
     welcomeDay: (name: string, day: number) =>
       `Welcome back${name ? `, ${name}` : ''}. This is day ${day} of your 4 weeks.`,
     welcomeBack: (name: string) => `Welcome back${name ? `, ${name}` : ''}.`,
@@ -1319,6 +1319,7 @@ function RestoreBackup({ t }: { t: Copy }) {
 }
 
 export default function ActionPlanPage() {
+  const morning = usePhoto('morning');
   const saved = useSavedPlan();
   const lang = useLanguage();
   const t = ui[lang];
@@ -1448,11 +1449,11 @@ export default function ActionPlanPage() {
     </div>
   );
 
-  // A real morning in Valencia, Philippines: the plan's one picture.
+  // A real Filipino morning: the plan's one picture.
   const morningPhoto = (
     <div className="relative mb-8 aspect-[16/9] overflow-hidden rounded-xl bg-[#EFF3E7] print:hidden">
       <Image
-        src={PHOTOS.morning}
+        src={morning.src}
         alt=""
         fill
         preload
@@ -1498,7 +1499,7 @@ export default function ActionPlanPage() {
               />
               <button
                 type="submit"
-                className="group mt-6 flex w-fit items-center justify-center rounded-2xl bg-[#6E5F47] px-10 py-4 font-poppins text-lg font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#5c4f3b] hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50 motion-reduce:hover:translate-y-0"
+                className="group mt-6 flex min-h-12 w-fit items-center justify-center rounded-2xl bg-[#6E5F47] px-8 font-poppins text-lg font-bold text-white transition-colors hover:bg-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
               >
                 {t.start}
                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
@@ -1524,71 +1525,65 @@ export default function ActionPlanPage() {
         <div className="max-w-5xl mx-auto">
           <div className="max-w-2xl">
             {header}
-            <Card className="py-0 bg-white border-zinc-100">
-              <CardContent className="p-6 md:p-8">
-                <div className="flex items-center justify-between gap-4 text-sm text-[#6E5F47]">
-                  <span>{t.questionOf(current + 1, questions.length)}</span>
-                  <div
-                    className="h-1.5 w-32 rounded-full bg-[#EFF3E7]"
-                    role="progressbar"
-                    aria-valuemin={1}
-                    aria-valuemax={questions.length}
-                    aria-valuenow={current + 1}
-                    aria-label={t.progress}
-                  >
-                    <div
-                      className="h-full rounded-full bg-[#AEC488] transition-[width] duration-300 motion-reduce:transition-none"
-                      style={{
-                        width: `${((current + 1) / questions.length) * 100}%`,
-                      }}
-                    />
-                  </div>
-                </div>
-
-                <div key={current} className="hb-step-in">
-                  {question.stem && (
-                    <p className="mt-6 text-sm text-[#6E5F47]">
-                      {question.stem}
-                    </p>
-                  )}
-                  <h1
-                    ref={headingRef}
-                    tabIndex={-1}
-                    className={`${question.stem ? 'mt-2' : 'mt-6'} font-poppins font-bold text-xl md:text-2xl text-[#6E5F47] focus:outline-none`}
-                  >
-                    {question.prompt}
-                  </h1>
-                  {question.note && (
-                    <p className="mt-2 text-sm text-[#6E5F47]">
-                      {question.note}
-                    </p>
-                  )}
-
-                  <div className="mt-6 grid gap-3">
-                    {question.options.map((option) => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onClick={() => handleAnswer(option.value)}
-                        aria-pressed={answers[question.key] === option.value}
-                        className="w-full rounded-2xl border border-zinc-200 bg-white px-5 py-4 text-left font-poppins font-medium text-[#6E5F47] transition-colors hover:border-[#AEC488] hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40 aria-pressed:border-[#AEC488] aria-pressed:bg-[#EFF3E7]"
-                      >
-                        {option.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={handlePrevious}
-                  className="mt-6 inline-flex min-h-11 items-center gap-2 -ml-3 rounded-xl px-3 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
+            <div>
+              <div className="flex items-center justify-between gap-4 text-sm text-[#6E5F47]">
+                <span>{t.questionOf(current + 1, questions.length)}</span>
+                <div
+                  className="h-1.5 w-32 rounded-full bg-[#EFF3E7]"
+                  role="progressbar"
+                  aria-valuemin={1}
+                  aria-valuemax={questions.length}
+                  aria-valuenow={current + 1}
+                  aria-label={t.progress}
                 >
-                  <ArrowLeft className="w-4 h-4" />
-                  {t.previous}
-                </button>
-              </CardContent>
-            </Card>
+                  <div
+                    className="h-full rounded-full bg-[#AEC488] transition-[width] duration-300 motion-reduce:transition-none"
+                    style={{
+                      width: `${((current + 1) / questions.length) * 100}%`,
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div key={current} className="hb-step-in">
+                {question.stem && (
+                  <p className="mt-6 text-sm text-[#6E5F47]">{question.stem}</p>
+                )}
+                <h1
+                  ref={headingRef}
+                  tabIndex={-1}
+                  className={`${question.stem ? 'mt-2' : 'mt-6'} text-balance font-playfair text-3xl md:text-4xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em] focus:outline-none`}
+                >
+                  {question.prompt}
+                </h1>
+                {question.note && (
+                  <p className="mt-2 text-sm text-[#6E5F47]">{question.note}</p>
+                )}
+
+                <div className="mt-6 grid gap-3">
+                  {question.options.map((option) => (
+                    <button
+                      key={option.value}
+                      type="button"
+                      onClick={() => handleAnswer(option.value)}
+                      aria-pressed={answers[question.key] === option.value}
+                      className="w-full rounded-2xl border border-zinc-200 bg-white px-5 py-4 text-left font-poppins font-medium text-[#6E5F47] transition-colors hover:border-[#AEC488] hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40 aria-pressed:border-[#AEC488] aria-pressed:bg-[#EFF3E7]"
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={handlePrevious}
+                className="mt-6 inline-flex min-h-11 items-center gap-2 -ml-3 rounded-xl px-3 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                {t.previous}
+              </button>
+            </div>
           </div>
         </div>
       </div>

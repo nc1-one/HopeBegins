@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import headerLogo from '@/assets/images/header-logo.png';
-import { Home, Menu, Phone, X } from 'lucide-react';
+import { Menu, Phone, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { usePageLanguage } from '@/lib/pageLanguage';
 import { analyticsService } from '@/services/analyticsService';
@@ -42,7 +42,7 @@ export function Header() {
   }, []);
 
   const navLinks = [
-    { href: '/', label: 'Home', icon: Home },
+    { href: '/', label: 'Home' },
     { href: '/tools', label: 'Tools' },
     { href: '/our-approach', label: 'Our approach' },
     { href: 'https://warroom.hopebegins.today', label: 'Prayer War Room' },
@@ -123,7 +123,7 @@ export function Header() {
                     ? 'noopener noreferrer'
                     : undefined
                 }
-                className="flex items-center gap-2 text-sm font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins"
+                className="flex items-center text-sm font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins"
                 onClick={(e) => {
                   if (link.href.includes('warroom')) {
                     analyticsService.recordClick('war_room');
@@ -133,7 +133,6 @@ export function Header() {
                   }
                 }}
               >
-                {link.icon && <link.icon className="w-4 h-4" />}
                 {link.label}
               </Link>
             ))}
@@ -194,7 +193,7 @@ export function Header() {
                         ? 'noopener noreferrer'
                         : undefined
                     }
-                    className="flex min-h-11 items-center gap-3 text-sm font-bold text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins"
+                    className="flex min-h-12 items-center text-base font-semibold text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins"
                     onClick={(e) => {
                       if (link.href.includes('warroom')) {
                         analyticsService.recordClick('war_room');
@@ -206,7 +205,6 @@ export function Header() {
                       }
                     }}
                   >
-                    {link.icon && <link.icon className="w-5 h-5" />}
                     {link.label}
                   </Link>
                 ))}

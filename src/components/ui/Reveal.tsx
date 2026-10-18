@@ -12,12 +12,15 @@ export function Reveal({
   delay = 0,
   className,
   as: Tag = 'div',
+  ...rest
 }: {
   children: ReactNode;
   /** Milliseconds, to stagger items in a row. */
   delay?: number;
   className?: string;
   as?: 'div' | 'section' | 'li' | 'article';
+  id?: string;
+  'aria-labelledby'?: string;
 }) {
   const ref = useRef<HTMLElement>(null);
 
@@ -41,6 +44,7 @@ export function Reveal({
 
   return (
     <Tag
+      {...rest}
       ref={ref as never}
       className={className}
       style={

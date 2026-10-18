@@ -7,7 +7,7 @@ import {
   PopoutItem,
 } from '@/services/siteSettingsService';
 import Link from 'next/link';
-import { X, Sparkles } from 'lucide-react';
+import { X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { isCalmPage } from '@/lib/calmPages';
 
@@ -16,6 +16,12 @@ import { useQuery } from '@tanstack/react-query';
 // Shown at most once per visit, and never on the pages for people who are
 // struggling right now.
 const SHOWN_KEY = 'hopebegins.popout.shown';
+
+// Button words set in the admin as "PRAY" read as shouting: "Pray".
+const sentenceCase = (text: string) =>
+  text === text.toUpperCase()
+    ? text.charAt(0) + text.slice(1).toLowerCase()
+    : text;
 
 const alreadyShown = () => {
   try {
@@ -74,29 +80,20 @@ const EngagementPopout = () => {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 24 }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
           role="status"
           className="fixed inset-x-4 bottom-4 z-[9999] md:inset-x-auto md:left-6 md:bottom-6 md:w-[420px]"
         >
-          <div className="relative flex items-center gap-4 overflow-hidden rounded-2xl border border-[#DFE7CF] bg-white p-4 pr-12 shadow-lg shadow-[#6E5F47]/10">
-            <Sparkles className="h-5 w-5 shrink-0 text-[#91AFAA]" />
-            <p className="flex-1 text-sm font-bold leading-snug text-[#6E5F47]">
+          <div className="relative flex items-center gap-4 rounded-2xl border border-[#DFE7CF] bg-white p-4 pr-12 shadow-sm">
+            <p className="flex-1 text-sm leading-snug text-[#6E5F47]">
               {currentItem.message}
             </p>
             <Link
               href={currentItem.link}
-              className="inline-flex min-h-11 shrink-0 items-center rounded-2xl bg-[#6E5F47] px-4 text-sm font-bold text-white transition-colors hover:bg-[#5c4f3b]"
+              className="inline-flex min-h-11 shrink-0 items-center rounded-2xl bg-[#6E5F47] px-4 font-poppins text-sm font-bold text-white transition-colors hover:bg-[#5c4f3b]"
             >
-              {currentItem.button_text}
+              {sentenceCase(currentItem.button_text)}
             </Link>
-
-            {/* Time left before it closes on its own */}
-            <motion.div
-              initial={{ scaleX: 1 }}
-              animate={{ scaleX: 0 }}
-              transition={{ duration: 10, ease: 'linear' }}
-              className="absolute bottom-0 left-0 right-0 h-1 origin-left bg-[#AEC488]"
-            />
 
             <button
               type="button"

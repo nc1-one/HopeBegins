@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import { Play } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { secondaryClass } from '@/components/tools/toolStyles';
+import { cn } from '@/lib/utils';
 import { Hopecast } from '@/types/hopecast';
+import { toSentenceCase } from './sentence-case';
 import 'react-quill-new/dist/quill.snow.css';
 
 const HopecastContent = React.memo(({ verse }: { verse: string }) => {
@@ -13,9 +14,9 @@ const HopecastContent = React.memo(({ verse }: { verse: string }) => {
   const cleanVerse = verse.replace(/&nbsp;|\u00A0/g, ' ');
 
   return (
-    <div className="bg-[#EFF3E7] p-6 rounded-2xl border border-[#DFE7CF] ql-snow">
+    <div className="ql-snow">
       <div
-        className="ql-editor !p-0 font-medium text-[#6E5F47] [&_p:empty]:min-h-[1.42em]"
+        className="ql-editor !p-0 text-base text-[#6E5F47] [&_p:empty]:min-h-[1.42em]"
         dangerouslySetInnerHTML={{
           __html: cleanVerse,
         }}
@@ -24,6 +25,12 @@ const HopecastContent = React.memo(({ verse }: { verse: string }) => {
   );
 });
 HopecastContent.displayName = 'HopecastContent';
+
+/** "By: Ptr. Ana" and "By Ptr. Ana" both show as "Ptr. Ana". */
+function speakerName(name: string | undefined) {
+  const cleaned = (name || '').replace(/^\s*by(\s*:|\s)\s*/i, '').trim();
+  return cleaned || 'Anonymous';
+}
 
 interface HopecastCardProps {
   hopecast: Hopecast;
@@ -38,77 +45,59 @@ export function HopecastCard({
   isPlaying = false,
   progress = 0,
 }: HopecastCardProps) {
-  const categoryName = hopecast.category_details?.[0]?.name || 'GENERAL';
+  const categoryName = toSentenceCase(
+    hopecast.category_details?.[0]?.name || 'General'
+  );
+  const title = toSentenceCase(hopecast.title);
 
   return (
-    <Card
-      className={`group transition-all duration-300 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_-10px_rgba(110,95,71,0.15)] bg-white rounded-3xl overflow-hidden border-0 shadow-sm ${
-        isPlaying ? 'ring-1 ring-[#AEC488]' : 'border-zinc-50'
-      }`}
-    >
-      <CardContent className="px-6 flex flex-col gap-6">
-        <div className="flex items-center justify-between gap-6 w-full">
-          <div className="flex-1 space-y-3">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6E5F47] font-poppins">
-              {categoryName}
-            </p>
-            <h2 className="text-2xl font-bold text-[#6E5F47] font-poppins leading-tight">
-              {hopecast.title}
-            </h2>
-            <div className="flex items-center gap-2 text-sm text-[#6E5F47] font-medium">
-              <span>{hopecast.name || 'Anonymous'}</span>
-              <span className="text-zinc-300 font-bold">·</span>
-              <span>{hopecast.duration || 'Daily Hope'}</span>
-            </div>
-          </div>
-
-          <button
-            onClick={() => onPlay?.(hopecast)}
-            className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 shadow-sm shrink-0 ${
-              isPlaying
-                ? 'bg-[#6E5F47] text-white shadow-[#6E5F47]/20 shadow-lg'
-                : 'bg-[#EFF3E7] text-[#6E5F47] hover:bg-[#6E5F47] hover:text-white'
-            }`}
-            aria-label={
-              isPlaying ? `Pause ${hopecast.title}` : `Play ${hopecast.title}`
-            }
-          >
-            {isPlaying ? (
-              <div className="flex gap-1">
-                <div className="w-1 h-4 bg-current rounded-full" />
-                <div className="w-1 h-4 bg-current rounded-full" />
-              </div>
-            ) : (
-              <Play className="w-5 h-5 ml-1 fill-current" />
-            )}
-          </button>
+    <article className="flex flex-col gap-5">
+      <div className="flex items-start justify-between gap-4">
+        <div className="min-w-0 flex-1 space-y-2">
+          <p className="text-sm text-[#6E5F47]/85">{categoryName}</p>
+          <h2 className="text-balance font-playfair text-2xl md:text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
+            {title}
+          </h2>
+          <p className="flex flex-wrap gap-x-3 text-sm text-[#6E5F47]/85">
+            <span className="whitespace-nowrap">
+              {speakerName(hopecast.name)}
+            </span>
+            <span className="whitespace-nowrap">
+              {hopecast.duration || 'Daily Hope'}
+            </span>
+          </p>
         </div>
 
-        {/* Player Controls & Quote Section */}
-        {isPlaying && (
-          <div className="space-y-4 hb-panel-in">
-            {/* Progress Bar */}
-            <div className="h-1.5 w-full bg-zinc-100 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-[#AEC488] transition-all duration-300 ease-linear"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
+        <button
+          type="button"
+          onClick={() => onPlay?.(hopecast)}
+          className={cn(secondaryClass, 'min-w-24 shrink-0')}
+          aria-label={isPlaying ? `Pause ${title}` : `Play ${title}`}
+        >
+          {isPlaying ? 'Pause' : 'Play'}
+        </button>
+      </div>
 
-            {/* Content Box */}
-            <HopecastContent verse={hopecast.verse || ''} />
-
-            <div className="pt-2">
-              <Link
-                href="/prayers"
-                className="w-full inline-flex justify-center items-center py-3 px-4 rounded-2xl font-poppins font-bold text-[#6E5F47] bg-[#EFF3E7] hover:bg-[#6E5F47] hover:text-white transition-colors duration-300 text-sm"
-              >
-                Ask someone to pray for you
-              </Link>
-            </div>
+      {/* Player Controls & Quote Section */}
+      {isPlaying && (
+        <div className="space-y-5 hb-panel-in">
+          <div className="h-1.5 w-full overflow-hidden rounded-full bg-[#E2DFDA]">
+            <div
+              className="h-full bg-[#AEC488] transition-all duration-300 ease-linear"
+              style={{ width: `${progress}%` }}
+            />
           </div>
-        )}
-      </CardContent>
-    </Card>
+
+          <HopecastContent verse={hopecast.verse || ''} />
+
+          <Link
+            href="/prayers"
+            className="inline-flex min-h-11 items-center font-poppins font-medium text-[#6E5F47] underline underline-offset-4 hover:text-[#5c4f3b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA] rounded-md"
+          >
+            Ask someone to pray for you
+          </Link>
+        </div>
+      )}
+    </article>
   );
 }

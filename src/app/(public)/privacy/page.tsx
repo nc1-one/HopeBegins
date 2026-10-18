@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata = pageMetadata(
   '/privacy',
-  'Privacy and Confidentiality',
+  'Privacy and confidentiality',
   'What HopeBegins collects, who can see it, how we protect it, and your rights.'
 );
 
@@ -61,11 +61,11 @@ const sections = [
 
 export default function PrivacyPage() {
   return (
-    <div className="px-6 pt-10 pb-24">
+    <div className="px-6 pt-6 pb-24">
       <div className="max-w-5xl mx-auto">
-        <div className="max-w-3xl">
-          <h1 className="font-playfair text-4xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
-            Privacy and Confidentiality
+        <div className="max-w-2xl">
+          <h1 className="text-balance font-playfair text-4xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
+            Privacy and confidentiality
           </h1>
           <p className="mt-4 text-sm text-[#6E5F47]">
             Last updated {LAST_UPDATED}
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
           <div className="mt-12 space-y-10">
             {sections.map((section) => (
               <section key={section.title}>
-                <h2 className="font-poppins font-bold text-xl text-[#6E5F47]">
+                <h2 className="font-playfair text-2xl md:text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
                   {section.title}
                 </h2>
                 <ul className="mt-4 space-y-3 list-disc pl-5 marker:text-[#AEC488]">
@@ -93,7 +93,7 @@ export default function PrivacyPage() {
             ))}
 
             <section>
-              <h2 className="font-poppins font-bold text-xl text-[#6E5F47]">
+              <h2 className="font-playfair text-2xl md:text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
                 Contact us
               </h2>
               <p className="mt-4 text-[#6E5F47] leading-relaxed">
@@ -115,8 +115,8 @@ export default function PrivacyPage() {
               </p>
             </section>
 
-            <section className="rounded-2xl bg-[#EFF3E7] p-6">
-              <h2 className="font-poppins font-bold text-xl text-[#6E5F47]">
+            <section className="rounded-2xl border border-[#AEC488] bg-[#EFF3E7] p-5 text-[#6E5F47]">
+              <h2 className="font-playfair text-2xl md:text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
                 HopeBegins is not an emergency service
               </h2>
               <p className="mt-3 text-[#6E5F47] leading-relaxed">

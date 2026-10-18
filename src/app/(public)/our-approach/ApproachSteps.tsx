@@ -3,12 +3,15 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PHOTOS, type PhotoId } from '@/lib/photos';
+import { FadeImage } from '@/components/ui/FadeImage';
+import { photo, type PhotoId } from '@/lib/photos';
 
 export interface ApproachStep {
   name: string;
   text: string;
   photo: PhotoId;
+  /** A different picture from the same set, when the page shows it elsewhere. */
+  offset?: number;
   link?: { href: string; label: string };
 }
 
@@ -17,7 +20,14 @@ export interface ApproachStep {
  * view and changes with the step being read, which comes into focus; on a
  * phone each step carries its own photo.
  */
-export function ApproachSteps({ steps }: { steps: ApproachStep[] }) {
+export function ApproachSteps({
+  steps,
+  turn,
+}: {
+  steps: ApproachStep[];
+  /** This turn of the photo rotation, from the server. */
+  turn: number;
+}) {
   const [active, setActive] = useState(0);
   const items = useRef<(HTMLLIElement | null)[]>([]);
 
@@ -44,7 +54,7 @@ export function ApproachSteps({ steps }: { steps: ApproachStep[] }) {
           {steps.map((step, index) => (
             <Image
               key={step.name}
-              src={PHOTOS[step.photo]}
+              src={photo(step.photo, turn, step.offset).src}
               alt=""
               fill
               sizes="480px"
@@ -71,8 +81,8 @@ export function ApproachSteps({ steps }: { steps: ApproachStep[] }) {
             }`}
           >
             <div className="relative mb-5 aspect-[4/3] overflow-hidden rounded-xl bg-[#EFF3E7] md:hidden">
-              <Image
-                src={PHOTOS[step.photo]}
+              <FadeImage
+                src={photo(step.photo, turn, step.offset).src}
                 alt=""
                 fill
                 sizes="100vw"
@@ -91,7 +101,7 @@ export function ApproachSteps({ steps }: { steps: ApproachStep[] }) {
             {step.link && (
               <Link
                 href={step.link.href}
-                className="mt-2 inline-flex min-h-11 w-fit items-center font-poppins font-bold text-[#6E5F47] underline underline-offset-4"
+                className="mt-2 inline-flex min-h-11 w-fit items-center font-poppins font-medium text-[#6E5F47] underline underline-offset-4 hover:text-[#5c4f3b]"
               >
                 {step.link.label}
               </Link>

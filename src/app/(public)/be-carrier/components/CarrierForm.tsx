@@ -1,7 +1,8 @@
 'use client';
 
+import Link from 'next/link';
+import type { ComponentProps } from 'react';
 import { useCarrierForm } from '../hooks/useCarrierForm';
-import { Button } from '@/components/ui/button';
 import {
   FormItem,
   FormLabel,
@@ -12,224 +13,177 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent } from '@/components/ui/card';
-import { Loader2 } from 'lucide-react';
-import Link from 'next/link';
+import { primaryClass } from '@/components/tools/toolStyles';
+
+const fieldClass =
+  'h-12 rounded-xl border-zinc-200 bg-white text-base text-[#6E5F47] focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
+const labelClass = 'text-sm font-medium text-[#6E5F47]';
+
+type FieldName =
+  | 'first_name'
+  | 'last_name'
+  | 'email'
+  | 'phone'
+  | 'church_community';
 
 export function CarrierForm() {
-  const { form, onSubmit, isSubmitting } = useCarrierForm();
+  const { form, onSubmit, isSubmitting, isSent } = useCarrierForm();
+
+  if (isSent) {
+    return (
+      <div
+        role="status"
+        className="rounded-2xl border border-[#AEC488] bg-[#EFF3E7] p-6 text-[#6E5F47] hb-panel-in"
+      >
+        <p className="font-playfair text-3xl leading-[0.95] tracking-[-0.04em]">
+          Thank you for giving your time.
+        </p>
+        <p className="mt-3 leading-relaxed">
+          We read every application. If yours is approved, we&apos;ll email you
+          a password so you can sign in and start praying for people.
+        </p>
+      </div>
+    );
+  }
+
+  const textField = (
+    name: FieldName,
+    label: string,
+    props: ComponentProps<typeof Input> = {}
+  ) => (
+    <FormField
+      control={form.control}
+      name={name}
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel className={labelClass}>{label}</FormLabel>
+          <FormControl>
+            <Input className={fieldClass} {...props} {...field} />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+  );
 
   return (
-    <Card className="py-0 border-zinc-100 shadow-sm bg-white">
-      <CardContent className="p-6 md:p-8">
-        <Form {...form}>
-          <form onSubmit={onSubmit} className="space-y-6">
-            <FormField
-              control={form.control}
-              name="first_name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-sm font-medium text-[#6E5F47]">
-                    First name *
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="First name"
-                      className="bg-zinc-50/50 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800 h-12"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+    <Form {...form}>
+      <form onSubmit={onSubmit} className="space-y-5">
+        <div className="grid gap-5 sm:grid-cols-2">
+          {textField('first_name', 'First name', {
+            autoComplete: 'given-name',
+          })}
+          {textField('last_name', 'Last name', {
+            autoComplete: 'family-name',
+          })}
+        </div>
+        {textField('email', 'Email', {
+          type: 'email',
+          autoComplete: 'email',
+        })}
+        {textField('phone', 'Phone (optional)', {
+          type: 'tel',
+          autoComplete: 'tel',
+        })}
+        {textField('church_community', 'Church or community (optional)')}
 
-            <FormField
-              control={form.control}
-              name="last_name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-sm font-medium text-[#6E5F47]">
-                    Last name *
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Last name"
-                      className="bg-zinc-50/50 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800 h-12"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+        <FormField
+          control={form.control}
+          name="carrier_reason"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className={labelClass}>
+                Why do you want to be a Hope Carrier?
+              </FormLabel>
+              <FormControl>
+                <Textarea
+                  placeholder="A few sentences is enough"
+                  className="min-h-[140px] resize-none rounded-xl border-zinc-200 bg-white text-base text-[#6E5F47] focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-sm font-medium text-[#6E5F47]">
-                    Email *
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      type="email"
-                      placeholder="your@email.com"
-                      className="bg-zinc-50/50 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800 h-12"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+        <FormField
+          control={form.control}
+          name="agreed_to_guidelines"
+          render={({ field }) => (
+            <FormItem>
+              <div className="flex items-start gap-3">
+                <FormControl>
+                  <input
+                    type="checkbox"
+                    id="agreedToGuidelines"
+                    checked={field.value}
+                    onChange={field.onChange}
+                    className="mt-1 h-5 w-5 shrink-0 rounded border-zinc-300 accent-[#6E5F47]"
+                  />
+                </FormControl>
+                <label
+                  htmlFor="agreedToGuidelines"
+                  className="cursor-pointer text-[#6E5F47] leading-snug"
+                >
+                  I agree to the{' '}
+                  <Link
+                    href="/guidelines"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium underline underline-offset-4 hover:text-[#5c4f3b]"
+                  >
+                    Hope Carrier code of conduct
+                  </Link>
+                </label>
+              </div>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-            <FormField
-              control={form.control}
-              name="phone"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-sm font-medium text-[#6E5F47]">
-                    Phone (optional)
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Phone number"
-                      className="bg-zinc-50/50 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800 h-12"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+        {/* Left empty by people; filled in by spam bots. */}
+        <FormField
+          control={form.control}
+          name="website"
+          render={({ field }) => (
+            <FormItem className="hidden">
+              <FormControl>
+                <Input
+                  tabIndex={-1}
+                  autoComplete="off"
+                  placeholder="Your website"
+                  {...field}
+                />
+              </FormControl>
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="lastNameHoney"
+          render={({ field }) => (
+            <FormItem className="hidden">
+              <FormControl>
+                <Input
+                  tabIndex={-1}
+                  autoComplete="off"
+                  placeholder="Your last name"
+                  {...field}
+                />
+              </FormControl>
+            </FormItem>
+          )}
+        />
 
-            <FormField
-              control={form.control}
-              name="church_community"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-sm font-medium text-[#6E5F47]">
-                    Church or community (optional)
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Your church or community"
-                      className="bg-zinc-50/50 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800 h-12"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="carrier_reason"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-sm font-medium text-[#6E5F47]">
-                    Why do you want to be a Hope Carrier? *
-                  </FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="A few sentences is enough"
-                      className="min-h-[150px] bg-zinc-50/50 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800 resize-none"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <div className="space-y-3 pt-2">
-              <FormField
-                control={form.control}
-                name="agreed_to_guidelines"
-                render={({ field }) => (
-                  <FormItem>
-                    <div className="flex items-center space-x-3">
-                      <FormControl>
-                        <input
-                          type="checkbox"
-                          id="agreedToGuidelines"
-                          checked={field.value}
-                          onChange={field.onChange}
-                          className="h-4 w-4 rounded border-zinc-300 text-[#6b634d] focus:ring-[#6b634d]"
-                        />
-                      </FormControl>
-                      <label
-                        htmlFor="agreedToGuidelines"
-                        className="text-sm text-zinc-500 font-medium cursor-pointer"
-                      >
-                        I agree to the{' '}
-                        <Link
-                          href="/guidelines"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[#6b634d] dark:text-emerald-500 hover:underline font-bold"
-                        >
-                          Hope Carrier guidelines and code of conduct
-                        </Link>
-                      </label>
-                    </div>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-
-            <FormField
-              control={form.control}
-              name="website"
-              render={({ field }) => (
-                <FormItem className="hidden">
-                  <FormControl>
-                    <Input
-                      tabIndex={-1}
-                      autoComplete="off"
-                      placeholder="Your website"
-                      {...field}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="lastNameHoney"
-              render={({ field }) => (
-                <FormItem className="hidden">
-                  <FormControl>
-                    <Input
-                      tabIndex={-1}
-                      autoComplete="off"
-                      placeholder="Your last name"
-                      {...field}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-
-            <Button
-              type="submit"
-              className="w-full h-12 rounded-2xl bg-[#6E5F47] font-poppins font-bold text-white shadow-sm transition-colors hover:bg-[#5c4f3b]"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? (
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              ) : (
-                'Become a Hope Carrier'
-              )}
-            </Button>
-          </form>
-        </Form>
-      </CardContent>
-    </Card>
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className={`w-full text-base sm:w-auto ${primaryClass}`}
+        >
+          {isSubmitting ? 'Sending…' : 'Become a Hope Carrier'}
+        </button>
+      </form>
+    </Form>
   );
 }

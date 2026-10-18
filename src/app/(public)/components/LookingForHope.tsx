@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { TrackedLink } from '@/components/ui/TrackedLink';
@@ -13,7 +12,9 @@ import { PLAN_DAYS } from '@/lib/actionPlan';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { useLanguage } from '@/lib/languagePreference';
 import { isGuidedTool, useLastTool, type GuidedTool } from '@/lib/myTool';
-import { PHOTOS, type PhotoId } from '@/lib/photos';
+import { type PhotoId } from '@/lib/photos';
+import { FadeImage } from '@/components/ui/FadeImage';
+import { usePhotoPicker } from '@/components/ui/PhotoTurn';
 import {
   START_HASH,
   closeStartMenu,
@@ -187,6 +188,7 @@ export function LookingForHope() {
   const showPaths = hash === START_HASH;
   const lang = useLanguage();
   const t = menuCopy[lang];
+  const pickPhoto = usePhotoPicker();
   const savedPlan = useSavedPlan();
   const planDay = savedPlan ? dayOfPlan(savedPlan.startedAt) + 1 : 0;
   const lastTool = useLastTool();
@@ -232,7 +234,7 @@ export function LookingForHope() {
         <div className="flex flex-1 flex-col items-center justify-center px-6 py-16 text-center">
           <h1
             id="looking-for-hope-title"
-            className="text-balance font-playfair text-5xl md:text-8xl text-white leading-[0.95] tracking-[-0.04em] drop-shadow-2xl"
+            className="text-balance font-playfair text-5xl md:text-8xl text-white leading-[0.95] tracking-[-0.04em] drop-shadow-lg"
           >
             Not okay <em className="text-[#EFF3E7]">today</em>?
           </h1>
@@ -373,12 +375,12 @@ export function LookingForHope() {
                   className="group block rounded-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50 focus-visible:ring-offset-4 focus-visible:ring-offset-[#FCFDFA]"
                 >
                   <span className="relative block aspect-square overflow-hidden rounded-xl bg-[#EFF3E7] md:aspect-[4/3]">
-                    <Image
-                      src={PHOTOS[item.photo]}
+                    <FadeImage
+                      src={pickPhoto(item.photo).src}
                       alt=""
                       fill
                       sizes="(min-width: 768px) 320px, 50vw"
-                      className="object-cover transition-transform duration-[var(--hb-slow)] ease-[var(--hb-ease-out)] group-hover:scale-[1.03] motion-reduce:transition-none"
+                      className="object-cover transition-[opacity,transform] duration-[var(--hb-slow)] ease-[var(--hb-ease-out)] group-hover:scale-[1.03] motion-reduce:transition-none"
                     />
                   </span>
                   <span className="mt-2 block font-poppins text-[15px] font-semibold leading-snug text-[#6E5F47] md:text-[17px]">
@@ -396,8 +398,8 @@ export function LookingForHope() {
             className="mt-10 grid gap-5 border-t border-[#E2DFDA] pt-10 md:grid-cols-2 md:items-center md:gap-8"
           >
             <span className="relative block aspect-[16/10] overflow-hidden rounded-xl bg-[#EFF3E7]">
-              <Image
-                src={PHOTOS.talk}
+              <FadeImage
+                src={pickPhoto('talk').src}
                 alt=""
                 fill
                 sizes="(min-width: 768px) 480px, 100vw"
@@ -407,7 +409,7 @@ export function LookingForHope() {
             <div>
               <h2
                 id="ecoach-title"
-                className="font-playfair text-3xl md:text-4xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
+                className="text-balance font-playfair text-3xl md:text-4xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
               >
                 {t.ecoachTitle}
               </h2>
@@ -423,17 +425,21 @@ export function LookingForHope() {
             </div>
           </section>
 
-          <p className="mt-10 text-[#6E5F47]">
-            <span className="font-bold">{t.moreWays}</span>{' '}
+          <p className="mt-10 leading-loose text-[#6E5F47]">
+            {t.moreWays}
             {morePaths.map((path, index) => (
               <span key={path.href}>
-                {index > 0 && <span aria-hidden> · </span>}
-                <Link
-                  href={path.href}
-                  className="inline-flex min-h-11 items-center underline underline-offset-4 hover:text-[#5c4f3b]"
-                >
-                  {path.title[lang]}
-                </Link>
+                {' '}
+                {/* The dot stays with the link after it, never alone at a line end. */}
+                <span className="whitespace-nowrap">
+                  {index > 0 && <span aria-hidden>· </span>}
+                  <Link
+                    href={path.href}
+                    className="py-2.5 underline underline-offset-4 hover:text-[#5c4f3b]"
+                  >
+                    {path.title[lang]}
+                  </Link>
+                </span>
               </span>
             ))}
           </p>

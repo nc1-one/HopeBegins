@@ -2,63 +2,36 @@
 
 import Script from 'next/script';
 
+/**
+ * The Donorbox form. Its script sizes the frame to the form's real height,
+ * so it loads as soon as the page can run it, before the form says how tall
+ * it is; the 900px is only the size until then.
+ */
 export function DonationForm() {
   return (
-    <section aria-label="Donation form">
-      {/* Donorbox Embed */}
-      <div className="w-full">
-        <Script src="https://donorbox.org/widget.js" strategy="lazyOnload" />
-        <iframe
-          src="https://donorbox.org/embed/hope-begins-plant-a-hope-seed"
-          title="Donation form"
-          name="donorbox"
-          {...{ allowpaymentrequest: 'true' }}
-          seamless
-          frameBorder="0"
-          scrolling="no"
-          height="900px"
-          width="100%"
-          style={{
-            maxWidth: '500px',
-            minWidth: '250px',
-            maxHeight: 'none',
-            display: 'block',
-          }}
-          allow="payment"
-        />
-      </div>
-
-      {/* Alternative Method */}
-      {/* <div className="mt-12 text-center">
-        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 mb-6 flex items-center justify-center gap-4">
-          <span className="h-px w-12 bg-zinc-100 dark:bg-zinc-800" />
-          Or Bank Transfer
-          <span className="h-px w-12 bg-zinc-100 dark:bg-zinc-800" />
-        </p>
-
-        <div className="p-6 rounded-3xl border border-dashed border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm space-y-4">
-          <div className="flex items-center justify-center gap-3 text-zinc-400 mb-2">
-            <Building2 className="h-5 w-5" />
-            <span className="text-sm font-black italic tracking-tighter text-zinc-500">
-              UnionBank of the Philippines
-            </span>
-          </div>
-          <div className="space-y-1">
-            <p className="text-xs font-black text-zinc-800 dark:text-zinc-200 uppercase tracking-widest">
-              HopeBegins Inc.
-            </p>
-            <p className="text-lg font-black text-brand italic tracking-tighter">
-              1012 3456 7890
-            </p>
-          </div>
-          <p className="text-[10px] text-zinc-400 font-medium italic">
-            Please email your deposit slip to{' '}
-            <span className="text-[#a3b281] font-bold">
-              give@hopebegins.today
-            </span>
-          </p>
-        </div>
-      </div> */}
+    <section aria-label="Donation form" className="min-w-0">
+      <Script
+        src="https://donorbox.org/widget.js"
+        strategy="afterInteractive"
+      />
+      <iframe
+        src="https://donorbox.org/embed/hope-begins-plant-a-hope-seed"
+        title="Donation form"
+        name="donorbox"
+        {...{ allowpaymentrequest: 'true' }}
+        seamless
+        frameBorder="0"
+        scrolling="no"
+        height="900px"
+        width="100%"
+        style={{
+          maxWidth: '500px',
+          minWidth: '250px',
+          maxHeight: 'none',
+          display: 'block',
+        }}
+        allow="payment"
+      />
     </section>
   );
 }

@@ -8,17 +8,19 @@ const ALLOCATIONS = [
 export function AllocationBreakdown() {
   return (
     <section aria-labelledby="allocation-title">
-      <h2
+      <h3
         id="allocation-title"
-        className="font-poppins text-xl font-bold text-[#6E5F47]"
+        className="font-playfair text-2xl md:text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
       >
         Where your gift goes
-      </h2>
-      <ul className="mt-3 space-y-2 text-[#6E5F47]">
+      </h3>
+      <ul className="mt-5 divide-y divide-[#E2DFDA] border-y border-[#E2DFDA] text-[#6E5F47]">
         {ALLOCATIONS.map((item) => (
-          <li key={item.label}>
-            <span className="font-bold tabular-nums">{item.percent}</span>{' '}
-            {item.label}
+          <li key={item.label} className="flex items-baseline gap-4 py-3">
+            <span className="w-14 shrink-0 font-playfair text-2xl tabular-nums">
+              {item.percent}
+            </span>
+            <span className="leading-snug">{item.label}</span>
           </li>
         ))}
       </ul>

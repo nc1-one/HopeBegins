@@ -1,47 +1,83 @@
 'use client';
 
-import { useRef } from 'react';
-import Image, { StaticImageData } from 'next/image';
+import { useRef, useState } from 'react';
+import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { defaultTestimonials, type Testimonial } from '@/lib/hopeStories';
 
-import LyzaImg from '../../assets/images/Testimonial/Lyza.jpg';
-import IsabelleImg from '../../assets/images/Testimonial/Isabelle.jpg';
-import JeremyImg from '../../assets/images/Testimonial/Jeremy.jpg';
+export type { Testimonial };
 
-export interface Testimonial {
-  id: number | string;
-  content: string;
-  name: string;
-  role?: string;
-  avatar: string | StaticImageData; // URL for the avatar image
+/** The first sentence or two of a story sent in through the site. */
+const firstLines = (text: string) => {
+  const sentences = text.match(/[^.!?]+[.!?]+["”’]?\s*/g) ?? [text];
+  let excerpt = '';
+  for (const sentence of sentences) {
+    if (excerpt && excerpt.length + sentence.length > 180) break;
+    excerpt += sentence;
+  }
+  return excerpt.trim();
+};
+
+/** One story: a line in their words, and the rest when they ask for it. */
+export function StoryQuote({
+  testimonial,
+  className = '',
+}: {
+  testimonial: Testimonial;
+  className?: string;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const excerpt = testimonial.excerpt ?? firstLines(testimonial.content);
+  const hasMore = excerpt.length < testimonial.content.length;
+
+  return (
+    <figure className={`flex flex-col text-[#6E5F47] ${className}`}>
+      <blockquote>
+        <p className="text-pretty font-playfair text-2xl leading-[1.2] tracking-[-0.02em] md:text-[1.7rem]">
+          &ldquo;{excerpt}&rdquo;
+        </p>
+        {isOpen && (
+          <p className="mt-4 leading-relaxed hb-step-in">
+            {testimonial.content}
+          </p>
+        )}
+      </blockquote>
+      {hasMore && (
+        <button
+          type="button"
+          aria-expanded={isOpen}
+          onClick={() => setIsOpen((open) => !open)}
+          className="mt-3 inline-flex min-h-11 w-fit items-center font-poppins text-sm font-medium underline underline-offset-4 hover:text-[#5c4f3b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40"
+        >
+          {isOpen ? 'Show less' : 'Read their whole story'}
+        </button>
+      )}
+      <figcaption className="mt-4 flex items-center gap-3">
+        {testimonial.avatar ? (
+          <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-[#EFF3E7]">
+            <Image
+              src={testimonial.avatar}
+              alt=""
+              fill
+              sizes="48px"
+              className="object-cover"
+            />
+          </span>
+        ) : null}
+        <span>
+          <span className="block font-poppins font-medium">
+            {testimonial.name}
+          </span>
+          {testimonial.role && (
+            <span className="block text-sm text-[#6E5F47]/80">
+              {testimonial.role}
+            </span>
+          )}
+        </span>
+      </figcaption>
+    </figure>
+  );
 }
-
-const defaultTestimonials: Testimonial[] = [
-  {
-    id: 1,
-    content:
-      'Through this program, I learned how to properly audit my thoughts, be more mindful of the lies I convince myself with and replace them with what’s true. Crucially, this time, the truth is not just based on what I know but based on the ultimate truth from what the Word of God says. Coach Hope reminded me of the verse Philippians 2:13, which is now one of my favorite verses: “For God is working in you, giving you the desire and the power to do what pleases Him.” It’s a beautiful reminder that even in our battle with mental health, God works in us, and He not only gives us the desire to change but also the power to change for His glory.',
-    name: 'Lyza Samartino',
-    role: 'HopeBegins participant',
-    avatar: LyzaImg,
-  },
-  {
-    id: 2,
-    content:
-      'I remember that I was so confused why was still waking up with so much sadness, confusion, anxiety, and depression everyday. Every. Single. Day. And I didn’t know how to get out of it but I knew that I wanted to get out of it and I also knew that the only way out was advice and guidance that was founded on the Word of God. So, when HopeBegins was offered and was an opportunity that I could join, I remember going straight at it and really taking a chance because God knew that it was what I needed to move forward with my relationship with Him–to move forward with understanding Him and His love for me better. When HopeBegins came, it was the beginning of so much transformation with so much of the darkness that I was carrying to be out of my life at that time.',
-    name: 'Isabelle Prado',
-    role: 'HopeBegins participant',
-    avatar: IsabelleImg,
-  },
-  {
-    id: 3,
-    content:
-      "I was overwhelmed with anxiety and so much lies from the enemy. So my friend introduced me to HopeBegins. But before that, I was having a hard time when it comes to my relationship with other people, even in decision making, to the point na nahirapan ako mag-decide. All of the decisions and actions na I was doing was not completely right and I knew na kailangan ko talaga ng help. And I found help and support through HopeBegins. For those people who are interested or unsure sa pag-join ng Hope Begins.. you really have to take the risk, knowing na our problems or struggles in life, it's really hard ‘pag ikaw lang mag-di-deal lang niyan on your own. You know, sometimes we tend to fix things on our own, but we also forget to seek help from other people.",
-    name: 'Jeremy Rebedillo',
-    role: 'HopeBegins participant',
-    avatar: JeremyImg,
-  },
-];
 
 export function TestimonialCarousel({
   testimonials = defaultTestimonials,
@@ -49,8 +85,10 @@ export function TestimonialCarousel({
   testimonials?: Testimonial[];
 }) {
   const rowRef = useRef<HTMLUListElement>(null);
+  // Up to three sit side by side on a computer; more keep scrolling.
+  const asGrid = testimonials.length <= 3;
 
-  // One card along, at the speed people asked for.
+  // One story along, at the speed people asked for.
   const move = (direction: 1 | -1) => {
     const row = rowRef.current;
     const card = row?.querySelector('li');
@@ -59,63 +97,41 @@ export function TestimonialCarousel({
       '(prefers-reduced-motion: reduce)'
     ).matches;
     row.scrollBy({
-      left: direction * (card.getBoundingClientRect().width + 16),
+      left: direction * (card.getBoundingClientRect().width + 32),
       behavior: reduce ? 'auto' : 'smooth',
     });
   };
 
   return (
     <div className="relative">
-      {/* Every story in full: swipe on a phone, arrows on a computer. */}
+      {/* Swipe on a phone; side by side on a computer. */}
       <ul
         ref={rowRef}
         tabIndex={0}
         aria-label="Stories of hope"
-        className="-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-4 [scrollbar-width:none] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40 [&::-webkit-scrollbar]:hidden"
+        className={`-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-8 overflow-x-auto px-6 pb-2 [scrollbar-width:none] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40 [&::-webkit-scrollbar]:hidden ${
+          asGrid
+            ? 'lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-10 lg:overflow-visible lg:px-0'
+            : ''
+        }`}
       >
-        {testimonials.map((testimonial) => (
+        {testimonials.map((testimonial, index) => (
           <li
             key={testimonial.id}
-            className="flex w-[85%] shrink-0 snap-start flex-col rounded-3xl border border-[#DFE7CF] bg-white p-6 sm:w-[26rem] md:p-8"
+            className={`w-[85%] shrink-0 snap-start border-t border-[#E2DFDA] pt-6 hb-step-in sm:w-[24rem] ${asGrid ? 'lg:w-auto' : ''}`}
+            style={{ animationDelay: `${index * 90}ms` }}
           >
-            <div className="flex items-center gap-4">
-              {testimonial.avatar ? (
-                <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-[#DFE7CF]">
-                  <Image
-                    src={testimonial.avatar}
-                    alt=""
-                    fill
-                    sizes="56px"
-                    className="object-cover"
-                  />
-                </span>
-              ) : null}
-              <span>
-                <span className="block font-poppins font-bold text-[#6E5F47]">
-                  {testimonial.name}
-                </span>
-                {testimonial.role && (
-                  <span className="block text-sm text-[#6E5F47]/80">
-                    {testimonial.role}
-                  </span>
-                )}
-              </span>
-            </div>
-            <blockquote className="mt-5 flex-1 text-[#6E5F47] leading-relaxed">
-              <span
-                aria-hidden
-                className="block font-playfair text-5xl leading-none text-[#AEC488]"
-              >
-                &ldquo;
-              </span>
-              <p className="-mt-3">{testimonial.content}</p>
-            </blockquote>
+            <StoryQuote testimonial={testimonial} />
           </li>
         ))}
       </ul>
 
       {testimonials.length > 1 && (
-        <div className="mt-4 hidden justify-end gap-2 sm:flex">
+        <div
+          className={`mt-4 hidden justify-end gap-2 sm:flex ${
+            asGrid ? 'lg:hidden' : ''
+          }`}
+        >
           <button
             type="button"
             onClick={() => move(-1)}

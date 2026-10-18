@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { HopeStoriesSection } from '@/components/sections/HopeStoriesSection';
 import { Reveal } from '@/components/ui/Reveal';
 import { pageMetadata } from '@/lib/pageMetadata';
-import { PHOTOS } from '@/lib/photos';
+import { photo, photoTurn } from '@/lib/photos';
 import { ApproachOffers, type Offer } from './ApproachOffers';
 import { ApproachSteps, type ApproachStep } from './ApproachSteps';
 
@@ -67,11 +67,13 @@ const STAGES: ApproachStep[] = [
     name: 'Getting through it',
     text: 'You see how far you have come, and keep what helped on your Hope Card.',
     photo: 'hope',
+    // The hero already shows this turn's sunrise; take the next one.
+    offset: 1,
   },
   {
     name: 'Afterwards',
     text: 'A 1-minute check-in each month, and help one tap away if things come back.',
-    photo: 'dawn',
+    photo: 'care',
   },
 ];
 
@@ -163,6 +165,8 @@ const h2Class =
   'text-balance font-playfair text-3xl md:text-5xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]';
 
 export default function OurApproachPage() {
+  const turn = photoTurn();
+  const hero = photo('hope', turn);
   return (
     <div className="overflow-x-clip pt-10 md:pt-16">
       <div className="px-6">
@@ -180,8 +184,8 @@ export default function OurApproachPage() {
           </p>
           <div className="relative mt-10 aspect-[4/3] overflow-hidden rounded-xl bg-[#EFF3E7] md:aspect-[21/9]">
             <Image
-              src={PHOTOS.hope}
-              alt="A fisherman poling his boat across the water at sunrise"
+              src={hero.src}
+              alt={hero.alt}
               fill
               preload
               fetchPriority="high"
@@ -224,11 +228,11 @@ export default function OurApproachPage() {
                   delay={index * 90}
                   className="flex gap-5"
                 >
-                  <span className="font-playfair text-5xl leading-none text-[#AEC488] tabular-nums">
+                  <span className="w-9 shrink-0 font-playfair text-5xl leading-none text-[#AEC488] tabular-nums">
                     {index + 1}
                   </span>
                   <span>
-                    <span className="block font-poppins text-xl font-bold text-[#6E5F47]">
+                    <span className="block font-poppins text-xl font-semibold text-[#6E5F47]">
                       {goal.title}
                     </span>
                     <span className="mt-1 block text-[#6E5F47] leading-relaxed">
@@ -246,7 +250,7 @@ export default function OurApproachPage() {
                 Step by step, from the first search to months later
               </h2>
             </Reveal>
-            <ApproachSteps steps={STAGES} />
+            <ApproachSteps steps={STAGES} turn={turn} />
           </section>
 
           <section aria-labelledby="offers-title" className="mt-20 md:mt-28">
@@ -268,7 +272,7 @@ export default function OurApproachPage() {
             <ul className="grid gap-8 md:grid-cols-3">
               {HOW.map((item, index) => (
                 <Reveal key={item.title} as="li" delay={index * 90}>
-                  <p className="font-poppins text-lg font-bold text-[#6E5F47]">
+                  <p className="font-poppins text-lg font-semibold text-[#6E5F47]">
                     {item.title}
                   </p>
                   <p className="mt-2 text-[#6E5F47] leading-relaxed">
@@ -288,7 +292,7 @@ export default function OurApproachPage() {
       {/* The end: a real dawn, and the same first step as the home page. */}
       <section className="relative isolate overflow-hidden">
         <Image
-          src={PHOTOS.dawn}
+          src={photo('dawn', turn).src}
           alt=""
           fill
           sizes="100vw"

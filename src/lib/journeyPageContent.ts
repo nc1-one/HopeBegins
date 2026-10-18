@@ -128,10 +128,10 @@ export const DEFAULT_JOURNEY_PAGE_CONTENT: JourneyPageContent = {
   page_subtitle: 'Five short steps for when you feel hopeless.',
   steps: [
     { key: 'welcome', label: 'Welcome' },
-    { key: 'word', label: 'A Word for You' },
-    { key: 'prayer', label: 'Guided Prayer' },
+    { key: 'word', label: 'A word for you' },
+    { key: 'prayer', label: 'Guided prayer' },
     { key: 'devotional', label: 'Devotional' },
-    { key: 'next-steps', label: 'Next Steps' },
+    { key: 'next-steps', label: 'Next steps' },
   ],
   welcome_section: {
     title: 'Your Hopeful Beginning',
@@ -146,20 +146,20 @@ export const DEFAULT_JOURNEY_PAGE_CONTENT: JourneyPageContent = {
     button_text: 'Continue',
   },
   word_section: {
-    title: 'A Word for You',
+    title: 'A word for you',
     description: 'Before anything else, we want you to hear this.',
     video_embed_url: 'https://www.youtube.com/embed/zHPaFDRZMUo?rel=0',
     verse_text: 'He heals the brokenhearted and binds up their wounds.',
     verse_reference: 'Psalm 147:3',
-    previous_button_text: 'Previous',
+    previous_button_text: 'Back',
     next_button_text: 'Continue',
   },
   prayer_section: {
-    title: 'Guided Prayer',
+    title: 'Guided prayer',
     description: 'Read each step slowly. Pray the words, or just read them.',
     steps: [
       {
-        title: 'Be Still',
+        title: 'Be still',
         text: 'Sit still for a moment. Let your shoulders drop and breathe slowly.',
       },
       {
@@ -181,10 +181,10 @@ export const DEFAULT_JOURNEY_PAGE_CONTENT: JourneyPageContent = {
     ],
     back_button_text: 'Back',
     next_button_text: 'Next',
-    final_button_text: 'Continue to Devotional',
+    final_button_text: 'Continue to devotional',
   },
   devotional_section: {
-    title: 'What is Hope?',
+    title: 'What is hope?',
     subtitle: 'A short reading on hope.',
     content_cards: [
       "In the Bible, hope is trust that God will keep His promises, even when you can't yet see how.",
@@ -192,17 +192,17 @@ export const DEFAULT_JOURNEY_PAGE_CONTENT: JourneyPageContent = {
     ],
     verse_text: 'We have this hope as an anchor for the soul, firm and secure.',
     verse_reference: 'Hebrews 6:19',
-    good_news_title: 'The Good News',
+    good_news_title: 'The good news',
     good_news_body:
       "God loves you as you are, and that love doesn't depend on what you've done. He sent His Son, Jesus, to be with you, even on your darkest days. You can talk to Him today.",
     reflection_title: 'Reflect on this:',
     reflection_prompt:
       'What would change if you believed, even a little, that tomorrow could be different?',
-    previous_button_text: 'Previous',
+    previous_button_text: 'Back',
     next_button_text: 'Continue',
   },
   next_steps_section: {
-    title: 'Your Next Step',
+    title: 'Your next step',
     description: "You've finished all five steps. Here are ways to keep going.",
     actions: [
       {
@@ -226,7 +226,7 @@ export const DEFAULT_JOURNEY_PAGE_CONTENT: JourneyPageContent = {
         icon: 'headphones',
       },
     ],
-    home_link_text: 'Back to Home',
+    home_link_text: 'Back to home',
   },
   crisis_section: {
     heading: 'In crisis? Call one of these lines:',
