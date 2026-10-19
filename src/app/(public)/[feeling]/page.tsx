@@ -11,6 +11,7 @@ import { WorryNote } from '@/components/tools/WorryNote';
 import { feelingPages, feelingUi, getFeelingPage } from '@/lib/feelingPages';
 import { pageMetadata } from '@/lib/pageMetadata';
 import { jsonLdHtml, webPageJsonLd } from '@/lib/structuredData';
+import { getGuide } from '@/lib/guidePages';
 import { photo, photoTurn } from '@/lib/photos';
 import { primaryClass } from '@/components/tools/toolStyles';
 
@@ -63,8 +64,9 @@ export default async function FeelingPage({
   if (!page) notFound();
   const ui = feelingUi[page.lang];
   const topPhoto = photo(page.photo, photoTurn());
+  // Related pages can be other feelings or guides.
   const related = (page.related ?? [])
-    .map(getFeelingPage)
+    .map((slug) => getFeelingPage(slug) ?? getGuide(slug))
     .filter((other) => other !== undefined);
 
   const ecoach = (
@@ -103,6 +105,7 @@ export default async function FeelingPage({
     lang: page.lang,
     image: `/og/feelings/${page.slug}.jpg`,
     crumb: page.heading.replace(/[.?]$/, ''),
+    faq: page.faq,
   });
 
   return (
@@ -242,6 +245,28 @@ export default async function FeelingPage({
                   {ui.hopeAi}
                 </Link>
               )}
+            </Reveal>
+          )}
+          {page.faq && (
+            <Reveal as="section" aria-labelledby="faq-title" className="mt-12">
+              <h2
+                id="faq-title"
+                className="font-playfair text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
+              >
+                {ui.faqHeading}
+              </h2>
+              <div className="mt-5 space-y-6">
+                {page.faq.map((item) => (
+                  <div key={item.q}>
+                    <h3 className="font-poppins text-lg font-semibold text-[#6E5F47]">
+                      {item.q}
+                    </h3>
+                    <p className="mt-1 text-[#6E5F47] leading-relaxed">
+                      {item.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </Reveal>
           )}
         </div>

@@ -6,11 +6,12 @@ import { feelingPages } from '@/lib/feelingPages';
 
 /*
  * Kept short on purpose: a few main links, then every feeling page in one
- * quiet row. Those eight links are on every page so search engines keep
- * finding them; the sitemap lists everything else.
+ * quiet row. Those links are on every page so search engines keep finding
+ * them; the sitemap lists everything else.
  */
 
 const mainLinks = [
+  { href: '/free-mental-health-help-philippines', label: 'Free help' },
   { href: '/tools', label: 'Tools' },
   { href: '/laro-muna', label: 'Games' },
   { href: '/our-approach', label: 'Our approach' },

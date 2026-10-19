@@ -18,7 +18,7 @@ export type FeelingTool =
 export type FeelingLang = 'tl' | 'en';
 
 /** Which of the real photos in photos.ts heads the page. */
-export type FeelingPhoto = 'anxious' | 'tired' | 'alone' | 'sleep';
+export type FeelingPhoto = 'anxious' | 'tired' | 'alone' | 'sleep' | 'unsure';
 
 export interface FeelingPage {
   slug: string;
@@ -50,6 +50,8 @@ export interface FeelingPage {
   related?: string[];
   /** Where the explanation comes from. */
   sources?: { label: string; href: string }[];
+  /** Short answers to what people ask Google about this feeling. */
+  faq?: { q: string; a: string }[];
   /** The next step to put first. */
   firstStep: 'ecoach' | 'plan';
   /** Show a talk-to-an-e-coach button right under the intro. */
@@ -74,6 +76,12 @@ export const feelingPages: FeelingPage[] = [
     toolsHeading: 'Magsimula sa maliit',
     tools: ['one-thing', 'breathe'],
     related: ['depressed-ako'],
+    faq: [
+      {
+        q: 'Normal lang bang mapagod sa lahat?',
+        a: 'Normal mapagod paminsan-minsan. Pero kung halos araw-araw kang pagod at walang gana nang dalawang linggo o higit pa, puwedeng senyales na ito ng depression o burnout. Kausapin ang isang doktor o counselor.',
+      },
+    ],
     firstStep: 'ecoach',
   },
   {
@@ -95,6 +103,13 @@ export const feelingPages: FeelingPage[] = [
       body: 'AI assistant si Hope AI. Hindi siya makakapag-counsel o makakatulong sa emergency, pero puwede mo siyang i-chat anumang oras, kahit hatinggabi.',
       hopeAi: true,
     },
+    faq: [
+      {
+        q: 'Saan ako puwedeng makipag-usap nang libre?',
+        a: 'Puwede kang mag-message nang libre sa isang e-coach mula sa Himala Everyday sa Messenger. Kung krisis ito, tumawag sa NCMH Crisis Hotline sa 1553, bukas 24/7.',
+      },
+    ],
+    related: ['free-mental-health-help-philippines'],
     firstStep: 'ecoach',
     talkNow: true,
   },
@@ -116,7 +131,21 @@ export const feelingPages: FeelingPage[] = [
       title: 'Bakit nakakatulong ang paghinga',
       body: 'Kapag mas mahaba ang paghinga palabas kaysa papasok, bumabagal ang tibok ng puso mo at kumakalma ang katawan. Kung madalas itong mangyari sa iyo, makakatulong ang isang plano at ang pakikipag-usap sa isang counselor.',
     },
-    related: ['panic-attack-ano-gagawin'],
+    related: [
+      'panic-attack-ano-gagawin',
+      'mental-health-sa-tagalog',
+      'bible-verse-para-sa-anxiety',
+    ],
+    faq: [
+      {
+        q: 'Ano ang anxiety sa Tagalog?',
+        a: 'Kadalasan itong tinatawag na pagkabalisa, kaba o nerbiyos: takot o pag-aalala na mahirap pigilan, minsan kasama ang mabilis na tibok ng puso o hirap huminga.',
+      },
+      {
+        q: 'Gaano katagal ang anxiety attack?',
+        a: 'Kadalasang pinakamatindi ang kaba sa unang ilang minuto at humuhupa ito sa loob ng mga 5 hanggang 20 minuto. Kung madalas itong mangyari, kausapin ang isang doktor o counselor.',
+      },
+    ],
     firstStep: 'plan',
   },
   {
@@ -137,6 +166,16 @@ export const feelingPages: FeelingPage[] = [
       title: 'Kung gising ka pa rin pagkalipas ng mga 20 minuto',
       body: 'Bumangon muna at gumawa ng tahimik na bagay sa dim na ilaw, gaya ng pagbabasa, hanggang antukin ka. Iwasan muna ang cellphone. Bukas, subukang gumising sa parehong oras.',
     },
+    faq: [
+      {
+        q: 'Paano tumigil sa overthinking sa gabi?',
+        a: 'Isulat muna ang iniisip mo bago matulog para makabitaw ang isip, ilayo ang cellphone, at huminga nang dahan-dahan. Kung gising ka pa rin pagkalipas ng mga 20 minuto, bumangon at gumawa ng tahimik na bagay hanggang antukin ka.',
+      },
+      {
+        q: 'Ano ang overthinking sa Tagalog?',
+        a: 'Kadalasan itong tinatawag na sobrang pag-iisip: paulit-ulit na pag-iisip tungkol sa parehong problema nang hindi nakakahanap ng sagot.',
+      },
+    ],
     firstStep: 'plan',
   },
   {
@@ -156,6 +195,12 @@ export const feelingPages: FeelingPage[] = [
     toolsHeading: 'Start small',
     tools: ['one-thing', 'breathe'],
     related: ['i-feel-depressed'],
+    faq: [
+      {
+        q: 'Is it normal to be tired of everything?',
+        a: "Everyone gets worn out sometimes. But if you've felt tired and uninterested in almost everything most days for two weeks or more, it may be depression or burnout. Talk to a doctor or counselor.",
+      },
+    ],
     firstStep: 'ecoach',
   },
   {
@@ -177,6 +222,13 @@ export const feelingPages: FeelingPage[] = [
       body: "Hope AI is an AI assistant. It can't counsel you or help in an emergency, but you can chat with it any time, even in the middle of the night.",
       hopeAi: true,
     },
+    faq: [
+      {
+        q: 'Where can I talk to someone for free?',
+        a: 'You can message an e-coach from Himala Everyday on Messenger, for free. In a crisis, call the NCMH Crisis Hotline on 1553, open 24/7.',
+      },
+    ],
+    related: ['free-mental-health-help-philippines'],
     firstStep: 'ecoach',
     talkNow: true,
   },
@@ -198,7 +250,17 @@ export const feelingPages: FeelingPage[] = [
       title: 'Why breathing helps',
       body: 'When you breathe out for longer than you breathe in, your heart rate slows and your body starts to settle. If this happens to you often, a plan and talking to a counselor can help.',
     },
-    related: ['panic-attack-what-to-do'],
+    related: ['panic-attack-what-to-do', 'bible-verses-for-anxiety'],
+    faq: [
+      {
+        q: 'What is the fastest way to calm anxiety?',
+        a: 'Slow your breathing: in for 4, out for 6, for about two minutes. Then name 5 things you can see, 4 you can hear and 3 you can touch to bring your mind back to the room.',
+      },
+      {
+        q: 'Why do I feel anxious for no reason?',
+        a: "Anxiety can build from stress, poor sleep, caffeine or worries you haven't put into words, so it can seem to come from nowhere. If it happens most days, talk to a doctor or counselor.",
+      },
+    ],
     firstStep: 'plan',
   },
   {
@@ -219,6 +281,12 @@ export const feelingPages: FeelingPage[] = [
       title: "If you're still awake after about 20 minutes",
       body: 'Get up and do something quiet in dim light, like reading, until you feel sleepy. Keep your phone away for now. Tomorrow, try to wake up at the same time.',
     },
+    faq: [
+      {
+        q: 'How do I stop overthinking at night?',
+        a: "Write your thoughts down before bed so your mind can let go of them, keep your phone out of reach, and breathe slowly. If you're still awake after about 20 minutes, get up and do something quiet until you feel sleepy.",
+      },
+    ],
     firstStep: 'plan',
   },
   {
@@ -257,11 +325,27 @@ export const feelingPages: FeelingPage[] = [
       title: 'Bakit nakakatulong ang isang maliit na bagay',
       body: 'Sa depression, parang hinihintay mo munang gumaan ang pakiramdam bago kumilos. Kapag gumawa ka muna ng isang maliit na kayang gawin, gaya ng maligo o maglakad sandali, kadalasang gumagaan nang kaunti ang loob mo, at mas madali na ang susunod.',
     },
-    related: ['pagod-na-ako', 'wala-akong-kausap'],
+    related: [
+      'pagod-na-ako',
+      'wala-akong-kausap',
+      'ano-ang-sasabihin-sa-kaibigang-depressed',
+      'mental-health-sa-tagalog',
+      'bible-verse-para-sa-malungkot',
+    ],
     sources: [
       {
         label: 'WHO: Depressive disorder (depression)',
         href: 'https://www.who.int/news-room/fact-sheets/detail/depression',
+      },
+    ],
+    faq: [
+      {
+        q: 'Ano ang depression sa Tagalog?',
+        a: 'Madalas itong tinatawag na depresyon o matinding lungkot: lungkot o kawalan ng gana na tumatagal nang dalawang linggo o higit pa at nakakaapekto sa tulog, kain, lakas at pag-iisip.',
+      },
+      {
+        q: 'Nawawala ba ang depression nang kusa?',
+        a: 'Minsan gumagaan ito, pero mas mabilis at mas sigurado ang paggaling kapag may tulong. Nagagamot ang depression sa pamamagitan ng counseling, at minsan ng gamot na irereseta ng doktor.',
       },
     ],
     firstStep: 'ecoach',
@@ -311,6 +395,16 @@ export const feelingPages: FeelingPage[] = [
         href: 'https://www.who.int/news-room/fact-sheets/detail/anxiety-disorders',
       },
     ],
+    faq: [
+      {
+        q: 'Gaano katagal ang panic attack?',
+        a: 'Kadalasang 5 hanggang 20 minuto ang panic attack, at sa unang ilang minuto ang pinakamatindi.',
+      },
+      {
+        q: 'Nakakasama ba sa katawan ang panic attack?',
+        a: 'Nakakatakot ang panic attack, pero hindi ito nakakasama sa katawan. Kung hindi ka sigurado kung panic attack ito o problema sa puso, magpatingin sa doktor.',
+      },
+    ],
     firstStep: 'plan',
   },
   {
@@ -348,11 +442,26 @@ export const feelingPages: FeelingPage[] = [
       title: 'Why one small thing helps',
       body: 'Depression makes you wait to feel better before you do anything. Doing one small, doable thing first, like a shower or a short walk, often lifts your mood a little, and that makes the next thing easier.',
     },
-    related: ['tired-of-everything', 'i-feel-alone'],
+    related: [
+      'tired-of-everything',
+      'i-feel-alone',
+      'what-to-say-to-a-depressed-friend',
+      'bible-verses-when-you-feel-down',
+    ],
     sources: [
       {
         label: 'WHO: Depressive disorder (depression)',
         href: 'https://www.who.int/news-room/fact-sheets/detail/depression',
+      },
+    ],
+    faq: [
+      {
+        q: 'What is depression in Tagalog?',
+        a: "It's usually called depresyon or matinding lungkot: low mood or loss of interest that lasts two weeks or more and affects sleep, appetite, energy and thinking.",
+      },
+      {
+        q: 'Can depression go away on its own?',
+        a: 'It sometimes eases, but recovery is faster and more likely with help. Depression can be treated with talking therapy, and sometimes with medicine prescribed by a doctor.',
       },
     ],
     firstStep: 'ecoach',
@@ -402,6 +511,198 @@ export const feelingPages: FeelingPage[] = [
         href: 'https://www.who.int/news-room/fact-sheets/detail/anxiety-disorders',
       },
     ],
+    faq: [
+      {
+        q: 'How long does a panic attack last?',
+        a: 'Most panic attacks last between 5 and 20 minutes, and the worst of it usually comes in the first few minutes.',
+      },
+      {
+        q: 'Can a panic attack hurt me?',
+        a: "A panic attack is frightening, but it doesn't harm your body. If you're not sure whether it's panic or something like a heart problem, get checked by a doctor.",
+      },
+    ],
+    firstStep: 'plan',
+  },
+  {
+    slug: 'hindi-ko-alam-gagawin-ko-sa-buhay',
+    photo: 'unsure',
+    lang: 'tl',
+    pair: 'i-feel-lost',
+    metaTitle: 'Hindi ko alam gagawin ko sa buhay: saan magsisimula ngayon',
+    metaDescription:
+      'Pakiramdam mo naliligaw ka o parang walang laman ang loob mo? Magsimula sa isang maliit na hakbang ngayon, at kausapin ang taong makakatulong sa iyo.',
+    label: 'Hindi ko alam gagawin ko',
+    heading: 'Hindi ko alam gagawin ko sa buhay.',
+    intro:
+      'Kapag hindi mo alam kung saan papunta ang buhay mo, o parang walang laman ang loob mo, mahirap malaman kung saan magsisimula. Puwede kang magsimula sa maliit, ngayon.',
+    safetyFirst:
+      'Kung kasama ng pakiramdam na ito ang pag-iisip na tapusin na ang buhay mo, kausapin mo ang isang tao ngayon.',
+    toolsHeading: 'Magsimula sa maliit',
+    tools: ['one-thing', 'message'],
+    explain: {
+      title: 'Kailan dapat humingi ng tulong',
+      intro:
+        'Normal ang maligaw paminsan-minsan, lalo na sa malalaking pagbabago gaya ng pagtatapos sa pag-aaral, bagong trabaho o hiwalayan. Kausapin ang doktor o counselor kung dalawang linggo o higit pa:',
+      points: [
+        'halos buong araw mong nararamdaman na walang laman ang loob mo',
+        'wala ka nang gana sa halos lahat',
+        'sobra o kulang ang tulog o kain mo',
+        'hirap ka nang makaraos sa trabaho, pag-aaral o bahay',
+      ],
+      note: 'Puwedeng senyales ito ng depression, na nagagamot. May mas mahabang paliwanag sa page namin tungkol sa depression.',
+    },
+    tip: {
+      title: 'Isang paraan para magsimula',
+      body: 'Isulat ang tatlong bagay na naging mahalaga sa iyo, kahit maliit: isang tao, isang lugar, o isang bagay na dati mong gusto. Pumili ng isa at gumawa ng isang maliit na hakbang para dito ngayong linggo.',
+    },
+    related: ['depressed-ako', 'pagod-na-ako'],
+    sources: [
+      {
+        label: 'WHO: Depressive disorder (depression)',
+        href: 'https://www.who.int/news-room/fact-sheets/detail/depression',
+      },
+    ],
+    faq: [
+      {
+        q: 'Bakit parang walang laman ang loob ko?',
+        a: 'Puwedeng galing ito sa stress, pag-iisa, malaking pagkawala o pagbabago, o depression. Kung dalawang linggo na o higit pa, o wala ka nang gana sa halos lahat, kausapin ang isang doktor o counselor.',
+      },
+    ],
+    firstStep: 'ecoach',
+  },
+  {
+    slug: 'burnout-sa-trabaho',
+    photo: 'tired',
+    lang: 'tl',
+    pair: 'burnout',
+    metaTitle: 'Burnout sa trabaho: mga senyales at ano ang gagawin',
+    metaDescription:
+      'Ubos na ang lakas, wala nang gana sa trabaho o pag-aaral, at kaunti na lang ang natatapos? Puwedeng burnout ito. Magpahinga nang totoo ngayon at gumawa ng plano.',
+    label: 'Burnout sa trabaho',
+    heading: 'Burnout na ako.',
+    intro:
+      'Kapag naubos ka na ng trabaho, pag-aaral o pag-aalaga sa iba, parang hindi ka na nakakapahinga kahit nagpapahinga ka. Magsimula sa isang totoong break ngayon, kahit sampung minuto.',
+    toolsHeading: 'Huminto muna sandali',
+    tools: ['breathe', 'one-thing'],
+    explain: {
+      title: 'Mga senyales ng burnout',
+      intro:
+        'Ayon sa World Health Organization, ang burnout ay bunga ng matagal na stress sa trabaho na hindi naaayos. Kadalasang ganito ito:',
+      points: [
+        'laging ubos ang lakas at pagod',
+        'lumalayo ang loob mo sa trabaho, o nagiging negatibo ka tungkol dito',
+        'kaunti na lang ang natatapos mo kahit pilit mong ginagawa',
+      ],
+      note: 'Tungkol sa trabaho at matagal na stress ang burnout. Kung halos buong araw ka ring malungkot, o wala ka nang gana kahit sa labas ng trabaho, puwedeng depression na rin ito. Kausapin ang isang doktor o counselor.',
+    },
+    tip: {
+      title: 'Isang limitasyon ngayong linggo',
+      body: 'Pumili ng isang bagay na iingatan mo: totoong lunch break, oras na titigil ka sa pagtingin ng messages, o isang araw na pahinga. Sabihin sa isang tao para mas madali mo itong masunod.',
+    },
+    related: ['pagod-na-ako', 'depressed-ako'],
+    sources: [
+      {
+        label: 'WHO: Burn-out an "occupational phenomenon"',
+        href: 'https://www.who.int/news/item/28-05-2019-burn-out-an-occupational-phenomenon-international-classification-of-diseases',
+      },
+    ],
+    faq: [
+      {
+        q: 'Pareho ba ang burnout at depression?',
+        a: 'Hindi. Galing ang burnout sa matagal na stress sa trabaho, at kadalasang tungkol sa trabaho ang epekto nito. Sa depression naman, apektado ang buong buhay. Puwedeng magkasabay ang dalawa, kaya kung halos buong araw kang malungkot, kausapin ang isang doktor o counselor.',
+      },
+    ],
+    firstStep: 'plan',
+  },
+  {
+    slug: 'i-feel-lost',
+    photo: 'unsure',
+    lang: 'en',
+    pair: 'hindi-ko-alam-gagawin-ko-sa-buhay',
+    metaTitle: 'I feel lost and empty: what to do when nothing makes sense',
+    metaDescription:
+      'Feel lost in life or empty inside? Start with one small step today, and talk to someone who can help you sort it out. Free, in English or Taglish.',
+    label: 'I feel lost',
+    heading: 'I feel lost.',
+    intro:
+      "When you don't know where your life is going, or you feel empty inside, it's hard to know where to start. You can start small, today.",
+    safetyFirst:
+      'If the emptiness comes with thoughts of ending your life, please talk to someone now.',
+    toolsHeading: 'Start small',
+    tools: ['one-thing', 'message'],
+    explain: {
+      title: 'When to get help',
+      intro:
+        'Feeling lost now and then is part of life, especially at big turns like graduating, a new job or a breakup. Talk to a doctor or counselor if, for two weeks or more:',
+      points: [
+        'you feel empty most of the day',
+        "you've lost interest in almost everything",
+        "you're sleeping or eating much more or much less",
+        "it's hard to get through work, school or home",
+      ],
+      note: 'These can be signs of depression, which can be treated. Our page on depression explains more.',
+    },
+    tip: {
+      title: 'One way to start',
+      body: 'Write down three things that have mattered to you, even small ones: a person, a place, something you used to enjoy. Pick one and take one small step toward it this week.',
+    },
+    related: ['i-feel-depressed', 'tired-of-everything'],
+    sources: [
+      {
+        label: 'WHO: Depressive disorder (depression)',
+        href: 'https://www.who.int/news-room/fact-sheets/detail/depression',
+      },
+    ],
+    faq: [
+      {
+        q: 'Why do I feel empty inside?',
+        a: 'Feeling empty can come from stress, loneliness, a big loss or change, or depression. If it lasts two weeks or more, or comes with losing interest in most things, talk to a doctor or counselor.',
+      },
+    ],
+    firstStep: 'ecoach',
+  },
+  {
+    slug: 'burnout',
+    photo: 'tired',
+    lang: 'en',
+    pair: 'burnout-sa-trabaho',
+    metaTitle: 'Burnout: the signs, and what to do when work drains you',
+    metaDescription:
+      'Exhausted, negative about work, and getting less done even when you try? It may be burnout. Take a real break today, set one limit, and make a free plan.',
+    label: 'Burnout',
+    heading: "I'm burned out.",
+    intro:
+      'When work, school or caring for others has drained you, rest stops feeling like rest. Start with a real break today, even ten minutes.',
+    toolsHeading: 'Stop for a moment',
+    tools: ['breathe', 'one-thing'],
+    explain: {
+      title: 'Signs of burnout',
+      intro:
+        'The World Health Organization describes burnout as the result of long-term stress at work that has not been managed. It usually shows up as:',
+      points: [
+        'feeling drained or exhausted most of the time',
+        'feeling distant from your work, or negative and cynical about it',
+        'getting less done, even when you try hard',
+      ],
+      note: 'Burnout is about work and long stretches of stress. If you also feel low most of the day, or have lost interest in things outside work, it may be depression too. Talk to a doctor or counselor.',
+    },
+    tip: {
+      title: 'One limit for this week',
+      body: 'Pick one thing to protect: a real lunch break, a time you stop checking messages, or one day off. Tell someone, so it is easier to keep.',
+    },
+    related: ['tired-of-everything', 'i-feel-depressed'],
+    sources: [
+      {
+        label: 'WHO: Burn-out an "occupational phenomenon"',
+        href: 'https://www.who.int/news/item/28-05-2019-burn-out-an-occupational-phenomenon-international-classification-of-diseases',
+      },
+    ],
+    faq: [
+      {
+        q: 'Is burnout the same as depression?',
+        a: 'No. Burnout comes from long-term stress at work and mostly affects how you feel about work. Depression affects every part of life. The two can overlap, so if you feel low most of the day, talk to a doctor or counselor.',
+      },
+    ],
     firstStep: 'plan',
   },
 ];
@@ -431,6 +732,7 @@ export const feelingUi = {
     allTools: 'Tingnan lahat ng tool',
     alsoRead: 'Basahin din:',
     sources: 'Mga pinagkunan:',
+    faqHeading: 'Mga madalas itanong',
   },
   en: {
     htmlLang: 'en',
@@ -451,6 +753,7 @@ export const feelingUi = {
     allTools: 'See all the tools',
     alsoRead: 'Also read:',
     sources: 'Sources:',
+    faqHeading: 'Common questions',
   },
 } as const;
 
