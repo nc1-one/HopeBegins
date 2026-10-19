@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata = pageMetadata(
   '/privacy',
   'Privacy and confidentiality',
-  'What HopeBegins collects, who can see it, how we protect it, and your rights.'
+  'What HopeBegins collects, who can see it, how we protect it, and your rights. Your plan, answers and Hope Card stay on your phone.'
 );
 
 const LAST_UPDATED = 'October 15, 2026';

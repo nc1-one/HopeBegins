@@ -10,6 +10,7 @@ import { MessageSomeone } from '@/components/tools/MessageSomeone';
 import { WorryNote } from '@/components/tools/WorryNote';
 import { feelingPages, feelingUi, getFeelingPage } from '@/lib/feelingPages';
 import { pageMetadata } from '@/lib/pageMetadata';
+import { jsonLdHtml, webPageJsonLd } from '@/lib/structuredData';
 import { photo, photoTurn } from '@/lib/photos';
 import { primaryClass } from '@/components/tools/toolStyles';
 
@@ -42,6 +43,8 @@ export async function generateMetadata({
       languages: {
         ...(tagalog && { 'tl-PH': `/${tagalog.slug}` }),
         ...(english && { 'en-PH': `/${english.slug}` }),
+        // Anyone else gets the English page.
+        ...(english && { 'x-default': `/${english.slug}` }),
       },
     },
   };
@@ -60,6 +63,9 @@ export default async function FeelingPage({
   if (!page) notFound();
   const ui = feelingUi[page.lang];
   const topPhoto = photo(page.photo, photoTurn());
+  const related = (page.related ?? [])
+    .map(getFeelingPage)
+    .filter((other) => other !== undefined);
 
   const ecoach = (
     <EcoachLink
@@ -90,8 +96,21 @@ export default async function FeelingPage({
       : [plan, ecoach, prayer]
   ).map((step) => <li key={step.key}>{step}</li>);
 
+  const structuredData = webPageJsonLd({
+    path: `/${page.slug}`,
+    name: page.metaTitle,
+    description: page.metaDescription,
+    lang: page.lang,
+    image: `/og/feelings/${page.slug}.jpg`,
+    crumb: page.heading.replace(/[.?]$/, ''),
+  });
+
   return (
     <div lang={ui.htmlLang} className="px-6 pt-6 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLdHtml(structuredData)}
+      />
       <div className="max-w-5xl mx-auto">
         <div className="max-w-2xl">
           <Link
@@ -124,6 +143,15 @@ export default async function FeelingPage({
             >
               {ui.talkNow}
             </EcoachLink>
+          )}
+
+          {page.medicalNote && (
+            <p
+              role="note"
+              className="mt-8 rounded-2xl border border-[#AEC488] bg-[#EFF3E7] p-5 text-[#6E5F47]"
+            >
+              {page.medicalNote}
+            </p>
           )}
 
           {page.safetyFirst && (
@@ -169,6 +197,32 @@ export default async function FeelingPage({
             </div>
           </Reveal>
 
+          {page.explain && (
+            <Reveal
+              as="section"
+              aria-labelledby="explain-title"
+              className="mt-12"
+            >
+              <h2
+                id="explain-title"
+                className="font-playfair text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
+              >
+                {page.explain.title}
+              </h2>
+              <p className="mt-4 text-[#6E5F47] leading-relaxed">
+                {page.explain.intro}
+              </p>
+              <ul className="mt-3 list-disc space-y-1.5 pl-6 text-[#6E5F47] leading-relaxed marker:text-[#AEC488]">
+                {page.explain.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+              <p className="mt-4 text-[#6E5F47] leading-relaxed">
+                {page.explain.note}
+              </p>
+            </Reveal>
+          )}
+
           {page.tip && (
             <Reveal
               as="section"
@@ -180,7 +234,7 @@ export default async function FeelingPage({
               <p className="mt-2 text-[#6E5F47] leading-relaxed">
                 {page.tip.body}
               </p>
-              {page.tools.includes('message') && (
+              {page.tip.hopeAi && (
                 <Link
                   href="/hope-ai"
                   className="mt-2 inline-flex min-h-11 items-center font-poppins font-medium text-[#6E5F47] underline underline-offset-4 hover:text-[#5c4f3b]"
@@ -204,6 +258,43 @@ export default async function FeelingPage({
             {ui.nextHeading}
           </h2>
           <ul className="mt-3">{nextSteps}</ul>
+          {related.length > 0 && (
+            <p className="mt-4 leading-loose text-[#6E5F47]">
+              {ui.alsoRead}
+              {related.map((other, index) => (
+                <span key={other.slug}>
+                  {' '}
+                  <span className="whitespace-nowrap">
+                    {index > 0 && <span aria-hidden>· </span>}
+                    <Link
+                      href={`/${other.slug}`}
+                      className="py-2.5 underline underline-offset-4 hover:text-[#5c4f3b]"
+                    >
+                      {other.label}
+                    </Link>
+                  </span>
+                </span>
+              ))}
+            </p>
+          )}
+          {page.sources && (
+            <p className="mt-6 text-sm text-[#6E5F47]/85 leading-relaxed">
+              {ui.sources}{' '}
+              {page.sources.map((source, index) => (
+                <span key={source.href}>
+                  {index > 0 && '; '}
+                  <a
+                    href={source.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-4 hover:text-[#5c4f3b]"
+                  >
+                    {source.label}
+                  </a>
+                </span>
+              ))}
+            </p>
+          )}
         </Reveal>
       </div>
     </div>
