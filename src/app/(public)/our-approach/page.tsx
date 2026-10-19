@@ -10,7 +10,7 @@ import { ApproachSteps, type ApproachStep } from './ApproachSteps';
 
 export const metadata = pageMetadata(
   '/our-approach',
-  'Our Approach',
+  'Our approach',
   'How HopeBegins helps, from the moment something feels wrong to months later: why we exist, what we aim for, the six steps and every free tool.'
 );
 

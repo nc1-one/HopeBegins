@@ -39,6 +39,7 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   openGraph: {
     type: 'website',
+    url: '/',
     siteName: 'HopeBegins',
     locale: 'en_PH',
     title: 'Not okay today? HopeBegins',
@@ -61,21 +62,7 @@ export const metadata: Metadata = {
 };
 
 import EngagementPopout from '@/components/layout/EngagementPopout';
-
-const organizationJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'HopeBegins',
-  url: 'https://hopebegins.today',
-  logo: 'https://hopebegins.today/og/hopebegins.jpg',
-  description: SITE_DESCRIPTION,
-  email: 'connect@hopebegins.today',
-  sameAs: [
-    'https://www.facebook.com/hopebeginstoday',
-    'https://www.instagram.com/hopebeginstoday',
-    'https://www.linkedin.com/company/hopebeginstoday/',
-  ],
-};
+import { jsonLdHtml, siteJsonLd } from '@/lib/structuredData';
 
 export default function RootLayout({
   children,
@@ -90,9 +77,7 @@ export default function RootLayout({
       <body className={dmSans.className} suppressHydrationWarning>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd),
-          }}
+          dangerouslySetInnerHTML={jsonLdHtml(siteJsonLd)}
         />
         <Providers>
           {children}
