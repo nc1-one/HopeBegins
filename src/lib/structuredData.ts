@@ -58,6 +58,7 @@ export function webPageJsonLd({
   lang,
   image,
   crumb,
+  faq,
 }: {
   path: string;
   name: string;
@@ -66,6 +67,8 @@ export function webPageJsonLd({
   image?: string;
   /** The page's short name in the trail: Home › crumb. */
   crumb: string;
+  /** Questions the page answers in full, word for word. */
+  faq?: { q: string; a: string }[];
 }) {
   const url = `${SITE}${path}`;
   return {
@@ -97,6 +100,19 @@ export function webPageJsonLd({
           { '@type': 'ListItem', position: 2, name: crumb, item: url },
         ],
       },
+      ...(faq?.length
+        ? [
+            {
+              '@type': 'FAQPage',
+              '@id': `${url}#faq`,
+              mainEntity: faq.map((item) => ({
+                '@type': 'Question',
+                name: item.q,
+                acceptedAnswer: { '@type': 'Answer', text: item.a },
+              })),
+            },
+          ]
+        : []),
     ],
   };
 }

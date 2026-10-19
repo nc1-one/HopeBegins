@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { config } from '@/config';
 import { feelingPages, getFeelingPage } from '@/lib/feelingPages';
+import { getGuide, guides } from '@/lib/guidePages';
 
 // When each page last changed in a way a reader would notice. Bump a date
 // when you change that page's content, so Google knows to look again.
@@ -21,6 +22,7 @@ const UPDATED: Record<string, string> = {
   '/privacy': '2026-10-18',
 };
 const FEELING_PAGES_UPDATED = '2026-10-19';
+const GUIDES_UPDATED = '2026-10-19';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const url = (path: string) => `${config.BASE_URL}${path}`;
@@ -43,5 +45,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     };
   });
-  return [...pages, ...feelings];
+  const guidePages: MetadataRoute.Sitemap = guides.map((guide) => {
+    const pair = guide.pair ? getGuide(guide.pair) : undefined;
+    const tl = guide.lang === 'tl' ? guide : pair;
+    const en = guide.lang === 'en' ? guide : pair;
+    return {
+      url: url(`/${guide.slug}`),
+      lastModified: GUIDES_UPDATED,
+      ...(pair && {
+        alternates: {
+          languages: {
+            ...(tl && { 'tl-PH': url(`/${tl.slug}`) }),
+            ...(en && { 'en-PH': url(`/${en.slug}`) }),
+          },
+        },
+      }),
+    };
+  });
+  return [...pages, ...feelings, ...guidePages];
 }
