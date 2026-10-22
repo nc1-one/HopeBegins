@@ -6,7 +6,6 @@ import {
   Users,
   Clock,
   TrendingUp,
-  ArrowUpRight,
   Plus,
   RefreshCw,
   ChevronLeft,
@@ -60,7 +59,7 @@ export default function DonationsPage() {
       icon: Gift,
       color: 'text-brand',
       bg: 'bg-brand/5',
-      trend: stats.totalRaised > 0 ? '+15.2%' : '0%',
+      trend: 'All time',
     },
     {
       label: 'Donors',
@@ -68,7 +67,7 @@ export default function DonationsPage() {
       icon: Users,
       color: 'text-blue-600',
       bg: 'bg-blue-50 dark:bg-blue-900/20',
-      trend: stats.totalDonors > 0 ? '+8 this mo' : '0',
+      trend: 'People who gave',
     },
     {
       label: 'Monthly',
@@ -76,7 +75,7 @@ export default function DonationsPage() {
       icon: Clock,
       color: 'text-amber-600',
       bg: 'bg-amber-50 dark:bg-amber-900/20',
-      trend: stats.monthlyTotal > 0 ? '+3 recurring' : '0',
+      trend: 'Recurring gifts',
     },
     {
       label: 'Avg. Donation',
@@ -84,7 +83,7 @@ export default function DonationsPage() {
       icon: TrendingUp,
       color: 'text-emerald-600',
       bg: 'bg-emerald-50 dark:bg-emerald-900/20',
-      trend: stats.avgDonation > 0 ? '+2.4%' : '0%',
+      trend: 'Per gift',
     },
   ];
 
@@ -161,8 +160,7 @@ export default function DonationsPage() {
                   {isLoading ? '---' : stat.value}
                 </div>
                 {!isLoading && (
-                  <div className="flex items-center gap-1 text-[10px] font-black mt-1 text-emerald-500 uppercase tracking-widest">
-                    <ArrowUpRight className="h-3 w-3" />
+                  <div className="mt-1 text-[10px] font-black uppercase tracking-widest text-zinc-400">
                     {stat.trend}
                   </div>
                 )}

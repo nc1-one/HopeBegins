@@ -148,18 +148,18 @@ export default function AdminLayout({
 
   return (
     <AdminAuthGuard>
-      <div className="flex min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 font-dm-sans">
+      <div className="flex min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 font-dm-sans print:block print:min-h-0 print:bg-white">
         {/* ── Desktop Sidebar Overlay (Mobile) ── */}
         {isMobileMenuOpen && (
           <div
-            className="fixed inset-0 bg-black/50 z-40 lg:hidden backdrop-blur-sm"
+            className="fixed inset-0 bg-black/50 z-40 lg:hidden backdrop-blur-sm print:hidden"
             onClick={() => setIsMobileMenuOpen(false)}
           />
         )}
 
         {/* ── Sidebar ── */}
         <aside
-          className={`fixed inset-y-0 left-0 z-50 w-72 bg-white dark:bg-zinc-900 border-r flex flex-col transition-transform duration-300 lg:translate-x-0 lg:static lg:h-screen ${
+          className={`fixed inset-y-0 left-0 z-50 w-72 bg-white dark:bg-zinc-900 border-r flex flex-col transition-transform duration-300 lg:translate-x-0 lg:static lg:h-screen print:hidden ${
             isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
@@ -221,9 +221,10 @@ export default function AdminLayout({
             </button>
           </div>
         </aside>
-        <main className="flex-1 min-w-0 flex flex-col h-screen overflow-hidden">
+        {/* Printing (the PDF report) shows the page alone, at full length. */}
+        <main className="flex-1 min-w-0 flex flex-col h-screen overflow-hidden print:block print:h-auto print:overflow-visible">
           {/* ── Mobile Header ── */}
-          <header className="lg:hidden h-16 border-b bg-white dark:bg-zinc-900 px-4 flex items-center justify-between sticky top-0 z-30">
+          <header className="lg:hidden h-16 border-b bg-white dark:bg-zinc-900 px-4 flex items-center justify-between sticky top-0 z-30 print:hidden">
             <h2 className="text-lg font-black italic tracking-tighter text-brand">
               Hope Admin
             </h2>
@@ -235,7 +236,9 @@ export default function AdminLayout({
             </button>
           </header>
 
-          <div className="flex-1 overflow-y-auto w-full">{children}</div>
+          <div className="flex-1 overflow-y-auto w-full print:overflow-visible">
+            {children}
+          </div>
         </main>
       </div>
     </AdminAuthGuard>

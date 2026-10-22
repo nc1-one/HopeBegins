@@ -1,6 +1,7 @@
 'use client';
 
-import { AlertCircle, RefreshCw } from 'lucide-react';
+import Link from 'next/link';
+import { AlertCircle, Download, RefreshCw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DateRangePicker } from '@/components/ui/date-range-picker';
 import { useDashboard } from './hooks/useDashboard';
@@ -57,11 +58,21 @@ export default function AdminDashboard() {
           </p>
         </div>
 
-        <DateRangePicker
-          startDate={dateRange.startDate}
-          endDate={dateRange.endDate}
-          onChange={handleDateChange}
-        />
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <DateRangePicker
+            startDate={dateRange.startDate}
+            endDate={dateRange.endDate}
+            onChange={handleDateChange}
+          />
+          {/* The same dates, as a PDF report. */}
+          <Link
+            href={`/admin/dashboard/report?start=${dateRange.startDate}&end=${dateRange.endDate}&print=1`}
+            className="inline-flex h-12 shrink-0 whitespace-nowrap items-center justify-center gap-2 rounded-2xl bg-brand px-6 font-bold text-brand-foreground transition-opacity hover:opacity-90"
+          >
+            <Download className="h-4 w-4" />
+            Download PDF report
+          </Link>
+        </div>
       </header>
 
       {/* ── Stat Cards ── */}

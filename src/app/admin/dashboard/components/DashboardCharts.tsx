@@ -32,7 +32,7 @@ const COLORS = [
   '#d0e1d4',
 ];
 
-const PRAYER_CATEGORY_LABELS: Record<string, string> = {
+export const PRAYER_CATEGORY_LABELS: Record<string, string> = {
   GENERAL: 'General',
   ANXIETY_FEAR: 'Anxiety & Fear',
   HEALTH: 'Health',
