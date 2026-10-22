@@ -3,11 +3,19 @@ import { useQuery } from '@tanstack/react-query';
 import { adminService } from '@/services/adminService';
 import { subDays, format } from 'date-fns';
 
-export function useDashboard() {
-  const [dateRange, setDateRange] = useState({
-    startDate: format(subDays(new Date(), 30), 'yyyy-MM-dd'),
-    endDate: format(new Date(), 'yyyy-MM-dd'),
-  });
+/** The last 30 days, as yyyy-MM-dd. */
+export const defaultDateRange = () => ({
+  startDate: format(subDays(new Date(), 30), 'yyyy-MM-dd'),
+  endDate: format(new Date(), 'yyyy-MM-dd'),
+});
+
+export function useDashboard(initialRange?: {
+  startDate: string;
+  endDate: string;
+}) {
+  const [dateRange, setDateRange] = useState(
+    () => initialRange ?? defaultDateRange()
+  );
 
   const {
     data: stats,

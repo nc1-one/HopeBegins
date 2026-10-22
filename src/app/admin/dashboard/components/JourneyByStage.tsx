@@ -389,7 +389,12 @@ export function JourneyByStage({
         >
           <Bars
             rows={feelingPages.map((page) => ({
-              label: page.label,
+              // Pages with a Taglish and an English version share a label.
+              label: feelingPages.some(
+                (other) => other !== page && other.label === page.label
+              )
+                ? `${page.label} (${page.lang === 'tl' ? 'Taglish' : 'English'})`
+                : page.label,
               count: n(`visit_feeling_${page.slug}`),
             }))}
           />
@@ -785,7 +790,8 @@ export function JourneyByStage({
         </div>
       </Card>
 
-      <Card className={cardClass}>
+      {/* Every event name: too long for the PDF report. */}
+      <Card className={`${cardClass} print:hidden`}>
         <details>
           <summary className="cursor-pointer text-sm font-bold uppercase tracking-wider">
             All events

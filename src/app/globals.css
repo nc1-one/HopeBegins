@@ -195,6 +195,47 @@
   }
 }
 
+/*
+ * Admin PDF report, on A4 with its colours. The admin layout hides its
+ * sidebar and scroll box when printing, so the report flows page to page.
+ */
+@media print {
+  /* The chat bubble, pop-outs and anything else outside the admin layout. */
+  body:has(#admin-report) > :not(:has(#admin-report)) {
+    display: none !important;
+  }
+  body:has(#admin-report) {
+    background: #fff;
+  }
+  #admin-report {
+    page: admin-report;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  /* Long cards may run on to the next page; their rows stay whole. */
+  #admin-report .report-block,
+  #admin-report li,
+  #admin-report tr {
+    break-inside: avoid;
+  }
+  #admin-report h2,
+  #admin-report h3 {
+    break-after: avoid;
+  }
+  #admin-report .report-journey {
+    break-before: page;
+  }
+  /* Soft shadows print as grey blocks, so cards get a thin line. */
+  #admin-report [class*='shadow'] {
+    box-shadow: none !important;
+    border: 1px solid #e7e4dc !important;
+  }
+}
+@page admin-report {
+  size: A4;
+  margin: 14mm 12mm;
+}
+
 /* Action plan breathing exercise: 4s in, 6s out */
 @keyframes hb-breathe {
   0% {
