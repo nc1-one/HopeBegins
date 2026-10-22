@@ -117,6 +117,141 @@ export function webPageJsonLd({
   };
 }
 
+const BLOG_ID = `${SITE}/hope-unfiltered#blog`;
+
+const faqPage = (url: string, faq: { q: string; a: string }[]) => ({
+  '@type': 'FAQPage',
+  '@id': `${url}#faq`,
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+});
+
+/** The Hope Unfiltered blog and the stories it lists. */
+export function blogJsonLd({
+  path,
+  name,
+  description,
+  image,
+  posts,
+}: {
+  path: string;
+  name: string;
+  description: string;
+  image: string;
+  posts: { path: string; title: string }[];
+}) {
+  const url = `${SITE}${path}`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Blog',
+        '@id': BLOG_ID,
+        url,
+        name,
+        description,
+        inLanguage: ['en-PH', 'tl-PH'],
+        isPartOf: { '@id': SITE_ID },
+        publisher: { '@id': ORG_ID },
+        image: { '@type': 'ImageObject', url: `${SITE}${image}` },
+        blogPost: posts.map((post) => ({
+          '@type': 'BlogPosting',
+          '@id': `${SITE}${post.path}#article`,
+          url: `${SITE}${post.path}`,
+          headline: post.title,
+        })),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${url}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'HopeBegins', item: SITE },
+          { '@type': 'ListItem', position: 2, name, item: url },
+        ],
+      },
+    ],
+  };
+}
+
+/** One Hope Unfiltered story, its place in the blog, and its questions. */
+export function storyJsonLd({
+  path,
+  blogPath,
+  blogName,
+  headline,
+  description,
+  lang,
+  image,
+  published,
+  keywords,
+  section,
+  wordCount,
+  faq,
+}: {
+  path: string;
+  blogPath: string;
+  blogName: string;
+  headline: string;
+  description: string;
+  lang: 'en' | 'tl';
+  image: string;
+  /** yyyy-MM-dd */
+  published: string;
+  keywords: string[];
+  section: string;
+  wordCount: number;
+  faq: { q: string; a: string }[];
+}) {
+  const url = `${SITE}${path}`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BlogPosting',
+        '@id': `${url}#article`,
+        url,
+        mainEntityOfPage: url,
+        headline,
+        description,
+        inLanguage: lang === 'tl' ? 'tl-PH' : 'en-PH',
+        image: {
+          '@type': 'ImageObject',
+          url: `${SITE}${image}`,
+          width: 1200,
+          height: 630,
+        },
+        datePublished: published,
+        dateModified: published,
+        author: { '@id': ORG_ID },
+        publisher: { '@id': ORG_ID },
+        isPartOf: { '@id': BLOG_ID },
+        articleSection: section,
+        keywords: keywords.join(', '),
+        wordCount,
+        breadcrumb: { '@id': `${url}#breadcrumb` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${url}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'HopeBegins', item: SITE },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: blogName,
+            item: `${SITE}${blogPath}`,
+          },
+          { '@type': 'ListItem', position: 3, name: headline, item: url },
+        ],
+      },
+      ...(faq.length ? [faqPage(url, faq)] : []),
+    ],
+  };
+}
+
 /** Writes structured data into the page, safely escaped. */
 export const jsonLdHtml = (data: object) => ({
   __html: JSON.stringify(data).replace(/</g, '\\u003c'),
