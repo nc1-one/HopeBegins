@@ -782,10 +782,31 @@ export function JourneyByStage({
           />
           <Table
             columns={['Other pages', 'Visits']}
-            rows={OTHER_PAGES.map(([page, label]) => ({
-              label,
-              values: [n(`visit_${page}`)],
-            }))}
+            rows={[
+              ...OTHER_PAGES.map(([page, label]) => ({
+                label,
+                values: [n(`visit_${page}`)],
+              })),
+              {
+                label: 'Hope Unfiltered: the blog page',
+                values: [n('visit_hope_unfiltered')],
+              },
+              {
+                label: 'Hope Unfiltered: all story pages',
+                values: [
+                  sumWhere(t, (name) => name.startsWith('visit_story_')),
+                ],
+              },
+            ]}
+          />
+          <Table
+            columns={['From Hope Unfiltered', 'Taps']}
+            rows={[
+              {
+                label: 'Tapped "That\'s me" on the blog or a story',
+                values: [n('story_thats_me')],
+              },
+            ]}
           />
         </div>
       </Card>

@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { config } from '@/config';
 import { feelingPages, getFeelingPage } from '@/lib/feelingPages';
 import { getGuide, guides } from '@/lib/guidePages';
+import { BLOG_PATH, stories, storyPath } from '@/lib/hopeUnfiltered';
 
 // When each page last changed in a way a reader would notice. Bump a date
 // when you change that page's content, so Google knows to look again.
@@ -17,6 +18,7 @@ const UPDATED: Record<string, string> = {
   '/our-approach': '2026-10-18',
   '/laro-muna': '2026-10-17',
   '/tools': '2026-10-18',
+  [BLOG_PATH]: '2026-10-23',
   '/be-carrier': '2026-10-18',
   '/guidelines': '2026-10-18',
   '/privacy': '2026-10-18',
@@ -62,5 +64,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }),
     };
   });
-  return [...pages, ...feelings, ...guidePages];
+  const storyPages: MetadataRoute.Sitemap = stories.map((story) => ({
+    url: url(storyPath(story)),
+    lastModified: story.published,
+  }));
+  return [...pages, ...feelings, ...guidePages, ...storyPages];
 }

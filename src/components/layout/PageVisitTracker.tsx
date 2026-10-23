@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { feelingSlugs } from '@/lib/feelingPages';
+import { BLOG_PATH, storySlugAt } from '@/lib/hopeUnfiltered/meta';
 import { analyticsService } from '@/services/analyticsService';
 
 // Pages whose visits show on the admin dashboard, by the name they are
@@ -19,6 +20,7 @@ const TRACKED: Record<string, string> = {
   '/our-approach': 'our_approach',
   '/laro-muna': 'laro_muna',
   '/tools': 'tools',
+  [BLOG_PATH]: 'hope_unfiltered',
   ...Object.fromEntries(
     feelingSlugs.map((path) => [path, `feeling_${path.slice(1)}`])
   ),
@@ -29,7 +31,8 @@ export function PageVisitTracker() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const page = TRACKED[pathname];
+    const story = storySlugAt(pathname);
+    const page = TRACKED[pathname] ?? (story && `story_${story}`);
     if (page) analyticsService.recordVisit(page);
   }, [pathname]);
 
