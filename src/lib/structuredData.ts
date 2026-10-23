@@ -117,7 +117,7 @@ export function webPageJsonLd({
   };
 }
 
-const BLOG_ID = `${SITE}/hope-unfiltered#blog`;
+const BLOG_ID = `${SITE}/blog#blog`;
 
 const faqPage = (url: string, faq: { q: string; a: string }[]) => ({
   '@type': 'FAQPage',
@@ -129,7 +129,7 @@ const faqPage = (url: string, faq: { q: string; a: string }[]) => ({
   })),
 });
 
-/** The Hope Unfiltered blog and the stories it lists. */
+/** The blog and the stories it lists. */
 export function blogJsonLd({
   path,
   name,
@@ -176,7 +176,7 @@ export function blogJsonLd({
   };
 }
 
-/** One Hope Unfiltered story, its place in the blog, and its questions. */
+/** One blog story, its place in the blog, and its questions. */
 export function storyJsonLd({
   path,
   blogPath,

@@ -44,7 +44,7 @@ export function Header() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/tools', label: 'Tools' },
-    { href: '/hope-unfiltered', label: 'Hope Unfiltered' },
+    { href: '/blog', label: 'Blog' },
     { href: '/our-approach', label: 'Our approach' },
     { href: '/give-hope', label: 'Give' },
   ];

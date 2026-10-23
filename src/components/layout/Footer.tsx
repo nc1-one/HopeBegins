@@ -13,7 +13,7 @@ import { feelingPages } from '@/lib/feelingPages';
 const mainLinks = [
   { href: '/free-mental-health-help-philippines', label: 'Free help' },
   { href: '/tools', label: 'Tools' },
-  { href: '/hope-unfiltered', label: 'Hope Unfiltered' },
+  { href: '/blog', label: 'Blog' },
   { href: '/laro-muna', label: 'Games' },
   { href: '/our-approach', label: 'Our approach' },
   { href: '/give-hope', label: 'Give' },

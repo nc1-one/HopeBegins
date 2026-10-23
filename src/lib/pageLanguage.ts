@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { getFeelingPage, type FeelingLang } from './feelingPages';
-import { STORY_META, storySlugAt } from './hopeUnfiltered/meta';
+import { STORY_META, storySlugAt } from './blog/meta';
 import { useLanguage } from './languagePreference';
 
 /**
