@@ -14,6 +14,7 @@ import { WAR_ROOM_URL } from '@/lib/actionPlan';
 import { useSavedPlan } from '@/lib/actionPlanStore';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { setLanguage, useLanguage } from '@/lib/languagePreference';
+import { pathIn, TAGLISH_TWINS, twinLinks } from '@/lib/taglishTwins';
 import { type PhotoId } from '@/lib/photos';
 import { usePhotoPicker } from '@/components/ui/PhotoTurn';
 
@@ -252,8 +253,9 @@ interface MoreLink {
   /** A plain string is a name, kept in English on Taglish pages too. */
   title: Text | string;
   text: Text;
+  /** A page opens at its Taglish address on Taglish pages, if it has one. */
   to:
-    | { page: string; tlPage?: string }
+    | { page: string }
     | { ecoach: string }
     | { site: string; linkName: string };
 }
@@ -333,7 +335,7 @@ const MORE: { id: string; title: Text; links: MoreLink[] }[] = [
           en: 'A free plan for hard days that stays on your phone.',
           tl: 'Libreng plano para sa mabibigat na araw. Sa phone mo lang ito naka-save.',
         },
-        to: { page: '/action-plan', tlPage: '/action-plan?lang=tl' },
+        to: { page: '/action-plan' },
       },
       {
         title: {
@@ -429,10 +431,7 @@ function MoreRow({ link, lang }: { link: MoreLink; lang: FeelingLang }) {
     );
   }
   return (
-    <Link
-      href={lang === 'tl' && to.tlPage ? to.tlPage : to.page}
-      className={rowClass}
-    >
+    <Link href={pathIn(to.page, lang)} className={rowClass}>
       {body}
     </Link>
   );
@@ -501,7 +500,7 @@ function ToolCard({
             <p className="mt-3 px-2 text-sm text-[#6E5F47] sm:px-0">
               {t.needsPlan}{' '}
               <Link
-                href={lang === 'tl' ? '/action-plan?lang=tl' : '/action-plan'}
+                href={pathIn('/action-plan', lang)}
                 className="inline-flex min-h-11 items-center font-bold underline underline-offset-4"
               >
                 {t.makePlan}
@@ -533,8 +532,13 @@ function ToolCard({
   );
 }
 
-export function Toolbox() {
-  const lang = useLanguage();
+/**
+ * The tools in the visitor's language, or in `lang` on the page's Taglish
+ * address (see taglishTwins.ts).
+ */
+export function Toolbox({ lang: pageLang }: { lang?: FeelingLang } = {}) {
+  const preferred = useLanguage();
+  const lang = pageLang ?? preferred;
   const t = copy[lang];
   const [active, setActive] = useState(GROUPS[0].id);
   const pickPhoto = usePhotoPicker();
@@ -542,11 +546,12 @@ export function Toolbox() {
   const tabs = useRef<Record<string, HTMLButtonElement | null>>({});
   const group = GROUPS.find((item) => item.id === active) ?? GROUPS[0];
 
-  // Links from Taglish pages open the tools in Taglish (?lang=tl).
+  // The Taglish address, and links with ?lang=tl, make Taglish the choice.
   useEffect(() => {
     const requested = new URLSearchParams(window.location.search).get('lang');
-    if (requested === 'tl' || requested === 'en') setLanguage(requested);
-  }, []);
+    const chosen = pageLang ?? requested;
+    if (chosen === 'tl' || chosen === 'en') setLanguage(chosen);
+  }, [pageLang]);
 
   const select = (id: string) => {
     setActive(id);
@@ -579,7 +584,14 @@ export function Toolbox() {
         <div className="flex flex-col-reverse gap-6 md:flex-row md:items-start md:justify-between">
           <OptionPageHeader title={t.title} subtitle={t.subtitle} />
           <div className="self-end md:self-auto">
-            <LanguageSwitch />
+            {pageLang ? (
+              <LanguageSwitch
+                links={twinLinks(TAGLISH_TWINS.tools)}
+                current={pageLang}
+              />
+            ) : (
+              <LanguageSwitch />
+            )}
           </div>
         </div>
 

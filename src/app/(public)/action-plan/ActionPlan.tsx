@@ -56,6 +56,7 @@ import {
   useHomeScreenStatus,
 } from '@/lib/installPrompt';
 import { setLanguage, useLanguage } from '@/lib/languagePreference';
+import { TAGLISH_TWINS, twinLinks } from '@/lib/taglishTwins';
 import { usePhoto } from '@/components/ui/PhotoTurn';
 import { forgetTool } from '@/lib/myTool';
 import { clearToolNotes } from '@/lib/toolNotes';
@@ -1318,10 +1319,17 @@ function RestoreBackup({ t }: { t: Copy }) {
   );
 }
 
-export default function ActionPlanPage() {
+/**
+ * The plan in the visitor's language, or in `lang` on the plan's Taglish
+ * address (see taglishTwins.ts).
+ */
+export default function ActionPlan({
+  lang: pageLang,
+}: { lang?: PlanLang } = {}) {
   const morning = usePhoto('morning');
   const saved = useSavedPlan();
-  const lang = useLanguage();
+  const preferred = useLanguage();
+  const lang = pageLang ?? preferred;
   const t = ui[lang];
   const questions = getQuestions(lang);
   const [isRetaking, setIsRetaking] = useState(false);
@@ -1344,15 +1352,16 @@ export default function ActionPlanPage() {
     headingRef.current?.focus({ preventScroll: true });
   }, [showPlan, showQuestions, current]);
 
-  // Links from Taglish pages open the plan in Taglish (?lang=tl).
+  // The Taglish address, and older links with ?lang=tl, make Taglish the
+  // choice, so the plan stays in Taglish when opened from the home screen.
   const reminderTool = useRef<string | null>(null);
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const requested = params.get('lang');
-    if (requested === 'tl' || requested === 'en') setLanguage(requested);
+    const chosen = pageLang ?? params.get('lang');
+    if (chosen === 'tl' || chosen === 'en') setLanguage(chosen);
     // A reminder (?tool=breathe) opens on that tool in the Today card.
     reminderTool.current = params.get('tool');
-  }, []);
+  }, [pageLang]);
   useEffect(() => {
     const id = reminderTool.current;
     if (!id || !saved) return;
@@ -1445,7 +1454,14 @@ export default function ActionPlanPage() {
 
   const header = (
     <div className="mb-6 flex justify-end">
-      <LanguageSwitch />
+      {pageLang ? (
+        <LanguageSwitch
+          links={twinLinks(TAGLISH_TWINS.plan)}
+          current={pageLang}
+        />
+      ) : (
+        <LanguageSwitch />
+      )}
     </div>
   );
 

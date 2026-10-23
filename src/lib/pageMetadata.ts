@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { FeelingLang } from './feelingPages';
+import { isTwinReady, twinLanguages, type TaglishTwin } from './taglishTwins';
 
 const DEFAULT_IMAGE = {
   url: '/og/hopebegins.jpg',
@@ -12,7 +13,8 @@ const DEFAULT_IMAGE = {
  * entirely, so every page sets its image here instead of relying on the
  * root layout. `path` is the page's own address, such as '/action-plan'; it
  * tells Google which URL is the main one when the page is reachable at more
- * than one. `lang` is the language the page is written in, for the preview.
+ * than one. `lang` is the language the page is written in, for the preview,
+ * and `languages` names the page's versions in each language (hreflang).
  */
 export function pageMetadata(
   path: string,
@@ -22,11 +24,13 @@ export function pageMetadata(
     image = DEFAULT_IMAGE,
     keywords,
     lang = 'en',
+    languages,
   }: {
     image?: { url: string; alt: string };
     /** Words people search for that the page answers. */
     keywords?: string[];
     lang?: FeelingLang;
+    languages?: Record<string, string>;
   } = {}
 ): Metadata {
   const shareTitle = `${title} | HopeBegins`;
@@ -34,7 +38,7 @@ export function pageMetadata(
     title,
     description,
     ...(keywords && { keywords }),
-    alternates: { canonical: path },
+    alternates: { canonical: path, ...(languages && { languages }) },
     openGraph: {
       type: 'website',
       siteName: 'HopeBegins',
@@ -50,5 +54,31 @@ export function pageMetadata(
       description,
       images: [image.url],
     },
+  };
+}
+
+/**
+ * Metadata for a core page's Taglish address. Until the team writes its
+ * search lines in taglishTwins.ts, the tab shows the page's own Taglish
+ * heading and the page stays out of search results.
+ */
+export function twinMetadata(
+  twin: TaglishTwin,
+  heading: { title: string; description: string },
+  image?: { url: string; alt: string }
+): Metadata {
+  return {
+    ...pageMetadata(
+      twin.tl,
+      twin.title ?? heading.title,
+      twin.description ?? heading.description,
+      {
+        image,
+        keywords: twin.keywords.length ? twin.keywords : undefined,
+        lang: 'tl',
+        languages: twinLanguages(twin),
+      }
+    ),
+    ...(!isTwinReady(twin) && { robots: { index: false } }),
   };
 }

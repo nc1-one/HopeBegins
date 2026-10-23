@@ -7,6 +7,7 @@ import { TrackedLink } from '@/components/ui/TrackedLink';
 import { buildPlan } from '@/lib/actionPlan';
 import { updatePlan, useSavedPlan } from '@/lib/actionPlanStore';
 import type { FeelingLang } from '@/lib/feelingPages';
+import { pathIn } from '@/lib/taglishTwins';
 import { recordToolCheck, type Felt } from '@/lib/toolChecks';
 import { analyticsService, type ToolSource } from '@/services/analyticsService';
 
@@ -174,7 +175,7 @@ export function ToolFinish({
           )}
           {felt === 'calmer' && !saved && (
             <TrackedLink
-              href={lang === 'tl' ? '/action-plan?lang=tl' : '/action-plan'}
+              href={pathIn('/action-plan', lang)}
               linkName={`tool_make_plan_${kind}`}
               className={secondaryClass}
             >

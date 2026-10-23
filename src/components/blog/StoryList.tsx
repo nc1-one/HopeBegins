@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { THEME_IDS, THEMES } from '@/lib/blog/meta';
 import type { StoryTheme } from '@/lib/blog/types';
-import { useLanguage } from '@/lib/languagePreference';
+import { setLanguage, useLanguage } from '@/lib/languagePreference';
+import { TAGLISH_TWINS, twinLinks } from '@/lib/taglishTwins';
 import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
 import { analyticsService } from '@/services/analyticsService';
 
@@ -40,13 +41,21 @@ export function StoryList({
   copy,
   featured,
   entries,
+  lang: pageLang,
 }: {
   copy: BlogCopy;
   featured: Record<FeelingLang, ReactNode>;
   entries: StoryEntry[];
+  /** Set on the blog's Taglish address, which is always in Taglish. */
+  lang?: FeelingLang;
 }) {
-  const lang = useLanguage();
+  const preferred = useLanguage();
+  const lang = pageLang ?? preferred;
   const t = copy[lang];
+  // The Taglish address makes Taglish the visitor's choice.
+  useEffect(() => {
+    if (pageLang) setLanguage(pageLang);
+  }, [pageLang]);
   const [theme, setTheme] = useState<StoryTheme | 'all'>('all');
   const themes = THEME_IDS.filter((id) =>
     entries.some((entry) => entry.theme === id)
@@ -102,7 +111,14 @@ export function StoryList({
           </p>
         </header>
         <div className="self-end md:self-auto">
-          <LanguageSwitch />
+          {pageLang ? (
+            <LanguageSwitch
+              links={twinLinks(TAGLISH_TWINS.blog)}
+              current={pageLang}
+            />
+          ) : (
+            <LanguageSwitch />
+          )}
         </div>
       </div>
 

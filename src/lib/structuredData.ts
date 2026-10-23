@@ -117,7 +117,8 @@ export function webPageJsonLd({
   };
 }
 
-const BLOG_ID = `${SITE}/blog#blog`;
+// The blog has a list page in each language; each is its own Blog.
+const blogId = (path: string) => `${SITE}${path}#blog`;
 
 const faqPage = (url: string, faq: { q: string; a: string }[]) => ({
   '@type': 'FAQPage',
@@ -136,12 +137,15 @@ export function blogJsonLd({
   description,
   image,
   posts,
+  lang,
 }: {
   path: string;
   name: string;
   description: string;
   image: string;
   posts: { path: string; title: string }[];
+  /** Set when the list is in one language only. */
+  lang?: 'en' | 'tl';
 }) {
   const url = `${SITE}${path}`;
   return {
@@ -149,11 +153,15 @@ export function blogJsonLd({
     '@graph': [
       {
         '@type': 'Blog',
-        '@id': BLOG_ID,
+        '@id': blogId(path),
         url,
         name,
         description,
-        inLanguage: ['en-PH', 'tl-PH'],
+        inLanguage: lang
+          ? lang === 'tl'
+            ? 'tl-PH'
+            : 'en-PH'
+          : ['en-PH', 'tl-PH'],
         isPartOf: { '@id': SITE_ID },
         publisher: { '@id': ORG_ID },
         image: { '@type': 'ImageObject', url: `${SITE}${image}` },
@@ -228,7 +236,7 @@ export function storyJsonLd({
         // As the page shows it: the stories are published without a name.
         author: { '@type': 'Person', name: 'Anonymous' },
         publisher: { '@id': ORG_ID },
-        isPartOf: { '@id': BLOG_ID },
+        isPartOf: { '@id': blogId(blogPath) },
         articleSection: section,
         keywords: keywords.join(', '),
         wordCount,

@@ -1,5 +1,6 @@
 import type { PlanItem, PlanLang, TimeOfDay } from './actionPlan';
 import { downloadFile } from './download';
+import { pathIn } from './taglishTwins';
 
 /**
  * Daily calendar reminders for a tool in the visitor's week. The event is
@@ -15,7 +16,9 @@ const REMINDER_TIME: Record<TimeOfDay, [hour: number, minute: number]> = {
 };
 export const REMINDER_DAYS = 28;
 const EVENT_MINUTES = 15;
-const PLAN_URL = 'https://hopebegins.today/action-plan';
+/** The plan's address in the visitor's language. */
+const planUrl = (lang: PlanLang) =>
+  `https://hopebegins.today${pathIn('/action-plan', lang)}`;
 
 const pad = (n: number) => String(n).padStart(2, '0');
 
@@ -115,7 +118,7 @@ const toolEvent = (
   now: Date
 ): CalendarEvent => {
   // Opens the plan on today's card for this tool, in their language.
-  const url = `${PLAN_URL}?tool=${item.id}${lang === 'tl' ? '&lang=tl' : ''}`;
+  const url = `${planUrl(lang)}?tool=${item.id}`;
   return {
     id: item.id,
     title: `HopeBegins: ${item.title}`,
@@ -176,11 +179,11 @@ function monthlyEvent(lang: PlanLang, now: Date): CalendarEvent {
   return {
     id: 'monthly-check-in',
     title: 'HopeBegins: 1-minute check-in',
-    url: PLAN_URL,
+    url: planUrl(lang),
     details:
       lang === 'tl'
-        ? `Buksan ang plano mo at sagutan ang 1-minute check-in: ${PLAN_URL}`
-        : `Open your plan and take the 1-minute check-in: ${PLAN_URL}`,
+        ? `Buksan ang plano mo at sagutan ang 1-minute check-in: ${planUrl(lang)}`
+        : `Open your plan and take the 1-minute check-in: ${planUrl(lang)}`,
     start,
     minutes: 5,
     rrule: `FREQ=MONTHLY;COUNT=${MONTHLY_REMINDERS}`,

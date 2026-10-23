@@ -1,5 +1,6 @@
 import { PageJsonLd } from '@/components/layout/PageJsonLd';
 import { pageMetadata } from '@/lib/pageMetadata';
+import { TAGLISH_TWINS, twinLanguages } from '@/lib/taglishTwins';
 import { Toolbox } from './Toolbox';
 
 const PATH = '/tools';
@@ -21,6 +22,7 @@ export const metadata = pageMetadata(PATH, TITLE, DESCRIPTION, {
     'Daily Hope',
     'HopeCasts',
   ],
+  languages: twinLanguages(TAGLISH_TWINS.tools),
 });
 
 export default function ToolsPage() {

@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { usePageLanguage } from '@/lib/pageLanguage';
+import { englishPath, pathIn } from '@/lib/taglishTwins';
 
 type OptionKey =
   | 'plan'
@@ -60,7 +61,7 @@ const linkClass = 'py-2.5 underline underline-offset-4 hover:text-[#5c4f3b]';
 export function WhatNext() {
   const pathname = usePathname();
   const lang = usePageLanguage();
-  const keys = nextSteps[pathname];
+  const keys = nextSteps[englishPath(pathname)];
   if (!keys) return null;
 
   return (
@@ -85,12 +86,8 @@ export function WhatNext() {
                     </EcoachLink>
                   ) : (
                     <Link
-                      href={
-                        // The plan opens in the page's language.
-                        key === 'plan' && lang === 'tl'
-                          ? `${option.href}?lang=tl`
-                          : (option.href ?? '/')
-                      }
+                      // The plan opens in the page's language.
+                      href={pathIn(option.href ?? '/', lang)}
                       className={linkClass}
                     >
                       {option.title[lang]}
