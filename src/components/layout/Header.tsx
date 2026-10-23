@@ -8,6 +8,7 @@ import headerLogo from '@/assets/images/header-logo.png';
 import { Menu, Phone, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { usePageLanguage } from '@/lib/pageLanguage';
+import { pathIn } from '@/lib/taglishTwins';
 import { analyticsService } from '@/services/analyticsService';
 import { START_HASH, closeStartMenu } from '@/lib/startMenu';
 
@@ -42,10 +43,11 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // On Taglish pages, Tools and Blog go to their Taglish addresses.
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/tools', label: 'Tools' },
-    { href: '/blog', label: 'Blogs' },
+    { href: pathIn('/tools', lang), label: 'Tools' },
+    { href: pathIn('/blog', lang), label: 'Blogs' },
     { href: '/our-approach', label: 'Our approach' },
     { href: '/give-hope', label: 'Give' },
   ];

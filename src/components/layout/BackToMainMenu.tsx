@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { usePageLanguage } from '@/lib/pageLanguage';
+import { englishPath } from '@/lib/taglishTwins';
 
 // Pages reached from the homepage options screen (/#start)
 const OPTION_PAGES = [
@@ -21,7 +22,7 @@ const OPTION_PAGES = [
 export function BackToMainMenu() {
   const pathname = usePathname();
   const lang = usePageLanguage();
-  if (!OPTION_PAGES.includes(pathname)) return null;
+  if (!OPTION_PAGES.includes(englishPath(pathname))) return null;
 
   return (
     <div className="px-6 pt-6 print:hidden">

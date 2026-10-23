@@ -3,6 +3,7 @@ import { config } from '@/config';
 import { feelingPages, getFeelingPage } from '@/lib/feelingPages';
 import { getGuide, guides } from '@/lib/guidePages';
 import { BLOG_PATH, pairOf, stories, storyPath } from '@/lib/blog';
+import { isTwinReady, TAGLISH_TWINS, twinLanguages } from '@/lib/taglishTwins';
 
 // When each page last changed in a way a reader would notice. Bump a date
 // when you change that page's content, so Google knows to look again.
@@ -28,9 +29,31 @@ const GUIDES_UPDATED = '2026-10-19';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const url = (path: string) => `${config.BASE_URL}${path}`;
+  const absolute = (languages: Record<string, string>) =>
+    Object.fromEntries(
+      Object.entries(languages).map(([lang, path]) => [lang, url(path)])
+    );
+  // A core page with a Taglish address names it, once that page is ready.
   const pages: MetadataRoute.Sitemap = Object.entries(UPDATED).map(
-    ([path, date]) => ({ url: url(path), lastModified: date })
+    ([path, date]) => {
+      const twin = Object.values(TAGLISH_TWINS).find((t) => t.en === path);
+      const languages = twin && twinLanguages(twin);
+      return {
+        url: url(path),
+        lastModified: date,
+        ...(languages && { alternates: { languages: absolute(languages) } }),
+      };
+    }
   );
+  // The Taglish addresses, each listed once the team has written its
+  // search lines (see taglishTwins.ts).
+  const twinPages: MetadataRoute.Sitemap = Object.values(TAGLISH_TWINS)
+    .filter(isTwinReady)
+    .map((twin) => ({
+      url: url(twin.tl),
+      lastModified: UPDATED[twin.en],
+      alternates: { languages: absolute(twinLanguages(twin) ?? {}) },
+    }));
   // Each feeling page names its other-language twin, and the English one
   // for everyone else, as the pages themselves do.
   const feelings: MetadataRoute.Sitemap = feelingPages.map((page) => {
@@ -92,5 +115,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }),
     };
   });
-  return [...pages, ...feelings, ...guidePages, ...storyPages];
+  return [...pages, ...twinPages, ...feelings, ...guidePages, ...storyPages];
 }

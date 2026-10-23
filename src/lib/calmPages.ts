@@ -1,5 +1,6 @@
 import { feelingSlugs } from './feelingPages';
 import { guideSlugs } from './guidePages';
+import { englishPath } from './taglishTwins';
 
 /**
  * Pages for people who are struggling right now: the door and menu, the
@@ -29,4 +30,4 @@ const CALM_PAGES = new Set([
 ]);
 
 export const isCalmPage = (pathname: string | null) =>
-  pathname !== null && CALM_PAGES.has(pathname);
+  pathname !== null && CALM_PAGES.has(englishPath(pathname));

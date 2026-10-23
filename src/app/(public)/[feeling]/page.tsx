@@ -10,6 +10,7 @@ import { MessageSomeone } from '@/components/tools/MessageSomeone';
 import { WorryNote } from '@/components/tools/WorryNote';
 import { feelingPages, feelingUi, getFeelingPage } from '@/lib/feelingPages';
 import { pageMetadata } from '@/lib/pageMetadata';
+import { pathIn } from '@/lib/taglishTwins';
 import { jsonLdHtml, webPageJsonLd } from '@/lib/structuredData';
 import { getGuide } from '@/lib/guidePages';
 import { photo, photoTurn } from '@/lib/photos';
@@ -82,7 +83,7 @@ export default async function FeelingPage({
   const plan = (
     <Link
       key="plan"
-      href={page.lang === 'tl' ? '/action-plan?lang=tl' : '/action-plan'}
+      href={pathIn('/action-plan', page.lang)}
       className={nextLinkClass}
     >
       {ui.planTitle}

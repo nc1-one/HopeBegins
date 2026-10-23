@@ -11,6 +11,7 @@ import { getGuide, type Guide } from '@/lib/guidePages';
 import { pageMetadata } from '@/lib/pageMetadata';
 import { photo, photoTurn } from '@/lib/photos';
 import { jsonLdHtml, webPageJsonLd } from '@/lib/structuredData';
+import { pathIn } from '@/lib/taglishTwins';
 
 const h2Class =
   'font-playfair text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]';
@@ -286,9 +287,7 @@ export function GuidePage({ slug }: { slug: string }) {
             </li>
             <li>
               <Link
-                href={
-                  guide.lang === 'tl' ? '/action-plan?lang=tl' : '/action-plan'
-                }
+                href={pathIn('/action-plan', guide.lang)}
                 className={nextLinkClass}
               >
                 {ui.planTitle}

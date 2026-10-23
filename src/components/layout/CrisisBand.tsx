@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { feelingSlugs } from '@/lib/feelingPages';
 import { storySlugAt } from '@/lib/blog/meta';
 import { usePageLanguage } from '@/lib/pageLanguage';
+import { englishPath } from '@/lib/taglishTwins';
 
 const copy = {
   en: {
@@ -36,7 +37,8 @@ export function CrisisBand() {
   const lang = usePageLanguage();
   const t = copy[lang];
   // Every blog story is about a hard season, so they get it too.
-  if (!HELP_PAGES.includes(pathname) && !storySlugAt(pathname)) return null;
+  if (!HELP_PAGES.includes(englishPath(pathname)) && !storySlugAt(pathname))
+    return null;
 
   return (
     <aside

@@ -5,12 +5,12 @@ import type { Metadata } from 'next';
 import { ArrowLeft } from 'lucide-react';
 import { Reveal } from '@/components/ui/Reveal';
 import { TrackedLink } from '@/components/ui/TrackedLink';
+import { BLOG_COPY } from '@/components/blog/BlogIndex';
 import { StoryCard } from '@/components/blog/StoryCard';
 import { StoryLanguageLink } from '@/components/blog/StoryLanguageLink';
 import { StoryText } from '@/components/blog/StoryText';
 import {
   BLOG_FEED,
-  BLOG_NAME,
   BLOG_PATH,
   getStory,
   moreStories,
@@ -27,6 +27,7 @@ import {
   type StoryPart,
 } from '@/lib/blog';
 import { pageMetadata } from '@/lib/pageMetadata';
+import { pathIn } from '@/lib/taglishTwins';
 import { jsonLdHtml, storyJsonLd } from '@/lib/structuredData';
 
 // Only the stories in lib/blog exist; anything else is a 404.
@@ -156,14 +157,16 @@ export default async function StoryPage({
   const twin = pairOf(story);
   const verse = VERSES[story.verse][story.lang];
   const minutes = readingMinutes(story);
+  // A Taglish story links back to the blog's Taglish list.
+  const blogPath = pathIn(BLOG_PATH, story.lang);
   // Everything up to the reader's part, then the small step and the verse.
   const hopeAt = story.parts.findIndex((part) => part.kind === 'hope');
   const beforeHope = hopeAt === -1 ? story.parts : story.parts.slice(0, hopeAt);
   const hopeParts = hopeAt === -1 ? [] : story.parts.slice(hopeAt);
   const structuredData = storyJsonLd({
     path: storyPath(story),
-    blogPath: BLOG_PATH,
-    blogName: BLOG_NAME,
+    blogPath,
+    blogName: BLOG_COPY[story.lang].title,
     headline: story.title,
     description: story.metaDescription,
     lang: story.lang,
@@ -184,7 +187,7 @@ export default async function StoryPage({
       <div className="mx-auto max-w-5xl">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <Link
-            href={BLOG_PATH}
+            href={blogPath}
             lang="en"
             className="-ml-3 inline-flex min-h-11 items-center gap-2 rounded-xl px-3 font-poppins text-sm font-medium transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
           >
@@ -365,7 +368,7 @@ export default async function StoryPage({
               {ui.more}
             </h2>
             <Link
-              href={BLOG_PATH}
+              href={blogPath}
               className="inline-flex min-h-11 items-center font-poppins font-medium underline-offset-4 hover:underline"
             >
               {ui.allStories}

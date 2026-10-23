@@ -4,10 +4,11 @@ import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { feelingSlugs } from '@/lib/feelingPages';
 import { BLOG_PATH, storySlugAt } from '@/lib/blog/meta';
+import { englishPath } from '@/lib/taglishTwins';
 import { analyticsService } from '@/services/analyticsService';
 
 // Pages whose visits show on the admin dashboard, by the name they are
-// counted under.
+// counted under. A Taglish address counts with its English page.
 const TRACKED: Record<string, string> = {
   '/': 'home',
   '/action-plan': 'action_plan',
@@ -32,7 +33,7 @@ export function PageVisitTracker() {
 
   useEffect(() => {
     const story = storySlugAt(pathname);
-    const page = TRACKED[pathname] ?? (story && `story_${story}`);
+    const page = TRACKED[englishPath(pathname)] ?? (story && `story_${story}`);
     if (page) analyticsService.recordVisit(page);
   }, [pathname]);
 

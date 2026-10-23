@@ -21,6 +21,7 @@ export function Reveal({
   as?: 'div' | 'section' | 'li' | 'article';
   id?: string;
   'aria-labelledby'?: string;
+  lang?: string;
 }) {
   const ref = useRef<HTMLElement>(null);
 

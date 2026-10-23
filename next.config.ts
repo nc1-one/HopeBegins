@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next';
 import { PRIVATE_PATHS } from './src/lib/privatePaths';
+import { TAGLISH_TWINS } from './src/lib/taglishTwins';
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -20,6 +21,14 @@ const nextConfig: NextConfig = {
         destination: '/our-approach',
         permanent: true,
       },
+      // Links that asked for Taglish with ?lang=tl, such as saved calendar
+      // reminders, go to the Taglish address; the rest of the query stays.
+      ...[TAGLISH_TWINS.plan, TAGLISH_TWINS.tools].map((twin) => ({
+        source: twin.en,
+        has: [{ type: 'query' as const, key: 'lang', value: 'tl' }],
+        destination: twin.tl,
+        permanent: true,
+      })),
       // Hope Unfiltered became the blog, Stories of Hope.
       {
         source: '/hope-unfiltered',
