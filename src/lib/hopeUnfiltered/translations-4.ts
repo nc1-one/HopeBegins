@@ -228,8 +228,8 @@ export const translations4: Story[] = [
     dek: 'Dalawang araw lang bago humupa ang baha. Ang takot niya, ilang buwang nanatili. Ano ang nakatulong kay Nena at sa mga anak niya na maging panatag ulit sa ulan.',
     who: 'Nena, 47, may-ari ng sari-sari store sa Marikina',
     photo: {
-      src: `${photos}/anxious-rain.jpg`,
-      alt: 'Rain on a jeepney window at night',
+      src: '/assets/images/stories/flood-malabon.jpg',
+      alt: 'A vendor in a flooded street in Malabon, Metro Manila',
     },
     published: '2026-10-23',
     parts: [
@@ -426,8 +426,8 @@ export const translations4: Story[] = [
     dek: 'Sobrang balisa at pagod si Hannah para sa mahahabang dasal. Natuto siyang magdasal nang tig-iisang pangungusap, sa jeep, papunta sa trabaho.',
     who: 'Hannah, 33, bank teller at nanay ng dalawa sa Cavite',
     photo: {
-      src: `${photos}/hope-jeepney-window.jpg`,
-      alt: 'A child looking out of a jeepney window',
+      src: '/assets/images/stories/praying-city.jpg',
+      alt: 'A woman praying with her eyes closed on a city street',
     },
     published: '2026-10-23',
     parts: [

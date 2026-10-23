@@ -113,8 +113,8 @@ export const translations2: Story[] = [
     dek: 'Nasa kanya na ang baby na matagal niyang ipinagdasal, pero umiiyak pa rin siya tuwing hapon. Nagsimulang gumaan nang sabihin niya ang totoo sa OB niya.',
     who: 'Ana, 30, first-time mom sa Laguna',
     photo: {
-      src: `${photos}/care-lola.jpg`,
-      alt: 'A lola laughing with the baby in her arms',
+      src: '/assets/images/stories/new-mom-worried.jpg',
+      alt: 'A mother holding her newborn, looking worried',
     },
     published: '2026-10-23',
     parts: [
@@ -394,8 +394,8 @@ export const translations2: Story[] = [
     dek: 'Siya ang nangunguna sa kanta tuwing Linggo habang parang walang laman ang sarili niyang mga dasal. Isang pastor na nakinig, isang doktor at ilang tapat na kaibigan ang tumulong sa kanya.',
     who: 'Mark, 34, church volunteer sa Davao',
     photo: {
-      src: `${photos}/unsure-fog.jpg`,
-      alt: 'A cyclist on a foggy mountain road',
+      src: '/assets/images/stories/guitar-by-the-sea.jpg',
+      alt: 'A man playing guitar alone by the sea in Lapu-Lapu City',
     },
     published: '2026-10-23',
     parts: [
@@ -488,8 +488,8 @@ export const translations2: Story[] = [
     dek: 'Pina-practice niya ang bawat sasabihin habang naliligo at gusto pa rin niyang mag-cancel. Ito ang nakatulong para pumasok siya, magtagal, at bumalik sa susunod.',
     who: 'Liza, 22, fresh graduate sa Bacolod',
     photo: {
-      src: `${photos}/anxious-umbrellas.jpg`,
-      alt: 'People walking under umbrellas in the rain',
+      src: '/assets/images/stories/barkada-reunion.jpg',
+      alt: 'A barkada sitting together outdoors',
     },
     published: '2026-10-23',
     parts: [

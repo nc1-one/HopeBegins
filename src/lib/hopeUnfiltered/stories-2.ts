@@ -15,8 +15,8 @@ export const stories2: Story[] = [
     dek: 'Tulog siya sa jeep pauwi, pero gising pa rin ang isip niya sa mga call. Ganito unti-unting gumaan ang mga araw niya.',
     who: 'Jomar, 29, BPO agent sa Ortigas',
     photo: {
-      src: `${photos}/tired-jeepney.jpg`,
-      alt: 'A man resting at the wheel of a jeepney',
+      src: '/assets/images/stories/call-center-night.jpg',
+      alt: 'A call center agent adjusting his headset',
     },
     published: '2026-10-23',
     parts: [
@@ -202,8 +202,8 @@ export const stories2: Story[] = [
     dek: "Her name wasn't on the list. For weeks she hid from her family, her batchmates and her phone. Here is how she found her footing again.",
     who: 'Carla, 23, nursing graduate in Iloilo',
     photo: {
-      src: `${photos}/unsure-road.jpg`,
-      alt: 'A road disappearing into fog',
+      src: '/assets/images/stories/studying-stressed.jpg',
+      alt: 'A young woman stressed while studying',
     },
     published: '2026-10-23',
     parts: [

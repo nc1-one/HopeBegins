@@ -109,8 +109,8 @@ export const translations1: Story[] = [
     dek: 'He slept on the jeepney home, but his mind was still on the calls. This is how his days slowly got lighter.',
     who: 'Jomar, 29, BPO agent in Ortigas',
     photo: {
-      src: `${photos}/tired-jeepney.jpg`,
-      alt: 'A man resting at the wheel of a jeepney',
+      src: '/assets/images/stories/call-center-night.jpg',
+      alt: 'A call center agent adjusting his headset',
     },
     published: '2026-10-23',
     parts: [
@@ -295,8 +295,8 @@ export const translations1: Story[] = [
     dek: 'Wala ang pangalan niya sa listahan. Ilang linggo siyang nagtago sa pamilya, sa batchmates at sa phone niya. Ganito niya unti-unting nahanap ulit ang tapak niya.',
     who: 'Carla, 23, nursing graduate sa Iloilo',
     photo: {
-      src: `${photos}/unsure-road.jpg`,
-      alt: 'A road disappearing into fog',
+      src: '/assets/images/stories/studying-stressed.jpg',
+      alt: 'A young woman stressed while studying',
     },
     published: '2026-10-23',
     parts: [

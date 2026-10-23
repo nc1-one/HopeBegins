@@ -15,8 +15,8 @@ export const stories4: Story[] = [
     dek: 'Every night, the feed told her she was behind. What helped her put the phone down and see her own life again.',
     who: 'Trish, 26, marketing associate in Pasig',
     photo: {
-      src: `${photos}/sleep-phone.jpg`,
-      alt: 'A woman in bed on her phone by lamplight',
+      src: '/assets/images/stories/phone-tears.jpg',
+      alt: 'A young woman in bed wiping tears while holding her phone',
     },
     published: '2026-10-23',
     parts: [
@@ -291,8 +291,8 @@ export const stories4: Story[] = [
     dek: 'Ilang linggo siyang nakahiga lang, walang gana kahit sa mga paborito niya. Ito ang maliliit na hakbang na nakatulong sa kanya.',
     who: 'Migs, 28, freelancer sa Baguio',
     photo: {
-      src: `${photos}/unsure-pines.jpg`,
-      alt: 'A path through misty pine trees',
+      src: '/assets/images/stories/in-bed-no-drive.jpg',
+      alt: 'A man slumped in bed in a dim room',
     },
     published: '2026-10-23',
     parts: [

@@ -15,8 +15,8 @@ export const translations3: Story[] = [
     dek: 'Gabi-gabi, sinasabi ng feed na huli na siya. Ito ang nakatulong para maibaba niya ang phone at makita ulit ang sarili niyang buhay.',
     who: 'Trish, 26, marketing associate sa Pasig',
     photo: {
-      src: `${photos}/sleep-phone.jpg`,
-      alt: 'A woman in bed on her phone by lamplight',
+      src: '/assets/images/stories/phone-tears.jpg',
+      alt: 'A young woman in bed wiping tears while holding her phone',
     },
     published: '2026-10-23',
     parts: [
@@ -294,8 +294,8 @@ export const translations3: Story[] = [
     dek: 'For weeks he just lay in bed, uninterested even in the things he loved. These are the small steps that helped him.',
     who: 'Migs, 28, freelancer in Baguio',
     photo: {
-      src: `${photos}/unsure-pines.jpg`,
-      alt: 'A path through misty pine trees',
+      src: '/assets/images/stories/in-bed-no-drive.jpg',
+      alt: 'A man slumped in bed in a dim room',
     },
     published: '2026-10-23',
     parts: [

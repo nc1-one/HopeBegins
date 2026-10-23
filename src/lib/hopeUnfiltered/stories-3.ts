@@ -113,8 +113,8 @@ export const stories3: Story[] = [
     dek: 'She had the baby she prayed for, and she still cried every afternoon. Telling her OB the truth was where things started to change.',
     who: 'Ana, 30, first-time mom in Laguna',
     photo: {
-      src: `${photos}/care-lola.jpg`,
-      alt: 'A lola laughing with the baby in her arms',
+      src: '/assets/images/stories/new-mom-worried.jpg',
+      alt: 'A mother holding her newborn, looking worried',
     },
     published: '2026-10-23',
     parts: [
@@ -393,8 +393,8 @@ export const stories3: Story[] = [
     dek: 'He led songs every Sunday while his own prayers felt empty. A pastor who listened, a doctor and a few honest friends helped him through.',
     who: 'Mark, 34, church volunteer in Davao',
     photo: {
-      src: `${photos}/unsure-fog.jpg`,
-      alt: 'A cyclist on a foggy mountain road',
+      src: '/assets/images/stories/guitar-by-the-sea.jpg',
+      alt: 'A man playing guitar alone by the sea in Lapu-Lapu City',
     },
     published: '2026-10-23',
     parts: [
@@ -486,8 +486,8 @@ export const stories3: Story[] = [
     dek: 'She practised every sentence in the shower and still wanted to cancel. Here is what helped her walk in, stay a while and go back the next time.',
     who: 'Liza, 22, fresh graduate in Bacolod',
     photo: {
-      src: `${photos}/anxious-umbrellas.jpg`,
-      alt: 'People walking under umbrellas in the rain',
+      src: '/assets/images/stories/barkada-reunion.jpg',
+      alt: 'A barkada sitting together outdoors',
     },
     published: '2026-10-23',
     parts: [
