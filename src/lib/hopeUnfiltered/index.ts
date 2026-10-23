@@ -15,6 +15,16 @@ export type { Story, StoryPart, StoryTheme } from './types';
 export { VERSES, VERSE_ATTRIBUTION } from './verses';
 export { BLOG_NAME, BLOG_PATH, THEMES, THEME_IDS } from './meta';
 
+/*
+ * Photos in /assets/images/stories were picked for one story each, from
+ * Pexels (free licence, no credit needed), by Pexels id:
+ * call-center-night 7681113, studying-stressed 7777149, guitar-by-the-sea
+ * 21283155 (Lapu-Lapu City), barkada-reunion 7775780, in-bed-no-drive
+ * 7277994, flood-malabon 32988664 (Malabon), praying-city 8896640,
+ * phone-tears 7341894, new-mom-worried 9841443. The rest come from the
+ * site's own photos in lib/photos.ts.
+ */
+
 /** The stories as first written, in the order the blog lists them. */
 const originals: Story[] = [
   ...stories1,

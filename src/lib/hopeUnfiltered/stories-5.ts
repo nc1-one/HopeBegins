@@ -219,8 +219,8 @@ export const stories5: Story[] = [
     dek: 'The flood went down in two days. Her fear stayed for months. What helped Nena, and her kids, feel safe in the rain again.',
     who: 'Nena, 47, sari-sari store owner in Marikina',
     photo: {
-      src: `${photos}/anxious-rain.jpg`,
-      alt: 'Rain on a jeepney window at night',
+      src: '/assets/images/stories/flood-malabon.jpg',
+      alt: 'A vendor in a flooded street in Malabon, Metro Manila',
     },
     published: '2026-10-23',
     parts: [
@@ -413,8 +413,8 @@ export const stories5: Story[] = [
     dek: 'Hannah was too anxious and too tired for long prayers. She learned to pray in single sentences, on a jeepney, on the way to work.',
     who: 'Hannah, 33, bank teller and mother of two in Cavite',
     photo: {
-      src: `${photos}/hope-jeepney-window.jpg`,
-      alt: 'A child looking out of a jeepney window',
+      src: '/assets/images/stories/praying-city.jpg',
+      alt: 'A woman praying with her eyes closed on a city street',
     },
     published: '2026-10-23',
     parts: [
