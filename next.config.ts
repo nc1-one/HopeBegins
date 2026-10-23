@@ -12,6 +12,27 @@ const nextConfig: NextConfig = {
         destination: '/our-approach',
         permanent: true,
       },
+      // Hope Unfiltered became the blog, Stories of Hope.
+      {
+        source: '/hope-unfiltered',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/hope-unfiltered/:path*',
+        destination: '/blog/:path*',
+        permanent: true,
+      },
+      {
+        source: '/og/hope-unfiltered.jpg',
+        destination: '/og/blog.jpg',
+        permanent: true,
+      },
+      {
+        source: '/og/hope-unfiltered/:file',
+        destination: '/og/blog/:file',
+        permanent: true,
+      },
       {
         source: '/:path*',
         has: [{ type: 'host', value: 'www.hopebegins.today' }],

@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { config } from '@/config';
 import { feelingPages, getFeelingPage } from '@/lib/feelingPages';
 import { getGuide, guides } from '@/lib/guidePages';
-import { BLOG_PATH, pairOf, stories, storyPath } from '@/lib/hopeUnfiltered';
+import { BLOG_PATH, pairOf, stories, storyPath } from '@/lib/blog';
 
 // When each page last changed in a way a reader would notice. Bump a date
 // when you change that page's content, so Google knows to look again.

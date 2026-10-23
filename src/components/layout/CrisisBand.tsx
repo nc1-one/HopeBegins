@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { feelingSlugs } from '@/lib/feelingPages';
-import { storySlugAt } from '@/lib/hopeUnfiltered/meta';
+import { storySlugAt } from '@/lib/blog/meta';
 import { usePageLanguage } from '@/lib/pageLanguage';
 
 const copy = {
@@ -35,7 +35,7 @@ export function CrisisBand() {
   const pathname = usePathname();
   const lang = usePageLanguage();
   const t = copy[lang];
-  // Every Hope Unfiltered story is about a hard season, so they get it too.
+  // Every blog story is about a hard season, so they get it too.
   if (!HELP_PAGES.includes(pathname) && !storySlugAt(pathname)) return null;
 
   return (

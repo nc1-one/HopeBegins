@@ -13,7 +13,7 @@ import {
 import { Card } from '@/components/ui/card';
 import { buildPlan } from '@/lib/actionPlan';
 import { feelingPages } from '@/lib/feelingPages';
-import { STORY_META, THEME_IDS, THEMES } from '@/lib/hopeUnfiltered/meta';
+import { STORY_META, THEME_IDS, THEMES } from '@/lib/blog/meta';
 import type { ClickAnalytics } from '@/types/admin';
 
 /**
@@ -173,7 +173,7 @@ export function JourneyByStage({
 
   const t = clicks.totals;
   const n = (name: string) => t[name] ?? 0;
-  // Visits to Hope Unfiltered stories that match, by slug in meta.ts.
+  // Visits to blog stories that match, by slug in meta.ts.
   const storyReads = (match: (meta: (typeof STORY_META)[string]) => boolean) =>
     Object.entries(STORY_META)
       .filter(([, meta]) => match(meta))
@@ -794,11 +794,12 @@ export function JourneyByStage({
                 values: [n(`visit_${page}`)],
               })),
               {
-                label: 'Hope Unfiltered: the blog page',
-                values: [n('visit_hope_unfiltered')],
+                label: 'Blog: the main page',
+                // Counted as hope_unfiltered before the blog was renamed.
+                values: [n('visit_blog') + n('visit_hope_unfiltered')],
               },
               {
-                label: 'Hope Unfiltered: all story pages',
+                label: 'Blog: all story pages',
                 values: [
                   sumWhere(t, (name) => name.startsWith('visit_story_')),
                 ],
@@ -806,7 +807,7 @@ export function JourneyByStage({
             ]}
           />
           <Table
-            columns={['From Hope Unfiltered', 'Taps']}
+            columns={['From the blog', 'Taps']}
             rows={[
               {
                 label: 'Tapped "That\'s me" on the blog or a story',
@@ -817,7 +818,7 @@ export function JourneyByStage({
           {/* Which topics people relate to: taps on a theme on the blog
               page, and visits to that theme's stories in either language. */}
           <Table
-            columns={['Hope Unfiltered by theme', 'Filter taps', 'Story reads']}
+            columns={['Blog stories by theme', 'Filter taps', 'Story reads']}
             rows={THEME_IDS.map((theme) => ({
               label: THEMES.en[theme],
               values: [
@@ -827,7 +828,7 @@ export function JourneyByStage({
             }))}
           />
           <Table
-            columns={['Hope Unfiltered stories read in', 'Visits']}
+            columns={['Blog stories read in', 'Visits']}
             rows={[
               {
                 label: 'English',
