@@ -1,11 +1,20 @@
+import { PageJsonLd } from '@/components/layout/PageJsonLd';
 import { pageMetadata } from '@/lib/pageMetadata';
 import Link from 'next/link';
 
-export const metadata = pageMetadata(
-  '/privacy',
-  'Privacy and confidentiality',
-  'What HopeBegins collects, who can see it, how we protect it, and your rights. Your plan, answers and Hope Card stay on your phone.'
-);
+const PATH = '/privacy';
+const TITLE = 'Privacy and confidentiality';
+const DESCRIPTION =
+  'What HopeBegins collects, who can see it, how we protect it, and your rights. Your plan, answers and Hope Card stay on your phone.';
+
+export const metadata = pageMetadata(PATH, TITLE, DESCRIPTION, {
+  keywords: [
+    'HopeBegins privacy',
+    'privacy policy',
+    'confidentiality',
+    'data privacy Philippines',
+  ],
+});
 
 const LAST_UPDATED = 'October 15, 2026';
 const PRIVACY_EMAIL = 'connect@hopebegins.today';
@@ -62,6 +71,13 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <div className="px-6 pt-6 pb-24">
+      <PageJsonLd
+        path={PATH}
+        name={TITLE}
+        description={DESCRIPTION}
+        lang="en"
+        crumb="Privacy"
+      />
       <div className="max-w-5xl mx-auto">
         <div className="max-w-2xl">
           <h1 className="text-balance font-playfair text-4xl md:text-6xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">

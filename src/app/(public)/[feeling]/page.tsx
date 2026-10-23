@@ -35,8 +35,9 @@ export async function generateMetadata({
   const path = `/${page.slug}`;
   return {
     ...pageMetadata(path, page.metaTitle, page.metaDescription, {
-      url: `/og/feelings/${page.slug}.jpg`,
-      alt: page.heading,
+      image: { url: `/og/feelings/${page.slug}.jpg`, alt: page.heading },
+      keywords: page.keywords,
+      lang: page.lang,
     }),
     // The Taglish and English pages are language versions of each other.
     alternates: {

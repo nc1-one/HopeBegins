@@ -70,8 +70,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // Philippine English for the site; Taglish pages and parts of a page
+    // carry their own lang, since one root layout serves every page.
     <html
-      lang="en"
+      lang="en-PH"
       className={`${poppins.variable} ${dmSans.variable} ${playfair.variable}`}
     >
       <body className={dmSans.className} suppressHydrationWarning>

@@ -1,9 +1,11 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { Reveal } from '@/components/ui/Reveal';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { StoryCard } from '@/components/blog/StoryCard';
 import { StoryList, type BlogCopy } from '@/components/blog/StoryList';
 import {
+  BLOG_FEED,
   BLOG_NAME,
   BLOG_PATH,
   stories,
@@ -18,10 +20,26 @@ const DESCRIPTION =
   'The HopeBegins blog: stories of anxiety, burnout, grief and faith, and the small things that helped Filipinos through hard seasons. In English and Taglish.';
 const OG_IMAGE = '/og/blog.jpg';
 
-export const metadata = pageMetadata(BLOG_PATH, TITLE, DESCRIPTION, {
-  url: OG_IMAGE,
-  alt: BLOG_NAME,
+const base = pageMetadata(BLOG_PATH, TITLE, DESCRIPTION, {
+  image: { url: OG_IMAGE, alt: BLOG_NAME },
+  keywords: [
+    'Stories of Hope',
+    'HopeBegins blog',
+    'stories of hope',
+    'mental health stories Philippines',
+    'anxiety',
+    'burnout',
+    'grief',
+    'faith',
+    'Mga Kuwento ng Pag-asa',
+    'kuwento ng pag-asa',
+  ],
 });
+
+export const metadata: Metadata = {
+  ...base,
+  alternates: { ...base.alternates, types: BLOG_FEED },
+};
 
 const copy: BlogCopy = {
   en: {

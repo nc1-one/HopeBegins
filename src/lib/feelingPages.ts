@@ -28,6 +28,8 @@ export interface FeelingPage {
   /** Search result and browser tab title. */
   metaTitle: string;
   metaDescription: string;
+  /** What people search for that the page answers, in its own language. */
+  keywords: string[];
   /** Short label for footer links. */
   label: string;
   heading: string;
@@ -67,6 +69,13 @@ export const feelingPages: FeelingPage[] = [
     metaTitle: 'Pagod na ako: ano ang gagawin kapag pagod ka na sa lahat',
     metaDescription:
       'Pagod na sa lahat? Subukan ang 2-minute na paghinga, kausapin ang isang e-coach sa Messenger, o gumawa ng libreng plano para sa linggong ito.',
+    keywords: [
+      'pagod na ako',
+      'pagod na sa lahat',
+      'pagod at walang gana',
+      'ano ang gagawin kapag pagod na',
+      'paghinga para kumalma',
+    ],
     label: 'Pagod na ako',
     heading: 'Pagod na ako.',
     intro:
@@ -92,6 +101,13 @@ export const feelingPages: FeelingPage[] = [
     metaTitle: 'Wala akong kausap: may makakausap ka ngayon',
     metaDescription:
       'Pakiramdam mo ba wala kang makausap? Kausapin ang isang e-coach sa Messenger, si Hope AI anumang oras, o magpadala ng mensahe sa taong pinagkakatiwalaan mo.',
+    keywords: [
+      'wala akong kausap',
+      'walang makausap',
+      'kailangan ko ng kausap',
+      'e-coach sa Messenger',
+      'Hope AI',
+    ],
     label: 'Wala akong kausap',
     heading: 'Wala akong kausap.',
     intro:
@@ -121,6 +137,13 @@ export const feelingPages: FeelingPage[] = [
     metaTitle: 'Paano mawala ang anxiety: 2-minute na paraan para kumalma',
     metaDescription:
       'Kumakabog ang dibdib at hindi mapakali ang isip? Subukan ang 2-minute na paghinga, ang 5-4-3-2-1 grounding o isang mabilis na laro, tapos gumawa ng libreng plano.',
+    keywords: [
+      'paano mawala ang anxiety',
+      'paano kumalma',
+      'anxiety sa Tagalog',
+      'breathing exercise para sa anxiety',
+      '5-4-3-2-1 grounding',
+    ],
     label: 'Paano mawala ang anxiety',
     heading: 'Paano mawala ang anxiety?',
     intro:
@@ -156,6 +179,12 @@ export const feelingPages: FeelingPage[] = [
     metaTitle: 'Hindi makatulog sa kakaisip: ano ang gagawin ngayong gabi',
     metaDescription:
       'Gabi na pero ayaw tumigil ng isip mo? Isulat muna ang iniisip mo, huminga nang dahan-dahan, at subukan ang mga paraan para makatulog ngayong gabi.',
+    keywords: [
+      'hindi makatulog sa kakaisip',
+      'overthinking sa gabi',
+      'paano tumigil sa overthinking',
+      'hindi makatulog sa gabi',
+    ],
     label: 'Hindi makatulog sa kakaisip',
     heading: 'Hindi ako makatulog sa kakaisip.',
     intro:
@@ -186,6 +215,13 @@ export const feelingPages: FeelingPage[] = [
     metaTitle: "Tired of everything? What to do when you're exhausted",
     metaDescription:
       'Tired of everything? Try a 2-minute breathing exercise, talk to an e-coach on Messenger, or make a free plan for this week.',
+    keywords: [
+      'tired of everything',
+      'exhausted all the time',
+      'emotionally exhausted',
+      'what to do when you are tired',
+      'breathing exercise',
+    ],
     label: 'Tired of everything',
     heading: "I'm tired of everything.",
     intro:
@@ -211,6 +247,13 @@ export const feelingPages: FeelingPage[] = [
     metaTitle: 'I feel alone: someone can talk with you today',
     metaDescription:
       'Feel like you have no one to talk to? Message an e-coach on Messenger, chat with Hope AI any time, or send one message to someone you trust.',
+    keywords: [
+      'I feel alone',
+      'no one to talk to',
+      'feeling lonely',
+      'someone to talk to',
+      'e-coach on Messenger',
+    ],
     label: 'I feel alone',
     heading: 'I feel alone.',
     intro:
@@ -240,6 +283,13 @@ export const feelingPages: FeelingPage[] = [
     metaTitle: 'How to calm anxiety right now: a 2-minute exercise',
     metaDescription:
       "Heart racing and your mind won't settle? Try 2-minute breathing, 5-4-3-2-1 grounding or a quick game, then make a free plan for anxiety.",
+    keywords: [
+      'how to calm anxiety',
+      'calm anxiety fast',
+      'breathing exercise for anxiety',
+      '5-4-3-2-1 grounding',
+      'anxiety relief',
+    ],
     label: 'How to calm anxiety',
     heading: 'How do I calm my anxiety?',
     intro:
@@ -271,6 +321,12 @@ export const feelingPages: FeelingPage[] = [
     metaTitle: "Can't sleep from overthinking? What to do tonight",
     metaDescription:
       "It's late and your mind won't stop? Write down what you're thinking, breathe slowly, and try these ways to get to sleep tonight.",
+    keywords: [
+      "can't sleep overthinking",
+      'overthinking at night',
+      'how to stop overthinking',
+      'racing thoughts at night',
+    ],
     label: "Can't sleep from overthinking",
     heading: "I can't sleep. I keep overthinking.",
     intro:
@@ -298,6 +354,13 @@ export const feelingPages: FeelingPage[] = [
       'Depressed ako: ano ang gagawin ngayon at kailan hihingi ng tulong',
     metaDescription:
       'Malungkot o walang gana sa lahat halos araw-araw? Magsimula sa isang maliit na bagay ngayon, kausapin ang isang e-coach, at alamin kung kailan magpapatingin.',
+    keywords: [
+      'depressed ako',
+      'depression sa Tagalog',
+      'senyales ng depression',
+      'walang gana sa lahat',
+      'saan hihingi ng tulong',
+    ],
     label: 'Depressed ako',
     heading: 'Depressed ako.',
     intro:
@@ -359,6 +422,12 @@ export const feelingPages: FeelingPage[] = [
     metaTitle: 'Panic attack: ano ang gagawin ngayon, hakbang-hakbang',
     metaDescription:
       'Kumakabog ang dibdib, hirap huminga, at parang may masamang mangyayari? Puwedeng panic attack ito. Huminga kasama namin nang 2 minuto habang lumilipas ito.',
+    keywords: [
+      'panic attack ano gagawin',
+      'panic attack sa Tagalog',
+      'sintomas ng panic attack',
+      'paano kumalma sa panic attack',
+    ],
     label: 'Panic attack',
     heading: 'Parang may panic attack ako.',
     intro:
@@ -415,6 +484,13 @@ export const feelingPages: FeelingPage[] = [
     metaTitle: 'I feel depressed: what to do today, and when to get help',
     metaDescription:
       'Feeling low most days, with no energy or interest in anything? Start with one small thing today, talk to an e-coach, and learn when to see a doctor.',
+    keywords: [
+      'I feel depressed',
+      'signs of depression',
+      'what to do when you feel depressed',
+      'when to get help for depression',
+      'depression help Philippines',
+    ],
     label: 'I feel depressed',
     heading: 'I feel depressed.',
     intro:
@@ -475,6 +551,12 @@ export const feelingPages: FeelingPage[] = [
     metaTitle: 'Panic attack: what to do right now, step by step',
     metaDescription:
       'Heart pounding, hard to breathe, sure something terrible is happening? It may be a panic attack. Breathe with us for 2 minutes while it passes.',
+    keywords: [
+      'panic attack what to do',
+      'how to stop a panic attack',
+      'panic attack symptoms',
+      'breathing for panic attacks',
+    ],
     label: 'Panic attack',
     heading: "I think I'm having a panic attack.",
     intro:
@@ -531,6 +613,13 @@ export const feelingPages: FeelingPage[] = [
     metaTitle: 'Hindi ko alam gagawin ko sa buhay: saan magsisimula ngayon',
     metaDescription:
       'Pakiramdam mo naliligaw ka o parang walang laman ang loob mo? Magsimula sa isang maliit na hakbang ngayon, at kausapin ang taong makakatulong sa iyo.',
+    keywords: [
+      'hindi ko alam gagawin ko sa buhay',
+      'naliligaw sa buhay',
+      'walang direksyon sa buhay',
+      'parang walang laman ang loob',
+      'saan magsisimula',
+    ],
     label: 'Hindi ko alam gagawin ko',
     heading: 'Hindi ko alam gagawin ko sa buhay.',
     intro:
@@ -578,6 +667,13 @@ export const feelingPages: FeelingPage[] = [
     metaTitle: 'Burnout sa trabaho: mga senyales at ano ang gagawin',
     metaDescription:
       'Ubos na ang lakas, wala nang gana sa trabaho o pag-aaral, at kaunti na lang ang natatapos? Puwedeng burnout ito. Magpahinga nang totoo ngayon at gumawa ng plano.',
+    keywords: [
+      'burnout sa trabaho',
+      'senyales ng burnout',
+      'pagod sa trabaho',
+      'burnout sa Tagalog',
+      'ano ang gagawin sa burnout',
+    ],
     label: 'Burnout sa trabaho',
     heading: 'Burnout na ako.',
     intro:
@@ -622,6 +718,13 @@ export const feelingPages: FeelingPage[] = [
     metaTitle: 'I feel lost and empty: what to do when nothing makes sense',
     metaDescription:
       'Feel lost in life or empty inside? Start with one small step today, and talk to someone who can help you sort it out. Free, in English or Taglish.',
+    keywords: [
+      'I feel lost',
+      'feeling lost in life',
+      'I feel empty inside',
+      'what to do when you feel lost',
+      'no direction in life',
+    ],
     label: 'I feel lost',
     heading: 'I feel lost.',
     intro:
@@ -669,6 +772,13 @@ export const feelingPages: FeelingPage[] = [
     metaTitle: 'Burnout: the signs, and what to do when work drains you',
     metaDescription:
       'Exhausted, negative about work, and getting less done even when you try? It may be burnout. Take a real break today, set one limit, and make a free plan.',
+    keywords: [
+      'burnout',
+      'signs of burnout',
+      'work burnout',
+      'burnout recovery',
+      'what to do about burnout',
+    ],
     label: 'Burnout',
     heading: "I'm burned out.",
     intro:

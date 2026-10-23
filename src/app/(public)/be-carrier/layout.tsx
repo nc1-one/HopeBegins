@@ -1,11 +1,32 @@
+import { PageJsonLd } from '@/components/layout/PageJsonLd';
 import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata = pageMetadata(
-  '/be-carrier',
-  'Become a Hope Carrier',
-  'Give your heart and time: volunteer to pray for the people who send prayer requests to HopeBegins.'
-);
+const PATH = '/be-carrier';
+const TITLE = 'Become a Hope Carrier';
+const DESCRIPTION =
+  'Give your heart and time: volunteer to pray for the people who send prayer requests to HopeBegins.';
+
+export const metadata = pageMetadata(PATH, TITLE, DESCRIPTION, {
+  keywords: [
+    'Hope Carrier',
+    'prayer volunteer',
+    'volunteer to pray for others',
+    'prayer ministry volunteer',
+    'volunteer Philippines',
+  ],
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <PageJsonLd
+        path={PATH}
+        name={TITLE}
+        description={DESCRIPTION}
+        lang="en"
+        crumb="Become a Hope Carrier"
+      />
+      {children}
+    </>
+  );
 }

@@ -26,7 +26,8 @@ const crisisCopy = {
 
 export function Header() {
   const pathname = usePathname();
-  const crisis = crisisCopy[usePageLanguage()];
+  const lang = usePageLanguage();
+  const crisis = crisisCopy[lang];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -139,6 +140,7 @@ export function Header() {
             {/* One tap to the crisis line from every page. */}
             <a
               href="tel:1553"
+              lang={lang}
               onClick={() => analyticsService.recordClick('header_crisis_call')}
               className="inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap rounded-full border border-[#DFE7CF] bg-[#EFF3E7] px-3 text-sm font-bold text-[#6E5F47] transition-colors hover:bg-[#DFE7CF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
             >

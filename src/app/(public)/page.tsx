@@ -4,6 +4,18 @@ import { LookingForHope } from './components/LookingForHope';
 // Set here, not in the root layout, which every page would inherit.
 export const metadata: Metadata = {
   alternates: { canonical: '/' },
+  keywords: [
+    'HopeBegins',
+    'free mental health support Philippines',
+    'not okay today',
+    'anxiety help',
+    'feeling low',
+    'feeling alone',
+    'prayer request',
+    'faith and mental health',
+    'e-coach on Messenger',
+    'Taglish',
+  ],
 };
 
 // The first screen and the menu only. Stories and the Prayer War Room live
