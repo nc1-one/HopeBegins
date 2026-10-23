@@ -145,7 +145,8 @@ export function GiveWays() {
         className="mt-10 border-t border-[#E2DFDA] pt-10 hb-step-in"
       >
         <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-14">
-          <DonationForm />
+          {/* Volunteers on the other tab never load the payment form. */}
+          <DonationForm shown={active === 'gift'} />
           <div className="space-y-6">
             <AllocationBreakdown />
             <p className="text-[#6E5F47] leading-relaxed">
