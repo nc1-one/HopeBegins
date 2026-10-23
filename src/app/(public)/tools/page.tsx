@@ -5,7 +5,7 @@ import { Toolbox } from './Toolbox';
 const PATH = '/tools';
 const TITLE = 'Tools for hard moments';
 const DESCRIPTION =
-  'Free tools for anxiety, overthinking and low days: slow breathing, 5-4-3-2-1, worry time and a quick game, in English or Taglish. Nothing you type leaves your phone.';
+  'Free tools for anxiety, overthinking and low days: slow breathing, 5-4-3-2-1, worry time and games, plus Hope AI, prayer, Daily Hope and HopeCasts. In English or Taglish.';
 
 export const metadata = pageMetadata(PATH, TITLE, DESCRIPTION, {
   keywords: [
@@ -15,7 +15,11 @@ export const metadata = pageMetadata(PATH, TITLE, DESCRIPTION, {
     'worry time',
     'how to stop overthinking',
     'coping tools',
+    'Hope AI',
+    'prayer request',
     'Prayer War Room',
+    'Daily Hope',
+    'HopeCasts',
   ],
 });
 

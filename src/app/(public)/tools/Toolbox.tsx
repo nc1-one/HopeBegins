@@ -20,7 +20,9 @@ import { usePhotoPicker } from '@/components/ui/PhotoTurn';
 /**
  * Every tool in one place, grouped by what is happening right now. Each one
  * opens and runs right on this page. What people type stays on the phone;
- * the tools count only that they were started and finished.
+ * the tools count only that they were started and finished. Under them, the
+ * rest of HopeBegins (Hope AI, prayer, Daily Hope, HopeCasts and the plan),
+ * each on its own page.
  */
 
 type Text = Record<FeelingLang, string>;
@@ -246,6 +248,108 @@ const GROUPS: {
   },
 ];
 
+interface MoreLink {
+  /** A plain string is a name, kept in English on Taglish pages too. */
+  title: Text | string;
+  text: Text;
+  to:
+    | { page: string; tlPage?: string }
+    | { ecoach: string }
+    | { site: string; linkName: string };
+}
+
+/** The rest of HopeBegins. These open their own page, or another app. */
+const MORE: { id: string; title: Text; links: MoreLink[] }[] = [
+  {
+    id: 'talk',
+    title: {
+      en: 'When you want to talk to someone',
+      tl: 'Kapag gusto mong may makausap',
+    },
+    links: [
+      {
+        title: { en: 'Talk to Hope AI', tl: 'Kausapin si Hope AI' },
+        text: {
+          en: 'An AI assistant you can talk to any hour, day or night.',
+          tl: 'Isang AI assistant na puwede mong kausapin anumang oras, araw man o gabi.',
+        },
+        to: { page: '/hope-ai' },
+      },
+      {
+        title: { en: 'Talk to an e-coach', tl: 'Kausapin ang isang e-coach' },
+        text: {
+          en: 'A real person from Himala Everyday, on Messenger.',
+          tl: 'Isang totoong tao mula sa Himala Everyday, sa Messenger.',
+        },
+        to: { ecoach: 'ecoach_tools_talk' },
+      },
+    ],
+  },
+  {
+    id: 'pray',
+    title: { en: 'When you want to pray', tl: 'Kapag gusto mong magdasal' },
+    links: [
+      {
+        title: { en: 'Ask for prayer', tl: 'Magpadasal' },
+        text: {
+          en: 'Send a prayer request and a Hope Carrier will pray for you.',
+          tl: 'Ipadala ang prayer request mo at ipagdadasal ka ng isang Hope Carrier.',
+        },
+        to: { page: '/prayers' },
+      },
+      {
+        title: 'Prayer War Room',
+        text: {
+          en: 'A free prayer app for a guided prayer time. Opens in a new tab.',
+          tl: 'Libreng prayer app para sa guided prayer time. Magbubukas sa bagong tab.',
+        },
+        to: { site: WAR_ROOM_URL, linkName: 'war_room' },
+      },
+    ],
+  },
+  {
+    id: 'every-day',
+    title: { en: 'For every day', tl: 'Para sa araw-araw' },
+    links: [
+      {
+        title: 'Daily Hope',
+        text: {
+          en: 'A short, encouraging email every day for 21 days. Free.',
+          tl: 'Isang maikling email na pampalakas-loob araw-araw, sa loob ng 21 araw. Libre.',
+        },
+        to: { page: '/daily-hope' },
+      },
+      {
+        title: 'HopeCasts',
+        text: {
+          en: 'Short audio messages of hope to listen to.',
+          tl: 'Maiikling audio na mensahe ng pag-asa na puwede mong pakinggan.',
+        },
+        to: { page: '/hopecasts' },
+      },
+      {
+        title: 'Hopeful Beginning Plan',
+        text: {
+          en: 'A free plan for hard days that stays on your phone.',
+          tl: 'Libreng plano para sa mabibigat na araw. Sa phone mo lang ito naka-save.',
+        },
+        to: { page: '/action-plan', tlPage: '/action-plan?lang=tl' },
+      },
+      {
+        title: {
+          en: 'Five steps for hopeless days',
+          tl: 'Limang hakbang kapag parang wala nang pag-asa',
+        },
+        text: {
+          en: 'A video, a prayer and a Bible reading.',
+          tl: 'Isang video, isang dasal at isang Bible reading.',
+        },
+        to: { page: '/get-started' },
+      },
+    ],
+  },
+];
+
 const copy = {
   en: {
     title: 'Tools for hard moments',
@@ -258,8 +362,6 @@ const copy = {
     or: 'or',
     ecoach: 'Or talk to an e-coach on Messenger',
     close: 'Close',
-    prayTitle: 'When you want to pray',
-    prayText: 'A free prayer app for a guided prayer time. Opens in a new tab.',
   },
   tl: {
     title: 'Mga tool para sa mabibigat na sandali',
@@ -273,11 +375,68 @@ const copy = {
     or: 'o',
     ecoach: 'O kausapin ang isang e-coach sa Messenger',
     close: 'Isara',
-    prayTitle: 'Kapag gusto mong magdasal',
-    prayText:
-      'Libreng prayer app para sa guided prayer time. Magbubukas sa bagong tab.',
   },
 };
+
+function MoreRow({ link, lang }: { link: MoreLink; lang: FeelingLang }) {
+  const { to } = link;
+  const icon = 'h-4 w-4 shrink-0 text-[#C5BFB5] group-hover:text-[#6E5F47]';
+  const body = (
+    <>
+      <span className="min-w-0 flex-1">
+        {typeof link.title === 'string' ? (
+          <span
+            lang="en"
+            className="block font-poppins font-bold text-[#6E5F47]"
+          >
+            {link.title}
+          </span>
+        ) : (
+          <span className="block font-poppins font-bold text-[#6E5F47]">
+            {link.title[lang]}
+          </span>
+        )}
+        <span className="mt-0.5 block text-sm text-[#6E5F47]/75">
+          {link.text[lang]}
+        </span>
+      </span>
+      {'page' in to ? (
+        <ChevronRight aria-hidden className={icon} />
+      ) : (
+        <ArrowUpRight aria-hidden className={icon} />
+      )}
+    </>
+  );
+
+  if ('ecoach' in to) {
+    return (
+      <EcoachLink linkName={to.ecoach} className={rowClass}>
+        {body}
+      </EcoachLink>
+    );
+  }
+  if ('site' in to) {
+    return (
+      <TrackedLink
+        href={to.site}
+        linkName={to.linkName}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={rowClass}
+      >
+        {body}
+      </TrackedLink>
+    );
+  }
+  return (
+    <Link
+      href={lang === 'tl' && to.tlPage ? to.tlPage : to.page}
+      className={rowClass}
+    >
+      {body}
+    </Link>
+  );
+}
 
 function ToolCard({
   kind,
@@ -549,45 +708,33 @@ export function Toolbox() {
           </div>
         </section>
 
-        {/* Prayer War Room lives here, with the other things to do now. */}
-        <section
-          aria-labelledby="pray-title"
-          className="mt-12 border-t border-[#E2DFDA] pt-8"
-        >
-          <h2
-            id="pray-title"
-            className="font-playfair text-3xl md:text-4xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
+        {/* Hope AI, prayer, Daily Hope and the rest live here too, with
+            the other things to do now. */}
+        {MORE.map((section) => (
+          <section
+            key={section.id}
+            aria-labelledby={`more-${section.id}`}
+            className="mt-12 border-t border-[#E2DFDA] pt-8"
           >
-            {t.prayTitle}
-          </h2>
-          <ul className={`mt-5 max-w-2xl ${groupClass}`}>
-            <li>
-              <TrackedLink
-                href={WAR_ROOM_URL}
-                linkName="war_room"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={rowClass}
-              >
-                <span className="min-w-0 flex-1">
-                  <span
-                    lang="en"
-                    className="block font-poppins font-bold text-[#6E5F47]"
-                  >
-                    Prayer War Room
-                  </span>
-                  <span className="mt-0.5 block text-sm text-[#6E5F47]/75">
-                    {t.prayText}
-                  </span>
-                </span>
-                <ArrowUpRight
-                  aria-hidden
-                  className="h-4 w-4 shrink-0 text-[#C5BFB5] group-hover:text-[#6E5F47]"
-                />
-              </TrackedLink>
-            </li>
-          </ul>
-        </section>
+            <h2
+              id={`more-${section.id}`}
+              className="font-playfair text-3xl md:text-4xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
+            >
+              {section.title[lang]}
+            </h2>
+            <ul className={`mt-5 max-w-2xl ${groupClass}`}>
+              {section.links.map((link) => (
+                <li
+                  key={
+                    typeof link.title === 'string' ? link.title : link.title.en
+                  }
+                >
+                  <MoreRow link={link} lang={lang} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
       </div>
     </div>
   );
