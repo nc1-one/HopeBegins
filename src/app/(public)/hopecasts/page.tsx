@@ -144,7 +144,11 @@ export default function HopecastsPage() {
           </div>
 
           {isLoadingHopecasts ? (
-            <p className="text-[#6E5F47]">Loading…</p>
+            // A screen tall, so what's under the list doesn't jump down
+            // when the HopeCasts arrive.
+            <p role="status" className="min-h-svh text-[#6E5F47]">
+              Loading…
+            </p>
           ) : hopecasts.length > 0 ? (
             <>
               <ul className="divide-y divide-[#E2DFDA] border-y border-[#E2DFDA]">

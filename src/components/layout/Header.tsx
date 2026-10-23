@@ -106,6 +106,8 @@ export function Header() {
                 alt="HopeBegins Logo"
                 width={170}
                 height={62}
+                // At the top of every page, so never lazy.
+                loading="eager"
                 className="w-[136px] sm:w-[170px]"
                 style={{ height: 'auto' }}
               />
