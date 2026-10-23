@@ -2,21 +2,23 @@ import Link from 'next/link';
 import { Reveal } from '@/components/ui/Reveal';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { StoryCard } from '@/components/hopeUnfiltered/StoryCard';
-import { StoryList } from '@/components/hopeUnfiltered/StoryList';
+import {
+  StoryList,
+  type BlogCopy,
+} from '@/components/hopeUnfiltered/StoryList';
 import {
   BLOG_NAME,
   BLOG_PATH,
   stories,
+  storyPairs,
   storyPath,
-  THEMES,
-  themesInUse,
 } from '@/lib/hopeUnfiltered';
 import { pageMetadata } from '@/lib/pageMetadata';
 import { blogJsonLd, jsonLdHtml } from '@/lib/structuredData';
 
 const TITLE = 'Hope Unfiltered: honest stories of hope';
 const DESCRIPTION =
-  'Stories about anxiety, burnout, grief, loneliness and faith, and the small things that helped Filipinos through hard seasons. Free help at HopeBegins.';
+  'Stories about anxiety, burnout, grief, loneliness and faith, and the small things that helped Filipinos through hard seasons. In English and Taglish.';
 const OG_IMAGE = '/og/hope-unfiltered.jpg';
 
 export const metadata = pageMetadata(BLOG_PATH, TITLE, DESCRIPTION, {
@@ -24,8 +26,25 @@ export const metadata = pageMetadata(BLOG_PATH, TITLE, DESCRIPTION, {
   alt: BLOG_NAME,
 });
 
+const copy: BlogCopy = {
+  en: {
+    intro:
+      'Honest stories about hard seasons, and the small things that helped people through them.',
+    note: 'By Anonymous. Each story is a composite.',
+    find: 'Find a story like yours',
+    all: 'All stories',
+  },
+  tl: {
+    intro:
+      'Mga tapat na kuwento tungkol sa mabibigat na panahon, at sa maliliit na bagay na nakatulong para malampasan ito.',
+    note: 'Ni Anonymous. Composite ang bawat kuwento.',
+    find: 'Humanap ng kuwentong kahawig ng sa iyo',
+    all: 'Lahat ng kuwento',
+  },
+};
+
 export default function HopeUnfilteredPage() {
-  const [featured, ...rest] = stories;
+  const [featured, ...rest] = storyPairs;
   const structuredData = blogJsonLd({
     path: BLOG_PATH,
     name: BLOG_NAME,
@@ -44,42 +63,26 @@ export default function HopeUnfilteredPage() {
         dangerouslySetInnerHTML={jsonLdHtml(structuredData)}
       />
       <div className="mx-auto max-w-5xl">
-        <header className="max-w-3xl">
-          <h1 className="font-playfair text-5xl leading-[0.95] tracking-[-0.04em] md:text-7xl">
-            {BLOG_NAME}
-          </h1>
-          <p className="mt-5 max-w-2xl font-poppins text-lg leading-[1.4] tracking-[-0.022em] md:text-xl">
-            Honest stories about hard seasons, and the small things that helped
-            people through them. In English and Taglish.
-          </p>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#6E5F47]/85">
-            Every story is a composite. The people, names and details are made
-            up, and the struggles are ones many Filipinos face.
-          </p>
-        </header>
-
-        {featured && (
-          <div className="mt-12">
-            <StoryCard story={featured} featured headingLevel="h2" />
-          </div>
-        )}
-
-        <section aria-labelledby="all-title" className="mt-20">
-          <h2
-            id="all-title"
-            className="mb-6 font-playfair text-3xl leading-[0.95] tracking-[-0.04em] md:text-4xl"
-          >
-            Find a story like yours
-          </h2>
+        <h1 className="font-playfair text-5xl leading-[0.95] tracking-[-0.04em] md:text-7xl">
+          {BLOG_NAME}
+        </h1>
+        <div className="mt-5">
           <StoryList
-            themes={themesInUse.map((id) => ({ id, label: THEMES[id] }))}
-            cards={rest.map((story) => ({
-              theme: story.theme,
-              slug: story.slug,
-              card: <StoryCard story={story} />,
+            copy={copy}
+            featured={{
+              en: <StoryCard story={featured.en} featured headingLevel="h2" />,
+              tl: <StoryCard story={featured.tl} featured headingLevel="h2" />,
+            }}
+            entries={rest.map((pair) => ({
+              slug: pair.en.slug,
+              theme: pair.en.theme,
+              card: {
+                en: <StoryCard story={pair.en} />,
+                tl: <StoryCard story={pair.tl} />,
+              },
             }))}
           />
-        </section>
+        </div>
 
         <Reveal
           as="section"

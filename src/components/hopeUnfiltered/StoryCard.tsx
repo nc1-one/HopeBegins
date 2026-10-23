@@ -53,7 +53,7 @@ export function StoryCard({
       </div>
       <div className={featured ? 'mt-5 md:mt-0' : 'mt-4'}>
         <p className="flex flex-wrap items-center gap-x-2 font-poppins text-xs font-medium uppercase tracking-[0.08em] text-[#6E5F47]/80">
-          <span>{THEMES[story.theme]}</span>
+          <span>{THEMES[story.lang][story.theme]}</span>
           <span aria-hidden>·</span>
           <span>{ui.minRead(readingMinutes(story))}</span>
           {story.lang === 'tl' && (

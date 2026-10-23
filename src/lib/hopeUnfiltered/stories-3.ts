@@ -5,6 +5,7 @@ const photos = '/assets/images/photos';
 export const stories3: Story[] = [
   {
     slug: 'panganay-breadwinner',
+    pair: 'eldest-child-breadwinner-pressure',
     lang: 'tl',
     theme: 'pressure',
     metaTitle: 'Panganay breadwinner: ang pagod ni Jun',
@@ -102,6 +103,7 @@ export const stories3: Story[] = [
   },
   {
     slug: 'new-mom-feeling-overwhelmed',
+    pair: 'bagong-nanay-postpartum-lungkot',
     lang: 'en',
     theme: 'low',
     metaTitle: "Postpartum depression signs: Ana's first months",
@@ -193,6 +195,7 @@ export const stories3: Story[] = [
   },
   {
     slug: 'college-stress-thesis',
+    pair: 'stress-sa-thesis-college',
     lang: 'en',
     theme: 'pressure',
     metaTitle: 'College stress: how Josh got through thesis year',
@@ -286,6 +289,7 @@ export const stories3: Story[] = [
   },
   {
     slug: 'lonely-in-a-new-city',
+    pair: 'lonely-sa-bagong-lugar',
     lang: 'en',
     theme: 'lonely',
     metaTitle: "Feeling lonely in a new city: Joy's first year",
@@ -379,6 +383,7 @@ export const stories3: Story[] = [
   },
   {
     slug: 'when-god-feels-far',
+    pair: 'parang-malayo-ang-diyos',
     lang: 'en',
     theme: 'faith',
     metaTitle: 'When God feels far: a Christian with depression',
@@ -471,6 +476,7 @@ export const stories3: Story[] = [
   },
   {
     slug: 'social-anxiety-small-steps',
+    pair: 'social-anxiety-paano-labanan',
     lang: 'en',
     theme: 'anxiety',
     metaTitle: "Social anxiety tips from Liza's barkada reunion",

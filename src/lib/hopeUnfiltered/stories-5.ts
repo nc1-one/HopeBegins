@@ -5,6 +5,7 @@ const photos = '/assets/images/photos';
 export const stories5: Story[] = [
   {
     slug: 'how-to-start-over-in-life',
+    pair: 'paano-magsimula-ulit-sa-buhay',
     lang: 'en',
     theme: 'new-start',
     metaTitle: "How to start over in life after a hard year: Lito's story",
@@ -107,6 +108,7 @@ export const stories5: Story[] = [
   },
   {
     slug: 'mens-mental-health-filipino-fathers',
+    pair: 'mental-health-ng-mga-tatay',
     lang: 'en',
     theme: 'low',
     metaTitle: "Men's mental health in the Philippines: Ben's story",
@@ -207,6 +209,7 @@ export const stories5: Story[] = [
   },
   {
     slug: 'anxiety-after-a-typhoon',
+    pair: 'takot-pagkatapos-ng-bagyo',
     lang: 'en',
     theme: 'anxiety',
     metaTitle: "Anxiety after a typhoon: Nena's story of fear and rain",
@@ -298,6 +301,7 @@ export const stories5: Story[] = [
   },
   {
     slug: 'when-you-feel-like-giving-up',
+    pair: 'gusto-ko-nang-sumuko',
     lang: 'en',
     theme: 'low',
     metaTitle: "When you feel like giving up: Nico's story of hope",
@@ -399,6 +403,7 @@ export const stories5: Story[] = [
   },
   {
     slug: 'how-to-pray-when-you-cant-find-the-words',
+    pair: 'paano-magdasal-kapag-walang-masabi',
     lang: 'en',
     theme: 'faith',
     metaTitle: "How to pray when anxious: Hannah's honest prayers",
@@ -499,6 +504,7 @@ export const stories5: Story[] = [
   },
   {
     slug: 'paano-bumangon-ulit',
+    pair: 'how-to-get-back-up-again',
     lang: 'tl',
     theme: 'new-start',
     metaTitle: 'Paano bumangon ulit: ang kuwento ni Lia sa Baguio',

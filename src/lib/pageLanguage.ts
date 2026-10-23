@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { getFeelingPage, type FeelingLang } from './feelingPages';
-import { STORY_LANGS, storySlugAt } from './hopeUnfiltered/meta';
+import { STORY_META, storySlugAt } from './hopeUnfiltered/meta';
 import { useLanguage } from './languagePreference';
 
 /**
@@ -15,6 +15,6 @@ export function usePageLanguage(): FeelingLang {
   const story = storySlugAt(pathname);
   return (
     getFeelingPage(pathname?.slice(1) ?? '')?.lang ??
-    (story ? STORY_LANGS[story] : preferred)
+    (story ? STORY_META[story].lang : preferred)
   );
 }

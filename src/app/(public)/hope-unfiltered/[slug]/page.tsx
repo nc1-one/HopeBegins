@@ -6,12 +6,14 @@ import { ArrowLeft } from 'lucide-react';
 import { Reveal } from '@/components/ui/Reveal';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { StoryCard } from '@/components/hopeUnfiltered/StoryCard';
+import { StoryLanguageLink } from '@/components/hopeUnfiltered/StoryLanguageLink';
 import { StoryText } from '@/components/hopeUnfiltered/StoryText';
 import {
   BLOG_NAME,
   BLOG_PATH,
   getStory,
   moreStories,
+  pairOf,
   readingMinutes,
   stories,
   storyPath,
@@ -49,8 +51,24 @@ export async function generateMetadata({
     story.metaDescription,
     image
   );
+  // Each story names its other-language twin, as the feeling pages do.
+  const twin = pairOf(story);
+  const english = story.lang === 'en' ? story : twin;
+  const tagalog = story.lang === 'tl' ? story : twin;
   return {
     ...base,
+    alternates: {
+      canonical: storyPath(story),
+      ...(twin && {
+        languages: {
+          ...(tagalog && { 'tl-PH': storyPath(tagalog) }),
+          ...(english && {
+            'en-PH': storyPath(english),
+            'x-default': storyPath(english),
+          }),
+        },
+      }),
+    },
     keywords: story.keywords,
     openGraph: {
       type: 'article',
@@ -61,7 +79,7 @@ export async function generateMetadata({
       description: story.metaDescription,
       images: [{ ...image, width: 1200, height: 630 }],
       publishedTime: story.published,
-      section: THEMES[story.theme],
+      section: THEMES[story.lang][story.theme],
       tags: story.keywords,
     },
   };
@@ -134,6 +152,7 @@ export default async function StoryPage({
   const story = getStory((await params).slug);
   if (!story) notFound();
   const ui = storyUi[story.lang];
+  const twin = pairOf(story);
   const verse = VERSES[story.verse][story.lang];
   const minutes = readingMinutes(story);
   // Everything up to the reader's part, then the small step and the verse.
@@ -150,7 +169,7 @@ export default async function StoryPage({
     image: ogImage(story),
     published: story.published,
     keywords: story.keywords,
-    section: THEMES[story.theme],
+    section: THEMES[story.lang][story.theme],
     wordCount: storyWordCount(story),
     faq: story.faq,
   });
@@ -162,17 +181,26 @@ export default async function StoryPage({
         dangerouslySetInnerHTML={jsonLdHtml(structuredData)}
       />
       <div className="mx-auto max-w-5xl">
-        <Link
-          href={BLOG_PATH}
-          lang="en"
-          className="-ml-3 inline-flex min-h-11 items-center gap-2 rounded-xl px-3 font-poppins text-sm font-medium transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
-        >
-          <ArrowLeft className="h-4 w-4" aria-hidden />
-          {BLOG_NAME}
-        </Link>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <Link
+            href={BLOG_PATH}
+            lang="en"
+            className="-ml-3 inline-flex min-h-11 items-center gap-2 rounded-xl px-3 font-poppins text-sm font-medium transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
+          >
+            <ArrowLeft className="h-4 w-4" aria-hidden />
+            {BLOG_NAME}
+          </Link>
+          {twin && (
+            <StoryLanguageLink
+              href={storyPath(twin)}
+              lang={twin.lang}
+              label={ui.switchLabel}
+            />
+          )}
+        </div>
 
         <header className="mt-6 max-w-3xl">
-          <p className={eyebrowClass}>{THEMES[story.theme]}</p>
+          <p className={eyebrowClass}>{THEMES[story.lang][story.theme]}</p>
           <h1 className="mt-3 text-balance font-playfair text-4xl leading-[0.95] tracking-[-0.04em] md:text-6xl">
             {story.title}
           </h1>
@@ -180,6 +208,8 @@ export default async function StoryPage({
             {story.dek}
           </p>
           <p className="mt-5 flex flex-wrap gap-x-2 gap-y-1 font-poppins text-sm text-[#6E5F47]/85">
+            <span>{ui.byline}</span>
+            <span aria-hidden>·</span>
             <span>{story.who}</span>
             <span aria-hidden>·</span>
             <span>{ui.minRead(minutes)}</span>
@@ -317,12 +347,9 @@ export default async function StoryPage({
             </div>
           </Reveal>
 
-          <aside className="mt-12 space-y-2 text-sm leading-relaxed text-[#6E5F47]/85">
-            <p>
-              <span className="font-semibold">{ui.aboutTitle}.</span> {ui.about}
-            </p>
-            <p>{VERSE_ATTRIBUTION[story.lang]}</p>
-          </aside>
+          <p className="mt-12 text-sm leading-relaxed text-[#6E5F47]/85">
+            {VERSE_ATTRIBUTION[story.lang]}
+          </p>
         </div>
 
         <section
@@ -338,10 +365,9 @@ export default async function StoryPage({
             </h2>
             <Link
               href={BLOG_PATH}
-              lang="en"
               className="inline-flex min-h-11 items-center font-poppins font-medium underline-offset-4 hover:underline"
             >
-              All stories in {BLOG_NAME}
+              {ui.allStories}
             </Link>
           </div>
           <ul className="mt-8 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
