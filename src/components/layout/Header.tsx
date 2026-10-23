@@ -46,7 +46,6 @@ export function Header() {
     { href: '/tools', label: 'Tools' },
     { href: '/hope-unfiltered', label: 'Hope Unfiltered' },
     { href: '/our-approach', label: 'Our approach' },
-    { href: 'https://warroom.hopebegins.today', label: 'Prayer War Room' },
     { href: '/give-hope', label: 'Give' },
   ];
 
@@ -126,9 +125,6 @@ export function Header() {
                 }
                 className="flex items-center text-sm font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins"
                 onClick={(e) => {
-                  if (link.href.includes('warroom')) {
-                    analyticsService.recordClick('war_room');
-                  }
                   if (link.href === '/') {
                     handleHomeClick(e as any);
                   }
@@ -196,9 +192,6 @@ export function Header() {
                     }
                     className="flex min-h-12 items-center text-base font-semibold text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins"
                     onClick={(e) => {
-                      if (link.href.includes('warroom')) {
-                        analyticsService.recordClick('war_room');
-                      }
                       if (link.href === '/') {
                         handleHomeClick(e as any);
                       } else {

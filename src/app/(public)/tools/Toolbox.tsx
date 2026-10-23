@@ -3,12 +3,14 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
+import { ArrowUpRight, ChevronRight } from 'lucide-react';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import { ToolExercise, type ToolKind } from '@/components/tools/ToolExercise';
 import { EcoachLink } from '@/components/ui/EcoachLink';
+import { TrackedLink } from '@/components/ui/TrackedLink';
 import { groupClass, rowClass } from '@/components/ui/listStyles';
 import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
+import { WAR_ROOM_URL } from '@/lib/actionPlan';
 import { useSavedPlan } from '@/lib/actionPlanStore';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { setLanguage, useLanguage } from '@/lib/languagePreference';
@@ -256,6 +258,8 @@ const copy = {
     or: 'or',
     ecoach: 'Or talk to an e-coach on Messenger',
     close: 'Close',
+    prayTitle: 'When you want to pray',
+    prayText: 'A free prayer app for a guided prayer time. Opens in a new tab.',
   },
   tl: {
     title: 'Mga tool para sa mabibigat na sandali',
@@ -269,6 +273,9 @@ const copy = {
     or: 'o',
     ecoach: 'O kausapin ang isang e-coach sa Messenger',
     close: 'Isara',
+    prayTitle: 'Kapag gusto mong magdasal',
+    prayText:
+      'Libreng prayer app para sa guided prayer time. Magbubukas sa bagong tab.',
   },
 };
 
@@ -540,6 +547,46 @@ export function Toolbox() {
               ))}
             </ul>
           </div>
+        </section>
+
+        {/* Prayer War Room lives here, with the other things to do now. */}
+        <section
+          aria-labelledby="pray-title"
+          className="mt-12 border-t border-[#E2DFDA] pt-8"
+        >
+          <h2
+            id="pray-title"
+            className="font-playfair text-3xl md:text-4xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
+          >
+            {t.prayTitle}
+          </h2>
+          <ul className={`mt-5 max-w-2xl ${groupClass}`}>
+            <li>
+              <TrackedLink
+                href={WAR_ROOM_URL}
+                linkName="war_room"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={rowClass}
+              >
+                <span className="min-w-0 flex-1">
+                  <span
+                    lang="en"
+                    className="block font-poppins font-bold text-[#6E5F47]"
+                  >
+                    Prayer War Room
+                  </span>
+                  <span className="mt-0.5 block text-sm text-[#6E5F47]/75">
+                    {t.prayText}
+                  </span>
+                </span>
+                <ArrowUpRight
+                  aria-hidden
+                  className="h-4 w-4 shrink-0 text-[#C5BFB5] group-hover:text-[#6E5F47]"
+                />
+              </TrackedLink>
+            </li>
+          </ul>
         </section>
       </div>
     </div>
