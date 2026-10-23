@@ -28,7 +28,7 @@ export function GET() {
       <link>${url(storyPath(story))}</link>
       <guid isPermaLink="true">${url(storyPath(story))}</guid>
       <description>${escape(story.metaDescription)}</description>
-      <category>${escape(THEMES[story.theme])}</category>
+      <category>${escape(THEMES[story.lang][story.theme])}</category>
       <pubDate>${new Date(`${story.published}T08:00:00+08:00`).toUTCString()}</pubDate>
     </item>`
     )

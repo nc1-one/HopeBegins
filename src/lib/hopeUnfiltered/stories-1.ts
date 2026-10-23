@@ -5,6 +5,7 @@ const photos = '/assets/images/photos';
 export const stories1: Story[] = [
   {
     slug: 'stop-overthinking-at-night',
+    pair: 'paano-tumigil-sa-overthinking-sa-gabi',
     lang: 'en',
     theme: 'anxiety',
     metaTitle: "How to stop overthinking at night: Mika's story",

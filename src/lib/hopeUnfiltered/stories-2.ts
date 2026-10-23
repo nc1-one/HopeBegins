@@ -5,6 +5,7 @@ const photos = '/assets/images/photos';
 export const stories2: Story[] = [
   {
     slug: 'pagod-na-sa-trabaho',
+    pair: 'tired-of-my-job-night-shift',
     lang: 'tl',
     theme: 'pressure',
     metaTitle: 'Pagod na sa trabaho? Ang kuwento ni Jomar sa night shift',
@@ -99,6 +100,7 @@ export const stories2: Story[] = [
   },
   {
     slug: 'ofw-loneliness-homesick',
+    pair: 'lungkot-ng-ofw-homesick',
     lang: 'en',
     theme: 'lonely',
     metaTitle: 'OFW loneliness: how Arnel faced homesickness in Dubai',
@@ -190,6 +192,7 @@ export const stories2: Story[] = [
   },
   {
     slug: 'failed-board-exam-what-now',
+    pair: 'bumagsak-sa-board-exam',
     lang: 'en',
     theme: 'new-start',
     metaTitle: 'Failed the board exam? What Carla did next',
@@ -280,6 +283,7 @@ export const stories2: Story[] = [
   },
   {
     slug: 'first-panic-attack-jeepney',
+    pair: 'unang-panic-attack-sa-jeep',
     lang: 'en',
     theme: 'anxiety',
     metaTitle: 'First panic attack: what happened to Rina on a jeepney',
@@ -370,6 +374,7 @@ export const stories2: Story[] = [
   },
   {
     slug: 'grieving-a-grandparent',
+    pair: 'pagluluksa-sa-pagkawala-ni-lola',
     lang: 'en',
     theme: 'loss',
     metaTitle: 'Grieving a grandparent: how Ella coped after Lola died',
@@ -460,6 +465,7 @@ export const stories2: Story[] = [
   },
   {
     slug: 'paano-mag-move-on',
+    pair: 'how-to-move-on-after-a-breakup',
     lang: 'tl',
     theme: 'loss',
     metaTitle: 'Paano mag move on after 5 years: ang kuwento ni Bea',

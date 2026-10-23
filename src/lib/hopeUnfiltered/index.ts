@@ -1,19 +1,22 @@
 import type { FeelingLang } from '../feelingPages';
-import { BLOG_PATH, STORY_LANGS } from './meta';
+import { BLOG_PATH, STORY_META } from './meta';
 import { stories1 } from './stories-1';
 import { stories2 } from './stories-2';
 import { stories3 } from './stories-3';
 import { stories4 } from './stories-4';
 import { stories5 } from './stories-5';
-import type { Story, StoryPart, StoryTheme } from './types';
+import { translations1 } from './translations-1';
+import { translations2 } from './translations-2';
+import { translations3 } from './translations-3';
+import { translations4 } from './translations-4';
+import type { Story, StoryPart } from './types';
 
 export type { Story, StoryPart, StoryTheme } from './types';
 export { VERSES, VERSE_ATTRIBUTION } from './verses';
+export { BLOG_NAME, BLOG_PATH, THEMES, THEME_IDS } from './meta';
 
-export { BLOG_NAME, BLOG_PATH } from './meta';
-
-/** Every story, in the order the blog lists them. */
-export const stories: Story[] = [
+/** The stories as first written, in the order the blog lists them. */
+const originals: Story[] = [
   ...stories1,
   ...stories2,
   ...stories3,
@@ -21,36 +24,47 @@ export const stories: Story[] = [
   ...stories5,
 ];
 
-// meta.ts lists every slug and language for the parts of the site that
-// load on every page; stop the build if it and the stories disagree.
-const listed = Object.entries(STORY_LANGS);
-if (
-  listed.length !== stories.length ||
-  stories.some((story) => STORY_LANGS[story.slug] !== story.lang)
-) {
-  throw new Error('hopeUnfiltered/meta.ts STORY_LANGS is out of date.');
-}
+/** Each story in its other language, English or Taglish. */
+const translations: Story[] = [
+  ...translations1,
+  ...translations2,
+  ...translations3,
+  ...translations4,
+];
 
-export const storyPath = (story: Story) => `${BLOG_PATH}/${story.slug}`;
+/** Every story in both languages. */
+export const stories: Story[] = [...originals, ...translations];
 
 export function getStory(slug: string) {
   return stories.find((story) => story.slug === slug);
 }
 
-export const THEMES: Record<StoryTheme, string> = {
-  anxiety: 'Anxiety',
-  pressure: 'Pressure and burnout',
-  lonely: 'Loneliness',
-  loss: 'Grief and heartbreak',
-  low: 'Feeling low',
-  faith: 'Faith',
-  'new-start': 'Starting over',
-};
+/** The same story in the other language. */
+export const pairOf = (story: Story) => getStory(story.pair);
 
-/** Themes that have stories, in the order above. */
-export const themesInUse = (Object.keys(THEMES) as StoryTheme[]).filter(
-  (theme) => stories.some((story) => story.theme === theme)
-);
+/** One entry per story with both languages, in the blog's order. */
+export const storyPairs = originals.map((story) => {
+  const twin = pairOf(story);
+  return {
+    en: story.lang === 'en' ? story : (twin ?? story),
+    tl: story.lang === 'tl' ? story : (twin ?? story),
+  };
+});
+
+// meta.ts lists every story for the parts of the site that load on every
+// page; stop the build if it and the stories disagree.
+if (
+  Object.keys(STORY_META).length !== stories.length ||
+  stories.some(
+    (story) =>
+      STORY_META[story.slug]?.lang !== story.lang ||
+      STORY_META[story.slug]?.theme !== story.theme
+  )
+) {
+  throw new Error('hopeUnfiltered/meta.ts STORY_META is out of date.');
+}
+
+export const storyPath = (story: Story) => `${BLOG_PATH}/${story.slug}`;
 
 /** Words in a story, for the reading time. */
 export function storyWordCount(story: Story) {
@@ -67,14 +81,22 @@ export const readingMinutes = (story: Story) =>
   Math.max(1, Math.round(storyWordCount(story) / 200));
 
 /**
- * Stories to read next: the same theme first, then the same language,
- * then the rest, so every story links to a few others.
+ * Stories to read next, in the same language: the same theme first, then
+ * the rest, so every story links to a few others.
  */
 export function moreStories(story: Story, count = 3) {
-  const others = stories.filter((other) => other.slug !== story.slug);
-  const score = (other: Story) =>
-    (other.theme === story.theme ? 2 : 0) + (other.lang === story.lang ? 1 : 0);
-  return [...others].sort((a, b) => score(b) - score(a)).slice(0, count);
+  return stories
+    .filter(
+      (other) =>
+        other.lang === story.lang &&
+        other.slug !== story.slug &&
+        other.slug !== story.pair
+    )
+    .sort(
+      (a, b) =>
+        Number(b.theme === story.theme) - Number(a.theme === story.theme)
+    )
+    .slice(0, count);
 }
 
 /** Splits "[words](/path)" links out of a paragraph. */
@@ -102,7 +124,9 @@ export const storyUi: Record<
   {
     htmlLang: string;
     minRead: (minutes: number) => string;
+    byline: string;
     composite: string;
+    switchLabel: string;
     kinds: Record<StoryPart['kind'], string>;
     tryThis: string;
     verse: string;
@@ -111,14 +135,15 @@ export const storyUi: Record<
     ctaHome: string;
     faq: string;
     more: string;
-    aboutTitle: string;
-    about: string;
+    allStories: string;
   }
 > = {
   en: {
     htmlLang: 'en-PH',
     minRead: (minutes) => `${minutes} min read`,
-    composite: 'A composite story: names and details are made up.',
+    byline: 'By Anonymous',
+    composite: 'Each story is a composite.',
+    switchLabel: 'Basahin sa Taglish',
     kinds: {
       story: 'The story',
       struggle: 'What made it hard',
@@ -133,14 +158,14 @@ export const storyUi: Record<
     ctaHome: 'Or go to the HopeBegins home page',
     faq: 'Questions people ask',
     more: 'More stories',
-    aboutTitle: 'About this story',
-    about:
-      'Hope Unfiltered stories are composites. The people, names and details are made up, and the struggles are ones many Filipinos face. If you see yourself in one, reach out to someone today.',
+    allStories: 'All stories in Hope Unfiltered',
   },
   tl: {
     htmlLang: 'tl-PH',
     minRead: (minutes) => `${minutes} min basahin`,
-    composite: 'Composite na kuwento: gawa-gawa ang mga pangalan at detalye.',
+    byline: 'Ni Anonymous',
+    composite: 'Composite ang bawat kuwento.',
+    switchLabel: 'Read in English',
     kinds: {
       story: 'Ang kuwento',
       struggle: 'Ang mabigat',
@@ -155,8 +180,6 @@ export const storyUi: Record<
     ctaHome: 'O pumunta sa home page ng HopeBegins',
     faq: 'Mga tanong ng iba',
     more: 'Iba pang kuwento',
-    aboutTitle: 'Tungkol sa kuwentong ito',
-    about:
-      'Composite ang mga kuwento sa Hope Unfiltered. Gawa-gawa ang mga tao, pangalan at detalye, at ang mga pinagdadaanan nila ay pinagdadaanan din ng maraming Pilipino. Kung nakikita mo ang sarili mo sa isa sa mga ito, kumausap ng isang tao ngayong araw.',
+    allStories: 'Lahat ng kuwento sa Hope Unfiltered',
   },
 };

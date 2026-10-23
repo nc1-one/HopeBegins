@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { config } from '@/config';
 import { feelingPages, getFeelingPage } from '@/lib/feelingPages';
 import { getGuide, guides } from '@/lib/guidePages';
-import { BLOG_PATH, stories, storyPath } from '@/lib/hopeUnfiltered';
+import { BLOG_PATH, pairOf, stories, storyPath } from '@/lib/hopeUnfiltered';
 
 // When each page last changed in a way a reader would notice. Bump a date
 // when you change that page's content, so Google knows to look again.
@@ -64,9 +64,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }),
     };
   });
-  const storyPages: MetadataRoute.Sitemap = stories.map((story) => ({
-    url: url(storyPath(story)),
-    lastModified: story.published,
-  }));
+  // Each story names its other-language twin, like the feeling pages.
+  const storyPages: MetadataRoute.Sitemap = stories.map((story) => {
+    const pair = pairOf(story);
+    const tl = story.lang === 'tl' ? story : pair;
+    const en = story.lang === 'en' ? story : pair;
+    return {
+      url: url(storyPath(story)),
+      lastModified: story.published,
+      ...(pair && {
+        alternates: {
+          languages: {
+            ...(tl && { 'tl-PH': url(storyPath(tl)) }),
+            ...(en && { 'en-PH': url(storyPath(en)) }),
+          },
+        },
+      }),
+    };
+  });
   return [...pages, ...feelings, ...guidePages, ...storyPages];
 }

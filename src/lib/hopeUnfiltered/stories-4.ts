@@ -5,6 +5,7 @@ const photos = '/assets/images/photos';
 export const stories4: Story[] = [
   {
     slug: 'stop-comparing-yourself-social-media',
+    pair: 'pagkukumpara-sa-social-media',
     lang: 'en',
     theme: 'low',
     metaTitle: "How to stop comparing yourself to others: Trish's story",
@@ -95,6 +96,7 @@ export const stories4: Story[] = [
   },
   {
     slug: 'lost-my-job-what-now',
+    pair: 'nawalan-ng-trabaho-ano-gagawin',
     lang: 'en',
     theme: 'new-start',
     metaTitle: "Lost my job, what to do now? Rico's first week",
@@ -187,6 +189,7 @@ export const stories4: Story[] = [
   },
   {
     slug: 'caregiver-burnout',
+    pair: 'pagod-mag-alaga-ng-magulang',
     lang: 'en',
     theme: 'pressure',
     metaTitle: "Caregiver burnout: Grace's story of caring for Mama",
@@ -278,6 +281,7 @@ export const stories4: Story[] = [
   },
   {
     slug: 'walang-gana-sa-lahat',
+    pair: 'no-motivation-for-anything',
     lang: 'tl',
     theme: 'low',
     metaTitle: 'Walang gana sa lahat? Ang kuwento ni Migs',
@@ -372,6 +376,7 @@ export const stories4: Story[] = [
   },
   {
     slug: 'helping-a-friend-with-depression',
+    pair: 'paano-tulungan-ang-kaibigang-depressed',
     lang: 'en',
     theme: 'low',
     metaTitle: 'How to help a friend with depression: Jen and Kat',
@@ -465,6 +470,7 @@ export const stories4: Story[] = [
   },
   {
     slug: 'stress-sa-utang',
+    pair: 'debt-stress-and-anxiety',
     lang: 'tl',
     theme: 'anxiety',
     metaTitle: 'Stress sa utang? Paano ito hinarap ni Ramon',

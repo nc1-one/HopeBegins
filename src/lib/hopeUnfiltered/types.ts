@@ -35,6 +35,8 @@ export interface StoryPart {
 export interface Story {
   slug: string;
   lang: FeelingLang;
+  /** The same story in the other language. */
+  pair: string;
   theme: StoryTheme;
   /** Under 60 characters, with the words people search for. */
   metaTitle: string;

@@ -225,7 +225,8 @@ export function storyJsonLd({
         },
         datePublished: published,
         dateModified: published,
-        author: { '@id': ORG_ID },
+        // As the page shows it: the stories are published without a name.
+        author: { '@type': 'Person', name: 'Anonymous' },
         publisher: { '@id': ORG_ID },
         isPartOf: { '@id': BLOG_ID },
         articleSection: section,

@@ -13,6 +13,7 @@ import {
 import { Card } from '@/components/ui/card';
 import { buildPlan } from '@/lib/actionPlan';
 import { feelingPages } from '@/lib/feelingPages';
+import { STORY_META, THEME_IDS, THEMES } from '@/lib/hopeUnfiltered/meta';
 import type { ClickAnalytics } from '@/types/admin';
 
 /**
@@ -172,6 +173,11 @@ export function JourneyByStage({
 
   const t = clicks.totals;
   const n = (name: string) => t[name] ?? 0;
+  // Visits to Hope Unfiltered stories that match, by slug in meta.ts.
+  const storyReads = (match: (meta: (typeof STORY_META)[string]) => boolean) =>
+    Object.entries(STORY_META)
+      .filter(([, meta]) => match(meta))
+      .reduce((sum, [slug]) => sum + n(`visit_story_${slug}`), 0);
   const tool = (kind: string, step: 'start' | 'done', source: string) =>
     n(`tool_${kind}_${step}_${source}`);
   const toolRows = (source: string): Row[] => [
@@ -805,6 +811,31 @@ export function JourneyByStage({
               {
                 label: 'Tapped "That\'s me" on the blog or a story',
                 values: [n('story_thats_me')],
+              },
+            ]}
+          />
+          {/* Which topics people relate to: taps on a theme on the blog
+              page, and visits to that theme's stories in either language. */}
+          <Table
+            columns={['Hope Unfiltered by theme', 'Filter taps', 'Story reads']}
+            rows={THEME_IDS.map((theme) => ({
+              label: THEMES.en[theme],
+              values: [
+                n(`blog_theme_${theme}`),
+                storyReads((meta) => meta.theme === theme),
+              ],
+            }))}
+          />
+          <Table
+            columns={['Hope Unfiltered stories read in', 'Visits']}
+            rows={[
+              {
+                label: 'English',
+                values: [storyReads((meta) => meta.lang === 'en')],
+              },
+              {
+                label: 'Taglish',
+                values: [storyReads((meta) => meta.lang === 'tl')],
               },
             ]}
           />
