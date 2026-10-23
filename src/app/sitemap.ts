@@ -31,7 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pages: MetadataRoute.Sitemap = Object.entries(UPDATED).map(
     ([path, date]) => ({ url: url(path), lastModified: date })
   );
-  // Each feeling page names its other-language twin.
+  // Each feeling page names its other-language twin, and the English one
+  // for everyone else, as the pages themselves do.
   const feelings: MetadataRoute.Sitemap = feelingPages.map((page) => {
     const pair = getFeelingPage(page.pair);
     const tl = page.lang === 'tl' ? page : pair;
@@ -42,7 +43,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           ...(tl && { 'tl-PH': url(`/${tl.slug}`) }),
-          ...(en && { 'en-PH': url(`/${en.slug}`) }),
+          ...(en && {
+            'en-PH': url(`/${en.slug}`),
+            'x-default': url(`/${en.slug}`),
+          }),
         },
       },
     };
@@ -58,7 +62,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         alternates: {
           languages: {
             ...(tl && { 'tl-PH': url(`/${tl.slug}`) }),
-            ...(en && { 'en-PH': url(`/${en.slug}`) }),
+            ...(en && {
+              'en-PH': url(`/${en.slug}`),
+              'x-default': url(`/${en.slug}`),
+            }),
           },
         },
       }),
@@ -76,7 +83,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         alternates: {
           languages: {
             ...(tl && { 'tl-PH': url(storyPath(tl)) }),
-            ...(en && { 'en-PH': url(storyPath(en)) }),
+            ...(en && {
+              'en-PH': url(storyPath(en)),
+              'x-default': url(storyPath(en)),
+            }),
           },
         },
       }),

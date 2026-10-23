@@ -1,8 +1,16 @@
 import type { NextConfig } from 'next';
+import { PRIVATE_PATHS } from './src/lib/privatePaths';
 
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
+  async headers() {
+    // Keeps private pages out of search results even when linked elsewhere.
+    return PRIVATE_PATHS.map((path) => ({
+      source: `${path}/:rest*`,
+      headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
+    }));
+  },
   async redirects() {
     // One address for Google: www.hopebegins.today goes to hopebegins.today.
     return [

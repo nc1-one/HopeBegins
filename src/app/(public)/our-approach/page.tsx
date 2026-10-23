@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { PageJsonLd } from '@/components/layout/PageJsonLd';
 import { HopeStoriesSection } from '@/components/sections/HopeStoriesSection';
 import { Reveal } from '@/components/ui/Reveal';
 import { pageMetadata } from '@/lib/pageMetadata';
@@ -8,11 +9,21 @@ import { photo, photoTurn } from '@/lib/photos';
 import { ApproachOffers, type Offer } from './ApproachOffers';
 import { ApproachSteps, type ApproachStep } from './ApproachSteps';
 
-export const metadata = pageMetadata(
-  '/our-approach',
-  'Our approach',
-  'How HopeBegins helps, from the moment something feels wrong to months later: why we exist, what we aim for, the six steps and every free tool.'
-);
+const PATH = '/our-approach';
+const TITLE = 'Our approach';
+const DESCRIPTION =
+  'How HopeBegins helps, from the moment something feels wrong to months later: why we exist, what we aim for, the six steps and every free tool.';
+
+export const metadata = pageMetadata(PATH, TITLE, DESCRIPTION, {
+  keywords: [
+    'how HopeBegins helps',
+    'faith-driven mental health support',
+    'Christian mental health support Philippines',
+    'free mental health support Philippines',
+    'hope stories',
+    'e-coaching',
+  ],
+});
 
 /*
  * The whole HopeBegins approach on one page, read top to bottom: why it
@@ -169,6 +180,13 @@ export default function OurApproachPage() {
   const hero = photo('hope', turn);
   return (
     <div className="overflow-x-clip pt-10 md:pt-16">
+      <PageJsonLd
+        path={PATH}
+        name={TITLE}
+        description={DESCRIPTION}
+        lang="en"
+        crumb={TITLE}
+      />
       <div className="px-6">
         <div className="mx-auto max-w-5xl">
           <h1 className="max-w-3xl text-balance font-playfair text-5xl md:text-7xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">

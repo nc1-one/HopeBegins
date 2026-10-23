@@ -42,6 +42,8 @@ export interface Guide {
   pair?: string;
   metaTitle: string;
   metaDescription: string;
+  /** What people search for that the page answers, in its own language. */
+  keywords: string[];
   /** Short label for links. */
   label: string;
   heading: string;
@@ -82,6 +84,12 @@ export const guides: Guide[] = [
     metaTitle: 'What to say to a friend who is depressed, and what to avoid',
     metaDescription:
       'Worried about a friend? What to say, what not to say, and what to do if they talk about not wanting to live. Plain, practical words, in English or Taglish.',
+    keywords: [
+      'what to say to a depressed friend',
+      'how to help a friend with depression',
+      'what not to say to someone who is depressed',
+      'supporting a friend with depression',
+    ],
     label: 'What to say to a depressed friend',
     heading: 'What do I say to a friend who is depressed?',
     intro:
@@ -142,6 +150,12 @@ export const guides: Guide[] = [
     metaTitle: 'Ano ang sasabihin sa kaibigang depressed, at ano ang iiwasan',
     metaDescription:
       'Nag-aalala ka sa kaibigan mo? Ano ang puwedeng sabihin, ano ang iiwasan, at ano ang gagawin kung sinasabi niyang ayaw na niyang mabuhay. Simple at praktikal.',
+    keywords: [
+      'ano ang sasabihin sa kaibigang depressed',
+      'paano tulungan ang kaibigang depressed',
+      'kaibigang may depression',
+      'ano ang hindi dapat sabihin sa depressed',
+    ],
     label: 'Ano ang sasabihin sa kaibigang depressed',
     heading: 'Ano ang sasabihin ko sa kaibigang depressed?',
     intro:
@@ -202,6 +216,14 @@ export const guides: Guide[] = [
       'Anxiety, depression, overthinking sa Tagalog: ibig sabihin at tulong',
     metaDescription:
       'Ano ang anxiety, depression, overthinking, panic attack at burnout sa Tagalog? Simpleng paliwanag ng bawat isa, at kung ano ang puwede mong gawin ngayon.',
+    keywords: [
+      'mental health sa Tagalog',
+      'anxiety sa Tagalog',
+      'depression sa Tagalog',
+      'overthinking sa Tagalog',
+      'panic attack sa Tagalog',
+      'burnout sa Tagalog',
+    ],
     label: 'Mental health sa Tagalog',
     heading: 'Anxiety, depression at overthinking sa Tagalog',
     intro:
@@ -333,6 +355,13 @@ export const guides: Guide[] = [
     metaTitle: 'Bible verses for anxiety: 8 verses and a short prayer',
     metaDescription:
       "Bible verses for when you feel anxious or afraid, a short prayer you can pray now, and free help if the worry won't let go. In English and Tagalog.",
+    keywords: [
+      'Bible verses for anxiety',
+      'scripture for anxiety',
+      'Bible verses about worry',
+      'prayer for anxiety',
+      'Bible verses for fear',
+    ],
     label: 'Bible verses for anxiety',
     heading: 'Bible verses for anxiety',
     intro:
@@ -406,6 +435,13 @@ export const guides: Guide[] = [
     metaTitle: 'Bible verse para sa anxiety: 8 talata at maikling panalangin',
     metaDescription:
       'Mga talata sa Biblia para sa oras na balisa o natatakot ka, may maikling panalangin, at libreng tulong kung hindi nawawala ang pag-aalala. Tagalog at English.',
+    keywords: [
+      'Bible verse para sa anxiety',
+      'talata sa Biblia para sa anxiety',
+      'Bible verse Tagalog',
+      'panalangin para sa anxiety',
+      'talata para sa takot',
+    ],
     label: 'Bible verse para sa anxiety',
     heading: 'Bible verse para sa anxiety',
     intro:
@@ -479,6 +515,13 @@ export const guides: Guide[] = [
     metaTitle: 'Bible verses for when you feel down, sad or hopeless',
     metaDescription:
       'Bible verses for heavy days, when you feel sad, low or tired of everything, with a short prayer and free help if the heaviness stays. In English and Tagalog.',
+    keywords: [
+      'Bible verses when you feel down',
+      'Bible verses for sadness',
+      'Bible verses for hope',
+      'Bible verses when you feel hopeless',
+      'prayer when you feel down',
+    ],
     label: 'Bible verses for when you feel down',
     heading: 'Bible verses for when you feel down',
     intro:
@@ -554,6 +597,13 @@ export const guides: Guide[] = [
       'Bible verse para sa malungkot: mga talata para sa mabibigat na araw',
     metaDescription:
       'Mga talata sa Biblia para sa malungkot, pagod o nawawalan ng pag-asa, may maikling panalangin, at libreng tulong kung hindi gumagaan ang loob mo.',
+    keywords: [
+      'Bible verse para sa malungkot',
+      'talata sa Biblia para sa malungkot',
+      'Bible verse tungkol sa pag-asa',
+      'panalangin para sa malungkot',
+      'Bible verse Tagalog',
+    ],
     label: 'Bible verse para sa malungkot',
     heading: 'Bible verse para sa malungkot',
     intro:
@@ -628,6 +678,14 @@ export const guides: Guide[] = [
       'Free mental health help in the Philippines: hotlines and counseling',
     metaDescription:
       'Free 24/7 crisis hotlines (NCMH 1553, In Touch, Hopeline), free counseling, PhilHealth cover and free help you can use online now. Numbers checked October 2026.',
+    keywords: [
+      'free mental health help Philippines',
+      'mental health hotline Philippines',
+      'NCMH 1553',
+      'free counseling Philippines',
+      'PhilHealth mental health',
+      'Hopeline Philippines',
+    ],
     label: 'Free mental health help in the Philippines',
     heading: 'Free mental health help in the Philippines',
     intro:

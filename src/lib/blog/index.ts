@@ -1,5 +1,5 @@
 import type { FeelingLang } from '../feelingPages';
-import { BLOG_PATH, STORY_META } from './meta';
+import { BLOG_NAME, BLOG_PATH, STORY_META } from './meta';
 import { stories1 } from './stories-1';
 import { stories2 } from './stories-2';
 import { stories3 } from './stories-3';
@@ -75,6 +75,11 @@ if (
 }
 
 export const storyPath = (story: Story) => `${BLOG_PATH}/${story.slug}`;
+
+/** The blog's RSS feed, named in each blog page's head so readers find it. */
+export const BLOG_FEED = {
+  'application/rss+xml': [{ url: `${BLOG_PATH}/feed.xml`, title: BLOG_NAME }],
+};
 
 /** Words in a story, for the reading time. */
 export function storyWordCount(story: Story) {

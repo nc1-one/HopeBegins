@@ -9,6 +9,7 @@ import { StoryCard } from '@/components/blog/StoryCard';
 import { StoryLanguageLink } from '@/components/blog/StoryLanguageLink';
 import { StoryText } from '@/components/blog/StoryText';
 import {
+  BLOG_FEED,
   BLOG_NAME,
   BLOG_PATH,
   getStory,
@@ -49,7 +50,7 @@ export async function generateMetadata({
     storyPath(story),
     story.metaTitle,
     story.metaDescription,
-    image
+    { image, keywords: story.keywords, lang: story.lang }
   );
   // Each story names its other-language twin, as the feeling pages do.
   const twin = pairOf(story);
@@ -68,8 +69,8 @@ export async function generateMetadata({
           }),
         },
       }),
+      types: BLOG_FEED,
     },
-    keywords: story.keywords,
     openGraph: {
       type: 'article',
       siteName: 'HopeBegins',

@@ -33,8 +33,9 @@ export function guideMetadata(slug: string): Metadata {
   const tagalog = guide.lang === 'tl' ? guide : pair;
   return {
     ...pageMetadata(path, guide.metaTitle, guide.metaDescription, {
-      url: `/og/guides/${guide.slug}.jpg`,
-      alt: guide.heading,
+      image: { url: `/og/guides/${guide.slug}.jpg`, alt: guide.heading },
+      keywords: guide.keywords,
+      lang: guide.lang,
     }),
     alternates: {
       canonical: path,
