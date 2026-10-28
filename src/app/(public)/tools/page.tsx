@@ -4,9 +4,11 @@ import { TAGLISH_TWINS, twinLanguages } from '@/lib/taglishTwins';
 import { Toolbox } from './Toolbox';
 
 const PATH = '/tools';
-const TITLE = 'Tools for hard moments';
+// The search result says what the tools are for; the page says "Tools for
+// hard moments".
+const TITLE = 'Free tools for anxiety, stress and overthinking';
 const DESCRIPTION =
-  'Free tools for anxiety, overthinking and low days: slow breathing, 5-4-3-2-1, worry time and games, plus Hope AI, prayer, Daily Hope and HopeCasts. In English or Taglish.';
+  'Free tools for anxiety, overthinking and low days: slow breathing, 5-4-3-2-1 grounding, worry time and games, plus prayer and Hope AI. English or Taglish.';
 
 export const metadata = pageMetadata(PATH, TITLE, DESCRIPTION, {
   keywords: [

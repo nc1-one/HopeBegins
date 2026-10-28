@@ -5,6 +5,7 @@ import { Languages } from 'lucide-react';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { Reveal } from '@/components/ui/Reveal';
+import { StoriesLikeThis } from '@/components/blog/StoriesLikeThis';
 import { ExerciseLauncher } from '@/components/tools/ExerciseLauncher';
 import { MessageSomeone } from '@/components/tools/MessageSomeone';
 import { WorryNote } from '@/components/tools/WorryNote';
@@ -271,6 +272,7 @@ export default async function FeelingPage({
               </div>
             </Reveal>
           )}
+          <StoriesLikeThis pageSlug={page.slug} lang={page.lang} />
         </div>
 
         <Reveal
