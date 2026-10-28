@@ -1,16 +1,6 @@
 import { fetchWithAuth } from './api';
 import { config } from '@/config';
 
-export interface ImpactData {
-  subscribers: number;
-  listeners: number;
-  journeys: number;
-  carriers: number;
-  lives_touched: number;
-  prayers?: number;
-  war_room_users?: number;
-}
-
 /**
  * Where a tool was opened: a feeling page (stage 1), the menu or the home
  * page's "Start my breathing" for returning visitors (2), the plan (3), or
@@ -19,9 +9,6 @@ export interface ImpactData {
 export type ToolSource = 'feeling' | 'menu' | 'home' | 'plan' | 'page';
 
 export const analyticsService = {
-  getImpactData: async (): Promise<ImpactData> => {
-    return fetchWithAuth(`${config.API_URL}/analytics/impact/`);
-  },
   recordClick: async (linkName: string): Promise<void> => {
     try {
       await fetchWithAuth(`${config.API_URL}/analytics/click/`, {
