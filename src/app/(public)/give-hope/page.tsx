@@ -4,13 +4,12 @@ import { StoryQuote } from '@/components/ui/testimonial-carousel';
 import { defaultTestimonials } from '@/lib/hopeStories';
 import { photo, photoTurn } from '@/lib/photos';
 import { GiveWays } from './components/GiveWays';
-import { ImpactStats } from './components/ImpactStats';
 import { ShareHope } from './components/ShareHope';
 
 /*
  * Giving, three ways: a gift that keeps HopeBegins free, your heart and time
- * as a Hope Carrier, or passing the site on. Real numbers and a real story
- * say what it's for; nothing here is made up.
+ * as a Hope Carrier, or passing the site on. A real story says what it's
+ * for; nothing here is made up.
  */
 export default function GiveHopePage() {
   const turn = photoTurn();
@@ -46,8 +45,6 @@ export default function GiveHopePage() {
         </div>
 
         <div className="mt-16 space-y-20 md:mt-20 md:space-y-28">
-          <ImpactStats />
-
           <GiveWays />
 
           <Reveal

@@ -187,7 +187,10 @@ function CrisisLine({
   );
 }
 
-export function LookingForHope() {
+/**
+ * `about` shows under the first screen only, so the menu stays quiet.
+ */
+export function LookingForHope({ about }: { about?: React.ReactNode }) {
   const hash = useSyncExternalStore(
     subscribeToHash,
     () => window.location.hash,
@@ -236,82 +239,85 @@ export function LookingForHope() {
 
   if (!showPaths) {
     return (
-      <section
-        aria-labelledby="looking-for-hope-title"
-        className="relative isolate flex min-h-[calc(100svh-6rem)] flex-col overflow-hidden bg-black"
-      >
-        <HeroMedia />
+      <>
+        <section
+          aria-labelledby="looking-for-hope-title"
+          className="relative isolate flex min-h-[calc(100svh-6rem)] flex-col overflow-hidden bg-black"
+        >
+          <HeroMedia />
 
-        <div className="flex flex-1 flex-col items-center justify-center px-6 py-16 text-center">
-          <h1
-            id="looking-for-hope-title"
-            className="text-balance font-playfair text-5xl md:text-8xl text-white leading-[0.95] tracking-[-0.04em] drop-shadow-lg"
-          >
-            Not okay <em className="text-[#EFF3E7]">today</em>?
-          </h1>
+          <div className="flex flex-1 flex-col items-center justify-center px-6 py-16 text-center">
+            <h1
+              id="looking-for-hope-title"
+              className="text-balance font-playfair text-5xl md:text-8xl text-white leading-[0.95] tracking-[-0.04em] drop-shadow-lg"
+            >
+              Not okay <em className="text-[#EFF3E7]">today</em>?
+            </h1>
 
-          <button
-            type="button"
-            onClick={handleStart}
-            className="mt-10 inline-flex items-center justify-center rounded-2xl bg-white px-10 py-4 font-poppins text-lg font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50"
-          >
-            That&apos;s me
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </button>
+            <button
+              type="button"
+              onClick={handleStart}
+              className="mt-10 inline-flex items-center justify-center rounded-2xl bg-white px-10 py-4 font-poppins text-lg font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50"
+            >
+              That&apos;s me
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </button>
 
-          {(myTool || savedPlan || hasCheckedIn) && (
-            <div className="mt-8 flex flex-col items-center gap-3">
-              <p lang={lang} className="font-poppins text-white">
-                {t.welcomeBack}
-                {savedPlan?.name ? `, ${savedPlan.name}` : ''}.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                {myTool && (
-                  <button
-                    type="button"
-                    onClick={startMyTool}
-                    className={heroSecondaryClass}
-                  >
-                    <span lang={lang}>{t.startMy[myTool]}</span>
-                  </button>
-                )}
-                {hasCheckedIn && (
-                  <TrackedLink
-                    href="/check-in"
-                    linkName="home_checkin"
-                    className={heroSecondaryClass}
-                  >
-                    <span lang={lang}>
-                      {isCheckedInToday ? t.myCheckIns : t.checkIn}
-                    </span>
-                  </TrackedLink>
-                )}
-                {savedPlan && (
-                  <TrackedLink
-                    href="/action-plan"
-                    linkName="home_open_plan"
-                    className={heroSecondaryClass}
-                  >
-                    <span lang={lang}>{t.openPlan}</span>
-                  </TrackedLink>
-                )}
+            {(myTool || savedPlan || hasCheckedIn) && (
+              <div className="mt-8 flex flex-col items-center gap-3">
+                <p lang={lang} className="font-poppins text-white">
+                  {t.welcomeBack}
+                  {savedPlan?.name ? `, ${savedPlan.name}` : ''}.
+                </p>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {myTool && (
+                    <button
+                      type="button"
+                      onClick={startMyTool}
+                      className={heroSecondaryClass}
+                    >
+                      <span lang={lang}>{t.startMy[myTool]}</span>
+                    </button>
+                  )}
+                  {hasCheckedIn && (
+                    <TrackedLink
+                      href="/check-in"
+                      linkName="home_checkin"
+                      className={heroSecondaryClass}
+                    >
+                      <span lang={lang}>
+                        {isCheckedInToday ? t.myCheckIns : t.checkIn}
+                      </span>
+                    </TrackedLink>
+                  )}
+                  {savedPlan && (
+                    <TrackedLink
+                      href="/action-plan"
+                      linkName="home_open_plan"
+                      className={heroSecondaryClass}
+                    >
+                      <span lang={lang}>{t.openPlan}</span>
+                    </TrackedLink>
+                  )}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          <Link
-            href="/give-hope"
-            lang={lang}
-            className="mt-4 inline-flex min-h-11 items-center text-sm text-white/80 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:text-white focus-visible:underline focus-visible:outline-none"
-          >
-            {t.donate}
-          </Link>
-        </div>
+            <Link
+              href="/give-hope"
+              lang={lang}
+              className="mt-4 inline-flex min-h-11 items-center text-sm text-white/80 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:text-white focus-visible:underline focus-visible:outline-none"
+            >
+              {t.donate}
+            </Link>
+          </div>
 
-        <div className="mx-auto max-w-2xl px-6 pb-28 text-center md:pb-8">
-          <CrisisLine lang={lang} className="text-white/80" />
-        </div>
-      </section>
+          <div className="mx-auto max-w-2xl px-6 pb-28 text-center md:pb-8">
+            <CrisisLine lang={lang} className="text-white/80" />
+          </div>
+        </section>
+        {about}
+      </>
     );
   }
 

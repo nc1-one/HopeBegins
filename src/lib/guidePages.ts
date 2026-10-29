@@ -212,8 +212,7 @@ export const guides: Guide[] = [
   {
     slug: 'mental-health-sa-tagalog',
     lang: 'tl',
-    metaTitle:
-      'Anxiety, depression, overthinking sa Tagalog: ibig sabihin at tulong',
+    metaTitle: 'Anxiety, depression at burnout sa Tagalog: ibig sabihin',
     metaDescription:
       'Ano ang anxiety, depression, overthinking, panic attack at burnout sa Tagalog? Simpleng paliwanag ng bawat isa, at kung ano ang puwede mong gawin ngayon.',
     keywords: [
@@ -584,6 +583,10 @@ export const guides: Guide[] = [
         q: 'What Bible verse helps when you feel down?',
         a: 'Psalm 34:18 says the Lord is near to those who have a broken heart. Psalm 42:11 speaks honestly to a soul in despair and turns it toward hope in God. Many people also hold on to Lamentations 3:22-23: His mercies are new every morning.',
       },
+      {
+        q: 'What does the Bible say when you feel hopeless?',
+        a: 'Psalm 42 speaks to a soul in despair and answers, "Hope in God!" Lamentations 3:22-23 says the Lord\'s mercies are new every morning. Feeling hopeless for weeks can also be a sign of depression, so talk to someone, and if you are thinking of ending your life, call the NCMH Crisis Hotline on 1553.',
+      },
     ],
     related: ['i-feel-depressed', 'bible-verses-for-anxiety'],
     attribution:
@@ -665,6 +668,10 @@ export const guides: Guide[] = [
       {
         q: 'Anong Bible verse ang para sa malungkot?',
         a: 'Sa Awit 34:18, sinasabing malapit ang Panginoon sa mga may bagbag na puso. Sa Awit 42:11, may tapat na tanong sa kaluluwang nanlulumo, at paanyaya na umasa sa Diyos. Marami rin ang kumakapit sa Panaghoy 3:22-23: bago tuwing umaga ang Kanyang mga habag.',
+      },
+      {
+        q: 'Ano ang sinasabi ng Biblia kapag nawawalan ka ng pag-asa?',
+        a: 'Sa Awit 42, kinakausap ng sumulat ang kaluluwa niyang nanglulumo at sinasabi niya, "Umasa ka sa Dios." Sa Panaghoy 3:22-23, bago tuwing umaga ang habag ng Panginoon. Kung ilang linggo ka nang nawawalan ng pag-asa, kausapin ang isang tao, at kung naiisip mong tapusin ang buhay mo, tumawag sa NCMH Crisis Hotline sa 1553.',
       },
     ],
     related: ['depressed-ako', 'bible-verse-para-sa-anxiety'],
