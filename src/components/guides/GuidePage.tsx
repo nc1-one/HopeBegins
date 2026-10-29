@@ -6,6 +6,7 @@ import { Languages } from 'lucide-react';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { Reveal } from '@/components/ui/Reveal';
+import { StoriesLikeThis } from '@/components/blog/StoriesLikeThis';
 import { feelingUi, getFeelingPage } from '@/lib/feelingPages';
 import { getGuide, type Guide } from '@/lib/guidePages';
 import { pageMetadata } from '@/lib/pageMetadata';
@@ -263,6 +264,7 @@ export function GuidePage({ slug }: { slug: string }) {
               </div>
             </Reveal>
           )}
+          <StoriesLikeThis pageSlug={guide.slug} lang={guide.lang} />
         </div>
 
         <Reveal
