@@ -70,6 +70,7 @@ export function ToolFinish({
   doneNote,
   nextTime,
   ask = true,
+  children,
   onClose,
 }: {
   /** The tool's id, which is also its id in the plan. */
@@ -83,6 +84,8 @@ export function ToolFinish({
   nextTime?: string;
   /** Ask how they feel. Off for tools that are about writing, not relief. */
   ask?: boolean;
+  /** Anything the tool adds under its own text, like the thought it found. */
+  children?: React.ReactNode;
   onClose: () => void;
 }) {
   const t = copy[lang];
@@ -133,6 +136,7 @@ export function ToolFinish({
       {doneNote && (
         <p className="mt-2 text-sm font-bold text-[#6E5F47]">{doneNote}</p>
       )}
+      {children}
 
       {!ask ? null : felt === null ? (
         <fieldset className="mt-5">

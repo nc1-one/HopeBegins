@@ -117,11 +117,7 @@ export function GiveWays() {
                   alt=""
                   fill
                   sizes="(min-width: 1024px) 500px, 50vw"
-                  className={`object-cover transition-[opacity,transform,filter] duration-[var(--hb-slow)] ease-[var(--hb-ease-out)] ${
-                    isActive
-                      ? 'scale-[1.02]'
-                      : 'saturate-[0.85] group-hover:scale-[1.02] group-hover:saturate-100'
-                  }`}
+                  className="object-cover"
                 />
               </span>
               <span className="mt-3 block font-poppins text-base font-semibold leading-snug text-[#6E5F47] md:text-xl">

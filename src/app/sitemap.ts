@@ -18,11 +18,12 @@ const UPDATED: Record<string, string> = {
   '/give-hope': '2026-10-18',
   '/our-approach': '2026-10-18',
   '/laro-muna': '2026-10-17',
-  '/tools': '2026-10-18',
+  '/tools': '2026-10-29',
+  '/check-in': '2026-10-29',
   [BLOG_PATH]: '2026-10-23',
   '/be-carrier': '2026-10-18',
   '/guidelines': '2026-10-18',
-  '/privacy': '2026-10-18',
+  '/privacy': '2026-10-29',
 };
 const FEELING_PAGES_UPDATED = '2026-10-19';
 const GUIDES_UPDATED = '2026-10-19';

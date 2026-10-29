@@ -87,6 +87,18 @@ const TOOLS: Record<ToolKind, Tool> = {
       tl: 'Kapag may sinusundan kang gumagalaw at sinasabayan mo ng hinga, may mapagpapahingahan ang abalang isip.',
     },
   },
+  'thought-check': {
+    minutes: { en: '3 min', tl: '3 min' },
+    title: { en: 'Thought check', tl: 'Thought check' },
+    text: {
+      en: 'Tap the thought that sounds like yours, spot the thinking trap, then pick a kinder, truer way to see it.',
+      tl: 'I-tap ang isip na kahawig ng sa iyo, kilalanin ang thinking trap, tapos pumili ng mas mabait at mas totoong pagtingin.',
+    },
+    why: {
+      en: 'Heavy thoughts feel like facts. Checking one, the way CBT counsellors teach, often makes it lighter. Nothing you pick is saved.',
+      tl: 'Parang totoo ang mabibigat na isip. Kapag sinuri mo ito, gaya ng itinuturo sa CBT, madalas itong gumagaan. Walang naka-save sa pipiliin mo.',
+    },
+  },
   unhook: {
     minutes: { en: '2 min', tl: '2 min' },
     title: {
@@ -94,20 +106,20 @@ const TOOLS: Record<ToolKind, Tool> = {
       tl: 'Lumayo nang kaunti sa mabigat na isip',
     },
     text: {
-      en: 'Write the thought in a few words, read it back in a new way, then return to what you were doing.',
-      tl: 'Isulat ang isip sa ilang salita, basahin ito sa bagong paraan, tapos bumalik sa ginagawa mo.',
+      en: 'Tap the thought that has hold of you, read it back in a new way, then return to what you were doing.',
+      tl: 'I-tap ang isip na kumakapit sa iyo, basahin ito sa bagong paraan, tapos bumalik sa ginagawa mo.',
     },
     why: {
-      en: 'Noticing a thought as a thought puts a little space between you and it. Nothing you type is saved.',
-      tl: 'Kapag napansin mong isip lang ito, nagkakaroon ng kaunting distansya. Walang naka-save sa itina-type mo.',
+      en: 'Noticing a thought as a thought puts a little space between you and it. Nothing you pick or type is saved.',
+      tl: 'Kapag napansin mong isip lang ito, nagkakaroon ng kaunting distansya. Walang naka-save sa pinili o itina-type mo.',
     },
   },
   'worry-time': {
     minutes: { en: '15 min a day', tl: '15 min araw-araw' },
     title: { en: 'Worry time', tl: 'Worry time' },
     text: {
-      en: 'Save worries as they come, then deal with them in 15 minutes at the same time each day.',
-      tl: 'Itabi ang mga pag-aalala habang dumarating, tapos harapin sa loob ng 15 minuto sa parehong oras araw-araw.',
+      en: 'Tap or write worries as they come, then deal with them in 15 minutes at the same time each day.',
+      tl: 'I-tap o isulat ang mga pag-aalala habang dumarating, tapos harapin sa loob ng 15 minuto sa parehong oras araw-araw.',
     },
     why: {
       en: 'Giving worry its own time makes it easier to set it down for the rest of the day.',
@@ -118,8 +130,8 @@ const TOOLS: Record<ToolKind, Tool> = {
     minutes: { en: '2 min, at night', tl: '2 min, sa gabi' },
     title: { en: 'Worry note', tl: 'Worry note' },
     text: {
-      en: "Write down what's keeping you up, then set it aside until morning.",
-      tl: 'Isulat ang dahilan kung bakit gising ka pa, tapos itabi muna hanggang umaga.',
+      en: "Tap or write what's keeping you up, then set it aside until morning.",
+      tl: 'I-tap o isulat kung bakit gising ka pa, tapos itabi muna hanggang umaga.',
     },
     why: {
       en: "Getting it out of your head and onto the page can make it easier to rest. It isn't saved or sent anywhere.",
@@ -205,7 +217,7 @@ const GROUPS: {
       en: "When your thoughts won't stop",
       tl: 'Kapag ayaw tumigil ng isip mo',
     },
-    tools: ['unhook', 'worry-time', 'worry-note'],
+    tools: ['thought-check', 'unhook', 'worry-time', 'worry-note'],
   },
   {
     id: 'break',
@@ -355,7 +367,8 @@ const MORE: { id: string; title: Text; links: MoreLink[] }[] = [
 const copy = {
   en: {
     title: 'Tools for hard moments',
-    subtitle: 'What you type here stays on your phone.',
+    subtitle:
+      'Most take a few taps and a few minutes. Nothing you pick leaves your phone.',
     pick: "What's happening?",
     needsPlan: 'Your reasons are kept with your plan on this phone.',
     makePlan: 'Make your free plan first',
@@ -367,7 +380,8 @@ const copy = {
   },
   tl: {
     title: 'Mga tool para sa mabibigat na sandali',
-    subtitle: 'Sa phone mo lang naiiwan ang anumang i-type mo dito.',
+    subtitle:
+      'Ilang tap at ilang minuto lang ang karamihan. Walang umaalis sa phone mo sa mga pipiliin mo.',
     pick: 'Ano ang nangyayari?',
     needsPlan:
       'Naka-save ang mga dahilan mo kasama ng plano mo sa phone na ito.',
@@ -443,15 +457,12 @@ function ToolCard({
   isOpen,
   onOpen,
   onClose,
-  delay,
 }: {
   kind: ToolKind;
   lang: FeelingLang;
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
-  /** Rows arrive one after another when a situation is picked. */
-  delay: number;
 }) {
   const tool = TOOLS[kind];
   const t = copy[lang];
@@ -466,7 +477,7 @@ function ToolCard({
   };
 
   return (
-    <li className="hb-step-in" style={{ animationDelay: `${delay}ms` }}>
+    <li className="hb-step-in">
       {/* One row per tool: tap it and the tool opens right under it. */}
       <button
         ref={rowRef}
@@ -625,10 +636,8 @@ export function Toolbox({ lang: pageLang }: { lang?: FeelingLang } = {}) {
                 className="group w-28 shrink-0 snap-start text-left focus-visible:outline-none md:w-auto"
               >
                 <span
-                  className={`relative block aspect-square overflow-hidden rounded-xl bg-[#EFF3E7] ring-offset-2 ring-offset-[#FCFDFA] transition-[transform,box-shadow] duration-[var(--hb-base)] ease-[var(--hb-ease-out)] group-focus-visible:ring-4 group-focus-visible:ring-[#91AFAA]/60 ${
-                    isActive
-                      ? 'ring-2 ring-[#6E5F47]'
-                      : 'group-hover:-translate-y-0.5'
+                  className={`relative block aspect-square overflow-hidden rounded-xl bg-[#EFF3E7] ring-offset-2 ring-offset-[#FCFDFA] transition-shadow duration-[var(--hb-base)] ease-[var(--hb-ease-out)] group-focus-visible:ring-4 group-focus-visible:ring-[#91AFAA]/60 ${
+                    isActive ? 'ring-2 ring-[#6E5F47]' : ''
                   }`}
                 >
                   <Image
@@ -705,12 +714,11 @@ export function Toolbox({ lang: pageLang }: { lang?: FeelingLang } = {}) {
               </div>
             )}
             <ul className={`mt-5 ${groupClass}`}>
-              {group.tools.map((kind, index) => (
+              {group.tools.map((kind) => (
                 <ToolCard
                   key={kind}
                   kind={kind}
                   lang={lang}
-                  delay={80 + index * 70}
                   isOpen={open === kind}
                   onOpen={() => setOpen(kind)}
                   onClose={() => setOpen(null)}

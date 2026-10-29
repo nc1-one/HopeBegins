@@ -6,8 +6,11 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { CalmDownNow } from '@/components/tools/CalmDownNow';
+import { CheckInTeaser } from '@/components/checkin/CheckInTeaser';
 import { HeroMedia } from './HeroMedia';
 import { dayOfPlan, useSavedPlan } from '@/lib/actionPlanStore';
+import { useCheckIns } from '@/lib/checkIns';
+import { localDay } from '@/lib/toolNotes';
 import { PLAN_DAYS } from '@/lib/actionPlan';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { useLanguage } from '@/lib/languagePreference';
@@ -102,6 +105,8 @@ const menuCopy = {
     planSaved: 'Your plan is saved on this phone.',
     afterSaved: 'Your Hope Card and monthly check-in are here.',
     openPlan: 'Open my plan',
+    checkIn: 'Check in today',
+    myCheckIns: 'My check-ins',
     startMy: { breathe: 'Start my breathing', ground: 'Start my 5-4-3-2-1' },
     ecoachTitle: 'I Want Someone to Journey With Me',
     ecoachText:
@@ -118,6 +123,8 @@ const menuCopy = {
     planSaved: 'Naka-save ang plano mo sa phone na ito.',
     afterSaved: 'Nandito ang Hope Card at monthly check-in mo.',
     openPlan: 'Buksan ang plano ko',
+    checkIn: 'Mag-check in ngayon',
+    myCheckIns: 'Mga check-in ko',
     startMy: {
       breathe: 'Simulan ang paghinga ko',
       ground: 'Simulan ang 5-4-3-2-1 ko',
@@ -132,6 +139,7 @@ const menuCopy = {
 };
 
 const morePaths = [
+  { title: { en: 'Daily check-in', tl: 'Daily check-in' }, href: '/check-in' },
   { title: { en: 'Prayer', tl: 'Dasal' }, href: '/prayers' },
   { title: { en: 'Hope AI', tl: 'Hope AI' }, href: '/hope-ai' },
   { title: { en: 'HopeCasts', tl: 'HopeCasts' }, href: '/hopecasts' },
@@ -192,6 +200,9 @@ export function LookingForHope() {
   const savedPlan = useSavedPlan();
   const planDay = savedPlan ? dayOfPlan(savedPlan.startedAt) + 1 : 0;
   const lastTool = useLastTool();
+  const checkIns = useCheckIns();
+  const hasCheckedIn = checkIns.length > 0;
+  const isCheckedInToday = checkIns.some((entry) => entry.day === localDay());
   // A returning visitor's own tool: the guided one in their plan or on
   // their Hope Card, else the last one they finished on this phone.
   const myTool: GuidedTool | null =
@@ -242,13 +253,13 @@ export function LookingForHope() {
           <button
             type="button"
             onClick={handleStart}
-            className="group mt-10 inline-flex items-center justify-center rounded-2xl bg-white px-10 py-4 font-poppins text-lg font-bold text-[#6E5F47] shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-zinc-100 hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50 motion-reduce:hover:translate-y-0"
+            className="mt-10 inline-flex items-center justify-center rounded-2xl bg-white px-10 py-4 font-poppins text-lg font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50"
           >
             That&apos;s me
-            <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
+            <ArrowRight className="ml-2 w-5 h-5" />
           </button>
 
-          {(myTool || savedPlan) && (
+          {(myTool || savedPlan || hasCheckedIn) && (
             <div className="mt-8 flex flex-col items-center gap-3">
               <p lang={lang} className="font-poppins text-white">
                 {t.welcomeBack}
@@ -263,6 +274,17 @@ export function LookingForHope() {
                   >
                     <span lang={lang}>{t.startMy[myTool]}</span>
                   </button>
+                )}
+                {hasCheckedIn && (
+                  <TrackedLink
+                    href="/check-in"
+                    linkName="home_checkin"
+                    className={heroSecondaryClass}
+                  >
+                    <span lang={lang}>
+                      {isCheckedInToday ? t.myCheckIns : t.checkIn}
+                    </span>
+                  </TrackedLink>
                 )}
                 {savedPlan && (
                   <TrackedLink
@@ -340,6 +362,8 @@ export function LookingForHope() {
             </TrackedLink>
           )}
 
+          <CheckInTeaser lang={lang} className={savedPlan ? 'mt-3' : 'mt-6'} />
+
           <h1
             id="paths-title"
             ref={pathsHeadingRef}
@@ -380,7 +404,7 @@ export function LookingForHope() {
                       alt=""
                       fill
                       sizes="(min-width: 768px) 320px, 50vw"
-                      className="object-cover transition-[opacity,transform] duration-[var(--hb-slow)] ease-[var(--hb-ease-out)] group-hover:scale-[1.03] motion-reduce:transition-none"
+                      className="object-cover"
                     />
                   </span>
                   <span className="mt-2 block font-poppins text-[15px] font-semibold leading-snug text-[#6E5F47] md:text-[17px]">

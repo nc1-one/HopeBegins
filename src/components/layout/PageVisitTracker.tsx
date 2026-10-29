@@ -21,6 +21,7 @@ const TRACKED: Record<string, string> = {
   '/our-approach': 'our_approach',
   '/laro-muna': 'laro_muna',
   '/tools': 'tools',
+  '/check-in': 'check_in',
   [BLOG_PATH]: 'blog',
   ...Object.fromEntries(
     feelingSlugs.map((path) => [path, `feeling_${path.slice(1)}`])

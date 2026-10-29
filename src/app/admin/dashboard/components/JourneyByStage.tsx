@@ -590,6 +590,54 @@ export function JourneyByStage({
               }))}
             />
           )}
+          <Table
+            columns={['Daily check-in', 'Count']}
+            rows={[
+              {
+                label: 'Visits to the check-in page',
+                values: [n('visit_check_in')],
+              },
+              {
+                label: 'Opened it from the home page or menu',
+                values: [n('home_checkin') + n('menu_checkin')],
+              },
+              { label: 'Check-ins done', values: [n('checkin_done')] },
+              {
+                label: 'Came back on another day and checked in',
+                values: [n('checkin_return')],
+              },
+              ...[3, 7, 14, 21, 30].map((days) => ({
+                label: `Reached ${days} days of check-ins`,
+                values: [n(`checkin_milestone_${days}`)],
+              })),
+              {
+                label: 'Reached 60 days or more',
+                values: [
+                  sumWhere(
+                    t,
+                    (name) =>
+                      name.startsWith('checkin_milestone_') &&
+                      Number(name.slice('checkin_milestone_'.length)) > 30
+                  ),
+                ],
+              },
+              {
+                label: 'Opened a tool from the check-in',
+                values: [
+                  sumWhere(
+                    t,
+                    (name) =>
+                      name.startsWith('tool_') &&
+                      name.endsWith('_start_checkin')
+                  ),
+                ],
+              },
+              {
+                label: 'E-coach from the check-in',
+                values: [n('ecoach_checkin')],
+              },
+            ]}
+          />
         </StageCard>
 
         <StageCard
@@ -728,6 +776,7 @@ export function JourneyByStage({
                   ['one-thing', 'One small thing'],
                   ['worry-time', 'Worry time'],
                   ['unhook', 'Unhook from a heavy thought'],
+                  ['thought-check', 'Thought check'],
                   ['reasons', 'Reasons to keep going'],
                 ] as const
               ).map(([kind, label]) => ({

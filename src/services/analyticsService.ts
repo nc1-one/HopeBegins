@@ -16,7 +16,13 @@ export interface ImpactData {
  * page's "Start my breathing" for returning visitors (2), the plan (3), or
  * a tool's own page, such as the game at /laro-muna.
  */
-export type ToolSource = 'feeling' | 'menu' | 'home' | 'plan' | 'page';
+export type ToolSource =
+  | 'feeling'
+  | 'menu'
+  | 'home'
+  | 'plan'
+  | 'page'
+  | 'checkin';
 
 export const analyticsService = {
   getImpactData: async (): Promise<ImpactData> => {

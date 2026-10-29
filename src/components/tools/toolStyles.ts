@@ -9,3 +9,9 @@ export const quietClass =
   'inline-flex min-h-11 items-center justify-center rounded-2xl px-5 font-poppins font-bold text-[#6E5F47] transition-colors hover:bg-[#DFE7CF] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
 export const inputClass =
   'w-full rounded-xl border border-zinc-200 bg-white p-3 text-[#6E5F47] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
+/** A choice that fills the row, for picking one thing from a short list. */
+export const optionClass =
+  'w-full min-h-12 rounded-xl border border-[#DFE7CF] bg-white px-4 py-3 text-left font-poppins font-medium text-[#6E5F47] transition-colors hover:border-[#AEC488] hover:bg-[#F6F8F1] aria-pressed:border-[#6E5F47] aria-pressed:bg-[#F6F8F1] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';
+/** A small tap-to-pick choice; several can sit on one line. */
+export const chipClass =
+  'inline-flex min-h-11 items-center rounded-full border border-[#AEC488] bg-white px-4 font-poppins text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#DFE7CF] aria-pressed:border-[#6E5F47] aria-pressed:bg-[#6E5F47] aria-pressed:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/40';

@@ -1,57 +1,24 @@
-'use client';
-
-import { useEffect, useRef, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 /**
- * Rises into view as it scrolls in, like Apple's product pages. Anything
- * already on screen when the page loads stays put, so the first screen is
- * never hidden, and without JavaScript everything simply shows.
+ * A block of a page. It used to rise into view on scroll; now it shows at
+ * once, so nothing on the page is ever blank while someone scrolls.
  */
 export function Reveal({
   children,
-  delay = 0,
   className,
   as: Tag = 'div',
   ...rest
 }: {
   children: ReactNode;
-  /** Milliseconds, to stagger items in a row. */
-  delay?: number;
   className?: string;
   as?: 'div' | 'section' | 'li' | 'article';
   id?: string;
   'aria-labelledby'?: string;
   lang?: string;
 }) {
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    if (element.getBoundingClientRect().top < window.innerHeight * 0.9) return;
-    element.dataset.reveal = 'waiting';
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        element.dataset.reveal = 'shown';
-        observer.disconnect();
-      },
-      { rootMargin: '0px 0px -10% 0px' }
-    );
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <Tag
-      {...rest}
-      ref={ref as never}
-      className={className}
-      style={
-        delay ? ({ '--hb-reveal-delay': `${delay}ms` } as never) : undefined
-      }
-    >
+    <Tag {...rest} className={className}>
       {children}
     </Tag>
   );

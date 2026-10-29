@@ -27,6 +27,7 @@ const sections = [
       'Daily Hope emails: your first name, last name and email.',
       'Hope Stories: your name, occupation, photo and story. We publish a story only after we review and approve it.',
       'Hopeful Beginning Plan: your answers, plan, progress and Hope Card are saved only in your browser on your device, so you can come back to them. They are not sent to us, and you can delete them at any time from the plan page. If you download a backup file, it stays with you; we never receive it. If you ask us to email your plan, we receive your email, your first name if you give it, and the plan.',
+      'Daily check-in and tools: the weather you pick, what is on your mind, and anything you pick or write in a tool stay only in your browser on your device. We count that a check-in or a tool happened, never what you chose. You can delete your check-ins from the check-in page.',
       'Plan check-in: if you ask us to check on you, we keep your email and first name until we send that one email 7 days later, then delete them.',
       'Hope Carrier applications: the details you give when you apply to volunteer.',
       'Donations: Donorbox processes donations. Your card details go to Donorbox and its payment partners, not to HopeBegins.',
