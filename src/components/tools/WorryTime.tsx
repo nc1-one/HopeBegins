@@ -8,9 +8,11 @@ import {
   saveWorries,
   useWorries,
 } from '@/lib/toolNotes';
+import { WORRY_TOPICS } from '@/lib/thoughts';
 import { analyticsService, type ToolSource } from '@/services/analyticsService';
 import { ToolFinish } from './ToolFinish';
 import {
+  chipClass,
   inputClass,
   panelClass,
   primaryClass,
@@ -19,8 +21,9 @@ import {
 } from './toolStyles';
 
 /**
- * Worry time: write worries down as they come, then in a set 15 minutes ask
- * of each one whether there is a step to take. Worries are kept only on this
+ * Worry time: save worries as they come, by tapping a common one or writing
+ * it, then in a set 15 minutes ask of each one whether there is a step to
+ * take. Worries are kept only on this
  * phone until they are dealt with; the steps aren't kept at all.
  */
 
@@ -29,7 +32,8 @@ const copy = {
     label: 'Worry time',
     intro:
       'Write worries down when they come. Then deal with them in your worry time, 15 minutes at the same time each day.',
-    addLabel: 'A worry on your mind',
+    topicsLabel: "What's on your mind? Tap to save it.",
+    addLabel: 'Or write your own',
     add: 'Save it for worry time',
     count: (n: number) =>
       n === 0
@@ -44,6 +48,13 @@ const copy = {
     yes: 'Yes',
     no: 'No, let it go for today',
     stepLabel: 'One small step you can take',
+    stepIdeas: [
+      'Write down the first step',
+      'Ask someone for help',
+      'Find out one fact',
+      'Pick a time to deal with it',
+      'Pray about it',
+    ],
     saveStep: 'Next',
     doneTitle: 'Worry time done.',
     doneText:
@@ -55,7 +66,8 @@ const copy = {
     label: 'Worry time',
     intro:
       'Isulat ang mga pag-aalala kapag dumating. Tapos harapin ang mga ito sa worry time mo, 15 minuto sa parehong oras araw-araw.',
-    addLabel: 'Isang pag-aalala sa isip mo',
+    topicsLabel: 'Ano ang nasa isip mo? I-tap para itabi.',
+    addLabel: 'O isulat ang sa iyo',
     add: 'Itabi para sa worry time',
     count: (n: number) =>
       n === 0
@@ -70,6 +82,13 @@ const copy = {
     yes: 'Oo',
     no: 'Wala, bibitawan ko muna ngayong araw',
     stepLabel: 'Isang maliit na hakbang na kaya mong gawin',
+    stepIdeas: [
+      'Isulat ang unang hakbang',
+      'Humingi ng tulong sa isang tao',
+      'Alamin ang isang detalye',
+      'Pumili ng oras para harapin ito',
+      'Ipagdasal ito',
+    ],
     saveStep: 'Susunod',
     doneTitle: 'Tapos na ang worry time.',
     doneText:
@@ -113,9 +132,10 @@ export function WorryTime({
     analyticsService.recordClick(`tool_worry-time_start_${source}`);
   }, [source]);
 
-  const add = () => {
-    const text = draft.trim();
-    if (!text || worries.length >= MAX_WORRIES) return;
+  const add = (text = draft.trim()) => {
+    if (!text || worries.length >= MAX_WORRIES || worries.includes(text)) {
+      return;
+    }
     analyticsService.recordClick(`tool_worry-time_add_${source}`);
     saveWorries([...worries, text]);
     setDraft('');
@@ -187,12 +207,24 @@ export function WorryTime({
               next(step.trim() || undefined);
             }}
           >
-            <label htmlFor="worry-step" className="text-sm font-bold">
-              {t.stepLabel}
+            <p className="text-sm font-bold">{t.stepLabel}</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {t.stepIdeas.map((idea) => (
+                <button
+                  key={idea}
+                  type="button"
+                  onClick={() => next(idea)}
+                  className={chipClass}
+                >
+                  {idea}
+                </button>
+              ))}
+            </div>
+            <label htmlFor="worry-step" className="mt-4 block text-sm">
+              {t.addLabel}
             </label>
             <input
               id="worry-step"
-              autoFocus
               value={step}
               maxLength={MAX_NOTE_LENGTH}
               onChange={(event) => setStep(event.target.value)}
@@ -236,6 +268,24 @@ export function WorryTime({
       className={panelClass}
     >
       <p className="leading-relaxed">{t.intro}</p>
+      <p className="mt-4 text-sm font-bold">{t.topicsLabel}</p>
+      <div className="mt-2 flex flex-wrap gap-2">
+        {WORRY_TOPICS.map((topic) => {
+          const isSaved = worries.includes(topic[lang]);
+          return (
+            <button
+              key={topic.en}
+              type="button"
+              aria-pressed={isSaved}
+              disabled={isSaved || worries.length >= MAX_WORRIES}
+              onClick={() => add(topic[lang])}
+              className={`${chipClass} disabled:cursor-default`}
+            >
+              {topic[lang]}
+            </button>
+          );
+        })}
+      </div>
       <form
         className="mt-4"
         onSubmit={(event) => {
@@ -243,12 +293,12 @@ export function WorryTime({
           add();
         }}
       >
-        <label htmlFor="worry-new" className="text-sm font-bold">
+        <label htmlFor="worry-new" className="text-sm">
           {t.addLabel}
         </label>
-        <textarea
+        <input
           id="worry-new"
-          rows={2}
+          autoComplete="off"
           value={draft}
           maxLength={MAX_NOTE_LENGTH}
           onChange={(event) => setDraft(event.target.value)}

@@ -11,12 +11,19 @@ import { MessageSomeone } from './MessageSomeone';
 import { Saranggola } from './Saranggola';
 import { OneSmallThing } from './OneSmallThing';
 import { Reasons } from './Reasons';
+import { ThoughtCheck } from './ThoughtCheck';
 import { Unhook } from './Unhook';
 import { WorryNote } from './WorryNote';
 import { WorryTime } from './WorryTime';
 
-/** Every guided tool: the plan's, plus the games and the night-time note. */
-export type ToolKind = PlanExercise | 'game' | 'kite' | 'trip' | 'worry-note';
+/** Every guided tool: the plan's, plus the games, the night-time note and thought check. */
+export type ToolKind =
+  | PlanExercise
+  | 'game'
+  | 'kite'
+  | 'trip'
+  | 'worry-note'
+  | 'thought-check';
 
 /** Opens the guided version of a plan tool. */
 export function ToolExercise({
@@ -41,6 +48,8 @@ export function ToolExercise({
       return <WorryTime {...props} />;
     case 'unhook':
       return <Unhook {...props} />;
+    case 'thought-check':
+      return <ThoughtCheck {...props} />;
     case 'reasons':
       return <Reasons {...props} />;
     case 'message':

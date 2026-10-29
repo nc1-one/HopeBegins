@@ -2,21 +2,29 @@
 
 import { useEffect, useRef, useState } from 'react';
 import type { FeelingLang } from '@/lib/feelingPages';
+import { THOUGHTS } from '@/lib/thoughts';
 import { MAX_NOTE_LENGTH } from '@/lib/toolNotes';
 import { analyticsService, type ToolSource } from '@/services/analyticsService';
 import { ToolFinish } from './ToolFinish';
-import { inputClass, panelClass, primaryClass, quietClass } from './toolStyles';
+import {
+  chipClass,
+  inputClass,
+  panelClass,
+  primaryClass,
+  quietClass,
+} from './toolStyles';
 
 /**
- * Step back from a heavy thought: type it, read it back as "I'm having the
- * thought that…", then turn back to what you were doing. Nothing typed here
- * is saved anywhere.
+ * Step back from a heavy thought: tap a common one or type your own, read it
+ * back as "I'm having the thought that…", then turn back to what you were
+ * doing. Nothing picked or typed here is saved anywhere.
  */
 
 const copy = {
   en: {
     label: 'Step back from a heavy thought',
-    thoughtLabel: 'What is the thought? A few words is enough.',
+    pickLabel: 'Which thought has hold of you? Tap it.',
+    thoughtLabel: 'Or write it in a few words',
     privacy: "What you type here isn't saved anywhere.",
     next: 'Next',
     readTitle: 'Read this once, slowly:',
@@ -34,7 +42,8 @@ const copy = {
   },
   tl: {
     label: 'Lumayo nang kaunti sa mabigat na isip',
-    thoughtLabel: 'Ano ang iniisip mo? Ilang salita lang.',
+    pickLabel: 'Aling isip ang kumakapit sa iyo? I-tap ito.',
+    thoughtLabel: 'O isulat ito sa ilang salita',
     privacy: 'Hindi naka-save kahit saan ang itina-type mo dito.',
     next: 'Susunod',
     readTitle: 'Basahin ito nang isang beses, dahan-dahan:',
@@ -58,7 +67,8 @@ const asClause = (text: string) =>
   text
     .trim()
     .replace(/[.!?]+$/, '')
-    .replace(/^\p{Lu}(?!\p{Lu})/u, (c) => c.toLowerCase());
+    // Keeps the pronoun "I" ("I'm", "I can't") a capital.
+    .replace(/^(?!I\b)\p{Lu}(?!\p{Lu})/u, (c) => c.toLowerCase());
 
 export function Unhook({
   onClose,
@@ -130,7 +140,24 @@ export function Unhook({
             if (thought.trim()) setStep('read');
           }}
         >
-          <label htmlFor="unhook-thought" className="font-poppins font-bold">
+          <p className="font-poppins font-bold">{t.pickLabel}</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {THOUGHTS.map((option) => (
+              <button
+                key={option.id}
+                type="button"
+                lang={lang}
+                onClick={() => {
+                  setThought(option.text[lang]);
+                  setStep('read');
+                }}
+                className={chipClass}
+              >
+                {option.text[lang]}
+              </button>
+            ))}
+          </div>
+          <label htmlFor="unhook-thought" className="mt-5 block text-sm">
             {t.thoughtLabel}
           </label>
           <input
@@ -139,7 +166,7 @@ export function Unhook({
             maxLength={MAX_NOTE_LENGTH}
             autoComplete="off"
             onChange={(event) => setThought(event.target.value)}
-            className={`mt-3 ${inputClass}`}
+            className={`mt-2 ${inputClass}`}
           />
           <p className="mt-2 text-sm">{t.privacy}</p>
           <div className="mt-4 flex flex-wrap gap-2">

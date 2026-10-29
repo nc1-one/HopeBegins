@@ -46,6 +46,7 @@ export function Header() {
   // On Taglish pages, Tools and Blog go to their Taglish addresses.
   const navLinks = [
     { href: '/', label: 'Home' },
+    { href: '/check-in', label: 'Check-in' },
     { href: pathIn('/tools', lang), label: 'Tools' },
     { href: pathIn('/blog', lang), label: 'Blogs' },
     { href: '/our-approach', label: 'Our approach' },
@@ -89,10 +90,10 @@ export function Header() {
       <nav
         ref={navRef}
         className={cn(
-          'transition-all duration-300 border-b',
+          'border-b bg-[#FCFDFA] transition-colors duration-300 dark:bg-zinc-950',
           hasScrolled || isMenuOpen
-            ? 'bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 shadow-md shadow-zinc-900/5'
-            : 'bg-white/80 dark:bg-black/80 backdrop-blur-md border-white/40 dark:border-zinc-900/40'
+            ? 'border-[#E2DFDA] dark:border-zinc-800'
+            : 'border-transparent'
         )}
       >
         {/* 64rem of content plus the 1.5rem gutters: the same edges as every page. */}

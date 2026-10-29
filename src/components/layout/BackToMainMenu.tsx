@@ -17,6 +17,7 @@ const OPTION_PAGES = [
   '/give-hope',
   '/laro-muna',
   '/tools',
+  '/check-in',
 ];
 
 export function BackToMainMenu() {

@@ -47,7 +47,7 @@ export function StoryCard({
               ? '(min-width: 1024px) 560px, (min-width: 768px) 55vw, 100vw'
               : '(min-width: 1024px) 320px, (min-width: 640px) 45vw, 100vw'
           }
-          className="object-cover transition-transform duration-[var(--hb-slow)] ease-[var(--hb-ease-out)] group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+          className="object-cover"
           {...(featured && { preload: true, fetchPriority: 'high' as const })}
         />
       </div>

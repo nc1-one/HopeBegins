@@ -308,19 +308,6 @@
     animation: hb-scale-in var(--hb-base) var(--hb-ease-out) both;
     transform-origin: top center;
   }
-  /* Scroll reveals, set by <Reveal>: hidden only once the script has run. */
-  [data-reveal='waiting'] {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  [data-reveal='shown'] {
-    opacity: 1;
-    transform: none;
-    transition:
-      opacity var(--hb-slow) var(--hb-ease-out),
-      transform var(--hb-slow) var(--hb-ease-out);
-    transition-delay: var(--hb-reveal-delay, 0ms);
-  }
 }
 
 /* Buttons give under the finger, the way iOS controls do. */
@@ -421,10 +408,6 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-  [data-reveal] {
-    opacity: 1 !important;
-    transform: none !important;
   }
   .hb-timeline-fill,
   .hb-photo-settle {

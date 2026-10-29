@@ -1,8 +1,8 @@
 /**
- * Real photos of everyday life in the Philippines, two or three per theme,
- * so a section shows a different one from time to time. Free under the
- * Pexels licence (no credit needed); the dawn photo is a still from the home
- * page clip. Most sit beside a label that says what they mean, so they are
+ * Real photos of everyday life, Filipino and Asian, two or three per theme,
+ * so a section shows a different one from time to time. Calm and in
+ * daylight where we can: no storms, no night streets, nothing grey. Free
+ * under the Pexels licence (no credit needed). Most sit beside a label that says what they mean, so they are
  * decoration to screen readers (empty alt); `alt` is there for the few that
  * stand alone.
  */
@@ -28,61 +28,61 @@ const dir = '/assets/images/photos';
 
 const SETS: Record<PhotoId, Photo[]> = {
   anxious: [
+    // Pexels 7592291
     {
-      src: `${dir}/anxious-rain.jpg`,
-      alt: 'Rain on a jeepney window at night',
+      src: `${dir}/anxious-morning-tea.jpg`,
+      alt: 'A woman smiling over a warm drink by a bright window',
     },
-    // Pexels 37475050
+    // Pexels 7507679
     {
-      src: `${dir}/anxious-jeepney-rain.jpg`,
-      alt: 'A jeepney with its lights on in heavy rain',
+      src: `${dir}/anxious-porch-tea.jpg`,
+      alt: 'A woman wrapped in a blanket with tea on a quiet porch',
     },
-    // Pexels 36969374
+    // Pexels 6798808
     {
-      src: `${dir}/anxious-umbrellas.jpg`,
-      alt: 'People walking under umbrellas in the rain',
+      src: `${dir}/anxious-garden-breath.jpg`,
+      alt: 'A woman resting with her eyes closed among plants',
     },
   ],
   tired: [
-    // Pexels 33701852, Manila
+    // Pexels 7431009, Davao
     {
-      src: `${dir}/tired-jeepney.jpg`,
-      alt: 'A jeepney driver resting at the wheel',
+      src: `${dir}/tired-hammock-beach.jpg`,
+      alt: 'A woman resting in a hammock by the sea',
     },
-    // Pexels 4591396, Dumaguete
+    // Pexels 7350909
     {
-      src: `${dir}/tired-tricycle.jpg`,
-      alt: 'A tricycle driver asleep in his tricycle',
+      src: `${dir}/tired-couch-rest.jpg`,
+      alt: 'A woman lying on a sofa in a bright living room',
     },
   ],
   alone: [
-    // Pexels 15577326, Iloilo
-    {
-      src: `${dir}/alone-balcony.jpg`,
-      alt: 'A woman alone on a balcony over the street',
-    },
     // Pexels 3226378, Manila Bay
     {
       src: `${dir}/alone-bay.jpg`,
       alt: 'A woman reading alone on the rocks by Manila Bay',
     },
-    // Pexels 842536, Pasay
+    // Pexels 7262900
     {
-      src: `${dir}/alone-train.jpg`,
-      alt: 'One passenger in an empty train carriage',
+      src: `${dir}/alone-garden-bench.jpg`,
+      alt: 'A woman reading on a garden bench',
+    },
+    // Pexels 5530675
+    {
+      src: `${dir}/alone-reading-outdoors.jpg`,
+      alt: 'A woman reading at an outdoor table',
     },
   ],
   sleep: [
-    { src: `${dir}/sleep-night.jpg`, alt: 'A student still awake at night' },
+    // Pexels 9641783
+    {
+      src: `${dir}/sleep-morning-rest.jpg`,
+      alt: 'A woman asleep in a sunlit bedroom',
+    },
     // Pexels 8070508
     {
       src: `${dir}/sleep-phone.jpg`,
       alt: 'A woman in bed on her phone by lamplight',
-    },
-    // Pexels 6940878
-    {
-      src: `${dir}/sleep-dim.jpg`,
-      alt: 'A woman on her bed with her phone in a dim room',
     },
   ],
   hope: [
@@ -103,31 +103,32 @@ const SETS: Record<PhotoId, Photo[]> = {
     },
   ],
   unsure: [
-    // Pexels 33964966, Baguio
+    // Pexels 32958033, Sariaya, Quezon
     {
-      src: `${dir}/unsure-fog.jpg`,
-      alt: 'A cyclist on a foggy mountain road',
+      src: `${dir}/unsure-rice-field.jpg`,
+      alt: 'Green rice fields below a mountain',
     },
-    // Pexels 39721905, Baguio
+    // Pexels 31451558, Davao
     {
-      src: `${dir}/unsure-pines.jpg`,
-      alt: 'A path through misty pine trees',
+      src: `${dir}/unsure-misty-hills.jpg`,
+      alt: 'Morning mist over green hills',
     },
-    // Pexels 12225167
-    { src: `${dir}/unsure-road.jpg`, alt: 'A road disappearing into fog' },
   ],
   talk: [
-    // Pexels 3367850
-    { src: `${dir}/talk-phone.jpg`, alt: 'A woman on her phone at night' },
+    // Pexels 36578169
+    {
+      src: `${dir}/talk-mother-daughter.jpg`,
+      alt: 'A daughter holding her mother’s hands as they talk',
+    },
+    // Pexels 8518887
+    {
+      src: `${dir}/talk-friends-coffee.jpg`,
+      alt: 'Two friends talking over coffee',
+    },
     // Pexels 37374770
     {
       src: `${dir}/talk-jeepney.jpg`,
       alt: 'A man on his phone inside a jeepney',
-    },
-    // Pexels 37441563, Manila
-    {
-      src: `${dir}/talk-street.jpg`,
-      alt: 'Two men talking on a city street',
     },
   ],
   morning: [
@@ -147,7 +148,13 @@ const SETS: Record<PhotoId, Photo[]> = {
       alt: 'A cup of coffee held up over the mountains',
     },
   ],
-  dawn: [{ src: '/assets/images/hero/manila-dawn.jpg', alt: 'Manila at dawn' }],
+  // Pexels 2407608, also the home page background
+  dawn: [
+    {
+      src: '/assets/images/hero/rice-field-golden.jpg',
+      alt: 'Rice fields in golden light',
+    },
+  ],
   care: [
     // Pexels 19524029, Manila
     {

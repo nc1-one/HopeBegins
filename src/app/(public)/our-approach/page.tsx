@@ -240,12 +240,7 @@ export default function OurApproachPage() {
             </Reveal>
             <ol className="mt-10 grid gap-x-12 gap-y-10 sm:grid-cols-2">
               {GOALS.map((goal, index) => (
-                <Reveal
-                  key={goal.title}
-                  as="li"
-                  delay={index * 90}
-                  className="flex gap-5"
-                >
+                <Reveal key={goal.title} as="li" className="flex gap-5">
                   <span className="w-9 shrink-0 font-playfair text-5xl leading-none text-[#AEC488] tabular-nums">
                     {index + 1}
                   </span>
@@ -288,8 +283,8 @@ export default function OurApproachPage() {
               How we work
             </h2>
             <ul className="grid gap-8 md:grid-cols-3">
-              {HOW.map((item, index) => (
-                <Reveal key={item.title} as="li" delay={index * 90}>
+              {HOW.map((item) => (
+                <Reveal key={item.title} as="li">
                   <p className="font-poppins text-lg font-semibold text-[#6E5F47]">
                     {item.title}
                   </p>

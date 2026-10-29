@@ -59,6 +59,7 @@ import { setLanguage, useLanguage } from '@/lib/languagePreference';
 import { TAGLISH_TWINS, twinLinks } from '@/lib/taglishTwins';
 import { usePhoto } from '@/components/ui/PhotoTurn';
 import { forgetTool } from '@/lib/myTool';
+import { clearCheckIns } from '@/lib/checkIns';
 import { clearToolNotes } from '@/lib/toolNotes';
 import { calmerCount, clearToolChecks, useToolChecks } from '@/lib/toolChecks';
 import {
@@ -392,7 +393,7 @@ function ECoachCard({ t }: { t: Copy }) {
         </div>
         <EcoachLink
           linkName="ecoach_plan"
-          className="inline-flex w-full shrink-0 items-center justify-center rounded-2xl bg-white px-5 py-4 text-center font-poppins font-bold leading-snug text-[#6E5F47] md:w-auto md:px-6 shadow-lg transition-all duration-300 hover:bg-zinc-100 hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50 print:hidden"
+          className="inline-flex w-full shrink-0 items-center justify-center rounded-2xl bg-white px-5 py-4 text-center font-poppins font-bold leading-snug text-[#6E5F47] md:w-auto md:px-6 transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50 print:hidden"
         >
           <MessageCircle className="mr-2 w-5 h-5 shrink-0" />
           <span>{t.ecoachButton}</span>
@@ -585,7 +586,7 @@ function ToolCard({
     <Card
       className={
         isFirst
-          ? 'py-0 bg-white border-[#AEC488] shadow-md'
+          ? 'py-0 bg-white border-[#AEC488] shadow-none'
           : 'py-0 bg-white border-zinc-100'
       }
     >
@@ -1169,7 +1170,7 @@ function CheckInCard({
             <button
               type="submit"
               disabled={status === 'sending' || (!checkIn && !sendPlan)}
-              className="inline-flex items-center justify-center rounded-2xl bg-[#6E5F47] px-8 py-4 font-poppins font-bold text-white shadow-lg transition-all duration-300 hover:bg-[#5c4f3b] hover:shadow-xl disabled:opacity-60 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
+              className="inline-flex items-center justify-center rounded-2xl bg-[#6E5F47] px-8 py-4 font-poppins font-bold text-white transition-colors hover:bg-[#5c4f3b] disabled:opacity-60 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#91AFAA]/50"
             >
               {status === 'sending' && (
                 <Loader2 className="mr-2 w-4 h-4 animate-spin" />
@@ -1445,6 +1446,7 @@ export default function ActionPlan({
     forgetTool();
     clearToolChecks();
     clearToolNotes();
+    clearCheckIns();
     setAnswers({});
     setCurrent(0);
     setName('');
