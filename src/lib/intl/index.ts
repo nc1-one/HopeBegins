@@ -68,7 +68,8 @@ export const getIntlStory = (lang: IntlLang, slug: string) =>
   intlStories.find((story) => story.lang === lang && story.slug === slug);
 
 // intlRoutes.generated.ts lists these pages for the links on every page;
-// stop the build if it and the pages disagree.
+// stop the build if it and the pages disagree. While pages are being
+// written in development, only warn, so the rest of the site still opens.
 const listed = (lists: Record<IntlLang, Record<string, string>>) =>
   Object.entries(lists).flatMap(([lang, slugs]) =>
     Object.entries(slugs).map(([english, slug]) => `${lang} ${english} ${slug}`)
@@ -84,7 +85,8 @@ if (
   ) ||
   !same(listed(INTL_STORY_SLUGS), actual(intlStories))
 ) {
-  throw new Error(
-    'lib/intlRoutes.generated.ts is out of date: run node scripts/gen-intl-routes.mjs'
-  );
+  const message =
+    'lib/intlRoutes.generated.ts is out of date: run node scripts/gen-intl-routes.mjs';
+  if (process.env.NODE_ENV === 'production') throw new Error(message);
+  console.warn(message);
 }
