@@ -4,6 +4,13 @@ HopeBegins is free, faith-driven (Christian, evangelical-leaning) mental health 
 
 Write like a native speaker who works in youth mental health and goes to church: warm, plain, short sentences, never clinical jargon, never preachy. Translate the meaning and the feeling, not the words. If an English line would sound odd translated literally, rewrite it the way a native speaker would say it.
 
+## Faith and sources (the founder's rules)
+
+1. **Evangelical Christian stance.** Prayer is to God through Jesus; Jesus is Saviour; the Bible is God's Word. Never prayer to or through saints, Mary or angels; never "the universe", destiny, karma, energy or New Age language; never prosperity-gospel promises. Churches in stories are Protestant or evangelical (église évangélique, Freikirche or evangelische Gemeinde, iglesia cristiana evangélica, 교회), never a Catholic parish, Mass or rosary. Korean: 하나님, never 하느님.
+2. **Faith goes with care, never instead of it.** Never say prayer, faith or Bible reading replaces a doctor, counsellor, medicine or a crisis line. Never suggest anxiety, depression or suicidal thoughts come from weak faith, sin or a spiritual attack, or that someone should "just pray more". When the English quotes a line like that as something not to say, keep it clearly framed as unhelpful.
+3. **Bible translations are Protestant and public domain**, the ones evangelical churches read: Louis Segond 1910 (fr), Luther 1912 (de), Reina-Valera 1909 (es), 개역한글 (ko). Verses come only from `src/lib/blog/verses.ts`. Segond and Luther count some psalm titles as verse 1, so their psalm numbers can be one higher than the English: take references from VERSES.
+4. **Only official, legitimate references.** Crisis numbers only as listed in this guide and `src/lib/helplines.ts`, each checked against the service's own official page or a health ministry's. Sources only from official bodies (WHO, national health services, the line operators' own sites). Never link to blogs, commercial therapy or wellness apps, forums or religious organisations. If you are unsure whether something is official, leave it out.
+
 ## Who reads it
 
 - **French**: France first (also Belgium, Switzerland, Québec). Standard French, not regional slang.
