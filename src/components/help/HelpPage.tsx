@@ -46,7 +46,7 @@ const copy: PerLang<{
     free: 'Free',
     emergency: (n) => `In immediate danger, call ${n}.`,
     elsewhere: 'Your country not here? Find a free helpline:',
-    chat: 'Chat online',
+    chat: 'Chat or text',
     moreHeading: 'More ways to talk',
     ecoach: 'Message an e-coach on Messenger',
     aiTitle: 'Talk to Hope AI',
@@ -68,7 +68,7 @@ const copy: PerLang<{
     free: 'Libre',
     emergency: (n) => `Kung nasa panganib ka ngayon, tumawag sa ${n}.`,
     elsewhere: 'Wala rito ang bansa mo? Maghanap ng libreng helpline:',
-    chat: 'Mag-chat online',
+    chat: 'Mag-chat o mag-text',
     moreHeading: 'Iba pang puwedeng kausapin',
     ecoach: 'Mag-message sa isang e-coach sa Messenger',
     aiTitle: 'Kausapin si Hope AI',
@@ -90,7 +90,7 @@ const copy: PerLang<{
     free: 'Gratuit',
     emergency: (n) => `En cas de danger immédiat, appelle le ${n}.`,
     elsewhere: 'Ton pays n’est pas là ? Trouve une ligne gratuite :',
-    chat: 'Discuter en ligne',
+    chat: 'Discuter ou écrire',
     moreHeading: 'D’autres façons de parler',
     aiTitle: 'Parler à Hope AI',
     aiText:
@@ -111,7 +111,7 @@ const copy: PerLang<{
     free: 'Kostenlos',
     emergency: (n) => `Bei akuter Gefahr ruf die ${n} an.`,
     elsewhere: 'Dein Land fehlt? Hier findest du kostenlose Hilfe:',
-    chat: 'Online chatten',
+    chat: 'Chatten oder schreiben',
     moreHeading: 'Weitere Wege zum Reden',
     aiTitle: 'Mit Hope AI schreiben',
     aiText:
@@ -132,7 +132,7 @@ const copy: PerLang<{
     free: 'Gratis',
     emergency: (n) => `Si estás en peligro inmediato, llama al ${n}.`,
     elsewhere: '¿Tu país no aparece? Encuentra una línea gratuita:',
-    chat: 'Chatear en línea',
+    chat: 'Chatear o escribir',
     moreHeading: 'Otras formas de hablar',
     aiTitle: 'Hablar con Hope AI',
     aiText:
@@ -153,7 +153,7 @@ const copy: PerLang<{
     free: '무료',
     emergency: (n) => `지금 위험하다면 ${n}에 전화하세요.`,
     elsewhere: '목록에 내 나라가 없나요? 무료 상담 전화 찾기:',
-    chat: '온라인 채팅',
+    chat: '채팅이나 문자로 상담하기',
     moreHeading: '이야기할 수 있는 다른 방법',
     aiTitle: 'Hope AI와 대화하기',
     aiText:

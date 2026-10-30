@@ -50,7 +50,7 @@ export const deGuides: Guide[] = [
         safety: true,
         paragraphs: [
           'Frag direkt: „Denkst du daran, dir das Leben zu nehmen?“ Die Frage bringt niemanden erst auf die Idee. Sie zeigt, dass du bereit bist zuzuhören.',
-          'Bleib bei der Person oder sorg dafür, dass jemand bei ihr ist. Ruft gemeinsam die TelefonSeelsorge an: 0800 111 0 111 oder 0800 111 0 222, kostenlos und rund um die Uhr (in Österreich 142, in der Schweiz 143). Bei akuter Gefahr ruf die 112 an.',
+          'Bleib bei der Person oder sorg dafür, dass jemand bei ihr ist. Ruft gemeinsam die TelefonSeelsorge an: 0800 111 0 111 oder 0800 111 0 222, kostenlos und rund um die Uhr. In Österreich hilft die 142, in der Schweiz die 143. Bei akuter Gefahr ruf die 112 an.',
         ],
       },
       {
@@ -64,7 +64,7 @@ export const deGuides: Guide[] = [
     faq: [
       {
         q: 'Soll ich direkt fragen, ob jemand an Suizid denkt?',
-        a: 'Ja. Wenn du ruhig und direkt fragst, bringst du niemanden erst auf die Idee, und darüber reden zu können, kann entlasten. Wenn die Antwort Ja ist, bleib bei der Person und ruf die TelefonSeelsorge an: 0800 111 0 111 oder 0800 111 0 222 (in Österreich 142, in der Schweiz 143).',
+        a: 'Ja. Wenn du ruhig und direkt fragst, bringst du niemanden erst auf die Idee, und darüber reden zu können, kann entlasten. Wenn die Antwort Ja ist, bleib bei der Person und ruf die TelefonSeelsorge an: 0800 111 0 111 oder 0800 111 0 222. In Österreich hilft die 142, in der Schweiz die 143.',
       },
     ],
     related: ['i-feel-depressed', 'i-feel-alone'],
@@ -180,7 +180,7 @@ export const deGuides: Guide[] = [
         title: 'Wenn es schwer bleibt',
         safety: true,
         paragraphs: [
-          'Wenn du dich seit zwei Wochen oder länger an den meisten Tagen niedergeschlagen fühlst, kann das eine Depression sein, und sie lässt sich behandeln. Wende dich an eine Ärztin, einen Arzt oder eine Beratungsstelle, oder fang mit einem kostenlosen Gespräch am Telefon an. Wenn du daran denkst, dir das Leben zu nehmen, ruf die TelefonSeelsorge an: 0800 111 0 111 oder 0800 111 0 222, kostenlos und rund um die Uhr (in Österreich 142, in der Schweiz 143).',
+          'Wenn du dich seit zwei Wochen oder länger an den meisten Tagen niedergeschlagen fühlst, kann das eine Depression sein, und sie lässt sich behandeln. Wende dich an eine Ärztin, einen Arzt oder eine Beratungsstelle, oder fang mit einem kostenlosen Gespräch am Telefon an. Wenn du daran denkst, dir das Leben zu nehmen, ruf die TelefonSeelsorge an: 0800 111 0 111 oder 0800 111 0 222, kostenlos und rund um die Uhr. In Österreich hilft die 142, in der Schweiz die 143.',
         ],
       },
     ],
@@ -191,7 +191,7 @@ export const deGuides: Guide[] = [
       },
       {
         q: 'Was sagt die Bibel, wenn man keine Hoffnung mehr hat?',
-        a: 'Psalm 42 spricht zu einer verzweifelten Seele und antwortet mit der Hoffnung auf Gott. Nach Klagelieder 3,22-23 ist das Erbarmen des Herrn jeden Morgen neu. Wenn du seit Wochen keine Hoffnung mehr siehst, kann das auch ein Anzeichen einer Depression sein. Sprich deshalb mit jemandem, und wenn du daran denkst, dir das Leben zu nehmen, ruf die TelefonSeelsorge an: 0800 111 0 111 oder 0800 111 0 222 (in Österreich 142, in der Schweiz 143).',
+        a: 'Psalm 42 spricht zu einer verzweifelten Seele und antwortet mit der Hoffnung auf Gott. Nach Klagelieder 3,22-23 ist das Erbarmen des Herrn jeden Morgen neu. Wenn du seit Wochen keine Hoffnung mehr siehst, kann das auch ein Anzeichen einer Depression sein. Sprich deshalb mit jemandem, und wenn du daran denkst, dir das Leben zu nehmen, ruf die TelefonSeelsorge an: 0800 111 0 111 oder 0800 111 0 222. In Österreich hilft die 142, in der Schweiz die 143.',
       },
     ],
     related: ['i-feel-depressed', 'bible-verses-for-anxiety'],

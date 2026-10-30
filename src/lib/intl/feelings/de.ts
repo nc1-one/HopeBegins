@@ -75,7 +75,7 @@ export const deFeelingPages: FeelingPage[] = [
       },
       {
         q: 'Was kann ich tun, wenn ich das Gefühl habe, dass sich niemand für mich interessiert?',
-        a: 'Schick einem Menschen eine kurze Nachricht, zum Beispiel: „Hast du diese Woche Zeit zum Reden?“ Wenn dir gerade niemand einfällt, hört dir bei der TelefonSeelsorge jemand zu, kostenlos und rund um die Uhr: 0800 111 0 111 oder 0800 111 0 222 (in Österreich 142, in der Schweiz 143). Wenn du daran denkst, dir das Leben zu nehmen, ruf jetzt dort an.',
+        a: 'Schick einem Menschen eine kurze Nachricht, zum Beispiel: „Hast du diese Woche Zeit zum Reden?“ Wenn dir gerade niemand einfällt, hört dir bei der TelefonSeelsorge jemand zu, kostenlos und rund um die Uhr: 0800 111 0 111 oder 0800 111 0 222. In Österreich hilft die 142, in der Schweiz die 143. Wenn du daran denkst, dir das Leben zu nehmen, ruf jetzt dort an.',
       },
     ],
     related: ['free-mental-health-help-philippines'],
@@ -202,7 +202,7 @@ export const deFeelingPages: FeelingPage[] = [
         'du siehst keine Hoffnung für die Zukunft',
         'du denkst an den Tod oder daran, dir das Leben zu nehmen',
       ],
-      note: 'Depressionen sind häufig, und man kann sie behandeln. Deine Hausarztpraxis, eine Psychotherapiepraxis oder eine Beratungsstelle kann dir helfen herauszufinden, was du brauchst. Wenn du nicht weißt, wo du anfangen sollst, ruf die TelefonSeelsorge an: 0800 111 0 111 oder 0800 111 0 222, kostenlos und rund um die Uhr (in Österreich 142, in der Schweiz 143).',
+      note: 'Depressionen sind häufig, und man kann sie behandeln. Deine Hausarztpraxis, eine Psychotherapiepraxis oder eine Beratungsstelle kann dir helfen herauszufinden, was du brauchst. Wenn du nicht weißt, wo du anfangen sollst, ruf die TelefonSeelsorge an: 0800 111 0 111 oder 0800 111 0 222, kostenlos und rund um die Uhr. In Österreich hilft die 142, in der Schweiz die 143.',
     },
     tip: {
       title: 'Warum eine kleine Sache hilft',
@@ -235,7 +235,7 @@ export const deFeelingPages: FeelingPage[] = [
       },
       {
         q: 'Was kann ich tun, wenn ich depressiv und einsam bin?',
-        a: 'Erzähl heute einem Menschen davon, auch mit einer kurzen Nachricht. Wenn dir niemand einfällt, ruf die TelefonSeelsorge an, kostenlos und rund um die Uhr: 0800 111 0 111 oder 0800 111 0 222 (in Österreich 142, in der Schweiz 143). Wenn du daran denkst, dir das Leben zu nehmen, ruf jetzt dort an.',
+        a: 'Erzähl heute einem Menschen davon, auch mit einer kurzen Nachricht. Wenn dir niemand einfällt, ruf die TelefonSeelsorge an, kostenlos und rund um die Uhr: 0800 111 0 111 oder 0800 111 0 222. In Österreich hilft die 142, in der Schweiz die 143. Wenn du daran denkst, dir das Leben zu nehmen, ruf jetzt dort an.',
       },
     ],
     firstStep: 'ecoach',
