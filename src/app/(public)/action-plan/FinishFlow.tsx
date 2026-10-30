@@ -15,6 +15,11 @@ import { drawHopeCard } from '@/lib/hopeCardImage';
 import { analyticsService } from '@/services/analyticsService';
 import { UseMyTool } from './UseMyTool';
 import { calmerCount, useToolChecks } from '@/lib/toolChecks';
+import {
+  CallCrisisButton,
+  CrisisSentence,
+  useCrisisText,
+} from '@/components/help/Crisis';
 
 /**
  * The end of the 4 weeks: see what changed, pick the tool that helped most,
@@ -54,9 +59,7 @@ const copy = {
     reasonsHeading: 'My reasons to keep going',
     peopleHeading: 'People I can reach out to',
     crisisHeading: "If you're in crisis",
-    crisisLine: 'NCMH Crisis Hotline, 24/7: 1553 or 0917 899 8727',
     ecoachLine: 'E-coach on Messenger: facebook.com/Mayhimalaeveryday',
-    call: 'Call 1553',
     ecoach: 'Message an e-coach',
     saveImage: 'Save as an image',
     making: 'Making your image...',
@@ -69,7 +72,7 @@ const copy = {
       'Use your tool every day again, starting today.',
       'Tell one of your two people.',
       'Take the check-in. If your scores stay high for two weeks, talk to a counselor or an e-coach.',
-      'If you think about ending your life, call 1553 now.',
+      'If you think about ending your life, call a crisis line now.',
     ],
     restart: 'Start another 4 weeks with this tool',
     edit: 'Edit my Hope Card',
@@ -107,9 +110,7 @@ const copy = {
     reasonsHeading: 'Ang mga dahilan ko para magpatuloy',
     peopleHeading: 'Mga taong malalapitan ko',
     crisisHeading: 'Kung nasa crisis ka',
-    crisisLine: 'NCMH Crisis Hotline, 24/7: 1553 o 0917 899 8727',
     ecoachLine: 'E-coach sa Messenger: facebook.com/Mayhimalaeveryday',
-    call: 'Tumawag sa 1553',
     ecoach: 'Mag-message sa e-coach',
     saveImage: 'I-save bilang larawan',
     making: 'Ginagawa ang larawan mo...',
@@ -122,7 +123,7 @@ const copy = {
       'Gamitin ulit ang tool mo araw-araw, simula ngayon.',
       'Sabihan ang isa sa dalawang taong napili mo.',
       'Sagutan ang check-in. Kung mataas pa rin ang scores mo pagkalipas ng dalawang linggo, kumausap ng counselor o e-coach.',
-      'Kung naiisip mong tapusin ang buhay mo, tumawag agad sa 1553.',
+      'Kung naiisip mong tapusin ang buhay mo, tumawag agad sa isang crisis line.',
     ],
     restart: 'Magsimula ng panibagong 4 na linggo gamit ang tool na ito',
     edit: 'Baguhin ang Hope Card ko',
@@ -162,6 +163,7 @@ export function FinishFlow({
   onClose: () => void;
 }) {
   const t = copy[lang];
+  const crisisText = useCrisisText(lang);
   const toolChecks = useToolChecks();
   const committed = tools.filter((tool) => saved.commitments[tool.id]);
   const mostDone = [...committed].sort(
@@ -247,7 +249,7 @@ export function FinishFlow({
       subtitle: saved.name ? `${saved.name} · ${madeOn}` : madeOn,
       sections,
       crisisHeading: t.crisisHeading,
-      crisisLines: [t.crisisLine, t.ecoachLine],
+      crisisLines: [crisisText, t.ecoachLine],
       footer: 'hopebegins.today',
     });
     setIsMaking(false);
@@ -496,11 +498,11 @@ export function FinishFlow({
             <h3 className="font-poppins font-bold text-[#6E5F47]">
               {t.crisisHeading}
             </h3>
-            <p className="mt-1 text-[#6E5F47]">{t.crisisLine}</p>
+            <p className="mt-1 text-[#6E5F47]">
+              <CrisisSentence lang={lang} danger={false} />
+            </p>
             <div className="mt-3 flex flex-wrap gap-2">
-              <a href="tel:1553" className={primaryClass}>
-                {t.call}
-              </a>
+              <CallCrisisButton lang={lang} className={primaryClass} />
               <EcoachLink
                 linkName="ecoach_hope_card"
                 className={secondaryClass}

@@ -1,3 +1,4 @@
+import { hreflang } from '@/lib/hreflang';
 import { PageJsonLd } from '@/components/layout/PageJsonLd';
 import { pageMetadata } from '@/lib/pageMetadata';
 import { LaroMuna } from './LaroMuna';
@@ -16,6 +17,7 @@ export const metadata = pageMetadata(PATH, TITLE, DESCRIPTION, {
     'quick games for stress',
     'free games no sign-up',
   ],
+  languages: hreflang(PATH),
 });
 
 export default function LaroMunaPage() {

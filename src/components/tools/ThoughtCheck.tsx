@@ -23,6 +23,7 @@ import {
   primaryClass,
   quietClass,
 } from './toolStyles';
+import { CrisisSentence } from '@/components/help/Crisis';
 
 /**
  * Thought check, the CBT thought record in taps: pick the loudest thought,
@@ -63,9 +64,6 @@ const copy = {
       'Thank you for being honest. Some thoughts are too heavy to check alone. Talk it through with someone.',
     keep: 'Your kinder thought:',
     ecoach: 'Talk to an e-coach',
-    crisis:
-      'In crisis or thinking of ending your life? Call the NCMH Crisis Hotline, 24/7:',
-    or: 'or',
     nextTime: 'a heavy thought keeps coming back',
   },
   tl: {
@@ -98,9 +96,6 @@ const copy = {
       'Salamat sa pagiging tapat. May mga isip na sobrang bigat para suriin nang mag-isa. Kausapin ang isang tao tungkol dito.',
     keep: 'Ang mas mabait mong isip:',
     ecoach: 'Kausapin ang e-coach',
-    crisis:
-      'Nasa crisis ka ba o naiisip mong tapusin ang buhay mo? Tumawag sa NCMH Crisis Hotline, 24/7:',
-    or: 'o',
     nextTime: 'paulit-ulit na bumabalik ang isang mabigat na isip',
   },
 };
@@ -218,20 +213,7 @@ export function ThoughtCheck({
         )}
         {thought?.risk && (
           <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-[#6E5F47]">
-            {t.crisis}{' '}
-            <a
-              href="tel:1553"
-              className="font-bold underline underline-offset-4"
-            >
-              1553
-            </a>{' '}
-            {t.or}{' '}
-            <a
-              href="tel:+639178998727"
-              className="whitespace-nowrap font-bold underline underline-offset-4"
-            >
-              0917 899 8727
-            </a>
+            <CrisisSentence lang={lang} lead />
           </p>
         )}
       </ToolFinish>

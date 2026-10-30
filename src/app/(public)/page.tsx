@@ -1,3 +1,4 @@
+import { hreflang } from '@/lib/hreflang';
 import type { Metadata } from 'next';
 import { HomeAbout } from './components/HomeAbout';
 import { LookingForHope } from './components/LookingForHope';
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   title: { absolute: 'HopeBegins: Not okay today? Free help for Filipinos' },
   description:
     'HopeBegins is free, faith-driven support for Filipinos who feel anxious, low or alone: a personal plan, prayer and e-coaches on Messenger. Crisis: call 1553.',
-  alternates: { canonical: '/' },
+  alternates: { canonical: '/', languages: hreflang('/') },
   keywords: [
     'HopeBegins',
     'free mental health support Philippines',
@@ -26,5 +27,5 @@ export const metadata: Metadata = {
 // The first screen and the menu. What HopeBegins is, in plain words, sits
 // under the first screen; the menu stays quiet.
 export default function LandingPage() {
-  return <LookingForHope about={<HomeAbout />} />;
+  return <LookingForHope about={<HomeAbout lang="en" />} />;
 }

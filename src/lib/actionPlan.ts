@@ -86,6 +86,8 @@ export interface PlanItem {
   steps?: string[];
   href?: string;
   linkLabel?: string;
+  /** Show the crisis lines for the visitor's country instead of the detail. */
+  crisisLines?: boolean;
   /**
    * Daily tools: the commitment in the user's week. English reads after
    * "I will"; Taglish is the whole first-person clause.
@@ -437,8 +439,8 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
             'NCMH Crisis Hotline: 1553 from a landline or 0917 899 8727 from a mobile. Hopeline: (02) 8804-4673. If you are in immediate danger, call 911.',
             'NCMH Crisis Hotline: 1553 mula sa landline o 0917 899 8727 mula sa mobile. Hopeline: (02) 8804-4673. Kung nasa panganib ka ngayon, tumawag sa 911.'
           ),
-          href: 'tel:1553',
-          linkLabel: t('Call 1553 now', 'Tumawag sa 1553 ngayon'),
+          // Shown as the visitor's own country's crisis lines.
+          crisisLines: true,
         },
         {
           id: 'safe-space',

@@ -1,8 +1,8 @@
+import { hreflang } from '@/lib/hreflang';
 import type { Metadata } from 'next';
 import { BlogIndex } from '@/components/blog/BlogIndex';
 import { BLOG_FEED, BLOG_NAME, BLOG_PATH } from '@/lib/blog';
 import { pageMetadata } from '@/lib/pageMetadata';
-import { TAGLISH_TWINS, twinLanguages } from '@/lib/taglishTwins';
 
 const TITLE = 'Stories of Hope: the HopeBegins blog';
 const DESCRIPTION =
@@ -23,7 +23,7 @@ const base = pageMetadata(BLOG_PATH, TITLE, DESCRIPTION, {
     'Mga Kuwento ng Pag-asa',
     'kuwento ng pag-asa',
   ],
-  languages: twinLanguages(TAGLISH_TWINS.blog),
+  languages: hreflang(BLOG_PATH),
 });
 
 export const metadata: Metadata = {

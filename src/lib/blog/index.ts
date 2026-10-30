@@ -10,9 +10,15 @@ import { translations2 } from './translations-2';
 import { translations3 } from './translations-3';
 import { translations4 } from './translations-4';
 import type { Story, StoryPart } from './types';
+import { isIntlLang, withLocale } from '../i18n';
 
 export type { Story, StoryPart, StoryTheme } from './types';
 export { VERSES, VERSE_ATTRIBUTION } from './verses';
+import { VERSES, type VerseKey } from './verses';
+
+/** Verses by key in a language, for a guide's verse list. */
+export const versesIn = (lang: FeelingLang, keys: VerseKey[]) =>
+  keys.map((key) => VERSES[key][lang]);
 export { BLOG_NAME, BLOG_PATH, THEMES, THEME_IDS } from './meta';
 
 /*
@@ -74,7 +80,20 @@ if (
   throw new Error('lib/blog/meta.ts STORY_META is out of date.');
 }
 
-export const storyPath = (story: Story) => `${BLOG_PATH}/${story.slug}`;
+/** A story's address: /blog/slug, or /fr/blog/slug for a French story. */
+export const storyPath = (story: Story) =>
+  isIntlLang(story.lang)
+    ? withLocale(story.lang, `${BLOG_PATH}/${story.slug}`)
+    : `${BLOG_PATH}/${story.slug}`;
+
+/**
+ * A story's link preview: its own card image, or its photo for the French,
+ * German, Spanish and Korean stories, whose cards are not drawn yet.
+ */
+export const storyImage = (story: Story) =>
+  isIntlLang(story.lang)
+    ? { url: story.photo.src, alt: story.photo.alt }
+    : { url: `/og/blog/${story.slug}.jpg`, alt: story.title };
 
 /** The blog's RSS feed, named in each blog page's head so readers find it. */
 export const BLOG_FEED = {
@@ -99,8 +118,8 @@ export const readingMinutes = (story: Story) =>
  * Stories to read next, in the same language: the same theme first, then
  * the rest, so every story links to a few others.
  */
-export function moreStories(story: Story, count = 3) {
-  return stories
+export function moreStories(story: Story, count = 3, pool = stories) {
+  return pool
     .filter(
       (other) =>
         other.lang === story.lang &&
@@ -138,6 +157,8 @@ export const storyUi: Record<
   FeelingLang,
   {
     htmlLang: string;
+    /** The back link to the blog. */
+    back: string;
     minRead: (minutes: number) => string;
     byline: string;
     composite: string;
@@ -145,6 +166,8 @@ export const storyUi: Record<
     kinds: Record<StoryPart['kind'], string>;
     tryThis: string;
     verse: string;
+    /** "Not okay today?" in the page's language. */
+    ctaTitle: string;
     ctaText: string;
     ctaButton: string;
     ctaHome: string;
@@ -155,6 +178,7 @@ export const storyUi: Record<
 > = {
   en: {
     htmlLang: 'en-PH',
+    back: 'Blog',
     minRead: (minutes) => `${minutes} min read`,
     byline: 'By Anonymous',
     composite: 'Each story is a composite.',
@@ -167,6 +191,7 @@ export const storyUi: Record<
     },
     tryThis: 'Try this today',
     verse: 'A verse for today',
+    ctaTitle: 'Not okay today?',
     ctaText:
       'HopeBegins is free. Pick how you feel and get one small thing to try today, calming tools, someone to pray for you, and an e-coach you can message.',
     ctaButton: "That's me",
@@ -177,6 +202,7 @@ export const storyUi: Record<
   },
   tl: {
     htmlLang: 'tl-PH',
+    back: 'Blog',
     minRead: (minutes) => `${minutes} min basahin`,
     byline: 'Ni Anonymous',
     composite: 'Composite ang bawat kuwento.',
@@ -189,6 +215,7 @@ export const storyUi: Record<
     },
     tryThis: 'Subukan ngayon',
     verse: 'Talata para sa araw na ito',
+    ctaTitle: 'Not okay today?',
     ctaText:
       'Libre ang HopeBegins. Piliin mo kung ano ang nararamdaman mo at may isang maliit na bagay kang masusubukan ngayon, mga calming tool, may magdarasal para sa iyo, at e-coach na puwede mong i-message.',
     ctaButton: "That's me",

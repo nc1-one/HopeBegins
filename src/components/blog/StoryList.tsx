@@ -7,6 +7,7 @@ import type { StoryTheme } from '@/lib/blog/types';
 import { setLanguage, useLanguage } from '@/lib/languagePreference';
 import { TAGLISH_TWINS, twinLinks } from '@/lib/taglishTwins';
 import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
+import { isIntlLang } from '@/lib/i18n';
 import { analyticsService } from '@/services/analyticsService';
 
 const chipClass =
@@ -15,8 +16,8 @@ const chipClass =
 export interface StoryEntry {
   slug: string;
   theme: StoryTheme;
-  /** The story's card in each language. */
-  card: Record<FeelingLang, ReactNode>;
+  /** The story's card in each language it has. */
+  card: Partial<Record<FeelingLang, ReactNode>>;
 }
 
 export type BlogCopy = Record<
@@ -44,7 +45,7 @@ export function StoryList({
   lang: pageLang,
 }: {
   copy: BlogCopy;
-  featured: Record<FeelingLang, ReactNode>;
+  featured: Partial<Record<FeelingLang, ReactNode>>;
   entries: StoryEntry[];
   /** Set on the blog's Taglish address, which is always in Taglish. */
   lang?: FeelingLang;
@@ -54,7 +55,7 @@ export function StoryList({
   const t = copy[lang];
   // The Taglish address makes Taglish the visitor's choice.
   useEffect(() => {
-    if (pageLang) setLanguage(pageLang);
+    if (pageLang === 'tl') setLanguage(pageLang);
   }, [pageLang]);
   const [theme, setTheme] = useState<StoryTheme | 'all'>('all');
   const themes = THEME_IDS.filter((id) =>
@@ -86,8 +87,10 @@ export function StoryList({
     </li>
   );
 
-  const inLanguage = (cards: Record<FeelingLang, ReactNode>) =>
-    (['en', 'tl'] as const).map((option) => (
+  // English and Taglish cards are both in the page; a French, German,
+  // Spanish or Korean list has only its own.
+  const inLanguage = (cards: Partial<Record<FeelingLang, ReactNode>>) =>
+    (Object.keys(cards) as FeelingLang[]).map((option) => (
       <div key={option} hidden={option !== lang} className="h-full">
         {cards[option]}
       </div>
@@ -111,7 +114,8 @@ export function StoryList({
           </p>
         </header>
         <div className="self-end md:self-auto">
-          {pageLang ? (
+          {/* French, German, Spanish and Korean use the globe in the header. */}
+          {pageLang && isIntlLang(pageLang) ? null : pageLang ? (
             <LanguageSwitch
               links={twinLinks(TAGLISH_TWINS.blog)}
               current={pageLang}

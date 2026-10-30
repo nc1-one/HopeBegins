@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import type { Lang } from '@/lib/i18n';
+import Link from '@/components/ui/LocalLink';
 
 const linkClass =
   'inline-flex min-h-11 items-center underline underline-offset-4 hover:text-[#5c4f3b]';
@@ -27,7 +28,7 @@ const feelings = [
  * Below the "Not okay today?" screen: what HopeBegins is, in plain words,
  * for anyone who scrolls on and for search engines, with the main ways in.
  */
-export function HomeAbout() {
+export function HomeAbout({ lang = 'en' }: { lang?: Lang } = {}) {
   return (
     <section
       aria-labelledby="about-title"

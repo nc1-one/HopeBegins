@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import { usePathname } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { usePageLanguage } from '@/lib/pageLanguage';

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import {
   ArrowLeft,
   Cloud,
@@ -39,6 +39,7 @@ import { pathIn } from '@/lib/taglishTwins';
 import { localDay } from '@/lib/toolNotes';
 import { analyticsService } from '@/services/analyticsService';
 import { Sampaguita } from './Sampaguita';
+import { CrisisSentence } from '@/components/help/Crisis';
 
 /**
  * The daily check-in, in taps: the weather inside you today and what is on
@@ -174,9 +175,6 @@ const copy = {
     ecoach: 'Talk to an e-coach',
     heavyRun:
       'Your last few check-ins have been heavy. Please talk to someone this week. An e-coach can listen, free.',
-    crisis:
-      'In crisis or thinking of ending your life? Call the NCMH Crisis Hotline, 24/7:',
-    or: 'or',
   },
   tl: {
     weatherTitle: 'Kumusta ka ngayon?',
@@ -260,9 +258,6 @@ const copy = {
     ecoach: 'Kausapin ang e-coach',
     heavyRun:
       'Mabigat ang huling ilang check-in mo. Kumausap ng isang tao ngayong linggo. Puwedeng makinig ang isang e-coach, libre.',
-    crisis:
-      'Nasa crisis ka ba o naiisip mong tapusin ang buhay mo? Tumawag sa NCMH Crisis Hotline, 24/7:',
-    or: 'o',
   },
 };
 
@@ -277,20 +272,10 @@ function toolsFor(weather: Weather, areas: Area[]): ToolKind[] {
 
 type Outcome = 'first' | 'back' | 'grew' | 'done' | 'again';
 
-function CrisisLine({ t }: { t: Copy }) {
+function CrisisLine({ lang }: { lang: FeelingLang }) {
   return (
     <p className="text-sm leading-relaxed">
-      {t.crisis}{' '}
-      <a href="tel:1553" className="font-bold underline underline-offset-4">
-        1553
-      </a>{' '}
-      {t.or}{' '}
-      <a
-        href="tel:+639178998727"
-        className="whitespace-nowrap font-bold underline underline-offset-4"
-      >
-        0917 899 8727
-      </a>
+      <CrisisSentence lang={lang} lead />
     </p>
   );
 }
@@ -632,7 +617,7 @@ export function DailyCheckIn({ lang }: { lang: FeelingLang }) {
           )}
           {entry.weather === 1 && (
             <div className="mt-5 rounded-2xl border border-[#AEC488] bg-[#EFF3E7] p-5 text-[#6E5F47]">
-              <CrisisLine t={t} />
+              <CrisisLine lang={lang} />
             </div>
           )}
         </section>

@@ -10,6 +10,7 @@ import type { FeelingLang } from '@/lib/feelingPages';
 import { pathIn } from '@/lib/taglishTwins';
 import { recordToolCheck, type Felt } from '@/lib/toolChecks';
 import { analyticsService, type ToolSource } from '@/services/analyticsService';
+import { CallCrisisButton } from '@/components/help/Crisis';
 
 /**
  * The end of a guided tool: did it help, when to use it next, and a way to
@@ -33,7 +34,6 @@ const copy = {
     kept: 'Added to your 4 weeks.',
     makePlan: 'Make a free plan with this tool',
     ecoach: 'Talk to an e-coach',
-    call: 'Call 1553',
     close: 'Close',
   },
   tl: {
@@ -51,7 +51,6 @@ const copy = {
     kept: 'Naidagdag na sa 4 na linggo mo.',
     makePlan: 'Gumawa ng libreng plano gamit ang tool na ito',
     ecoach: 'Kausapin ang e-coach',
-    call: 'Tumawag sa 1553',
     close: 'Isara',
   },
 };
@@ -195,10 +194,7 @@ export function ToolFinish({
                 <MessageCircle className="h-4 w-4" />
                 {t.ecoach}
               </EcoachLink>
-              <a href="tel:1553" className={secondaryClass}>
-                <Phone className="h-4 w-4" />
-                {t.call}
-              </a>
+              <CallCrisisButton lang={lang} className={secondaryClass} />
             </div>
           )}
         </div>

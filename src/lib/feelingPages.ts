@@ -15,7 +15,10 @@ export type FeelingTool =
   | 'game'
   | 'message'
   | 'worry-note';
-export type FeelingLang = 'tl' | 'en';
+import type { Lang } from './i18n';
+
+/** Every language the site speaks; see i18n.ts. */
+export type FeelingLang = Lang;
 
 /** Which of the real photos in photos.ts heads the page. */
 export type FeelingPhoto = 'anxious' | 'tired' | 'alone' | 'sleep' | 'unsure';
@@ -930,9 +933,6 @@ export const feelingUi = {
     htmlLang: 'tl',
     switchLabel: 'Read in English',
     talkNow: 'Kausapin ang isang e-coach ngayon',
-    crisisCall: 'Tumawag ngayon sa NCMH Crisis Hotline, bukas 24/7:',
-    or: 'o',
-    danger: 'Kung nasa panganib ka ngayon, tumawag sa 911.',
     hopeAi: 'Kausapin si Hope AI',
     nextHeading: 'Ano ang susunod?',
     ecoachTitle: 'Kausapin ang isang e-coach',
@@ -953,9 +953,6 @@ export const feelingUi = {
     htmlLang: 'en',
     switchLabel: 'Basahin sa Taglish',
     talkNow: 'Talk to an e-coach now',
-    crisisCall: 'Call the NCMH Crisis Hotline now, open 24/7:',
-    or: 'or',
-    danger: 'If you are in immediate danger, call 911.',
     hopeAi: 'Talk to Hope AI',
     nextHeading: 'What next?',
     ecoachTitle: 'Talk to an e-coach',

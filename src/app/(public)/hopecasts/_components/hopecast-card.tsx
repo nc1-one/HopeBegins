@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import { secondaryClass } from '@/components/tools/toolStyles';
 import { cn } from '@/lib/utils';
 import { Hopecast } from '@/types/hopecast';

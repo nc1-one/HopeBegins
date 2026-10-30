@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import type { FeelingLang } from './feelingPages';
-import { isTwinReady, twinLanguages, type TaglishTwin } from './taglishTwins';
+import { LANG_INFO } from './i18n';
+import { hreflang } from './hreflang';
+import { isTwinReady, type TaglishTwin } from './taglishTwins';
 
 const DEFAULT_IMAGE = {
   url: '/og/hopebegins.jpg',
@@ -42,7 +44,7 @@ export function pageMetadata(
     openGraph: {
       type: 'website',
       siteName: 'HopeBegins',
-      locale: lang === 'tl' ? 'tl_PH' : 'en_PH',
+      locale: LANG_INFO[lang].ogLocale,
       url: path,
       title: shareTitle,
       description,
@@ -76,7 +78,7 @@ export function twinMetadata(
         image,
         keywords: twin.keywords.length ? twin.keywords : undefined,
         lang: 'tl',
-        languages: twinLanguages(twin),
+        languages: hreflang(twin.en),
       }
     ),
     ...(!isTwinReady(twin) && { robots: { index: false } }),

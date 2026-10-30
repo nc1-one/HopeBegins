@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { CrisisSentence } from '@/components/help/Crisis';
 
 export default function NotFound() {
   return (
@@ -31,22 +32,7 @@ export default function NotFound() {
               </Link>
             </div>
             <p className="mt-10 text-[#6E5F47] leading-relaxed">
-              In crisis or thinking of ending your life? Call the NCMH Crisis
-              Hotline, 24/7:{' '}
-              <a
-                href="tel:1553"
-                className="font-bold underline underline-offset-4"
-              >
-                1553
-              </a>{' '}
-              or{' '}
-              <a
-                href="tel:+639178998727"
-                className="font-bold underline underline-offset-4 whitespace-nowrap"
-              >
-                0917 899 8727
-              </a>
-              .
+              <CrisisSentence lang="en" lead />
             </p>
           </div>
         </div>

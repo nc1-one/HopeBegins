@@ -1,3 +1,4 @@
+import { LANG_INFO, LANGS, type Lang } from './i18n';
 /**
  * What Google reads about HopeBegins beyond the words on the page: who runs
  * the site, what it is called, and what each page is. Only true facts go
@@ -44,7 +45,7 @@ export const siteJsonLd = {
       alternateName: ['Hope Begins', 'hopebegins.today'],
       url: SITE,
       description: DESCRIPTION,
-      inLanguage: ['en-PH', 'tl-PH'],
+      inLanguage: LANGS.map((lang) => LANG_INFO[lang].htmlLang),
       publisher: { '@id': ORG_ID },
     },
   ],
@@ -63,7 +64,7 @@ export function webPageJsonLd({
   path: string;
   name: string;
   description: string;
-  lang: 'en' | 'tl';
+  lang: Lang;
   image?: string;
   /** The page's short name in the trail: Home › crumb. */
   crumb: string;
@@ -80,7 +81,7 @@ export function webPageJsonLd({
         url,
         name,
         description,
-        inLanguage: lang === 'tl' ? 'tl-PH' : 'en-PH',
+        inLanguage: LANG_INFO[lang].htmlLang,
         isPartOf: { '@id': SITE_ID },
         ...(image && {
           primaryImageOfPage: {
@@ -145,7 +146,7 @@ export function blogJsonLd({
   image: string;
   posts: { path: string; title: string }[];
   /** Set when the list is in one language only. */
-  lang?: 'en' | 'tl';
+  lang?: Lang;
 }) {
   const url = `${SITE}${path}`;
   return {
@@ -158,10 +159,8 @@ export function blogJsonLd({
         name,
         description,
         inLanguage: lang
-          ? lang === 'tl'
-            ? 'tl-PH'
-            : 'en-PH'
-          : ['en-PH', 'tl-PH'],
+          ? LANG_INFO[lang].htmlLang
+          : [LANG_INFO.en.htmlLang, LANG_INFO.tl.htmlLang],
         isPartOf: { '@id': SITE_ID },
         publisher: { '@id': ORG_ID },
         image: { '@type': 'ImageObject', url: `${SITE}${image}` },
@@ -204,7 +203,7 @@ export function storyJsonLd({
   blogName: string;
   headline: string;
   description: string;
-  lang: 'en' | 'tl';
+  lang: Lang;
   image: string;
   /** yyyy-MM-dd */
   published: string;
@@ -224,7 +223,7 @@ export function storyJsonLd({
         mainEntityOfPage: url,
         headline,
         description,
-        inLanguage: lang === 'tl' ? 'tl-PH' : 'en-PH',
+        inLanguage: LANG_INFO[lang].htmlLang,
         image: {
           '@type': 'ImageObject',
           url: `${SITE}${image}`,

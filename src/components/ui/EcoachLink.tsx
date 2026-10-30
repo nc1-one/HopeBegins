@@ -3,11 +3,18 @@
 import { useSyncExternalStore } from 'react';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { ECOACH_APP_URL, ECOACH_WEB_URL } from '@/lib/actionPlan';
+import { isIntlLang, withLocale } from '@/lib/i18n';
+import { usePageLanguage } from '@/lib/pageLanguage';
 
 const isPhoneOrTablet = () =>
   /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
 
-/** Opens a chat with a Himala Everyday e-coach on Messenger. */
+/**
+ * Opens a chat with a Himala Everyday e-coach on Messenger. The e-coaches
+ * speak English and Filipino, so on French, German, Spanish and Korean
+ * pages it goes to the help page instead: free lines in the visitor's
+ * country, and Hope AI.
+ */
 export function EcoachLink({
   linkName,
   className,
@@ -22,6 +29,19 @@ export function EcoachLink({
     isPhoneOrTablet,
     () => true
   );
+  const lang = usePageLanguage();
+
+  if (isIntlLang(lang)) {
+    return (
+      <TrackedLink
+        href={withLocale(lang, '/help')}
+        linkName={linkName}
+        className={className}
+      >
+        {children}
+      </TrackedLink>
+    );
+  }
 
   return (
     <TrackedLink

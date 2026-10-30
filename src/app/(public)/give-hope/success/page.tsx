@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import { primaryClass, secondaryClass } from '@/components/tools/toolStyles';
 

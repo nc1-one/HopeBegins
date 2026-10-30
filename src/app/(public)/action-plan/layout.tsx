@@ -1,6 +1,6 @@
+import { hreflang } from '@/lib/hreflang';
 import { PageJsonLd } from '@/components/layout/PageJsonLd';
 import { pageMetadata } from '@/lib/pageMetadata';
-import { TAGLISH_TWINS, twinLanguages } from '@/lib/taglishTwins';
 
 const PATH = '/action-plan';
 const TITLE = 'Free Hopeful Beginning Plan for anxiety and low mood';
@@ -22,7 +22,7 @@ export const metadata = pageMetadata(PATH, TITLE, DESCRIPTION, {
     'Hopeful Beginning Plan',
     'calming tools',
   ],
-  languages: twinLanguages(TAGLISH_TWINS.plan),
+  languages: hreflang(PATH),
 });
 
 export default function Layout({ children }: { children: React.ReactNode }) {

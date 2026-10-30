@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from './LocalLink';
 import { analyticsService } from '@/services/analyticsService';
 import React from 'react';
 

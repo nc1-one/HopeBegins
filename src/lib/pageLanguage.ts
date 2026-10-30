@@ -1,23 +1,42 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { getFeelingPage, type FeelingLang } from './feelingPages';
+import { getFeelingPage } from './feelingPages';
 import { STORY_META, storySlugAt } from './blog/meta';
-import { useLanguage } from './languagePreference';
+import { localeAt, type Lang } from './i18n';
+import { chosenLanguage, useLanguage } from './languagePreference';
 import { isTaglishTwin } from './taglishTwins';
 
 /**
- * The language for shared parts of the page: a feeling page's or story's
- * own language, Taglish on a core page's Taglish address, otherwise the
- * visitor's English/Taglish choice.
+ * The language of the page at an address, or undefined when the page
+ * follows the visitor's choice: a /fr, /de, /es or /ko address is in that
+ * language, and a feeling page's, story's or Taglish address in its own.
  */
-export function usePageLanguage(): FeelingLang {
-  const pathname = usePathname();
-  const preferred = useLanguage();
-  const story = storySlugAt(pathname);
+function languageAt(pathname: string | null): Lang | undefined {
+  const locale = localeAt(pathname);
+  if (locale) return locale;
   if (isTaglishTwin(pathname)) return 'tl';
+  const story = storySlugAt(pathname);
   return (
     getFeelingPage(pathname?.slice(1) ?? '')?.lang ??
-    (story ? STORY_META[story].lang : preferred)
+    (story ? STORY_META[story].lang : undefined)
+  );
+}
+
+/**
+ * The language for shared parts of the page: the page's own language if it
+ * has one, otherwise the visitor's English/Taglish choice.
+ */
+export function usePageLanguage(): Lang {
+  const pathname = usePathname();
+  const preferred = useLanguage();
+  return languageAt(pathname) ?? preferred;
+}
+
+/** The same, outside React: for counting visits and taps per language. */
+export function currentLanguage(): Lang {
+  const chosen = chosenLanguage();
+  return (
+    languageAt(window.location.pathname) ?? (chosen === 'tl' ? 'tl' : 'en')
   );
 }

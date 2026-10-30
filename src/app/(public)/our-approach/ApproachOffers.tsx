@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import { ChevronRight } from 'lucide-react';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { groupClass, rowClass } from '@/components/ui/listStyles';

@@ -18,6 +18,7 @@ import {
 } from '@/lib/actionPlanStore';
 import { analyticsService } from '@/services/analyticsService';
 import { UseMyTool } from './UseMyTool';
+import { CallCrisisButton, CrisisSentence } from '@/components/help/Crisis';
 
 /**
  * After the 4 weeks: a 1-minute check-in once a month. Mood, worry, their
@@ -59,10 +60,9 @@ const copy = {
       },
       safety: {
         title: 'Please talk to someone now.',
-        text: 'You said you have had thoughts of ending your life or hurting yourself. Call the NCMH Crisis Hotline now: 1553 or 0917 899 8727. If you are in immediate danger, call 911.',
+        text: 'You said you have had thoughts of ending your life or hurting yourself. Please call a crisis line now. They are free and they answer day and night.',
       },
     },
-    call: 'Call 1553',
     ecoach: 'Talk to an e-coach',
     openCard: 'Open my Hope Card',
     yourTool: 'Your tool',
@@ -97,10 +97,9 @@ const copy = {
       },
       safety: {
         title: 'Kumausap ng isang tao ngayon.',
-        text: 'Sinabi mong naiisip mong tapusin ang buhay mo o saktan ang sarili mo. Tumawag ngayon sa NCMH Crisis Hotline: 1553 o 0917 899 8727. Kung nasa panganib ka ngayon, tumawag sa 911.',
+        text: 'Sinabi mong naiisip mong tapusin ang buhay mo o saktan ang sarili mo. Tumawag ngayon sa isang crisis line. Libre ito at may sumasagot araw at gabi.',
       },
     },
-    call: 'Tumawag sa 1553',
     ecoach: 'Kausapin ang e-coach',
     openCard: 'Buksan ang Hope Card ko',
     yourTool: 'Ang tool mo',
@@ -226,6 +225,11 @@ export function MonthlyCheckIn({
           }`}
         >
           <p className="leading-relaxed">{r.text}</p>
+          {result === 'safety' && (
+            <p className="mt-3 leading-relaxed">
+              <CrisisSentence lang={lang} />
+            </p>
+          )}
           {result !== 'safety' && (
             <p className="mt-3 text-sm">
               {t.scores(scores.mood, scores.anxiety)}
@@ -250,10 +254,7 @@ export function MonthlyCheckIn({
 
         <div className="flex flex-wrap gap-3">
           {result === 'safety' && (
-            <a href="tel:1553" className={primaryClass}>
-              <Phone className="h-4 w-4" />
-              {t.call}
-            </a>
+            <CallCrisisButton lang={lang} className={primaryClass} />
           )}
           {result !== 'steady' && (
             <EcoachLink

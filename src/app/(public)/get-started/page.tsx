@@ -2,7 +2,7 @@
 
 import { Fragment, useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import {
   primaryClass,

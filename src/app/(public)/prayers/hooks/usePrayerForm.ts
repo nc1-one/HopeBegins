@@ -61,7 +61,7 @@ export function usePrayerForm() {
       queryClient.invalidateQueries({ queryKey: ['prayers'] });
       notify.success(
         data?.message ||
-        'Your prayer request was sent. A Hope Carrier will pray for you.'
+          'Your prayer request was sent. A Hope Carrier will pray for you.'
       );
       form.reset();
     },
@@ -76,7 +76,8 @@ export function usePrayerForm() {
     // Handle "none" organization selection
     const payload = {
       ...data,
-      organizationId: data.organizationId === 'none' ? null : data.organizationId,
+      organizationId:
+        data.organizationId === 'none' ? null : data.organizationId,
     };
     mutation.mutate(payload);
   };

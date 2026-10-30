@@ -1,9 +1,18 @@
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import { Reveal } from '@/components/ui/Reveal';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { StoryCard } from '@/components/blog/StoryCard';
 import { StoryList, type BlogCopy } from '@/components/blog/StoryList';
-import { BLOG_NAME, stories, storyPairs, storyPath, storyUi } from '@/lib/blog';
+import {
+  BLOG_NAME,
+  stories,
+  storyPairs,
+  storyPath,
+  storyUi,
+  type Story,
+} from '@/lib/blog';
+import { isIntlLang } from '@/lib/i18n';
+import { intlStories } from '@/lib/intl';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { blogJsonLd, jsonLdHtml } from '@/lib/structuredData';
 
@@ -45,7 +54,33 @@ export function BlogIndex({
   image: string;
   lang?: FeelingLang;
 }) {
-  const [featured, ...rest] = storyPairs;
+  // French, German, Spanish and Korean list their own stories, in the
+  // English blog's order.
+  const intl = lang && isIntlLang(lang) ? lang : undefined;
+  const pairs: Partial<Record<FeelingLang, Story>>[] = intl
+    ? storyPairs
+        .map((pair) =>
+          intlStories.find(
+            (story) => story.lang === intl && story.pair === pair.en.slug
+          )
+        )
+        .filter((story) => story !== undefined)
+        .map((story) => ({ [intl]: story }))
+    : storyPairs;
+  const [featured, ...rest] = pairs;
+  const cards = (pair: Partial<Record<FeelingLang, Story>>, big = false) =>
+    Object.fromEntries(
+      Object.entries(pair).map(([key, story]) => [
+        key,
+        big ? (
+          <StoryCard story={story} featured headingLevel="h2" />
+        ) : (
+          <StoryCard story={story} />
+        ),
+      ])
+    );
+  const firstOf = (pair: Partial<Record<FeelingLang, Story>>) =>
+    Object.values(pair)[0] as Story;
   // The closing box is in the page's language, as on the stories.
   const ui = storyUi[lang ?? 'en'];
   const structuredData = blogJsonLd({
@@ -54,7 +89,7 @@ export function BlogIndex({
     description,
     image,
     lang,
-    posts: stories
+    posts: (intl ? intlStories : stories)
       .filter((story) => !lang || story.lang === lang)
       .map((story) => ({ path: storyPath(story), title: story.title })),
   });
@@ -70,17 +105,11 @@ export function BlogIndex({
           <StoryList
             copy={BLOG_COPY}
             lang={lang}
-            featured={{
-              en: <StoryCard story={featured.en} featured headingLevel="h2" />,
-              tl: <StoryCard story={featured.tl} featured headingLevel="h2" />,
-            }}
+            featured={featured ? cards(featured, true) : {}}
             entries={rest.map((pair) => ({
-              slug: pair.en.slug,
-              theme: pair.en.theme,
-              card: {
-                en: <StoryCard story={pair.en} />,
-                tl: <StoryCard story={pair.tl} />,
-              },
+              slug: firstOf(pair).slug,
+              theme: firstOf(pair).theme,
+              card: cards(pair),
             }))}
           />
         </div>
@@ -93,10 +122,10 @@ export function BlogIndex({
         >
           <h2
             id="start-title"
-            lang="en"
+            lang={intl ? undefined : 'en'}
             className="font-playfair text-4xl leading-[0.95] tracking-[-0.04em] md:text-6xl"
           >
-            Not okay today?
+            {ui.ctaTitle}
           </h2>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/90">
             {ui.ctaText}
@@ -105,7 +134,7 @@ export function BlogIndex({
             <TrackedLink
               href="/#start"
               linkName="story_thats_me"
-              lang="en"
+              lang={intl ? undefined : 'en'}
               className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-white px-7 font-poppins font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50"
             >
               {ui.ctaButton}

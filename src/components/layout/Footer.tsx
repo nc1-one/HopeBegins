@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import Image from 'next/image';
 import headerLogo from '@/assets/images/header-logo.png';
 import { Facebook, Instagram, Linkedin } from 'lucide-react';

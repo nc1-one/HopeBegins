@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { TrackedLink } from '@/components/ui/TrackedLink';
@@ -26,6 +26,7 @@ import {
 } from '@/lib/startMenu';
 import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
 import { analyticsService } from '@/services/analyticsService';
+import { CrisisSentence } from '@/components/help/Crisis';
 
 // Each answer opens the page written for that feeling, in the chosen language.
 const feelings = [
@@ -149,17 +150,6 @@ const morePaths = [
 const heroSecondaryClass =
   'inline-flex min-h-11 items-center justify-center rounded-2xl border border-white/70 px-5 font-poppins font-bold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50';
 
-const crisisCopy = {
-  en: {
-    lead: 'In crisis or thinking of ending your life? Call the NCMH Crisis Hotline, 24/7:',
-    or: 'or',
-  },
-  tl: {
-    lead: 'Nasa crisis ka ba o naiisip mong tapusin ang buhay mo? Tumawag sa NCMH Crisis Hotline, 24/7:',
-    or: 'o',
-  },
-};
-
 function CrisisLine({
   className,
   lang = 'en',
@@ -168,21 +158,8 @@ function CrisisLine({
   lang?: FeelingLang;
 }) {
   return (
-    <p lang={lang} className={`text-sm leading-relaxed ${className ?? ''}`}>
-      {crisisCopy[lang].lead}{' '}
-      <a
-        href="tel:1553"
-        className="font-bold underline underline-offset-4 whitespace-nowrap"
-      >
-        1553
-      </a>{' '}
-      {crisisCopy[lang].or}{' '}
-      <a
-        href="tel:+639178998727"
-        className="font-bold underline underline-offset-4 whitespace-nowrap"
-      >
-        0917 899 8727
-      </a>
+    <p className={`text-sm leading-relaxed ${className ?? ''}`}>
+      <CrisisSentence lang={lang} lead danger={false} />
     </p>
   );
 }

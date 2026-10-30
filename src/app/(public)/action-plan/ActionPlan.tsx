@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import {
   ArrowLeft,
   ArrowRight,
@@ -56,6 +56,7 @@ import {
   useHomeScreenStatus,
 } from '@/lib/installPrompt';
 import { setLanguage, useLanguage } from '@/lib/languagePreference';
+import { usePageLanguage } from '@/lib/pageLanguage';
 import { TAGLISH_TWINS, twinLinks } from '@/lib/taglishTwins';
 import { usePhoto } from '@/components/ui/PhotoTurn';
 import { forgetTool } from '@/lib/myTool';
@@ -75,6 +76,7 @@ import { FinishFlow, type FinishStep } from './FinishFlow';
 import { MonthlyCheckIn } from './MonthlyCheckIn';
 import { AfterwardsPanel } from './AfterwardsPanel';
 import { UseMyTool, canTickToday, toolButtonClass } from './UseMyTool';
+import { CallCrisisButton, CrisisList } from '@/components/help/Crisis';
 
 type EmailStatus = 'idle' | 'sending' | 'sent' | 'error';
 
@@ -404,8 +406,20 @@ function ECoachCard({ t }: { t: Copy }) {
 }
 
 function ItemBody({ item }: { item: PlanItem }) {
+  const lang = usePageLanguage();
   const href = item.href;
   const opensNewTab = href?.startsWith('http');
+
+  if (item.crisisLines) {
+    return (
+      <>
+        <p className="mt-1 text-[#6E5F47] leading-relaxed">
+          <CrisisList lang={lang} />
+        </p>
+        <CallCrisisButton lang={lang} className={linkClass} />
+      </>
+    );
+  }
 
   return (
     <>

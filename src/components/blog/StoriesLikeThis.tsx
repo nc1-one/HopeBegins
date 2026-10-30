@@ -1,11 +1,17 @@
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import { Reveal } from '@/components/ui/Reveal';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { stories, storyPath } from '@/lib/blog';
+import { isIntlLang, withLocale } from '@/lib/i18n';
+import { intlStories } from '@/lib/intl';
 
 const heading: Record<FeelingLang, string> = {
   en: 'Stories like this',
   tl: 'Mga kuwentong kahawig nito',
+  fr: 'Des histoires qui y ressemblent',
+  de: 'Geschichten wie diese',
+  es: 'Historias como esta',
+  ko: '비슷한 이야기',
 };
 
 /**
@@ -20,7 +26,8 @@ export function StoriesLikeThis({
   pageSlug: string;
   lang: FeelingLang;
 }) {
-  const matches = stories
+  // French, German, Spanish and Korean stories name the English page.
+  const matches = (isIntlLang(lang) ? intlStories : stories)
     .filter((story) => story.related === pageSlug && story.lang === lang)
     .slice(0, 3);
   if (matches.length === 0) return null;
@@ -37,7 +44,11 @@ export function StoriesLikeThis({
         {matches.map((story) => (
           <li key={story.slug} className="py-4">
             <Link
-              href={storyPath(story)}
+              href={
+                isIntlLang(lang)
+                  ? withLocale(lang, storyPath(story))
+                  : storyPath(story)
+              }
               className="font-poppins text-lg font-semibold text-[#6E5F47] underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none"
             >
               {story.title}

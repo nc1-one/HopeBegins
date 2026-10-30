@@ -7,6 +7,8 @@
  * stand alone.
  */
 
+import type { Lang } from './i18n';
+
 export type PhotoId =
   | 'anxious'
   | 'tired'
@@ -178,13 +180,36 @@ export function photoTurn(): number {
 }
 
 /**
- * The photo for a theme on this turn. Give a second spot on the same page a
- * different `offset` so the two never show the same picture.
+ * Photos for the French, German, Spanish and Korean pages, so the people in
+ * them look like the people reading. A theme without its own photos here
+ * uses the ones above.
  */
-export function photo(theme: PhotoId, turn: number, offset = 0): Photo {
-  const set = SETS[theme];
+const LOCAL_SETS: Partial<Record<Lang, Partial<Record<PhotoId, Photo[]>>>> = {};
+
+const setFor = (theme: PhotoId, lang: Lang = 'en') =>
+  LOCAL_SETS[lang]?.[theme] ?? SETS[theme];
+
+/**
+ * The photo for a theme on this turn, in the page's language. Give a second
+ * spot on the same page a different `offset` so the two never show the same
+ * picture.
+ */
+export function photo(
+  theme: PhotoId,
+  turn: number,
+  offset = 0,
+  lang?: Lang
+): Photo {
+  const set = setFor(theme, lang);
   return set[(turn + offset) % set.length];
 }
 
 /** Every photo in a theme, for places that show them all at once. */
-export const photoSet = (theme: PhotoId) => SETS[theme];
+export const photoSet = (theme: PhotoId, lang?: Lang) => setFor(theme, lang);
+
+/**
+ * A story's photo in its language: the first photo of a theme, for the
+ * French, German, Spanish and Korean stories (see LOCAL_SETS).
+ */
+export const storyPhoto = (lang: Lang, theme: PhotoId): Photo =>
+  setFor(theme, lang)[0];

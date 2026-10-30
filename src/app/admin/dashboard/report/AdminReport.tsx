@@ -14,6 +14,7 @@ import { useUserStore } from '@/store/useUserStore';
 import type { CategoryCount, DateCount } from '@/types/admin';
 import { PRAYER_CATEGORY_LABELS } from '../components/DashboardCharts';
 import { JourneyByStage } from '../components/JourneyByStage';
+import { ByLanguage } from '../components/ByLanguage';
 import { defaultDateRange, useDashboard } from '../hooks/useDashboard';
 
 /*
@@ -195,6 +196,7 @@ export function AdminReport() {
     stats,
     analytics,
     clicks,
+    rawClicks,
     isClicksLoading,
     dateRange,
     handleDateChange,
@@ -466,6 +468,10 @@ export function AdminReport() {
 
           <section className="report-journey">
             <JourneyByStage clicks={clicks} isLoading={isClicksLoading} />
+          </section>
+
+          <section className="report-journey">
+            <ByLanguage clicks={rawClicks} isLoading={isClicksLoading} />
           </section>
 
           <footer className="border-t border-[#E2DFDA] pt-4 text-xs text-[#6E5F47]/80">

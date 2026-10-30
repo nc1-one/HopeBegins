@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import { ArrowUpRight, ChevronRight } from 'lucide-react';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import { ToolExercise, type ToolKind } from '@/components/tools/ToolExercise';
@@ -17,6 +17,7 @@ import { setLanguage, useLanguage } from '@/lib/languagePreference';
 import { pathIn, TAGLISH_TWINS, twinLinks } from '@/lib/taglishTwins';
 import { type PhotoId } from '@/lib/photos';
 import { usePhotoPicker } from '@/components/ui/PhotoTurn';
+import { CrisisSentence } from '@/components/help/Crisis';
 
 /**
  * Every tool in one place, grouped by what is happening right now. Each one
@@ -372,9 +373,6 @@ const copy = {
     pick: "What's happening?",
     needsPlan: 'Your reasons are kept with your plan on this phone.',
     makePlan: 'Make your free plan first',
-    crisis:
-      "If you're thinking of ending your life, call the NCMH Crisis Hotline now, open 24/7:",
-    or: 'or',
     ecoach: 'Or talk to an e-coach on Messenger',
     close: 'Close',
   },
@@ -386,9 +384,6 @@ const copy = {
     needsPlan:
       'Naka-save ang mga dahilan mo kasama ng plano mo sa phone na ito.',
     makePlan: 'Gumawa muna ng libreng plano',
-    crisis:
-      'Kung naiisip mong tapusin ang buhay mo, tumawag ngayon sa NCMH Crisis Hotline, bukas 24/7:',
-    or: 'o',
     ecoach: 'O kausapin ang isang e-coach sa Messenger',
     close: 'Isara',
   },
@@ -690,20 +685,7 @@ export function Toolbox({ lang: pageLang }: { lang?: FeelingLang } = {}) {
             {group.id === 'reason' && (
               <div className="mt-5 rounded-2xl border border-[#AEC488] bg-[#EFF3E7] p-5 text-[#6E5F47] hb-step-in">
                 <p>
-                  {t.crisis}{' '}
-                  <a
-                    href="tel:1553"
-                    className="font-bold underline underline-offset-4"
-                  >
-                    1553
-                  </a>{' '}
-                  {t.or}{' '}
-                  <a
-                    href="tel:+639178998727"
-                    className="whitespace-nowrap font-bold underline underline-offset-4"
-                  >
-                    0917 899 8727
-                  </a>
+                  <CrisisSentence lang={lang} lead />
                 </p>
                 <EcoachLink
                   linkName="ecoach_tools_reason"

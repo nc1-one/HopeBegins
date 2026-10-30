@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import { usePathname } from 'next/navigation';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import type { FeelingLang } from '@/lib/feelingPages';
