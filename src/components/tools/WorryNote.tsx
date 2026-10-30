@@ -25,6 +25,44 @@ const copy = {
     privacy: "We don't save this or send it anywhere.",
     button: 'Set it aside for tomorrow',
   },
+  // These four have no breathing exercise below the note (they have no
+  // feeling pages), so they offer a few slow breaths instead.
+  fr: {
+    doneTitle: 'C’est noté.',
+    doneText:
+      'Si ça revient cette nuit, dis-toi que tu y penseras demain. Maintenant, prends quelques respirations lentes.',
+    label: 'Qu’est-ce qui t’empêche de dormir ? Touche ce qui correspond.',
+    write: 'Ou écris-le ici, même en vrac.',
+    privacy: 'On ne l’enregistre pas et on ne l’envoie nulle part.',
+    button: 'Le mettre de côté pour demain',
+  },
+  de: {
+    doneTitle: 'Es ist aufgeschrieben.',
+    doneText:
+      'Wenn es heute Nacht wiederkommt, sag dir, dass du morgen darüber nachdenkst. Atme jetzt ein paar Mal langsam ein und aus.',
+    label: 'Was hält dich wach? Tippe an, was passt.',
+    write: 'Oder schreib es hier auf, auch wenn es durcheinander ist.',
+    privacy: 'Wir speichern das nicht und schicken es nirgendwohin.',
+    button: 'Für morgen beiseitelegen',
+  },
+  es: {
+    doneTitle: 'Ya está escrito.',
+    doneText:
+      'Si vuelve esta noche, dite que lo vas a pensar mañana. Ahora respira despacio unas cuantas veces.',
+    label: '¿Qué no te deja dormir? Toca lo que corresponda.',
+    write: 'O escríbelo aquí, aunque salga desordenado.',
+    privacy: 'No lo guardamos ni lo enviamos a ningún lado.',
+    button: 'Dejarlo para mañana',
+  },
+  ko: {
+    doneTitle: '적어 두었어요.',
+    doneText:
+      '오늘 밤 다시 떠오르면, 내일 생각하겠다고 스스로에게 말해 주세요. 이제 천천히 몇 번 숨을 쉬어 보세요.',
+    label: '무엇 때문에 잠이 안 오나요? 해당하는 걸 눌러 주세요.',
+    write: '아니면 여기에 적어 보세요. 두서없이 적어도 돼요.',
+    privacy: '저장하거나 어디로 보내지 않아요.',
+    button: '내일을 위해 잠시 내려놓기',
+  },
 };
 
 /**

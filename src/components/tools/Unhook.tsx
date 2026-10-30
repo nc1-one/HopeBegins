@@ -59,6 +59,89 @@ const copy = {
       'Puwedeng bumalik ang isip na iyon. Kapag bumalik, pangalanan ulit at bumalik sa ginagawa mo.',
     nextTime: 'may mabigat na isip na kumapit sa iyo',
   },
+  fr: {
+    label: 'Prendre du recul face à une pensée lourde',
+    pickLabel: 'Quelle pensée a prise sur toi ? Touche-la.',
+    thoughtLabel: 'Ou écris-la en quelques mots',
+    privacy: 'Ce que tu écris ici n’est enregistré nulle part.',
+    next: 'Suivant',
+    readTitle: 'Lis ceci une fois, lentement :',
+    // A colon, so a thought starting with a vowel needs no "qu’".
+    frame: (thought: string) =>
+      `Je remarque que j’ai cette pensée : ${thought}.`,
+    readHint:
+      'Tu peux remarquer une pensée sans te disputer avec elle ni faire ce qu’elle dit.',
+    backLabel:
+      'Maintenant, ramène ton attention ici. Que faisais-tu, ou que vas-tu faire ensuite ?',
+    finish: 'C’est fait',
+    stop: 'Arrêter',
+    doneTitle: 'Tu l’as nommée.',
+    doneText:
+      'La pensée peut revenir. Si elle revient, nomme-la encore et reviens à ce que tu faisais.',
+    nextTime: 'une pensée difficile s’accroche à toi',
+  },
+  de: {
+    label: 'Von einem schweren Gedanken Abstand nehmen',
+    pickLabel: 'Welcher Gedanke hält dich fest? Tippe ihn an.',
+    thoughtLabel: 'Oder schreib ihn in ein paar Worten auf',
+    privacy: 'Was du hier schreibst, wird nirgends gespeichert.',
+    next: 'Weiter',
+    readTitle: 'Lies das einmal, langsam:',
+    // After the colon a whole sentence starts with a capital, and nouns
+    // keep theirs.
+    frame: (thought: string) =>
+      `Ich habe gerade den Gedanken: ${thought.charAt(0).toUpperCase()}${thought.slice(1)}.`,
+    readHint:
+      'Du kannst einen Gedanken bemerken, ohne mit ihm zu streiten oder zu tun, was er sagt.',
+    backLabel:
+      'Hol jetzt deine Aufmerksamkeit zurück. Was hast du gerade gemacht, oder was machst du als Nächstes?',
+    finish: 'Fertig',
+    stop: 'Aufhören',
+    doneTitle: 'Du hast ihn benannt.',
+    doneText:
+      'Der Gedanke kann wiederkommen. Wenn er kommt, benenne ihn wieder und kehr zu dem zurück, was du gemacht hast.',
+    nextTime: 'ein schwerer Gedanke dich packt',
+  },
+  es: {
+    label: 'Tomar distancia de un pensamiento pesado',
+    pickLabel: '¿Qué pensamiento no te suelta? Tócalo.',
+    thoughtLabel: 'O escríbelo en pocas palabras',
+    privacy: 'Lo que escribas aquí no se guarda en ningún lado.',
+    next: 'Siguiente',
+    readTitle: 'Lee esto una vez, despacio:',
+    frame: (thought: string) =>
+      `Estoy teniendo el pensamiento de que ${thought}.`,
+    readHint:
+      'Puedes notar un pensamiento sin discutir con él ni hacer lo que dice.',
+    backLabel:
+      'Ahora trae tu atención de vuelta. ¿Qué estabas haciendo o qué vas a hacer ahora?',
+    finish: 'Listo',
+    stop: 'Parar',
+    doneTitle: 'Le pusiste nombre.',
+    doneText:
+      'El pensamiento puede volver. Si vuelve, ponle nombre otra vez y regresa a lo que estabas haciendo.',
+    nextTime: 'un pensamiento difícil te atrape',
+  },
+  ko: {
+    label: '무거운 생각에서 한 걸음 물러나기',
+    pickLabel: '어떤 생각이 나를 붙잡고 있나요? 눌러 보세요.',
+    thoughtLabel: '아니면 몇 단어로 적어 보세요',
+    privacy: '여기에 쓴 내용은 어디에도 저장되지 않아요.',
+    next: '다음',
+    readTitle: '한 번, 천천히 읽어 보세요:',
+    // The reader's own inner voice, so plain speech, like the thoughts.
+    frame: (thought: string) => `‘${thought}’ 하는 생각이 드는구나.`,
+    readHint:
+      '생각과 다투거나 그 말대로 하지 않고도, 그 생각을 알아차릴 수 있어요.',
+    backLabel:
+      '이제 주의를 다시 데려와요. 무엇을 하고 있었나요? 아니면 다음에 무엇을 할 건가요?',
+    finish: '다 했어요',
+    stop: '그만하기',
+    doneTitle: '생각에 이름을 붙였어요.',
+    doneText:
+      '그 생각은 다시 찾아올 수 있어요. 그러면 다시 이름을 붙이고 하던 일로 돌아가요.',
+    nextTime: '힘든 생각이 나를 붙잡을 때',
+  },
 };
 
 // "I'm having the thought that I'm not good enough." reads better without

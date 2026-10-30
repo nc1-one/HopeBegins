@@ -4,7 +4,16 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from '@/components/ui/LocalLink';
 import { FadeImage } from '@/components/ui/FadeImage';
+import { noTl, type Lang, type PerLangNoTl } from '@/lib/i18n';
 import { photo, type PhotoId } from '@/lib/photos';
+
+const stepLabel: PerLangNoTl<(n: number) => string> = {
+  en: (n) => `Step ${n}`,
+  fr: (n) => `Étape ${n}`,
+  de: (n) => `Schritt ${n}`,
+  es: (n) => `Paso ${n}`,
+  ko: (n) => `${n}단계`,
+};
 
 export interface ApproachStep {
   name: string;
@@ -23,11 +32,14 @@ export interface ApproachStep {
 export function ApproachSteps({
   steps,
   turn,
+  lang,
 }: {
   steps: ApproachStep[];
   /** This turn of the photo rotation, from the server. */
   turn: number;
+  lang: Lang;
 }) {
+  const label = noTl(stepLabel, lang);
   const [active, setActive] = useState(0);
   const items = useRef<(HTMLLIElement | null)[]>([]);
 
@@ -90,7 +102,7 @@ export function ApproachSteps({
               />
             </div>
             <p className="font-poppins text-sm font-semibold text-[#6E5F47] tabular-nums">
-              Step {index + 1}
+              {label(index + 1)}
             </p>
             <h3 className="mt-1 font-playfair text-3xl md:text-4xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
               {step.name}

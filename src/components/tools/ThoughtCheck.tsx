@@ -51,7 +51,8 @@ const copy = {
     ownLabel: 'Or write your own',
     useOwn: 'Use mine',
     readSlowly: 'Read it once, slowly.',
-    yourThought: 'Your first thought',
+    yourThought: 'Your first thought:',
+    quote: (thought: string) => `“${thought}”`,
     rateAgain: 'Now, how true does the first thought feel?',
     lighterTitle: 'It got lighter.',
     lighterText: (from: string, to: string) =>
@@ -83,7 +84,8 @@ const copy = {
     ownLabel: 'O isulat ang sa iyo',
     useOwn: 'Ito na',
     readSlowly: 'Basahin ito nang isang beses, dahan-dahan.',
-    yourThought: 'Ang una mong iniisip',
+    yourThought: 'Ang una mong iniisip:',
+    quote: (thought: string) => `“${thought}”`,
     rateAgain: 'Ngayon, gaano katotoo ang una mong iniisip?',
     lighterTitle: 'Gumaan.',
     lighterText: (from: string, to: string) =>
@@ -97,6 +99,139 @@ const copy = {
     keep: 'Ang mas mabait mong isip:',
     ecoach: 'Kausapin ang e-coach',
     nextTime: 'paulit-ulit na bumabalik ang isang mabigat na isip',
+  },
+  fr: {
+    label: 'Vérifier une pensée',
+    pickTitle: 'Quelle pensée est la plus forte en ce moment ?',
+    other: 'Autre chose',
+    otherLabel: 'En quelques mots (facultatif)',
+    privacy: 'Ce que tu écris ici n’est enregistré nulle part.',
+    next: 'Suivant',
+    stop: 'Arrêter',
+    rateTitle: 'À quel point ça te semble vrai, là, maintenant ?',
+    trapIntro: 'C’est un piège de pensée courant :',
+    askYourself: 'Demande-toi',
+    whichTrap: 'Lequel de ces pièges ressemble le plus au tien ?',
+    balanceTitle: 'Laquelle de ces pensées te semble plus vraie ?',
+    balanceHint: 'Choisis celle que tu peux croire, même un peu.',
+    ownLabel: 'Ou écris la tienne',
+    useOwn: 'Prendre la mienne',
+    readSlowly: 'Lis-la une fois, lentement.',
+    yourThought: 'Ta première pensée :',
+    quote: (thought: string) => `« ${thought} »`,
+    rateAgain:
+      'Et maintenant, à quel point ta première pensée te semble vraie ?',
+    lighterTitle: 'C’est plus léger.',
+    lighterText: (from: string, to: string) =>
+      `De « ${from} » à « ${to} ». La pensée peut revenir. Si elle revient, tu sais comment la vérifier.`,
+    sameTitle: 'À peu près pareil.',
+    sameText:
+      'Ça arrive avec les pensées qui sont là depuis longtemps. Les vérifier devient plus facile avec l’entraînement. Réessaie demain.',
+    heavierTitle: 'Elle est plus forte en ce moment.',
+    heavierText:
+      'Merci pour ton honnêteté. Certaines pensées sont trop lourdes pour qu’on les vérifie sans aide. Parles-en avec quelqu’un.',
+    keep: 'Ta pensée plus juste :',
+    ecoach: 'Parler à quelqu’un',
+    nextTime: 'une pensée lourde revient sans cesse',
+  },
+  de: {
+    label: 'Gedanken-Check',
+    pickTitle: 'Welcher Gedanke ist gerade am lautesten?',
+    other: 'Etwas anderes',
+    otherLabel: 'In ein paar Worten (freiwillig)',
+    privacy: 'Was du hier schreibst, wird nirgends gespeichert.',
+    next: 'Weiter',
+    stop: 'Aufhören',
+    rateTitle: 'Wie wahr fühlt sich das gerade an?',
+    trapIntro: 'Das ist eine häufige Denkfalle:',
+    askYourself: 'Frag dich',
+    whichTrap: 'Welche davon passt am besten?',
+    balanceTitle: 'Welcher dieser Gedanken fühlt sich wahrer an?',
+    balanceHint: 'Wähl den, den du glauben kannst, auch nur ein bisschen.',
+    ownLabel: 'Oder schreib deinen eigenen',
+    useOwn: 'Meinen nehmen',
+    readSlowly: 'Lies ihn einmal, langsam.',
+    yourThought: 'Dein erster Gedanke:',
+    quote: (thought: string) => `„${thought}“`,
+    rateAgain: 'Und jetzt: Wie wahr fühlt sich der erste Gedanke an?',
+    lighterTitle: 'Es ist leichter geworden.',
+    lighterText: (from: string, to: string) =>
+      `Von „${from}“ auf „${to}“. Der Gedanke kann wiederkommen. Wenn er kommt, weißt du, wie du ihn prüfen kannst.`,
+    sameTitle: 'Ungefähr gleich.',
+    sameText:
+      'Das passiert bei Gedanken, die schon lange da sind. Mit Übung wird das Prüfen leichter. Versuch es morgen noch einmal.',
+    heavierTitle: 'Er fühlt sich gerade stärker an.',
+    heavierText:
+      'Danke, dass du ehrlich bist. Manche Gedanken sind zu schwer, um sie allein zu prüfen. Sprich mit jemandem darüber.',
+    keep: 'Dein ausgewogener Gedanke:',
+    ecoach: 'Mit jemandem reden',
+    nextTime: 'ein schwerer Gedanke immer wiederkommt',
+  },
+  es: {
+    label: 'Revisar un pensamiento',
+    pickTitle: '¿Qué pensamiento suena más fuerte ahora?',
+    other: 'Otra cosa',
+    otherLabel: 'En pocas palabras (opcional)',
+    privacy: 'Lo que escribas aquí no se guarda en ningún lado.',
+    next: 'Siguiente',
+    stop: 'Parar',
+    rateTitle: '¿Qué tan cierto se siente ahora?',
+    trapIntro: 'Es una trampa de pensamiento común:',
+    askYourself: 'Pregúntate',
+    whichTrap: '¿Cuál de estas se parece más?',
+    balanceTitle: '¿Cuál de estos se siente más cierto?',
+    balanceHint: 'Elige el que puedas creer, aunque sea un poco.',
+    ownLabel: 'O escribe el tuyo',
+    useOwn: 'Usar el mío',
+    readSlowly: 'Léelo una vez, despacio.',
+    yourThought: 'Tu primer pensamiento:',
+    quote: (thought: string) => `“${thought}”`,
+    rateAgain: 'Ahora, ¿qué tan cierto se siente el primer pensamiento?',
+    lighterTitle: 'Se siente más ligero.',
+    lighterText: (from: string, to: string) =>
+      `De “${from}” a “${to}”. El pensamiento puede volver. Si vuelve, ya sabes cómo revisarlo.`,
+    sameTitle: 'Más o menos igual.',
+    sameText:
+      'Eso pasa con los pensamientos que llevan mucho tiempo ahí. Revisarlos se vuelve más fácil con la práctica. Vuelve a intentarlo mañana.',
+    heavierTitle: 'Ahora se siente más fuerte.',
+    heavierText:
+      'Gracias por tu honestidad. Algunos pensamientos son demasiado pesados para revisarlos sin ayuda. Habla de esto con alguien.',
+    keep: 'Tu pensamiento más amable:',
+    ecoach: 'Hablar con alguien',
+    nextTime: 'un pensamiento pesado vuelva una y otra vez',
+  },
+  ko: {
+    label: '생각 점검',
+    pickTitle: '지금 가장 크게 들리는 생각은 뭔가요?',
+    other: '다른 생각',
+    otherLabel: '몇 단어로 적어 보세요 (선택)',
+    privacy: '여기에 쓴 내용은 어디에도 저장되지 않아요.',
+    next: '다음',
+    stop: '그만하기',
+    rateTitle: '지금 이 생각이 얼마나 사실처럼 느껴지나요?',
+    trapIntro: '흔히 빠지는 생각의 함정이에요:',
+    askYourself: '스스로에게 물어보세요',
+    whichTrap: '이 중 어떤 게 가장 가까운가요?',
+    balanceTitle: '이 중 어떤 생각이 더 사실처럼 느껴지나요?',
+    balanceHint: '조금이라도 믿을 수 있는 걸 골라요.',
+    ownLabel: '아니면 직접 적어 보세요',
+    useOwn: '내 생각으로 하기',
+    readSlowly: '한 번, 천천히 읽어 보세요.',
+    yourThought: '처음 떠올린 생각:',
+    quote: (thought: string) => `‘${thought}’`,
+    rateAgain: '이제 처음 생각은 얼마나 사실처럼 느껴지나요?',
+    lighterTitle: '조금 가벼워졌어요.',
+    lighterText: (from: string, to: string) =>
+      `처음엔 ‘${from}’, 지금은 ‘${to}’. 이 생각은 다시 찾아올 수 있어요. 그래도 이제 점검하는 법을 알고 있어요.`,
+    sameTitle: '비슷해요.',
+    sameText:
+      '오래 품어 온 생각은 그럴 수 있어요. 점검하는 건 연습할수록 쉬워져요. 내일 다시 해 봐요.',
+    heavierTitle: '지금은 더 강하게 느껴지네요.',
+    heavierText:
+      '솔직하게 답해 줘서 고마워요. 어떤 생각은 혼자 점검하기에는 너무 무거워요. 누군가와 함께 이야기해 보세요.',
+    keep: '나의 더 다정한 생각:',
+    ecoach: '누군가와 이야기하기',
+    nextTime: '무거운 생각이 자꾸 되풀이될 때',
   },
 };
 
@@ -323,8 +458,8 @@ export function ThoughtCheck({
 
       {step !== 'pick' && firstThought && (
         <p className="text-sm">
-          {t.yourThought}:{' '}
-          <span className="font-bold">&ldquo;{firstThought}&rdquo;</span>
+          {t.yourThought}{' '}
+          <span className="font-bold">{t.quote(firstThought)}</span>
         </p>
       )}
 
