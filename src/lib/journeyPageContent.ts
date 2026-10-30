@@ -152,8 +152,9 @@ export const DEFAULT_JOURNEY_PAGE_CONTENT: JourneyPageContent = {
     title: 'A word for you',
     description: 'Before anything else, we want you to hear this.',
     video_embed_url: 'https://www.youtube.com/embed/zHPaFDRZMUo?rel=0',
-    verse_text: 'He heals the brokenhearted and binds up their wounds.',
-    verse_reference: 'Psalm 147:3',
+    // Public-domain WEB text from verses.ts, as on the rest of the site.
+    verse_text: VERSES['psa-147-3'].en.text,
+    verse_reference: VERSES['psa-147-3'].en.reference,
     previous_button_text: 'Back',
     next_button_text: 'Continue',
   },
@@ -193,8 +194,8 @@ export const DEFAULT_JOURNEY_PAGE_CONTENT: JourneyPageContent = {
       "In the Bible, hope is trust that God will keep His promises, even when you can't yet see how.",
       "Hebrews calls hope an anchor for the soul. An anchor doesn't stop the storm. It keeps the boat from drifting until the storm passes.",
     ],
-    verse_text: 'We have this hope as an anchor for the soul, firm and secure.',
-    verse_reference: 'Hebrews 6:19',
+    verse_text: VERSES['heb-6-19'].en.text,
+    verse_reference: VERSES['heb-6-19'].en.reference,
     good_news_title: 'The good news',
     good_news_body:
       "God loves you as you are, and that love doesn't depend on what you've done. He sent His Son, Jesus, to be with you, even on your darkest days. You can talk to Him today.",

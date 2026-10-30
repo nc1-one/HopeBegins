@@ -429,6 +429,58 @@ export const VERSES = {
       text: '내가 사망의 음침한 골짜기로 다닐찌라도 해를 두려워하지 않을 것은 주께서 나와 함께 하심이라 주의 지팡이와 막대기가 나를 안위하시나이다',
     },
   },
+  'heb-6-19': {
+    en: {
+      reference: 'Hebrews 6:19',
+      text: 'This hope we have as an anchor of the soul, a hope both sure and steadfast and entering into that which is within the veil;',
+    },
+    tl: {
+      reference: 'Mga Hebreo 6:19',
+      text: 'Na ating inaring tulad sa sinepete ng kaluluwa, isang pagasa na matibay at matatag at pumapasok sa nasa loob ng tabing;',
+    },
+    fr: {
+      reference: 'Hébreux 6:19',
+      text: 'Cette espérance, nous la possédons comme une ancre de l’âme, sûre et solide ; elle pénètre au delà du voile,',
+    },
+    de: {
+      reference: 'Hebräer 6,19',
+      text: 'welche wir haben als einen sichern und festen Anker unsrer Seele, der auch hineingeht in das Inwendige des Vorhangs,',
+    },
+    es: {
+      reference: 'Hebreos 6:19',
+      text: 'La cual tenemos como segura y firme ancla del alma, y que entra hasta dentro del velo;',
+    },
+    ko: {
+      reference: '히브리서 6:19',
+      text: '우리가 이 소망이 있는 것은 영혼의 닻 같아서 튼튼하고 견고하여 휘장 안에 들어 가나니',
+    },
+  },
+  'gal-5-13': {
+    en: {
+      reference: 'Galatians 5:13',
+      text: 'For you, brothers, were called for freedom. Only don’t use your freedom for gain to the flesh, but through love be servants to one another.',
+    },
+    tl: {
+      reference: 'Mga Taga-Galacia 5:13',
+      text: "Sapagka't kayo, mga kapatid, ay tinawag sa kalayaan; huwag lamang gamitin ang inyong kalayaan, upang magbigay kadahilanan sa laman, kundi sa pamamagitan ng pagibig ay mangaglingkuran kayo.",
+    },
+    fr: {
+      reference: 'Galates 5:13',
+      text: 'Frères, vous avez été appelés à la liberté, seulement ne faites pas de cette liberté un prétexte de vivre selon la chair ; mais rendez-vous, par la charité, serviteurs les uns des autres.',
+    },
+    de: {
+      reference: 'Galater 5,13',
+      text: 'Ihr aber, liebe Brüder, seid zur Freiheit berufen! Allein sehet zu, daß ihr durch die Freiheit dem Fleisch nicht Raum gebet; sondern durch die Liebe diene einer dem andern.',
+    },
+    es: {
+      reference: 'Gálatas 5:13',
+      text: 'Porque vosotros, hermanos, á libertad habéis sido llamados; solamente que no uséis la libertad como ocasión á la carne, sino servíos por amor los unos á los otros.',
+    },
+    ko: {
+      reference: '갈라디아서 5:13',
+      text: '형제들아 너희가 자유를 위하여 부르심을 입었으나 그러나 그 자유로 육체의 기회를 삼지 말고 오직 사랑으로 서로 종노릇하라',
+    },
+  },
 } as const;
 
 export type VerseKey = keyof typeof VERSES;
