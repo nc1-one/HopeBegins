@@ -77,6 +77,7 @@ import { MonthlyCheckIn } from './MonthlyCheckIn';
 import { AfterwardsPanel } from './AfterwardsPanel';
 import { UseMyTool, canTickToday, toolButtonClass } from './UseMyTool';
 import { CallCrisisButton, CrisisList } from '@/components/help/Crisis';
+import { isIntlLang } from '@/lib/i18n';
 
 type EmailStatus = 'idle' | 'sending' | 'sent' | 'error';
 
@@ -350,6 +351,553 @@ const ui = {
       `Mas kumalma ka pagkatapos nito ${calmer} sa ${total} beses.`,
     todayAfterBreak: 'Buti bumalik ka. Simulan natin ngayong araw.',
     seeWeeks: 'Tingnan ang 4 na linggo mo',
+  },
+  fr: {
+    locale: 'fr-FR',
+    introTitle: 'Premiers pas vers l’espoir : ton plan gratuit',
+    introText:
+      'Réponds à 9 questions rapides sur la façon dont tu vas ces derniers temps. Tu recevras quelques petites étapes pensées pour toi, et tu peux commencer aujourd’hui.',
+    nameLabel: 'Comment veux-tu qu’on t’appelle ? (facultatif)',
+    start: 'Commencer mon plan',
+    introNote:
+      'Environ 2 minutes. Gratuit. Tes réponses restent sur cet appareil.',
+    method:
+      'Les étapes viennent de la TCC (thérapie cognitive et comportementale), une forme de thérapie très répandue, et du guide de l’Organisation mondiale de la santé sur le stress. Ce n’est pas un diagnostic, et ça ne remplace pas un rendez-vous chez un médecin ou un psy.',
+    restorePrompt: 'Tu as déjà fait un plan et gardé une sauvegarde ?',
+    restore: 'Restaurer depuis une sauvegarde',
+    restoreError: 'Ce fichier n’est pas une sauvegarde de plan HopeBegins.',
+    questionOf: (n: number, total: number) => `Question ${n} sur ${total}`,
+    progress: 'Progression',
+    previous: 'Retour',
+    welcomeDay: (name: string, day: number) =>
+      `Bon retour${name ? `, ${name}` : ''}. C’est le jour ${day} de tes 4 semaines.`,
+    welcomeBack: (name: string) => `Bon retour${name ? `, ${name}` : ''}.`,
+    checkInDueTitle: (name: string) =>
+      `Ton dernier bilan date d’il y a une semaine${name ? `, ${name}` : ''}.`,
+    checkInDueText: 'Refais-le pour voir ce qui a changé.',
+    doneTitle: (name: string) =>
+      `Tu as fait tes 4 semaines${name ? `, ${name}` : ''}.`,
+    doneText:
+      'Termine par un dernier bilan, choisis l’outil qui t’a fait le plus de bien et crée ta carte d’espoir.',
+    finishButton: 'Terminer mes 4 semaines',
+    hopeCardTitle: 'Ta carte d’espoir',
+    hopeCardText:
+      'Ton outil, tes signaux d’alerte et tes personnes de confiance, pour les jours où ça redevient dur.',
+    openCard: 'Ouvrir ma carte d’espoir',
+    takeAgain: 'Refaire le bilan',
+    planTitle: (name: string) =>
+      name
+        ? `Premiers pas vers l’espoir : ton plan, ${name}`
+        : 'Premiers pas vers l’espoir : ton plan',
+    madeOn: (date: string) => `Fait pour toi le ${date}.`,
+    startSafety: 'Commence aujourd’hui par ton plan de sécurité.',
+    startTools:
+      'Choisis 1 ou 2 outils du quotidien, ajoute-les à tes 4 semaines, puis coche-les chaque jour.',
+    answersShow: 'Ce que montrent tes réponses',
+    notDiagnosis:
+      'Ce n’est pas un diagnostic. Ça t’aide à choisir par où commencer.',
+    changedTitle: 'Ce qui a changé',
+    lowMood: 'Moral bas',
+    worry: 'Inquiétude',
+    scoreNote: 'Plus c’est bas, mieux c’est. Chaque score est sur 6.',
+    better:
+      'Tes scores ont baissé depuis ton premier bilan. Continue ce qui t’aide.',
+    same: 'À peu près comme à ton premier bilan. C’est courant les premières semaines. Continue, et appelle une ligne d’écoute gratuite si tu as l’impression de faire du surplace.',
+    worse:
+      'Tes scores ont augmenté depuis ton premier bilan. Parle à quelqu’un cette semaine, s’il te plaît : une ligne d’écoute gratuite, un psy ou une personne de confiance.',
+    ecoachTitle: 'Envie que quelqu’un t’accompagne ?',
+    ecoachText:
+      'Une ligne d’écoute gratuite de ton pays peut t’écouter. Hope AI est là aussi, à toute heure.',
+    ecoachButton: 'Parler à quelqu’un',
+    toolsHint:
+      'Essaie-en un maintenant. Puis ajoute-en 1 ou 2 à tes 4 semaines et choisis un moment.',
+    startHere: 'Commence ici',
+    tryNow: 'Essayer maintenant',
+    addToWeeks: 'Ajouter à mes 4 semaines',
+    inWeeks: 'Dans mes 4 semaines',
+    whenDo: 'Quand vas-tu le faire ?',
+    trackerTitle: 'Tes 4 semaines',
+    trackerIntro:
+      'Coche chaque jour où tu le fais. Tu as raté un jour ? Reprends le lendemain. Les jours manqués n’effacent pas tes progrès.',
+    trackerHabit:
+      'Une habitude met des semaines à s’installer. La plupart des jours, c’est déjà bien.',
+    trackerEmpty:
+      'Choisis « Ajouter à mes 4 semaines » sur 1 ou 2 outils plus haut. Ils apparaîtront ici, et tu pourras les cocher chaque jour.',
+    daysDone: (done: number) => `${done} sur ${PLAN_DAYS} jours`,
+    weekOf: (week: number) => `Semaine ${week} sur ${WEEKS}`,
+    weeksDone: '4 semaines terminées',
+    dayLabel: (date: string, done: boolean) => `${date}${done ? ', fait' : ''}`,
+    remindMe: (time: TimeOfDay) =>
+      `Me le rappeler ${TIME_LABELS.fr[time].toLowerCase()} à ${reminderClock(time, 'fr-FR')} pendant 4 semaines`,
+    otherCalendar: 'iPhone ou Outlook',
+    checkInTitle: 'On peut prendre de tes nouvelles la semaine prochaine ?',
+    checkInText: (date: string) =>
+      `On t’enverra un seul e-mail le ${date} pour savoir comment tu vas, avec un lien vers ton plan.`,
+    checkInDone: (date: string) => `C’est noté. On t’écrira le ${date}.`,
+    planSent: (email: string) =>
+      `Ton plan est en route vers ${email}. Regarde dans tes spams si tu ne le vois pas.`,
+    firstName: 'Prénom (facultatif)',
+    email: 'E-mail',
+    checkInConsent: 'Prendre de mes nouvelles dans 7 jours.',
+    checkInConsentText:
+      'HopeBegins utilisera mon e-mail pour ce seul message, puis l’effacera.',
+    planConsent: 'M’envoyer mon plan par e-mail maintenant',
+    planConsentText: ', pour l’avoir sur tous mes appareils.',
+    submitBoth: 'Prendre de mes nouvelles et m’envoyer mon plan',
+    submitCheckIn: 'Prendre de mes nouvelles la semaine prochaine',
+    submitPlan: 'M’envoyer mon plan',
+    submitNone: 'Choisis une option ci-dessus',
+    errorBoth: 'Ça n’a pas marché.',
+    errorCheckIn: 'On n’a pas pu prévoir l’e-mail de suivi.',
+    errorPlan: 'On n’a pas pu envoyer ton plan.',
+    errorTry: 'Vérifie l’adresse e-mail et réessaie',
+    errorPrint: ', ou imprime plutôt ton plan',
+    emailPrivacy:
+      'Tes réponses et tes progrès sont enregistrés seulement sur cet appareil. On utilise ton e-mail uniquement pour ce que tu as coché plus haut. Voir notre',
+    privacyPolicy: 'politique de confidentialité',
+    saveTitle: 'Enregistrer mon plan',
+    saved:
+      'Enregistré sur ce téléphone. Ton plan s’enregistre tout seul au fur et à mesure, et HopeBegins ne peut pas le voir.',
+    saveWhy:
+      'Certains téléphones effacent les données des sites après environ une semaine sans visite. Pour garder tes 4 semaines à l’abri :',
+    homeInstalled:
+      'Tu as ouvert HopeBegins depuis ton écran d’accueil, donc ton plan reste sur ce téléphone.',
+    homeButton: 'Ajouter HopeBegins à mon écran d’accueil',
+    homeIphone:
+      'Ajoute HopeBegins à ton écran d’accueil : touche Partager, puis « Sur l’écran d’accueil ». Ouvre ton plan depuis là.',
+    homeOther:
+      'Ajoute HopeBegins à ton écran d’accueil : ouvre le menu de ton navigateur, puis « Ajouter à l’écran d’accueil ».',
+    backupTitle: 'Télécharger une sauvegarde',
+    backupText:
+      'Un petit fichier avec ton plan et tes progrès. Garde-le pour toi. Si ton plan disparaît ou si tu changes de téléphone, ouvre hopebegins.today/fr/action-plan et choisis « Restaurer depuis une sauvegarde ».',
+    backupButton: 'Télécharger ma sauvegarde',
+    print: 'Imprimer ou enregistrer en PDF',
+    deletePlan: 'Supprimer mon plan de cet appareil',
+    deleteConfirm: 'Supprimer ton plan et tes progrès de cet appareil ?',
+    weekSection: 'Tes 4 semaines',
+    weekSectionDetail:
+      'Fais-le la plupart des jours pendant les 4 prochaines semaines.',
+    todayTitle: 'Aujourd’hui',
+    doneToday: 'Fait aujourd’hui',
+    didToday: 'Fait',
+    startTool: 'Commencer',
+    safetyWrite: 'Écris le tien',
+    safetySaved:
+      'Ce que tu écris ici est enregistré seulement sur ce téléphone.',
+    tickedToday: 'Coché pour aujourd’hui dans tes 4 semaines.',
+    calmerAfter: (calmer: number, total: number) =>
+      `Ça t’a apporté du calme ${calmer} fois sur ${total}.`,
+    todayAfterBreak: 'Ça fait plaisir de te revoir. Commence par aujourd’hui.',
+    seeWeeks: 'Voir tes 4 semaines',
+  },
+  de: {
+    locale: 'de-DE',
+    introTitle: 'Ein hoffnungsvoller Anfang: dein kostenloser Plan',
+    introText:
+      'Beantworte 9 kurze Fragen dazu, wie es dir in letzter Zeit ging. Du bekommst ein paar kleine Schritte, die zu dir passen, und kannst heute anfangen.',
+    nameLabel: 'Wie dürfen wir dich nennen? (optional)',
+    start: 'Meinen Plan starten',
+    introNote:
+      'Etwa 2 Minuten. Kostenlos. Deine Antworten bleiben auf diesem Gerät.',
+    method:
+      'Die Schritte kommen aus der kognitiven Verhaltenstherapie (KVT), einer bewährten Form der Psychotherapie, und aus dem Stress-Ratgeber der Weltgesundheitsorganisation. Das ist keine Diagnose und ersetzt keinen Besuch in einer Arztpraxis oder Beratungsstelle.',
+    restorePrompt:
+      'Schon mal einen Plan gemacht und eine Sicherung gespeichert?',
+    restore: 'Aus einer Sicherung wiederherstellen',
+    restoreError: 'Diese Datei ist keine Sicherung eines HopeBegins-Plans.',
+    questionOf: (n: number, total: number) => `Frage ${n} von ${total}`,
+    progress: 'Fortschritt',
+    previous: 'Zurück',
+    welcomeDay: (name: string, day: number) =>
+      `Schön, dass du wieder da bist${name ? `, ${name}` : ''}. Heute ist Tag ${day} deiner 4 Wochen.`,
+    welcomeBack: (name: string) =>
+      `Schön, dass du wieder da bist${name ? `, ${name}` : ''}.`,
+    checkInDueTitle: (name: string) =>
+      `Dein letzter Check-in ist eine Woche her${name ? `, ${name}` : ''}.`,
+    checkInDueText: 'Mach ihn noch mal, um zu sehen, was sich verändert hat.',
+    doneTitle: (name: string) =>
+      `Du hast 4 Wochen geschafft${name ? `, ${name}` : ''}.`,
+    doneText:
+      'Mach zum Schluss einen letzten Check-in, wähl die Übung, die dir am meisten geholfen hat, und erstelle deine Hoffnungskarte.',
+    finishButton: 'Meine 4 Wochen abschließen',
+    hopeCardTitle: 'Deine Hoffnungskarte',
+    hopeCardText:
+      'Deine Übung, deine Warnzeichen und deine Menschen, für die Tage, die wieder schwer werden.',
+    openCard: 'Meine Hoffnungskarte öffnen',
+    takeAgain: 'Check-in noch mal machen',
+    planTitle: (name: string) =>
+      name
+        ? `Ein hoffnungsvoller Anfang: dein Plan, ${name}`
+        : 'Ein hoffnungsvoller Anfang: dein Plan',
+    madeOn: (date: string) => `Für dich erstellt am ${date}.`,
+    startSafety: 'Fang heute mit deinem Sicherheitsplan an.',
+    startTools:
+      'Wähl 1 oder 2 tägliche Übungen, nimm sie in deine 4 Wochen auf und hak sie jeden Tag ab.',
+    answersShow: 'Was deine Antworten zeigen',
+    notDiagnosis:
+      'Das ist keine Diagnose. Es hilft dir zu entscheiden, wo du anfängst.',
+    changedTitle: 'Was sich verändert hat',
+    lowMood: 'Gedrückte Stimmung',
+    worry: 'Sorgen',
+    scoreNote: 'Niedriger ist besser. Jeder Wert geht bis 6.',
+    better:
+      'Deine Werte sind seit deinem ersten Check-in gesunken. Mach weiter mit dem, was dir hilft.',
+    same: 'Ungefähr wie bei deinem ersten Check-in. Das ist in den ersten Wochen häufig. Bleib dran, und ruf bei einer kostenlosen Telefonberatung an, wenn du nicht weiterkommst.',
+    worse:
+      'Deine Werte sind seit deinem ersten Check-in gestiegen. Bitte sprich diese Woche mit jemandem: bei einer kostenlosen Telefonberatung, in einer Beratungsstelle oder mit einem Menschen, dem du vertraust.',
+    ecoachTitle: 'Möchtest du, dass dich jemand dabei begleitet?',
+    ecoachText:
+      'Bei kostenlosen Telefonen in deinem Land hört dir jemand zu. Und Hope AI ist rund um die Uhr da.',
+    ecoachButton: 'Mit jemandem reden',
+    toolsHint:
+      'Probier jetzt eine aus. Nimm dann 1 oder 2 in deine 4 Wochen auf und wähl eine Uhrzeit.',
+    startHere: 'Fang hier an',
+    tryNow: 'Jetzt ausprobieren',
+    addToWeeks: 'Zu meinen 4 Wochen hinzufügen',
+    inWeeks: 'In meinen 4 Wochen',
+    whenDo: 'Wann machst du sie?',
+    trackerTitle: 'Deine 4 Wochen',
+    trackerIntro:
+      'Hak jeden Tag ab, an dem du sie gemacht hast. Einen Tag verpasst? Mach am nächsten Tag weiter. Verpasste Tage machen deinen Fortschritt nicht zunichte.',
+    trackerHabit:
+      'Gewohnheiten brauchen Wochen. Die meisten Tage reichen völlig.',
+    trackerEmpty:
+      'Wähl oben bei 1 oder 2 Übungen „Zu meinen 4 Wochen hinzufügen“. Dann erscheinen sie hier, und du kannst sie jeden Tag abhaken.',
+    daysDone: (done: number) => `${done} von ${PLAN_DAYS} Tagen`,
+    weekOf: (week: number) => `Woche ${week} von ${WEEKS}`,
+    weeksDone: '4 Wochen geschafft',
+    dayLabel: (date: string, done: boolean) =>
+      `${date}${done ? ', erledigt' : ''}`,
+    remindMe: (time: TimeOfDay) =>
+      `Erinnere mich 4 Wochen lang ${TIME_LABELS.de[time].charAt(0).toLowerCase()}${TIME_LABELS.de[time].slice(1)} um ${reminderClock(time, 'de-DE')} Uhr`,
+    otherCalendar: 'iPhone oder Outlook',
+    checkInTitle: 'Dürfen wir nächste Woche fragen, wie es dir geht?',
+    checkInText: (date: string) =>
+      `Wir schicken dir am ${date} eine einzige E-Mail und fragen, wie es dir geht, mit einem Link zurück zu deinem Plan.`,
+    checkInDone: (date: string) => `Erledigt. Wir schreiben dir am ${date}.`,
+    planSent: (email: string) =>
+      `Dein Plan ist unterwegs an ${email}. Schau im Spam-Ordner nach, falls du ihn nicht siehst.`,
+    firstName: 'Vorname (optional)',
+    email: 'E-Mail',
+    checkInConsent: 'In 7 Tagen nachfragen, wie es mir geht.',
+    checkInConsentText:
+      'HopeBegins nutzt meine E-Mail-Adresse nur für diese eine E-Mail und löscht sie danach.',
+    planConsent: 'Meinen Plan jetzt per E-Mail schicken',
+    planConsentText: ', damit ich ihn auf jedem Gerät habe.',
+    submitBoth: 'Nachfragen und Plan schicken',
+    submitCheckIn: 'Nächste Woche nachfragen',
+    submitPlan: 'Plan per E-Mail schicken',
+    submitNone: 'Wähl oben etwas aus',
+    errorBoth: 'Das hat nicht geklappt.',
+    errorCheckIn: 'Wir konnten die Nachfrage per E-Mail nicht einrichten.',
+    errorPlan: 'Wir konnten deinen Plan nicht schicken.',
+    errorTry: 'Prüf die E-Mail-Adresse und versuch es noch mal',
+    errorPrint: ' oder druck den Plan stattdessen aus',
+    emailPrivacy:
+      'Deine Antworten und dein Fortschritt sind nur auf diesem Gerät gespeichert. Deine E-Mail-Adresse nutzen wir nur für das, was du oben angekreuzt hast. Mehr dazu in unserer',
+    privacyPolicy: 'Datenschutzerklärung',
+    saveTitle: 'Meinen Plan speichern',
+    saved:
+      'Auf diesem Handy gespeichert. Dein Plan speichert sich beim Benutzen von selbst, und HopeBegins kann ihn nicht sehen.',
+    saveWhy:
+      'Manche Handys löschen Website-Daten, wenn du etwa eine Woche nicht vorbeischaust. So bleiben deine 4 Wochen sicher:',
+    homeInstalled:
+      'Du hast HopeBegins über deinen Home-Bildschirm geöffnet, also bleibt dein Plan auf diesem Handy.',
+    homeButton: 'HopeBegins zum Home-Bildschirm hinzufügen',
+    homeIphone:
+      'Füge HopeBegins zu deinem Home-Bildschirm hinzu: Tippe auf Teilen und dann auf „Zum Home-Bildschirm“. Öffne deinen Plan von dort.',
+    homeOther:
+      'Füge HopeBegins zu deinem Startbildschirm hinzu: Öffne das Menü deines Browsers und dann „Zum Startbildschirm hinzufügen“.',
+    backupTitle: 'Eine Sicherung herunterladen',
+    backupText:
+      'Eine kleine Datei mit deinem Plan und deinem Fortschritt. Behalte sie für dich. Wenn dein Plan verschwindet oder du ein neues Handy hast, öffne hopebegins.today/de/action-plan und wähle „Aus einer Sicherung wiederherstellen“.',
+    backupButton: 'Meine Sicherung herunterladen',
+    print: 'Drucken oder als PDF speichern',
+    deletePlan: 'Meinen Plan von diesem Gerät löschen',
+    deleteConfirm:
+      'Deinen Plan und deinen Fortschritt von diesem Gerät löschen?',
+    weekSection: 'Deine 4 Wochen',
+    weekSectionDetail: 'Mach es an den meisten Tagen der nächsten 4 Wochen.',
+    todayTitle: 'Heute',
+    doneToday: 'Heute erledigt',
+    didToday: 'Erledigt',
+    startTool: 'Starten',
+    safetyWrite: 'Schreib deins auf',
+    safetySaved:
+      'Was du hier schreibst, wird nur auf diesem Handy gespeichert.',
+    tickedToday: 'Für heute in deinen 4 Wochen abgehakt.',
+    calmerAfter: (calmer: number, total: number) =>
+      `Danach warst du ${calmer} von ${total} Mal ruhiger.`,
+    todayAfterBreak: 'Schön, dich zu sehen. Fang mit heute an.',
+    seeWeeks: 'Deine 4 Wochen ansehen',
+  },
+  es: {
+    locale: 'es-419',
+    introTitle: 'Un comienzo con esperanza: tu plan gratis',
+    introText:
+      'Responde 9 preguntas rápidas sobre cómo has estado. Recibirás unos pasos pequeños hechos para ti, y puedes empezar hoy.',
+    nameLabel: '¿Cómo quieres que te llamemos? (opcional)',
+    start: 'Empezar mi plan',
+    introNote:
+      'Unos 2 minutos. Gratis. Tus respuestas se quedan en este dispositivo.',
+    method:
+      'Los pasos vienen de la TCC (terapia cognitivo-conductual), una terapia muy usada, y de la guía sobre el estrés de la Organización Mundial de la Salud. No es un diagnóstico y no reemplaza la consulta con un médico o un psicólogo.',
+    restorePrompt: '¿Ya hiciste un plan y guardaste un respaldo?',
+    restore: 'Restaurar desde un respaldo',
+    restoreError: 'Ese archivo no es un respaldo de un plan de HopeBegins.',
+    questionOf: (n: number, total: number) => `Pregunta ${n} de ${total}`,
+    progress: 'Progreso',
+    previous: 'Atrás',
+    welcomeDay: (name: string, day: number) =>
+      `Qué bueno verte de nuevo${name ? `, ${name}` : ''}. Hoy es el día ${day} de tus 4 semanas.`,
+    welcomeBack: (name: string) =>
+      `Qué bueno verte de nuevo${name ? `, ${name}` : ''}.`,
+    checkInDueTitle: (name: string) =>
+      `Ya pasó una semana desde tu último check-in${name ? `, ${name}` : ''}.`,
+    checkInDueText: 'Hazlo de nuevo para ver qué ha cambiado.',
+    doneTitle: (name: string) =>
+      `Completaste 4 semanas${name ? `, ${name}` : ''}.`,
+    doneText:
+      'Termina con un último check-in, elige la herramienta que más te ayudó y haz tu tarjeta de esperanza.',
+    finishButton: 'Terminar mis 4 semanas',
+    hopeCardTitle: 'Tu tarjeta de esperanza',
+    hopeCardText:
+      'Tu herramienta, tus señales de alerta y tus personas, para los días que se vuelvan difíciles otra vez.',
+    openCard: 'Abrir mi tarjeta de esperanza',
+    takeAgain: 'Hacer el check-in otra vez',
+    planTitle: (name: string) =>
+      name
+        ? `Un comienzo con esperanza: el plan de ${name}`
+        : 'Un comienzo con esperanza: tu plan',
+    madeOn: (date: string) => `Hecho para ti el ${date}.`,
+    startSafety: 'Empieza hoy con tu plan de seguridad.',
+    startTools:
+      'Elige 1 o 2 herramientas diarias, agrégalas a tus 4 semanas y márcalas cada día.',
+    answersShow: 'Lo que muestran tus respuestas',
+    notDiagnosis: 'No es un diagnóstico. Te ayuda a elegir por dónde empezar.',
+    changedTitle: 'Lo que ha cambiado',
+    lowMood: 'Ánimo bajo',
+    worry: 'Preocupación',
+    scoreNote: 'Más bajo es mejor. Cada puntaje es sobre 6.',
+    better:
+      'Tus puntajes bajaron desde tu primer check-in. Sigue con lo que te está ayudando.',
+    same: 'Más o menos igual que en tu primer check-in. Es común en las primeras semanas. Sigue adelante, y habla con alguien de una línea de ayuda gratuita si sientes que no avanzas.',
+    worse:
+      'Tus puntajes subieron desde tu primer check-in. Por favor, habla con alguien esta semana: una línea de ayuda gratuita, un psicólogo o una persona de confianza.',
+    ecoachTitle: '¿Quieres que alguien te acompañe en esto?',
+    ecoachText:
+      'Las líneas de ayuda gratuitas de tu país pueden escucharte, y Hope AI está disponible a cualquier hora.',
+    ecoachButton: 'Hablar con alguien',
+    toolsHint:
+      'Prueba una ahora. Luego agrega 1 o 2 a tus 4 semanas y elige una hora.',
+    startHere: 'Empieza aquí',
+    tryNow: 'Probar ahora',
+    addToWeeks: 'Agregar a mis 4 semanas',
+    inWeeks: 'En mis 4 semanas',
+    whenDo: '¿Cuándo la vas a usar?',
+    trackerTitle: 'Tus 4 semanas',
+    trackerIntro:
+      'Marca cada día que la uses. ¿Te saltaste un día? Retómala al día siguiente. Los días que faltan no borran tu avance.',
+    trackerHabit:
+      'Los hábitos tardan semanas en afianzarse. Con la mayoría de los días basta.',
+    trackerEmpty:
+      'Elige “Agregar a mis 4 semanas” en 1 o 2 herramientas de arriba. Aparecerán aquí para que las marques cada día.',
+    daysDone: (done: number) => `${done} de ${PLAN_DAYS} días`,
+    weekOf: (week: number) => `Semana ${week} de ${WEEKS}`,
+    weeksDone: '4 semanas completadas',
+    dayLabel: (date: string, done: boolean) =>
+      `${date}${done ? ', hecho' : ''}`,
+    remindMe: (time: TimeOfDay) =>
+      `Recordarme ${TIME_LABELS.es[time].toLowerCase()} a las ${reminderClock(time, 'es-419')} durante 4 semanas`,
+    otherCalendar: 'iPhone u Outlook',
+    checkInTitle: '¿Podemos preguntarte cómo estás la próxima semana?',
+    checkInText: (date: string) =>
+      `Te enviaremos un solo correo el ${date} para preguntarte cómo estás, con un enlace de vuelta a tu plan.`,
+    checkInDone: (date: string) => `Listo. Te escribiremos el ${date}.`,
+    planSent: (email: string) =>
+      `Tu plan va en camino a ${email}. Revisa tu carpeta de spam si no lo ves.`,
+    firstName: 'Nombre (opcional)',
+    email: 'Correo electrónico',
+    checkInConsent: 'Preguntarme cómo estoy en 7 días.',
+    checkInConsentText:
+      'HopeBegins usará mi correo solo para este mensaje y luego lo borrará.',
+    planConsent: 'Enviarme mi plan por correo ahora',
+    planConsentText: ', para tenerlo en cualquier dispositivo.',
+    submitBoth: 'Preguntarme cómo estoy y enviarme mi plan',
+    submitCheckIn: 'Preguntarme la próxima semana',
+    submitPlan: 'Enviarme mi plan',
+    submitNone: 'Elige una opción arriba',
+    errorBoth: 'No se pudo completar.',
+    errorCheckIn: 'No pudimos programar el correo para preguntarte cómo estás.',
+    errorPlan: 'No pudimos enviar tu plan.',
+    errorTry: 'Revisa el correo y vuelve a intentarlo',
+    errorPrint: ', o mejor imprime el plan',
+    emailPrivacy:
+      'Tus respuestas y tu avance se guardan solo en este dispositivo. Usamos tu correo solo para lo que marcaste arriba. Consulta nuestra',
+    privacyPolicy: 'política de privacidad',
+    saveTitle: 'Guardar mi plan',
+    saved:
+      'Guardado en este celular. Tu plan se guarda solo mientras lo usas, y HopeBegins no puede verlo.',
+    saveWhy:
+      'Algunos celulares borran los datos de los sitios web después de una semana sin visitarlos. Para cuidar tus 4 semanas:',
+    homeInstalled:
+      'Abriste HopeBegins desde tu pantalla de inicio, así que tu plan se queda en este celular.',
+    homeButton: 'Agregar HopeBegins a mi pantalla de inicio',
+    homeIphone:
+      'Agrega HopeBegins a tu pantalla de inicio: toca Compartir y luego “Agregar a inicio”. Abre tu plan desde ahí.',
+    homeOther:
+      'Agrega HopeBegins a tu pantalla de inicio: abre el menú del navegador y luego “Agregar a la pantalla principal”.',
+    backupTitle: 'Descargar un respaldo',
+    backupText:
+      'Un archivo pequeño con tu plan y tu avance. Guárdalo en privado. Si tu plan desaparece o cambias de celular, abre hopebegins.today/es/action-plan y elige “Restaurar desde un respaldo”.',
+    backupButton: 'Descargar mi respaldo',
+    print: 'Imprimir o guardar como PDF',
+    deletePlan: 'Borrar mi plan de este dispositivo',
+    deleteConfirm: '¿Borrar tu plan y tu avance de este dispositivo?',
+    weekSection: 'Tus 4 semanas',
+    weekSectionDetail:
+      'Úsala la mayoría de los días durante las próximas 4 semanas.',
+    todayTitle: 'Hoy',
+    doneToday: 'Hecho hoy',
+    didToday: 'Hecho',
+    startTool: 'Empezar',
+    safetyWrite: 'Escribe lo tuyo',
+    safetySaved: 'Lo que escribas aquí se guarda solo en este celular.',
+    tickedToday: 'Marcado por hoy en tus 4 semanas.',
+    calmerAfter: (calmer: number, total: number) =>
+      `Sentiste más calma después ${calmer} de ${total} ${total === 1 ? 'vez' : 'veces'}.`,
+    todayAfterBreak: 'Qué bueno verte. Empieza con hoy.',
+    seeWeeks: 'Ver tus 4 semanas',
+  },
+  ko: {
+    locale: 'ko-KR',
+    introTitle: '희망의 첫걸음: 나만의 무료 계획',
+    introText:
+      '요즘 어떻게 지냈는지 묻는 짧은 질문 9개에 답해 주세요. 나에게 맞춘 작은 단계 몇 가지를 받고, 오늘부터 시작할 수 있어요.',
+    nameLabel: '뭐라고 불러 드릴까요? (선택)',
+    start: '내 계획 시작하기',
+    introNote: '약 2분. 무료. 답은 이 기기에만 저장돼요.',
+    method:
+      '이 단계들은 널리 쓰이는 상담 치료인 인지행동치료(CBT)와 세계보건기구(WHO)의 스트레스 가이드에서 가져왔어요. 진단이 아니며, 의사나 상담사를 만나는 것을 대신하지 않아요.',
+    restorePrompt: '전에 계획을 만들고 백업을 저장해 두었나요?',
+    restore: '백업에서 복원하기',
+    restoreError: '이 파일은 HopeBegins 계획 백업이 아니에요.',
+    questionOf: (n: number, total: number) => `질문 ${n}/${total}`,
+    progress: '진행 상황',
+    previous: '뒤로',
+    welcomeDay: (name: string, day: number) =>
+      `${name ? `${name}님, ` : ''}다시 와 줘서 반가워요. 오늘은 4주 중 ${day}일째예요.`,
+    welcomeBack: (name: string) =>
+      `${name ? `${name}님, ` : ''}다시 와 줘서 반가워요.`,
+    checkInDueTitle: (name: string) =>
+      `${name ? `${name}님, ` : ''}마지막 체크인 후 일주일이 지났어요.`,
+    checkInDueText: '다시 해 보고 무엇이 달라졌는지 확인해 보세요.',
+    doneTitle: (name: string) => `${name ? `${name}님, ` : ''}4주를 해냈어요.`,
+    doneText:
+      '마지막 체크인을 하고, 가장 도움이 된 도구를 고르고, 희망 카드를 만들어 보세요.',
+    finishButton: '4주 마무리하기',
+    hopeCardTitle: '내 희망 카드',
+    hopeCardText:
+      '다시 힘들어지는 날을 위한 내 도구, 경고 신호, 그리고 내 사람들이에요.',
+    openCard: '내 희망 카드 열기',
+    takeAgain: '체크인 다시 하기',
+    planTitle: (name: string) =>
+      name ? `희망의 첫걸음: ${name}님의 계획` : '희망의 첫걸음: 나만의 계획',
+    madeOn: (date: string) => `${date}에 만든 나만의 계획이에요.`,
+    startSafety: '오늘은 안전 계획부터 시작해요.',
+    startTools: '매일 쓸 도구를 한두 개 골라 4주 계획에 넣고, 매일 체크해요.',
+    answersShow: '답에서 보이는 것',
+    notDiagnosis: '진단이 아니에요. 어디서부터 시작할지 고르는 데 도움이 돼요.',
+    changedTitle: '달라진 점',
+    lowMood: '가라앉은 기분',
+    worry: '걱정',
+    scoreNote: '낮을수록 좋아요. 각 점수는 6점 만점이에요.',
+    better: '첫 체크인 이후 점수가 내려갔어요. 도움이 되는 것을 계속해요.',
+    same: '첫 체크인과 거의 비슷해요. 처음 몇 주에는 흔한 일이에요. 계속해 보고, 막힌 느낌이 들면 무료 상담 전화로 이야기해 보세요.',
+    worse:
+      '첫 체크인 이후 점수가 올라갔어요. 이번 주에 꼭 누군가와 이야기해 주세요. 무료 상담 전화, 상담사, 믿을 수 있는 사람 모두 좋아요.',
+    ecoachTitle: '누군가 곁에 있어 주면 좋겠나요?',
+    ecoachText:
+      '내가 있는 나라의 무료 상담 전화에서 이야기를 들어 줄 수 있어요. Hope AI와도 언제든 대화할 수 있어요.',
+    ecoachButton: '누군가와 이야기하기',
+    toolsHint:
+      '지금 하나를 해 보세요. 그다음 한두 개를 4주 계획에 넣고 시간을 정해요.',
+    startHere: '여기서 시작',
+    tryNow: '지금 해 보기',
+    addToWeeks: '4주 계획에 넣기',
+    inWeeks: '4주 계획에 있어요',
+    whenDo: '언제 할까요?',
+    trackerTitle: '나의 4주',
+    trackerIntro:
+      '한 날마다 체크하세요. 하루를 놓쳤나요? 다음 날 다시 하면 돼요. 놓친 날이 있어도 그동안 해 온 것은 사라지지 않아요.',
+    trackerHabit:
+      '습관이 자리 잡으려면 몇 주가 걸려요. 대부분의 날에 하면 충분해요.',
+    trackerEmpty:
+      '위에서 도구 한두 개에 ‘4주 계획에 넣기’를 눌러 보세요. 여기에 나타나서 매일 체크할 수 있어요.',
+    daysDone: (done: number) => `${PLAN_DAYS}일 중 ${done}일`,
+    weekOf: (week: number) => `${WEEKS}주 중 ${week}주째`,
+    weeksDone: '4주 완료',
+    dayLabel: (date: string, done: boolean) => `${date}${done ? ', 완료' : ''}`,
+    remindMe: (time: TimeOfDay) =>
+      `4주 동안 매일 ${reminderClock(time, 'ko-KR-u-hc-h23')}에 알림 받기`,
+    otherCalendar: 'iPhone 또는 Outlook',
+    checkInTitle: '다음 주에 안부를 물어봐도 될까요?',
+    checkInText: (date: string) =>
+      `${date}에 잘 지내는지 묻는 이메일을 한 번만 보낼게요. 계획으로 돌아오는 링크도 함께 넣을게요.`,
+    checkInDone: (date: string) => `좋아요. ${date}에 이메일을 보낼게요.`,
+    planSent: (email: string) =>
+      `계획을 이 주소로 보내고 있어요: ${email}. 보이지 않으면 스팸함을 확인해 보세요.`,
+    firstName: '이름 (선택)',
+    email: '이메일',
+    checkInConsent: '7일 뒤에 안부를 물어봐 주세요.',
+    checkInConsentText:
+      'HopeBegins는 이 이메일 한 통을 보낼 때만 내 이메일 주소를 쓰고, 그다음 지워요.',
+    planConsent: '지금 내 계획을 이메일로 받기',
+    planConsentText: ': 어느 기기에서나 볼 수 있어요.',
+    submitBoth: '안부 이메일과 계획 받기',
+    submitCheckIn: '다음 주에 안부 이메일 받기',
+    submitPlan: '계획을 이메일로 받기',
+    submitNone: '위에서 하나를 골라 주세요',
+    errorBoth: '전송되지 않았어요.',
+    errorCheckIn: '안부 이메일을 예약하지 못했어요.',
+    errorPlan: '계획을 보내지 못했어요.',
+    errorTry: '이메일 주소를 확인하고 다시 시도해 주세요',
+    errorPrint: '. 아니면 계획을 인쇄해 두세요',
+    emailPrivacy:
+      '답과 진행 상황은 이 기기에만 저장돼요. 이메일 주소는 위에서 체크한 용도로만 써요. 자세한 내용은',
+    privacyPolicy: '개인정보 처리방침에서 확인하세요',
+    saveTitle: '내 계획 저장하기',
+    saved:
+      '이 휴대폰에 저장됐어요. 계획은 쓰는 동안 자동으로 저장되고, HopeBegins는 볼 수 없어요.',
+    saveWhy:
+      '어떤 휴대폰은 일주일쯤 방문하지 않으면 웹사이트 데이터를 지워요. 4주 기록을 안전하게 지키려면:',
+    homeInstalled:
+      '홈 화면에서 HopeBegins를 열었으니, 계획이 이 휴대폰에 그대로 남아 있어요.',
+    homeButton: 'HopeBegins를 홈 화면에 추가하기',
+    homeIphone:
+      'HopeBegins를 홈 화면에 추가하세요. 공유를 누른 다음 ‘홈 화면에 추가’를 누르고, 거기서 계획을 열면 돼요.',
+    homeOther:
+      'HopeBegins를 홈 화면에 추가하세요. 브라우저 메뉴를 열고 ‘홈 화면에 추가’를 누르면 돼요.',
+    backupTitle: '백업 다운로드하기',
+    backupText:
+      '계획과 진행 상황이 담긴 작은 파일이에요. 다른 사람과 공유하지 마세요. 계획이 사라지거나 휴대폰을 바꾸면 hopebegins.today/ko/action-plan을 열고 ‘백업에서 복원하기’를 고르세요.',
+    backupButton: '내 백업 다운로드하기',
+    print: '인쇄하거나 PDF로 저장하기',
+    deletePlan: '이 기기에서 내 계획 삭제하기',
+    deleteConfirm: '이 기기에서 계획과 진행 상황을 삭제할까요?',
+    weekSection: '나의 4주',
+    weekSectionDetail: '앞으로 4주 동안 거의 매일 해 보세요.',
+    todayTitle: '오늘',
+    doneToday: '오늘 했어요',
+    didToday: '완료',
+    startTool: '시작하기',
+    safetyWrite: '내 답 적기',
+    safetySaved: '여기에 적은 내용은 이 휴대폰에만 저장돼요.',
+    tickedToday: '4주 기록에 오늘을 체크했어요.',
+    calmerAfter: (calmer: number, total: number) =>
+      `${total}번 중 ${calmer}번은 하고 나서 더 차분해졌어요.`,
+    todayAfterBreak: '다시 만나서 반가워요. 오늘부터 시작해요.',
+    seeWeeks: '나의 4주 보기',
   },
 };
 
@@ -1909,14 +2457,19 @@ export default function ActionPlan({
               .filter((section) => section.id === 'week')
               .map(renderSection)}
 
-            <CheckInCard
-              key={saved.startedAt}
-              saved={saved}
-              plan={plan}
-              weekSentences={weekSentences}
-              lang={lang}
-              t={t}
-            />
+            {/* The plan and check-in emails are written in English and
+                Taglish only, with the Philippines' crisis lines, so the
+                other languages skip them until the emails speak theirs. */}
+            {!isIntlLang(lang) && (
+              <CheckInCard
+                key={saved.startedAt}
+                saved={saved}
+                plan={plan}
+                weekSentences={weekSentences}
+                lang={lang}
+                t={t}
+              />
+            )}
 
             <SavePlanCard saved={saved} t={t} />
 

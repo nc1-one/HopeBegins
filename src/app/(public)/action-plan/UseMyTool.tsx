@@ -30,6 +30,30 @@ const copy = {
     hideHow: 'Itago ang mga hakbang',
     ticked: 'Na-tick na para ngayong araw.',
   },
+  fr: {
+    useNow: 'Utiliser mon outil maintenant',
+    showHow: 'Montre-moi comment',
+    hideHow: 'Masquer les étapes',
+    ticked: 'Coché pour aujourd’hui dans tes 4 semaines.',
+  },
+  de: {
+    useNow: 'Meine Übung jetzt machen',
+    showHow: 'Zeig mir, wie es geht',
+    hideHow: 'Schritte ausblenden',
+    ticked: 'Für heute in deinen 4 Wochen abgehakt.',
+  },
+  es: {
+    useNow: 'Usar mi herramienta ahora',
+    showHow: 'Muéstrame cómo',
+    hideHow: 'Ocultar los pasos',
+    ticked: 'Marcado por hoy en tus 4 semanas.',
+  },
+  ko: {
+    useNow: '지금 내 도구 쓰기',
+    showHow: '방법 보기',
+    hideHow: '단계 숨기기',
+    ticked: '4주 기록에 오늘을 체크했어요.',
+  },
 };
 
 export const toolButtonClass =

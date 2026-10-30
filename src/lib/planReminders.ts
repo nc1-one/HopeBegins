@@ -1,5 +1,6 @@
 import type { PlanItem, PlanLang, TimeOfDay } from './actionPlan';
 import { downloadFile } from './download';
+import { isIntlLang, withLocale, type PerLang } from './i18n';
 import { pathIn } from './taglishTwins';
 
 /**
@@ -16,9 +17,59 @@ const REMINDER_TIME: Record<TimeOfDay, [hour: number, minute: number]> = {
 };
 export const REMINDER_DAYS = 28;
 const EVENT_MINUTES = 15;
-/** The plan's address in the visitor's language. */
+/** The plan's address in the visitor's language: /fr/action-plan in French. */
 const planUrl = (lang: PlanLang) =>
-  `https://hopebegins.today${pathIn('/action-plan', lang)}`;
+  `https://hopebegins.today${isIntlLang(lang) ? withLocale(lang, '/action-plan') : pathIn('/action-plan', lang)}`;
+
+/** The words in the calendar event, in the plan's language. */
+const copy: PerLang<{
+  title: (tool: string) => string;
+  planLink: (url: string) => string;
+  monthlyTitle: string;
+  monthlyDetails: (url: string) => string;
+}> = {
+  en: {
+    title: (tool) => `HopeBegins: ${tool}`,
+    planLink: (url) => `Your plan: ${url}`,
+    monthlyTitle: 'HopeBegins: 1-minute check-in',
+    monthlyDetails: (url) =>
+      `Open your plan and take the 1-minute check-in: ${url}`,
+  },
+  tl: {
+    title: (tool) => `HopeBegins: ${tool}`,
+    planLink: (url) => `Ang plano mo: ${url}`,
+    monthlyTitle: 'HopeBegins: 1-minute check-in',
+    monthlyDetails: (url) =>
+      `Buksan ang plano mo at sagutan ang 1-minute check-in: ${url}`,
+  },
+  fr: {
+    title: (tool) => `HopeBegins : ${tool}`,
+    planLink: (url) => `Ton plan : ${url}`,
+    monthlyTitle: 'HopeBegins : bilan d’une minute',
+    monthlyDetails: (url) =>
+      `Ouvre ton plan et fais ton bilan d’une minute : ${url}`,
+  },
+  de: {
+    title: (tool) => `HopeBegins: ${tool}`,
+    planLink: (url) => `Dein Plan: ${url}`,
+    monthlyTitle: 'HopeBegins: 1-Minuten-Check-in',
+    monthlyDetails: (url) =>
+      `Öffne deinen Plan und mach den 1-Minuten-Check-in: ${url}`,
+  },
+  es: {
+    title: (tool) => `HopeBegins: ${tool}`,
+    planLink: (url) => `Tu plan: ${url}`,
+    monthlyTitle: 'HopeBegins: check-in de 1 minuto',
+    monthlyDetails: (url) =>
+      `Abre tu plan y haz el check-in de 1 minuto: ${url}`,
+  },
+  ko: {
+    title: (tool) => `HopeBegins: ${tool}`,
+    planLink: (url) => `내 계획: ${url}`,
+    monthlyTitle: 'HopeBegins: 1분 체크인',
+    monthlyDetails: (url) => `계획을 열고 1분 체크인을 해 보세요: ${url}`,
+  },
+};
 
 const pad = (n: number) => String(n).padStart(2, '0');
 
@@ -29,9 +80,10 @@ const localStamp = (d: Date) =>
 const utcStamp = (d: Date) =>
   `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}${pad(d.getUTCSeconds())}Z`;
 
-export function reminderClock(time: TimeOfDay) {
+/** "7:30 AM", or the clock as written in `locale`. */
+export function reminderClock(time: TimeOfDay, locale = 'en-US') {
   const [hour, minute] = REMINDER_TIME[time];
-  return new Date(2000, 0, 1, hour, minute).toLocaleTimeString('en-US', {
+  return new Date(2000, 0, 1, hour, minute).toLocaleTimeString(locale, {
     hour: 'numeric',
     minute: '2-digit',
   });
@@ -121,13 +173,13 @@ const toolEvent = (
   const url = `${planUrl(lang)}?tool=${item.id}`;
   return {
     id: item.id,
-    title: `HopeBegins: ${item.title}`,
+    title: copy[lang].title(item.title),
     url,
     details: [
       item.detail,
       ...(item.steps ?? []).map((step, i) => `${i + 1}. ${step}`),
       '',
-      `${lang === 'tl' ? 'Ang plano mo' : 'Your plan'}: ${url}`,
+      copy[lang].planLink(url),
     ].join('\n'),
     start: firstReminder(time, now),
     minutes: EVENT_MINUTES,
@@ -178,12 +230,9 @@ function monthlyEvent(lang: PlanLang, now: Date): CalendarEvent {
   start.setHours(19, 0, 0, 0);
   return {
     id: 'monthly-check-in',
-    title: 'HopeBegins: 1-minute check-in',
+    title: copy[lang].monthlyTitle,
     url: planUrl(lang),
-    details:
-      lang === 'tl'
-        ? `Buksan ang plano mo at sagutan ang 1-minute check-in: ${planUrl(lang)}`
-        : `Open your plan and take the 1-minute check-in: ${planUrl(lang)}`,
+    details: copy[lang].monthlyDetails(planUrl(lang)),
     start,
     minutes: 5,
     rrule: `FREQ=MONTHLY;COUNT=${MONTHLY_REMINDERS}`,

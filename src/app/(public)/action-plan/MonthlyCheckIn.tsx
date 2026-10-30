@@ -107,6 +107,169 @@ const copy = {
     fullCheckIn: 'Sagutan ang buong check-in at gumawa ng safety plan',
     toPlan: 'Bumalik sa plano ko',
   },
+  fr: {
+    title: 'Bilan d’une minute',
+    questionOf: (n: number, total: number) => `Question ${n} sur ${total}`,
+    previous: 'Précédent',
+    warningPrompt:
+      'As-tu remarqué tes signaux d’alerte ces 2 dernières semaines ?',
+    yourSigns: 'Les tiens :',
+    warningOptions: {
+      no: 'Pas du tout',
+      little: 'Un peu',
+      often: 'Oui, souvent',
+    },
+    scores: (mood: number, worry: number) =>
+      `Moral bas ${mood} sur 6 · Inquiétude ${worry} sur 6`,
+    lastTime: (mood: number, worry: number) =>
+      `La dernière fois : moral bas ${mood}, inquiétude ${worry}.`,
+    results: {
+      steady: {
+        title: 'Tu tiens bon.',
+        text: 'Garde ton outil pour les jours où tu en as besoin. On refera le point le mois prochain.',
+      },
+      watch: {
+        title: 'Quelques signes apparaissent.',
+        text: 'C’est le moment de reprendre ton outil, avant que ça devienne plus lourd. Essaie-le chaque jour cette semaine.',
+      },
+      returning: {
+        title: 'On dirait que ça revient.',
+        text: 'Tu as déjà traversé ça, et tu sais ce qui a marché pour toi. Repars pour 4 semaines avec ton outil, parles-en à l’une de tes deux personnes et appelle une ligne d’écoute gratuite cette semaine. Si tes scores restent élevés, va voir un psy.',
+      },
+      safety: {
+        title: 'Parle à quelqu’un maintenant.',
+        text: 'Tu as dit avoir pensé à mettre fin à ta vie ou à te faire du mal. Appelle une ligne de crise maintenant, s’il te plaît. C’est gratuit, et quelqu’un répond jour et nuit.',
+      },
+    },
+    ecoach: 'Parler à quelqu’un',
+    openCard: 'Ouvrir ma carte d’espoir',
+    yourTool: 'Ton outil',
+    restart: 'Repartir pour 4 semaines',
+    fullCheckIn: 'Faire le bilan complet et un plan de sécurité',
+    toPlan: 'Retour à mon plan',
+  },
+  de: {
+    title: '1-Minuten-Check-in',
+    questionOf: (n: number, total: number) => `Frage ${n} von ${total}`,
+    previous: 'Zurück',
+    warningPrompt: 'Hast du in den letzten 2 Wochen deine Warnzeichen bemerkt?',
+    yourSigns: 'Deine:',
+    warningOptions: {
+      no: 'Gar nicht',
+      little: 'Ein bisschen',
+      often: 'Ja, oft',
+    },
+    scores: (mood: number, worry: number) =>
+      `Gedrückte Stimmung ${mood} von 6 · Sorgen ${worry} von 6`,
+    lastTime: (mood: number, worry: number) =>
+      `Letztes Mal: gedrückte Stimmung ${mood}, Sorgen ${worry}.`,
+    results: {
+      steady: {
+        title: 'Es geht dir stabil.',
+        text: 'Behalte deine Übung für die Tage, an denen du sie brauchst. Nächsten Monat schauen wir wieder, wie es dir geht.',
+      },
+      watch: {
+        title: 'Ein paar Anzeichen zeigen sich.',
+        text: 'Jetzt ist die Zeit, deine Übung wieder zu machen, bevor es schwerer wird. Mach sie diese Woche jeden Tag.',
+      },
+      returning: {
+        title: 'Es sieht so aus, als käme es zurück.',
+        text: 'Du hast das schon einmal geschafft, und du weißt, was geholfen hat. Starte noch einmal 4 Wochen mit deiner Übung, erzähl einem deiner beiden Menschen davon und ruf diese Woche bei einer kostenlosen Telefonberatung an. Wenn deine Werte hoch bleiben, hol dir psychologische Hilfe.',
+      },
+      safety: {
+        title: 'Bitte sprich jetzt mit jemandem.',
+        text: 'Du hast gesagt, dass du daran gedacht hast, dir das Leben zu nehmen oder dich zu verletzen. Bitte ruf jetzt ein Krisentelefon an. Es ist kostenlos, und Tag und Nacht geht jemand ran.',
+      },
+    },
+    ecoach: 'Mit jemandem reden',
+    openCard: 'Meine Hoffnungskarte öffnen',
+    yourTool: 'Deine Übung',
+    restart: 'Noch einmal 4 Wochen starten',
+    fullCheckIn:
+      'Den ganzen Check-in machen und einen Sicherheitsplan erstellen',
+    toPlan: 'Zurück zu meinem Plan',
+  },
+  es: {
+    title: 'Check-in de 1 minuto',
+    questionOf: (n: number, total: number) => `Pregunta ${n} de ${total}`,
+    previous: 'Anterior',
+    warningPrompt:
+      '¿Has notado tus señales de alerta en las últimas 2 semanas?',
+    yourSigns: 'Las tuyas:',
+    warningOptions: {
+      no: 'Para nada',
+      little: 'Un poco',
+      often: 'Sí, a menudo',
+    },
+    scores: (mood: number, worry: number) =>
+      `Ánimo bajo ${mood} de 6 · Preocupación ${worry} de 6`,
+    lastTime: (mood: number, worry: number) =>
+      `La vez anterior: ánimo bajo ${mood}, preocupación ${worry}.`,
+    results: {
+      steady: {
+        title: 'Te mantienes estable.',
+        text: 'Guarda tu herramienta para los días en que la necesites. Volveremos a preguntarte el próximo mes.',
+      },
+      watch: {
+        title: 'Aparecen algunas señales.',
+        text: 'Es momento de volver a usar tu herramienta, antes de que se ponga más pesado. Úsala todos los días esta semana.',
+      },
+      returning: {
+        title: 'Parece que está regresando.',
+        text: 'Ya has salido de esto antes y sabes qué te ayudó. Empieza otras 4 semanas con tu herramienta, cuéntale a una de tus dos personas y habla esta semana con alguien de una línea de ayuda gratuita. Si tus puntajes siguen altos, busca a un psicólogo.',
+      },
+      safety: {
+        title: 'Por favor, habla con alguien ahora.',
+        text: 'Dijiste que has pensado en quitarte la vida o en hacerte daño. Por favor, llama ahora a una línea de crisis. Es gratis y contestan de día y de noche.',
+      },
+    },
+    ecoach: 'Hablar con alguien',
+    openCard: 'Abrir mi tarjeta de esperanza',
+    yourTool: 'Tu herramienta',
+    restart: 'Empezar otras 4 semanas',
+    fullCheckIn: 'Hacer el check-in completo y un plan de seguridad',
+    toPlan: 'Volver a mi plan',
+  },
+  ko: {
+    title: '1분 체크인',
+    questionOf: (n: number, total: number) => `질문 ${n}/${total}`,
+    previous: '이전',
+    warningPrompt: '지난 2주 동안 내 경고 신호를 알아차린 적이 있나요?',
+    yourSigns: '내 경고 신호:',
+    warningOptions: {
+      no: '전혀 없었어요',
+      little: '조금 있었어요',
+      often: '네, 자주 있었어요',
+    },
+    scores: (mood: number, worry: number) =>
+      `가라앉은 기분 ${mood}/6 · 걱정 ${worry}/6`,
+    lastTime: (mood: number, worry: number) =>
+      `지난번: 가라앉은 기분 ${mood}, 걱정 ${worry}.`,
+    results: {
+      steady: {
+        title: '잘 버티고 있어요.',
+        text: '필요한 날을 위해 내 도구를 계속 챙겨 두세요. 다음 달에 다시 확인해요.',
+      },
+      watch: {
+        title: '몇 가지 신호가 보여요.',
+        text: '더 무거워지기 전에 내 도구를 다시 쓸 때예요. 이번 주에는 매일 해 보세요.',
+      },
+      returning: {
+        title: '다시 시작되는 것 같아요.',
+        text: '전에도 이겨 낸 적이 있고, 무엇이 도움이 됐는지도 알고 있어요. 내 도구로 4주를 다시 시작하고, 정해 둔 두 사람 중 한 명에게 이야기하고, 이번 주에 무료 상담 전화로 이야기해 보세요. 점수가 계속 높으면 상담사를 만나 보세요.',
+      },
+      safety: {
+        title: '지금 누군가와 이야기해 주세요.',
+        text: '스스로 목숨을 끊거나 자신을 해치는 생각을 했다고 답했어요. 지금 위기 상담 전화에 연락해 주세요. 무료이고, 밤낮으로 전화를 받아요.',
+      },
+    },
+    ecoach: '누군가와 이야기하기',
+    openCard: '내 희망 카드 열기',
+    yourTool: '내 도구',
+    restart: '4주 다시 시작하기',
+    fullCheckIn: '전체 체크인을 하고 안전 계획 세우기',
+    toPlan: '내 계획으로 돌아가기',
+  },
 };
 
 const MOOD_KEYS: QuestionKey[] = ['down', 'interest', 'nervous', 'worry'];
