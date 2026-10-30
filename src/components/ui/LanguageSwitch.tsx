@@ -3,8 +3,9 @@
 import Link from 'next/link';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { setLanguage, useLanguage } from '@/lib/languagePreference';
+import { isIntlLang } from '@/lib/i18n';
 
-const languages: { value: FeelingLang; label: string }[] = [
+const languages: { value: 'en' | 'tl'; label: string }[] = [
   { value: 'en', label: 'English' },
   { value: 'tl', label: 'Taglish' },
 ];
@@ -21,11 +22,13 @@ export function LanguageSwitch({
   links,
   current,
 }: {
-  links?: Record<FeelingLang, string>;
+  links?: Record<'en' | 'tl', string>;
   current?: FeelingLang;
 } = {}) {
   const preferred = useLanguage();
   const lang = current ?? preferred;
+  // French, German, Spanish and Korean pages use the globe in the header.
+  if (isIntlLang(lang)) return null;
   return (
     <div
       role="group"
