@@ -123,7 +123,7 @@ export const guides: Guide[] = [
         safety: true,
         paragraphs: [
           'Ask them directly: "Are you thinking of ending your life?" Asking does not put the idea in their head. It shows you are ready to listen.',
-          'Stay with them, or make sure someone is with them. Call the NCMH Crisis Hotline together: 1553, open 24/7. If they are in immediate danger, call 911.',
+          'Stay with them, or make sure someone is with them. Call the crisis line in your country together: in the Philippines, the NCMH Crisis Hotline, 1553, open 24/7. If they are in immediate danger, call your emergency number (911 in the Philippines).',
         ],
       },
       {
@@ -137,7 +137,7 @@ export const guides: Guide[] = [
     faq: [
       {
         q: 'Should I ask my friend if they are thinking about suicide?',
-        a: 'Yes. Asking directly and calmly does not put the idea in their head, and talking can be a relief for them. If they say yes, stay with them and call the NCMH Crisis Hotline on 1553.',
+        a: 'Yes. Asking directly and calmly does not put the idea in their head, and talking can be a relief for them. If they say yes, stay with them and call the crisis line in your country together (in the Philippines, the NCMH Crisis Hotline on 1553).',
       },
     ],
     related: ['i-feel-depressed', 'i-feel-alone'],
@@ -574,7 +574,7 @@ export const guides: Guide[] = [
         title: 'If the heaviness stays',
         safety: true,
         paragraphs: [
-          'If you have felt low most days for two weeks or more, it may be depression, and it can be treated. Talk to a doctor or counselor, or start with an e-coach. If you are thinking about ending your life, call the NCMH Crisis Hotline on 1553, open 24/7.',
+          'If you have felt low most days for two weeks or more, it may be depression, and it can be treated. Talk to a doctor or counselor, or start with an e-coach. If you are thinking about ending your life, call the crisis line in your country now: in the Philippines, the NCMH Crisis Hotline on 1553, open 24/7.',
         ],
       },
     ],
@@ -585,7 +585,7 @@ export const guides: Guide[] = [
       },
       {
         q: 'What does the Bible say when you feel hopeless?',
-        a: 'Psalm 42 speaks to a soul in despair and answers, "Hope in God!" Lamentations 3:22-23 says the Lord\'s mercies are new every morning. Feeling hopeless for weeks can also be a sign of depression, so talk to someone, and if you are thinking of ending your life, call the NCMH Crisis Hotline on 1553.',
+        a: 'Psalm 42 speaks to a soul in despair and answers, "Hope in God!" Lamentations 3:22-23 says the Lord\'s mercies are new every morning. Feeling hopeless for weeks can also be a sign of depression, so talk to someone, and if you are thinking of ending your life, call the crisis line in your country (in the Philippines, the NCMH Crisis Hotline on 1553).',
       },
     ],
     related: ['i-feel-depressed', 'bible-verses-for-anxiety'],

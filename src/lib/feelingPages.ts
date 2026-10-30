@@ -313,11 +313,11 @@ export const feelingPages: FeelingPage[] = [
     faq: [
       {
         q: 'Where can I talk to someone for free?',
-        a: 'You can message an e-coach from Himala Everyday on Messenger, for free. In a crisis, call the NCMH Crisis Hotline on 1553, open 24/7.',
+        a: 'You can message an e-coach from Himala Everyday on Messenger, for free. In a crisis, call the crisis line in your country now: in the Philippines, the NCMH Crisis Hotline on 1553, open 24/7.',
       },
       {
         q: 'What can I do when it feels like nobody cares about me?',
-        a: 'Send one short message to someone, even "Can we talk this week?" If no one comes to mind right now, an e-coach on Messenger can listen, free. If you are thinking of ending your life, call the NCMH Crisis Hotline on 1553, open 24/7.',
+        a: 'Send one short message to someone, even "Can we talk this week?" If no one comes to mind right now, an e-coach on Messenger can listen, free. If you are thinking of ending your life, call the crisis line in your country now: in the Philippines, the NCMH Crisis Hotline on 1553, open 24/7.',
       },
     ],
     related: ['free-mental-health-help-philippines'],
@@ -587,7 +587,7 @@ export const feelingPages: FeelingPage[] = [
         'feeling hopeless about the future',
         'thoughts of death or of ending your life',
       ],
-      note: "Depression is common and it can be treated. A doctor, psychologist or counselor can help you work out what you need. If you're not sure where to start, call the NCMH Crisis Hotline (1553), open 24/7.",
+      note: "Depression is common and it can be treated. A doctor, psychologist or counselor can help you work out what you need. If you're not sure where to start, a free helpline in your country can point you to help: in the Philippines, the NCMH Crisis Hotline (1553), open 24/7.",
     },
     tip: {
       title: 'Why one small thing helps',
@@ -620,7 +620,7 @@ export const feelingPages: FeelingPage[] = [
       },
       {
         q: 'What should I do if I feel depressed and alone?',
-        a: 'Tell one person today, even in a short message. If no one comes to mind, message an e-coach on Messenger, free. If you are thinking of ending your life, call the NCMH Crisis Hotline on 1553, open 24/7.',
+        a: 'Tell one person today, even in a short message. If no one comes to mind, message an e-coach on Messenger, free. If you are thinking of ending your life, call the crisis line in your country now: in the Philippines, the NCMH Crisis Hotline on 1553, open 24/7.',
       },
     ],
     firstStep: 'ecoach',
@@ -646,7 +646,7 @@ export const feelingPages: FeelingPage[] = [
     intro:
       "A panic attack is frightening, but it passes, usually within 5 to 20 minutes. Let's breathe now: in for 4, out for 6.",
     medicalNote:
-      "If this is your first time, or you have chest pain that spreads to your arm or jaw, or trouble breathing that isn't easing, call 911 or go to the nearest emergency room.",
+      "If this is your first time, or you have chest pain that spreads to your arm or jaw, or trouble breathing that isn't easing, call your emergency number (911 in the Philippines) or go to the nearest emergency room.",
     toolsHeading: 'Breathe with us now',
     tools: ['breathe', 'ground'],
     explain: {
