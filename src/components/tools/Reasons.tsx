@@ -59,6 +59,74 @@ const copy = {
     doneText:
       'Basahin ang mga ito sa mabibigat na araw. Puwede kang magdagdag kahit kailan.',
   },
+  fr: {
+    label: 'Mes raisons de continuer',
+    intro:
+      'Note les personnes, les projets et les petites choses qui comptent pour toi. Relis-les les jours difficiles.',
+    example:
+      'Par exemple : ma petite sœur, finir mes études, mon chien, la mer.',
+    addLabel: 'Une raison',
+    add: 'Ajouter',
+    listTitle: 'Mes raisons',
+    remove: (reason: string) => `Retirer « ${reason} »`,
+    saved:
+      'Enregistrées seulement sur ce téléphone. Elles apparaissent aussi sur ta Hope Card.',
+    done: 'Terminé',
+    close: 'Fermer',
+    doneTitle: 'Tes raisons sont enregistrées.',
+    doneText:
+      'Relis-les les jours difficiles. Tu peux en ajouter d’autres quand tu veux.',
+  },
+  de: {
+    label: 'Meine Gründe weiterzumachen',
+    intro:
+      'Schreib die Menschen, Pläne und kleinen Dinge auf, die dir wichtig sind. Lies sie an schweren Tagen.',
+    example:
+      'Zum Beispiel: meine kleine Schwester, mein Schulabschluss, mein Hund, das Meer.',
+    addLabel: 'Ein Grund',
+    add: 'Hinzufügen',
+    listTitle: 'Meine Gründe',
+    remove: (reason: string) => `„${reason}“ entfernen`,
+    saved:
+      'Nur auf diesem Handy gespeichert. Sie erscheinen auch auf deiner Hope Card.',
+    done: 'Fertig',
+    close: 'Schließen',
+    doneTitle: 'Deine Gründe sind gespeichert.',
+    doneText:
+      'Lies sie an schweren Tagen. Du kannst jederzeit weitere hinzufügen.',
+  },
+  es: {
+    label: 'Mis razones para seguir',
+    intro:
+      'Escribe qué personas, planes y pequeñas cosas te importan. Lee tu lista en los días difíciles.',
+    example:
+      'Por ejemplo: mi hermanita, terminar mis estudios, mi perro, el mar.',
+    addLabel: 'Una razón',
+    add: 'Agregar',
+    listTitle: 'Mis razones',
+    remove: (reason: string) => `Quitar “${reason}”`,
+    saved: 'Se guardan solo en este celular. También aparecen en tu Hope Card.',
+    done: 'Listo',
+    close: 'Cerrar',
+    doneTitle: 'Tus razones quedaron guardadas.',
+    doneText:
+      'Léelas en los días difíciles. Puedes agregar más cuando quieras.',
+  },
+  ko: {
+    label: '내가 계속 나아갈 이유',
+    intro:
+      '나에게 소중한 사람, 계획, 작은 것들을 적어 두고 힘든 날 꺼내 읽어 보세요.',
+    example: '예: 내 동생, 졸업하기, 우리 강아지, 바다.',
+    addLabel: '이유 하나',
+    add: '추가',
+    listTitle: '나의 이유',
+    remove: (reason: string) => `“${reason}” 삭제`,
+    saved: '이 휴대폰에만 저장돼요. Hope Card에도 보여요.',
+    done: '완료',
+    close: '닫기',
+    doneTitle: '이유를 저장했어요',
+    doneText: '힘든 날 읽어 보세요. 언제든 더 추가할 수 있어요.',
+  },
 };
 
 export function Reasons({

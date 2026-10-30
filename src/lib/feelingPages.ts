@@ -967,6 +967,89 @@ export const feelingUi = {
     sources: 'Sources:',
     faqHeading: 'Common questions',
   },
+  // French, German, Spanish and Korean have no e-coach: their e-coach links
+  // go to the help page, so these lines offer someone to talk to at a free
+  // helpline. switchLabel is not shown on their pages.
+  fr: {
+    htmlLang: 'fr',
+    switchLabel: 'Lire en anglais',
+    talkNow: 'Parler à quelqu’un maintenant',
+    hopeAi: 'Parler à Hope AI',
+    nextHeading: 'Et maintenant ?',
+    ecoachTitle: 'Parler à quelqu’un',
+    ecoachText:
+      'Une ligne gratuite de ton pays, où une vraie personne t’écoute.',
+    planTitle: 'Faire ton propre plan',
+    planText:
+      '9 questions, gratuit. Tu recevras de petites étapes pour cette semaine.',
+    prayerTitle: 'Veux-tu qu’on prie pour toi ?',
+    prayerText:
+      'Envoie une demande de prière. Un Hope Carrier priera pour toi.',
+    seeAll: 'Voir toutes les façons dont on peut t’aider',
+    allTools: 'Voir tous les outils',
+    alsoRead: 'À lire aussi :',
+    sources: 'Sources :',
+    faqHeading: 'Questions fréquentes',
+  },
+  de: {
+    htmlLang: 'de',
+    switchLabel: 'Auf Englisch lesen',
+    talkNow: 'Jetzt mit jemandem reden',
+    hopeAi: 'Mit Hope AI schreiben',
+    nextHeading: 'Wie geht es weiter?',
+    ecoachTitle: 'Mit jemandem reden',
+    ecoachText:
+      'Kostenlose Telefonhilfe in deinem Land, bei der ein echter Mensch zuhört.',
+    planTitle: 'Deinen eigenen Plan machen',
+    planText:
+      '9 Fragen, kostenlos. Du bekommst kleine Schritte für diese Woche.',
+    prayerTitle: 'Sollen wir für dich beten?',
+    prayerText:
+      'Schick uns dein Gebetsanliegen. Ein Hope Carrier betet für dich.',
+    seeAll: 'Alle Wege ansehen, wie wir helfen können',
+    allTools: 'Alle Übungen ansehen',
+    alsoRead: 'Lies auch:',
+    sources: 'Quellen:',
+    faqHeading: 'Häufige Fragen',
+  },
+  es: {
+    htmlLang: 'es-419',
+    switchLabel: 'Leer en inglés',
+    talkNow: 'Hablar con alguien ahora',
+    hopeAi: 'Hablar con Hope AI',
+    nextHeading: '¿Y ahora qué?',
+    ecoachTitle: 'Hablar con alguien',
+    ecoachText:
+      'Una línea gratuita de tu país, donde una persona real te escucha.',
+    planTitle: 'Haz tu propio plan',
+    planText: '9 preguntas, gratis. Recibirás pasos pequeños para esta semana.',
+    prayerTitle: '¿Quieres que oremos por ti?',
+    prayerText: 'Envía una petición de oración. Un Hope Carrier orará por ti.',
+    seeAll: 'Ver todas las formas en que podemos ayudarte',
+    allTools: 'Ver todas las herramientas',
+    alsoRead: 'Lee también:',
+    sources: 'Fuentes:',
+    faqHeading: 'Preguntas frecuentes',
+  },
+  ko: {
+    htmlLang: 'ko',
+    switchLabel: '영어로 읽기',
+    talkNow: '지금 누군가와 이야기하기',
+    hopeAi: 'Hope AI와 대화하기',
+    nextHeading: '이제 무엇을 해 볼까요?',
+    ecoachTitle: '누군가와 이야기하기',
+    ecoachText: '실제 사람이 이야기를 들어 주는 무료 상담 전화예요.',
+    planTitle: '나만의 계획 만들기',
+    planText: '질문 9개, 무료예요. 이번 주에 해 볼 작은 걸음을 알려 드려요.',
+    prayerTitle: '우리가 당신을 위해 기도해도 될까요?',
+    prayerText:
+      '기도 제목을 보내 주세요. Hope Carrier가 당신을 위해 기도해 줄 거예요.',
+    seeAll: '우리가 도울 수 있는 모든 방법 보기',
+    allTools: '모든 도구 보기',
+    alsoRead: '함께 읽어 보세요:',
+    sources: '출처:',
+    faqHeading: '자주 묻는 질문',
+  },
 } as const;
 
 export function getFeelingPage(slug: string) {

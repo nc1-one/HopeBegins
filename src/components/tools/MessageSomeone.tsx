@@ -25,6 +25,44 @@ const text = {
     copied: 'Copied',
     manual: 'The message is highlighted. Press and hold it to copy.',
   },
+  fr: {
+    intro:
+      'Choisis une personne de confiance et envoie-lui ce message. Tu pourras en dire plus de vive voix.',
+    message:
+      'Coucou, on peut se parler cette semaine ? C’est un peu dur pour moi en ce moment.',
+    copy: 'Copier le message',
+    copied: 'Copié',
+    manual:
+      'Le message est sélectionné. Appuie longuement dessus pour le copier.',
+  },
+  de: {
+    intro:
+      'Such dir eine Person aus, der du vertraust, und schick ihr das. Mehr erzählen kannst du, wenn ihr redet.',
+    message:
+      'Hey, hast du diese Woche mal Zeit zum Reden? Mir geht’s in letzter Zeit nicht so gut.',
+    copy: 'Nachricht kopieren',
+    copied: 'Kopiert',
+    manual:
+      'Die Nachricht ist markiert. Halte sie gedrückt, um sie zu kopieren.',
+  },
+  es: {
+    intro:
+      'Elige a una persona de confianza y mándale esto. Puedes contarle más cuando hablen.',
+    message:
+      'Hola, ¿podemos hablar esta semana? Últimamente no la he pasado muy bien.',
+    copy: 'Copiar el mensaje',
+    copied: 'Copiado',
+    manual:
+      'El mensaje está seleccionado. Mantén el dedo encima para copiarlo.',
+  },
+  ko: {
+    intro:
+      '믿을 수 있는 사람 한 명을 골라 이 메시지를 보내 보세요. 더 하고 싶은 말은 이야기할 때 하면 돼요.',
+    message: '혹시 이번 주에 잠깐 얘기할 수 있어? 요즘 좀 힘들어서.',
+    copy: '메시지 복사하기',
+    copied: '복사했어요',
+    manual: '메시지를 선택해 두었어요. 길게 눌러서 복사하세요.',
+  },
 };
 
 /** A ready-made message to send to one person the visitor trusts. */

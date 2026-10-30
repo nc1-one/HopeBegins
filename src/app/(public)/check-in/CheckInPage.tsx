@@ -3,9 +3,10 @@
 import { DailyCheckIn } from '@/components/checkin/DailyCheckIn';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
+import type { PerLang } from '@/lib/i18n';
 import { useLanguage } from '@/lib/languagePreference';
 
-const copy = {
+const copy: PerLang<{ title: string; subtitle: string }> = {
   en: {
     title: 'Daily check-in',
     subtitle:
@@ -15,6 +16,27 @@ const copy = {
     title: 'Daily check-in',
     subtitle:
       'Ilang tap lang, mga 20 segundo. Bumalik araw-araw at panoorin ang paglaki ng sampaguita mo.',
+  },
+  // The sampaguita is a jasmine; readers outside the Philippines know that name.
+  fr: {
+    title: 'Bilan du jour',
+    subtitle:
+      'Quelques touches, environ 20 secondes. Reviens chaque jour et regarde ton jasmin grandir.',
+  },
+  de: {
+    title: 'Täglicher Check-in',
+    subtitle:
+      'Ein paar Mal tippen, etwa 20 Sekunden. Komm jeden Tag wieder und sieh zu, wie dein Jasmin wächst.',
+  },
+  es: {
+    title: 'Check-in diario',
+    subtitle:
+      'Unos toques, unos 20 segundos. Vuelve cada día y mira cómo crece tu jazmín.',
+  },
+  ko: {
+    title: '오늘의 체크인',
+    subtitle:
+      '몇 번만 누르면 돼요. 20초 정도 걸려요. 매일 다시 와서 재스민이 자라는 모습을 지켜보세요.',
   },
 };
 

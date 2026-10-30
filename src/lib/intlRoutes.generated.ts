@@ -4,10 +4,59 @@ import type { IntlLang } from './i18n';
 
 /** Each feeling page and guide, by the English page it was written from. */
 export const INTL_PAGE_SLUGS: Record<IntlLang, Record<string, string>> = {
-  fr: {},
-  de: {},
-  es: {},
-  ko: {},
+  fr: {
+    'tired-of-everything': 'marre-de-tout',
+    'i-feel-alone': 'personne-a-qui-parler',
+    'how-to-calm-anxiety': 'comment-calmer-son-anxiete',
+    'cant-sleep-overthinking': 'je-n-arrive-pas-a-dormir-je-pense-trop',
+    'i-feel-depressed': 'je-deprime',
+    'panic-attack-what-to-do': 'crise-d-angoisse-que-faire',
+    'i-feel-lost': 'je-ne-sais-plus-ou-j-en-suis',
+    burnout: 'burn-out',
+    'what-to-say-to-a-depressed-friend': 'que-dire-a-un-ami-en-depression',
+    'bible-verses-for-anxiety': 'versets-bibliques-contre-l-anxiete',
+    'bible-verses-when-you-feel-down': 'versets-bibliques-quand-on-est-triste',
+  },
+  de: {
+    'tired-of-everything': 'ich-kann-nicht-mehr',
+    'i-feel-alone': 'ich-fuehle-mich-einsam',
+    'how-to-calm-anxiety': 'was-hilft-gegen-angst',
+    'cant-sleep-overthinking': 'kann-nicht-schlafen-gedanken-kreisen',
+    'i-feel-depressed': 'bin-ich-depressiv',
+    'panic-attack-what-to-do': 'panikattacke-was-tun',
+    'i-feel-lost': 'ich-fuehle-mich-verloren',
+    burnout: 'burnout-anzeichen',
+    'what-to-say-to-a-depressed-friend':
+      'was-sagt-man-einem-depressiven-menschen',
+    'bible-verses-for-anxiety': 'bibelverse-gegen-angst',
+    'bible-verses-when-you-feel-down': 'bibelverse-trost-und-hoffnung',
+  },
+  es: {
+    'tired-of-everything': 'me-canse-de-todo',
+    'i-feel-alone': 'no-tengo-con-quien-hablar',
+    'how-to-calm-anxiety': 'como-calmar-la-ansiedad',
+    'cant-sleep-overthinking': 'no-puedo-dormir-por-pensar-mucho',
+    'i-feel-depressed': 'creo-que-tengo-depresion',
+    'panic-attack-what-to-do': 'ataque-de-panico-que-hacer',
+    'i-feel-lost': 'no-se-que-hacer-con-mi-vida',
+    burnout: 'burnout-laboral',
+    'what-to-say-to-a-depressed-friend': 'que-decirle-a-alguien-con-depresion',
+    'bible-verses-for-anxiety': 'versiculos-para-la-ansiedad',
+    'bible-verses-when-you-feel-down': 'versiculos-para-cuando-estas-triste',
+  },
+  ko: {
+    'tired-of-everything': 'tired-of-everything',
+    'i-feel-alone': 'i-feel-alone',
+    'how-to-calm-anxiety': 'how-to-calm-anxiety',
+    'cant-sleep-overthinking': 'cant-sleep-overthinking',
+    'i-feel-depressed': 'i-feel-depressed',
+    'panic-attack-what-to-do': 'panic-attack-what-to-do',
+    'i-feel-lost': 'i-feel-lost',
+    burnout: 'burnout',
+    'what-to-say-to-a-depressed-friend': 'what-to-say-to-a-depressed-friend',
+    'bible-verses-for-anxiety': 'bible-verses-for-anxiety',
+    'bible-verses-when-you-feel-down': 'bible-verses-when-you-feel-down',
+  },
 };
 
 /** Each story, by the English story it was adapted from. */

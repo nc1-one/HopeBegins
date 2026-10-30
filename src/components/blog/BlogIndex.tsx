@@ -35,6 +35,42 @@ export const BLOG_COPY: BlogCopy = {
     find: 'Humanap ng kuwentong kahawig ng sa iyo',
     all: 'Lahat ng kuwento',
   },
+  fr: {
+    eyebrow: 'Le blog de HopeBegins',
+    title: 'Histoires d’espoir',
+    intro:
+      'Des histoires sincères sur des périodes difficiles, et sur les petites choses qui ont aidé à les traverser.',
+    note: 'Par Anonyme. Chaque histoire réunit les vécus de plusieurs personnes.',
+    find: 'Trouve une histoire qui te ressemble',
+    all: 'Toutes les histoires',
+  },
+  de: {
+    eyebrow: 'Der Blog von HopeBegins',
+    title: 'Geschichten der Hoffnung',
+    intro:
+      'Ehrliche Geschichten über schwere Zeiten und die kleinen Dinge, die Menschen hindurchgeholfen haben.',
+    note: 'Anonym verfasst. Jede Geschichte verbindet Erfahrungen mehrerer Menschen.',
+    find: 'Finde eine Geschichte wie deine',
+    all: 'Alle Geschichten',
+  },
+  es: {
+    eyebrow: 'El blog de HopeBegins',
+    title: 'Historias de esperanza',
+    intro:
+      'Historias sinceras sobre épocas difíciles y las pequeñas cosas que ayudaron a salir adelante.',
+    note: 'Por Anónimo. Cada historia reúne vivencias de varias personas.',
+    find: 'Encuentra una historia como la tuya',
+    all: 'Todas las historias',
+  },
+  ko: {
+    eyebrow: 'HopeBegins 블로그',
+    title: '희망 이야기',
+    intro:
+      '힘든 시기를 지나온 솔직한 이야기와, 그 시간을 견디게 해 준 작은 것들을 담았어요.',
+    note: '익명으로 쓴 글이에요. 이야기마다 여러 사람의 경험을 엮었어요.',
+    find: '나와 닮은 이야기 찾기',
+    all: '모든 이야기',
+  },
 };
 
 /**

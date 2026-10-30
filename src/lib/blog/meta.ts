@@ -32,6 +32,42 @@ export const THEMES: Record<FeelingLang, Record<StoryTheme, string>> = {
     faith: 'Pananampalataya',
     'new-start': 'Pagsisimula ulit',
   },
+  fr: {
+    anxiety: 'Anxiété',
+    pressure: 'Pression et burn-out',
+    lonely: 'Solitude',
+    loss: 'Deuil et chagrin d’amour',
+    low: 'Moral en berne',
+    faith: 'Foi',
+    'new-start': 'Nouveau départ',
+  },
+  de: {
+    anxiety: 'Angst',
+    pressure: 'Druck und Burnout',
+    lonely: 'Einsamkeit',
+    loss: 'Trauer und Liebeskummer',
+    low: 'Gedrückte Stimmung',
+    faith: 'Glaube',
+    'new-start': 'Neuanfang',
+  },
+  es: {
+    anxiety: 'Ansiedad',
+    pressure: 'Presión y agotamiento',
+    lonely: 'Soledad',
+    loss: 'Duelo y desamor',
+    low: 'Ánimo bajo',
+    faith: 'Fe',
+    'new-start': 'Volver a empezar',
+  },
+  ko: {
+    anxiety: '불안',
+    pressure: '압박감과 번아웃',
+    lonely: '외로움',
+    loss: '상실과 이별',
+    low: '우울감',
+    faith: '믿음',
+    'new-start': '다시 시작하기',
+  },
 };
 
 export const THEME_IDS = Object.keys(THEMES.en) as StoryTheme[];
