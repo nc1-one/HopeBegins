@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, MessageCircle, Phone } from 'lucide-react';
+import { ArrowLeft, MessageCircle } from 'lucide-react';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import {
   checkInScores,

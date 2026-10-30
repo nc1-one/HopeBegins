@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { MessageCircle, Phone, Plus } from 'lucide-react';
+import { MessageCircle, Plus } from 'lucide-react';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { buildPlan } from '@/lib/actionPlan';

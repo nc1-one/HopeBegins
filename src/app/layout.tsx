@@ -106,7 +106,8 @@ export default function RootLayout({
             before the first paint, for screen readers and Korean type. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var m=location.pathname.match(/^\\/(fr|de|es|ko)(\\/|$)/);if(m)document.documentElement.lang=m[1]==='es'?'es-419':m[1];})();`,
+            __html:
+              '(function(){var m=location.pathname.match(/^\\/(fr|de|es|ko)(\\/|$)/);if(m)document.documentElement.lang=m[1]==="es"?"es-419":m[1];})();',
           }}
         />
         <script

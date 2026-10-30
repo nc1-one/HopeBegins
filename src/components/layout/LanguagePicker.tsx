@@ -34,12 +34,15 @@ export function LanguagePicker() {
   const pathname = usePathname() ?? '/';
   const lang = usePageLanguage();
   const versions = languageVersions(pathname);
-  const [isOpen, setIsOpen] = useState(false);
+  // Open on the page it was opened on, so going to another page closes it.
+  const [openOn, setOpenOn] = useState<string | null>(null);
+  const isOpen = openOn === pathname;
+  const setIsOpen = (open: boolean) => setOpenOn(open ? pathname : null);
   const menuId = useId();
   const rootRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  // Closes on Escape, a tap outside, or going to another page.
+  // Closes on Escape or a tap outside.
   useEffect(() => {
     if (!isOpen) return;
     const onKey = (event: KeyboardEvent) => {
@@ -57,7 +60,6 @@ export function LanguagePicker() {
       document.removeEventListener('pointerdown', onPointer);
     };
   }, [isOpen]);
-  useEffect(() => setIsOpen(false), [pathname]);
 
   const hrefFor = (option: Lang) =>
     versions[option] ?? (isIntlLang(option) ? withLocale(option, '/') : '/');
