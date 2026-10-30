@@ -25,10 +25,16 @@ export function intlPageMetadata(page: IntlMetaPage) {
   return async (props: IntlParams): Promise<Metadata> => {
     const lang = await intlLang(props);
     const meta = INTL_META[page][lang];
-    return pageMetadata(withLocale(lang, page), meta.title, meta.description, {
-      lang,
-      keywords: meta.keywords,
-      languages: hreflang(page),
-    });
+    const metadata = pageMetadata(
+      withLocale(lang, page),
+      meta.title,
+      meta.description,
+      { lang, keywords: meta.keywords, languages: hreflang(page) }
+    );
+    // The home page leads with the name, as the English one does, instead
+    // of ending in the usual "| HopeBegins".
+    return page === '/'
+      ? { ...metadata, title: { absolute: `HopeBegins: ${meta.title}` } }
+      : metadata;
   };
 }

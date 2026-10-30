@@ -64,7 +64,24 @@ function sitePage(slug: string, lang: FeelingLang) {
   return page && { href: `/${page.slug}`, label: page.label };
 }
 
-function Section({ section }: { section: Guide['sections'][number] }) {
+// Quotation marks as each language writes them.
+const QUOTES: Record<FeelingLang, [string, string]> = {
+  en: ['\u201c', '\u201d'],
+  tl: ['\u201c', '\u201d'],
+  fr: ['\u00ab\u00a0', '\u00a0\u00bb'],
+  de: ['\u201e', '\u201c'],
+  es: ['\u201c', '\u201d'],
+  ko: ['\u201c', '\u201d'],
+};
+
+function Section({
+  section,
+  lang,
+}: {
+  section: Guide['sections'][number];
+  lang: FeelingLang;
+}) {
+  const [open, close] = QUOTES[lang];
   const body = (
     <>
       <h2
@@ -83,7 +100,9 @@ function Section({ section }: { section: Guide['sections'][number] }) {
               key={saying}
               className="border-l-4 border-[#AEC488] pl-4 font-playfair text-xl leading-snug text-[#6E5F47]"
             >
-              &ldquo;{saying}&rdquo;
+              {open}
+              {saying}
+              {close}
             </li>
           ))}
         </ul>
@@ -258,7 +277,7 @@ export function GuidePage({
           <OptionPageHeader title={guide.heading} subtitle={guide.intro} />
 
           {guide.sections.map((section) => (
-            <Section key={section.title} section={section} />
+            <Section key={section.title} section={section} lang={guide.lang} />
           ))}
 
           {guide.faq && (

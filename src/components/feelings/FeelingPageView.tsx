@@ -81,7 +81,7 @@ export function FeelingPageView({ page }: { page: FeelingPage }) {
     description: page.metaDescription,
     lang: page.lang,
     image: `/og/feelings/${intl ? page.pair : page.slug}.jpg`,
-    crumb: page.heading.replace(/[.?]$/, ''),
+    crumb: page.heading.replace(/^¿/, '').replace(/[\s\u00a0]*[.?]$/, ''),
     faq: page.faq,
   });
 
