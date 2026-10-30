@@ -29,7 +29,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     fr: {
       title: 'Ça ne va pas aujourd’hui ? Soutien gratuit et prière',
       description:
-        'Un soutien gratuit porté par la foi quand l’anxiété, la tristesse ou la solitude pèsent : un plan pour toi, des outils, la prière. En crise, appelle le 3114.',
+        'Un soutien gratuit porté par la foi, en France et dans la francophonie, quand l’anxiété ou la solitude pèsent : outils, plan, prière. En crise : 3114.',
       keywords: [
         'HopeBegins',
         'je ne vais pas bien',
@@ -42,7 +42,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     de: {
       title: 'Heute nicht okay? Kostenlose Hilfe und Gebet',
       description:
-        'Kostenlose, christlich geprägte Hilfe bei Angst, Traurigkeit und Einsamkeit: ein Plan für dich, Übungen, Gebet. In der Krise: TelefonSeelsorge 0800 111 0 111.',
+        'Kostenlose, christlich geprägte Hilfe in Deutschland, Österreich und der Schweiz bei Angst und Einsamkeit: Übungen, ein Plan, Gebet. Krise: 0800 111 0 111.',
       keywords: [
         'HopeBegins',
         'mir geht es nicht gut',
@@ -55,7 +55,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     es: {
       title: '¿No estás bien hoy? Apoyo gratis y oración',
       description:
-        'Apoyo gratuito y basado en la fe cuando la ansiedad, la tristeza o la soledad pesan: un plan para ti, herramientas, oración y líneas de ayuda en tu país.',
+        'Apoyo gratuito y basado en la fe para México y toda Latinoamérica cuando la ansiedad o la soledad pesan: herramientas, un plan, oración y ayuda en tu país.',
       keywords: [
         'HopeBegins',
         'no me siento bien',

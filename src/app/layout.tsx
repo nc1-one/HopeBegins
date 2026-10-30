@@ -45,7 +45,7 @@ const notoSerifKr = Noto_Serif_KR({
 });
 
 const SITE_DESCRIPTION =
-  'Feeling anxious, low or alone? Free support right now: a personal plan, someone to pray for you, and e-coaches on Messenger. In crisis, call NCMH 1553.';
+  'Feeling anxious, low or alone? Free, faith-driven support right now: calming tools, a personal plan, someone to pray for you, and the free helplines where you live.';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://hopebegins.today'),
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: '/',
     siteName: 'HopeBegins',
-    locale: 'en_PH',
+    locale: 'en_US',
     title: 'Not okay today? HopeBegins',
     description: SITE_DESCRIPTION,
     images: [
@@ -93,11 +93,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // Philippine English for the site; Taglish pages and parts of a page
-    // carry their own lang, since one root layout serves every page. The
-    // script below switches it on /fr, /de, /es and /ko pages.
+    // English for the site; Taglish pages and parts of a page carry their
+    // own lang, since one root layout serves every page. The script below
+    // switches it on /fr, /de, /es and /ko pages.
     <html
-      lang="en-PH"
+      lang="en"
       className={`${poppins.variable} ${dmSans.variable} ${playfair.variable} ${notoSansKr.variable} ${notoSerifKr.variable}`}
       suppressHydrationWarning
     >

@@ -11,7 +11,7 @@ const ORG_ID = `${SITE}/#organization`;
 const SITE_ID = `${SITE}/#website`;
 
 const DESCRIPTION =
-  'Free, faith-driven support for Filipinos who feel anxious, low or alone: a personal plan, calming tools, someone to pray for you, and e-coaches on Messenger, in English or Taglish.';
+  'Free, faith-driven support for anyone who feels anxious, low or alone: calming tools, a personal plan, someone to pray for you, and the free helplines where they live. Started in the Philippines; now in English, Taglish, French, German, Spanish and Korean.';
 
 export const siteJsonLd = {
   '@context': 'https://schema.org',
@@ -29,8 +29,23 @@ export const siteJsonLd = {
       },
       description: DESCRIPTION,
       email: 'connect@hopebegins.today',
-      areaServed: { '@type': 'Country', name: 'Philippines' },
-      knowsLanguage: ['en', 'tl'],
+      // Where it started, and the countries its languages are written for.
+      areaServed: [
+        'Philippines',
+        'France',
+        'Belgium',
+        'Switzerland',
+        'Canada',
+        'Germany',
+        'Austria',
+        'Mexico',
+        'Colombia',
+        'Argentina',
+        'Chile',
+        'Peru',
+        'South Korea',
+      ].map((name) => ({ '@type': 'Country', name })),
+      knowsLanguage: ['en', 'tl', 'fr', 'de', 'es', 'ko'],
       sameAs: [
         'https://www.facebook.com/hopebeginstoday',
         'https://www.instagram.com/hopebeginstoday',

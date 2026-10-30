@@ -37,13 +37,15 @@ export interface LangInfo {
 }
 
 export const LANG_INFO: Record<Lang, LangInfo> = {
+  // English is for everyone, wherever they are; until the phone says
+  // where, its crisis line is the Philippines', where HopeBegins started.
   en: {
     name: 'English',
     short: 'EN',
-    htmlLang: 'en-PH',
-    hreflang: 'en-PH',
-    ogLocale: 'en_PH',
-    locale: 'en-PH',
+    htmlLang: 'en',
+    hreflang: 'en',
+    ogLocale: 'en_US',
+    locale: 'en',
     country: 'PH',
   },
   tl: {

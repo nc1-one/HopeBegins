@@ -15,6 +15,8 @@ interface Feeling {
 interface AboutCopy {
   title: string;
   body: string;
+  /** Where HopeBegins started and who it reaches now. */
+  story: string;
   /** A second paragraph in another language: Taglish on the English page. */
   aside?: { text: string; lang: string };
   feelingsTitle: string;
@@ -26,56 +28,49 @@ interface AboutCopy {
 }
 
 /*
- * What HopeBegins is, per language. Taglish readers get the English, which
- * already has a Taglish paragraph. French, German, Spanish and Korean
- * readers can be anywhere: HopeBegins started in the Philippines, but it is
- * for anyone, and their help link goes to the free lines in their country.
- * Their feeling links name the English pages, which links open in the
- * reader's language.
+ * What HopeBegins is, per language. English speaks to anyone, anywhere;
+ * each other language speaks to the people of its countries: France and
+ * the French-speaking world, Germany, Austria and Switzerland, Mexico and
+ * Latin America, Korea. All tell the same story: HopeBegins started in the
+ * Philippines and now reaches them in their own language. Taglish readers
+ * get the English with a Taglish paragraph and the Taglish pages (see
+ * TAGLISH below). Help links go to the free lines in the reader's country.
+ * Feeling links name the English pages, which open in the reader's language.
  */
 const COPY: PerLangNoTl<AboutCopy> = {
   en: {
-    title: 'Free mental health support for Filipinos',
-    body: 'HopeBegins is free, faith-driven support for anyone in the Philippines who feels anxious, low, tired or alone. Pick how you feel and get one small thing to try today, a free personal plan, calming tools, someone to pray for you, and an e-coach you can message on Messenger. In English or Taglish.',
-    aside: {
-      lang: 'tl',
-      text: 'Libre ang HopeBegins para sa sinumang nababalisa, malungkot, pagod o pakiramdam ay mag-isa. Piliin kung ano ang nararamdaman mo, at may isang maliit na bagay kang masusubukan ngayon.',
-    },
+    title: 'Free mental health support, wherever you are',
+    body: 'HopeBegins is free, faith-driven support for anyone who feels anxious, low, tired or alone. Pick how you feel and get one small thing to try today, a free personal plan, calming tools, someone to pray for you, an e-coach you can message on Messenger, and the free helplines where you live.',
+    story:
+      'HopeBegins started in the Philippines. Today it also reaches people in France, Germany, Austria, Switzerland, Latin America and Korea, each in their own language.',
     feelingsTitle: 'Start with how you feel',
     // The feelings people search for most, in their own words.
     feelings: [
-      { href: '/pagod-na-ako', label: 'Pagod na ako', lang: 'tl' },
-      { href: '/wala-akong-kausap', label: 'Wala akong kausap', lang: 'tl' },
-      { href: '/depressed-ako', label: 'Depressed ako', lang: 'tl' },
-      {
-        href: '/paano-mawala-ang-anxiety',
-        label: 'Paano mawala ang anxiety',
-        lang: 'tl',
-      },
-      { href: '/i-feel-depressed', label: 'I feel depressed', lang: 'en' },
-      {
-        href: '/how-to-calm-anxiety',
-        label: 'How to calm anxiety',
-        lang: 'en',
-      },
+      { href: '/tired-of-everything', label: 'Tired of everything' },
+      { href: '/i-feel-alone', label: 'I feel alone' },
+      { href: '/i-feel-depressed', label: 'I feel depressed' },
+      { href: '/how-to-calm-anxiety', label: 'How to calm anxiety' },
       {
         href: '/cant-sleep-overthinking',
         label: "Can't sleep from overthinking",
-        lang: 'en',
       },
-      { href: '/i-feel-alone', label: 'I feel alone', lang: 'en' },
+      { href: '/panic-attack-what-to-do', label: 'Panic attack: what to do' },
+      { href: '/i-feel-lost', label: 'I feel lost' },
+      { href: '/burnout', label: 'Burnout' },
     ],
     numberAsk: 'Need a number?',
     numberLink: {
-      href: '/free-mental-health-help-philippines',
-      label: 'Free hotlines and counseling in the Philippines',
+      href: '/help',
+      label: 'Free helplines in your country',
     },
     storiesAsk: 'Want to read how others got through a hard season?',
     storiesLink: 'Stories of Hope, the HopeBegins blog',
   },
   fr: {
     title: 'Un soutien gratuit pour ta santé mentale',
-    body: 'HopeBegins est un soutien gratuit, porté par la foi chrétienne, pour toute personne qui se sent anxieuse, à plat, épuisée ou seule. Tout a commencé aux Philippines. Choisis ce que tu ressens et reçois une petite chose à essayer aujourd’hui, un plan personnel gratuit, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites dans ton pays.',
+    body: 'HopeBegins est un soutien gratuit, porté par la foi chrétienne, pour toute personne en France, en Belgique, en Suisse ou au Québec qui se sent anxieuse, à plat, épuisée ou seule. Choisis ce que tu ressens et reçois une petite chose à essayer aujourd’hui, un plan personnel gratuit, des outils pour t’apaiser, quelqu’un qui prie pour toi et les lignes d’écoute gratuites de ton pays.',
+    story:
+      'Tout a commencé aux Philippines. Aujourd’hui, HopeBegins parle aussi français pour rejoindre la France et toute la francophonie.',
     feelingsTitle: 'Commence par ce que tu ressens',
     feelings: [
       { href: '/tired-of-everything', label: 'Je suis à bout' },
@@ -104,7 +99,9 @@ const COPY: PerLangNoTl<AboutCopy> = {
   },
   de: {
     title: 'Kostenlose Hilfe für deine psychische Gesundheit',
-    body: 'HopeBegins ist kostenlose, christlich geprägte Unterstützung für alle, die sich ängstlich, niedergeschlagen, erschöpft oder allein fühlen. Angefangen hat alles auf den Philippinen. Wähl aus, wie es dir geht, und du bekommst eine kleine Sache, die du heute ausprobieren kannst, einen kostenlosen persönlichen Plan, Übungen zur Beruhigung, jemanden, der für dich betet, und kostenlose Telefonhilfe in deinem Land.',
+    body: 'HopeBegins ist kostenlose, christlich geprägte Unterstützung für alle in Deutschland, Österreich und der Schweiz, die sich ängstlich, niedergeschlagen, erschöpft oder allein fühlen. Wähl aus, wie es dir geht, und du bekommst eine kleine Sache, die du heute ausprobieren kannst, einen kostenlosen persönlichen Plan, Übungen zur Beruhigung, jemanden, der für dich betet, und die kostenlose Telefonhilfe in deinem Land.',
+    story:
+      'Angefangen hat HopeBegins auf den Philippinen. Jetzt spricht es auch Deutsch, damit es Menschen in Deutschland, Österreich und der Schweiz erreicht.',
     feelingsTitle: 'Fang bei dem an, was du fühlst',
     feelings: [
       { href: '/tired-of-everything', label: 'Mir ist alles zu viel' },
@@ -127,7 +124,9 @@ const COPY: PerLangNoTl<AboutCopy> = {
   },
   es: {
     title: 'Apoyo gratuito para tu salud mental',
-    body: 'HopeBegins es un apoyo gratuito y basado en la fe cristiana para cualquier persona que sienta ansiedad, tristeza, cansancio o soledad. Todo empezó en Filipinas. Elige cómo te sientes y recibe una cosa pequeña para probar hoy, un plan personal gratis, herramientas para calmarte, alguien que ore por ti y líneas de ayuda gratuitas en tu país.',
+    body: 'HopeBegins es un apoyo gratuito y basado en la fe cristiana para cualquier persona en México y en toda Latinoamérica que sienta ansiedad, tristeza, cansancio o soledad. Elige cómo te sientes y recibe una cosa pequeña para probar hoy, un plan personal gratis, herramientas para calmarte, alguien que ore por ti y las líneas de ayuda gratuitas de tu país.',
+    story:
+      'HopeBegins empezó en Filipinas. Hoy también habla español para llegar a México y a toda Latinoamérica.',
     feelingsTitle: 'Empieza por cómo te sientes',
     feelings: [
       { href: '/tired-of-everything', label: 'Me cansé de todo' },
@@ -156,7 +155,9 @@ const COPY: PerLangNoTl<AboutCopy> = {
   },
   ko: {
     title: '누구에게나 열린 무료 마음 돌봄',
-    body: 'HopeBegins는 기독교 신앙에 뿌리를 둔 무료 마음 돌봄이에요. 불안하거나, 우울하거나, 지치거나, 외로운 사람 누구에게나 열려 있어요. 필리핀에서 시작했어요. 지금 기분을 고르면 오늘 해 볼 작은 일 하나, 무료 맞춤 계획, 마음을 가라앉히는 도구, 당신을 위해 기도해 줄 사람, 그리고 무료 상담 전화를 만날 수 있어요.',
+    body: 'HopeBegins는 기독교 신앙에 뿌리를 둔 무료 마음 돌봄이에요. 한국에서 불안하거나, 우울하거나, 지치거나, 외로운 사람 누구에게나 열려 있어요. 지금 기분을 고르면 오늘 해 볼 작은 일 하나, 무료 맞춤 계획, 마음을 가라앉히는 도구, 당신을 위해 기도해 줄 사람, 그리고 109 같은 무료 상담 전화를 만날 수 있어요.',
+    story:
+      'HopeBegins는 필리핀에서 시작했어요. 이제 한국어로도 한국의 이웃들에게 다가가고 있어요.',
     feelingsTitle: '지금 마음에서 시작해 보세요',
     feelings: [
       { href: '/tired-of-everything', label: '다 지쳤어요' },
@@ -175,12 +176,45 @@ const COPY: PerLangNoTl<AboutCopy> = {
   },
 };
 
+/** Taglish readers, who are in the Philippines or Filipinos abroad. */
+const TAGLISH: AboutCopy = {
+  ...COPY.en,
+  aside: {
+    lang: 'tl',
+    text: 'Libre ang HopeBegins para sa sinumang nababalisa, malungkot, pagod o pakiramdam ay mag-isa. Piliin kung ano ang nararamdaman mo, at may isang maliit na bagay kang masusubukan ngayon.',
+  },
+  feelings: [
+    { href: '/pagod-na-ako', label: 'Pagod na ako', lang: 'tl' },
+    { href: '/wala-akong-kausap', label: 'Wala akong kausap', lang: 'tl' },
+    { href: '/depressed-ako', label: 'Depressed ako', lang: 'tl' },
+    {
+      href: '/paano-mawala-ang-anxiety',
+      label: 'Paano mawala ang anxiety',
+      lang: 'tl',
+    },
+    {
+      href: '/hindi-makatulog-sa-kakaisip',
+      label: 'Hindi makatulog sa kakaisip',
+      lang: 'tl',
+    },
+    {
+      href: '/panic-attack-ano-gagawin',
+      label: 'Panic attack: ano ang gagawin',
+      lang: 'tl',
+    },
+  ],
+  numberLink: {
+    href: '/free-mental-health-help-philippines',
+    label: 'Free hotlines and counseling in the Philippines',
+  },
+};
+
 /**
  * Below the "Not okay today?" screen: what HopeBegins is, in plain words,
  * for anyone who scrolls on and for search engines, with the main ways in.
  */
 export function HomeAbout({ lang = 'en' }: { lang?: Lang } = {}) {
-  const t = noTl(COPY, lang);
+  const t = lang === 'tl' ? TAGLISH : noTl(COPY, lang);
   return (
     <section
       aria-labelledby="about-title"
@@ -195,6 +229,7 @@ export function HomeAbout({ lang = 'en' }: { lang?: Lang } = {}) {
             {t.title}
           </h2>
           <p className="mt-5 text-lg leading-relaxed">{t.body}</p>
+          <p className="mt-4 leading-relaxed">{t.story}</p>
           {t.aside && (
             <p lang={t.aside.lang} className="mt-4 leading-relaxed">
               {t.aside.text}
