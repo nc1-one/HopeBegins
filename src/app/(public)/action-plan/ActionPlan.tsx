@@ -1610,11 +1610,19 @@ function CheckInCard({
         ? actionPlanService.requestCheckIn(email, name, lang, country, antiSpam)
         : Promise.resolve(),
       sendPlan
-        ? actionPlanService.emailPlan(email, name, plan, lang, country, antiSpam, {
-            heading: t.weekSection,
-            detail: t.weekSectionDetail,
-            items: weekSentences,
-          })
+        ? actionPlanService.emailPlan(
+            email,
+            name,
+            plan,
+            lang,
+            country,
+            antiSpam,
+            {
+              heading: t.weekSection,
+              detail: t.weekSectionDetail,
+              items: weekSentences,
+            }
+          )
         : Promise.resolve(),
     ]);
     const checkInOk = checkIn && checkInResult.status === 'fulfilled';
