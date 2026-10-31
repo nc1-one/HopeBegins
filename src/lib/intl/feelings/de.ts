@@ -9,7 +9,7 @@ export const deFeelingPages: FeelingPage[] = [
     pair: 'tired-of-everything',
     metaTitle: 'Ich kann nicht mehr: was hilft, wenn dich alles erschöpft',
     metaDescription:
-      'Du kannst nicht mehr und bist müde von allem? Probier eine Atemübung für 2 Minuten, sprich kostenlos mit jemandem oder mach einen Plan für diese Woche.',
+      'Du kannst nicht mehr, und dir ist alles zu viel? Probier eine Atemübung für 2 Minuten, sprich kostenlos mit jemandem oder mach einen Plan für diese Woche.',
     keywords: [
       'ich kann nicht mehr',
       'müde von allem',
@@ -22,16 +22,16 @@ export const deFeelingPages: FeelingPage[] = [
     label: 'Ich kann nicht mehr',
     heading: 'Ich kann nicht mehr.',
     intro:
-      'Wenn du müde von allem bist, fühlen sich sogar kleine Dinge schwer an. Fang mit einer kleinen Sache an oder mit zwei Minuten langsamem Atmen.',
+      'Wenn dir alles zu viel ist, fühlen sich sogar kleine Dinge schwer an. Fang mit einer kleinen Sache an oder mit zwei Minuten langsamem Atmen.',
     safetyFirst:
-      'Wenn du müde vom Leben bist oder denkst, du wärst lieber nicht mehr da, sprich bitte jetzt mit jemandem.',
+      'Wenn du lebensmüde bist oder denkst, du wärst lieber nicht mehr da, sprich bitte jetzt mit jemandem.',
     toolsHeading: 'Fang klein an',
     tools: ['one-thing', 'breathe'],
     related: ['i-feel-depressed'],
     faq: [
       {
-        q: 'Ist es normal, so müde von allem zu sein?',
-        a: 'Jeder Mensch ist mal erschöpft. Wenn du dich aber seit zwei Wochen oder länger an den meisten Tagen müde fühlst und dich fast nichts mehr interessiert, kann das eine Depression oder ein Burnout sein. Wende dich an eine Ärztin, einen Arzt oder eine Beratungsstelle.',
+        q: 'Ist es normal, dass mir alles zu viel ist?',
+        a: 'Jeder Mensch ist mal erschöpft. Wenn du dich aber seit zwei Wochen oder länger an den meisten Tagen müde fühlst und dich fast nichts mehr interessiert, kann das eine Depression oder ein Burnout sein. Wende dich an deine Hausarztpraxis oder eine Beratungsstelle.',
       },
       {
         q: 'Warum bin ich immer müde, obwohl ich genug schlafe?',
@@ -47,7 +47,7 @@ export const deFeelingPages: FeelingPage[] = [
     pair: 'i-feel-alone',
     metaTitle: 'Ich fühle mich einsam: Heute kann jemand mit dir reden',
     metaDescription:
-      'Niemand zum Reden? Ruf kostenlos ein Sorgentelefon an, schreib jederzeit mit Hope AI oder schick einem Menschen, dem du vertraust, eine Nachricht.',
+      'Niemand zum Reden? Ruf kostenlos ein Hilfetelefon an, schreib jederzeit mit Hope AI oder schick einem Menschen, dem du vertraust, eine Nachricht.',
     keywords: [
       'ich fühle mich einsam',
       'niemand zum Reden',
@@ -64,7 +64,7 @@ export const deFeelingPages: FeelingPage[] = [
     toolsHeading: 'Nur eine Nachricht',
     tools: ['message'],
     tip: {
-      title: 'Wenn es spät ist und du einfach nur schreiben willst',
+      title: 'Wenn es spät ist und du nur schreiben willst',
       body: 'Hope AI ist ein KI-Assistent. Er ersetzt keine Beratung und kann im Notfall nicht helfen, aber du kannst ihm jederzeit schreiben, auch mitten in der Nacht.',
       hopeAi: true,
     },
@@ -117,11 +117,11 @@ export const deFeelingPages: FeelingPage[] = [
       },
       {
         q: 'Warum habe ich ohne Grund Angst?',
-        a: 'Angst kann sich durch Stress, schlechten Schlaf, Koffein oder Sorgen aufbauen, die du noch nicht in Worte gefasst hast. Deshalb wirkt sie manchmal, als käme sie aus dem Nichts. Wenn das an den meisten Tagen passiert, wende dich an eine Ärztin, einen Arzt oder eine Beratungsstelle.',
+        a: 'Angst kann sich durch Stress, schlechten Schlaf, Koffein oder Sorgen aufbauen, die du noch nicht in Worte gefasst hast. Deshalb wirkt sie manchmal, als käme sie aus dem Nichts. Wenn das an den meisten Tagen passiert, wende dich an deine Hausarztpraxis oder eine Beratungsstelle.',
       },
       {
         q: 'Was hilft im Alltag gegen Angst?',
-        a: 'Übe das langsame Atmen, wenn du ruhig bist. Dann gelingt es dir leichter, wenn du es brauchst. Schlaf genug, trink weniger Kaffee und schreib deine Sorgen jeden Tag zu einer festen Zeit auf. Wenn die Angst dich bei der Arbeit, in der Schule oder beim Schlafen einschränkt, wende dich an eine Ärztin, einen Arzt oder eine Beratungsstelle.',
+        a: 'Übe das langsame Atmen, wenn du ruhig bist. Dann gelingt es dir leichter, wenn du es brauchst. Schlaf genug, trink weniger Kaffee und schreib deine Sorgen jeden Tag zu einer festen Zeit auf. Wenn die Angst dich bei der Arbeit, in der Schule oder beim Schlafen einschränkt, wende dich an deine Hausarztpraxis oder eine Beratungsstelle.',
       },
     ],
     firstStep: 'plan',
@@ -227,11 +227,11 @@ export const deFeelingPages: FeelingPage[] = [
       },
       {
         q: 'Geht eine Depression von allein wieder weg?',
-        a: 'Manchmal wird sie von allein leichter. Mit Hilfe erholst du dich aber schneller, und die Chancen dafür stehen besser. Depressionen lassen sich mit Psychotherapie behandeln und manchmal auch mit Medikamenten, die eine Ärztin oder ein Arzt verschreibt.',
+        a: 'Manchmal wird sie von allein leichter. Mit Hilfe erholst du dich aber schneller, und die Chancen dafür stehen besser. Depressionen lassen sich mit Psychotherapie behandeln und manchmal auch mit Medikamenten, die ärztlich verschrieben werden.',
       },
       {
         q: 'Kann man ohne Grund Depressionen haben?',
-        a: 'Eine Depression hat nicht immer eine klare Ursache. Sie kann sich aus Stress, einem Verlust, schlechtem Schlaf, gesundheitlichen Problemen oder Veränderungen im Körper entwickeln, manchmal aus allem auf einmal. Eine Ärztin, ein Arzt oder eine Beratungsstelle kann dir helfen, das zu sortieren, und eine Depression lässt sich behandeln.',
+        a: 'Eine Depression hat nicht immer eine klare Ursache. Sie kann sich aus Stress, einem Verlust, schlechtem Schlaf, gesundheitlichen Problemen oder Veränderungen im Körper entwickeln, manchmal aus allem auf einmal. Deine Hausarztpraxis oder eine Beratungsstelle kann dir helfen, das zu sortieren, und eine Depression lässt sich behandeln.',
       },
       {
         q: 'Was kann ich tun, wenn ich depressiv und einsam bin?',
@@ -276,7 +276,7 @@ export const deFeelingPages: FeelingPage[] = [
         'Kribbeln oder Taubheit in Händen oder Gesicht',
         'das Gefühl, dass gleich etwas Schlimmes passiert oder dass du die Kontrolle verlierst',
       ],
-      note: 'Es fühlt sich gefährlich an, aber eine Panikattacke selbst schadet deinem Körper nicht, und sie geht vorbei. Wenn Panikattacken immer wiederkommen oder du deshalb Orte meidest, wende dich an eine Ärztin, einen Arzt oder eine Beratungsstelle. Panikattacken lassen sich behandeln.',
+      note: 'Es fühlt sich gefährlich an, aber eine Panikattacke selbst schadet deinem Körper nicht, und sie geht vorbei. Wenn Panikattacken immer wiederkommen oder du deshalb Orte meidest, wende dich an deine Hausarztpraxis oder eine Beratungsstelle. Panikattacken lassen sich behandeln.',
     },
     tip: {
       title: 'Warum langsames Ausatmen hilft',
@@ -304,7 +304,7 @@ export const deFeelingPages: FeelingPage[] = [
       },
       {
         q: 'Wie stoppe ich eine Panikattacke schnell?',
-        a: 'Atme langsam (zähl beim Einatmen bis 4 und beim Ausatmen bis 6), stell beide Füße flach auf den Boden und sag dir: Das ist eine Panikattacke, und sie geht vorbei. Damit sie seltener kommen, übe das Atmen jeden Tag und wende dich an eine Ärztin, einen Arzt oder eine Beratungsstelle.',
+        a: 'Atme langsam (zähl beim Einatmen bis 4 und beim Ausatmen bis 6), stell beide Füße flach auf den Boden und sag dir: Das ist eine Panikattacke, und sie geht vorbei. Damit sie seltener kommen, übe das Atmen jeden Tag und wende dich an deine Hausarztpraxis oder eine Beratungsstelle.',
       },
     ],
     firstStep: 'plan',
@@ -328,7 +328,7 @@ export const deFeelingPages: FeelingPage[] = [
     label: 'Ich fühle mich verloren',
     heading: 'Ich fühle mich verloren.',
     intro:
-      'Wenn du nicht weißt, wohin dein Leben geht, oder dich innerlich leer fühlst, ist es schwer zu wissen, wo du anfangen sollst. Du kannst klein anfangen, heute.',
+      'Wenn du nicht weißt, wohin dein Leben geht, oder dich innerlich leer fühlst, ist es schwer zu wissen, wo du anfangen sollst. Du kannst heute klein anfangen.',
     safetyFirst:
       'Wenn mit der Leere Gedanken kommen, dir das Leben zu nehmen, sprich bitte jetzt mit jemandem.',
     toolsHeading: 'Fang klein an',
@@ -336,7 +336,7 @@ export const deFeelingPages: FeelingPage[] = [
     explain: {
       title: 'Wann du dir Hilfe holen solltest',
       intro:
-        'Sich ab und zu verloren zu fühlen, gehört zum Leben, vor allem an großen Wendepunkten wie dem Ende der Schulzeit oder des Studiums, einem neuen Job oder einer Trennung. Wende dich an eine Ärztin, einen Arzt oder eine Beratungsstelle, wenn du seit mindestens zwei Wochen:',
+        'Sich ab und zu verloren zu fühlen, gehört zum Leben, vor allem an großen Wendepunkten wie dem Ende der Schulzeit oder des Studiums, einem neuen Job oder einer Trennung. Wende dich an deine Hausarztpraxis oder eine Beratungsstelle, wenn du seit mindestens zwei Wochen:',
       points: [
         'dich fast den ganzen Tag leer fühlst',
         'an fast allem das Interesse verloren hast',
@@ -359,7 +359,7 @@ export const deFeelingPages: FeelingPage[] = [
     faq: [
       {
         q: 'Warum fühle ich mich innerlich leer?',
-        a: 'Leere kann von Stress, Einsamkeit, einem großen Verlust oder einer großen Veränderung kommen, oder von einer Depression. Wenn sie zwei Wochen oder länger anhält oder du an den meisten Dingen das Interesse verlierst, wende dich an eine Ärztin, einen Arzt oder eine Beratungsstelle.',
+        a: 'Leere kann von Stress, Einsamkeit, einem großen Verlust oder einer großen Veränderung kommen, oder von einer Depression. Wenn sie zwei Wochen oder länger anhält oder du an den meisten Dingen das Interesse verlierst, wende dich an deine Hausarztpraxis oder eine Beratungsstelle.',
       },
       {
         q: 'Was kann ich tun, wenn ich mich im Leben verloren fühle?',
@@ -399,7 +399,7 @@ export const deFeelingPages: FeelingPage[] = [
         'du gehst innerlich auf Abstand zu deiner Arbeit oder siehst sie nur noch negativ und zynisch',
         'du schaffst weniger, obwohl du dich sehr anstrengst',
       ],
-      note: 'Burnout hat mit der Arbeit und mit langen Phasen von Stress zu tun. Wenn du dich außerdem fast den ganzen Tag niedergeschlagen fühlst oder auch außerhalb der Arbeit das Interesse an Dingen verloren hast, kann es auch eine Depression sein. Wende dich an eine Ärztin, einen Arzt oder eine Beratungsstelle.',
+      note: 'Burnout hat mit der Arbeit und mit langen Phasen von Stress zu tun. Wenn du dich außerdem fast den ganzen Tag niedergeschlagen fühlst oder auch außerhalb der Arbeit das Interesse an Dingen verloren hast, kann es auch eine Depression sein. Wende dich an deine Hausarztpraxis oder eine Beratungsstelle.',
     },
     tip: {
       title: 'Eine Grenze für diese Woche',
@@ -415,7 +415,7 @@ export const deFeelingPages: FeelingPage[] = [
     faq: [
       {
         q: 'Ist Burnout dasselbe wie eine Depression?',
-        a: 'Nein. Burnout entsteht durch lang anhaltenden Stress bei der Arbeit und betrifft vor allem dein Verhältnis zur Arbeit. Eine Depression betrifft alle Bereiche des Lebens. Beides kann sich überschneiden. Wenn du dich also fast den ganzen Tag niedergeschlagen fühlst, wende dich an eine Ärztin, einen Arzt oder eine Beratungsstelle.',
+        a: 'Nein. Burnout entsteht durch lang anhaltenden Stress bei der Arbeit und betrifft vor allem dein Verhältnis zur Arbeit. Eine Depression betrifft alle Bereiche des Lebens. Beides kann sich überschneiden. Wenn du dich also fast den ganzen Tag niedergeschlagen fühlst, wende dich an deine Hausarztpraxis oder eine Beratungsstelle.',
       },
       {
         q: 'Was bedeutet es, ausgebrannt zu sein?',

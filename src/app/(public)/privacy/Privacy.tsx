@@ -201,7 +201,7 @@ const copy: PerLangNoTl<PrivacyCopy> = {
         title: 'Deine Rechte',
         items: [
           'Nach dem philippinischen Datenschutzgesetz (Data Privacy Act of 2012, Republic Act No. 10173) kannst du darum bitten, deine persönlichen Daten einzusehen, zu korrigieren oder zu löschen, und du kannst deine Einwilligung widerrufen.',
-          'Du kannst dich jederzeit über den Link in jeder E-Mail von unseren E-Mails abmelden.',
+          'Von unseren E-Mails kannst du dich jederzeit abmelden. Der Link dazu steht in jeder E-Mail.',
           'Wenn du glaubst, dass deine Rechte verletzt wurden, kannst du dich bei der National Privacy Commission der Philippinen beschweren (privacy.gov.ph).',
         ],
       },
@@ -228,7 +228,7 @@ const copy: PerLangNoTl<PrivacyCopy> = {
           'Correos de Daily Hope: tu nombre, tu apellido y tu correo electrónico.',
           'Historias de esperanza: tu nombre, tu ocupación, tu foto y tu historia. Publicamos una historia solo después de revisarla y aprobarla.',
           'Plan personal: tus respuestas, tu plan, tu progreso y tu tarjeta de esperanza se guardan solo en el navegador de tu dispositivo, para que puedas volver a ellos. No se nos envían, y puedes borrarlos en cualquier momento desde la página del plan. Si descargas un archivo de respaldo, se queda contigo; nunca lo recibimos. Si nos pides que te enviemos tu plan por correo, recibimos tu correo electrónico, tu nombre si nos lo das y el plan.',
-          'Check-in diario y herramientas: el clima que eliges, lo que tienes en mente y todo lo que eliges o escribes en una herramienta se quedan solo en el navegador de tu dispositivo. Contamos cuántos check-ins se hacen y cuántas herramientas se usan, nunca lo que elegiste. Puedes borrar tus check-ins desde la página del check-in.',
+          'Chequeo diario y herramientas: el clima que eliges, lo que tienes en mente y todo lo que eliges o escribes en una herramienta se quedan solo en el navegador de tu dispositivo. Contamos cuántos chequeos se hacen y cuántas herramientas se usan, nunca lo que elegiste. Puedes borrar tus chequeos desde la página del chequeo diario.',
           'Seguimiento del plan: si nos pides que te escribamos para saber cómo estás, guardamos tu correo electrónico y tu nombre hasta enviarte ese único correo 7 días después, y luego los borramos.',
           'Solicitudes para ser Hope Carrier: los datos que das cuando te postulas para el voluntariado.',
           'Donaciones: Donorbox procesa las donaciones. Los datos de tu tarjeta van a Donorbox y a sus socios de pago. HopeBegins no los recibe.',
@@ -282,21 +282,21 @@ const copy: PerLangNoTl<PrivacyCopy> = {
     title: '개인정보 보호와 비밀 유지',
     updated: '마지막 업데이트: 2026년 10월 15일',
     intro:
-      '사람들은 HopeBegins에 개인적이고 아픈 이야기를 털어놓아요. 이 페이지에서는 우리가 무엇을 수집하는지, 누가 볼 수 있는지, 어떻게 보호하는지, 그리고 어떤 선택을 할 수 있는지 설명해요.',
+      '사람들은 HopeBegins에 개인적이고 아픈 이야기를 털어놓아요. 이 페이지에서는 저희가 무엇을 수집하는지, 누가 볼 수 있는지, 어떻게 보호하는지, 어떤 선택을 할 수 있는지 설명해요.',
     sections: [
       {
         title: '수집하는 정보',
         items: [
-          '기도 요청: 이름, 이메일 주소, 직접 쓴 메시지, 그리고 선택한 카테고리와 단체.',
-          'Daily Hope 이메일: 이름, 성, 이메일 주소.',
-          '희망 이야기: 이름, 직업, 사진, 이야기. 이야기는 우리가 검토하고 승인한 뒤에만 게시해요.',
-          '나만의 계획: 답변, 계획, 진행 상황, 희망 카드는 나중에 다시 볼 수 있도록 기기의 브라우저에만 저장돼요. 우리에게 전송되지 않으며, 계획 페이지에서 언제든 삭제할 수 있어요. 백업 파일을 내려받으면 그 파일은 직접 보관하게 되고, 우리는 절대 받지 않아요. 계획을 이메일로 보내 달라고 요청하면 이메일 주소, 알려 준 경우 이름, 그리고 계획을 받아요.',
-          '오늘의 체크인과 도구: 고른 날씨, 마음에 담긴 생각, 도구에서 고르거나 쓴 내용은 모두 기기의 브라우저에만 남아요. 우리는 체크인이나 도구를 사용한 횟수는 집계하지만, 무엇을 골랐는지는 절대 집계하지 않아요. 체크인 기록은 체크인 페이지에서 삭제할 수 있어요.',
-          '계획 체크인: 안부를 물어봐 달라고 요청하면, 7일 뒤 그 한 통의 이메일을 보낼 때까지 이메일 주소와 이름을 보관하고, 보낸 뒤에는 삭제해요.',
+          '기도 제목: 이름, 이메일 주소, 직접 쓴 메시지, 선택한 카테고리와 단체.',
+          'Daily Hope 이메일: 성과 이름, 이메일 주소.',
+          '희망 이야기: 이름, 직업, 사진, 이야기. 이야기는 저희가 검토하고 승인한 뒤에만 게시해요.',
+          '나만의 계획: 답변, 계획, 진행 상황, 희망 카드는 나중에 다시 볼 수 있도록 기기의 브라우저에만 저장돼요. 저희에게 전송되지 않고, 계획 페이지에서 언제든 삭제할 수 있어요. 백업 파일을 내려받으면 그 파일은 직접 보관하게 되고, 저희는 받지 않아요. 계획을 이메일로 보내 달라고 하면 이메일 주소와 계획, 적어 준 경우 이름을 받아요.',
+          '오늘의 체크인과 도구: 고른 날씨, 마음에 담긴 생각, 도구에서 고르거나 쓴 내용은 모두 기기의 브라우저에만 남아요. 저희는 체크인이나 도구를 썼다는 사실만 세고, 무엇을 골랐는지는 세지 않아요. 체크인 기록은 체크인 페이지에서 삭제할 수 있어요.',
+          '계획 체크인: 안부를 물어 달라고 하면, 7일 뒤 안부 이메일 한 통을 보낼 때까지만 이메일 주소와 이름을 보관하고 그 뒤에는 삭제해요.',
           'Hope Carrier 지원서: 봉사자로 지원할 때 적은 정보.',
           '후원: 후원금은 Donorbox가 처리해요. 카드 정보는 Donorbox와 결제 협력사로 전달되며, HopeBegins는 받지 않아요.',
-          'Hope AI: 대화는 Bonfire(heybonfire.com)에서 운영돼요. Bonfire는 메시지를 처리하는 외부 서비스예요.',
-          '사이트 이용: 페이지 방문 수와 링크·도구를 누른 횟수를 자체적으로 집계해요. 이 집계에는 쿠키도, 이름도, 입력한 내용도 없으며, 외부 분석 도구는 사용하지 않아요.',
+          'Hope AI: 대화는 메시지를 처리하는 외부 서비스인 Bonfire(heybonfire.com)에서 이뤄져요.',
+          '사이트 이용: 페이지 방문 수와 링크·도구를 누른 횟수를 자체적으로 집계해요. 여기에 쿠키나 이름, 입력한 내용은 쓰지 않고, 외부 분석 도구도 쓰지 않아요.',
         ],
       },
       {
@@ -310,7 +310,7 @@ const copy: PerLangNoTl<PrivacyCopy> = {
       {
         title: '정보를 볼 수 있는 사람',
         items: [
-          'Hope Carrier는 기도 요청의 메시지와 카테고리를 봐요. 이름은 공유하기로 선택한 경우에만 볼 수 있어요. 이메일 주소는 보여 주지 않아요.',
+          'Hope Carrier는 기도 제목의 메시지와 카테고리를 봐요. 이름은 알려 주기로 선택한 경우에만 보여요. 이메일 주소는 보여 주지 않아요.',
           '서비스를 운영하는 HopeBegins 직원은 업무에 필요한 만큼만 봐요.',
           '위에서 말한 외부 서비스는 제공하는 서비스에 필요한 만큼만 봐요.',
         ],
@@ -318,7 +318,7 @@ const copy: PerLangNoTl<PrivacyCopy> = {
       {
         title: '비밀을 지키는 방법',
         items: [
-          '모든 Hope Carrier는 행동 강령에 동의해요. 행동 강령에 따라 나눈 이야기를 비밀로 지켜야 하고, 허락 없이 이야기를 절대 공유하면 안 돼요.',
+          '모든 Hope Carrier는 행동 강령에 동의해요. 강령에 따라 나눈 이야기는 비밀로 지켜야 하고, 허락 없이 다른 사람에게 전할 수 없어요.',
           '기기와 HopeBegins 사이의 데이터는 전송 중에 암호화돼요(HTTPS).',
           '개인정보에는 도움을 드리는 데 필요한 사람만 접근할 수 있어요.',
         ],

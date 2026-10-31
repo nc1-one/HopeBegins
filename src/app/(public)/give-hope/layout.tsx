@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 const PATH = '/give-hope';
 const TITLE = 'Give Hope: donate or volunteer';
 const DESCRIPTION =
-  'Give a gift, or your heart and time as a Hope Carrier, to keep HopeBegins free for the next person who feels anxious, low or alone.';
+  'Give a gift to keep HopeBegins free for the next person who feels anxious, low or alone, or give your time as a Hope Carrier who prays for people.';
 
 export const metadata = pageMetadata(PATH, TITLE, DESCRIPTION, {
   keywords: [

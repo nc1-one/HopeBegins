@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 'use client';
 
 import { useEffect, useSyncExternalStore } from 'react';
@@ -11,6 +10,7 @@ import { notify } from '@/lib/notifications';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import type { PerLang } from '@/lib/i18n';
 import { usePageLanguage } from '@/lib/pageLanguage';
+import { useCountry } from '@/lib/country';
 
 // Our own words in the page's language; the server's are in English.
 const messages: PerLang<{ sent: string; failed: string }> = {
@@ -35,8 +35,8 @@ const messages: PerLang<{ sent: string; failed: string }> = {
     failed: 'Tu petición no se envió. Inténtalo de nuevo.',
   },
   ko: {
-    sent: '기도 요청을 보냈어요. Hope Carrier가 당신을 위해 기도할 거예요.',
-    failed: '요청이 전송되지 않았어요. 다시 시도해 주세요.',
+    sent: '기도 제목을 보냈어요. Hope Carrier가 기도해 줄 거예요.',
+    failed: '기도 제목을 보내지 못했어요. 다시 시도해 주세요.',
   },
 };
 
@@ -88,6 +88,8 @@ export function usePrayerForm() {
   const lang = usePageLanguage();
   const t = messages[lang];
   const english = lang === 'en' || lang === 'tl';
+  // For the crisis line in the email back; "ZZ" points to Find A Helpline.
+  const country = useCountry(lang) ?? 'ZZ';
   const mutation = useMutation({
     mutationFn: prayerService.createPrayer,
     onSuccess: (data: any) => {
@@ -104,6 +106,8 @@ export function usePrayerForm() {
     // Handle "none" organization selection
     const payload = {
       ...data,
+      lang,
+      country,
       organizationId:
         data.organizationId === 'none' ? null : data.organizationId,
     };

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from '@/components/ui/LocalLink';
 import { FadeImage } from '@/components/ui/FadeImage';
 import { noTl, type Lang, type PerLangNoTl } from '@/lib/i18n';
-import { photo, type PhotoId } from '@/lib/photos';
+import type { Photo, PhotoId } from '@/lib/photos';
 
 const stepLabel: PerLangNoTl<(n: number) => string> = {
   en: (n) => `Step ${n}`,
@@ -21,6 +21,8 @@ export interface ApproachStep {
   photo: PhotoId;
   /** A different picture from the same set, when the page shows it elsewhere. */
   offset?: number;
+  /** The photo the page picked for this step (null: none left to show). */
+  image?: Photo | null;
   link?: { href: string; label: string };
 }
 
@@ -31,12 +33,9 @@ export interface ApproachStep {
  */
 export function ApproachSteps({
   steps,
-  turn,
   lang,
 }: {
   steps: ApproachStep[];
-  /** This turn of the photo rotation, from the server. */
-  turn: number;
   lang: Lang;
 }) {
   const label = noTl(stepLabel, lang);
@@ -63,20 +62,22 @@ export function ApproachSteps({
     <div className="mt-10 md:grid md:grid-cols-2 md:gap-14">
       <div className="hidden md:block">
         <div className="sticky top-28 aspect-[4/5] overflow-hidden rounded-xl bg-[#EFF3E7]">
-          {steps.map((step, index) => (
-            <Image
-              key={step.name}
-              src={photo(step.photo, turn, step.offset).src}
-              alt=""
-              fill
-              sizes="480px"
-              className={`object-cover transition-[opacity,transform] duration-[var(--hb-slow)] ease-[var(--hb-ease-out)] ${
-                index === active
-                  ? 'scale-100 opacity-100'
-                  : 'scale-105 opacity-0'
-              }`}
-            />
-          ))}
+          {steps.map((step, index) =>
+            step.image ? (
+              <Image
+                key={step.name}
+                src={step.image.src}
+                alt=""
+                fill
+                sizes="480px"
+                className={`object-cover transition-[opacity,transform] duration-[var(--hb-slow)] ease-[var(--hb-ease-out)] ${
+                  index === active
+                    ? 'scale-100 opacity-100'
+                    : 'scale-105 opacity-0'
+                }`}
+              />
+            ) : null
+          )}
         </div>
       </div>
 
@@ -92,15 +93,17 @@ export function ApproachSteps({
               index === active ? 'md:opacity-100' : 'md:opacity-35'
             }`}
           >
-            <div className="relative mb-5 aspect-[4/3] overflow-hidden rounded-xl bg-[#EFF3E7] md:hidden">
-              <FadeImage
-                src={photo(step.photo, turn, step.offset).src}
-                alt=""
-                fill
-                sizes="100vw"
-                className="object-cover"
-              />
-            </div>
+            {step.image && (
+              <div className="relative mb-5 aspect-[4/3] overflow-hidden rounded-xl bg-[#EFF3E7] md:hidden">
+                <FadeImage
+                  src={step.image.src}
+                  alt=""
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
             <p className="font-poppins text-sm font-semibold text-[#6E5F47] tabular-nums">
               {label(index + 1)}
             </p>

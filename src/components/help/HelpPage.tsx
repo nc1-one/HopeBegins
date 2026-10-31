@@ -74,7 +74,7 @@ const copy: PerLang<{
     aiTitle: 'Kausapin si Hope AI',
     aiText:
       'AI assistant na puwede mong i-message anumang oras. Hindi siya makakapag-counsel o makakatulong sa emergency.',
-    prayerTitle: 'Magpaipanalangin',
+    prayerTitle: 'Magpadasal',
     checked: (date) => `Huling sinuri ang mga numero noong ${date}.`,
   },
   fr: {
@@ -83,13 +83,13 @@ const copy: PerLang<{
       'Des lignes gratuites où une vraie personne t’écoute. Si ce n’est pas ton pays, choisis le tien.',
     country: 'Pays',
     pick: 'Choisis un pays',
-    crisisHeading: 'Si tu es en crise',
+    crisisHeading: 'En cas de crise',
     listeningHeading: 'Si tu as besoin qu’on t’écoute',
     allDay: 'Ouvert 24h/24, 7j/7',
     hours: 'Horaires :',
     free: 'Gratuit',
     emergency: (n) => `En cas de danger immédiat, appelle le ${n}.`,
-    elsewhere: 'Ton pays n’est pas là ? Trouve une ligne gratuite :',
+    elsewhere: 'Ton pays n’est pas là ? Trouve une ligne d’écoute gratuite :',
     chat: 'Discuter ou écrire',
     moreHeading: 'D’autres façons de parler',
     aiTitle: 'Parler à Hope AI',
@@ -101,7 +101,7 @@ const copy: PerLang<{
   de: {
     title: 'Jemand zum Reden, kostenlos',
     intro:
-      'Kostenlose Telefone, bei denen ein echter Mensch zuhört. Ist das nicht dein Land, wähl deins aus.',
+      'Kostenlose Hilfetelefone, bei denen ein echter Mensch zuhört. Ist das nicht dein Land, wähl deins aus.',
     country: 'Land',
     pick: 'Land wählen',
     crisisHeading: 'Wenn du in einer Krise bist',
@@ -110,10 +110,10 @@ const copy: PerLang<{
     hours: 'Erreichbar:',
     free: 'Kostenlos',
     emergency: (n) => `Bei akuter Gefahr ruf die ${n} an.`,
-    elsewhere: 'Dein Land fehlt? Hier findest du kostenlose Hilfe:',
+    elsewhere: 'Dein Land fehlt? Hier findest du ein kostenloses Hilfetelefon:',
     chat: 'Chatten oder schreiben',
     moreHeading: 'Weitere Wege zum Reden',
-    aiTitle: 'Mit Hope AI schreiben',
+    aiTitle: 'Mit Hope AI reden',
     aiText:
       'Ein KI-Assistent, dem du jederzeit schreiben kannst. Er ersetzt keine Beratung und hilft nicht im Notfall.',
     prayerTitle: 'Jemanden bitten, für dich zu beten',
@@ -143,7 +143,7 @@ const copy: PerLang<{
   ko: {
     title: '무료로 이야기할 수 있는 곳',
     intro:
-      '실제 사람이 들어 주는 무료 상담 전화예요. 내 나라가 아니라면 바꿔 주세요.',
+      '실제 사람이 들어 주는 무료 상담 전화예요. 표시된 나라가 내 나라가 아니면 바꿔 주세요.',
     country: '나라',
     pick: '나라 선택',
     crisisHeading: '위기 상황이라면',
@@ -155,10 +155,10 @@ const copy: PerLang<{
     elsewhere: '목록에 내 나라가 없나요? 무료 상담 전화 찾기:',
     chat: '채팅이나 문자로 상담하기',
     moreHeading: '이야기할 수 있는 다른 방법',
-    aiTitle: 'Hope AI와 대화하기',
+    aiTitle: 'Hope AI와 이야기하기',
     aiText:
       '언제든 메시지를 보낼 수 있는 AI 도우미예요. 상담을 대신하거나 응급 상황을 도울 수는 없어요.',
-    prayerTitle: '기도를 부탁하기',
+    prayerTitle: '기도 부탁하기',
     checked: (date) => `${date}에 번호를 확인했어요.`,
   },
 };

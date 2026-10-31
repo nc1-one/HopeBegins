@@ -34,14 +34,14 @@ const copy = {
       'Magbanggit ng 2 amoy na naaamoy mo',
       'Magbanggit ng 1 lasa sa bibig mo',
     ],
-    hint: 'Sabihin nang malakas o sa isip lang. Dahan-dahan lang.',
+    hint: 'Sabihin nang malakas o sa isip lang. Huwag kang magmadali.',
     label: 'Gamitin ang 5 senses mo (5-4-3-2-1)',
     stepOf: (step: number) => `Hakbang ${step} ng 5.`,
     stop: 'Itigil',
     next: 'Susunod',
     finish: 'Tapos na',
     doneTitle: 'Tapos na ang lima.',
-    doneText: 'Isang mabagal na hinga.',
+    doneText: 'Huminga muna nang isang beses, mabagal.',
   },
   fr: {
     prompts: [

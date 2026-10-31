@@ -10,7 +10,7 @@ const copy: PerLang<{ title: string; subtitle: string }> = {
   en: {
     title: 'Daily check-in',
     subtitle:
-      'A few taps, about 20 seconds. Come back each day and watch your sampaguita grow.',
+      'A few taps, about 20 seconds. Come back each day and watch your sampaguita flower grow.',
   },
   tl: {
     title: 'Daily check-in',
@@ -29,14 +29,14 @@ const copy: PerLang<{ title: string; subtitle: string }> = {
       'Ein paar Mal tippen, etwa 20 Sekunden. Komm jeden Tag wieder und sieh zu, wie dein Jasmin wächst.',
   },
   es: {
-    title: 'Check-in diario',
+    title: 'Chequeo diario',
     subtitle:
       'Unos toques, unos 20 segundos. Vuelve cada día y mira cómo crece tu jazmín.',
   },
   ko: {
     title: '오늘의 체크인',
     subtitle:
-      '몇 번만 누르면 돼요. 20초 정도 걸려요. 매일 다시 와서 재스민이 자라는 모습을 지켜보세요.',
+      '몇 번만 누르면 20초쯤에 끝나요. 매일 들러서 재스민이 자라는 걸 지켜보세요.',
   },
 };
 

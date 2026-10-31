@@ -4,6 +4,7 @@ import { useRef, useSyncExternalStore } from 'react';
 import { FadeImage } from '@/components/ui/FadeImage';
 import { usePhoto } from '@/components/ui/PhotoTurn';
 import { noTl, type Lang, type PerLangNoTl } from '@/lib/i18n';
+import { distinctPhotos } from '@/lib/photos';
 import { analyticsService } from '@/services/analyticsService';
 import { CarrierForm } from '../../be-carrier/components/CarrierForm';
 import { CarrierSteps } from '../../be-carrier/components/CarrierSteps';
@@ -29,7 +30,7 @@ const copy: PerLangNoTl<{
         text: 'Keep HopeBegins free for the next person.',
       },
       time: {
-        title: 'Give your heart and time',
+        title: 'Give your time',
         text: 'Pray for people as a Hope Carrier.',
       },
     },
@@ -94,7 +95,7 @@ const copy: PerLangNoTl<{
     ways: {
       gift: {
         title: '후원하기',
-        text: '다음 사람에게도 HopeBegins가 무료일 수 있도록.',
+        text: '다음 사람도 HopeBegins를 무료로 쓸 수 있게 해 주세요.',
       },
       time: {
         title: '마음과 시간 나누기',
@@ -102,7 +103,7 @@ const copy: PerLangNoTl<{
       },
     },
     everyGift:
-      '크든 작든 모든 후원이 계획, 도구, 기도, Daily Hope를 필요한 누구에게나 무료로 지켜 줘요. 후원 금액은 필리핀 페소(₱) 기준이에요.',
+      '크든 작든 모든 후원 덕분에 필요한 누구나 계획, 도구, 기도, Daily Hope를 무료로 받을 수 있어요. 후원 금액은 필리핀 페소(₱) 기준이에요.',
     signUp: 'Hope Carrier 신청하기',
   },
 };
@@ -133,9 +134,13 @@ export function GiveWays({ lang }: { lang: Lang }) {
   // The address decides the tab, so a shared link opens on the same one.
   const active: Way = hash === '#time' ? 'time' : 'gift';
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
-  // The two photos of people caring for each other, never the same one.
-  const giftPhoto = usePhoto('care', 1);
-  const timePhoto = usePhoto('care');
+  // The two photos of people caring for each other: never the same one,
+  // nor the page's own photo above.
+  const hero = usePhoto('hope');
+  const wanted = [usePhoto('care', 1), usePhoto('care')];
+  const [giftPhoto, timePhoto] = distinctPhotos(wanted, lang, [hero.src]).map(
+    (photo, index) => photo ?? wanted[index]
+  );
 
   const ways = [
     { id: 'gift' as const, ...t.ways.gift, photo: giftPhoto },

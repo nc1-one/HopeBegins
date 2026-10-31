@@ -64,7 +64,7 @@ const copy = {
     newBest: 'Ito na ang pinakamaganda mo sa phone na ito.',
     bestSoFar: (n: number) =>
       `Pinakamaganda mo sa phone na ito: ${n} na subok.`,
-    again: 'Laro ulit',
+    again: 'Maglaro ulit',
     harder: (n: number) => `Subukan ang ${n} na pares`,
     close: 'Isara',
   },

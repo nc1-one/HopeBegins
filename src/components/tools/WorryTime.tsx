@@ -97,18 +97,18 @@ const copy = {
     nextTime: 'paulit-ulit na bumabalik ang pag-aalala sa maghapon',
   },
   fr: {
-    label: 'Le moment pour s’inquiéter',
+    label: 'Le quart d’heure des soucis',
     intro:
-      'Note tes soucis quand ils arrivent. Ensuite, occupe-t’en pendant le moment pour s’inquiéter : 15 minutes, à la même heure chaque jour.',
+      'Note tes soucis quand ils arrivent. Ensuite, occupe-t’en pendant ton quart d’heure des soucis, à la même heure chaque jour.',
     topicsLabel: 'Qu’est-ce qui te tracasse ? Touche pour le garder.',
     addLabel: 'Ou écris avec tes mots',
-    add: 'Le garder pour le moment prévu',
+    add: 'Le garder pour mon quart d’heure',
     count: (n: number) =>
       n === 0
         ? 'Aucun souci gardé pour l’instant.'
-        : `${n} ${n === 1 ? 'souci' : 'soucis'} en attente de ton moment pour t’inquiéter.`,
+        : `${n} ${n === 1 ? 'souci gardé' : 'soucis gardés'} pour ton quart d’heure.`,
     privacy: 'Tout reste sur ce téléphone.',
-    start: 'Commencer mon moment pour m’inquiéter',
+    start: 'Commencer mon quart d’heure',
     clear: 'Vider la liste',
     close: 'Fermer',
     reviewOf: (i: number, n: number) => `Souci ${i} sur ${n}`,
@@ -124,9 +124,9 @@ const copy = {
       'Prier pour ça',
     ],
     saveStep: 'Suivant',
-    doneTitle: 'Le moment pour s’inquiéter est terminé.',
+    doneTitle: 'Ton quart d’heure des soucis est terminé.',
     doneText:
-      'Quand de nouveaux soucis arrivent, note-les ici et laisse-les attendre jusqu’au moment pour s’inquiéter de demain.',
+      'Quand de nouveaux soucis arrivent, note-les ici et garde-les pour le quart d’heure de demain.',
     stepsTitle: 'Tes prochains pas',
     nextTime: 'l’inquiétude revient sans cesse dans la journée',
   },
@@ -155,7 +155,7 @@ const copy = {
       'Jemanden um Hilfe bitten',
       'Eine Sache herausfinden',
       'Eine Zeit festlegen, um es anzugehen',
-      'Dafür beten',
+      'Darüber beten',
     ],
     saveStep: 'Weiter',
     doneTitle: 'Die Sorgenzeit ist vorbei.',
@@ -201,14 +201,14 @@ const copy = {
   ko: {
     label: '걱정 시간',
     intro:
-      '걱정이 떠오르면 적어 두세요. 그리고 매일 같은 시간에 15분 동안, 걱정 시간에 다뤄요.',
+      '걱정이 떠오르면 적어 두었다가, 매일 같은 시간 15분 동안 걱정 시간에 다뤄요.',
     topicsLabel: '무슨 걱정이 있나요? 누르면 저장돼요.',
     addLabel: '아니면 직접 적어 보세요',
-    add: '걱정 시간까지 저장하기',
+    add: '걱정 시간으로 미뤄 두기',
     count: (n: number) =>
       n === 0
         ? '아직 저장한 걱정이 없어요.'
-        : `걱정 시간을 위해 걱정 ${n}개를 저장했어요.`,
+        : `걱정 시간에 다룰 걱정 ${n}개를 저장했어요.`,
     privacy: '이 휴대폰에만 저장돼요.',
     start: '걱정 시간 시작하기',
     clear: '목록 지우기',
@@ -228,7 +228,7 @@ const copy = {
     saveStep: '다음',
     doneTitle: '걱정 시간이 끝났어요.',
     doneText:
-      '새로운 걱정이 생기면 여기에 적고, 내일 걱정 시간까지 놓아두세요.',
+      '새로운 걱정이 생기면 여기에 적고, 내일 걱정 시간까지 미뤄 두세요.',
     stepsTitle: '해 볼 일',
     nextTime: '낮 동안 걱정이 자꾸 되돌아올 때',
   },

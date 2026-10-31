@@ -76,8 +76,8 @@ const copy = {
     stop: 'Itigil',
     doneTitle: 'Nagawa mo.',
     doneText:
-      'Mahalaga ang maliliit na bagay. Gumawa muna, at madalas sumusunod ang gaan ng pakiramdam.',
-    nextTime: 'pakiramdam mo ay stuck ka o mabigat ang loob mo',
+      'Pasok ang maliliit na bagay. Madalas, gumagaan ang pakiramdam pagkatapos kumilos.',
+    nextTime: 'stuck ka o mabigat ang loob mo',
   },
   fr: {
     label: 'Une petite chose',
@@ -176,7 +176,7 @@ const copy = {
     ownLabel: '또는 직접 적기',
     useOwn: '이걸로 할래요',
     yours: '내가 고른 일:',
-    doIt: '할 수 있다면 지금 해 보세요. 어렵다면 내일 하도록 남겨 두세요.',
+    doIt: '할 수 있다면 지금 해 보세요. 어렵다면 내일로 남겨 두세요.',
     did: '했어요',
     later: '내일 하기',
     another: '다른 거 고르기',
@@ -186,7 +186,7 @@ const copy = {
     doneTitle: '해냈어요',
     doneText:
       '작은 일도 의미가 있어요. 기분은 움직이고 나서 따라올 때가 많아요.',
-    nextTime: '꼼짝하기 싫거나 마음이 무거울 때',
+    nextTime: '아무것도 손에 안 잡히거나 마음이 무거울 때',
   },
 };
 

@@ -51,28 +51,28 @@ const STORIES: {
         excerpt:
           'Grâce à ce programme, j’ai appris à vraiment passer mes pensées au crible, à mieux repérer les mensonges dont je me persuade et à les remplacer par ce qui est vrai.',
         content:
-          'Grâce à ce programme, j’ai appris à vraiment passer mes pensées au crible, à mieux repérer les mensonges dont je me persuade et à les remplacer par ce qui est vrai. Et surtout, cette fois, la vérité va au-delà de ce que je sais : elle repose sur la vérité ultime, sur ce que dit la Parole de Dieu. Coach Hope m’a rappelé le verset de Philippiens 2:13, qui est maintenant l’un de mes versets préférés : c’est Dieu qui agit en nous, et qui nous donne à la fois le désir et la force de faire ce qui Lui plaît. C’est un beau rappel que, même quand notre santé mentale est un combat, Dieu agit en nous. Il nous donne à la fois l’envie de changer et la force de changer, pour Sa gloire.',
+          'Grâce à ce programme, j’ai appris à vraiment passer mes pensées au crible, à mieux repérer les mensonges dont je me persuade et à les remplacer par ce qui est vrai. Et surtout, cette fois, la vérité va au-delà de ce que je sais : elle repose sur la vérité ultime, sur ce que dit la Parole de Dieu. Coach Hope m’a rappelé Philippiens 2:13, qui est maintenant l’un de mes versets préférés : « car c’est Dieu qui produit en vous le vouloir et le faire, selon son bon plaisir. » Même quand notre santé mentale est un combat, Dieu agit en nous. Il nous donne à la fois l’envie de changer et la force de changer, pour sa gloire.',
         role: 'A participé à HopeBegins',
       },
       de: {
         excerpt:
           'Durch dieses Programm habe ich gelernt, meine Gedanken richtig zu prüfen, die Lügen, die ich mir selbst einrede, bewusster zu erkennen und sie durch das zu ersetzen, was wahr ist.',
         content:
-          'Durch dieses Programm habe ich gelernt, meine Gedanken richtig zu prüfen, die Lügen, die ich mir selbst einrede, bewusster zu erkennen und sie durch das zu ersetzen, was wahr ist. Und das Wichtigste: Diesmal geht die Wahrheit über das hinaus, was ich weiß. Sie gründet auf der höchsten Wahrheit, auf dem, was Gottes Wort sagt. Coach Hope hat mich an den Vers Philipper 2,13 erinnert, der jetzt einer meiner Lieblingsverse ist: Gott ist es, der in uns wirkt und uns beides schenkt, den Wunsch und die Kraft, das zu tun, was Ihm gefällt. Das ist eine schöne Erinnerung daran, dass Gott auch in unseren seelischen Kämpfen in uns wirkt. Er schenkt uns beides, den Wunsch, uns zu verändern, und die Kraft dazu, zu Seiner Ehre.',
+          "Durch dieses Programm habe ich gelernt, meine Gedanken richtig zu prüfen, die Lügen, die ich mir selbst einrede, bewusster zu erkennen und sie durch das zu ersetzen, was wahr ist. Und das Wichtigste: Diesmal geht die Wahrheit über das hinaus, was ich weiß. Sie gründet auf der höchsten Wahrheit, auf dem, was Gottes Wort sagt. Coach Hope hat mich an den Vers Philipper 2,13 erinnert, der jetzt einer meiner Lieblingsverse ist: „Denn Gott ist's, der in euch wirkt beides, das Wollen und das Vollbringen, nach seinem Wohlgefallen.“ Das ist eine schöne Erinnerung daran, dass Gott auch in unseren seelischen Kämpfen in uns wirkt. Er schenkt uns beides, den Wunsch, uns zu verändern, und die Kraft dazu, zu Seiner Ehre.",
         role: 'Hat bei HopeBegins mitgemacht',
       },
       es: {
         excerpt:
           'Gracias a este programa aprendí a revisar bien mis pensamientos, a darme más cuenta de las mentiras con las que me convenzo y a reemplazarlas por lo que es verdad.',
         content:
-          'Gracias a este programa aprendí a revisar bien mis pensamientos, a darme más cuenta de las mentiras con las que me convenzo y a reemplazarlas por lo que es verdad. Y lo más importante: esta vez la verdad va más allá de lo que yo sé. Se basa en la verdad suprema, en lo que dice la Palabra de Dios. Coach Hope me recordó el versículo de Filipenses 2:13, que ahora es uno de mis favoritos: es Dios quien obra en nosotros y nos da tanto el deseo como el poder de hacer lo que a Él le agrada. Es un recordatorio hermoso de que, incluso en nuestras luchas de salud mental, Dios obra en nosotros. Él nos da tanto el deseo de cambiar como el poder para cambiar, para Su gloria.',
+          'Gracias a este programa aprendí a revisar bien mis pensamientos, a darme más cuenta de las mentiras con las que me convenzo y a reemplazarlas por lo que es verdad. Y lo más importante: esta vez la verdad va más allá de lo que yo sé. Se basa en la verdad suprema, en lo que dice la Palabra de Dios. Coach Hope me recordó Filipenses 2:13, que ahora es uno de mis versículos favoritos: “Porque Dios es el que en vosotros obra así el querer como el hacer, por su buena voluntad”. Me encanta, porque me muestra que, incluso en nuestras luchas de salud mental, Dios obra en nosotros. Él nos da tanto el deseo de cambiar como el poder para cambiar, para Su gloria.',
         role: 'Participante de HopeBegins',
       },
       ko: {
         excerpt:
-          '이 프로그램을 통해 제 생각을 제대로 점검하고, 스스로 믿어 버리는 거짓말을 더 잘 알아차리고, 그 자리를 진실로 채우는 법을 배웠어요.',
+          '이 프로그램에서 제 생각을 제대로 점검하고, 스스로 믿어 버리는 거짓말을 더 잘 알아차리고, 그 자리를 진실로 채우는 법을 배웠어요.',
         content:
-          '이 프로그램을 통해 제 생각을 제대로 점검하고, 스스로 믿어 버리는 거짓말을 더 잘 알아차리고, 그 자리를 진실로 채우는 법을 배웠어요. 무엇보다 이번에는 그 진실이 제가 아는 것을 넘어, 하나님의 말씀이 말하는 궁극적인 진리에 바탕을 두고 있어요. Coach Hope가 빌립보서 2:13 말씀을 떠올리게 해 주었는데, 지금은 제가 가장 좋아하는 말씀 중 하나예요. 하나님이 우리 안에서 일하시며, 그분을 기쁘시게 하는 일을 하고 싶은 마음과 그 일을 할 힘을 함께 주신다는 말씀이에요. 마음의 병과 싸우는 중에도 하나님이 우리 안에서 일하신다는 걸 일깨워 주는 아름다운 말씀이에요. 하나님은 변하고 싶은 마음과 함께, 그분의 영광을 위해 변할 수 있는 힘까지 주시는 분이에요.',
+          '이 프로그램에서 제 생각을 제대로 점검하고, 스스로 믿어 버리는 거짓말을 더 잘 알아차리고, 그 자리를 진실로 채우는 법을 배웠어요. 무엇보다 이번에는 그 진실이 제가 아는 것을 넘어, 하나님의 말씀이 말하는 궁극적인 진리에 바탕을 두고 있어요. Coach Hope가 빌립보서 2:13 말씀을 떠올리게 해 주었는데, 지금은 제가 가장 좋아하는 말씀 중 하나예요. 하나님이 우리 안에서 일하시며, 그분을 기쁘시게 하는 일을 하고 싶은 마음과 그 일을 할 힘을 함께 주신다는 말씀이에요. 마음의 병과 싸우는 중에도 하나님이 우리 안에서 일하신다는 걸 일깨워 주는 아름다운 말씀이에요. 하나님은 변하고 싶은 마음과 함께, 그분의 영광을 위해 변할 수 있는 힘까지 주시는 분이에요.',
         role: 'HopeBegins 참여자',
       },
     },
@@ -93,7 +93,7 @@ const STORIES: {
         excerpt:
           'Je savais que je voulais m’en sortir, et je savais aussi que la seule issue passait par des conseils et un accompagnement fondés sur la Parole de Dieu.',
         content:
-          'Je me souviens que je ne comprenais vraiment pas pourquoi je me réveillais encore avec autant de tristesse, de confusion, d’anxiété et de dépression, chaque jour. Tous. Les. Jours. Je ne savais pas comment m’en sortir, mais je savais que je voulais m’en sortir, et je savais aussi que la seule issue passait par des conseils et un accompagnement fondés sur la Parole de Dieu. Alors, quand on m’a proposé HopeBegins et que j’ai eu la possibilité d’y participer, je me souviens d’y être allée sans hésiter et d’avoir vraiment tenté ma chance, parce que Dieu savait que c’était ce dont j’avais besoin pour avancer dans ma relation avec Lui, pour mieux Le comprendre, Lui et Son amour pour moi. Quand HopeBegins est arrivé, ça a été le début de tant de changements, et une grande partie des ténèbres que je portais a quitté ma vie à ce moment-là.',
+          'Je me souviens que je ne comprenais vraiment pas pourquoi je me réveillais encore avec autant de tristesse, de confusion, d’anxiété et de dépression, tous les jours sans exception. Je ne savais pas comment m’en sortir, mais je savais que je voulais m’en sortir, et je savais aussi que la seule issue passait par des conseils et un accompagnement fondés sur la Parole de Dieu. Alors, quand on m’a proposé HopeBegins et que j’ai eu la possibilité d’y participer, je me souviens d’y être allée sans hésiter et d’avoir vraiment tenté ma chance, parce que Dieu savait que c’était ce dont j’avais besoin pour avancer dans ma relation avec lui, pour mieux le comprendre, lui et son amour pour moi. Quand HopeBegins est arrivé, ça a été le début de tant de changements, et une grande partie des ténèbres que je portais a quitté ma vie à ce moment-là.',
         role: 'A participé à HopeBegins',
       },
       de: {
@@ -154,9 +154,9 @@ const STORIES: {
       },
       ko: {
         excerpt:
-          '정말 도움이 필요하다는 걸 알았어요. 그리고 HopeBegins를 통해 도움과 지지를 얻었어요.',
+          '정말 도움이 필요하다는 걸 알았어요. 그리고 HopeBegins에서 도움과 지지를 얻었어요.',
         content:
-          '저는 불안과 원수의 수많은 거짓말에 짓눌려 있었어요. 그러다 친구가 HopeBegins를 소개해 줬어요. 그런데 그 전에는 사람들과의 관계도 힘들었고, 결정을 내리는 것조차 어려워서 무엇 하나 결정하기 힘들 정도였어요. 제가 내린 결정과 행동이 다 옳지는 않았고, 정말 도움이 필요하다는 걸 알았어요. 그리고 HopeBegins를 통해 도움과 지지를 얻었어요. HopeBegins에 관심은 있지만 망설이는 분들께 말하고 싶어요. 꼭 용기를 내서 도전해 보세요. 삶의 문제와 어려움은 혼자서 감당하려고 하면 정말 힘들거든요. 있잖아요, 우리는 가끔 모든 걸 혼자 해결하려고 하다가 다른 사람에게 도움을 구하는 걸 잊어버리곤 해요.',
+          '저는 불안과 원수의 수많은 거짓말에 짓눌려 있었어요. 그러다 친구가 HopeBegins를 소개해 줬어요. 그런데 그 전에는 사람들과의 관계도 힘들었고, 결정을 내리는 것조차 어려워서 무엇 하나 결정하기 힘들 정도였어요. 제가 내린 결정과 행동이 다 옳지는 않았고, 정말 도움이 필요하다는 걸 알았어요. 그리고 HopeBegins에서 도움과 지지를 얻었어요. HopeBegins에 관심은 있지만 망설이는 분들께 말하고 싶어요. 꼭 용기를 내서 도전해 보세요. 삶의 문제와 어려움은 혼자서 감당하려고 하면 정말 힘들거든요. 있잖아요, 우리는 가끔 모든 걸 혼자 해결하려고 하다가 다른 사람에게 도움을 구하는 걸 잊어버리곤 해요.',
         role: 'HopeBegins 참여자',
       },
     },

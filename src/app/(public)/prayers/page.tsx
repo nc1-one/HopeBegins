@@ -36,7 +36,7 @@ const copy: PerLangNoTl<{
   },
   ko: {
     title: '저를 위해 기도해 줄 사람이 필요해요',
-    subtitle: 'Hope Carrier가 당신을 위해 기도해 줄 거예요.',
+    subtitle: 'Hope Carrier가 기도해 줄 거예요.',
     language:
       'Hope Carrier들은 필리핀에 있고 영어와 필리핀어로 기도해요. 영어로 써도 되고, 편한 언어로 써도 돼요.',
   },

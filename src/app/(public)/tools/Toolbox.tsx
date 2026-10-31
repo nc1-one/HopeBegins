@@ -15,8 +15,8 @@ import { useSavedPlan } from '@/lib/actionPlanStore';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { setLanguage, useLanguage } from '@/lib/languagePreference';
 import { pathIn, TAGLISH_TWINS, twinLinks } from '@/lib/taglishTwins';
-import { type PhotoId } from '@/lib/photos';
 import { usePhotoPicker } from '@/components/ui/PhotoTurn';
+import { distinctPhotos, type PhotoId } from '@/lib/photos';
 import { CrisisSentence } from '@/components/help/Crisis';
 
 /**
@@ -56,7 +56,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     text: {
       en: 'Breathe in for 4 and out for 6, following a circle.',
-      tl: 'Inhale nang 4, exhale nang 6, habang sinusundan ang bilog.',
+      tl: 'Huminga papasok nang 4 na bilang at palabas nang 6, habang sinusundan ang bilog.',
       fr: 'Inspire pendant 4 secondes et expire pendant 6, en suivant un cercle.',
       de: 'Atme 4 Sekunden lang ein und 6 Sekunden lang aus und folge dabei einem Kreis.',
       es: 'Inhala durante 4 segundos y exhala durante 6, siguiendo un círculo.',
@@ -64,7 +64,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     why: {
       en: 'A longer breath out slows your heart and helps your body settle.',
-      tl: 'Kapag mas mahaba ang exhale, bumabagal ang tibok ng puso at kumakalma ang katawan.',
+      tl: 'Kapag mas mahaba ang hinga palabas, bumabagal ang tibok ng puso at kumakalma ang katawan.',
       fr: 'Une expiration plus longue ralentit ton cœur et aide ton corps à s’apaiser.',
       de: 'Längeres Ausatmen verlangsamt deinen Herzschlag und hilft deinem Körper, zur Ruhe zu kommen.',
       es: 'Exhalar por más tiempo hace que tu corazón lata más despacio y ayuda a tu cuerpo a calmarse.',
@@ -102,7 +102,7 @@ const TOOLS: Record<ToolKind, Tool> = {
       fr: 'Tes sens ramènent ton attention là où tu es, loin de l’inquiétude.',
       de: 'Deine Sinne holen deine Aufmerksamkeit zurück ins Hier und Jetzt, weg von der Sorge.',
       es: 'Tus sentidos traen tu atención de vuelta a donde estás, lejos de la preocupación.',
-      ko: '감각이 주의를 걱정에서 떼어 내 지금 있는 곳으로 데려와요.',
+      ko: '감각에 집중하면 걱정에 쏠린 마음이 지금 있는 곳으로 돌아와요.',
     },
   },
   game: {
@@ -123,7 +123,7 @@ const TOOLS: Record<ToolKind, Tool> = {
       ko: '짝 맞추기',
     },
     text: {
-      en: 'Match jeepneys, mangoes and parols. No timer.',
+      en: 'Match jeepneys, mangoes and parol lanterns. No timer.',
       tl: 'Ipares ang mga dyip, mangga at parol. Walang timer.',
       fr: 'Retrouve les paires de mangues, d’étoiles de Noël et de bus. Pas de chrono.',
       de: 'Finde Paare aus Mangos, Weihnachtssternen und Bussen. Ohne Zeitdruck.',
@@ -132,7 +132,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     why: {
       en: 'Keeping a few cards in mind leaves less room for the thoughts going round.',
-      tl: 'Kapag may ilang card kang tinatandaan, nababawasan ang puwang ng paulit-ulit na isip.',
+      tl: 'Kapag may ilang card kang tinatandaan, nababawasan ang puwang para sa paulit-ulit na iniisip.',
       fr: 'Garder quelques cartes en tête laisse moins de place aux pensées qui tournent en boucle.',
       de: 'Wenn du dir ein paar Karten merkst, bleibt weniger Platz für die Gedanken, die sich im Kreis drehen.',
       es: 'Recordar algunas cartas deja menos espacio a los pensamientos que dan vueltas.',
@@ -158,9 +158,9 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     text: {
       en: 'Fly a kite from morning to sunset and catch the stars. Hold to lift, let go to glide.',
-      tl: 'Paliparin ang saranggola mula umaga hanggang paglubog ng araw at hulihin ang mga bituin. I-hold para tumaas, bitawan para dumausdos.',
+      tl: 'Paliparin ang saranggola mula umaga hanggang paglubog ng araw at hulihin ang mga bituin. Pindutin nang matagal para tumaas, bitawan para dumausdos.',
       fr: 'Fais voler un cerf-volant du matin au coucher du soleil et attrape les étoiles. Maintiens le doigt appuyé pour monter, relâche pour planer.',
-      de: 'Lass einen Drachen vom Morgen bis zum Sonnenuntergang fliegen und fang die Sterne. Halte gedrückt, damit er steigt, lass los, damit er gleitet.',
+      de: 'Lass einen Drachen vom Morgen bis zum Sonnenuntergang steigen und fang die Sterne. Halte gedrückt, damit er steigt, lass los, damit er gleitet.',
       es: 'Vuela una cometa desde la mañana hasta el atardecer y atrapa las estrellas. Mantén presionado para subir y suelta para planear.',
       ko: '아침부터 해 질 녘까지 연을 날리며 별을 잡아요. 누르고 있으면 올라가고, 손을 떼면 미끄러지듯 날아요.',
     },
@@ -168,7 +168,7 @@ const TOOLS: Record<ToolKind, Tool> = {
       en: 'Following something that moves, and breathing with it, gives a busy mind somewhere to rest.',
       tl: 'Kapag may sinusundan kang gumagalaw at sinasabayan mo ng hinga, may mapagpapahingahan ang abalang isip.',
       fr: 'Suivre des yeux quelque chose qui bouge, en respirant avec, donne à un esprit agité un endroit où se reposer.',
-      de: 'Etwas zu folgen, das sich bewegt, und dabei mitzuatmen, gibt einem unruhigen Kopf einen Ort zum Ausruhen.',
+      de: 'Wenn du etwas folgst, das sich bewegt, und dabei mitatmest, kommt ein unruhiger Kopf zur Ruhe.',
       es: 'Seguir algo que se mueve, y respirar a su ritmo, le da a una mente ocupada un lugar donde descansar.',
       ko: '움직이는 것을 눈으로 따라가며 함께 숨 쉬면, 바쁜 마음이 쉴 곳이 생겨요.',
     },
@@ -192,19 +192,19 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     text: {
       en: 'Tap the thought that sounds like yours, spot the thinking trap, then pick a kinder, truer way to see it.',
-      tl: 'I-tap ang isip na kahawig ng sa iyo, kilalanin ang thinking trap, tapos pumili ng mas mabait at mas totoong pagtingin.',
+      tl: 'I-tap ang iniisip na kahawig ng sa iyo, kilalanin ang thinking trap, tapos pumili ng mas magaan at mas totoong pagtingin.',
       fr: 'Touche la pensée qui ressemble à la tienne, repère le piège de pensée, puis choisis une façon plus douce et plus juste de voir les choses.',
       de: 'Tippe auf den Gedanken, der wie deiner klingt, erkenne die Denkfalle und wähle dann eine freundlichere, ehrlichere Sicht darauf.',
       es: 'Toca el pensamiento que se parece al tuyo, descubre la trampa de pensamiento y elige una forma más amable y más real de verlo.',
-      ko: '내 생각과 비슷한 생각을 누르고, 생각의 함정을 알아본 다음, 더 다정하고 더 사실에 가까운 시각을 골라요.',
+      ko: '내 생각과 비슷한 것을 누르고, 어떤 생각의 함정인지 알아본 다음, 더 다정하고 사실에 가까운 생각을 골라요.',
     },
     why: {
-      en: 'Heavy thoughts feel like facts. Checking one, the way CBT counsellors teach, often makes it lighter. Nothing you pick is saved.',
-      tl: 'Parang totoo ang mabibigat na isip. Kapag sinuri mo ito, gaya ng itinuturo sa CBT, madalas itong gumagaan. Walang naka-save sa pipiliin mo.',
+      en: 'Heavy thoughts feel like facts. Checking one, the way CBT counselors teach, often makes it lighter. Nothing you pick is saved.',
+      tl: 'Parang totoo ang mabibigat na iniisip. Kapag sinuri mo ang isa, gaya ng itinuturo ng mga CBT counselor, madalas itong gumagaan. Walang naka-save sa pipiliin mo.',
       fr: 'Les pensées lourdes ont l’air de faits. En vérifier une, comme on l’apprend en TCC, la rend souvent plus légère. Rien de ce que tu choisis n’est enregistré.',
       de: 'Schwere Gedanken fühlen sich wie Tatsachen an. Einen davon zu prüfen, wie man es in der kognitiven Verhaltenstherapie lernt, macht ihn oft leichter. Nichts, was du auswählst, wird gespeichert.',
       es: 'Los pensamientos pesados se sienten como hechos. Revisar uno, como se enseña en la terapia cognitivo-conductual, muchas veces lo aligera. Nada de lo que eliges se guarda.',
-      ko: '무거운 생각은 사실처럼 느껴져요. 인지행동치료(CBT)에서 배우는 방식으로 하나를 점검해 보면 가벼워질 때가 많아요. 고른 내용은 저장되지 않아요.',
+      ko: '무거운 생각은 사실처럼 느껴져요. 인지행동치료(CBT) 상담사들이 가르치는 방식으로 생각 하나를 점검해 보면 한결 가벼워질 때가 많아요. 고른 내용은 저장되지 않아요.',
     },
   },
   unhook: {
@@ -218,7 +218,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     title: {
       en: 'Step back from a heavy thought',
-      tl: 'Lumayo nang kaunti sa mabigat na isip',
+      tl: 'Lumayo nang kaunti sa mabigat na iniisip',
       fr: 'Prendre du recul face à une pensée lourde',
       de: 'Von einem schweren Gedanken Abstand nehmen',
       es: 'Tomar distancia de un pensamiento pesado',
@@ -226,15 +226,15 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     text: {
       en: 'Tap the thought that has hold of you, read it back in a new way, then return to what you were doing.',
-      tl: 'I-tap ang isip na kumakapit sa iyo, basahin ito sa bagong paraan, tapos bumalik sa ginagawa mo.',
+      tl: 'I-tap ang iniisip na kumakapit sa iyo, basahin ito sa bagong paraan, tapos bumalik sa ginagawa mo.',
       fr: 'Touche la pensée qui a prise sur toi, relis-la d’une nouvelle façon, puis reviens à ce que tu faisais.',
       de: 'Tippe auf den Gedanken, der dich festhält, lies ihn auf eine neue Art und kehr dann zu dem zurück, was du gerade gemacht hast.',
       es: 'Toca el pensamiento que no te suelta, reléelo de una forma nueva y vuelve a lo que estabas haciendo.',
-      ko: '나를 붙잡고 있는 생각을 누르고, 새로운 방식으로 다시 읽은 다음, 하던 일로 돌아가요.',
+      ko: '나를 붙잡고 있는 생각을 누르고, 다른 방식으로 다시 읽어 본 다음, 하던 일로 돌아가요.',
     },
     why: {
       en: 'Noticing a thought as a thought puts a little space between you and it. Nothing you pick or type is saved.',
-      tl: 'Kapag napansin mong isip lang ito, nagkakaroon ng kaunting distansya. Walang naka-save sa pinili o itina-type mo.',
+      tl: 'Kapag napansin mong naiisip mo lang ito, nagkakaroon ng kaunting distansya sa pagitan mo at nito. Walang naka-save sa pinili o itina-type mo.',
       fr: 'Voir une pensée comme une simple pensée met un peu de distance entre elle et toi. Rien de ce que tu choisis ou écris n’est enregistré.',
       de: 'Einen Gedanken als Gedanken zu bemerken, schafft ein wenig Abstand zwischen dir und ihm. Nichts, was du auswählst oder schreibst, wird gespeichert.',
       es: 'Darte cuenta de que un pensamiento es solo un pensamiento pone un poco de distancia entre tú y él. Nada de lo que eliges o escribes se guarda.',
@@ -253,7 +253,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     title: {
       en: 'Worry time',
       tl: 'Worry time',
-      fr: 'Le moment pour s’inquiéter',
+      fr: 'Le quart d’heure des soucis',
       de: 'Sorgenzeit',
       es: 'Tiempo para preocuparte',
       ko: '걱정 시간',
@@ -282,7 +282,7 @@ const TOOLS: Record<ToolKind, Tool> = {
       fr: '2 min, le soir',
       de: '2 Min., abends',
       es: '2 min, en la noche',
-      ko: '2분, 밤에',
+      ko: '밤에 2분',
     },
     title: {
       en: 'Worry note',
@@ -294,7 +294,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     text: {
       en: "Tap or write what's keeping you up, then set it aside until morning.",
-      tl: 'I-tap o isulat kung bakit gising ka pa, tapos itabi muna hanggang umaga.',
+      tl: 'I-tap o isulat ang nagpapapuyat sa iyo, tapos itabi muna hanggang umaga.',
       fr: 'Touche ou écris ce qui t’empêche de dormir, puis mets-le de côté jusqu’au matin.',
       de: 'Tippe an oder schreib auf, was dich wach hält, und leg es dann bis zum Morgen beiseite.',
       es: 'Toca o escribe lo que no te deja dormir y déjalo a un lado hasta la mañana.',
@@ -306,7 +306,7 @@ const TOOLS: Record<ToolKind, Tool> = {
       fr: 'Le sortir de ta tête pour le poser par écrit peut t’aider à te reposer. Ce n’est ni enregistré ni envoyé nulle part.',
       de: 'Wenn es aus deinem Kopf aufs Papier kommt, fällt das Ausruhen oft leichter. Es wird nirgends gespeichert oder verschickt.',
       es: 'Sacarlo de tu cabeza y ponerlo por escrito puede ayudarte a descansar. No se guarda ni se envía a ningún lado.',
-      ko: '머릿속 걱정을 꺼내 글로 적으면 쉬기가 한결 쉬워질 수 있어요. 어디에도 저장되거나 전송되지 않아요.',
+      ko: '걱정을 머릿속에서 꺼내 적어 두면 잠들기가 한결 편해질 수 있어요. 어디에도 저장되거나 전송되지 않아요.',
     },
   },
   'one-thing': {
@@ -336,7 +336,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     why: {
       en: 'When you feel low, the energy often comes after you start, rarely before.',
-      tl: 'Kapag malungkot ka, kadalasang dumarating ang gana pagkatapos mong magsimula, bihira bago.',
+      tl: 'Kapag malungkot ka, kadalasang sumusunod ang gana kapag nakapagsimula ka na. Bihira itong mauna.',
       fr: 'Quand le moral est bas, l’envie vient souvent après avoir commencé, rarement avant.',
       de: 'Wenn du niedergeschlagen bist, kommt der Antrieb oft erst, wenn du angefangen hast, selten vorher.',
       es: 'Cuando estás sin ánimo, las ganas suelen llegar después de empezar, casi nunca antes.',
@@ -366,7 +366,7 @@ const TOOLS: Record<ToolKind, Tool> = {
       fr: 'De toutes petites missions de la vraie vie, comme boire un verre d’eau ou passer 2 minutes dehors, font avancer le bus de la maison jusqu’à la mer.',
       de: 'Winzige Aufgaben aus dem echten Leben, wie ein Glas Wasser oder 2 Minuten draußen, bringen den Bus von zu Hause bis ans Meer.',
       es: 'Misiones pequeñitas de la vida real, como un vaso de agua o 2 minutos afuera, llevan el autobús de la casa hasta el mar.',
-      ko: '물 한 잔, 바깥에서 2분처럼 아주 작은 실제 미션을 할 때마다 버스가 집에서 바다까지 달려가요.',
+      ko: '물 한 잔 마시기, 밖에서 2분 있기 같은 아주 작은 실제 미션을 하나씩 할 때마다 버스가 집에서 바다를 향해 달려가요.',
     },
     why: {
       en: 'On low days, small real steps tend to lift your mood more than waiting until you feel ready.',
@@ -424,7 +424,7 @@ const TOOLS: Record<ToolKind, Tool> = {
       en: 'My reasons to keep going',
       tl: 'Ang mga dahilan ko para magpatuloy',
       fr: 'Mes raisons de continuer',
-      de: 'Meine Gründe weiterzumachen',
+      de: 'Meine Gründe zum Weitermachen',
       es: 'Mis razones para seguir',
       ko: '내가 계속 나아갈 이유',
     },
@@ -434,7 +434,7 @@ const TOOLS: Record<ToolKind, Tool> = {
       fr: 'Note les personnes, les projets et les petites choses qui comptent pour toi, à relire les jours difficiles.',
       de: 'Schreib die Menschen, Pläne und kleinen Dinge auf, die dir wichtig sind, damit du sie an schweren Tagen lesen kannst.',
       es: 'Escribe las personas, los planes y las pequeñas cosas que te importan, para leerlos en los días difíciles.',
-      ko: '소중한 사람, 계획, 작은 것들을 적어 두고 힘든 날에 읽어요.',
+      ko: '소중한 사람, 앞으로의 계획, 작은 즐거움을 적어 두고 힘든 날에 읽어요.',
     },
     why: {
       en: 'Your own reasons, in your own words, are there when it is hard to think of any.',
@@ -543,7 +543,7 @@ const GROUPS: {
     id: 'alone',
     label: {
       en: 'Feel alone',
-      tl: 'Parang mag-isa',
+      tl: 'Parang mag-isa ako',
       fr: 'La solitude pèse',
       de: 'Fühle mich allein',
       es: 'Siento soledad',
@@ -556,7 +556,7 @@ const GROUPS: {
       fr: 'Quand la solitude te pèse',
       de: 'Wenn du dich allein fühlst',
       es: 'Cuando sientes que no tienes a nadie',
-      ko: '외롭다고 느낄 때',
+      ko: '외로울 때',
     },
     tools: ['message'],
   },
@@ -575,7 +575,7 @@ const GROUPS: {
       en: 'When you need a reason to keep going',
       tl: 'Kapag kailangan mo ng dahilan para magpatuloy',
       fr: 'Quand tu as besoin d’une raison de continuer',
-      de: 'Wenn du einen Grund brauchst weiterzumachen',
+      de: 'Wenn du einen Grund zum Weitermachen brauchst',
       es: 'Cuando necesitas una razón para seguir adelante',
       ko: '계속 나아갈 이유가 필요할 때',
     },
@@ -641,9 +641,9 @@ const MORE: { id: string; title: Text; links: MoreLink[] }[] = [
           en: 'A real person from Himala Everyday, on Messenger.',
           tl: 'Isang totoong tao mula sa Himala Everyday, sa Messenger.',
           fr: 'Une ligne d’écoute gratuite dans ton pays, avec une vraie personne au bout du fil.',
-          de: 'Kostenlose Telefonhilfe in deinem Land, mit echten Menschen am anderen Ende.',
+          de: 'Kostenlose Hilfetelefone in deinem Land. Am anderen Ende ist ein echter Mensch.',
           es: 'Una línea de ayuda gratuita en tu país, con una persona real del otro lado.',
-          ko: '지금 있는 나라의 무료 상담 전화에서 실제 사람과 이야기할 수 있어요.',
+          ko: '내가 있는 나라의 무료 상담 전화로 실제 사람과 이야기할 수 있어요.',
         },
         to: { ecoach: 'ecoach_tools_talk' },
       },
@@ -667,7 +667,7 @@ const MORE: { id: string; title: Text; links: MoreLink[] }[] = [
           fr: 'Demander qu’on prie pour toi',
           de: 'Um Gebet bitten',
           es: 'Pedir oración',
-          ko: '기도 요청하기',
+          ko: '기도 부탁하기',
         },
         text: {
           en: 'Send a prayer request and a Hope Carrier will pray for you.',
@@ -675,7 +675,7 @@ const MORE: { id: string; title: Text; links: MoreLink[] }[] = [
           fr: 'Envoie une demande de prière, et un Hope Carrier priera pour toi.',
           de: 'Schick ein Gebetsanliegen, und ein Hope Carrier betet für dich.',
           es: 'Envía tu petición de oración y un Hope Carrier orará por ti.',
-          ko: '기도 제목을 보내면 Hope Carrier가 그 제목을 놓고 기도해 줘요.',
+          ko: '기도 제목을 보내면 Hope Carrier가 기도해 줘요.',
         },
         to: { page: '/prayers' },
       },
@@ -687,7 +687,7 @@ const MORE: { id: string; title: Text; links: MoreLink[] }[] = [
           fr: 'Une appli de prière gratuite pour un temps de prière guidé. S’ouvre dans un nouvel onglet.',
           de: 'Eine kostenlose Gebets-App für eine angeleitete Gebetszeit. Öffnet sich in einem neuen Tab.',
           es: 'Una app de oración gratuita para un tiempo de oración guiado. Se abre en una pestaña nueva.',
-          ko: '안내에 따라 기도 시간을 가질 수 있는 무료 기도 앱이에요. 새 탭에서 열려요.',
+          ko: '안내를 따라 기도할 수 있는 무료 기도 앱이에요. 새 탭에서 열려요.',
         },
         to: { site: WAR_ROOM_URL, linkName: 'war_room' },
       },
@@ -724,7 +724,7 @@ const MORE: { id: string; title: Text; links: MoreLink[] }[] = [
           fr: 'De courts messages audio pleins d’espoir, à écouter.',
           de: 'Kurze Audiobotschaften voller Hoffnung zum Anhören.',
           es: 'Mensajes de audio cortos y llenos de esperanza para escuchar.',
-          ko: '들을 수 있는 짧은 희망의 오디오 메시지예요.',
+          ko: '짧게 들을 수 있는 희망의 오디오 메시지예요.',
         },
         to: { page: '/hopecasts' },
       },
@@ -746,7 +746,7 @@ const MORE: { id: string; title: Text; links: MoreLink[] }[] = [
           tl: 'Limang hakbang kapag parang wala nang pag-asa',
           fr: 'Cinq étapes pour les jours sans espoir',
           de: 'Fünf Schritte für hoffnungslose Tage',
-          es: 'Cinco pasos para los días sin esperanza',
+          es: 'Cinco pasos cortos para cuando pierdes la esperanza',
           ko: '희망이 보이지 않는 날을 위한 다섯 걸음',
         },
         text: {
@@ -755,7 +755,7 @@ const MORE: { id: string; title: Text; links: MoreLink[] }[] = [
           fr: 'Une vidéo, une prière et une lecture de la Bible.',
           de: 'Ein Video, ein Gebet und ein Bibeltext.',
           es: 'Un video, una oración y una lectura de la Biblia.',
-          ko: '영상 하나, 기도 하나, 성경 말씀 한 구절이에요.',
+          ko: '영상과 기도, 성경 말씀 한 구절이 있어요.',
         },
         to: { page: '/get-started' },
       },
@@ -777,7 +777,7 @@ const copy = {
   tl: {
     title: 'Mga tool para sa mabibigat na sandali',
     subtitle:
-      'Ilang tap at ilang minuto lang ang karamihan. Walang umaalis sa phone mo sa mga pipiliin mo.',
+      'Ilang tap at ilang minuto lang ang karamihan. Hindi umaalis sa phone mo ang anumang pipiliin mo.',
     pick: 'Ano ang nangyayari?',
     needsPlan:
       'Naka-save ang mga dahilan mo kasama ng plano mo sa phone na ito.',
@@ -798,7 +798,7 @@ const copy = {
   de: {
     title: 'Übungen für schwere Momente',
     subtitle:
-      'Die meisten brauchen nur ein paar Fingertipps und ein paar Minuten. Nichts, was du auswählst, verlässt dein Handy.',
+      'Meist reichen ein paar Minuten und ein paar Mal Tippen. Nichts, was du auswählst, verlässt dein Handy.',
     pick: 'Was ist gerade los?',
     needsPlan:
       'Deine Gründe werden zusammen mit deinem Plan auf diesem Handy gespeichert.',
@@ -809,7 +809,7 @@ const copy = {
   es: {
     title: 'Herramientas para momentos difíciles',
     subtitle:
-      'La mayoría toma unos cuantos toques y unos minutos. Nada de lo que eliges sale de tu celular.',
+      'Casi todas se usan con unos cuantos toques, en pocos minutos. Nada de lo que eliges sale de tu celular.',
     pick: '¿Qué está pasando?',
     needsPlan: 'Tus razones se guardan junto con tu plan en este celular.',
     makePlan: 'Primero haz tu plan gratuito',
@@ -987,6 +987,14 @@ export function Toolbox({ lang: pageLang }: { lang?: FeelingLang } = {}) {
   const t = copy[lang];
   const [active, setActive] = useState(GROUPS[0].id);
   const pickPhoto = usePhotoPicker();
+  // The tiles' photos, and a different one for each tile's large photo:
+  // never the same picture twice on the page.
+  const tilePhotos = GROUPS.map((item) => pickPhoto(item.photo));
+  const largePhotos = distinctPhotos(
+    GROUPS.map((item) => pickPhoto(item.photo, 1)),
+    lang,
+    tilePhotos.map((photo) => photo.src)
+  );
   const [open, setOpen] = useState<ToolKind | null>(null);
   const tabs = useRef<Record<string, HTMLButtonElement | null>>({});
   const group = GROUPS.find((item) => item.id === active) ?? GROUPS[0];
@@ -1075,7 +1083,7 @@ export function Toolbox({ lang: pageLang }: { lang?: FeelingLang } = {}) {
                   }`}
                 >
                   <Image
-                    src={pickPhoto(item.photo).src}
+                    src={tilePhotos[GROUPS.indexOf(item)].src}
                     alt=""
                     fill
                     sizes="(min-width: 768px) 160px, 112px"
@@ -1103,18 +1111,23 @@ export function Toolbox({ lang: pageLang }: { lang?: FeelingLang } = {}) {
           {/* The picked photo, large, crossfading from the last one: a
               second picture of the same moment, not the tab's own. */}
           <div className="relative hidden aspect-[4/5] overflow-hidden rounded-xl bg-[#EFF3E7] md:sticky md:top-28 md:block md:self-start">
-            {GROUPS.map((item) => (
-              <Image
-                key={item.id}
-                src={pickPhoto(item.photo, 1).src}
-                alt=""
-                fill
-                sizes="400px"
-                className={`object-cover transition-opacity duration-[var(--hb-slow)] ease-[var(--hb-ease-out)] ${
-                  item.id === active ? 'opacity-100' : 'opacity-0'
-                }`}
-              />
-            ))}
+            {GROUPS.map((item, index) => {
+              const large = largePhotos[index];
+              return (
+                large && (
+                  <Image
+                    key={item.id}
+                    src={large.src}
+                    alt=""
+                    fill
+                    sizes="400px"
+                    className={`object-cover transition-opacity duration-[var(--hb-slow)] ease-[var(--hb-ease-out)] ${
+                      item.id === active ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                )
+              );
+            })}
           </div>
 
           <div key={group.id}>

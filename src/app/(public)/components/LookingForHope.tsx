@@ -80,7 +80,7 @@ const feelings: ({ id: string; photo: PhotoId } & PerLang<{
       href: '/tired-of-everything',
     },
     de: {
-      label: 'Ich bin müde von allem',
+      label: 'Mir ist alles zu viel',
       href: '/tired-of-everything',
     },
     es: {
@@ -88,7 +88,7 @@ const feelings: ({ id: string; photo: PhotoId } & PerLang<{
       href: '/tired-of-everything',
     },
     ko: {
-      label: '모든 것에 지쳤어요',
+      label: '모든 게 지쳐요',
       href: '/tired-of-everything',
     },
   },
@@ -222,7 +222,7 @@ const menuCopy: PerLang<MenuCopy> = {
     checkIn: 'Check in today',
     myCheckIns: 'My check-ins',
     startMy: { breathe: 'Start my breathing', ground: 'Start my 5-4-3-2-1' },
-    ecoachTitle: 'I Want Someone to Journey With Me',
+    ecoachTitle: 'I want someone to go through this with me',
     ecoachText:
       'Chat with a real person, an e-coach from Himala Everyday, on Messenger.',
     ecoachButton: 'Talk to an e-coach',
@@ -298,7 +298,7 @@ const menuCopy: PerLang<MenuCopy> = {
       breathe: 'Meine Atemübung starten',
       ground: 'Meine 5-4-3-2-1-Übung starten',
     },
-    ecoachTitle: 'Ich möchte, dass mich jemand begleitet',
+    ecoachTitle: 'Ich möchte mit jemandem reden',
     ecoachText:
       'Bei einem kostenlosen Hilfetelefon in deinem Land hört dir ein echter Mensch zu.',
     ecoachButton: 'Mit jemandem reden',
@@ -313,10 +313,10 @@ const menuCopy: PerLang<MenuCopy> = {
     welcomeBack: 'Qué bueno verte de nuevo',
     planDay: (day: number) => `Vas en el día ${day} de tu plan.`,
     planSaved: 'Tu plan está guardado en este celular.',
-    afterSaved: 'Tu tarjeta de esperanza y tu check-in mensual están aquí.',
+    afterSaved: 'Tu tarjeta de esperanza y tu chequeo mensual están aquí.',
     openPlan: 'Abrir mi plan',
-    checkIn: 'Hacer el check-in de hoy',
-    myCheckIns: 'Mis check-ins',
+    checkIn: 'Hacer el chequeo de hoy',
+    myCheckIns: 'Mis chequeos',
     startMy: {
       breathe: 'Empezar mi respiración lenta',
       ground: 'Empezar mi ejercicio 5-4-3-2-1',
@@ -346,7 +346,7 @@ const menuCopy: PerLang<MenuCopy> = {
     },
     ecoachTitle: '누군가 곁에 있어 주면 좋겠어요',
     ecoachText:
-      '지금 있는 곳의 무료 상담 전화에서 실제 사람과 이야기할 수 있어요.',
+      '내가 있는 나라의 무료 상담 전화로 실제 사람과 이야기할 수 있어요.',
     ecoachButton: '누군가와 이야기하기',
     moreWays: '이런 것도 있어요:',
     donate: '후원하러 오셨나요?',
@@ -360,7 +360,7 @@ const morePaths: { title: PerLang<string>; href: string }[] = [
       tl: 'Daily check-in',
       fr: 'Bilan du jour',
       de: 'Täglicher Check-in',
-      es: 'Check-in diario',
+      es: 'Chequeo diario',
       ko: '오늘의 체크인',
     },
     href: '/check-in',

@@ -435,7 +435,7 @@ export const VERSES = {
       text: 'This hope we have as an anchor of the soul, a hope both sure and steadfast and entering into that which is within the veil;',
     },
     tl: {
-      reference: 'Mga Hebreo 6:19',
+      reference: 'Hebreo 6:19',
       text: 'Na ating inaring tulad sa sinepete ng kaluluwa, isang pagasa na matibay at matatag at pumapasok sa nasa loob ng tabing;',
     },
     fr: {
@@ -461,7 +461,7 @@ export const VERSES = {
       text: 'For you, brothers, were called for freedom. Only don’t use your freedom for gain to the flesh, but through love be servants to one another.',
     },
     tl: {
-      reference: 'Mga Taga-Galacia 5:13',
+      reference: 'Galacia 5:13',
       text: "Sapagka't kayo, mga kapatid, ay tinawag sa kalayaan; huwag lamang gamitin ang inyong kalayaan, upang magbigay kadahilanan sa laman, kundi sa pamamagitan ng pagibig ay mangaglingkuran kayo.",
     },
     fr: {
@@ -487,9 +487,9 @@ export type VerseKey = keyof typeof VERSES;
 
 export const VERSE_ATTRIBUTION = {
   en: 'Scripture quotations are from the World English Bible (WEB), public domain.',
-  tl: 'Ang mga talata ay mula sa Ang Dating Biblia (1905), public domain.',
+  tl: 'Galing ang mga verse sa Ang Dating Biblia (1905), public domain.',
   fr: 'Les citations bibliques sont tirées de la Bible Louis Segond (1910), domaine public.',
   de: 'Die Bibelzitate stammen aus der Lutherbibel (1912), gemeinfrei.',
   es: 'Las citas bíblicas son tomadas de la Reina-Valera (1909), de dominio público.',
-  ko: '성경 구절은 퍼블릭 도메인인 개역한글판(1961)에서 인용했어요.',
+  ko: '성경 구절은 저작권 보호 기간이 끝난 개역한글판(1961)에서 인용했어요.',
 };

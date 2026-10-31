@@ -37,7 +37,7 @@ export const stories4: Story[] = [
         paragraphs: [
           'The feed is a highlight reel. People post the ring, the plane ticket and the new title. They rarely post the argument before the proposal, the debt behind the trip or the overtime that came with the promotion. Trish knew all this. Knowing it did little for the sinking feeling.',
           "She was comparing her ordinary Tuesday with other people's best moments, and doing it at the hour when she was most tired and least kind to herself. During the day she could shrug it off. At midnight, alone, every post felt like proof.",
-          "It started to leak into her days. She felt flat at work. She skipped lunch with her barkada because she didn't want to answer \"So, ano na'ng balita sa'yo?\" She stopped posting anything, because nothing in her life felt worth posting.",
+          "It started to leak into her days. She felt flat at work. She skipped lunch with her barkada because she didn't want to be asked what was new with her: \"So, ano na'ng balita sa'yo?\" She stopped posting anything, because nothing in her life felt worth posting.",
           'The worst part was the guilt. These were people she cared about. She wanted to be happy for them, and part of her was. The other part kept a quiet score, and in that score she was always losing.',
         ],
       },
@@ -47,7 +47,7 @@ export const stories4: Story[] = [
         paragraphs: [
           'The first change was small and a little embarrassing. She moved the apps off her home screen into a folder on the last page, and she started charging her phone in the kitchen. She dug out an old alarm clock so the phone had no reason to be in bed. Without it beside her, the midnight scroll mostly stopped.',
           'She also muted a handful of accounts that always left her feeling small. Nobody was told and nobody was unfriended. She could unmute them when she felt steadier.',
-          "Then she tried something her ate suggested. Before opening any app, she wrote down three things from her own day. Small things counted: the guard at her building remembering her name, finishing a report early, her mom's voice message about the ampalaya growing in the garden. It felt silly at first. After two weeks, she noticed she was looking for those things during the day.",
+          "Then she tried something her older sister suggested. Before opening any app, she wrote down three things from her own day. Small things counted: the guard at her building remembering her name, finishing a report early, her mom's voice message about the ampalaya growing in the garden. It felt silly at first. After two weeks, she noticed she was looking for those things during the day.",
           'The biggest shift came from a conversation. Trish finally went to lunch with her barkada and admitted she had been avoiding them. One friend laughed and said, "Girl, I\'ve been comparing myself to you." Trish had no idea. Another friend admitted her engagement photos hid a year of family pressure. Everyone at that table, it turned out, was keeping score against someone.',
           'At church, her small group was reading Philippians. Trish started praying about the comparison itself. She named the posts that stung, asked God to help her be glad for people, and asked for peace about her own pace. Philippians 4:6-7 became the passage she read before bed, on paper, in the kitchen, far from the phone.',
           'Some weeks were still hard. On those, she texted a friend instead of scrolling it off. "Na-trigger ako ulit," she would write, and someone would call.',
@@ -58,7 +58,7 @@ export const stories4: Story[] = [
         kind: 'hope',
         heading: 'If the feed makes you feel behind',
         paragraphs: [
-          "If you are reading this in bed after a long scroll, be gentle with yourself. Feeling small after social media is a common reaction to seeing a lot of other people's best days, late at night, alone. Your worth stays the same whether you post or not.",
+          "If you are reading this in bed after a long scroll, nothing is wrong with you. Feeling small after social media is a common reaction to seeing a lot of other people's best days, late at night, alone. Your worth stays the same whether you post or not.",
           'Try one thing this week. Charge your phone outside the bedroom, mute three accounts that always sting, or write down three good things from your own day before you open an app. Then tell one friend how the feed has been making you feel. They may feel it too.',
           'If the comparison has turned into a heaviness that stays most days, or it lasts more than two weeks and gets in the way of work or sleep, talk to a doctor or counselor. That is a normal next step, and help works.',
           'If you want somewhere to start tonight, [HopeBegins](/) is free. Pick how you feel and you get one small thing to try today, calming tools, someone to pray for you, and an e-coach you can message on Messenger. If the heaviness has spread beyond your phone, the page [Tired of everything](/tired-of-everything) is a good place to begin.',
@@ -117,7 +117,7 @@ export const stories4: Story[] = [
         paragraphs: [
           'The meeting took eleven minutes. The logistics company Rico had worked for in Cavite for nine years was cutting costs, and his warehouse team was being merged with another site. His supervisor post was gone. Someone from HR slid a folder across the table and said, "We\'re really sorry, Rico." He said thank you, because he didn\'t know what else to say.',
           "He drove out of the gate at two in the afternoon and didn't go home. He parked at a fast-food place near the highway, ordered a coffee and sat there until six, the time he usually left work. Then he drove home, ate dinner with his wife, Joanne, and their two kids, and said work was fine.",
-          'He did the same thing the next day, and the day after. Each afternoon he opened job sites on his phone, scrolled, closed them and stared at the parking lot. He was 35, with a car loan and a son about to start Grade 1. One question kept circling: "Paano ko sasabihin?"',
+          'He did the same thing the next day, and the day after. Each afternoon he opened job sites on his phone, scrolled, closed them and stared at the parking lot. He was 35, with a car loan and a son about to start Grade 1. One question kept circling: how would he tell her? "Paano ko sasabihin?"',
           'On the third night, Joanne asked why his uniform never seemed to need washing anymore. He tried to laugh it off. Then he put his head in his hands at the dinner table, and the kids were sent to watch TV.',
         ],
         pullQuote:
@@ -127,7 +127,7 @@ export const stories4: Story[] = [
         kind: 'struggle',
         heading: 'Why losing your job feels so heavy',
         paragraphs: [
-          'For Rico, the job was more than a paycheck. It was how he provided, how he answered "Ano\'ng trabaho mo?" at family gatherings, and how he measured whether he was a good husband and father. When it ended, it felt like all of those went with it.',
+          'For Rico, the job was more than a paycheck. It was how he provided, how he answered "Ano\'ng trabaho mo?", the question about his work, at family gatherings, and how he measured whether he was a good husband and father. When it ended, it felt like all of those went with it.',
           'Shame made him hide. He was afraid Joanne would be disappointed, afraid his parents would worry, afraid his brother-in-law would bring it up at the next birthday. Hiding took energy, and the energy came out of his sleep. He was awake at three most nights, doing math in his head.',
           'The fear ran ahead of the facts. In his mind, one layoff became months without work, then missed payments, then the kids changing schools. None of it had happened. All of it felt certain at three in the morning.',
           'He also felt lost. For nine years his days had a clear shape: alarm, commute, warehouse, home. Now the days had no edges, and he had no idea where to start.',
@@ -137,10 +137,10 @@ export const stories4: Story[] = [
         kind: 'helped',
         heading: 'What to do after losing your job: what helped Rico',
         paragraphs: [
-          'Telling Joanne was the turning point. She cried a little, then went to get a notebook. "Okay," she said. "Ano\'ng meron tayo?" Nothing was solved that night. Rico still slept through until morning for the first time in three days.',
+          'Telling Joanne was the turning point. She cried a little, then went to get a notebook. "Okay," she said. "Ano\'ng meron tayo?" What did they have to work with? Nothing was solved that night. Rico still slept through until morning for the first time in three days.',
           "The notebook helped too. Together they wrote down what they had: his final pay, a little savings, Joanne's salary as a teacher. Then what they owed each month, and what could wait. Seeing the real numbers was scary, and it was smaller than the version in his head. If they were careful, they had about four months.",
           'Next, Rico gave his days a shape again. He woke at the usual time, had coffee outside, and treated the job hunt like a shift. Mornings were for applications and messages to old contacts. Afternoons were for something useful at home, like fixing the gate he had ignored for a year. He stopped at five.',
-          'He told people, which was the hardest part. He messaged a former boss, two batchmates and the men\'s group at church: "Na-lay off ako. If you hear of anything in logistics or warehouse ops, I\'m looking." Two people replied the same day. One sent a lead. Another just wrote, "Kape tayo," and listened for an hour.',
+          'He told people, which was the hardest part. He messaged a former boss, two batchmates and the men\'s group at church: "Na-lay off ako. If you hear of anything in logistics or warehouse ops, I\'m looking." Two people replied the same day. One sent a lead. Another just invited him for coffee, "Kape tayo," and listened for an hour.',
           "He prayed honestly, which for Rico meant admitting he was scared. His pastor reminded him of Lamentations 3:22-23, that God's mercies are new every morning. Rico wrote the reference on the first page of the notebook, above the numbers.",
           'It took eleven weeks. Rico was hired as an operations lead at a smaller company in Laguna, for slightly less pay and a longer drive. Some days he still misses his old team. He also knows now that his worth was never in the job title.',
         ],
@@ -196,7 +196,7 @@ export const stories4: Story[] = [
     metaDescription:
       'Grace cared for her mother after a stroke and stopped resting until she snapped at everyone. What helped her with caregiver burnout, and a step for today.',
     title: 'Caregiver burnout: how Grace learned to rest while caring for Mama',
-    dek: "After her mother's stroke, Grace did everything and rested never. What helped her keep caring without running on empty.",
+    dek: "After her mother's stroke, Grace did everything and never rested. What helped her keep caring without running on empty.",
     who: 'Grace, 41, caring for her mother in Quezon City',
     photo: {
       src: `${photos}/care-embrace.jpg`,
@@ -221,8 +221,8 @@ export const stories4: Story[] = [
         heading: 'The signs of caregiver burnout Grace missed',
         paragraphs: [
           "Looking back, the signs had been there for months. She was tired all the time, even after sleeping. She snapped at Joy over small things, like which brand of adult diapers to buy. She had stopped answering her friends' messages. She got sick twice in one month and kept working through both.",
-          'She felt guilty about everything. Guilty when she was impatient, guilty when she sat down, guilty for wishing, once, that someone else would take over. "Anak ako," she told herself. "Responsibilidad ko \'to." Resting felt like abandoning her mother.',
-          'Caring for a sick parent is love in action, and it is also hard physical and emotional work with no days off. When one person carries it alone for months, the body and mind start to run empty. Grace kept giving from an empty tank and blamed herself when it ran dry.',
+          'She felt guilty about everything. Guilty when she was impatient, guilty when she sat down, guilty for wishing, once, that someone else would take over. She told herself she was the daughter, so it was her job: "Anak ako. Responsibilidad ko \'to." Resting felt like abandoning her mother.',
+          'Caring for a sick parent is an act of love. It is also hard physical and emotional work with no days off. When one person carries it alone for months, the body and mind start to run empty. Grace kept giving from an empty tank and blamed herself when it ran dry.',
           'She was grieving quietly too. Her mother was alive and right there, yet the Mama who used to tease her and cook sinigang every Sunday was harder to reach. Grace had no room to feel that.',
         ],
       },
@@ -230,20 +230,20 @@ export const stories4: Story[] = [
         kind: 'helped',
         heading: 'What helped Grace with caregiver burnout',
         paragraphs: [
-          'The first step was telling Joy the truth. That night Grace called her sister and said, "Hindi ko na kaya nang mag-isa." Joy was quiet for a moment, then asked, "Bakit ngayon mo lang sinabi?" She had assumed Grace was coping, because Grace always said she was.',
+          'The first step was telling Joy the truth. That night Grace called her sister and said she couldn\'t do it alone anymore. "Hindi ko na kaya nang mag-isa." Joy was quiet for a moment, then asked why she was only saying it now. "Bakit ngayon mo lang sinabi?" She had assumed Grace was coping, because Grace always said she was.',
           'They made a plan on paper. Joy would come every Friday night to Sunday night, so Grace had two full nights of sleep. A cousin who lived nearby agreed to sit with Mama two afternoons a week. They hired a part-time caregiver for three mornings. It cost money they had to stretch for, and it gave Grace back her mornings.',
-          'Grace started protecting small pieces of rest. Twenty minutes outside after lunch while Mama napped. A slow walk to the corner bakery. One afternoon a week at church, where her small group prayed for her and one of the women started bringing ulam for the week.',
+          'Grace started protecting small pieces of rest. Twenty minutes outside after lunch while Mama napped. A slow walk to the corner bakery. One afternoon a week at church, where her small group prayed for her and one of the women started bringing cooked food for the week.',
           "She talked to her mother's doctor about the hardest parts: how to move Mama safely, which exercises mattered most, and what she could let go of. The doctor also asked how Grace was sleeping and suggested she see her own doctor. She did, and found out her blood pressure had climbed.",
           'Matthew 11:28-30 went up on the wall above the medicine table. Grace read it on the hard nights and let it be a prayer for herself as much as for Mama.',
           'Mama is still recovering, slowly. Grace still has hard days. She also laughs with her mother again, because she is no longer running on empty every hour.',
         ],
-        pullQuote: 'Hindi ko na kaya nang mag-isa.',
+        pullQuote: 'Grace started protecting small pieces of rest.',
       },
       {
         kind: 'hope',
         heading: 'If you are caring for someone and running on empty',
         paragraphs: [
-          'If you are caring for a parent, a spouse or a child who is sick, the tiredness you feel is real, and so is the love. Needing rest takes nothing away from how much you care. You are a person too, and a rested caregiver can keep going longer.',
+          'If you are caring for a parent, a spouse or a child who is sick, it makes sense that you are this tired. Needing rest takes nothing away from how much you care, and a rested caregiver can keep going longer.',
           "This week, ask for one specific thing from one specific person: two hours on Saturday, a meal, a night of sleep. People often want to help and don't know how. Then protect one small piece of rest every day, even if it is only twenty minutes.",
           'If you feel exhausted most days for weeks, you keep snapping at people you love, or you feel numb or hopeless, talk to a doctor or counselor. Caregivers need care too, and asking for it is a normal next step.',
           'If you want somewhere to start today, [HopeBegins](/) is free. Pick how you feel and you get one small thing to try today, calming tools for the hard nights, someone to pray for you and your family, and an e-coach you can message on Messenger. The page on [burnout](/burnout) has more on what to do when you are running on empty.',
@@ -287,7 +287,7 @@ export const stories4: Story[] = [
     metaTitle: 'Walang gana sa lahat? Ang kuwento ni Migs',
     metaDescription:
       'Ilang linggong walang gana si Migs sa pagkain, sa laro at sa barkada. Ano ang nakatulong sa kanya, at kailan dapat kumausap ng doktor o counselor.',
-    title: 'Walang gana sa lahat: paano bumalik ang kulay sa mga araw ni Migs',
+    title: 'Walang gana sa lahat: paano unti-unting bumalik ang sigla ni Migs',
     dek: 'Ilang linggo siyang nakahiga lang, walang gana kahit sa mga paborito niya. Ito ang maliliit na hakbang na nakatulong sa kanya.',
     who: 'Migs, 28, freelancer sa Baguio',
     photo: {
@@ -298,7 +298,7 @@ export const stories4: Story[] = [
     parts: [
       {
         kind: 'story',
-        heading: 'Ang mga araw na kulay abo',
+        heading: 'Ang mga araw na nakahiga lang',
         paragraphs: [
           "Freelance video editor si Migs sa Baguio. Dati, siya 'yung unang nagyayaya mag-ukay sa Session Road o mag-late-night games kasama ang barkada online. Noong Agosto, unti-unti siyang nawalan ng gana.",
           'Una, sa pagkain. Isang pandesal sa umaga, kape, tapos wala na hanggang gabi. Sumunod, sa paglalaro. Binubuksan niya ang laptop, tinititigan ang game, tapos isinasara ulit. Kahit ang mga project niya, na dati enjoy na enjoy siya, parang pasan na lang.',
@@ -325,11 +325,11 @@ export const stories4: Story[] = [
         paragraphs: [
           'Ang unang hakbang ay isang text kay Kevin, ang pinakamatagal niyang kaibigan: "Pre, parang may mali sa\'kin. Ilang linggo na akong walang gana sa lahat." Walang sermon si Kevin. Pumunta siya kinabukasan na may dalang lugaw, at umupo lang sila sa terrace habang may hamog pa.',
           'Si Kevin din ang nagsabi, "Pa-check ka kaya, pre? Baka higit pa \'to sa pagod." Nahiya si Migs, pero pumayag siya. Nagpa-appointment siya sa isang doktor. Tinanong siya tungkol sa tulog, sa pagkain, at kung gaano na katagal. Ni-refer siya sa isang psychiatrist, at nagsimula siya ng treatment at counseling.',
-          'Unti-unti ang ginhawa. Pagkalipas ng ilang linggo, napansin niyang mas madali nang bumangon. Bumalik ang lasa ng kape. Natawa siya sa isang meme sa group chat, at nagulat siya sa sarili niya.',
-          'Habang hinihintay niyang umepekto ang treatment, maliliit na bagay ang ginawa niya. Isang lakad bawat umaga, kahit sampung minuto lang, sa daan na may pine trees malapit sa bahay. Isang tunay na pagkain bawat araw, kahit simple. Isang mensahe sa group chat, kahit emoji lang.',
+          'Hindi agad gumaan ang pakiramdam niya. Pagkalipas ng ilang linggo, napansin niyang mas madali nang bumangon. Bumalik ang lasa ng kape. Natawa siya sa isang meme sa group chat, at nagulat siya sa sarili niya.',
+          'Habang hinihintay niyang umepekto ang treatment, maliliit na bagay ang ginawa niya. Isang lakad bawat umaga, kahit sampung minuto lang, sa daan na may pine trees malapit sa bahay. Isang maayos na kain bawat araw, kahit simple. Isang mensahe sa group chat, kahit emoji lang.',
           'Tuwing Sabado, nagme-message si Kevin: "Lakad tayo?" Minsan oo, minsan hindi. Tuloy pa rin ang yaya ni Kevin bawat linggo, at doon naramdaman ni Migs na may naghihintay sa kanya.',
           'Nagdasal din siya, kahit maikli. Minsan ang buong dasal niya ay, "Lord, wala akong gana. Samahan Mo ako." Binasa niya ang Awit 42:11, kung saan kinakausap ng sumulat ang sarili niyang kaluluwa. Doon niya naramdaman na kilala ng Diyos ang ganitong klaseng bigat.',
-          'Nagpaalam din siya sa dalawang kliyente na kailangan niya ng mas mahabang deadline. Pumayag silang pareho, at isa pa sa kanila ang nag-message ulit makalipas ang isang linggo para mangumusta.',
+          'Sinabihan din niya ang dalawang kliyente na kailangan niya ng mas mahabang deadline. Pumayag silang pareho, at isa pa sa kanila ang nag-message ulit makalipas ang isang linggo para mangumusta.',
         ],
         pullQuote: 'Lord, wala akong gana. Samahan Mo ako.',
       },
@@ -338,10 +338,10 @@ export const stories4: Story[] = [
         heading: 'Kung walang gana ka rin sa lahat ngayon',
         paragraphs: [
           "Kung ikaw 'to ngayon, nakahiga, walang gana kahit sa paborito mong pagkain o laro, totoo ang nararamdaman mo kahit wala kang maituro na dahilan. May tulong para dito, at puwede kang magsimula sa maliit.",
-          'Ngayong araw, pumili ng isa: lumabas nang sampung minuto, kumain ng isang tunay na pagkain, o mag-text sa isang tao ng totoong nararamdaman mo. At kung may kaibigan kang tahimik nitong mga nakaraang linggo, i-text mo rin siya. Minsan, isang "Kumusta ka talaga?" ang kailangan para makapagsalita ang isang tao.',
-          'Kung dalawang linggo na o higit pa na ganito, o nahihirapan ka na sa trabaho, sa pag-aaral o sa pag-aalaga sa sarili mo, kumausap ng doktor o counselor. Normal na susunod na hakbang ito, at gumagana ang tulong.',
+          'Ngayong araw, pumili ng isa: lumabas nang sampung minuto, kumain nang maayos kahit isang beses, o mag-text sa isang tao ng totoong nararamdaman mo. At kung may kaibigan kang tahimik nitong mga nakaraang linggo, i-text mo rin siya. Minsan, isang "Kumusta ka talaga?" ang kailangan para makapagsalita ang isang tao.',
+          'Kung dalawang linggo na o higit pa na ganito, o nahihirapan ka na sa trabaho, sa pag-aaral o sa pag-aalaga sa sarili mo, kumausap ng doktor o counselor. Normal na hakbang ito, at nakakatulong ito.',
           'Kung naiisip mong tapusin ang buhay mo, tumawag sa NCMH Crisis Hotline, 24/7: 1553 o 0917 899 8727. Kung nasa panganib ka ngayon, tumawag sa 911.',
-          "Kung gusto mo ng masisimulan ngayon, libre ang [HopeBegins](/). Piliin kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwedeng subukan ngayon, mga calming tool, may magdarasal para sa'yo, at e-coach na puwede mong i-message sa Messenger. Basahin din ang [Depressed ako](/depressed-ako) para sa mga susunod na hakbang.",
+          'Kung gusto mo ng masisimulan ngayon, libre ang [HopeBegins](/). Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw. May mga calming tool din, may magdarasal para sa iyo, at may e-coach na puwede mong i-message sa Messenger. Basahin din ang [Depressed ako](/depressed-ako) para sa mga susunod na hakbang.',
         ],
       },
     ],
@@ -349,7 +349,7 @@ export const stories4: Story[] = [
       title: 'Ngayong araw: tatlong maliit na bagay',
       steps: [
         'Lumabas nang sampung minuto, kahit sa harap lang ng bahay.',
-        'Kumain ng isang tunay na pagkain, kahit simple lang.',
+        'Kumain nang maayos kahit isang beses, kahit simple lang ang ulam.',
         'I-text ang isang kaibigan: "Medyo hirap ako ngayon."',
         'Kung dalawang linggo mo nang nararamdaman ito, magpa-appointment sa doktor o counselor.',
       ],
@@ -363,7 +363,7 @@ export const stories4: Story[] = [
       },
       {
         q: 'Ano ang puwedeng gawin kapag walang gana sa lahat?',
-        a: 'Magsimula sa maliit: isang lakad, isang tunay na pagkain, isang mensahe sa taong pinagkakatiwalaan mo. Kung matagal na, humingi ng tulong sa doktor o counselor.',
+        a: 'Magsimula sa maliit: isang lakad, isang maayos na kain, isang mensahe sa taong pinagkakatiwalaan mo. Kung matagal na, humingi ng tulong sa doktor o counselor.',
       },
     ],
     keywords: [
@@ -398,7 +398,7 @@ export const stories4: Story[] = [
           'Jen and Kat had been best friends since Grade 7 in Cebu. They had a running joke: whoever replied last owed the other a milk tea. For years, the replies came within minutes.',
           'Then, around June, Kat\'s replies slowed down. Hours, then a day, then just a heart on Jen\'s messages. Kat skipped a birthday dinner, then their monthly Sunday brunch. "Busy lang sa work," she said.',
           'At first Jen was a little hurt. Then she saw Kat at church and noticed the small things. Kat had lost weight. She sat at the back and left before the last song. When Jen hugged her, Kat held on a second longer than usual.',
-          'That night Jen typed and deleted five messages. Everything sounded too light or too dramatic. Finally she sent: "Hey, I miss you. You okay, really? I\'m coming over Saturday with milk tea. Ako na ang taya."',
+          'That night Jen typed and deleted five messages. Everything sounded too light or too dramatic. Finally she sent: "Hey, I miss you. You okay, really? I\'m coming over Saturday with milk tea. My treat."',
         ],
         pullQuote: 'Hey, I miss you. You okay, really?',
       },
@@ -433,8 +433,8 @@ export const stories4: Story[] = [
         paragraphs: [
           'If someone you love has gone quiet, simple words are enough. Show up, say what you have noticed, and listen more than you talk.',
           'Skip quick fixes like "think positive" or "others have it worse." Keep inviting them, even when they say no. If you are worried, ask directly and calmly whether they are thinking of ending their life. If they say yes, stay with them and get help together.',
-          'If you are thinking of ending your life, call the NCMH Crisis Hotline, 24/7: 1553 or 0917 899 8727. If you are in immediate danger, call 911. You can also make that call together with a friend, the way Jen and Kat did.',
-          "If your friend's low mood has lasted more than two weeks, gently encourage them to talk to a doctor or counselor, and offer to help book it or go with them. Look after yourself too. Supporting someone can be heavy, so talk to someone you trust.",
+          'If you are thinking of ending your life, call the crisis line in your country now: in the Philippines, the NCMH Crisis Hotline, 24/7, on 1553 or 0917 899 8727. If you are in immediate danger, call your emergency number (911 in the Philippines). You can also make that call together with a friend, the way Jen and Kat did.',
+          "If your friend's low mood has lasted more than two weeks, encourage them to talk to a doctor or counselor, and offer to help book it or go with them. Look after yourself too. Supporting someone can be heavy, so talk to someone you trust.",
           'If you want somewhere to start, [HopeBegins](/) is free, for your friend or for you. Pick how you feel and you get one small thing to try today, calming tools, someone to pray for you, and an e-coach you can message on Messenger. For more on the words that help, read [What to say to a depressed friend](/what-to-say-to-a-depressed-friend).',
         ],
       },
@@ -445,7 +445,7 @@ export const stories4: Story[] = [
         'Think of one friend who has gone quiet lately.',
         'Send a simple message: "I miss you. How are you, really?"',
         'Offer something specific, like coffee, a walk or a meal this week.',
-        'If you are worried, ask directly and calmly, and be ready to call 1553 together.',
+        'If you are worried, ask directly and calmly, and be ready to call a crisis line together.',
       ],
     },
     verse: 'psa-34-18',
@@ -453,11 +453,11 @@ export const stories4: Story[] = [
     faq: [
       {
         q: 'How can I help a friend with depression?',
-        a: 'Show up, tell them what you have noticed, and listen without rushing to fix it. Keep checking in, and gently encourage them to see a doctor or counselor, offering to help them book it.',
+        a: 'Show up, tell them what you have noticed, and listen without rushing to fix it. Keep checking in, and encourage them to see a doctor or counselor, offering to help them book it.',
       },
       {
         q: 'Should I ask my friend if they are thinking about suicide?',
-        a: 'Yes. Asking directly and calmly is safe and often a relief, because it lets them talk. If they say yes, stay with them and call the NCMH Crisis Hotline on 1553 together.',
+        a: 'Yes. Asking directly and calmly is safe and often a relief, because it lets them talk. If they say yes, stay with them and call the crisis line in your country together (in the Philippines, the NCMH Crisis Hotline on 1553).',
       },
     ],
     keywords: [
@@ -502,10 +502,10 @@ export const stories4: Story[] = [
         kind: 'struggle',
         heading: 'Bakit sobrang bigat ng stress sa utang',
         paragraphs: [
-          'Para kay Ramon, may kasamang hiya ang bawat piso ng utang. Padre de pamilya siya, at pakiramdam niya, palpak siya bilang tagapagbigay ng pamilya.',
-          'Dahil itinatago niya, mag-isa niyang pinapasan ang lahat. Hindi siya makatulog. Sumasakit ang batok niya. Mainit ang ulo niya sa mga anak niya. Habang nagmamaneho, paulit-ulit sa isip niya ang mga numero, at minsan muntik na siyang lumampas sa pulang ilaw.',
+          'Para kay Ramon, may kasamang hiya ang bawat piso ng utang. Siya ang haligi ng tahanan, at pakiramdam niya, palpak siya.',
+          'Dahil itinatago niya, mag-isa niyang pinapasan ang lahat. Hindi siya makatulog. Sumasakit ang batok niya. Mainit ang ulo niya sa mga anak niya. Habang nagmamaneho, paulit-ulit sa isip niya ang mga numero, at minsan, muntik na siyang lumusot sa red light.',
           'Ramdam din ito ng katawan niya. Pagod na siya bago pa magsimula ang pasada. Nawawalan siya ng gana kumain, at kapag may pasaherong nagbayad ng buong limandaan, naiisip agad niya kung saang utang ito mapupunta.',
-          'Ang pag-utang para pambayad sa ibang utang ay parang paghukay ng bagong butas para matakpan ang luma. Lalong lumalalim. At bawat bagong utang, may kasamang bagong takot.',
+          'Ang pag-utang para ipambayad sa ibang utang, parang paghuhukay ng bagong butas para tabunan ang luma. Lalong lumalalim. At bawat bagong utang, may kasamang bagong takot.',
           'Ang pinakamabigat, pakiramdam niya wala siyang malalapitan. "Problema ko \'to," sabi niya sa sarili. "Ako ang may kasalanan, ako ang aayos."',
         ],
       },
@@ -514,13 +514,13 @@ export const stories4: Story[] = [
         heading: 'Paano hinarap ni Ramon ang stress sa utang',
         paragraphs: [
           'Isang gabi, nabasa ni Lorna ang isang text sa cellphone niya. Wala na siyang maitago. Umupo sila sa kusina pagkatulog ng mga bata, at inamin ni Ramon ang lahat. Inasahan niyang magagalit si Lorna. Nagalit nga, nang kaunti. Pagkatapos, hinawakan nito ang kamay niya: "Bakit mo pinasan nang mag-isa? Mag-asawa tayo."',
-          'Kinabukasan, kumuha sila ng kuwaderno. Inilista nila ang bawat utang: kanino, magkano, kailan ang due date, at magkano ang patong. Nakakatakot tingnan. Sa unang pagkakataon, nakita nila ang buong larawan, at may hangganan pala ito.',
+          'Kinabukasan, kumuha sila ng kuwaderno. Inilista nila ang bawat utang: kanino, magkano, kailan ang due date, at magkano ang patong. Nakakatakot tingnan. Pero noon lang nila nakita nang buo ang utang nila, at may katapusan pala ito.',
           'Tiningnan din nila kung alin ang may pinakamataas na patong at alin ang pinakamadalas tumawag. Doon nila sinimulan ang pakikipag-usap. Hindi kakayanin ang lahat nang sabay, kaya pinag-usapan nila kung alin ang uunahin bawat linggo.',
-          'Isa-isa nilang kinausap ang mga pinagkakautangan. Tinawagan ni Ramon ang kumpare niya at humingi ng mas mahabang palugit. Nakipag-usap sila sa iba para sa payment plan na kaya ng kita niya. May mga tumanggi, at karamihan ay pumayag. Nagdesisyon din silang mag-asawa: wala nang bagong utang para pambayad sa lumang utang.',
-          'May isang app na patuloy na nagte-text nang may pananakot. Tinigilan na ni Ramon ang pagsagot sa mga tawag na nambabastos. Nagbabayad siya ayon sa napag-usapan, at sabay na nilang binabasa ni Lorna ang mga text, para walang nag-iisa sa takot.',
+          'Isa-isa nilang kinausap ang mga pinagkakautangan. Tinawagan ni Ramon ang kumpare niya at humingi ng mas mahabang palugit. Nakipag-usap sila sa iba para sa payment plan na kaya ng kita niya. May mga tumanggi, pero karamihan pumayag. Nagdesisyon din silang mag-asawa: wala nang bagong utang para pambayad sa lumang utang.',
+          'May isang app na panay ang text na may kasamang pananakot. Tinigilan na ni Ramon ang pagsagot sa mga tawag na nambabastos. Nagbabayad siya ayon sa napag-usapan, at sabay na nilang binabasa ni Lorna ang mga text, para walang nag-iisa sa takot.',
           'Binago rin nila ang gastos sa bahay. Baon na lang imbes na kain sa labas, at isang lumang lata ng biskwit para sa ipon, kahit bente pesos lang kada araw.',
-          'Sinabi rin ni Ramon sa mga kasamahan niyang driver sa terminal. Akala niya pagtatawanan siya. Dalawa sa kanila ang umamin na may utang din sila sa mga app. Mula noon, nagkakamustahan sila habang naghihintay ng pasahero.',
-          'At nagdasal siya, sa loob ng jeep, bago pumasada. Ang 1 Pedro 5:7 ang naging panalangin niya: inilalagak niya sa Diyos ang kabalisahan niya, bawat umaga. May utang pa rin sila ngayon, at mas magaan na ang dala ni Ramon. Natutulog na siya nang diretso, at hindi na siya napapatalon sa bawat vibrate.',
+          'Sinabi rin ni Ramon sa mga kasamahan niyang driver sa terminal. Akala niya pagtatawanan siya. Dalawa sa kanila ang umamin na may utang din sila sa mga app. Mula noon, nagkukumustahan sila habang naghihintay ng pasahero.',
+          'At nagdasal siya, sa loob ng jeep, bago pumasada. Ang 1 Pedro 5:7 ang naging dasal niya: inilalagak niya sa Diyos ang kabalisahan niya, bawat umaga. May utang pa rin sila ngayon, pero mas magaan na ang dala ni Ramon. Natutulog na siya nang diretso, at hindi na siya napapatalon sa bawat vibrate.',
         ],
         pullQuote: 'Bakit mo pinasan nang mag-isa? Mag-asawa tayo.',
       },
@@ -531,7 +531,7 @@ export const stories4: Story[] = [
           "Kung binabasa mo 'to habang may mga text na hindi mo mabuksan, huminga ka muna. Maraming Pilipino ang may utang, at may paraan para harapin ito nang paisa-isang hakbang.",
           'Ngayong araw, sabihin sa isang taong pinagkakatiwalaan mo. Tapos ilista ang lahat ng utang mo sa isang papel. Mas madaling harapin ang problemang nakikita mo nang buo. Kung may asawa ka o kasama sa bahay, isama mo sila. Mas magaan ang pasan kapag dalawa o tatlo kayong may hawak.',
           'Kung ilang linggo ka nang hindi makatulog, lagi kang kinakabahan, o pakiramdam mo wala nang pag-asa, kumausap ng doktor o counselor. Normal na hakbang ito, at makakatulong ito para mas malinaw kang makapag-isip.',
-          "Kung gusto mo ng masisimulan ngayon, libre ang [HopeBegins](/). Piliin kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwedeng subukan ngayon, mga calming tool para sa kaba, may magdarasal para sa'yo, at e-coach na puwede mong i-message sa Messenger. Kung kinakabahan ka ngayon mismo, subukan ang [Paano mawala ang anxiety](/paano-mawala-ang-anxiety).",
+          'Kung gusto mo ng masisimulan ngayon, libre ang [HopeBegins](/). Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw. May mga calming tool din para sa kaba, may magdarasal para sa iyo, at may e-coach na puwede mong i-message sa Messenger. Kung kinakabahan ka ngayon mismo, subukan ang [Paano mawala ang anxiety](/paano-mawala-ang-anxiety).',
         ],
       },
     ],

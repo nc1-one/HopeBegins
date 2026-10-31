@@ -30,6 +30,13 @@ export const prayerSchema = z.object({
   startTime: z.number().optional(),
   userId: z.string().optional(),
   organizationId: z.string().uuid().optional().nullable(),
+  /** The page's language, so the email back comes in it. */
+  lang: z.enum(['en', 'tl', 'fr', 'de', 'es', 'ko']).optional(),
+  /** The phone's country, for the crisis line in that email. */
+  country: z
+    .string()
+    .regex(/^[A-Z]{2}$/)
+    .optional(),
   createdAt: z.string().optional(),
   updatedAt: z.string().optional(),
 });

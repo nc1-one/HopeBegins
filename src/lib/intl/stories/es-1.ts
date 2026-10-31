@@ -59,7 +59,7 @@ export const esStories1: Story[] = [
         paragraphs: [
           'Tal vez estás leyendo esto a la una de la mañana. Si es así, estar en vela no dice nada malo de ti. Tu mente intenta protegerte resolviendo todo al mismo tiempo. Solo eligió la peor hora para hacerlo.',
           'Esta noche, prueba una sola cosa de la lista de Daniela en lugar de todas. Escribe tus preocupaciones. Levántate si el sueño no llega. Inhala en 4 y exhala en 6. Y mañana, cuéntale a una persona cómo han sido tus noches.',
-          'Si pensar demasiado te quita el sueño casi todas las noches durante semanas, o empieza a pesarte también de día, habla con un médico o un psicólogo. Es un paso normal, y la ayuda funciona.',
+          'Si pensar demasiado te quita el sueño casi todas las noches durante semanas, o empieza a pesarte también de día, busca atención médica o psicológica. Es un paso normal, y la ayuda funciona.',
           'Y si quieres un lugar para empezar ahora mismo, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes algo pequeño para probar hoy, herramientas para calmarte en noches como esta, alguien que ore por ti y líneas gratuitas de tu país donde alguien te escucha. La página [No puedo dormir de tanto pensar](/cant-sleep-overthinking) tiene un ejercicio de respiración de dos minutos que puedes hacer en la cama.',
         ],
       },
@@ -82,11 +82,11 @@ export const esStories1: Story[] = [
       },
       {
         q: '¿Cómo dejo de pensar tanto antes de dormir?',
-        a: 'Escribe tus preocupaciones temprano en la noche, con un siguiente paso para cada una. Levántate si no puedes dormir y respira más lento: inhala en 4, exhala en 6. Si te pasa durante semanas, habla con un médico o un psicólogo.',
+        a: 'Escribe tus preocupaciones temprano en la noche, con un siguiente paso para cada una. Levántate si no puedes dormir y respira más lento: inhala en 4, exhala en 6. Si te pasa durante semanas, busca atención médica o psicológica.',
       },
       {
         q: '¿Pensar demasiado en la noche es ansiedad?',
-        a: 'Puede ser una señal de ansiedad, sobre todo si pasa casi todas las noches y te deja sin fuerzas al día siguiente. Un médico o un psicólogo puede ayudarte a entender qué está pasando. Mientras tanto, escribir tus preocupaciones y respirar despacio suelen ayudar.',
+        a: 'Puede ser una señal de ansiedad, sobre todo si pasa casi todas las noches y te deja sin fuerzas al día siguiente. Una consulta médica o psicológica puede ayudarte a entender qué está pasando. Mientras tanto, escribir tus preocupaciones y respirar despacio suelen ayudar.',
       },
     ],
     keywords: [
@@ -143,7 +143,7 @@ export const esStories1: Story[] = [
           'Primero, cuidó su sueño con cosas pequeñas. Compró un antifaz y tapones para los oídos, y colgó una cobija gruesa en la ventana. Le pidió a su mamá: “Ma, si se puede, no me despierten antes de las dos”. No fue perfecto, y aun así durmió más.',
           'Segundo, se inventó un “cierre” para el final de cada turno. Antes de irse, se sentaba diez minutos en el comedor de la oficina, tomaba agua y escribía en el celular las llamadas que le daban vueltas. Luego se decía: “Ya terminó el turno. Mañana lo veo”.',
           'Tercero, usó sus vacaciones. Las tenía guardadas para una emergencia. Un compañero le dijo: “Compa, esto ya es una emergencia”. Pidió tres días. No hizo nada especial. Durmió, comió con su familia y salió a caminar en las mañanas. Resultó que eso era justo lo que necesitaba.',
-          'Cuarto, habló con su supervisor. Estaba nervioso, y aun así lo dijo con claridad: las llamadas más difíciles, una tras otra, lo estaban desgastando. Para su sorpresa, su supervisor le dijo que ya lo había notado. Repartieron esas llamadas entre otros agentes con experiencia, y le habló del apoyo psicológico gratuito que ofrecía la empresa. Luis fue. Fue la primera vez que dijo en voz alta lo cansado que estaba de verdad.',
+          'Cuarto, habló con su supervisor. Estaba nervioso, y aun así lo dijo con claridad: las llamadas más difíciles, una tras otra, lo estaban desgastando. Para su sorpresa, su supervisor le dijo que ya lo había notado. Repartieron esas llamadas entre otros agentes con experiencia, y además le contó del apoyo psicológico gratuito que ofrecía la empresa. Luis fue. Fue la primera vez que dijo en voz alta lo cansado que estaba de verdad.',
           'Y volvió a orar. Una noche, antes de su turno, su oración fue corta. Leyó Mateo 11:28 y solo dijo: “Señor, ya estoy cansado”. Para Luis, fue la oración más honesta que había hecho en mucho tiempo.',
           'Unos meses después, todavía se cansa de vez en cuando. Sigue siendo el turno de noche. Pero ya se levanta a jugar fútbol en sus días de descanso, y ya no se queda parado afuera del OXXO antes de entrar.',
         ],
@@ -154,8 +154,8 @@ export const esStories1: Story[] = [
         heading: 'Si el trabajo también te está agotando',
         paragraphs: [
           'Si estás leyendo esto en tu descanso, o de regreso a casa, primero respira. Un cansancio así es señal de que llevas mucho tiempo cargando algo pesado.',
-          'Elige una de las cosas que hizo Luis y pruébala esta semana. Un cierre al terminar tu turno. Una conversación con tu supervisor. Esas vacaciones que tienes guardadas.',
-          'Si te has sentido así por más de dos semanas, o te está costando levantarte y hacer las cosas que antes hacías, habla con un médico o un psicólogo. Es un paso normal, y la ayuda funciona.',
+          'Elige una de las cosas que hizo Luis y pruébala esta semana: un cierre al terminar tu turno, una conversación con tu supervisor o esas vacaciones que tienes guardadas.',
+          'Si te has sentido así por más de dos semanas, o te está costando levantarte y hacer las cosas que antes hacías, busca atención médica o psicológica. Es un paso normal, y la ayuda funciona.',
           'Si quieres un lugar para empezar ahora mismo, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes algo pequeño para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas de tu país donde alguien te escucha. En [Burnout o agotamiento laboral](/burnout) encontrarás más pasos prácticos.',
         ],
       },
@@ -174,7 +174,7 @@ export const esStories1: Story[] = [
     faq: [
       {
         q: '¿Es normal sentir tanto cansancio por el trabajo aunque duerma?',
-        a: 'Cuando dormir y descansar ya no quitan el cansancio, puede ser burnout. Suele venir con irritabilidad, pérdida de interés en el trabajo y la sensación de que nada de lo que haces está bien. Si llevas semanas así, habla con un médico o un psicólogo.',
+        a: 'Cuando dormir y descansar ya no quitan el cansancio, puede ser burnout. Suele venir con irritabilidad, pérdida de interés en el trabajo y la sensación de que nada de lo que haces está bien. Si llevas semanas así, busca atención médica o psicológica.',
       },
       {
         q: '¿Qué hago si ya no aguanto mi trabajo?',
@@ -182,7 +182,7 @@ export const esStories1: Story[] = [
       },
       {
         q: '¿Cómo saber si tengo burnout?',
-        a: 'Algunas señales comunes son un cansancio que el descanso no quita, hartazgo o indiferencia hacia el trabajo, irritabilidad y molestias como dolor de cabeza o de cuello. Si te reconoces en esto desde hace semanas, un médico o un psicólogo puede ayudarte a ver qué está pasando.',
+        a: 'Algunas señales comunes son un cansancio que el descanso no quita, hartazgo o indiferencia hacia el trabajo, irritabilidad y molestias como dolor de cabeza o de cuello. Si te reconoces en esto desde hace semanas, una consulta médica o psicológica puede ayudarte a ver qué está pasando.',
       },
     ],
     keywords: [
@@ -249,8 +249,8 @@ export const esStories1: Story[] = [
         heading: 'Si esta noche estás lejos de casa',
         paragraphs: [
           'Si estás leyendo esto en una litera, en tu descanso o en un tren lejos de casa, ese dolor tiene sentido. Quieres a personas que están a un vuelo de distancia. Extrañarlas es parte de quererlas.',
-          'Prueba una cosa esta semana. Cuéntale a alguien en casa cómo estás de verdad. Busca cerca de ti un grupo de gente de tu país: una iglesia, un partido de fútbol, una comunidad. Manda un audio sobre algo pequeño.',
-          'Si la soledad ya dura más de dos semanas, o no te deja dormir, comer o trabajar, habla con un médico o un psicólogo. Muchos atienden en línea, y hablar con uno es un paso normal.',
+          'Prueba una de estas cosas esta semana: cuéntale a alguien en casa cómo estás de verdad, busca cerca de ti un grupo de gente de tu país (una iglesia, un partido de fútbol, una comunidad) o manda un audio sobre algo pequeño.',
+          'Si la soledad ya dura más de dos semanas, o no te deja dormir, comer o trabajar, busca atención médica o psicológica. Muchos profesionales atienden en línea, y pedir una cita es un paso normal.',
           'Si quieres un lugar para empezar esta noche, [HopeBegins](/) es gratis y funciona dondequiera que estés. Elige cómo te sientes y recibes algo pequeño para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas donde alguien te escucha. También puedes leer [Cuando la soledad pesa](/i-feel-alone), con algunas cosas que ayudan en los días solitarios.',
         ],
       },
@@ -269,7 +269,7 @@ export const esStories1: Story[] = [
     faq: [
       {
         q: '¿Cómo sobrellevar la soledad de vivir lejos de la familia?',
-        a: 'Ayudan más las cosas pequeñas y constantes: llamadas honestas con tu familia, una iglesia o una comunidad de tu país cerca, una rutina para tus días libres y alguien con quien hablar cuando pesa demasiado. Si la soledad dura semanas, un psicólogo puede ayudarte, y muchos atienden en línea y en español.',
+        a: 'Ayudan más las cosas pequeñas y constantes: llamadas honestas con tu familia, una iglesia o una comunidad de tu país cerca, una rutina para tus días libres y alguien con quien hablar cuando pesa demasiado. Si la soledad dura semanas, la atención psicológica puede ayudarte, y muchos profesionales atienden en línea y en español.',
       },
       {
         q: '¿Es normal extrañar tanto a mi familia después de años fuera?',
@@ -336,9 +336,9 @@ export const esStories1: Story[] = [
         kind: 'hope',
         heading: 'Si no pasaste el examen de admisión',
         paragraphs: [
-          'Si tu nombre no estaba en la lista, date tiempo para sentirlo. La decepción, la vergüenza y la pena son normales después de algo por lo que trabajaste tanto. Para la mayoría de las personas, con el tiempo se vuelven más silenciosas.',
-          'Cuando te sientas con fuerzas, da un paso pequeño. Cuéntale la verdad a una persona. Revisa tu puntaje para ver qué reforzar. Arma un horario que deje espacio para descansar. Muchísimas personas ingresan en su segundo o tercer intento.',
-          'Si pasan las semanas y todavía no puedes dormir, comer o levantarte de la cama, o sientes que ya no hay esperanza, habla con un médico o un psicólogo. Es un paso normal, y la ayuda funciona.',
+          'Si tu nombre no estaba en la lista, date tiempo para sentirlo. La decepción, la vergüenza y la pena son normales después de algo por lo que trabajaste tanto. Para la mayoría de las personas, con el tiempo se van calmando.',
+          'Cuando te sientas con fuerzas, da un paso pequeño: cuéntale la verdad a una persona, revisa tu puntaje para ver qué reforzar o arma un horario que deje espacio para descansar. Muchísimas personas ingresan en su segundo o tercer intento.',
+          'Si pasan las semanas y todavía no puedes dormir, comer o levantarte de la cama, o sientes que ya no hay esperanza, busca atención médica o psicológica. Es un paso normal, y la ayuda funciona.',
           'Y si quieres un lugar para empezar hoy, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes algo pequeño para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas de tu país donde alguien te escucha. Si no sabes qué viene ahora, [Cuando no sabes qué camino tomar](/i-feel-lost) tiene algunos pasos pequeños para días así.',
         ],
       },
@@ -365,7 +365,7 @@ export const esStories1: Story[] = [
       },
       {
         q: '¿Es normal sentir que fracasé por no ingresar a la universidad?',
-        a: 'Sí. Es muy común sentir vergüenza o que le fallaste a tu familia. Es un sentimiento fuerte, y un resultado no dice quién eres. Si pasan las semanas y no puedes dormir ni comer, o sientes que ya no hay esperanza, habla con un médico o un psicólogo.',
+        a: 'Sí. Es muy común sentir vergüenza o que le fallaste a tu familia. Es un sentimiento fuerte, y un resultado no dice quién eres. Si pasan las semanas y no puedes dormir ni comer, o sientes que ya no hay esperanza, busca atención médica o psicológica.',
       },
     ],
     keywords: [
@@ -416,11 +416,11 @@ export const esStories1: Story[] = [
         kind: 'helped',
         heading: 'Lo que ayudó a Camila después de su primer ataque de pánico',
         paragraphs: [
-          'La doctora de urgencias le había dicho dos cosas a las que se aferró. Un ataque de pánico da mucho miedo, y pasa: muchas veces dura entre 5 y 20 minutos. Y si los ataques se repetían, debía ir a control con un médico. Pidió hora esa misma semana.',
+          'La doctora de urgencias le había dicho dos cosas a las que se aferró. Un ataque de pánico da mucho miedo, y pasa: muchas veces dura entre 5 y 20 minutos. Y si los ataques se repetían, debía ir a control con un médico. Pidió una cita esa misma semana.',
           'Su médico le explicó qué pasa en el cuerpo durante el pánico y le sugirió la respiración lenta. Camila la practicaba cuando estaba tranquila, para que le saliera fácil cuando no lo estuviera: inhalar por la nariz contando hasta 4, exhalar por la boca contando hasta 6, durante dos minutos. Lo hacía cada mañana antes del trabajo, como lavarse los dientes.',
-          'Aprendió a hablarle al pánico cuando llegaba: “Esto es un ataque de pánico. Se siente horrible, y va a pasar”. Ponía los pies planos en el suelo y nombraba cinco cosas que podía ver. La segunda vez que le pasó, en una reunión, se sintió mal de todos modos. Terminó más rápido.',
+          'Aprendió a hablarle al pánico cuando llegaba: “Esto es un ataque de pánico. Se siente horrible, y va a pasar”. Ponía los pies planos en el suelo y nombraba cinco cosas que podía ver. La segunda vez que le pasó, en una reunión, se sintió mal de todos modos, pero terminó más rápido.',
           'También volvió a usar el metro, poco a poco. Primero tramos cortos con su hermana menor. Después el trayecto completo a casa, a una hora tranquila. Después, a la hora de salida. Cada recorrido que terminaba bien hacía más fácil el siguiente.',
-          'Le habló a su jefa de la carga de trabajo de la auditoría, bajó el café a una taza al día y empezó a almorzar lejos de su escritorio. Su mamá oraba con ella por teléfono desde Concepción los domingos en la noche. Salmos 56:3 se volvió el versículo que susurraba en el metro.',
+          'Le habló a su jefa de la carga de trabajo de la auditoría, bajó el café a una taza al día y empezó a almorzar lejos de su escritorio. Su mamá oraba con ella por teléfono desde Concepción los domingos en la noche. Salmos 56:3 se volvió el versículo que repetía en voz baja en el metro.',
           'Como después de unos meses el miedo a otro ataque seguía rondándola, su médico la derivó a una psicóloga. Eso la ayudó a entender la preocupación que había debajo del pánico, y qué hacer con ella.',
         ],
         pullQuote:
@@ -432,7 +432,7 @@ export const esStories1: Story[] = [
         paragraphs: [
           'Si el corazón se te está acelerando mientras lees esto, pon los pies en el suelo. Inhala en 4, exhala en 6. El pánico sube, llega a su punto más alto y luego pasa. Puedes aguantar hasta que este pase.',
           'Si es la primera vez que tienes dolor en el pecho o dificultad para respirar, hazte revisar por un médico o ve a urgencias. Eso fue lo correcto para Camila, y es lo correcto para ti. Cuando se descartan otras causas, puedes tratar el pánico como lo que es.',
-          'Si los ataques de pánico se repiten, o empiezas a evitar lugares por miedo a ellos, habla con un médico o un psicólogo. Los ataques de pánico tienen tratamiento, y consultar por ellos es un paso normal.',
+          'Si los ataques de pánico se repiten, o empiezas a evitar lugares por miedo a ellos, busca atención médica o psicológica. Los ataques de pánico tienen tratamiento, y consultar por ellos es un paso normal.',
           'Para la próxima vez, [¿Tienes un ataque de pánico? Respira con nosotros](/panic-attack-what-to-do) te guía paso a paso por dos minutos de respiración. Y [HopeBegins](/) es gratis: elige cómo te sientes y recibes algo pequeño para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas de tu país donde alguien te escucha.',
         ],
       },
@@ -523,8 +523,8 @@ export const esStories1: Story[] = [
         heading: 'Si estás en duelo por alguien que amas',
         paragraphs: [
           'Si hoy extrañas a alguien, el duelo no tiene horario. Llega en olas, muchas veces en las cosas pequeñas de cada día que compartían. Sentirlo es parte de haber amado a esa persona.',
-          'Prueba una cosa pequeña esta semana. Cuéntale a alguien una historia sobre la persona que perdiste. Mantén viva una de sus costumbres: una receta, una canción, un café en la mañana. Escríbele una nota corta.',
-          'Si durante semanas el duelo te impide dormir, comer, trabajar o pasar el día, o sientes que no hay esperanza, habla con un médico o un psicólogo. Pedir apoyo en el duelo es un paso normal.',
+          'Prueba una cosa pequeña esta semana: cuéntale a alguien una historia sobre la persona que perdiste, mantén viva una de sus costumbres (una receta, una canción, un café en la mañana) o escríbele una nota corta.',
+          'Si durante semanas el duelo te impide dormir, comer, trabajar o pasar el día, o sientes que no hay esperanza, busca atención médica o psicológica. Pedir apoyo en el duelo es un paso normal.',
           'Y si quieres un lugar para empezar hoy, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes algo pequeño para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas de tu país donde alguien te escucha. Para los días pesados, [Versículos para cuando te sientes triste](/bible-verses-when-you-feel-down) reúne algunos versículos y una oración corta.',
         ],
       },
@@ -543,7 +543,7 @@ export const esStories1: Story[] = [
     faq: [
       {
         q: '¿Cómo superar la muerte de un abuelo o una abuela?',
-        a: 'Date permiso para vivir el duelo, habla de esa persona con quienes también la querían y mantén pequeñas costumbres que te la recuerden. Descansa, come y duerme lo mejor que puedas. Si durante semanas el duelo hace muy difícil tu vida diaria, habla con un médico o un psicólogo.',
+        a: 'Date permiso para vivir el duelo, habla de esa persona con quienes también la querían y mantén pequeñas costumbres que te la recuerden. Descansa, come y duerme lo mejor que puedas. Si durante semanas el duelo hace muy difícil tu vida diaria, busca atención médica o psicológica.',
       },
       {
         q: '¿Es normal sufrir tanto por la muerte de mi abuela?',
@@ -551,7 +551,7 @@ export const esStories1: Story[] = [
       },
       {
         q: '¿Cuánto dura el duelo?',
-        a: 'No hay un plazo fijo. Para muchas personas el dolor se vuelve más llevadero con los meses, aunque regrese en fechas especiales. Si pasa mucho tiempo y sigues sin poder llevar tu vida diaria, o sientes que no hay esperanza, busca la ayuda de un médico o un psicólogo.',
+        a: 'No hay un plazo fijo. Para muchas personas el dolor se vuelve más llevadero con los meses, aunque regrese en fechas especiales. Si pasa mucho tiempo y sigues sin poder llevar tu vida diaria, o sientes que no hay esperanza, busca atención médica o psicológica.',
       },
     ],
     keywords: [
@@ -581,7 +581,7 @@ export const esStories1: Story[] = [
         heading: 'La playlist que no podía borrar',
         paragraphs: [
           'Valentina tenía una playlist llamada “Nosotros”. Ciento catorce canciones: cinco años de escapadas en auto, peleas y reconciliaciones. Ya habían pasado tres meses desde que ella y Enzo terminaron, y la playlist seguía en su celular.',
-          'Cada noche, después del trabajo, se sentaba en el balcón del departamento que alquilaba en Almagro, con los auriculares puestos, y ponía sus canciones. Después abría el perfil de Enzo. Revisaba si había publicado algo nuevo. Quién había reaccionado. Si se veía feliz.',
+          'Cada noche, después del trabajo, se sentaba en el balcón del departamento que alquilaba en Almagro, con los auriculares puestos, y ponía sus canciones. Después abría el perfil de Enzo. Revisaba si había publicado algo nuevo, quién había reaccionado, si se veía feliz.',
           '“Amiga, ya deja de seguirlo”, le dijo su mejor amiga, Flor. “Sí, mañana”, contestaba Valentina. Pasaron muchos “mañana”.',
           'Los domingos eran lo más difícil. El domingo solía ser su día: la iglesia, el almuerzo en la casa de la familia de Enzo y después una película. Ahora pasaba el día entero en la cama con la tele prendida, casi sin mirarla.',
           'En el trabajo le costaba concentrarse. Antes era la más rápida de su equipo. Ahora un solo afiche le llevaba todo el día. Cuando en el taxi sonaba una de sus canciones, miraba por la ventana para que el chofer no la viera llorar.',
@@ -609,19 +609,19 @@ export const esStories1: Story[] = [
           'Segundo, movió la playlist a una carpeta llamada “Para otro día”. Armó una nueva, “Primero yo”, llena de canciones que todavía no tenían recuerdos.',
           'Tercero, le contó la verdad a Flor: lloraba todas las noches y no sabía cómo parar. Desde entonces, Flor estuvo cerca. Cada jueves, después del trabajo, salían a comer o caminaban por los bosques de Palermo.',
           'También anotó las preguntas que le daban vueltas en la noche. Al lado de “¿Soy suficiente?” escribió lo que Flor y su familia le habían dicho de ella. Poco a poco, la voz que le decía que algo andaba mal con ella se fue callando.',
-          'Cuarto, les dio algo nuevo a sus noches. Se anotó en un taller de cerámica los martes. Volvió al grupo de jóvenes de su iglesia, al que hacía mucho que no iba. Algunas noches seguían pesando. Ahora eran menos.',
+          'Cuarto, les dio algo nuevo a sus noches. Se anotó en un taller de cerámica los martes. Volvió al grupo de jóvenes de su iglesia, al que hacía mucho que no iba. Algunas noches seguían pesando, pero ahora eran menos.',
           'Y oró con honestidad. Al principio su oración era: “Señor, tráelo de vuelta”. Con el tiempo se convirtió en: “Señor, sáname”. Salmos 147:3 estaba en un papelito pegado en el monitor de la oficina.',
-          'Seis meses después, una tarde, escuchó una de sus canciones en un café. Sonrió. Todavía dolía un poco. Sonrió de todos modos.',
+          'Seis meses después, una tarde, escuchó una de sus canciones en un café y sonrió. Todavía le dolía un poco, y aun así sonrió.',
         ],
-        pullQuote: 'Todavía dolía un poco. Sonrió de todos modos.',
+        pullQuote: 'Todavía le dolía un poco, y aun así sonrió.',
       },
       {
         kind: 'hope',
         heading: 'Si ahora te cuesta seguir adelante',
         paragraphs: [
           'Si estás leyendo esto mientras miras el perfil de alguien, primero respira. Es normal que duela tanto. Amaste a esa persona, y este dolor es parte de ese amor.',
-          'Elige un paso pequeño esta semana. Silencia. Mueve la playlist. Cuéntale la verdad a alguien de confianza. Planea una cosa que sea solo para ti.',
-          'Si llevas más de dos semanas sin poder dormir o comer, o te está costando funcionar en el trabajo, habla con un médico o un psicólogo. Es un paso normal, y la ayuda funciona.',
+          'Elige un paso pequeño para esta semana: silenciar su cuenta, mover la playlist, contarle la verdad a alguien de confianza o planear algo que sea solo para ti.',
+          'Si llevas más de dos semanas sin poder dormir o comer, o te está costando funcionar en el trabajo, busca atención médica o psicológica. Es un paso normal, y la ayuda funciona.',
           'Si quieres un lugar para empezar ahora mismo, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes algo pequeño para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas de tu país donde alguien te escucha. Si sientes que no tienes con quién hablar, lee [Cuando la soledad pesa](/i-feel-alone).',
         ],
       },
@@ -644,7 +644,7 @@ export const esStories1: Story[] = [
       },
       {
         q: '¿Cuánto tiempo se tarda en superar una ruptura?',
-        a: 'No hay un número exacto de días. Para mucha gente se vuelve más llevadero en unos meses. Si llevas más de dos semanas sin poder dormir o comer bien, habla con un médico o un psicólogo.',
+        a: 'No hay un número exacto de días. Para mucha gente se vuelve más llevadero en unos meses. Si llevas más de dos semanas sin poder dormir o comer bien, busca atención médica o psicológica.',
       },
       {
         q: '¿Cómo dejar de revisar el perfil de mi ex?',
@@ -706,13 +706,13 @@ export const esStories1: Story[] = [
           'Empezó con una pregunta que no esperaba. Un sábado, Carmen se dio cuenta: “Hermano, ¿cuándo fue la última vez que tomaste un día libre?”. No supo qué contestar. No se acordaba.',
           'Fue la primera vez que dijo la verdad: “Estoy cansado, Carmen. No sé cuánto tiempo más voy a aguantar así”. Esperaba que ella se molestara o se sintiera herida. Ella lo abrazó y le dijo: “¿Y por qué no lo dijiste antes? Vamos a ayudarte”.',
           'Un domingo, los hermanos y su mamá se sentaron a la mesa a conversar. Anotaron todos los gastos en la parte de atrás de un calendario viejo. Carmen iba a dar clases particulares los fines de semana. Pablo iba a vender en el liceo los dulces de coco que hace su mamá. El dinero extra era poco. El gran cambio fue que, por fin, Junior tenía con quién compartir la carga.',
-          'También aprendió a decir que no, empezando por algo pequeño. Cuando un primo le volvió a pedir dinero prestado, le dijo: “Perdóname, ahora no puedo”. Estuvo nervioso todo el día. Nada se vino abajo.',
+          'También aprendió a decir que no, empezando por algo pequeño. Cuando un primo le volvió a pedir dinero prestado, le dijo: “Perdóname, ahora no puedo”. Estuvo nervioso todo el día, y nada se vino abajo.',
           'Se tomó libres las tardes de los domingos. Al principio le parecía mal. En la mañana iba con su mamá a la iglesia, y al volver a casa dormía largo. En un grupo pequeño de la iglesia conoció a un señor mayor que también mantenía a su familia. “Así que estamos en las mismas”, le dijo el señor, y los dos se rieron.',
           'También fue al centro de salud a que le revisaran la espalda. El doctor le dijo que necesitaba descansar bien y estirarse antes y después de trabajar. Un consejo sencillo, y la primera vez que lo siguió de verdad.',
           '1 Pedro 5:7 se volvió su oración antes de cada jornada. Le nombraba a Dios sus preocupaciones, una por una: la universidad, las pastillas, la excursión. Después intentaba dejarlas ahí, aunque fuera por unas horas.',
-          'Algunas semanas siguen siendo difíciles, y algunas semanas el dinero todavía no alcanza. Se siente distinto cuando alguien más está pensando en eso contigo.',
+          'Algunas semanas siguen siendo difíciles, y algunas semanas el dinero todavía no alcanza. Pero se siente distinto cuando alguien más está pensando en eso contigo.',
         ],
-        pullQuote: 'Estuvo nervioso todo el día. Nada se vino abajo.',
+        pullQuote: 'Estuvo nervioso todo el día, y nada se vino abajo.',
       },
       {
         kind: 'hope',
@@ -721,7 +721,7 @@ export const esStories1: Story[] = [
           'Si eres la persona con la que tu familia siempre cuenta, conoces este cansancio. Los quieres, y ya no puedes más. Las dos cosas pueden ser verdad al mismo tiempo.',
           'Ayudar a tu familia es amor. Cuidarte también es amor, para que mañana todavía tengas fuerzas para ayudar.',
           'Intenta contárselo a una persona en tu casa, aunque sea solo a una. Anoten juntos los gastos. Elige un “no” pequeño esta semana, y una hora de descanso que sea solo tuya.',
-          'Si te has sentido así por más de dos semanas, o empieza a afectar tu trabajo y tu sueño, habla con un médico o un psicólogo. Es un paso normal, y ayuda.',
+          'Si te has sentido así por más de dos semanas, o empieza a afectar tu trabajo y tu sueño, busca atención médica o psicológica. Es un paso normal, y ayuda.',
           'Si quieres un lugar para empezar hoy, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes algo pequeño para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas de tu país donde alguien te escucha. Para los días en que no te queda nada, lee [Cuando ya no puedes más](/tired-of-everything).',
         ],
       },
@@ -787,7 +787,7 @@ export const esStories1: Story[] = [
           'Baby blues o depresión posparto: por qué Ana se quedó callada',
         paragraphs: [
           'Ana había oído hablar del baby blues, la tristeza de los primeros días después del parto. Muchas mamás se sienten sensibles, con cambios de humor y abrumadas en las dos primeras semanas, y suele pasar por sí solo. Así que se dijo que era solo eso, y esperó.',
-          'No pasó. El ánimo bajo se quedó por semanas. Perdió el interés en cosas que antes disfrutaba, dormía mal aunque Gabriel durmiera y sentía que no valía nada como mamá. En el fondo sabía que eran señales para tomar en serio. Le daba demasiado miedo decirlas.',
+          'No pasó. El ánimo bajo se quedó por semanas. Perdió el interés en cosas que antes disfrutaba, dormía mal aunque Gabriel durmiera y sentía que no valía nada como mamá. En el fondo sabía que eran señales para tomar en serio, pero le daba demasiado miedo decirlas.',
           'La vergüenza era el muro más grande. Había orado por este hijo. ¿Cómo podía sentirse así con la respuesta a su oración? Le preocupaba que en la iglesia pensaran que su fe era débil, y que sus parientes la llamaran malagradecida.',
           'Y estaba agotada. Dar de comer cada dos o tres horas, recuperarse del parto, visitas cada fin de semana. Con ese nivel de cansancio, es difícil saber dónde termina el cansancio y dónde empieza algo más pesado.',
         ],
@@ -798,7 +798,7 @@ export const esStories1: Story[] = [
         paragraphs: [
           'Su mamá lo hizo sencillo: “Yo te acompaño. Vamos a decírselo a tu doctora”. La semana siguiente, en su revisión después del parto, Ana le contó la verdad a su ginecóloga: el llanto, la sensación de estar apagada, el pensamiento de las tres de la mañana.',
           'Su ginecóloga la escuchó con calma. Le dijo que esto les pasa a muchas mamás, que tiene tratamiento y que decirlo en voz alta era justo lo correcto. La canalizó con una especialista que podía ayudarla, y Ana empezó un tratamiento. En las semanas siguientes, poco a poco, el peso se fue levantando.',
-          'En casa, la familia cambió algunas cosas. Joel se encargó de la toma de las 2 de la mañana entre semana para que Ana pudiera dormir un buen rato seguido. Su mamá sacaba a pasear a Gabriel todas las tardes, a la hora en que Ana más lloraba, y Ana aprovechaba para bañarse, comer algo caliente o simplemente acostarse.',
+          'En casa, la familia cambió algunas cosas. Joel se encargó de la toma de las 2 de la mañana entre semana para que Ana pudiera dormir un buen rato seguido. Su mamá sacaba a pasear a Gabriel todas las tardes, a la hora en que Ana más lloraba, y Ana aprovechaba para bañarse, comer algo caliente o solo acostarse.',
           'Joel también aprendió. Leía sobre la depresión posparto en el celular a la hora de la comida y dejó de tomarse a pecho sus palabras duras. “Estás cansada y estás pasando por algo difícil, amor. Aquí estoy”, le dijo una noche.',
           'Ana también dejó de esconderse. Se lo contó a dos amigas de la iglesia, las dos mamás. Una le dijo: “A mí también me pasó con mi primer hijo”. Ana nunca lo había sabido. Hicieron un chat donde podían mandar cualquier cosa, hasta “día difícil” a las cuatro de la mañana.',
           'Oraba en pedacitos. Tenía Isaías 40:31 pegado en la alacena, arriba del esterilizador de biberones, y lo leía mientras hervía el agua. Algunos días esa era toda la oración que tenía, y alcanzaba para ese día.',
@@ -859,7 +859,7 @@ export const esStories1: Story[] = [
       'Juan David se derrumbó a las 2 de la mañana por la tesis y el miedo a defraudar a sus papás. Qué lo ayudó con el estrés universitario y algo para probar hoy.',
     title:
       'Año de tesis, un derrumbe a las 2 de la mañana y lo que ayudó a Juan David',
-    dek: 'Era el primero de su familia en estudiar ingeniería. Cuando la tesis empezó a desmoronarse, él también, hasta que se atrevió a decir en voz alta lo difícil.',
+    dek: 'Era el primero de su familia en estudiar ingeniería. Cuando la tesis empezó a desmoronarse, él también, hasta que se atrevió a decir en voz alta lo que le estaba pasando.',
     who: 'Juan David, 21, estudiante de ingeniería en Medellín',
     photo: storyPhoto('es', 'sleep'),
     published: '2026-10-30',
@@ -892,7 +892,7 @@ export const esStories1: Story[] = [
         paragraphs: [
           'Con un caldo a las 3 de la mañana, Juan David le contó todo a Kevin. Kevin lo escuchó y después lo ayudó a dividir las cinco semanas siguientes en una lista escrita en una servilleta: qué había que entregar, quién lo iba a hacer y qué podía esperar.',
           'Al día siguiente, Juan David hizo algo que llevaba un mes evitando. Le escribió un correo a su director, le explicó dónde estaba atascado el grupo y le pidió quince minutos. El director les dio media hora y encontró el problema de los datos en diez minutos. “Hubieran preguntado antes”, les dijo.',
-          'Se puso algunas reglas para las últimas cinco semanas. Dormir a la 1 de la mañana a más tardar, sin excepciones. Una comida de verdad al día, con alguien más. Una hora cada domingo sin nada de tesis. Estaba seguro de que estaba perdiendo tiempo. Su trabajo mejoró, porque por fin podía pensar con claridad.',
+          'Se puso algunas reglas para las últimas cinco semanas. Dormir a la 1 de la mañana a más tardar, sin excepciones. Una comida de verdad al día, con alguien más. Una hora cada domingo sin nada de tesis. Estaba seguro de que iba a perder tiempo, pero su trabajo mejoró, porque por fin podía pensar con claridad.',
           'Kevin estaba pendiente de él. A eso de la medianoche tocaba la puerta y hacía una sola pregunta: “¿Ya a dormir?”. Casi todas las noches, Juan David cerraba el portátil.',
           'Kevin le sugirió ir a Bienestar Universitario, y Juan David fue, nervioso todo el camino. La psicóloga lo ayudó con el pánico que sentía cada vez que abría el archivo, y con la voz en su cabeza que le decía que una mala nota lo convertía en un fracaso.',
           'Después llamó a su casa: “Ma, está muy difícil. Puede que me atrase”. Se preparó para lo peor. Su mamá se quedó callada un momento y luego le dijo: “Mijo, tú vales más que un diploma. Vente para la casa este fin de semana”. Fue, durmió doce horas y comió el sancocho de su mamá. En el almuerzo del domingo, su papá oró por él, algo que Juan David no escuchaba desde que era niño.',
@@ -905,8 +905,8 @@ export const esStories1: Story[] = [
         heading: 'Si el estrés de la universidad te está aplastando',
         paragraphs: [
           'Si estás leyendo esto a las 2 de la mañana con la tesis abierta en otra pestaña, ciérrala por esta noche. Un cerebro descansado arregla en una hora lo que uno cansado pelea toda la noche.',
-          'Tu tesis importa, y tú importas más. Un capítulo atrasado se puede arreglar. Un cuerpo que funciona con tres horas de sueño necesita cuidado primero.',
-          'Mañana, haz una sola cosa: cuéntale a una persona qué tan mal está la cosa de verdad. Alguien con quien vives, alguien de tu clase, tu director, tus papás. La mayoría de la gente quiere ayudar y no tiene idea de que lo necesitas.',
+          'Un capítulo atrasado se puede arreglar. Primero cuida tu cuerpo: con tres horas de sueño nadie piensa con claridad.',
+          'Mañana, haz una sola cosa: cuéntale a una persona qué tan mal está la cosa de verdad: alguien con quien vives, alguien de tu clase, tu director o tus papás. La mayoría de la gente quiere ayudar y no tiene idea de que lo necesitas.',
           'Si durante más de dos semanas sientes que no hay esperanza, no puedes dormir o no logras sostener tu día a día, habla con el servicio de psicología de tu universidad o con un médico. Es un paso normal, y la ayuda funciona.',
           'Si quieres un lugar para empezar ahora mismo, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes algo pequeño para probar hoy, herramientas para calmarte en noches de exámenes, alguien que ore por ti y líneas gratuitas de tu país donde alguien te escucha. Si ya no te quedan fuerzas, lee [Cuando ya no puedes más](/tired-of-everything).',
         ],
@@ -950,7 +950,7 @@ export const esStories1: Story[] = [
     metaDescription:
       'Joselyn se mudó de Guayaquil a Quito por trabajo y cenó sola durante meses. Qué la ayudó con la soledad en una ciudad nueva, un pequeño paso a la vez.',
     title: 'Soledad en una ciudad nueva: el primer año de Joselyn en Quito',
-    dek: 'El trabajo era el sueño. Los fines de semana eran la parte difícil. Así fue como Joselyn hizo que Quito se sintiera, poco a poco, un poco más como su casa.',
+    dek: 'El trabajo era su sueño, pero los fines de semana eran la parte difícil. Así fue como Joselyn hizo que Quito se sintiera, poco a poco, un poco más como su casa.',
     who: 'Joselyn, 24, recién llegada a Quito desde Guayaquil',
     photo: storyPhoto('es', 'alone'),
     published: '2026-10-30',
@@ -963,7 +963,7 @@ export const esStories1: Story[] = [
           'Entre semana todo iba bien. El trabajo la mantenía ocupada, y el trayecto en el trolebús se comía el resto del día. Los fines de semana eran distintos. Los sábados en la mañana se despertaba en silencio. Cenaba de pie junto al mesón de la cocina, viendo videos de su casa. Su mamá la llamaba todos los domingos: “¿Qué comiste, mija?”. Joselyn siempre decía algo más bonito que la verdad.',
           'Se decía que era algo temporal. Que cuando se acostumbrara a la ciudad, todo iba a mejorar. Pasaron los meses y los fines de semana seguían igual.',
           'En el trabajo, todos ya tenían su gente. Salían después de la jornada en grupos de amigos que se habían formado años antes de que ella llegara. Joselyn sonreía en la cocina de la oficina, decía “cuídense” en el ascensor y se iba a su casa.',
-          'Un sábado de mayo se dio cuenta. No había dicho ni una sola palabra en voz alta desde el viernes en la tarde. Se sentó en el piso de su departamento y lloró, y después se sintió tonta por llorar. Tenía el trabajo que quería. ¿Por qué se sentía así?',
+          'Un sábado de mayo se dio cuenta de que no había dicho ni una sola palabra en voz alta desde el viernes en la tarde. Se sentó en el piso de su departamento y lloró, y después se sintió tonta por llorar. Tenía el trabajo que quería. ¿Por qué se sentía así?',
         ],
         pullQuote:
           'No había dicho ni una sola palabra en voz alta desde el viernes en la tarde.',
@@ -973,7 +973,7 @@ export const esStories1: Story[] = [
         heading:
           'Por qué mudarse a una ciudad nueva puede sentirse tan solitario',
         paragraphs: [
-          'Joselyn nunca había estado realmente sola. En Guayaquil siempre había una tía que pasaba de visita, un primo en la puerta, la iglesia del domingo con las mismas caras desde que era niña. Nunca había tenido que hacer amigos desde cero. Simplemente estaban ahí.',
+          'Joselyn nunca había estado realmente sola. En Guayaquil siempre había una tía que pasaba de visita, un primo en la puerta, la iglesia del domingo con las mismas caras desde que era niña. Nunca había tenido que hacer amigos desde cero. Siempre habían estado ahí.',
           'En Quito todo costaba esfuerzo, y la soledad se come las fuerzas que ese esfuerzo necesita. Después de una semana larga, quedarse en casa parecía más fácil que entrar a un lugar lleno de desconocidos. Cada fin de semana encerrada hacía más difícil el siguiente.',
           'También sentía que no tenía derecho a quejarse. Ella era la que se había ido, la del buen trabajo. Decir “me siento sola” se sentía como admitir que había fracasado.',
           'La soledad también cambió cómo leía a la gente. Una compañera que respondía tarde parecía molesta con ella. Un almuerzo al que no la invitaron se sentía como prueba de que no pertenecía. Después descubrió que casi todo estaba solo en su cabeza cansada.',
@@ -983,8 +983,8 @@ export const esStories1: Story[] = [
         kind: 'helped',
         heading: 'Lo que ayudó a Joselyn a sentirse menos sola',
         paragraphs: [
-          'El cambio empezó pequeño. Una compañera llamada Andrea comentó que era de Manta. Joselyn casi dejó pasar el momento. Después le dijo: “¡Yo soy de Guayaquil! ¿Almorzamos juntas?”. Comieron en el patio de comidas y estuvieron de acuerdo en que en Quito nadie hace bien el encebollado.',
-          'Joselyn se puso una regla: decir que sí a una cosa por semana, aunque estuviera cansada. Un cafecito el viernes con el equipo. Un club de corredores que se reunía a las 6 de la mañana en el parque La Carolina. Casi todas las semanas se sentía incómoda. Algunas semanas no, y esas bastaban para seguir.',
+          'El cambio empezó pequeño. Una compañera llamada Andrea comentó que era de Manta. Joselyn casi dejó pasar el momento. Después le dijo: “Yo soy de Guayaquil. ¿Almorzamos juntas?”. Comieron en el patio de comidas y estuvieron de acuerdo en que en Quito nadie hace bien el encebollado.',
+          'Joselyn se puso una regla: decir que sí a una cosa por semana, aunque estuviera cansada: un cafecito el viernes con el equipo, un club de corredores que se reunía a las 6 de la mañana en el parque La Carolina. Casi todas las semanas se sentía incómoda. Algunas semanas no, y esas bastaban para seguir.',
           'Encontró una iglesia cerca de su casa y fue tres domingos seguidos antes de que alguien le hablara. El tercer domingo, una señora llamada Cecilia le preguntó si quería unirse a un grupo pequeño de jóvenes profesionales que se reunía los miércoles en la noche. Joselyn fue. Seis meses después, era la noche que más esperaba en la semana.',
           'Hizo que su departamento se sintiera suyo. Una plantita del mercado, una foto enmarcada de su familia en la playa de Salinas y una olla arrocera para cocinar el seco de pollo de su mamá los domingos. El olor a casa hacía más llevadero el silencio.',
           'Dejó de fingir con su mamá. En una llamada de domingo le dijo: “Ma, a veces me siento sola aquí”. Su mamá no se asustó. Empezó a mandarle audios todas las mañanas, pequeñas noticias sobre el perro y el mango del vecino. Joselyn los escuchaba en el trolebús.',
@@ -998,8 +998,8 @@ export const esStories1: Story[] = [
         heading: 'Si hoy sientes soledad en una ciudad nueva',
         paragraphs: [
           'Si te mudaste por trabajo o por estudios y tus fines de semana son silenciosos, esa soledad tiene sentido. Dejaste atrás toda una red de personas, y una nueva tarda en crecer.',
-          'Elige un sí pequeño esta semana. Un almuerzo, una clase, un culto en una iglesia, un saludo a alguien de tu misma tierra. Algunos se sentirán incómodos, y basta con que unos pocos funcionen.',
-          'Si la soledad se convierte en un ánimo bajo que dura más de dos semanas, o empieza a afectar tu sueño y tu trabajo, habla con un médico o un psicólogo. Es un paso normal, y la ayuda funciona.',
+          'Elige un sí pequeño esta semana: un almuerzo, una clase, un culto en una iglesia, un saludo a alguien de tu misma tierra. Algunos se sentirán incómodos, y basta con que unos pocos funcionen.',
+          'Si la soledad se convierte en un ánimo bajo que dura más de dos semanas, o empieza a afectar tu sueño y tu trabajo, busca atención médica o psicológica. Es un paso normal, y la ayuda funciona.',
           'Y para esta noche, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes algo pequeño para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas de tu país donde alguien te escucha cuando el departamento está demasiado callado. También te puede servir [Cuando la soledad pesa](/i-feel-alone).',
         ],
       },
@@ -1040,7 +1040,7 @@ export const esStories1: Story[] = [
     theme: 'faith',
     metaTitle: 'Cuando Dios se siente lejos: un cristiano con depresión',
     metaDescription:
-      'Rodrigo tocaba en la iglesia cada domingo y sentía que sus oraciones chocaban con el techo. Qué lo ayudó cuando sintió a Dios lejos, incluido el médico.',
+      'Rodrigo tocaba en la iglesia cada domingo y sentía que sus oraciones chocaban con el techo. Qué lo ayudó cuando sintió a Dios lejos, y por qué ir al médico fue parte de eso.',
     title:
       'Cuando Dios se siente lejos: la larga temporada de silencio de Rodrigo',
     dek: 'Dirigía la alabanza cada domingo mientras sus propias oraciones se sentían vacías. Un pastor que lo escuchó, un médico y algunos amigos honestos lo ayudaron a atravesarla.',
@@ -1055,9 +1055,9 @@ export const esStories1: Story[] = [
           'Rodrigo llevaba doce años sirviendo en el equipo de alabanza de su iglesia en Temuco. Llegaba a las 8 de la mañana a instalar el sonido, tocaba la guitarra en los dos cultos y se quedaba a apilar las sillas. Todos lo buscaban cuando algo faltaba, incluso los hermanos mayores que él.',
           'El año en que cumplió 33, algo se apagó por dentro. Seguía tocando cada domingo. Seguía sabiéndose cada acorde. Pero en casa sus oraciones parecían chocar contra el techo y volver a caer. Abría la Biblia y las páginas le parecían solo papel.',
           'Se fue extendiendo. La comida perdió el sabor. Dormía mal y se despertaba cansado. Le contestaba mal a su esposa por cualquier cosa, y después se quedaba veinte minutos en el auto antes de entrar a la casa. Las semanas se volvieron meses.',
-          'Un domingo, después del culto, se quedó sentado en el templo vacío mientras los demás almorzaban. Susurró: “Señor, ¿dónde estás?”. Nada parecía responder. Se sentía un farsante por dirigir canciones sobre la alegría.',
+          'Un domingo, después del culto, se quedó sentado en el templo vacío mientras los demás almorzaban. En voz baja dijo: “Señor, ¿dónde estás?”. Nada parecía responder. Se sentía un farsante por dirigir canciones sobre la alegría.',
         ],
-        pullQuote: 'Susurró: “Señor, ¿dónde estás?”',
+        pullQuote: 'En voz baja dijo: “Señor, ¿dónde estás?”',
       },
       {
         kind: 'struggle',
@@ -1090,7 +1090,7 @@ export const esStories1: Story[] = [
         paragraphs: [
           'Si crees y aun así sientes un vacío, tu fe sigue ahí. Mucha gente en la Biblia sintió a Dios lejos y siguió hablándole. Dile exactamente cómo se siente. Eso también es oración.',
           'Las temporadas como la de Rodrigo terminan. Mucha gente sale de ellas con una fe más tranquila y firme, una fe que sabe que Dios se queda aunque los sentimientos se vayan.',
-          'Cuéntaselo también a una persona: un pastor, quien lidere tu grupo pequeño, una amistad que sepa escuchar. Si el peso dura más de dos semanas, o perdiste el interés en cosas que antes disfrutabas, ve a un médico o a un psicólogo. Buscar ayuda médica también es cuidar la vida que Dios te dio, y la ayuda funciona.',
+          'Cuéntaselo también a una persona: un pastor, quien lidere tu grupo pequeño, una amistad que sepa escuchar. Si el peso dura más de dos semanas, o perdiste el interés en cosas que antes disfrutabas, busca atención médica o psicológica. Buscar ayuda médica también es cuidar la vida que Dios te dio, y la ayuda funciona.',
           'Cuando quieras un lugar para empezar, [HopeBegins](/) es gratis y nace de la fe cristiana. Elige cómo te sientes y recibes algo pequeño para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas de tu país donde alguien te escucha. Para los días pesados, lee [Versículos para cuando te sientes triste](/bible-verses-when-you-feel-down).',
         ],
       },
@@ -1109,7 +1109,7 @@ export const esStories1: Story[] = [
     faq: [
       {
         q: '¿Un cristiano puede tener depresión?',
-        a: 'Sí. La depresión es un problema de salud que puede afectar a cualquiera, también a personas con mucha fe. No es señal de fe débil ni de pecado. La oración y la ayuda de un médico o un psicólogo pueden ir juntas. Si tienes pensamientos de quitarte la vida, llama hoy a la línea de crisis de tu país: hay ayuda.',
+        a: 'Sí. La depresión es un problema de salud que puede afectar a cualquiera, también a personas con mucha fe. No es señal de fe débil ni de pecado. La oración y la atención médica o psicológica pueden ir juntas. Si tienes pensamientos de quitarte la vida, llama hoy a la línea de crisis de tu país: hay ayuda.',
       },
       {
         q: '¿Qué hago cuando siento a Dios lejos?',
@@ -1147,8 +1147,8 @@ export const esStories1: Story[] = [
         kind: 'story',
         heading: 'El mensaje del grupo que le revolvió el estómago',
         paragraphs: [
-          'El mensaje llegó un lunes: “¡Juntada el sábado! A las 21, en la casa de Tomi”. Doce personas del grupo de amigos de la secundaria de Sofía, en Córdoba, todos juntos por primera vez desde que terminaron el colegio.',
-          'Todos respondieron con stickers. Sofía escribió “¡Voy!” y sintió que se le revolvía el estómago. Durante el resto de la semana ensayó. ¿Qué iba a decir cuando le preguntaran por el trabajo? Todavía estaba buscando. ¿Y si se reía en el momento equivocado? ¿Y si nadie le hablaba?',
+          'El mensaje llegó un lunes: “Juntada el sábado a las 21, en la casa de Tomi”. Doce personas del grupo de amigos de la secundaria de Sofía, en Córdoba, todos juntos por primera vez desde que terminaron el colegio.',
+          'Todos respondieron con stickers. Sofía escribió “Voy” y sintió que se le revolvía el estómago. Durante el resto de la semana ensayó. ¿Qué iba a decir cuando le preguntaran por el trabajo? Todavía estaba buscando. ¿Y si se reía en el momento equivocado? ¿Y si nadie le hablaba?',
           'El sábado se cambió de ropa tres veces. A las 20:45 estaba parada frente a la puerta de la casa de Tomi bajo la lluvia, con el paraguas en una mano y el celular en la otra, con el corazón a mil. Escribió: “Perdón, chicos, me siento mal”. El pulgar se le quedó sobre el botón de enviar.',
           'No era la primera vez. Se había ido temprano de fiestas, había faltado a los quince de una prima y había evitado el recorrido por la oficina después de una entrevista de trabajo. Después siempre sentía alivio por una hora y soledad por una semana.',
           '“Ay, la aguafiestas de siempre”, bromeaban sus tías en las reuniones familiares. Sofía se reía con ellas. Por dentro, deseaba que alguien entendiera cuánto miedo tenía en realidad.',
@@ -1172,16 +1172,15 @@ export const esStories1: Story[] = [
         heading:
           'Consejos para la ansiedad social que ayudaron a Sofía a quedarse',
         paragraphs: [
-          'Frente a la puerta, Sofía hizo algo que le había enseñado su hermana mayor. Borró el mensaje, guardó el celular en el bolsillo y respiró: inhalar en 4, exhalar en 6, cinco veces. El corazón le seguía latiendo fuerte. Entró de todos modos.',
+          'Frente a la puerta, Sofía hizo algo que le había enseñado su hermana mayor. Borró el mensaje, guardó el celular en el bolsillo y respiró: inhalar en 4, exhalar en 6, cinco veces. El corazón le seguía latiendo fuerte, y aun así entró.',
           'Se puso una meta pequeña y clara: quedarse una hora y hablar con dos personas. Después de eso, podía irse. Saber que tenía una salida hizo más fácil cruzar la puerta.',
           'Buscó algo que hacer. Ayudó a la mamá de Tomi a servir la picada y a llevar la carne del asado a la mesa. Tener algo en las manos le dio a su atención un lugar adonde ir, y la gente se acercaba a ella.',
-          'Le contó la verdad a una amiga. Llamó aparte a Agus, su compañera de banco desde primer año, y le confesó: “Me puse muy nerviosa al entrar”. Agus se rio con cariño: “¡Yo también! Por eso estoy pegada a la picada”. Desde ese momento se cuidaron la una a la otra toda la noche.',
+          'Le contó la verdad a una amiga. Llamó aparte a Agus, su compañera de banco desde primer año, y le confesó: “Me puse muy nerviosa al entrar”. Agus se rio con cariño: “Yo también. Por eso estoy pegada a la picada”. Desde ese momento se cuidaron la una a la otra toda la noche.',
           'Puso la atención afuera. Se interesó por sus amigos: “¿Y? ¿Cómo va la facultad?”, “¿Dónde estás trabajando ahora?”. Hacer preguntas le quitó el foco de encima, y a la gente le encantaba que le preguntaran.',
-          'Se quedó tres horas. En el colectivo de vuelta a casa notó que el miedo se había achicado. Esa noche todavía repasó algunos momentos incómodos. También se acordó de las risas.',
+          'Se quedó tres horas. En el colectivo de vuelta a casa notó que el miedo se había achicado. Esa noche todavía repasó algunos momentos incómodos, pero también se acordó de las risas.',
           'En los meses siguientes siguió practicando con cosas pequeñas: pedir en un mostrador, hacer una pregunta en una entrevista, saludar primero. Fue a una psicóloga de su ciudad que la ayudó con ese ensayo interminable. Antes de los días difíciles oraba pensando en Juan 14:27 y pedía paz para la hora siguiente, nada más.',
         ],
-        pullQuote:
-          'El corazón le seguía latiendo fuerte. Entró de todos modos.',
+        pullQuote: 'El corazón le seguía latiendo fuerte, y aun así entró.',
       },
       {
         kind: 'hope',
@@ -1189,8 +1188,8 @@ export const esStories1: Story[] = [
         paragraphs: [
           'Si ensayas conversaciones, temes las reuniones o cancelas a último momento, estás lidiando con algo real, y puede mejorar con práctica.',
           'La ansiedad social es común, y mucha gente aprende a manejarla bien con práctica y apoyo.',
-          'Empieza más pequeño de lo que crees. Una visita corta con una hora clara para irte. Una pregunta para otra persona. Cada vez que te quedas, tu mente aprende que ese lugar no era tan peligroso como temía.',
-          'Si el miedo te impide trabajar, estudiar o ver gente durante más de dos semanas, habla con un médico o un psicólogo. Es un paso normal, y la ayuda funciona.',
+          'Empieza más pequeño de lo que crees: una visita corta con una hora clara para irte, o una pregunta para otra persona. Cada vez que te quedas, tu mente aprende que ese lugar no era tan peligroso como temía.',
+          'Si el miedo te impide trabajar, estudiar o ver gente durante más de dos semanas, busca atención médica o psicológica. Es un paso normal, y la ayuda funciona.',
           'Si quieres ayuda para empezar, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes algo pequeño para probar hoy, herramientas para calmarte en los minutos antes de entrar, alguien que ore por ti y líneas gratuitas de tu país donde alguien te escucha. Para formas rápidas de calmar tu cuerpo, mira [Cómo calmar la ansiedad](/how-to-calm-anxiety).',
         ],
       },
@@ -1209,7 +1208,7 @@ export const esStories1: Story[] = [
     faq: [
       {
         q: '¿Cuál es la diferencia entre timidez y ansiedad social?',
-        a: 'La timidez es sentir un poco de nervios con gente nueva. La ansiedad social es un miedo fuerte a que te juzguen, que te hace evitar cosas que quieres o necesitas hacer. Si se mete en tu vida diaria, habla con un médico o un psicólogo.',
+        a: 'La timidez es sentir un poco de nervios con gente nueva. La ansiedad social es un miedo fuerte a que te juzguen, que te hace evitar cosas que quieres o necesitas hacer. Si se mete en tu vida diaria, busca atención médica o psicológica.',
       },
       {
         q: '¿Cómo dejar de cancelar planes por ansiedad?',
@@ -1217,7 +1216,7 @@ export const esStories1: Story[] = [
       },
       {
         q: '¿La ansiedad social se puede superar?',
-        a: 'Mucha gente aprende a manejarla bien con práctica y apoyo. Acercarte poco a poco a situaciones pequeñas ayuda, y un psicólogo puede acompañarte con técnicas que funcionan. Si el miedo no te deja trabajar, estudiar o ver gente, pide ayuda.',
+        a: 'Mucha gente aprende a manejarla bien con práctica y apoyo. Acercarte poco a poco a situaciones pequeñas ayuda, y la terapia psicológica puede darte técnicas que funcionan. Si el miedo no te deja trabajar, estudiar o ver gente, pide ayuda.',
       },
     ],
     keywords: [

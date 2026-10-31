@@ -5,6 +5,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { BLOG_COPY } from '@/components/blog/BlogIndex';
 import { StoryCard } from '@/components/blog/StoryCard';
+import { distinctPhotos } from '@/lib/photos';
 import { StoryLanguageLink } from '@/components/blog/StoryLanguageLink';
 import { StoryText } from '@/components/blog/StoryText';
 import {
@@ -93,6 +94,13 @@ function Part({
  */
 export function StoryView({ story }: { story: Story }) {
   const intl = isIntlLang(story.lang) ? story.lang : undefined;
+  // The stories at the end never repeat this story's photo or each other's.
+  const more = moreStories(story, 3, intl ? intlStories : stories);
+  const morePhotos = distinctPhotos(
+    more.map((other) => other.photo),
+    story.lang,
+    [story.photo.src]
+  );
   const ui = storyUi[story.lang];
   const twin = intl ? undefined : pairOf(story);
   const verse = VERSES[story.verse][story.lang];
@@ -316,13 +324,11 @@ export function StoryView({ story }: { story: Story }) {
             </Link>
           </div>
           <ul className="mt-8 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {moreStories(story, 3, intl ? intlStories : stories).map(
-              (other) => (
-                <li key={other.slug}>
-                  <StoryCard story={other} />
-                </li>
-              )
-            )}
+            {more.map((other, index) => (
+              <li key={other.slug}>
+                <StoryCard story={other} photo={morePhotos[index]} />
+              </li>
+            ))}
           </ul>
         </section>
       </div>

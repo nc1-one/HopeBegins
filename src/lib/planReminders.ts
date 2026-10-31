@@ -59,9 +59,9 @@ const copy: PerLang<{
   es: {
     title: (tool) => `HopeBegins: ${tool}`,
     planLink: (url) => `Tu plan: ${url}`,
-    monthlyTitle: 'HopeBegins: check-in de 1 minuto',
+    monthlyTitle: 'HopeBegins: chequeo de 1 minuto',
     monthlyDetails: (url) =>
-      `Abre tu plan y haz el check-in de 1 minuto: ${url}`,
+      `Abre tu plan y haz el chequeo de 1 minuto: ${url}`,
   },
   ko: {
     title: (tool) => `HopeBegins: ${tool}`,

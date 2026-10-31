@@ -70,7 +70,7 @@ const copy = {
     listTitle: 'Mes raisons',
     remove: (reason: string) => `Retirer « ${reason} »`,
     saved:
-      'Enregistrées seulement sur ce téléphone. Elles apparaissent aussi sur ta Hope Card.',
+      'Enregistrées seulement sur ce téléphone. Elles apparaissent aussi sur ta carte d’espoir.',
     done: 'Terminé',
     close: 'Fermer',
     doneTitle: 'Tes raisons sont enregistrées.',
@@ -78,7 +78,7 @@ const copy = {
       'Relis-les les jours difficiles. Tu peux en ajouter d’autres quand tu veux.',
   },
   de: {
-    label: 'Meine Gründe weiterzumachen',
+    label: 'Meine Gründe zum Weitermachen',
     intro:
       'Schreib die Menschen, Pläne und kleinen Dinge auf, die dir wichtig sind. Lies sie an schweren Tagen.',
     example:
@@ -88,7 +88,7 @@ const copy = {
     listTitle: 'Meine Gründe',
     remove: (reason: string) => `„${reason}“ entfernen`,
     saved:
-      'Nur auf diesem Handy gespeichert. Sie erscheinen auch auf deiner Hope Card.',
+      'Nur auf diesem Handy gespeichert. Sie erscheinen auch auf deiner Hoffnungskarte.',
     done: 'Fertig',
     close: 'Schließen',
     doneTitle: 'Deine Gründe sind gespeichert.',
@@ -105,7 +105,8 @@ const copy = {
     add: 'Agregar',
     listTitle: 'Mis razones',
     remove: (reason: string) => `Quitar “${reason}”`,
-    saved: 'Se guardan solo en este celular. También aparecen en tu Hope Card.',
+    saved:
+      'Se guardan solo en este celular. También aparecen en tu tarjeta de esperanza.',
     done: 'Listo',
     close: 'Cerrar',
     doneTitle: 'Tus razones quedaron guardadas.',
@@ -121,7 +122,7 @@ const copy = {
     add: '추가',
     listTitle: '나의 이유',
     remove: (reason: string) => `“${reason}” 삭제`,
-    saved: '이 휴대폰에만 저장돼요. Hope Card에도 보여요.',
+    saved: '이 휴대폰에만 저장돼요. 희망 카드에도 보여요.',
     done: '완료',
     close: '닫기',
     doneTitle: '이유를 저장했어요',

@@ -64,7 +64,7 @@ const MISSIONS = [
     ko: '세수하기',
   },
   {
-    en: 'Send a "kumusta" to someone',
+    en: 'Send a "how are you?" to someone',
     tl: 'Mag-send ng "kumusta" sa isang tao',
     fr: 'Envoie un « Ça va ? » à quelqu’un',
     de: 'Schick jemandem ein „Wie geht’s?“',
@@ -104,7 +104,7 @@ const MISSIONS = [
     ko: '오늘 괜찮았던 일 하나 떠올리기',
   },
   {
-    en: 'Look outside and find 3 colours',
+    en: 'Look outside and find 3 colors',
     tl: 'Tumingin sa labas at maghanap ng 3 kulay',
     fr: 'Regarde dehors et trouve 3 couleurs',
     de: 'Schau nach draußen und finde 3 Farben',
@@ -117,7 +117,7 @@ const MISSIONS = [
     fr: 'Respire lentement 5 fois',
     de: 'Atme 5-mal langsam ein und aus',
     es: 'Respira despacio 5 veces',
-    ko: '천천히 5번 숨쉬기',
+    ko: '천천히 다섯 번 숨쉬기',
   },
   {
     en: 'Fix one small corner of your room',

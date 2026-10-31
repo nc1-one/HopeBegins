@@ -71,7 +71,7 @@ export function LanguagePicker() {
         type="button"
         aria-expanded={isOpen}
         aria-controls={menuId}
-        aria-label={`${label[lang]}: ${LANG_INFO[lang].name}`}
+        aria-label={`${label[lang]}${lang === 'fr' ? '\u00a0:' : ':'} ${LANG_INFO[lang].name}`}
         onClick={() => setIsOpen(!isOpen)}
         className="inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-full px-2.5 font-poppins text-sm font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA] aria-expanded:bg-[#EFF3E7]"
       >

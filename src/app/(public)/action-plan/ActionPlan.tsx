@@ -77,7 +77,7 @@ import { MonthlyCheckIn } from './MonthlyCheckIn';
 import { AfterwardsPanel } from './AfterwardsPanel';
 import { UseMyTool, canTickToday, toolButtonClass } from './UseMyTool';
 import { CallCrisisButton, CrisisList } from '@/components/help/Crisis';
-import { isIntlLang } from '@/lib/i18n';
+import { useCountry } from '@/lib/country';
 
 type EmailStatus = 'idle' | 'sending' | 'sent' | 'error';
 
@@ -282,7 +282,7 @@ const ui = {
     trackerIntro:
       'I-tick ang bawat araw na nagawa mo. May araw na hindi mo nagawa? Ituloy lang kinabukasan. Hindi nabubura ang progress mo dahil doon.',
     trackerHabit:
-      'Ilang linggo bago masanay. Okay na kung karamihan ng araw mo itong nagawa.',
+      'Ilang linggo bago masanay sa isang habit. Okay na kung nagawa mo ito halos araw-araw.',
     trackerEmpty:
       'Piliin ang "Idagdag sa 4 na linggo ko" sa 1 o 2 tool sa itaas. Lalabas sila dito para ma-tick mo araw-araw.',
     daysDone: (done: number) => `${done} sa ${PLAN_DAYS} araw`,
@@ -338,8 +338,7 @@ const ui = {
     deletePlan: 'Burahin ang plano ko sa device na ito',
     deleteConfirm: 'Burahin ang plano at progress mo sa device na ito?',
     weekSection: 'Ang 4 na linggo mo',
-    weekSectionDetail:
-      'Gawin ito sa karamihan ng araw sa susunod na 4 na linggo.',
+    weekSectionDetail: 'Gawin ito halos araw-araw sa susunod na 4 na linggo.',
     todayTitle: 'Ngayong araw',
     doneToday: 'Nagawa ko ngayon',
     didToday: 'Nagawa',
@@ -370,8 +369,8 @@ const ui = {
     progress: 'Progression',
     previous: 'Retour',
     welcomeDay: (name: string, day: number) =>
-      `Bon retour${name ? `, ${name}` : ''}. C’est le jour ${day} de tes 4 semaines.`,
-    welcomeBack: (name: string) => `Bon retour${name ? `, ${name}` : ''}.`,
+      `Te revoilà${name ? `, ${name}` : ''}. C’est le jour ${day} de tes 4 semaines.`,
+    welcomeBack: (name: string) => `Te revoilà${name ? `, ${name}` : ''}.`,
     checkInDueTitle: (name: string) =>
       `Ton dernier bilan date d’il y a une semaine${name ? `, ${name}` : ''}.`,
     checkInDueText: 'Refais-le pour voir ce qui a changé.',
@@ -407,7 +406,7 @@ const ui = {
       'Tes scores ont augmenté depuis ton premier bilan. Parle à quelqu’un cette semaine, s’il te plaît : une ligne d’écoute gratuite, un psy ou une personne de confiance.',
     ecoachTitle: 'Envie que quelqu’un t’accompagne ?',
     ecoachText:
-      'Une ligne d’écoute gratuite de ton pays peut t’écouter. Hope AI est là aussi, à toute heure.',
+      'Sur une ligne d’écoute gratuite de ton pays, une vraie personne te répond. Hope AI est là aussi, à toute heure.',
     ecoachButton: 'Parler à quelqu’un',
     toolsHint:
       'Essaie-en un maintenant. Puis ajoute-en 1 ou 2 à tes 4 semaines et choisis un moment.',
@@ -542,12 +541,12 @@ const ui = {
     scoreNote: 'Niedriger ist besser. Jeder Wert geht bis 6.',
     better:
       'Deine Werte sind seit deinem ersten Check-in gesunken. Mach weiter mit dem, was dir hilft.',
-    same: 'Ungefähr wie bei deinem ersten Check-in. Das ist in den ersten Wochen häufig. Bleib dran, und ruf bei einer kostenlosen Telefonberatung an, wenn du nicht weiterkommst.',
+    same: 'Ungefähr wie bei deinem ersten Check-in. Das ist in den ersten Wochen häufig. Bleib dran, und ruf bei einem kostenlosen Hilfetelefon an, wenn du nicht weiterkommst.',
     worse:
-      'Deine Werte sind seit deinem ersten Check-in gestiegen. Bitte sprich diese Woche mit jemandem: bei einer kostenlosen Telefonberatung, in einer Beratungsstelle oder mit einem Menschen, dem du vertraust.',
-    ecoachTitle: 'Möchtest du, dass dich jemand dabei begleitet?',
+      'Deine Werte sind seit deinem ersten Check-in gestiegen. Bitte sprich diese Woche mit jemandem: bei einem kostenlosen Hilfetelefon, in einer Beratungsstelle oder mit einem Menschen, dem du vertraust.',
+    ecoachTitle: 'Möchtest du mit jemandem darüber reden?',
     ecoachText:
-      'Bei kostenlosen Telefonen in deinem Land hört dir jemand zu. Und Hope AI ist rund um die Uhr da.',
+      'Bei den kostenlosen Hilfetelefonen in deinem Land hört dir jemand zu. Und Hope AI ist rund um die Uhr da.',
     ecoachButton: 'Mit jemandem reden',
     toolsHint:
       'Probier jetzt eine aus. Nimm dann 1 oder 2 in deine 4 Wochen auf und wähl eine Uhrzeit.',
@@ -560,7 +559,7 @@ const ui = {
     trackerIntro:
       'Hak jeden Tag ab, an dem du sie gemacht hast. Einen Tag verpasst? Mach am nächsten Tag weiter. Verpasste Tage machen deinen Fortschritt nicht zunichte.',
     trackerHabit:
-      'Gewohnheiten brauchen Wochen. Die meisten Tage reichen völlig.',
+      'Gewohnheiten brauchen Wochen. Es reicht, wenn du sie an den meisten Tagen machst.',
     trackerEmpty:
       'Wähl oben bei 1 oder 2 Übungen „Zu meinen 4 Wochen hinzufügen“. Dann erscheinen sie hier, und du kannst sie jeden Tag abhaken.',
     daysDone: (done: number) => `${done} von ${PLAN_DAYS} Tagen`,
@@ -641,7 +640,7 @@ const ui = {
     introNote:
       'Unos 2 minutos. Gratis. Tus respuestas se quedan en este dispositivo.',
     method:
-      'Los pasos vienen de la TCC (terapia cognitivo-conductual), una terapia muy usada, y de la guía sobre el estrés de la Organización Mundial de la Salud. No es un diagnóstico y no reemplaza la consulta con un médico o un psicólogo.',
+      'Los pasos vienen de la TCC (terapia cognitivo-conductual), una terapia muy usada, y de la guía sobre el estrés de la Organización Mundial de la Salud. No es un diagnóstico y no reemplaza una consulta médica o psicológica.',
     restorePrompt: '¿Ya hiciste un plan y guardaste un respaldo?',
     restore: 'Restaurar desde un respaldo',
     restoreError: 'Ese archivo no es un respaldo de un plan de HopeBegins.',
@@ -653,18 +652,18 @@ const ui = {
     welcomeBack: (name: string) =>
       `Qué bueno verte de nuevo${name ? `, ${name}` : ''}.`,
     checkInDueTitle: (name: string) =>
-      `Ya pasó una semana desde tu último check-in${name ? `, ${name}` : ''}.`,
+      `Ya pasó una semana desde tu último chequeo${name ? `, ${name}` : ''}.`,
     checkInDueText: 'Hazlo de nuevo para ver qué ha cambiado.',
     doneTitle: (name: string) =>
       `Completaste 4 semanas${name ? `, ${name}` : ''}.`,
     doneText:
-      'Termina con un último check-in, elige la herramienta que más te ayudó y haz tu tarjeta de esperanza.',
+      'Termina con un último chequeo, elige la herramienta que más te ayudó y haz tu tarjeta de esperanza.',
     finishButton: 'Terminar mis 4 semanas',
     hopeCardTitle: 'Tu tarjeta de esperanza',
     hopeCardText:
       'Tu herramienta, tus señales de alerta y tus personas, para los días que se vuelvan difíciles otra vez.',
     openCard: 'Abrir mi tarjeta de esperanza',
-    takeAgain: 'Hacer el check-in otra vez',
+    takeAgain: 'Hacer el chequeo otra vez',
     planTitle: (name: string) =>
       name
         ? `Un comienzo con esperanza: el plan de ${name}`
@@ -678,12 +677,12 @@ const ui = {
     changedTitle: 'Lo que ha cambiado',
     lowMood: 'Ánimo bajo',
     worry: 'Preocupación',
-    scoreNote: 'Más bajo es mejor. Cada puntaje es sobre 6.',
+    scoreNote: 'Mientras más bajo, mejor. Cada puntaje es sobre 6.',
     better:
-      'Tus puntajes bajaron desde tu primer check-in. Sigue con lo que te está ayudando.',
-    same: 'Más o menos igual que en tu primer check-in. Es común en las primeras semanas. Sigue adelante, y habla con alguien de una línea de ayuda gratuita si sientes que no avanzas.',
+      'Tus puntajes bajaron desde tu primer chequeo. Sigue con lo que te está ayudando.',
+    same: 'Más o menos igual que en tu primer chequeo. Es común en las primeras semanas. Sigue adelante, y habla con alguien de una línea de ayuda gratuita si sientes que no avanzas.',
     worse:
-      'Tus puntajes subieron desde tu primer check-in. Por favor, habla con alguien esta semana: una línea de ayuda gratuita, un psicólogo o una persona de confianza.',
+      'Tus puntajes subieron desde tu primer chequeo. Por favor, habla con alguien esta semana: una línea de ayuda gratuita, un psicólogo o una persona de confianza.',
     ecoachTitle: '¿Quieres que alguien te acompañe en esto?',
     ecoachText:
       'Las líneas de ayuda gratuitas de tu país pueden escucharte, y Hope AI está disponible a cualquier hora.',
@@ -697,7 +696,7 @@ const ui = {
     whenDo: '¿Cuándo la vas a usar?',
     trackerTitle: 'Tus 4 semanas',
     trackerIntro:
-      'Marca cada día que la uses. ¿Te saltaste un día? Retómala al día siguiente. Los días que faltan no borran tu avance.',
+      'Marca cada día que la uses. ¿Te saltaste un día? Retómala al día siguiente. Los días que te saltes no borran tu avance.',
     trackerHabit:
       'Los hábitos tardan semanas en afianzarse. Con la mayoría de los días basta.',
     trackerEmpty:
@@ -737,7 +736,7 @@ const ui = {
     privacyPolicy: 'política de privacidad',
     saveTitle: 'Guardar mi plan',
     saved:
-      'Guardado en este celular. Tu plan se guarda solo mientras lo usas, y HopeBegins no puede verlo.',
+      'Guardado en este celular. Tu plan se guarda automáticamente mientras lo usas, y HopeBegins no puede verlo.',
     saveWhy:
       'Algunos celulares borran los datos de los sitios web después de una semana sin visitarlos. Para cuidar tus 4 semanas:',
     homeInstalled:
@@ -766,19 +765,19 @@ const ui = {
     tickedToday: 'Marcado por hoy en tus 4 semanas.',
     calmerAfter: (calmer: number, total: number) =>
       `Sentiste más calma después ${calmer} de ${total} ${total === 1 ? 'vez' : 'veces'}.`,
-    todayAfterBreak: 'Qué bueno verte. Empieza con hoy.',
+    todayAfterBreak: 'Qué bueno verte. Empieza por hoy.',
     seeWeeks: 'Ver tus 4 semanas',
   },
   ko: {
     locale: 'ko-KR',
     introTitle: '희망의 첫걸음: 나만의 무료 계획',
     introText:
-      '요즘 어떻게 지냈는지 묻는 짧은 질문 9개에 답해 주세요. 나에게 맞춘 작은 단계 몇 가지를 받고, 오늘부터 시작할 수 있어요.',
+      '요즘 어떻게 지냈는지 묻는 짧은 질문 9개에 답해 주세요. 나에게 맞춘 작은 걸음 몇 가지를 받아 오늘부터 시작할 수 있어요.',
     nameLabel: '뭐라고 불러 드릴까요? (선택)',
     start: '내 계획 시작하기',
-    introNote: '약 2분. 무료. 답은 이 기기에만 저장돼요.',
+    introNote: '2분쯤 걸리고 무료예요. 답은 이 기기에만 저장돼요.',
     method:
-      '이 단계들은 널리 쓰이는 상담 치료인 인지행동치료(CBT)와 세계보건기구(WHO)의 스트레스 가이드에서 가져왔어요. 진단이 아니며, 의사나 상담사를 만나는 것을 대신하지 않아요.',
+      '이 단계들은 널리 쓰이는 상담 치료인 인지행동치료(CBT)와 세계보건기구(WHO)의 스트레스 관리 안내서를 바탕으로 해요. 진단이 아니고, 의사나 상담사를 만나는 일을 대신하지도 않아요.',
     restorePrompt: '전에 계획을 만들고 백업을 저장해 두었나요?',
     restore: '백업에서 복원하기',
     restoreError: '이 파일은 HopeBegins 계획 백업이 아니에요.',
@@ -812,7 +811,8 @@ const ui = {
     lowMood: '가라앉은 기분',
     worry: '걱정',
     scoreNote: '낮을수록 좋아요. 각 점수는 6점 만점이에요.',
-    better: '첫 체크인 이후 점수가 내려갔어요. 도움이 되는 것을 계속해요.',
+    better:
+      '첫 체크인 이후 점수가 내려갔어요. 지금 도움이 되는 걸 계속 이어 가세요.',
     same: '첫 체크인과 거의 비슷해요. 처음 몇 주에는 흔한 일이에요. 계속해 보고, 막힌 느낌이 들면 무료 상담 전화로 이야기해 보세요.',
     worse:
       '첫 체크인 이후 점수가 올라갔어요. 이번 주에 꼭 누군가와 이야기해 주세요. 무료 상담 전화, 상담사, 믿을 수 있는 사람 모두 좋아요.',
@@ -829,11 +829,11 @@ const ui = {
     whenDo: '언제 할까요?',
     trackerTitle: '나의 4주',
     trackerIntro:
-      '한 날마다 체크하세요. 하루를 놓쳤나요? 다음 날 다시 하면 돼요. 놓친 날이 있어도 그동안 해 온 것은 사라지지 않아요.',
+      '실천한 날마다 체크해요. 하루를 놓쳤나요? 다음 날 다시 하면 돼요. 놓친 날이 있어도 그동안 해 온 것은 사라지지 않아요.',
     trackerHabit:
       '습관이 자리 잡으려면 몇 주가 걸려요. 대부분의 날에 하면 충분해요.',
     trackerEmpty:
-      '위에서 도구 한두 개에 ‘4주 계획에 넣기’를 눌러 보세요. 여기에 나타나서 매일 체크할 수 있어요.',
+      '위에 있는 도구 한두 개에서 ‘4주 계획에 넣기’를 눌러 보세요. 그러면 여기에 나타나서 매일 체크할 수 있어요.',
     daysDone: (done: number) => `${PLAN_DAYS}일 중 ${done}일`,
     weekOf: (week: number) => `${WEEKS}주 중 ${week}주째`,
     weeksDone: '4주 완료',
@@ -858,7 +858,7 @@ const ui = {
     submitCheckIn: '다음 주에 안부 이메일 받기',
     submitPlan: '계획을 이메일로 받기',
     submitNone: '위에서 하나를 골라 주세요',
-    errorBoth: '전송되지 않았어요.',
+    errorBoth: '보내지 못했어요.',
     errorCheckIn: '안부 이메일을 예약하지 못했어요.',
     errorPlan: '계획을 보내지 못했어요.',
     errorTry: '이메일 주소를 확인하고 다시 시도해 주세요',
@@ -1579,6 +1579,9 @@ function CheckInCard({
 }) {
   const [firstName, setFirstName] = useState(saved.name);
   const [email, setEmail] = useState('');
+  // For the crisis line in the emails: "ZZ" when the phone is somewhere the
+  // site has no line for, so the email points to Find A Helpline.
+  const country = useCountry(lang) ?? 'ZZ';
   const [checkIn, setCheckIn] = useState(false);
   const [sendPlan, setSendPlan] = useState(false);
   const [website, setWebsite] = useState('');
@@ -1604,14 +1607,22 @@ function CheckInCard({
     const antiSpam = { website, startTime: formStartedAt ?? 0 };
     const [checkInResult, planResult] = await Promise.allSettled([
       checkIn
-        ? actionPlanService.requestCheckIn(email, name, lang, antiSpam)
+        ? actionPlanService.requestCheckIn(email, name, lang, country, antiSpam)
         : Promise.resolve(),
       sendPlan
-        ? actionPlanService.emailPlan(email, name, plan, lang, antiSpam, {
-            heading: t.weekSection,
-            detail: t.weekSectionDetail,
-            items: weekSentences,
-          })
+        ? actionPlanService.emailPlan(
+            email,
+            name,
+            plan,
+            lang,
+            country,
+            antiSpam,
+            {
+              heading: t.weekSection,
+              detail: t.weekSectionDetail,
+              items: weekSentences,
+            }
+          )
         : Promise.resolve(),
     ]);
     const checkInOk = checkIn && checkInResult.status === 'fulfilled';
@@ -2457,19 +2468,14 @@ export default function ActionPlan({
               .filter((section) => section.id === 'week')
               .map(renderSection)}
 
-            {/* The plan and check-in emails are written in English and
-                Taglish only, with the Philippines' crisis lines, so the
-                other languages skip them until the emails speak theirs. */}
-            {!isIntlLang(lang) && (
-              <CheckInCard
-                key={saved.startedAt}
-                saved={saved}
-                plan={plan}
-                weekSentences={weekSentences}
-                lang={lang}
-                t={t}
-              />
-            )}
+            <CheckInCard
+              key={saved.startedAt}
+              saved={saved}
+              plan={plan}
+              weekSentences={weekSentences}
+              lang={lang}
+              t={t}
+            />
 
             <SavePlanCard saved={saved} t={t} />
 

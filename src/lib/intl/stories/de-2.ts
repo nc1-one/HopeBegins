@@ -21,7 +21,7 @@ export const deStories2: Story[] = [
         kind: 'story',
         heading: 'Mitternacht, und alle verloben sich',
         paragraphs: [
-          'Es war ein Dienstag, kurz nach Mitternacht, als Lena den dritten Verlobungspost der Woche sah. Eine Kommilitonin aus dem Studium, ein Ring, ein Sonnenuntergang auf Santorini, zweihundert Kommentare. Lena tippte „Glückwunsch!!“ mit drei Herzen und lag dann in ihrer Wohnung in Köln-Ehrenfeld, als hätte sich etwas Schweres auf ihre Brust gelegt.',
+          'Es war ein Dienstag, kurz nach Mitternacht, als Lena den dritten Verlobungspost der Woche sah. Eine Kommilitonin aus dem Studium, ein Ring, ein Sonnenuntergang auf Santorini, zweihundert Kommentare. Lena tippte „Glückwunsch“ mit drei Herzen und lag dann in ihrer Wohnung in Köln-Ehrenfeld, als hätte sich etwas Schweres auf ihre Brust gelegt.',
           'Sie scrollte weiter. Eine ehemalige Kollegin war gerade Teamleiterin geworden. Ein Cousin war in Tokio gelandet. Jemand aus ihrer Abiklasse hatte ein eigenes Café eröffnet. Jeder Post war eine gute Nachricht von jemandem, den sie mochte, und jeder traf sie wie ein kleines Urteil: Du bist hinterher.',
           'Lena war 26, Marketingassistentin mit einer festen Stelle, einer kleinen Wohnung, die sie selbst bezahlte, und einer Familie im Sauerland, die stolz auf sie war. Nichts davon tauchte um Mitternacht im Feed auf. Was auftauchte, war der beste Tag aller anderen.',
           'Gegen eins öffnete sie ihr eigenes Profil und sah es an wie eine Fremde. Letzter Beitrag: vor acht Monaten, ein Stück Käsekuchen. Sie schloss die App, öffnete sie wieder und machte weiter, bis ihre Augen brannten.',
@@ -55,10 +55,10 @@ export const deStories2: Story[] = [
         kind: 'hope',
         heading: 'Wenn dir der Feed das Gefühl gibt, hinterher zu sein',
         paragraphs: [
-          'Wenn du das gerade nach langem Scrollen im Bett liest, sei sanft mit dir. Sich nach Social Media klein zu fühlen, ist eine häufige Reaktion, wenn man spät in der Nacht und allein die besten Tage vieler anderer Leute sieht. Dein Wert bleibt derselbe, ob du postest oder nicht.',
+          'Wenn du das gerade nach langem Scrollen im Bett liest: Sich nach Social Media klein zu fühlen, ist eine häufige Reaktion, wenn man spät in der Nacht und allein die besten Tage vieler anderer Leute sieht. Dein Wert bleibt derselbe, ob du postest oder nicht.',
           'Probier diese Woche eine Sache aus. Lade dein Handy außerhalb des Schlafzimmers, schalte drei Accounts stumm, die jedes Mal wehtun, oder schreib drei gute Dinge aus deinem eigenen Tag auf, bevor du eine App öffnest. Und erzähl einem Menschen, dem du vertraust, wie sich der Feed in letzter Zeit für dich anfühlt. Vielleicht kennt er oder sie das auch.',
           'Wenn aus dem Vergleichen eine Schwere geworden ist, die an den meisten Tagen bleibt, oder wenn sie länger als zwei Wochen anhält und dir Arbeit oder Schlaf schwer macht, sprich mit deiner Hausärztin, deinem Hausarzt oder einer psychologischen Beratungsstelle. Das ist ein ganz normaler nächster Schritt, und Hilfe wirkt.',
-          'Wenn du heute Nacht irgendwo anfangen möchtest: [HopeBegins](/) ist kostenlos. Wähl aus, wie es dir geht, und du bekommst eine kleine Sache für heute, Übungen zum Ruhigwerden, jemanden, der für dich betet, und kostenlose Nummern, unter denen du mit jemandem reden kannst. Wenn die Schwere längst über dein Handy hinausgeht, ist die Seite [Müde von allem](/tired-of-everything) ein guter Anfang.',
+          'Wenn du heute Nacht irgendwo anfangen möchtest: [HopeBegins](/) ist kostenlos. Wähl aus, wie es dir geht, und du bekommst eine kleine Sache für heute, Übungen zum Ruhigwerden, jemanden, der für dich betet, und kostenlose Nummern, unter denen du mit jemandem reden kannst. Wenn die Schwere längst über dein Handy hinausgeht, ist die Seite [Ich kann nicht mehr](/tired-of-everything) ein guter Anfang.',
         ],
       },
     ],
@@ -170,7 +170,7 @@ export const deStories2: Story[] = [
       },
       {
         q: 'Wann muss ich mich nach einer Kündigung arbeitsuchend melden?',
-        a: 'Bei der Agentur für Arbeit spätestens drei Monate vor deinem letzten Arbeitstag. Liegen zwischen Kündigung und letztem Arbeitstag weniger als drei Monate, dann innerhalb von drei Tagen, nachdem du davon erfahren hast. Wer sich zu spät meldet, riskiert eine Sperrzeit beim Arbeitslosengeld.',
+        a: 'In Deutschland bei der Agentur für Arbeit spätestens drei Monate vor deinem letzten Arbeitstag. Liegen zwischen Kündigung und letztem Arbeitstag weniger als drei Monate, dann innerhalb von drei Tagen, nachdem du davon erfahren hast. Wer sich zu spät meldet, riskiert eine Sperrzeit beim Arbeitslosengeld. In Österreich ist das AMS zuständig, in der Schweiz das RAV.',
       },
       {
         q: 'Ist es normal, sich nach einer Kündigung zu schämen?',
@@ -218,7 +218,7 @@ export const deStories2: Story[] = [
         paragraphs: [
           'Im Rückblick waren die Anzeichen schon seit Monaten da. Sie war ständig müde, selbst nach dem Schlafen. Sie fuhr Jana wegen Kleinigkeiten an, etwa welche Marke Inkontinenzeinlagen sie kaufen sollten. Auf die Nachrichten ihrer Freundinnen antwortete sie nicht mehr. Sie war in einem Monat zweimal krank und arbeitete beide Male einfach weiter.',
           'Sie fühlte sich wegen allem schuldig. Schuldig, wenn sie ungeduldig war, schuldig, wenn sie sich hinsetzte, schuldig, weil sie sich einmal gewünscht hatte, jemand anderes würde übernehmen. „Ich bin die Tochter“, sagte sie sich. „Das ist meine Aufgabe.“ Sich auszuruhen fühlte sich an, als würde sie ihre Mutter im Stich lassen.',
-          'Einen kranken Elternteil zu pflegen ist gelebte Liebe, und es ist auch harte körperliche und seelische Arbeit ohne freie Tage. Wenn ein Mensch das monatelang allein trägt, laufen Körper und Seele irgendwann leer. Stefanie gab weiter aus einem leeren Tank und machte sich Vorwürfe, als er trocken lief.',
+          'Einen kranken Elternteil zu pflegen ist gelebte Liebe, und es ist auch harte körperliche und seelische Arbeit ohne freie Tage. Wenn ein Mensch das monatelang allein trägt, laufen Körper und Seele irgendwann leer. Stefanie machte immer weiter, obwohl ihr Tank längst leer war, und machte sich Vorwürfe, als nichts mehr ging.',
           'Sie trauerte auch, ganz still. Ihre Mutter lebte und war direkt da, und doch war die Mama, die sie früher geneckt und jeden Sonntag Rouladen gekocht hatte, schwerer zu erreichen. Für dieses Gefühl hatte Stefanie keinen Platz.',
         ],
       },
@@ -239,7 +239,7 @@ export const deStories2: Story[] = [
         kind: 'hope',
         heading: 'Wenn du jemanden pflegst und selbst auf Reserve läufst',
         paragraphs: [
-          'Wenn du einen Elternteil, deinen Partner, deine Partnerin oder ein krankes Kind pflegst, ist die Müdigkeit, die du spürst, echt, und die Liebe auch. Dass du Ruhe brauchst, nimmt nichts davon weg, wie sehr du dich sorgst. Auch du bist ein Mensch, und wer ausgeruht pflegt, hält länger durch.',
+          'Wenn du einen Elternteil, deinen Partner, deine Partnerin oder ein krankes Kind pflegst, ist deine Müdigkeit echt. Ruhe zu brauchen heißt nicht, dass du weniger liebst. Wer ausgeruht pflegt, hält länger durch.',
           'Bitte diese Woche einen bestimmten Menschen um eine bestimmte Sache: zwei Stunden am Samstag, ein Essen, eine Nacht Schlaf. Viele wollen helfen und wissen nicht, wie. Dann schütze jeden Tag ein kleines Stück Ruhe, auch wenn es nur zwanzig Minuten sind. Bei der Pflegeberatung der Pflegekasse oder einem Pflegestützpunkt kannst du dich außerdem kostenlos beraten lassen, welche Entlastung euch zusteht.',
           'Wenn du dich seit Wochen an den meisten Tagen erschöpft fühlst, die Menschen, die du liebst, immer wieder anfährst oder dich taub oder hoffnungslos fühlst, sprich mit deiner Hausärztin, deinem Hausarzt oder einer Beratungsstelle. Auch wer pflegt, braucht Fürsorge, und darum zu bitten ist ein ganz normaler nächster Schritt.',
           'Wenn du heute irgendwo anfangen möchtest: [HopeBegins](/) ist kostenlos. Wähl aus, wie es dir geht, und du bekommst eine kleine Sache für heute, Übungen zum Ruhigwerden für die schweren Nächte, jemanden, der für dich und deine Familie betet, und kostenlose Nummern, unter denen du mit jemandem reden kannst. Auf der Seite über [Burnout](/burnout) findest du mehr dazu, was hilft, wenn du nur noch auf Reserve läufst.',
@@ -337,7 +337,7 @@ export const deStories2: Story[] = [
         paragraphs: [
           'Wenn das gerade du bist, im Bett, ohne Lust auf dein Lieblingsessen oder dein Lieblingsspiel: Was du fühlst, ist echt, auch wenn du keinen Grund nennen kannst. Es gibt Hilfe dafür, und du kannst klein anfangen.',
           'Such dir heute eins aus: zehn Minuten rausgehen, eine richtige Mahlzeit essen oder einem Menschen schreiben, wie es dir wirklich geht. Und wenn du jemanden kennst, der in den letzten Wochen still geworden ist, schreib dieser Person auch. Manchmal braucht ein Mensch nur ein „Wie geht’s dir wirklich?“, um anzufangen zu reden.',
-          'Wenn es schon zwei Wochen oder länger so geht oder es dir schwerfällt, zu arbeiten, zu lernen oder für dich zu sorgen, sprich mit deiner Hausärztin, deinem Hausarzt oder einer psychotherapeutischen Praxis. Für die psychotherapeutische Sprechstunde brauchst du keine Überweisung. Das ist ein ganz normaler nächster Schritt, und Hilfe wirkt.',
+          'Wenn es schon zwei Wochen oder länger so geht oder es dir schwerfällt, zu arbeiten, zu lernen oder für dich zu sorgen, sprich mit deiner Hausärztin, deinem Hausarzt oder einer psychotherapeutischen Praxis. In Deutschland brauchst du für die psychotherapeutische Sprechstunde keine Überweisung. Das ist ein ganz normaler nächster Schritt, und Hilfe wirkt.',
           'Wenn du daran denkst, dir das Leben zu nehmen, ruf die TelefonSeelsorge an: kostenlos und rund um die Uhr unter 0800 111 0 111 oder 0800 111 0 222. In Österreich wählst du die 142, in der Schweiz die 143. Wenn du in akuter Gefahr bist, ruf die 112 an. Solche Gedanken können sich wieder ändern, und es gibt Menschen, die dir durch diese Zeit helfen.',
           'Wenn du heute irgendwo anfangen möchtest: [HopeBegins](/) ist kostenlos. Wähl aus, wie es dir geht, und du bekommst eine kleine Sache für heute, Übungen zum Ruhigwerden, jemanden, der für dich betet, und kostenlose Nummern, unter denen du mit jemandem reden kannst. Lies [Ich fühle mich depressiv](/i-feel-depressed), wenn du wissen willst, was du als Nächstes tun kannst.',
         ],
@@ -417,8 +417,8 @@ export const deStories2: Story[] = [
         heading: 'Wie Sophie ihrer Freundin mit Depression half',
         paragraphs: [
           'Am Samstag kam Sophie mit zwei Bechern Eis und ohne Plan. Sie saßen auf Maries Bett und schauten einen halben Film. Dann hielt Sophie ihn an und sagte: „Mir ist aufgefallen, dass es dir in letzter Zeit richtig schlecht zu gehen scheint. Wie geht’s dir wirklich?“',
-          'Marie war lange still. Dann fing sie an zu weinen, und zu erzählen. Von der Arbeit, von dem Gefühl, innerlich leer zu sein, davon, dass sie nicht schlafen konnte, davon, dass sich alles sinnlos anfühlte. Sophie hörte vor allem zu. Mehr als einmal sagte sie „Das klingt wirklich schwer“ und ließ die Stille einfach stehen.',
-          'Dann stellte Sophie die Frage, vor der sie am meisten Angst hatte, so ruhig sie konnte: „Marie, denkst du daran, dir das Leben zu nehmen?“ Marie sah auf ihre Hände und sagte: „Manchmal wünschte ich, ich würde einfach nicht mehr aufwachen.“ Sophies Herz raste, und sie hielt ihre Stimme ruhig. „Danke, dass du mir das sagst. Ich bleibe bei dir, und wir holen uns zusammen Hilfe.“',
+          'Marie war lange still. Dann fing sie an zu weinen und zu erzählen. Von der Arbeit, von dem Gefühl, innerlich leer zu sein, davon, dass sie nicht schlafen konnte, davon, dass sich alles sinnlos anfühlte. Sophie hörte vor allem zu. Mehr als einmal sagte sie „Das klingt wirklich schwer“ und ließ die Stille einfach stehen.',
+          'Dann stellte Sophie die Frage, vor der sie am meisten Angst hatte, so ruhig sie konnte: „Marie, denkst du daran, dir das Leben zu nehmen?“ Marie sah auf ihre Hände und sagte: „Manchmal wünschte ich, ich würde einfach nicht mehr aufwachen.“ Sophies Herz raste, aber sie hielt ihre Stimme ruhig. „Danke, dass du mir das sagst. Ich bleibe bei dir, und wir holen uns zusammen Hilfe.“',
           'Sie riefen gemeinsam bei der TelefonSeelsorge an, auf Lautsprecher, Sophie hielt Maries Hand. Die Person am Telefon war ruhig und freundlich. Sie sprach mit Marie, half ihr, die nächsten Tage durchzudenken, und ermutigte sie, sich bald professionelle Hilfe zu holen. Sophie blieb über Nacht.',
           'Am Montag gingen sie zusammen zu Maries Hausärztin, die sie an eine Psychiaterin überwies, und Sophie begleitete sie auch zum ersten Termin dort. Mit Maries Einverständnis erzählte sie es auch Maries älterer Schwester, damit mehr als ein Mensch nach ihr schaute.',
           'Sophie blieb dran. Alle paar Tage eine Nachricht: „Denk an dich. Gehen wir was essen?“ Ein Spaziergang nach dem Gottesdienst. Manchmal sagte Marie nein, und Sophie fragte in der nächsten Woche einfach wieder. Monate später sagte Marie zu ihr: „An dem Samstag bist du gekommen, als ich nicht fragen konnte.“',
@@ -435,7 +435,7 @@ export const deStories2: Story[] = [
           'Lass schnelle Lösungen wie „Denk positiv“ oder „Anderen geht’s noch schlechter“ weg. Lade die Person weiter ein, auch wenn sie absagt. Wenn du dir Sorgen machst, frag ruhig und direkt, ob sie daran denkt, sich das Leben zu nehmen. Wenn die Antwort ja ist, bleib bei ihr und hol gemeinsam mit ihr Hilfe.',
           'Wenn du selbst daran denkst, dir das Leben zu nehmen, ruf die TelefonSeelsorge an: kostenlos und rund um die Uhr unter 0800 111 0 111 oder 0800 111 0 222. In Österreich wählst du die 142, in der Schweiz die 143. Wenn du in akuter Gefahr bist, ruf die 112 an. Du kannst auch zusammen mit einer Freundin oder einem Freund anrufen, so wie Sophie und Marie. Es gibt Hilfe, und es kann wieder besser werden.',
           'Wenn die gedrückte Stimmung deines Freundes oder deiner Freundin schon länger als zwei Wochen anhält, ermutige ihn oder sie behutsam, mit einer Ärztin, einem Arzt oder einer Psychotherapeutin zu sprechen, und biete an, beim Termin zu helfen oder mitzukommen. Pass auch auf dich auf. Jemanden zu unterstützen kann schwer sein, also sprich mit einem Menschen, dem du vertraust.',
-          'Wenn du irgendwo anfangen möchtest: [HopeBegins](/) ist kostenlos, für deine Freundin, deinen Freund oder für dich. Wähl aus, wie es dir geht, und du bekommst eine kleine Sache für heute, Übungen zum Ruhigwerden, jemanden, der für dich betet, und kostenlose Nummern, unter denen du mit jemandem reden kannst. Mehr über Worte, die helfen, findest du unter [Was man einem depressiven Freund sagen kann](/what-to-say-to-a-depressed-friend).',
+          'Wenn du irgendwo anfangen möchtest: [HopeBegins](/) ist kostenlos, für deine Freundin, deinen Freund oder für dich. Wähl aus, wie es dir geht, und du bekommst eine kleine Sache für heute, Übungen zum Ruhigwerden, jemanden, der für dich betet, und kostenlose Nummern, unter denen du mit jemandem reden kannst. Mehr über Worte, die helfen, findest du unter [Was man einem depressiven Menschen sagen kann](/what-to-say-to-a-depressed-friend).',
         ],
       },
     ],
@@ -504,7 +504,7 @@ export const deStories2: Story[] = [
         heading: 'Warum Schulden so schwer auf der Seele liegen',
         paragraphs: [
           'Für Markus kam jeder Euro Schulden mit Scham. Er sah sich als den, der die Familie versorgt, und er hatte das Gefühl, darin versagt zu haben.',
-          'Weil er es verheimlichte, trug er alles allein. Er konnte nicht schlafen. Sein Nacken tat weh. Mit den Kindern war er schnell gereizt. Beim Fahren drehten sich die Zahlen in seinem Kopf im Kreis, und einmal hätte er beinahe eine rote Ampel übersehen.',
+          'Weil er es verheimlichte, trug er alles allein. Er konnte nicht schlafen, sein Nacken tat weh, und mit den Kindern war er schnell gereizt. Beim Fahren drehten sich die Zahlen in seinem Kopf im Kreis, und einmal hätte er beinahe eine rote Ampel übersehen.',
           'Auch sein Körper spürte es. Er war schon müde, bevor die Schicht überhaupt anfing. Er hatte keinen Appetit mehr, und wenn am Monatsanfang das Gehalt kam, war sein erster Gedanke, welcher Kredit es diesmal schlucken würde.',
           'Einen Kredit mit einem neuen Kredit abzuzahlen ist, als würde man ein neues Loch graben, um ein altes zu füllen. Es wird nur tiefer. Und jeder neue Kredit bringt eine neue Angst mit.',
           'Am schwersten war das Gefühl, niemanden zu haben, an den er sich wenden konnte. „Das ist mein Problem“, sagte er sich. „Ich hab’s verbockt, also bring ich’s auch wieder in Ordnung.“',
@@ -521,7 +521,7 @@ export const deStories2: Story[] = [
           'Ein Anbieter schickte weiter Nachrichten mit Drohungen. Markus ging bei unverschämten Anrufen nicht mehr ran. Er zahlte, was vereinbart war, und Nadine und er lasen die Briefe zusammen, damit keiner von beiden der Angst allein begegnete.',
           'Auch zu Hause änderten sie etwas beim Geldausgeben. Brotdose statt Bäcker, und eine alte Keksdose fürs Ersparte, auch wenn es nur ein, zwei Euro am Tag waren.',
           'Markus erzählte es auch den anderen Fahrern im Pausenraum auf dem Betriebshof. Er dachte, sie würden ihn auslachen. Zwei gaben zu, dass sie selbst Schulden bei Ratenkäufen und Kredit-Apps hatten. Seitdem fragen sie einander, wie es läuft, wenn sie an der Endhaltestelle auf die Abfahrt warten.',
-          'Und er betete, im Bus, bevor er losfuhr. 1. Petrus 5,7 wurde sein Gebet: Jeden Morgen gab er seine Sorgen an Gott ab. Sie haben heute noch Schulden, und Markus trägt sie leichter. Er schläft nachts durch und zuckt nicht mehr bei jedem Vibrieren zusammen.',
+          'Und er betete, im Bus, bevor er losfuhr. 1. Petrus 5,7 wurde sein Gebet: Jeden Morgen gab er seine Sorgen an Gott ab. Sie haben heute noch Schulden, aber Markus trägt sie leichter. Er schläft nachts durch und zuckt nicht mehr bei jedem Vibrieren zusammen.',
         ],
         pullQuote:
           'Warum hast du das allein geschleppt? Wir sind doch ein Team.',
@@ -543,7 +543,7 @@ export const deStories2: Story[] = [
         'Erzähl einem Menschen, dem du vertraust, von deinen Schulden.',
         'Schreib jede Schuld auf: bei wem, wie viel und wann sie fällig ist.',
         'Such dir einen Gläubiger aus, mit dem du diese Woche über eine Ratenzahlung sprichst.',
-        'Wenn die Angst kommt, atme zwei Minuten lang vier Zählzeiten ein und sechs aus.',
+        'Wenn die Angst kommt, atme zwei Minuten lang langsam: einatmen und bis 4 zählen, ausatmen und bis 6 zählen.',
       ],
     },
     verse: '1pe-5-7',
@@ -696,7 +696,7 @@ export const deStories2: Story[] = [
         paragraphs: [
           'Thomas führt seit fast dreißig Jahren eine kleine Kfz-Werkstatt in einem Ort bei Heilbronn. Golfs, Transporter, die Traktoren der Bauern aus der Umgebung und ab und zu der alte Mercedes, den irgendein Opa einfach nicht verkaufen will. Wenn es einen Motor hat, kann Thomas dir am Geräusch sagen, was ihm fehlt.',
           'Sein Vater war auch Mechaniker und brachte ihm zwei Dinge bei: wie man einem Motor zuhört und dass ein Mann nicht jammert. „Zähne zusammenbeißen.“ Als sein Vater starb, weinte Thomas auf der Beerdigung nicht. Am nächsten Tag stand er wieder in der Werkstatt.',
-          'Letztes Jahr fing es an zu rutschen. Sein Ältester zog nach Kanada. Seine Frau Sabine hatte einen gesundheitlichen Schreck. Das Geschäft lief schlechter, seit ein Stück die Straße runter eine große Werkstattkette aufgemacht hatte. Thomas sprach über nichts davon. Er wurde nur stiller und kurz angebunden mit allen.',
+          'Letztes Jahr fing es an zu rutschen. Sein Ältester zog nach Kanada, seine Frau Sabine hatte einen gesundheitlichen Schreck, und das Geschäft lief schlechter, seit ein Stück die Straße runter eine große Werkstattkette aufgemacht hatte. Thomas sprach über nichts davon. Er wurde nur stiller und kurz angebunden mit allen.',
           'Er schlief vier Stunden pro Nacht. Aus zwei Flaschen Bier nach der Arbeit wurden vier. Eines Nachmittags brüllte er seinen Azubi wegen eines heruntergefallenen Schraubenschlüssels an und saß danach hinten in der Werkstatt, den Kopf in den Händen, ohne zu wissen, warum er so wütend war.',
         ],
         pullQuote: 'Er wurde nur stiller und kurz angebunden mit allen.',
@@ -717,11 +717,11 @@ export const deStories2: Story[] = [
         paragraphs: [
           'Jeden Freitagabend kam Thomas’ Freund Andi nach Feierabend in der Werkstatt vorbei. Sie saßen dann am Klapptisch vor dem Tor, mit zwei Leberkäswecken vom Metzger, und redeten über Fußball. An diesem Freitag fing Andi nicht von Fußball an.',
           '„Sag mal, geht’s dir eigentlich wirklich gut? Du bist irgendwie anders in letzter Zeit.“ Thomas sagte, alles sei gut. Andi ließ nicht locker. „Mir ging’s letztes Jahr nämlich nicht gut. Ich hab mir Hilfe geholt. Ich dachte, das macht mich zum Weichei, aber es hat geholfen.“',
-          'Thomas kannte Andi seit zwanzig Jahren und hatte ihn nie so etwas sagen hören. Etwas in seiner Brust löste sich. Er fing an zu reden, erst langsam. Über seinen Sohn, der weggezogen war. Über Sabine. Über die Werkstatt. Darüber, dass er nachts wach lag und das Gefühl hatte, in der einen Aufgabe zu versagen, die er hatte.',
+          'Thomas kannte Andi seit zwanzig Jahren und hatte ihn nie so etwas sagen hören. Etwas in seiner Brust löste sich. Er fing an zu reden, erst langsam: über seinen Sohn, der weggezogen war, über Sabine, über die Werkstatt und darüber, dass er nachts wach lag und das Gefühl hatte, in der einen Aufgabe zu versagen, die er hatte.',
           'Andi hörte einfach zu. Als Thomas keine Worte mehr hatte, sagte Andi: „Gut, dass du’s mir sagst. Ich helf dir.“',
         ],
         pullQuote:
-          '„Sag mal, geht’s dir eigentlich wirklich gut? Du bist irgendwie anders in letzter Zeit.“',
+          'Sag mal, geht’s dir eigentlich wirklich gut? Du bist irgendwie anders in letzter Zeit.',
       },
       {
         kind: 'helped',
@@ -739,7 +739,7 @@ export const deStories2: Story[] = [
         heading: 'Wenn du in deiner Familie der Starke bist',
         paragraphs: [
           'Wenn du ein Mann bist und das hier liest, erkennst du vielleicht etwas von Thomas wieder: die kurze Zündschnur, das Bier zu viel, die wachen Nächte, das Gefühl, dass niemand sieht, wie du kämpfst. Darüber zu reden gehört zu dem Stärksten, was du für deine Familie tun kannst.',
-          'Fang mit einem Menschen an. Ein Freund, deine Frau, ein Bruder, ein Pastor. Du kannst es so sagen wie Thomas: „Mir geht’s seit Monaten nicht gut.“ Dieser eine Satz öffnet eine Tür.',
+          'Fang mit einem Menschen an: einem Freund, deiner Frau, einem Bruder, einem Pastor. Du kannst es so sagen wie Thomas: „Mir geht’s seit Monaten nicht gut.“ Dieser eine Satz öffnet eine Tür.',
           'Wenn du seit mehr als zwei Wochen niedergeschlagen oder gereizt bist, nicht schlafen kannst oder mehr trinkst, um klarzukommen, sprich mit deiner Hausärztin, deinem Hausarzt oder einer Beratungsstelle. Das ist ein ganz normaler nächster Schritt, genauso wie man ein Auto in die Werkstatt bringt, wenn es komische Geräusche macht.',
           'Wenn du dir Sorgen um einen Mann in deinem Leben machst, sei sein Andi. Setz dich zu ihm, frag zweimal nach und hör zu.',
           'Wenn du lieber erst einmal für dich allein anfangen möchtest: [HopeBegins](/) ist kostenlos. Wähl aus, wie es dir geht, und du bekommst eine kleine Sache für heute, Übungen zum Ruhigwerden, jemanden, der für dich betet, und kostenlose Nummern, unter denen du mit jemandem reden kannst. Wenn dir Thomas’ Geschichte bekannt vorkommt, ist [Ich fühle mich depressiv](/i-feel-depressed) ein guter Anfang.',
@@ -817,7 +817,7 @@ export const deStories2: Story[] = [
         paragraphs: [
           'Als Erstes half ein Plan. Ihre Freundin Gabi, Mias Patentante, setzte sich mit ihr hin und schrieb genau auf, was sie tun würden, wenn das Wasser wieder stieg: wann sie die Sachen nach oben bringen, wohin sie gehen, wen sie anrufen und was in den Notfallrucksack kommt. Den Zettel klebten sie an den Kühlschrank. Wenn es regnete, konnte Tanja ihn ansehen und wissen, dass sie vorbereitet war.',
           'Als Zweites half eine Grenze fürs Nachschauen. Bei Unwetter schaute sie einmal pro Stunde auf den Pegel und ließ das Handy dazwischen in der Küche liegen. Die erste Nacht war schwer. Beim dritten Unwetter ging es schon leichter.',
-          'Als Drittes half das Atmen mit den Kindern. Wenn der Regen laut wurde, setzten sich die drei zusammen und atmeten vier Zählzeiten ein und sechs aus, laut gezählt. Mia zählte gern. Jonas verdrehte die Augen und machte trotzdem mit.',
+          'Als Drittes half das Atmen mit den Kindern. Wenn der Regen laut wurde, setzten sich die drei zusammen, atmeten ein und zählten laut bis vier, dann atmeten sie aus und zählten bis sechs. Mia zählte gern. Jonas verdrehte die Augen und machte trotzdem mit.',
           'Sie ließ die Kinder über jene Nacht reden. Beim Abendessen fragte sie: „Woran erinnert ihr euch am meisten?“ Mia erinnerte sich an die Taschenlampe. Jonas daran, dass er Angst gehabt hatte, seiner Mutter könnte etwas passieren. Tanja sagte ihnen, dass sie auch Angst gehabt hatte und dass sie es zusammen durchgestanden hatten. Es laut auszusprechen, machte es für alle drei kleiner.',
           'Vor dem nächsten Winter kam ihr Pastor vorbei und betete mit ihnen. Jesaja 41,10 hängt jetzt an der Wand neben der Treppe, genau auf der Höhe der Stufe, an der das Wasser stehen geblieben war.',
           'Als die Angst nach ein paar Monaten immer noch stark war, sprach Tanja mit ihrer Hausärztin. Die Ärztin sagte, dass das, was sie fühlte, nach so einem Ereignis häufig vorkommt, und vermittelte ihr eine Psychotherapeutin und Jonas eine Kinder- und Jugendlichenpsychotherapeutin. Beides half.',
@@ -829,7 +829,7 @@ export const deStories2: Story[] = [
         heading: 'Wenn der Regen dir immer noch Angst macht',
         paragraphs: [
           'Wenn du ein Hochwasser, einen schweren Sturm oder ein anderes Unglück erlebt hast, ist es verständlich, dass dein Körper reagiert, wenn der Himmel dunkel wird. Deine Angst will dich schützen. Sie hat nur noch nicht ganz verstanden, dass heute ein anderer Tag ist.',
-          'Fang mit dem an, was du in der Hand hast. Schreib einen Familienplan und häng ihn dort auf, wo alle ihn sehen. Pack den Notfallrucksack einmal und lass ihn dann stehen. Leg bei Unwetter feste Zeiten fest, zu denen du nach Nachrichten schaust. Atme vier Zählzeiten ein und sechs aus, zusammen mit deinen Kindern, wenn sie auch Angst haben.',
+          'Fang mit dem an, was du in der Hand hast. Schreib einen Familienplan und häng ihn dort auf, wo alle ihn sehen. Pack den Notfallrucksack einmal und lass ihn dann stehen. Leg bei Unwetter feste Zeiten fest, zu denen du nach Nachrichten schaust. Atme ein und zähl bis vier, atme aus und zähl bis sechs, zusammen mit deinen Kindern, wenn sie auch Angst haben.',
           'Wenn die Angst Wochen nach einem Unglück noch stark ist, wenn du nicht schlafen kannst, jene Nacht immer wieder erlebst oder bei Regen nicht mehr aus dem Haus gehst, sprich mit deiner Hausärztin, deinem Hausarzt oder einer Beratungsstelle. Das ist ein ganz normaler nächster Schritt, und er hilft Kindern genauso wie Erwachsenen.',
           'Wenn du heute Hilfe möchtest: [HopeBegins](/) ist kostenlos. Wähl aus, wie es dir geht, und du bekommst eine kleine Sache für heute, Übungen zum Ruhigwerden, jemanden, der für dich betet, und kostenlose Nummern, unter denen du mit jemandem reden kannst. Unter [Wie du Angst beruhigen kannst](/how-to-calm-anxiety) findest du eine Atemübung, die ihr als Familie machen könnt, wenn der Regen laut wird.',
         ],
@@ -842,7 +842,7 @@ export const deStories2: Story[] = [
         'Pack einen Notfallrucksack und bewahr ihn immer am selben Ort auf. Schau einmal im Monat hinein.',
         'Häng den Plan an den Kühlschrank, wo alle ihn sehen.',
         'Vereinbare für Unwetter feste Zeiten zum Nachschauen, etwa einmal pro Stunde, und leg das Handy dazwischen weg.',
-        'Übe das Atmen gemeinsam mit deiner Familie: vier Zählzeiten ein, sechs aus.',
+        'Übe das Atmen gemeinsam mit deiner Familie: einatmen bis vier, ausatmen bis sechs.',
       ],
     },
     verse: 'isa-41-10',
@@ -885,7 +885,7 @@ export const deStories2: Story[] = [
         heading: 'Gut drauf bei der Arbeit, leer zu Hause',
         paragraphs: [
           'Jan war Teamleiter bei einer IT-Hotline in Hamburg, die rund um die Uhr erreichbar ist. Sein Team mochte ihn. Er dachte an Geburtstage, sprang für andere ein und hatte in harten Nachtschichten immer einen Witz parat. Niemand hätte geahnt, wie es ihm ging, wenn er nach Hause kam.',
-          'Es hatte sich über ein Jahr eingeschlichen. Eine Trennung. Die Krankheit seines Vaters, zu Hause im Emsland. Eine Beförderung, die längere Schichten und weniger Schlaf mit sich brachte. Er ging nicht mehr zum Sonntagsessen bei seinem Bruder. Er antwortete nicht mehr in der Familiengruppe. Morgens um sieben kam er heim, zog die Vorhänge zu und lag mit dem Handy im Bett, zu müde zum Schlafen und zu müde zum Aufstehen.',
+          'Es hatte sich über ein Jahr eingeschlichen: erst eine Trennung, dann die Krankheit seines Vaters zu Hause im Emsland, dann eine Beförderung, die längere Schichten und weniger Schlaf mit sich brachte. Er ging nicht mehr zum Sonntagsessen bei seinem Bruder. Er antwortete nicht mehr in der Familiengruppe. Morgens um sieben kam er heim, zog die Vorhänge zu und lag mit dem Handy im Bett, zu müde zum Schlafen und zu müde zum Aufstehen.',
           'Irgendwann in diesen Monaten tauchte ein Gedanke auf: Er wollte nicht mehr aufwachen. Er wollte, dass alles aufhört.',
           'Das machte ihm Angst. Er erzählte es niemandem, weil er nicht wusste, wie man so etwas sagt, und weil er der war, an den sich die anderen anlehnten.',
         ],
@@ -919,7 +919,7 @@ export const deStories2: Story[] = [
           'Seine Familie gab ein paar einfache Versprechen. Paul würde jeden Morgen schreiben, auch wenn es nur ein Daumen nach oben war. Seine Mutter würde mittwochs anrufen. Jan versprach, einem von beiden Bescheid zu sagen, wenn die dunklen Gedanken zurückkamen. Ein paar Mal kamen sie zurück. Jedes Mal, wenn er etwas sagte, fiel es ihm leichter.',
           'Er ging wieder zum Sonntagsessen und ein paar Wochen später mit seiner Familie in den Gottesdienst. Am Anfang spürte er nicht viel. Er ging trotzdem. An einem Sonntag las der Pastor Psalm 23,4, und Jan hörte die Stelle auf eine neue Art. Er war in diesem finsteren Tal gewesen. Er ging immer noch, und jemand ging mit ihm.',
           'Bei der Arbeit sprach er mit der Personalabteilung über seine Arbeitszeiten und wechselte in die Tagschicht. Er fing wieder an, nachts zu schlafen, jedenfalls in den meisten Nächten.',
-          'Ein Jahr später sagt Jan, dass das Schlimmste hinter ihm liegt. Er hat immer noch schwere Tage. Jetzt weiß er, was er mit ihnen macht: es jemandem sagen, sich ausruhen, den nächsten Termin wahrnehmen.',
+          'Ein Jahr später sagt Jan, dass das Schlimmste hinter ihm liegt. Er hat immer noch schwere Tage, aber jetzt weiß er, was er mit ihnen macht: es jemandem sagen, sich ausruhen, den nächsten Termin wahrnehmen.',
         ],
         pullQuote:
           'Er war in diesem finsteren Tal gewesen. Er ging immer noch, und jemand ging mit ihm.',
@@ -929,7 +929,7 @@ export const deStories2: Story[] = [
         heading: 'Wenn du gerade nicht mehr kannst',
         paragraphs: [
           'Wenn du das liest, weil es dir so geht wie Jan damals: Danke, dass du noch da bist. Der Schmerz, den du fühlst, ist echt, und die Hilfe ist es auch.',
-          'Sag es heute Abend einem Menschen. Einer Schwester, einem Bruder, einem Freund, einer Freundin, deinen Eltern, einem Pastor. Du kannst Jans Worte benutzen: „Mir geht’s nicht gut.“ Wenn es dir unmöglich vorkommt, es auszusprechen, schreib es.',
+          'Sag es heute Abend einem Menschen: einer Schwester, einem Bruder, einem Freund, einer Freundin, deinen Eltern, einem Pastor. Du kannst Jans Worte benutzen: „Mir geht’s nicht gut.“ Wenn es dir unmöglich vorkommt, es auszusprechen, schreib es.',
           'Wenn du daran denkst, dir das Leben zu nehmen, ruf die TelefonSeelsorge an: kostenlos, anonym und rund um die Uhr unter 0800 111 0 111 oder 0800 111 0 222. In Österreich wählst du die 142, in der Schweiz die 143. Wenn du in akuter Gefahr bist, ruf die 112 an. Diese Gedanken können sich ändern, und es gibt Menschen, die dir durch diese Nacht helfen.',
           'Wenn du dich seit mehr als zwei Wochen niedergeschlagen oder leer fühlst, sprich mit deiner Hausärztin, deinem Hausarzt oder einer psychotherapeutischen Praxis. Das ist ein ganz normaler nächster Schritt, und Behandlung hilft.',
           'Wenn du dir heute mehr Unterstützung wünschst: [HopeBegins](/) ist kostenlos. Wähl aus, wie es dir geht, und du bekommst eine kleine Sache für heute, Übungen zum Ruhigwerden, jemanden, der für dich betet, und kostenlose Nummern, unter denen du mit jemandem reden kannst. Unter [Ich fühle mich depressiv](/i-feel-depressed) findest du mehr dazu, was du als Nächstes tun kannst.',
@@ -1020,7 +1020,7 @@ export const deStories2: Story[] = [
           'Miriam fragte, ob sie auch für Sarah beten dürfe. Jeden Montag schickte sie eine Nachricht: „Hab heute für dich gebetet. Wie geht’s dem Kleinen?“ Zu wissen, dass jemand anderes sie im Gebet mittrug, machte Sarah an den Tagen leichter, an denen sie selbst kaum beten konnte.',
           'Sarah schrieb Philipper 4,6-7 auf eine Karte und steckte sie in ihr Portemonnaie, hinter den Personalausweis. Sie las sie, während sie am Bahnsteig wartete. An manchen Tagen war das das einzige Gebet, das sie schaffte, und es reichte.',
           'Sie kümmerte sich auch um die Sorgen selbst. Mit ihrem Mann setzte sie sich hin und machte einen einfachen Haushaltsplan. Ihrer Vorgesetzten sagte sie, dass ihr Jüngster krank war, und sie fanden gemeinsam Arbeitszeiten, mit denen sie ihn zu den Untersuchungen bringen konnte. Als das Herzklopfen um drei Uhr nachts nach einem Monat nicht aufhörte, ging sie zu ihrer Hausärztin. Die untersuchte sie, sprach mit ihr über Angst und empfahl ihr eine Psychotherapeutin.',
-          'Ihre Probleme waren immer noch da. Jetzt hatte sie einen Ort, an den sie sie bringen konnte, jeden Morgen, auf dem Weg zur Arbeit.',
+          'Ihre Probleme waren immer noch da, aber jetzt hatte sie einen Ort, an den sie sie bringen konnte: jeden Morgen, auf dem Weg zur Arbeit.',
         ],
       },
       {
@@ -1083,7 +1083,7 @@ export const deStories2: Story[] = [
         heading: 'Die Monate, die sich wie eine Pause anfühlten',
         paragraphs: [
           'Lea ist Barista in einem kleinen Café in der Fußgängerzone von Garmisch-Partenkirchen. Früher war sie immer die Erste dort. Sie schloss auf, machte die Siebträgermaschine startklar und begrüßte die Stammgäste mit Namen.',
-          'Dann kam das Jahr, in dem alles auf einmal passierte. Ihre beste Freundin zog nach München. Das Café schloss für drei Monate wegen Umbau. Ihr Erspartes war aufgebraucht. Als das Café wieder aufmachte, ging sie zurück zur Arbeit und fühlte sich wie ein anderer Mensch.',
+          'Dann kam das Jahr, in dem alles auf einmal passierte. Ihre beste Freundin zog nach München, das Café schloss für drei Monate wegen Umbau, und ihr Erspartes war aufgebraucht. Als das Café wieder aufmachte, ging sie zurück zur Arbeit und fühlte sich wie ein anderer Mensch.',
           'Sie wachte um neun auf, zu spät. Kaffee war ihr Frühstück. Nach der Schicht ging sie direkt ins Bett und scrollte bis in die frühen Morgenstunden. Am Wochenende ging sie nicht mehr raus. „Bin nur müde“, sagte sie ihrer Mutter im Videoanruf. Sie wusste, dass es mehr war.',
           'An manchen Tagen war sie traurig. Öfter fühlte sie gar nichts. Kein Antrieb, keine Richtung, ihr Leben auf Pause, während sich die Welt draußen weiterdrehte.',
         ],
@@ -1108,7 +1108,7 @@ export const deStories2: Story[] = [
         paragraphs: [
           'Rosi, der das Café gehört, merkte es als Erste. Eines Nachmittags beim Aufräumen fragte sie: „Mädel, geht’s dir eigentlich gut? Du wirkst in letzter Zeit so weit weg.“ Lea weinte an der Spüle. Es war das erste Mal, dass sie zugab, dass es ihr nicht gut ging.',
           'Rosi nickte nur, dann fragte sie: „Eine kleine Sache morgen. Nur eine. Was ist es?“',
-          'Lea dachte nach. Früher hatte sie die Morgen in den Bergen geliebt, die Kälte und den Nebel. Also suchte sie sich genau das aus: um sieben aufstehen, Kaffee machen und ihn draußen auf der Bank vor dem Haus trinken, mit Blick auf die Berge. Ohne Handy. Nur zehn Minuten.',
+          'Lea dachte nach. Früher hatte sie die Morgen in den Bergen geliebt, die Kälte und den Nebel. Also suchte sie sich genau das aus: um sieben aufstehen, Kaffee machen und ihn draußen auf der Bank vor dem Haus trinken, mit Blick auf die Berge, ohne Handy, nur zehn Minuten lang.',
           'Am nächsten Tag machte sie es. Es war kalt, sie war noch verschlafen, und trotzdem saß sie draußen, ihre gelbe Tasse in der Hand, und sah zu, wie der Nebel langsam von den Fichten am Hang aufstieg. Es war einfach, und um sieben Uhr morgens hatte sie schon etwas geschafft.',
         ],
       },
@@ -1119,8 +1119,8 @@ export const deStories2: Story[] = [
           'Nach einer Woche Morgenkaffee nahm sie eine weitere Sache dazu: zu Fuß zur Arbeit statt mit dem Bus, fünfzehn Minuten durch den Kurpark. Zwei Wochen später noch eine: jeden Sonntagabend ihre beste Freundin anrufen.',
           'An manchen Tagen schaffte sie nichts davon. Sie lernte, diese Tage nicht mehr als Versagen zu zählen. Morgen wieder Kaffee.',
           'Sie ging auch wieder in die Gemeinde, in einen Hauskreis für junge Berufstätige. Am Anfang hörte sie nur zu. An einem Abend erzählte jemand von Jesaja 40,31, und Lea beschloss, dass es in Ordnung war, eine Weile zu gehen, bevor sie zu rennen versuchte.',
-          'Als sie merkte, dass ihr Herz trotz der kleinen Fortschritte wochenlang schwer blieb, ging sie zu ihrer Hausärztin. Die Ärztin vermittelte sie an eine Psychotherapeutin. Dort lernte sie, freundlicher mit sich selbst zu sein.',
-          'Heute, sechs Monate später, ist Lea wieder die Erste im Café. Sie hat immer noch schwere Tage. Jeden Morgen gibt es eine gelbe Tasse, einen Berg und eine kleine Sache, die schon erledigt ist, bevor der Tag beginnt.',
+          'Als sie merkte, dass ihr Herz trotz der kleinen Fortschritte wochenlang schwer blieb, ging sie zu ihrer Hausärztin. Die Ärztin vermittelte sie an eine Psychotherapeutin. Dort lernte sie, nicht mehr so hart mit sich ins Gericht zu gehen.',
+          'Heute, sechs Monate später, ist Lea wieder die Erste im Café. Sie hat immer noch schwere Tage, aber jeden Morgen gibt es eine gelbe Tasse, einen Berg und eine kleine Sache, die schon erledigt ist, bevor der Tag beginnt.',
         ],
         pullQuote:
           'Sie lernte, diese Tage nicht mehr als Versagen zu zählen. Morgen wieder Kaffee.',
@@ -1130,8 +1130,8 @@ export const deStories2: Story[] = [
         heading: 'Wenn auch du wieder auf die Beine kommen willst',
         paragraphs: [
           'Wenn du gerade feststeckst, ohne Antrieb und ohne Ahnung, wo du anfangen sollst, nimm dir diese Woche nur eine Sache vor.',
-          'Such dir eine kleine Sache für morgen früh aus. Kaffee draußen. Fünf Minuten spazieren gehen. Eine Nachricht an eine Freundin oder einen Freund. Mach sie und zähl sie als Erfolg. Wir bewegen uns zuerst, und die Motivation kommt hinterher.',
-          'An manchen Tagen wirst du nicht einmal eine Sache schaffen. Das ist in Ordnung. Versuch es morgen wieder. Ein schwerer Tag löscht deine Fortschritte nicht aus.',
+          'Such dir eine kleine Sache für morgen früh aus, zum Beispiel Kaffee draußen, fünf Minuten spazieren gehen oder eine Nachricht an eine Freundin oder einen Freund. Mach sie und zähl sie als Erfolg. Wir bewegen uns zuerst, und die Motivation kommt hinterher.',
+          'An manchen Tagen wirst du nicht einmal eine Sache schaffen. Dann versuch es morgen wieder. Ein schwerer Tag löscht deine Fortschritte nicht aus.',
           'Wenn du seit mehr als zwei Wochen keinen Antrieb hast oder dein Herz schwer ist, oder wenn es dir schwerfällt, durch den Tag zu kommen, sprich mit deiner Hausärztin, deinem Hausarzt oder einer Beratungsstelle. Das ist ein ganz normaler nächster Schritt, und er hilft.',
           'Wenn du heute Hilfe möchtest: [HopeBegins](/) ist kostenlos. Wähl aus, wie es dir geht, und du bekommst eine kleine Sache für heute, Übungen zum Ruhigwerden, jemanden, der für dich betet, und kostenlose Nummern, unter denen du mit jemandem reden kannst. Wenn du nicht weißt, wohin es für dich gehen soll, lies [Ich fühle mich verloren](/i-feel-lost).',
         ],

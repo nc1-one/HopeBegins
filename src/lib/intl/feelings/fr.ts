@@ -75,7 +75,7 @@ export const frFeelingPages: FeelingPage[] = [
       },
       {
         q: 'Que faire quand j’ai l’impression que personne ne se soucie de moi ?',
-        a: 'Envoie un court message à quelqu’un, même juste « On peut se parler cette semaine ? » Si personne ne te vient à l’esprit pour l’instant, une ligne d’écoute gratuite peut t’écouter. Si tu penses à mettre fin à ta vie, appelle le 3114, le numéro national de prévention du suicide : gratuit, 24h/24 et 7j/7.',
+        a: 'Envoie un court message à quelqu’un, même juste « On peut se parler cette semaine ? » Si personne ne te vient à l’esprit pour l’instant, appelle une ligne d’écoute gratuite : une vraie personne te répondra. Si tu penses à mettre fin à ta vie, appelle le 3114, le numéro national de prévention du suicide : gratuit, 24h/24 et 7j/7.',
       },
     ],
     related: ['free-mental-health-help-philippines'],
@@ -237,7 +237,7 @@ export const frFeelingPages: FeelingPage[] = [
       },
       {
         q: 'Que faire si je déprime et que la solitude me pèse ?',
-        a: 'Parles-en à une personne aujourd’hui, même par un court message. Si personne ne te vient à l’esprit, une ligne d’écoute gratuite peut t’écouter. Si tu penses à mettre fin à ta vie, appelle le 3114, le numéro national de prévention du suicide : gratuit, 24h/24 et 7j/7.',
+        a: 'Parles-en à une personne aujourd’hui, même par un court message. Si personne ne te vient à l’esprit, appelle une ligne d’écoute gratuite : une vraie personne te répondra. Si tu penses à mettre fin à ta vie, appelle le 3114, le numéro national de prévention du suicide : gratuit, 24h/24 et 7j/7.',
       },
     ],
     firstStep: 'ecoach',

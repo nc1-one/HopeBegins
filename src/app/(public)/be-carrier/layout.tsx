@@ -4,7 +4,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 const PATH = '/be-carrier';
 const TITLE = 'Become a Hope Carrier';
 const DESCRIPTION =
-  'Give your heart and time: volunteer to pray for the people who send prayer requests to HopeBegins.';
+  'Volunteer as a Hope Carrier and pray for the people who send prayer requests to HopeBegins.';
 
 export const metadata = pageMetadata(PATH, TITLE, DESCRIPTION, {
   keywords: [

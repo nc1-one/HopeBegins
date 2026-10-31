@@ -83,7 +83,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     fr: {
       title: 'Outils gratuits contre l’anxiété et les ruminations',
       description:
-        'Pour l’anxiété, les ruminations et les jours où tout pèse : respiration lente, ancrage 5-4-3-2-1, moment pour s’inquiéter, jeux, prière et Hope AI. Gratuit.',
+        'Pour l’anxiété, les ruminations et les jours où tout pèse : respiration lente, ancrage 5-4-3-2-1, quart d’heure des soucis, jeux, prière et Hope AI. Gratuit.',
       keywords: [
         'exercice de respiration anxiété',
         'ancrage 5-4-3-2-1',
@@ -120,9 +120,9 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
       crumb: 'Herramientas',
     },
     ko: {
-      title: '불안, 스트레스, 많은 생각을 다스리는 무료 도구',
+      title: '불안, 스트레스, 꼬리를 무는 생각을 다스리는 무료 도구',
       description:
-        '불안하고 생각이 멈추지 않는 날을 위한 무료 도구예요. 천천히 숨쉬기, 5-4-3-2-1 그라운딩, 걱정 시간, 게임, 그리고 기도와 Hope AI까지 있어요.',
+        '불안하고 생각이 멈추지 않는 날을 위한 무료 도구예요. 천천히 숨쉬기, 5-4-3-2-1 그라운딩, 걱정 시간, 게임에 기도와 Hope AI까지 있어요.',
       keywords: [
         '불안할 때 호흡법',
         '5-4-3-2-1 그라운딩',
@@ -161,17 +161,17 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
       crumb: 'Täglicher Check-in',
     },
     es: {
-      title: 'Check-in diario: ¿cómo estás hoy?',
+      title: 'Chequeo diario: ¿cómo estás hoy?',
       description:
-        'Un check-in de 20 segundos: elige cómo te sientes y recibe una cosa pequeña para probar. Tu jazmín crece cada día que vuelves. Gratis, y todo se queda en tu celular.',
+        'Un chequeo de 20 segundos: elige cómo te sientes y recibe una cosa pequeña para probar. Tu jazmín crece cada día que vuelves. Gratis, y todo se queda en tu celular.',
       keywords: [
         'registro del estado de ánimo',
         'diario de emociones',
         'cómo me siento hoy',
         'seguimiento del ánimo',
-        'check-in de salud mental',
+        'chequeo emocional',
       ],
-      crumb: 'Check-in diario',
+      crumb: 'Chequeo diario',
     },
     ko: {
       title: '오늘의 체크인: 오늘 기분은 어때요?',
@@ -299,7 +299,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     fr: {
       title: 'Lignes d’écoute gratuites : quelqu’un à qui parler',
       description:
-        'Des lignes de crise et d’écoute gratuites dans ton pays, souvent ouvertes jour et nuit, plus Hope AI et la prière. Choisis ton pays pour voir ses numéros.',
+        'Des lignes d’écoute gratuites dans ton pays, dont des numéros de prévention du suicide ouverts jour et nuit, plus Hope AI et la prière. Choisis ton pays pour voir ses numéros.',
       keywords: [
         'ligne d’écoute gratuite',
         'numéro national de prévention du suicide',
@@ -310,9 +310,9 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
       crumb: 'Lignes d’écoute',
     },
     de: {
-      title: 'Kostenlose Telefonhilfe: jetzt mit jemandem reden',
+      title: 'Kostenlose Hilfetelefone: jetzt mit jemandem reden',
       description:
-        'Kostenlose Krisen- und Sorgentelefone in deinem Land, die meisten rund um die Uhr, dazu Hope AI und Gebet. Wähl dein Land, um die Nummern zu sehen.',
+        'Kostenlose Krisen- und Hilfetelefone in deinem Land, die meisten rund um die Uhr, dazu Hope AI und Gebet. Wähl dein Land, um die Nummern zu sehen.',
       keywords: [
         'TelefonSeelsorge',
         'Krisentelefon',
@@ -320,7 +320,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
         'jemanden zum Reden',
         'kostenlose Beratung am Telefon',
       ],
-      crumb: 'Telefonhilfe',
+      crumb: 'Hilfetelefone',
     },
     es: {
       title: 'Líneas de ayuda gratis: alguien con quien hablar ahora',
@@ -390,9 +390,9 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
       crumb: 'Nuestro enfoque',
     },
     ko: {
-      title: '우리의 방식',
+      title: '저희가 돕는 방식',
       description:
-        '무언가 잘못됐다고 느낀 순간부터 몇 달 뒤까지 HopeBegins가 돕는 방법이에요. 우리가 있는 이유, 목표, 여섯 단계, 모든 무료 도구를 소개해요.',
+        '마음이 힘들다고 느낀 순간부터 몇 달 뒤까지 HopeBegins가 어떻게 돕는지 소개해요. 시작한 이유와 목표, 여섯 단계, 무료로 쓸 수 있는 모든 것을 담았어요.',
       keywords: [
         'HopeBegins',
         '기독교 마음 돌봄',
@@ -400,7 +400,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
         '신앙과 정신 건강',
         'HopeBegins 소개',
       ],
-      crumb: '우리의 방식',
+      crumb: '돕는 방식',
     },
   },
   '/privacy': {
@@ -444,9 +444,9 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
       crumb: 'Privacidad',
     },
     ko: {
-      title: '개인정보와 비밀 보장',
+      title: '개인정보 보호와 비밀 유지',
       description:
-        'HopeBegins가 무엇을 모으는지, 누가 볼 수 있는지, 어떻게 보호하는지, 당신의 권리는 무엇인지 알려 드려요. 계획과 답변은 내 휴대폰에만 남아요.',
+        'HopeBegins가 무엇을 모으는지, 누가 볼 수 있는지, 어떻게 보호하는지, 어떤 권리가 있는지 알려 드려요. 계획과 답변은 내 휴대폰에만 남아요.',
       keywords: [
         'HopeBegins 개인정보',
         '개인정보 처리방침',
@@ -498,7 +498,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
       crumb: 'Código de conducta',
     },
     ko: {
-      title: '봉사자 행동 지침',
+      title: '봉사자 행동 강령',
       description:
         'HopeBegins 봉사자가 사람들을 어떻게 돌보는지, 나눈 이야기의 비밀을 어떻게 지키는지, 위기 상황에 어떻게 대응하는지 담았어요.',
       keywords: [
@@ -508,7 +508,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
         '중보기도 봉사',
         '비밀 보장',
       ],
-      crumb: '봉사자 행동 지침',
+      crumb: '봉사자 행동 강령',
     },
   },
   '/hope-ai': {
@@ -526,9 +526,9 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
       crumb: 'Hope AI',
     },
     de: {
-      title: 'Schreib mit Hope AI, jederzeit',
+      title: 'Rede mit Hope AI, jederzeit',
       description:
-        'Schreib mit Hope AI, einem KI-Assistenten, wenn du etwas loswerden musst, Tag und Nacht. Lieber ein echter Mensch? Finde kostenlose Telefonhilfe in deinem Land.',
+        'Rede mit Hope AI, einem KI-Assistenten, wenn du etwas loswerden musst, Tag und Nacht. Lieber ein echter Mensch? Finde ein kostenloses Hilfetelefon in deinem Land.',
       keywords: [
         'Hope AI',
         'mit jemandem reden',
@@ -552,7 +552,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
       crumb: 'Hope AI',
     },
     ko: {
-      title: 'Hope AI와 언제든 대화하기',
+      title: 'Hope AI와 언제든 이야기하기',
       description:
         '마음을 털어놓고 싶을 때, 밤이든 낮이든 AI 도우미 Hope AI와 이야기해 보세요. 실제 사람과 이야기하고 싶다면 무료 상담 전화도 있어요.',
       keywords: [
@@ -606,9 +606,9 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
       crumb: 'Peticiones de oración',
     },
     ko: {
-      title: '누군가에게 기도를 부탁하세요',
+      title: '기도 부탁하기: 기도 제목을 보내 주세요',
       description:
-        '기도 제목을 보내면 HopeBegins의 Hope Carrier가 당신을 위해 기도해요. 나누고 싶은 만큼만 나눠 주세요.',
+        '기도 제목을 보내면 HopeBegins의 Hope Carrier가 기도해 드려요. 나누고 싶은 만큼만 적어 주세요.',
       keywords: [
         '기도 부탁',
         '기도 제목',
@@ -660,9 +660,9 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
       crumb: 'Cinco pasos',
     },
     ko: {
-      title: '희망이 보이지 않을 때, 다섯 걸음',
+      title: '희망이 보이지 않는 날을 위한 다섯 걸음',
       description:
-        '희망이 보이지 않나요? 환영 인사, 당신을 위한 말씀, 함께 드리는 기도, 묵상, 그리고 다음 걸음까지 다섯 걸음을 천천히 걸어 보세요.',
+        '희망이 보이지 않나요? 환영 인사, 들려주고 싶은 말씀, 따라 하는 기도, 묵상, 다음 걸음까지 다섯 걸음을 천천히 걸어 보세요.',
       keywords: [
         '희망이 없을 때',
         '절망할 때',
@@ -677,7 +677,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     fr: {
       title: 'Daily Hope : 21 jours d’encouragement par e-mail',
       description:
-        'Un court e-mail encourageant chaque jour pendant 21 jours, quand l’anxiété, la tristesse ou la fatigue pèsent. Gratuit. Les e-mails sont en anglais.',
+        'Un court e-mail encourageant chaque jour pendant 21 jours, quand l’anxiété, la tristesse ou la fatigue pèsent. Gratuit.',
       keywords: [
         'Daily Hope',
         'encouragement quotidien',
@@ -690,7 +690,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     de: {
       title: 'Daily Hope: 21 Tage Ermutigung per E-Mail',
       description:
-        '21 Tage lang jeden Tag eine kurze, ermutigende E-Mail, wenn Angst, Traurigkeit oder Müdigkeit dich runterziehen. Kostenlos. Die E-Mails sind auf Englisch.',
+        '21 Tage lang jeden Tag eine kurze, ermutigende E-Mail, wenn Angst, Traurigkeit oder Müdigkeit dich runterziehen. Kostenlos.',
       keywords: [
         'Daily Hope',
         'tägliche Ermutigung',
@@ -703,7 +703,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     es: {
       title: 'Daily Hope: 21 días de ánimo por correo',
       description:
-        'Un correo corto y alentador cada día durante 21 días, para cuando la ansiedad, la tristeza o el cansancio pesan. Gratis. Los correos están en inglés.',
+        'Un correo corto y alentador cada día durante 21 días, para cuando la ansiedad, la tristeza o el cansancio pesan. Gratis.',
       keywords: [
         'Daily Hope',
         'mensajes de ánimo diarios',
@@ -716,7 +716,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     ko: {
       title: 'Daily Hope: 21일 동안 받는 격려 메일',
       description:
-        '불안하거나 우울하거나 지칠 때, 21일 동안 매일 짧은 격려 메일을 받아 보세요. 무료예요. 메일은 영어로 보내 드려요.',
+        '불안하거나 우울하거나 지칠 때, 21일 동안 매일 짧은 격려 메일을 받아 보세요. 무료예요.',
       keywords: [
         'Daily Hope',
         '매일 격려 메시지',
@@ -770,7 +770,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     ko: {
       title: 'HopeCasts: 희망의 메시지 듣기',
       description:
-        '불안, 치유, 가족, 상실, 믿음에 관한 짧은 오디오 메시지 HopeCasts를 들어 보세요. 희망이 필요할 때 언제든요. 영어로 되어 있어요.',
+        '불안, 치유, 가족, 상실, 믿음에 관한 짧은 오디오 메시지 HopeCasts를 들어 보세요. 희망이 필요할 때 언제든요. 영어와 필리핀어로 되어 있어요.',
       keywords: [
         'HopeCasts',
         '희망의 메시지',
@@ -865,7 +865,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     es: {
       title: 'Un rato de juego: juegos cortos para una mente llena',
       description:
-        'Juegos cortos y gratis para cuando tus pensamientos no paran: encuentra los pares, vuela una cometa o cumple pequeñas misiones hasta llegar al mar. Sin registrarte.',
+        'Juegos cortos y gratis para cuando tus pensamientos no paran: encuentra las parejas, vuela una cometa o cumple pequeñas misiones hasta llegar al mar. Sin registrarte.',
       keywords: [
         'juegos para la ansiedad',
         'juegos antiestrés',
@@ -878,7 +878,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     ko: {
       title: '잠깐 놀이: 머리가 복잡할 때 하는 짧은 게임',
       description:
-        '생각이 멈추지 않을 때 하는 무료 짧은 게임이에요. 짝 맞추기, 연날리기, 바다까지 가는 여행길이 있어요. 가입 없이 바로 할 수 있어요.',
+        '생각이 멈추지 않을 때 하는 짧은 무료 게임이에요. 짝 맞추기, 연날리기, 바다까지 가는 여행길이 있어요. 가입 없이 바로 할 수 있어요.',
       keywords: [
         '스트레스 해소 게임',
         '불안할 때 하는 게임',

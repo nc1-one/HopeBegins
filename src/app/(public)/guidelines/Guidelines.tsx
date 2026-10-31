@@ -99,7 +99,7 @@ const copy: PerLangNoTl<GuidelinesCopy> = {
         text: 'We honor God in the way we serve others.',
         verse: verse('en'),
         after:
-          'Our encouragement, guidance, and interactions should reflect biblical wisdom, grace, and truth.',
+          'What we say and do should follow the wisdom of the Bible and show grace and truth.',
       },
       compassion: {
         heading: 'Compassion before correction',
@@ -117,9 +117,9 @@ const copy: PerLangNoTl<GuidelinesCopy> = {
           'Volunteers must represent HopeBegins truthfully and ethically. You should:',
         items: [
           'Speak honestly',
-          'Avoid exaggerating claims',
-          'Respect confidentiality',
-          'Maintain moral and ethical conduct',
+          'Never exaggerate or overpromise',
+          'Keep what people share private',
+          'Live with integrity, online and offline',
         ],
       },
       humility: {
@@ -129,7 +129,7 @@ const copy: PerLangNoTl<GuidelinesCopy> = {
     },
     conduct: {
       heading: '3. Volunteer conduct expectations',
-      intro: 'All volunteers agree to the following behavioral standards.',
+      intro: 'All volunteers agree to the following.',
       respect: {
         heading: 'Respect and dignity',
         intro: 'Treat everyone with respect regardless of:',
@@ -139,30 +139,30 @@ const copy: PerLangNoTl<GuidelinesCopy> = {
       confidentiality: {
         heading: 'Confidentiality',
         intro:
-          'Many participants may share personal struggles including anxiety, depression, or life challenges. Volunteers must:',
+          'People may tell you about personal struggles, like anxiety, depression or problems at home. Volunteers must:',
         items: [
           'Keep personal information confidential',
           'Never share private stories without permission',
-          'Avoid discussing participant situations outside approved ministry contexts',
+          "Talk about someone's situation only within HopeBegins, and only when it helps them",
         ],
-        outro: 'Confidentiality protects trust and emotional safety.',
+        outro: 'People can only open up if they trust us to keep it private.',
       },
       boundaries: {
         heading: 'Healthy boundaries',
         intro:
-          'Volunteers must maintain appropriate relational boundaries. This includes:',
+          'Volunteers must keep healthy boundaries with the people they help. This means:',
         items: [
-          'Avoiding dependency or emotional over-involvement',
+          'Not letting anyone depend on you too much, and not getting too emotionally involved',
           'Not presenting yourself as a therapist',
           'Not giving medical or psychological diagnoses',
-          'Directing individuals to professional help when necessary',
+          'Pointing people to professional help when they need it',
         ],
         outro:
           'HopeBegins volunteers encourage and guide, but do not replace professional care.',
       },
       communication: {
         heading: 'Safe communication',
-        text: 'All communication should be respectful, encouraging and free from manipulation or coercion.',
+        text: 'Everything you say or write should be respectful and encouraging, never manipulative or pushy.',
         avoid: 'Volunteers must avoid:',
         items: [
           'Harassment',
@@ -178,8 +178,8 @@ const copy: PerLangNoTl<GuidelinesCopy> = {
         'HopeBegins uses technology and AI tools to support coaching and encouragement. Volunteers must:',
       items: [
         'Use digital tools responsibly',
-        'Never misuse personal data',
-        'Avoid generating misleading or harmful AI content',
+        "Never misuse anyone's personal information",
+        'Never use AI to make misleading or harmful content',
         'Respect the privacy of all users',
       ],
       outro: 'Never use these tools to exploit anyone.',
@@ -187,29 +187,29 @@ const copy: PerLangNoTl<GuidelinesCopy> = {
     growth: {
       heading: '5. Commitment to spiritual growth',
       intro:
-        'HopeBegins volunteers are encouraged to maintain a healthy spiritual life. This includes:',
+        'We encourage every HopeBegins volunteer to keep growing in faith. This includes:',
       items: [
         'Personal prayer',
         'Reading Scripture',
-        'Being accountable in a Christian community',
+        'Belonging to a church where others can hold you accountable',
         'Continuing to grow in character and faith',
       ],
     },
     reliability: {
       heading: '6. Professionalism and reliability',
       intro:
-        'Volunteers must demonstrate commitment and responsibility. This includes:',
+        'Volunteers must be reliable, so the team and the people they serve can count on them. This means:',
       items: [
         'Showing up on time',
         'Following program guidelines',
-        'Completing assigned responsibilities',
+        'Doing the tasks you agreed to do',
         'Communicating clearly with team leaders',
       ],
     },
     social: {
       heading: '7. Social media guidelines',
       intro:
-        'Volunteers represent HopeBegins both online and offline. Please ensure that:',
+        'Volunteers represent HopeBegins online and offline. Please make sure that:',
       items: [
         'Social media posts reflect Christian values',
         'Personal opinions are not presented as official HopeBegins statements',
@@ -227,17 +227,17 @@ const copy: PerLangNoTl<GuidelinesCopy> = {
       then: 'Volunteers must:',
       actions: [
         'Stay calm and compassionate',
-        'Immediately escalate the concern to a HopeBegins leader',
-        'Encourage the person to seek professional help',
+        'Tell a HopeBegins leader right away',
+        'Encourage the person to get professional help',
       ],
       outro:
-        'Volunteers should never attempt to manage crisis situations alone.',
+        'Never try to handle a crisis on your own. Always bring in a HopeBegins leader.',
     },
     accountability: {
       heading: '9. Accountability',
       intro: 'Volunteers who violate this code of conduct may face:',
       items: [
-        'Warning or corrective coaching',
+        'A warning or extra coaching',
         'Temporary suspension from volunteering',
         'Removal from the HopeBegins volunteer team',
       ],
@@ -250,10 +250,10 @@ const copy: PerLangNoTl<GuidelinesCopy> = {
         'Uphold Christian values in my conduct',
         'Protect the confidentiality of participants',
         'Maintain healthy boundaries',
-        'Support the mission of restoring hope',
+        'Support the work of HopeBegins',
       ],
       outro:
-        'I understand that serving with HopeBegins is both a privilege and a responsibility.',
+        'I understand that serving with HopeBegins is a responsibility, and I take it seriously.',
     },
     questions: { before: 'Questions about this code? Email ', after: '.' },
   },
@@ -264,7 +264,7 @@ const copy: PerLangNoTl<GuidelinesCopy> = {
     mission: {
       heading: '1. Notre mission',
       text: [
-        'HopeBegins offre un soutien gratuit, porté par la foi, aux personnes qui traversent l’anxiété, la dépression ou le désespoir, à travers la prière, des outils pour s’aider soi-même et des lignes d’écoute pour parler à quelqu’un.',
+        'HopeBegins offre un soutien gratuit, porté par la foi, aux personnes qui traversent l’anxiété, la dépression ou le désespoir, par la prière, des outils pour s’aider soi-même et un accompagnement en ligne.',
         'En tant que bénévole, tu représentes HopeBegins. Sers avec compassion, humilité, intégrité et fidélité quand tu aides des personnes qui traversent peut-être l’anxiété, le découragement ou une perte de sens.',
       ],
     },
@@ -327,7 +327,7 @@ const copy: PerLangNoTl<GuidelinesCopy> = {
         items: [
           'Garder les informations personnelles confidentielles',
           'Ne jamais partager une histoire personnelle sans permission',
-          'Ne pas parler de la situation d’une personne en dehors des cadres prévus par le ministère',
+          'Ne pas parler de la situation d’une personne en dehors des cadres prévus par HopeBegins',
         ],
         outro:
           'La confidentialité protège la confiance et la sécurité émotionnelle.',
@@ -825,7 +825,7 @@ const copy: PerLangNoTl<GuidelinesCopy> = {
     mission: {
       heading: '1. 우리의 사명',
       text: [
-        'HopeBegins는 기도, 스스로 해 볼 수 있는 도구, 그리고 이야기를 들어 줄 상담 전화 안내를 통해, 불안과 우울, 절망감으로 힘든 사람들에게 신앙에 바탕을 둔 무료 지원을 해요.',
+        'HopeBegins는 불안과 우울, 절망감으로 힘든 사람들을 신앙에 바탕을 두고 무료로 도와요. 함께 기도하고, 스스로 해 볼 수 있는 도구를 드리고, 이야기를 들어 줄 상담 전화를 안내해요.',
         '봉사자는 HopeBegins를 대표해요. 불안이나 낙심, 삶의 목적을 잃은 느낌으로 힘들어할 수 있는 사람들을 도울 때, 긍휼과 겸손, 진실함과 신실함으로 섬겨 주세요.',
       ],
     },
@@ -848,7 +848,7 @@ const copy: PerLangNoTl<GuidelinesCopy> = {
           '공감하며 답하기',
           '판단하거나 정죄하지 않기',
         ],
-        outro: '누구에게도 압박을 주거나 수치심을 주지 마세요.',
+        outro: '누구에게도 강요하거나 부끄러움을 주지 마세요.',
       },
       integrity: {
         heading: '진실함과 정직',
@@ -931,7 +931,7 @@ const copy: PerLangNoTl<GuidelinesCopy> = {
         '개인 기도',
         '성경 읽기',
         '그리스도인 공동체 안에서 서로 책임지는 관계 맺기',
-        '성품과 믿음이 계속 자라기',
+        '성품과 믿음에서 계속 자라 가기',
       ],
     },
     reliability: {

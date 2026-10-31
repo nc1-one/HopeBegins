@@ -7,6 +7,7 @@ import {
   THEMES,
   type Story,
 } from '@/lib/blog';
+import type { Photo } from '@/lib/photos';
 
 /**
  * A story in a list: photo, theme, title and the line under it. The whole
@@ -16,11 +17,17 @@ export function StoryCard({
   story,
   featured = false,
   headingLevel: Heading = 'h3',
+  photo = story.photo,
 }: {
   story: Story;
   /** The large card at the top of the blog. */
   featured?: boolean;
   headingLevel?: 'h2' | 'h3';
+  /**
+   * The photo to show, when the page picked another so no photo shows
+   * twice (see distinctPhotos); null shows the theme on a plain cover.
+   */
+  photo?: Photo | null;
 }) {
   const ui = storyUi[story.lang];
   return (
@@ -38,18 +45,27 @@ export function StoryCard({
           featured ? 'aspect-[4/3] md:aspect-[5/4]' : 'aspect-[4/3]'
         }`}
       >
-        <Image
-          src={story.photo.src}
-          alt=""
-          fill
-          sizes={
-            featured
-              ? '(min-width: 1024px) 560px, (min-width: 768px) 55vw, 100vw'
-              : '(min-width: 1024px) 320px, (min-width: 640px) 45vw, 100vw'
-          }
-          className="object-cover"
-          {...(featured && { preload: true, fetchPriority: 'high' as const })}
-        />
+        {photo ? (
+          <Image
+            src={photo.src}
+            alt=""
+            fill
+            sizes={
+              featured
+                ? '(min-width: 1024px) 560px, (min-width: 768px) 55vw, 100vw'
+                : '(min-width: 1024px) 320px, (min-width: 640px) 45vw, 100vw'
+            }
+            className="object-cover"
+            {...(featured && { preload: true, fetchPriority: 'high' as const })}
+          />
+        ) : (
+          <span
+            aria-hidden
+            className="absolute inset-0 flex items-end p-5 font-playfair text-3xl leading-[0.95] tracking-[-0.04em] text-[#6E5F47]/70"
+          >
+            {THEMES[story.lang][story.theme]}
+          </span>
+        )}
       </div>
       <div className={featured ? 'mt-5 md:mt-0' : 'mt-4'}>
         <p className="flex flex-wrap items-center gap-x-2 font-poppins text-xs font-medium uppercase tracking-[0.08em] text-[#6E5F47]/80">

@@ -36,17 +36,17 @@ const copy: PerLang<{
     or: 'o',
     danger: (n) => `Kung nasa panganib ka ngayon, tumawag sa ${n}.`,
     call: (n) => `Tumawag sa ${n}`,
-    nowhere: 'Maghanap ng libreng crisis line kung nasaan ka:',
+    nowhere: 'Maghanap ng libreng crisis hotline kung nasaan ka:',
     nowhereDanger:
       'Kung nasa panganib ka ngayon, tumawag sa emergency number ng lugar mo.',
   },
   fr: {
-    lead: 'En crise ou tu penses à mettre fin à ta vie ?',
+    lead: 'Tu es en crise ou tu penses à mettre fin à ta vie ?',
     allDay: '24h/24',
     or: 'ou',
     danger: (n) => `En cas de danger immédiat, appelle le ${n}.`,
     call: (n) => `Appeler le ${n}`,
-    nowhere: 'Trouve une ligne d’aide gratuite là où tu es :',
+    nowhere: 'Trouve une ligne d’écoute gratuite là où tu es :',
     nowhereDanger:
       'En cas de danger immédiat, appelle le numéro d’urgence de ton pays.',
   },
@@ -56,7 +56,7 @@ const copy: PerLang<{
     or: 'oder',
     danger: (n) => `Bei akuter Gefahr ruf die ${n} an.`,
     call: (n) => `${n} anrufen`,
-    nowhere: 'Finde eine kostenlose Krisenhotline in deinem Land:',
+    nowhere: 'Finde ein kostenloses Krisentelefon in deinem Land:',
     nowhereDanger: 'Bei akuter Gefahr ruf den Notruf deines Landes an.',
   },
   es: {

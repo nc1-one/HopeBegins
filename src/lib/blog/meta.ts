@@ -65,7 +65,7 @@ export const THEMES: Record<FeelingLang, Record<StoryTheme, string>> = {
     lonely: '외로움',
     loss: '상실과 이별',
     low: '우울감',
-    faith: '믿음',
+    faith: '신앙',
     'new-start': '다시 시작하기',
   },
 };

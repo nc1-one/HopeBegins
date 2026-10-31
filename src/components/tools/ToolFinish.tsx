@@ -29,7 +29,7 @@ const copy = {
     calmer: (when: string) => `Good. Come back to it next time ${when}.`,
     same: 'That happens. Tools often work better after a few days of practice. Try it again later today.',
     worse:
-      'Thank you for telling us. Stop for now and do something gentle. If it feels like too much, talk to someone.',
+      'Thank you for telling us. Stop for now and rest for a few minutes. If it feels like too much, talk to someone.',
     keep: 'Add to my 4 weeks',
     kept: 'Added to your 4 weeks.',
     makePlan: 'Make a free plan with this tool',
@@ -37,14 +37,14 @@ const copy = {
     close: 'Close',
   },
   tl: {
-    question: 'Kumpara bago ka nagsimula, kumusta ang pakiramdam mo?',
+    question: 'Kumpara noong bago ka nagsimula, kumusta ang pakiramdam mo?',
     felt: { calmer: 'Mas kalmado', same: 'Ganoon pa rin', worse: 'Mas malala' },
     when: {
       breathe: 'sumikip ang dibdib mo o bumilis ang isip mo',
       ground: 'nagsisimula ang kaba o panic',
     },
     calmer: (when: string) => `Mabuti. Balikan ito sa susunod na ${when}.`,
-    same: 'Nangyayari iyan. Mas gumagana ang mga tool pagkatapos ng ilang araw na pagsasanay. Subukan ulit mamaya.',
+    same: 'Nangyayari iyan. Kadalasan, mas nakakatulong ang mga tool pagkatapos ng ilang araw na practice. Subukan ulit mamaya.',
     worse:
       'Salamat sa pagsabi. Itigil muna at gumawa ng isang bagay na magaan. Kung sobra na, kumausap ng isang tao.',
     keep: 'Idagdag sa 4 na linggo ko',
@@ -68,7 +68,7 @@ const copy = {
       `Bien. La prochaine fois, reviens-y quand ${when}.`,
     same: 'Ça arrive. Les outils marchent souvent mieux après quelques jours d’entraînement. Réessaie plus tard dans la journée.',
     worse:
-      'Merci de nous le dire. Arrête-toi pour l’instant et fais quelque chose de doux. Si c’est trop lourd, parle à quelqu’un.',
+      'Merci de nous le dire. Arrête-toi pour l’instant et fais quelque chose de calme. Si c’est trop lourd, parle à quelqu’un.',
     keep: 'Ajouter à mes 4 semaines',
     kept: 'Ajouté à tes 4 semaines.',
     makePlan: 'Faire un plan gratuit avec cet outil',
@@ -101,7 +101,7 @@ const copy = {
       ground: 'la preocupación o el pánico empiecen a crecer',
     },
     calmer: (when: string) => `Qué bien. Vuelve a esto cada vez que ${when}.`,
-    same: 'Eso pasa. Las herramientas suelen funcionar mejor después de unos días de práctica. Vuelve a intentarlo más tarde hoy.',
+    same: 'Eso pasa. Las herramientas suelen funcionar mejor después de unos días de práctica. Vuelve a intentarlo hoy más tarde.',
     worse:
       'Gracias por decírnoslo. Detente por ahora y haz algo tranquilo. Si sientes que es demasiado, habla con alguien.',
     keep: 'Agregar a mis 4 semanas',
@@ -121,8 +121,8 @@ const copy = {
     same: '그럴 수 있어요. 도구는 며칠 연습하고 나면 더 잘 듣는 경우가 많아요. 오늘 이따가 다시 해 보세요.',
     worse:
       '말해 줘서 고마워요. 지금은 멈추고 편안한 일을 해 보세요. 너무 버겁게 느껴지면 누군가와 이야기해 보세요.',
-    keep: '내 4주 계획에 추가하기',
-    kept: '4주 계획에 추가했어요.',
+    keep: '4주 계획에 넣기',
+    kept: '4주 계획에 넣었어요.',
     makePlan: '이 도구로 무료 계획 만들기',
     ecoach: '누군가와 이야기하기',
     close: '닫기',

@@ -25,12 +25,12 @@ export const stories5: Story[] = [
         heading: 'The year the water came up',
         paragraphs: [
           "For twenty years, Lito's mornings started the same way. Up at four, a cup of barako, then out to the fishpond in Malolos that he built with his father. Bangus, mostly. Enough to send two kids to school and fix the roof when it leaked.",
-          'Then the typhoon came in August. The river rose overnight and kept rising. By morning the dikes of his fishpond were under water and the fish were gone, washed out into the bay with everything else. He stood at the edge in his tsinelas, looking at brown water where his work used to be.',
-          '"Babangon tayo," he told his wife, Weng. He meant it. He borrowed money to repair the dikes and restock. Two months later he started coughing and couldn\'t stop. The doctor at the provincial hospital said pneumonia, then said rest. Six weeks of rest, for a man who had never taken six days off.',
+          'Then the typhoon came in August. The river rose overnight and kept rising. By morning the dikes of his fishpond were under water and the fish were gone, washed out into the bay with everything else. He stood at the edge in his flip-flops, looking at brown water where his work used to be.',
+          '"Babangon tayo," he told his wife, Weng. We will get back up. He meant it. He borrowed money to repair the dikes and restock. Two months later he started coughing and couldn\'t stop. The doctor at the provincial hospital said pneumonia, then said rest. Six weeks of rest, for a man who had never taken six days off.',
           'By December the borrowed money was gone, the pond was half repaired, and Lito spent his afternoons on a plastic chair by the door, watching his neighbors go out on their boats.',
         ],
         pullQuote:
-          'He stood at the edge in his tsinelas, looking at brown water where his work used to be.',
+          'He stood at the edge in his flip-flops, looking at brown water where his work used to be.',
       },
       {
         kind: 'struggle',
@@ -38,7 +38,7 @@ export const stories5: Story[] = [
         paragraphs: [
           "Losing the pond was hard. What came after was harder. Lito had always known who he was: the one who worked, the one who provided, the one people called when their own dikes needed fixing. Sitting by the door, he didn't know who that was anymore.",
           'He stopped answering texts from his barkada. He snapped at his son over a broken plate. At night he lay awake doing the math again: the debt, the school fees, the cost of fingerlings, the months until a harvest. Every way he added it, the numbers said he had lost twenty years in one night.',
-          'Weng saw it. "Kumain ka naman," she would say, sliding a plate toward him. He would eat a little and go back to the chair. When she asked what he was thinking, he said, "Wala." The truth was that he felt like a failure, and he didn\'t know how to say that out loud.',
+          'Weng saw it. "Kumain ka naman," she would say, sliding a plate toward him. He would eat a little and go back to the chair. When she asked what he was thinking, he said, "Wala." Nothing. The truth was that he felt like a failure, and he didn\'t know how to say that out loud.',
           "To Lito, starting over meant getting everything back at once: the pond, the money, his strength, his place. Since he couldn't do all of that, he did none of it.",
         ],
         pullQuote: "Since he couldn't do all of that, he did none of it.",
@@ -47,8 +47,8 @@ export const stories5: Story[] = [
         kind: 'helped',
         heading: 'What helped Lito start over, one small step at a time',
         paragraphs: [
-          'The turn came from his old friend Mang Celso, who stopped by one morning with pandesal and sat on the next chair without asking. They talked about the weather and the price of gas. Then Celso said, "Ikaw ba, kumusta ka talaga?" and waited.',
-          'Lito surprised himself. He told him about the math at night, the shame, the feeling that he had let his family down. Celso nodded. "Ganyan din ako noong nasunog yung bangka ko. Isang taon bago ako nakabalik." It was the first time Lito felt that what he was going through had a shape, and an end.',
+          'The turn came from his old friend Mang Celso, who stopped by one morning with pandesal and sat on the next chair without asking. They talked about the weather and the price of gas. Then Celso asked how he really was, "Ikaw ba, kumusta ka talaga?", and waited.',
+          'Lito surprised himself. He told him about the math at night, the shame, the feeling that he had let his family down. Celso nodded. He had felt the same when his boat burned, he said, and it took him a year to get back on his feet. "Ganyan din ako noong nasunog yung bangka ko. Isang taon bago ako nakabalik." It was the first time Lito felt that what he was going through had a shape, and an end.',
           "Celso asked him to help on his boat a few mornings a week, mending nets and steering. It didn't pay much. It got Lito out of the chair at four in the morning and out on the water at sunrise. For the first time in months, he came home with the good kind of tired.",
           'His mother used to say Lamentations 3:22-23 over breakfast when he was a boy. Out on the water at dawn, he finally understood why she liked it so much.',
           'One Sunday night, he and Weng wrote everything on one sheet of paper: what they owed, what came in, what could wait. Written down, it was smaller than the version in his head. They went to the cooperative together, asked for more time on the loan and got it.',
@@ -60,7 +60,7 @@ export const stories5: Story[] = [
         paragraphs: [
           "Lito didn't make a big plan. He made a small list, the kind a man who works with his hands understands. Fix ten meters of dike this week. Go out with Celso three mornings. Eat breakfast with the kids. Pray before sleeping, even if it's one sentence.",
           'Some weeks he did all of it. Some weeks he did one thing. Weng taught him to count the one thing as a win.',
-          'He went back to church, too. The pastor put a hand on Lito\'s shoulder after the service and said, "Ipagdadasal ka namin." The next Saturday, a few men from the church came to help rebuild part of the dike.',
+          'He went back to church, too. The pastor put a hand on Lito\'s shoulder after the service and said they would pray for him. "Ipagdadasal ka namin." The next Saturday, a few men from the church came to help rebuild part of the dike.',
           "When the sleepless nights didn't let up, Weng pushed him to go back to the health center, this time about the worry and the low mood. The doctor listened, asked about his sleep and his drinking, and referred him to a counselor who came to town twice a month. Lito went to keep Weng happy. He kept going because it helped.",
           "By the next dry season, part of the pond was stocked again. It was smaller than before. Lito says it's the best thing he ever built, because he built it twice.",
         ],
@@ -149,11 +149,11 @@ export const stories5: Story[] = [
         heading: 'The question at the table',
         paragraphs: [
           "Every Friday night, Ben's friend Rudy came by the shop after closing. They would sit at the folding table out front with a plate of sisig and talk about basketball. This Friday, Rudy didn't bring up basketball.",
-          '"Pare, okay ka lang ba talaga? Iba ka na these days." Ben said he was fine. Rudy didn\'t let it go. "Kasi ako, hindi ako okay last year. Nagpatingin ako. Akala ko mahina ako pag ginawa ko yun, pero nakatulong."',
+          'Rudy asked if he was really okay, because he had not seemed himself lately. "Pare, okay ka lang ba talaga? Iba ka na these days." Ben said he was fine. Rudy didn\'t let it go. "Kasi ako, hindi ako okay last year. Nagpatingin ako. Akala ko mahina ako pag ginawa ko yun, pero nakatulong." He had not been okay last year either, he said. He had seen a doctor, thinking it would make him look weak, and it had helped.',
           'Ben had known Rudy for twenty years and had never heard him say anything like that. Something in his chest loosened. He started talking, slowly at first. About his son leaving. About Tess. About the shop. About lying awake feeling like he was failing at the one job he had.',
-          'Rudy just listened. When Ben ran out of words, Rudy said, "Buti sinabi mo, pare. Tutulungan kita."',
+          'Rudy just listened. When Ben ran out of words, Rudy said he was glad Ben had told him, and that he would help. "Buti sinabi mo, pare. Tutulungan kita."',
         ],
-        pullQuote: '"Pare, okay ka lang ba talaga? Iba ka na these days."',
+        pullQuote: 'Something in his chest loosened.',
       },
       {
         kind: 'helped',
@@ -161,9 +161,9 @@ export const stories5: Story[] = [
         paragraphs: [
           "The next week, Rudy drove him to the health center. Ben grumbled the whole way. The doctor asked about his sleep, his drinking and his mood, and didn't make him feel weak for any of it. She said what he described sounded like more than tiredness, referred him to a counselor and asked him to cut back on the beer, since it was making his sleep worse.",
           'Ben went to the counselor three times before he said much. By the fourth visit, he was talking about his father.',
-          'At home he did something harder. He sat down with Tess and said, "Pasensya na. Hindi ako okay nitong mga nakaraang buwan." She cried. He did too, for the first time in years. Then she said, "Salamat at sinabi mo," and the house felt lighter.',
+          'At home he did something harder. He sat down with Tess, said he was sorry and told her he had not been okay for months. "Pasensya na. Hindi ako okay nitong mga nakaraang buwan." She cried. He did too, for the first time in years. Then she thanked him for telling her, "Salamat at sinabi mo," and the house felt lighter.',
           'He started praying again, short and honest, in the morning before opening the shop. Psalm 46:1 is taped to the toolbox now, next to the calendar.',
-          'On Fridays the sisig still comes out. Every so often, Ben is the one who asks. "Pare, kumusta ka talaga?"',
+          'On Fridays the sisig still comes out. Every so often, Ben is the one who asks how a friend really is. "Pare, kumusta ka talaga?"',
         ],
       },
       {
@@ -171,7 +171,7 @@ export const stories5: Story[] = [
         heading: 'If you are the strong one in your family',
         paragraphs: [
           'If you are a man reading this, maybe you recognize some of Ben: the short temper, the extra drinks, the nights awake, the feeling that nobody can see you struggle. Talking about it is one of the strongest things you can do for your family.',
-          'Start with one person. A friend, your wife, a brother, a pastor. You can say it the way Ben did: "Hindi ako okay nitong mga nakaraang buwan." That one sentence opens a door.',
+          'Start with one person. A friend, your wife, a brother, a pastor. You can say what Ben said: "I haven\'t been okay these past few months." That one sentence opens a door.',
           'If you have been low, irritable or unable to sleep for more than two weeks, or you are drinking more to cope, talk to a doctor or counselor. That is a normal next step, the same as bringing a truck in when it starts making a noise.',
           'If you are worried about a man in your life, be his Rudy. Sit down, ask twice and listen.',
           "If you would like to start somewhere private, [HopeBegins](/) is free. Pick how you feel and you get one small thing to try today, calming tools, someone to pray for you, and an e-coach you can message on Messenger. If Ben's story sounds like yours, [I feel depressed](/i-feel-depressed) is a good place to start.",
@@ -182,7 +182,7 @@ export const stories5: Story[] = [
       title: 'This week: ask, or answer, honestly',
       steps: [
         'Think of one man in your life who has seemed quieter or angrier lately.',
-        'Sit with him over food or coffee and ask, "Kumusta ka talaga?" Then ask a second time.',
+        'Sit with him over food or coffee and ask, "How are you, really?" Then ask a second time.',
         'If you are the one struggling, say one honest sentence to someone you trust.',
         'Notice your drinking this week. If it has crept up, cut back and tell someone.',
       ],
@@ -228,7 +228,7 @@ export const stories5: Story[] = [
         kind: 'story',
         heading: 'The night the river came in',
         paragraphs: [
-          'Nena has run a sari-sari store from the front of her house in Marikina for fifteen years. She knows the river. Everyone on her street does. When the siren sounds and the water level climbs, you move things upstairs.',
+          'Nena has run a sari-sari store, a small neighborhood shop, from the front of her house in Marikina for fifteen years. She knows the river. Everyone on her street does. When the siren sounds and the water level climbs, you move things upstairs.',
           "That night it climbed faster than anyone expected. By two in the morning the water was at her knees inside the house. By four it was at the second step of the stairs. She sat on the top step with her two kids, Jopet and Aira, and a flashlight, listening to the store's shelves knock against each other below.",
           'They were safe. The water went down in two days. With help from neighbors and their church, they shoveled the mud out, threw away what was ruined and reopened the store a month later.',
           "Everyone said she was lucky, and she believed it. So she didn't understand why, months later, the sound of rain on the roof could make her hands shake.",
@@ -242,17 +242,17 @@ export const stories5: Story[] = [
           "Whenever dark clouds rolled in, Nena's chest tightened. During heavy rain she couldn't sit still. She checked the river level on her phone every ten minutes, all night. She kept bags packed by the door, even in the dry season.",
           'Her body was still on alert from that night. That can happen after something frightening, especially something that could happen again. The fear reacts to the sound of rain the way it reacted to the water on the stairs.',
           "The kids felt it too. Aira, who was nine, started sleeping in Nena's bed whenever it rained. Jopet, thirteen, got angry and wouldn't talk about it. Nena felt guilty. She was supposed to be the calm one.",
-          'She also felt she had no right to be shaken. Some families on her street had lost much more. "Buti nga kami, buhay," she kept saying, and she pushed the fear down. It came back with every storm warning.',
+          'She also felt she had no right to be shaken. Some families on her street had lost much more. At least they were alive, she kept saying. "Buti nga kami, buhay." She pushed the fear down. It came back with every storm warning.',
         ],
       },
       {
         kind: 'helped',
         heading: 'What helped Nena with her fear of rain after the flood',
         paragraphs: [
-          'The first thing that helped was a plan. Her kumare, Ate Lorna, sat down with her and wrote out exactly what they would do if the water rose again: when to move things up, where to go, who to call, what goes in the go-bag. They stuck the list on the refrigerator. When it rained, Nena could look at it and know she was ready.',
+          'The first thing that helped was a plan. Her close friend, Ate Lorna, sat down with her and wrote out exactly what they would do if the water rose again: when to move things up, where to go, who to call, what goes in the go-bag. They stuck the list on the refrigerator. When it rained, Nena could look at it and know she was ready.',
           'The second was a limit on checking. During a storm she checked the river level once an hour and left the phone in the kitchen in between. The first night was hard. By the third storm it was easier.',
           'The third was breathing with the kids. When the rain got loud, the three of them sat together and breathed in for 4 and out for 6, counting out loud. Aira liked to count. Jopet rolled his eyes, then did it anyway.',
-          'She let the kids talk about that night. At dinner she asked, "Ano yung pinaka-naaalala ninyo?" Aira remembered the flashlight. Jopet remembered being afraid his mother would get hurt. Nena told them she had been scared too, and that they had gotten through it together. Saying it out loud made it smaller for all three of them.',
+          'She let the kids talk about that night. At dinner she asked what they remembered most. "Ano yung pinaka-naaalala ninyo?" Aira remembered the flashlight. Jopet remembered being afraid his mother would get hurt. Nena told them she had been scared too, and that they had gotten through it together. Saying it out loud made it smaller for all three of them.',
           'Their pastor came by and prayed with them before the next typhoon season. Isaiah 41:10 went up on the wall by the stairs, at the exact step where the water stopped.',
           'When the fear was still strong after a few months, Nena talked to the doctor at the health center. The doctor said what she felt was common after a disaster and connected her with a counselor, who helped her and Jopet both.',
         ],
@@ -339,8 +339,8 @@ export const stories5: Story[] = [
         kind: 'helped',
         heading: 'The night he told his brother',
         paragraphs: [
-          'One Saturday night his older brother, Paul, texted: "Lunch bukas? Miss ka na ni Mama." Nico started typing an excuse. Then, for reasons he still can\'t fully explain, he typed the truth. "Kuya, hindi ako okay. Minsan ayoko nang gumising."',
-          'Paul called within a minute. He didn\'t lecture. He asked, calmly, "Iniisip mo bang tapusin ang buhay mo?" Nico said that sometimes he did. Paul said, "Salamat at sinabi mo. Pupunta ako diyan."',
+          'One Saturday night his older brother, Paul, texted to ask him to lunch, because their mother missed him: "Lunch bukas? Miss ka na ni Mama." Nico started typing an excuse. Then, for reasons he still can\'t fully explain, he typed the truth. "Kuya, hindi ako okay. Minsan ayoko nang gumising." He was not okay. Sometimes he did not want to wake up anymore.',
+          'Paul called within a minute. He didn\'t lecture. He asked, calmly, whether Nico was thinking of ending his life. "Iniisip mo bang tapusin ang buhay mo?" Nico said that sometimes he did. Paul thanked him for saying it and told him he was coming over. "Salamat at sinabi mo. Pupunta ako diyan."',
           "Paul stayed on the phone the whole drive over. When he arrived, they sat together on Nico's bed and called the NCMH Crisis Hotline on 1553. A calm voice listened, asked questions and helped them think through what to do next, starting with that night and the next morning.",
           'Paul slept over. In the morning he made coffee, and they talked about finding a doctor.',
         ],
@@ -365,8 +365,8 @@ export const stories5: Story[] = [
         heading: 'If you feel like giving up right now',
         paragraphs: [
           'If you are reading this because you feel the way Nico did, thank you for still being here. The pain you feel is real, and so is the help.',
-          'Tell one person tonight. A sibling, a friend, a parent, a pastor. You can use Nico\'s words: "Hindi ako okay." If saying it feels impossible, type it.',
-          'If you are thinking of ending your life, call the NCMH Crisis Hotline, 24/7: 1553 or 0917 899 8727. If you are in immediate danger, call 911.',
+          'Tell one person tonight. A sibling, a friend, a parent, a pastor. You can say what Nico said: "I\'m not okay." If saying it feels impossible, type it.',
+          'If you are thinking of ending your life, call the crisis line in your country now: in the Philippines, the NCMH Crisis Hotline, 24/7, on 1553 or 0917 899 8727. If you are in immediate danger, call your emergency number (911 in the Philippines).',
           'If you have felt low or empty for more than two weeks, talk to a doctor or counselor. That is a normal next step, and treatment helps.',
           'If you would like more support today, [HopeBegins](/) is free. Pick how you feel and you get one small thing to try today, calming tools, someone to pray for you, and an e-coach you can message on Messenger. [I feel depressed](/i-feel-depressed) has more on what to do next.',
         ],
@@ -376,8 +376,8 @@ export const stories5: Story[] = [
       title: 'Tonight: tell one person',
       steps: [
         'Pick one person you trust: a sibling, a friend, a parent or a pastor.',
-        'Send one honest line: "Hindi ako okay. Can we talk?"',
-        "If you can't reach anyone, call the NCMH Crisis Hotline on 1553. It is open 24/7.",
+        'Send one honest line: "I\'m not okay. Can we talk?"',
+        "If you can't reach anyone, call the crisis line in your country. In the Philippines, the NCMH Crisis Hotline on 1553 is open 24/7.",
         'Tomorrow, ask that person to help you book a doctor or counselor.',
       ],
     },
@@ -386,11 +386,11 @@ export const stories5: Story[] = [
     faq: [
       {
         q: 'What should I do when I feel like giving up?',
-        a: 'Tell one person you trust how you really feel, today. If you are thinking of ending your life, call the NCMH Crisis Hotline on 1553 or 0917 899 8727, open 24/7, or 911 if you are in immediate danger. Then see a doctor or counselor.',
+        a: 'Tell one person you trust how you really feel, today. If you are thinking of ending your life, call the crisis line in your country now (in the Philippines, the NCMH Crisis Hotline on 1553, open 24/7), or your emergency number if you are in immediate danger. Then see a doctor or counselor.',
       },
       {
         q: "How do I tell my family I'm not okay?",
-        a: 'Keep it short and true, like "Hindi ako okay. Can we talk?" A text is fine if saying it out loud is hard. Most families would much rather know.',
+        a: 'Keep it short and true, like "I\'m not okay. Can we talk?" A text is fine if saying it out loud is hard. Most families would much rather know.',
       },
     ],
     keywords: [
@@ -422,10 +422,10 @@ export const stories5: Story[] = [
         kind: 'story',
         heading: 'Too tired to pray',
         paragraphs: [
-          'Hannah works as a bank teller in Imus, Cavite. Her mornings are a race: two kids to wake, baon to pack, a uniform to iron, then the jeepney to work by eight. She grew up in church and used to pray every night, kneeling by the bed the way her mother taught her.',
+          'Hannah works as a bank teller in Imus, Cavite. Her mornings are a race: two kids to wake, lunches to pack, a uniform to iron, then the jeepney to work by eight. She grew up in church and used to pray every night, kneeling by the bed the way her mother taught her.',
           "Last year her husband's contract abroad ended early and money got tight. Her youngest was sick on and off for months. Hannah started waking at three in the morning with her heart pounding, running numbers in her head.",
           'She tried to pray the way she always had. She would close her eyes, and the worries crowded in before she finished the first sentence. She would start over, lose her place and fall asleep feeling guilty. After a few weeks she stopped trying.',
-          '"Parang ang layo ko na kay Lord," she told her friend Joan at work. "Hindi na ako makapag-pray nang maayos."',
+          '"Parang ang layo ko na kay Lord," she told her friend Joan at work. "Hindi na ako makapag-pray nang maayos." She felt far from God, and she could not pray properly anymore.',
         ],
         pullQuote:
           'She would close her eyes, and the worries crowded in before she finished the first sentence.',
@@ -444,9 +444,9 @@ export const stories5: Story[] = [
         kind: 'helped',
         heading: 'How Hannah learned to pray when anxious',
         paragraphs: [
-          "Joan didn't argue with her. She said, \"Ako, minsan isang sentence lang. 'Lord, tulong.' Pwede na yun.\"",
+          "Joan didn't argue with her. She said, \"Ako, minsan isang sentence lang. 'Lord, tulong.' Pwede na yun.\" Some days, she said, her whole prayer was one sentence, 'Lord, help,' and that was enough.",
           'The next morning, on the jeepney, Hannah tried it. Squeezed between a student and a man with a sack of rice, she looked out the window and said in her head, "Lord, I\'m scared about money. Help me today." That was the whole prayer. It took five seconds.',
-          'She did it again on the ride home. "Lord, salamat kasi okay ang araw." And again at three in the morning: "Lord, hawakan mo ako."',
+          'She did it again on the ride home to thank God for an okay day: "Lord, salamat kasi okay ang araw." And again at three in the morning, asking Him to hold her: "Lord, hawakan mo ako."',
           'Over the next weeks, the jeepney became her prayer room. She started praying for what she saw: the kids in school uniforms, the driver, the woman crying quietly in the back seat. Her prayers were short and honest, and for the first time in months they felt like hers.',
         ],
         pullQuote: 'Over the next weeks, the jeepney became her prayer room.',
@@ -466,7 +466,7 @@ export const stories5: Story[] = [
         heading: "If you can't find the words to pray",
         paragraphs: [
           "If you used to pray easily and now you can't, nothing is wrong with your faith. Anxiety makes stillness hard. God hears short prayers, tired prayers and prayers that are only a sigh.",
-          'Try one sentence today. Say it on the jeepney, in the CR, while the rice cooks. "Lord, help." "Lord, salamat." "Lord, I\'m scared." Each of those is a real prayer.',
+          'Try one sentence today. Say it on the bus, in the bathroom, while the rice cooks. "Lord, help." "Lord, thank you." "Lord, I\'m scared." Each of those is a real prayer.',
           'Let someone pray for you too. On [Prayers](/prayers) you can send a prayer request, and someone will pray for you.',
           'If anxiety keeps waking you at night for more than two weeks, or gets in the way of your day, talk to a doctor or counselor. Faith and good care go together.',
           'If you would like more support, [HopeBegins](/) is free. Pick how you feel and you get one small thing to try today, calming tools, someone to pray for you, and an e-coach you can message on Messenger. For verses to carry with you, see [Bible verses for anxiety](/bible-verses-for-anxiety).',
@@ -523,8 +523,8 @@ export const stories5: Story[] = [
         kind: 'story',
         heading: 'Ang mga buwan na parang naka-pause',
         paragraphs: [
-          'Barista si Lia sa isang maliit na coffee shop sa Session Road, Baguio. Dati, siya yung pinaka-maagang dumarating. Bubuksan niya ang shop, ise-set up ang espresso machine, at babatiin ang mga suki sa pangalan nila.',
-          'Tapos dumating yung taon na sunod-sunod. Lumipat sa Manila ang best friend niya. Nagsara ang shop nang tatlong buwan para sa renovation. Naubos ang ipon niya. Nung nagbukas ulit ang shop, bumalik siya sa trabaho, pero parang iba na siya.',
+          'Barista si Lia sa isang maliit na coffee shop sa Session Road, Baguio. Dati, siya yung pinakamaagang dumarating. Bubuksan niya ang shop, ise-set up ang espresso machine, at babatiin ang mga suki sa pangalan nila.',
+          'Tapos dumating yung taon na sunod-sunod ang problema. Lumipat sa Manila ang best friend niya. Nagsara ang shop nang tatlong buwan para sa renovation. Naubos ang ipon niya. Nung nagbukas ulit ang shop, bumalik siya sa trabaho, pero parang iba na siya.',
           'Gising siya ng alas-nuwebe, late na. Kape na lang ang almusal. Pagkatapos ng shift, diretso sa kama, scroll hanggang madaling-araw. Pag weekend, hindi na siya lumalabas. "Pagod lang ako," sabi niya sa mama niya sa video call. Alam niyang higit pa doon.',
           'May mga araw na malungkot siya. Pero mas madalas, wala lang. Walang gana, walang direksyon, parang naka-pause ang buhay habang tuloy-tuloy ang mundo sa labas.',
         ],
@@ -549,7 +549,7 @@ export const stories5: Story[] = [
           'Si Tita Baby, ang may-ari ng shop, ang unang nakapansin. Isang hapon, habang naglilinis sila, tinanong niya si Lia, "Anak, okay ka lang ba talaga? Parang ang layo mo lately." Umiyak si Lia sa may lababo. First time niyang inamin na hindi siya okay.',
           'Tumango lang si Tita Baby, saka nagtanong: "Isang maliit na bagay bukas. Isa lang. Ano yun?"',
           'Pinag-isipan ni Lia. Gustong-gusto niya dati ang umaga sa Baguio, yung lamig at hamog. Kaya ito ang pinili niya: gigising nang alas-siyete, magtitimpla ng kape, at iinumin ito sa labas ng boarding house habang nakatingin sa bundok. Walang phone. Sampung minuto lang.',
-          'Kinabukasan, ginawa niya. Malamig, inaantok pa siya, pero nandun siya sa labas, hawak ang dilaw na mug, pinapanood ang hamog na unti-unting nawawala sa mga pine tree. Simple lang, pero may nagawa na siya, at alas-siyete pa lang.',
+          'Kinabukasan, ginawa niya. Malamig, inaantok pa siya, pero nandun siya sa labas, hawak ang dilaw na mug, pinapanood ang hamog na unti-unting nawawala sa mga pine tree. Maliit na bagay lang, pero may nagawa na siya, at alas-siyete pa lang.',
         ],
       },
       {
@@ -558,8 +558,8 @@ export const stories5: Story[] = [
         paragraphs: [
           'Pagkatapos ng isang linggo ng kape sa umaga, nagdagdag siya ng isa pa: maglakad papunta sa trabaho imbes na mag-jeep, labinlimang minuto dumadaan sa Burnham Park. Pagkalipas ng dalawang linggo, isa pa: tawagan ang best friend niya tuwing Linggo ng gabi.',
           'May mga araw na wala siyang nagawa kahit isa. Natuto siyang huwag bilangin yun bilang failure. Bukas, kape ulit.',
-          'Bumalik din siya sa church, sa isang small group ng mga young professional. Sa simula, nakikinig lang siya. Isang gabi, may nag-share tungkol sa Isaiah 40:31, at naisip ni Lia na okay lang maglakad muna bago tumakbo.',
-          'Nung napansin niyang ilang linggo pa ring mabigat ang loob niya kahit may maliliit na progress, nagpa-check up siya sa health center. Ni-refer siya ng doktor sa isang counselor. Doon niya natutunang maging mas mabait sa sarili.',
+          'Bumalik din siya sa church, sa isang small group ng mga young professional. Sa simula, nakikinig lang siya. Isang gabi, may nag-share tungkol sa Isaias 40:31, at naisip ni Lia na okay lang maglakad muna bago tumakbo.',
+          'Nung napansin niyang ilang linggo pa ring mabigat ang loob niya kahit may maliliit na progress, nagpa-check up siya sa health center. Ni-refer siya ng doktor sa isang counselor. Doon niya natutunang tigilan ang paninisi sa sarili.',
           'Ngayon, makalipas ang anim na buwan, si Lia ulit ang unang dumarating sa shop. Hindi pa perfect ang lahat. Pero tuwing umaga, may dilaw na mug, may bundok, at may isang maliit na bagay na nagawa na niya bago pa magsimula ang araw.',
         ],
         pullQuote:
@@ -571,9 +571,9 @@ export const stories5: Story[] = [
         paragraphs: [
           'Kung stuck ka ngayon, walang gana, at hindi mo alam kung saan magsisimula, isang bagay lang muna ang pakay mo ngayong linggo.',
           'Pumili ng isang maliit na bagay para bukas ng umaga. Kape sa labas. Limang minutong lakad. Isang text sa kaibigan. Gawin mo yun, at bilangin mo bilang panalo. Kumikilos muna tayo, saka sumusunod ang gana.',
-          'May mga araw na wala kang magagawa kahit isa. Ayos lang yun. Bukas, subukan ulit. Hindi nabubura ng isang mabigat na araw ang progress mo.',
-          'Kung higit dalawang linggo ka nang walang gana o mabigat ang loob, o nahihirapan ka nang kumilos sa araw-araw, kausapin ang doktor o counselor. Normal na next step yan, at nakakatulong.',
-          'Kung gusto mo ng tulong ngayon din, libre ang [HopeBegins](/). Piliin kung ano ang nararamdaman mo at may isang maliit na bagay kang pwedeng subukan ngayon, may calming tools, may magdadasal para sa iyo, at may e-coach kang pwedeng i-message sa Messenger. Kung hindi mo alam kung saan ka papunta, basahin ang [Hindi ko alam gagawin ko](/hindi-ko-alam-gagawin-ko-sa-buhay).',
+          'May mga araw na wala kang magagawa kahit isa. Bukas, subukan ulit. Hindi nabubura ng isang mabigat na araw ang progress mo.',
+          'Kung higit dalawang linggo ka nang walang gana o mabigat ang loob, o nahihirapan ka nang kumilos sa araw-araw, kausapin ang doktor o counselor. Normal na hakbang yan, at nakakatulong ito.',
+          'Kung gusto mo ng tulong ngayon din, libre ang [HopeBegins](/). Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw. May mga calming tool din, may magdarasal para sa iyo, at may e-coach na puwede mong i-message sa Messenger. Kung hindi mo alam kung saan ka papunta, basahin ang [Hindi ko alam gagawin ko](/hindi-ko-alam-gagawin-ko-sa-buhay).',
         ],
       },
     ],

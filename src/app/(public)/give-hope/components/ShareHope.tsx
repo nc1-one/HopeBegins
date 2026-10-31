@@ -24,7 +24,7 @@ const copy: PerLangNoTl<{
 }> = {
   en: {
     shareText:
-      'Free help for Filipinos who feel anxious or low, in English or Taglish.',
+      'Free, faith-driven help for anyone who feels anxious, low or alone.',
     title: "Can't give right now?",
     text: 'Send HopeBegins to one person who has been having a hard time. That helps too.',
     button: 'Share HopeBegins',
@@ -62,7 +62,7 @@ const copy: PerLangNoTl<{
     shareText:
       '불안하거나 마음이 힘들 때 받을 수 있는 무료 도움, 이제 한국어로도 있어요.',
     title: '지금은 후원이 어렵나요?',
-    text: '요즘 힘든 시간을 보내는 한 사람에게 HopeBegins를 보내 주세요. 그것도 도움이 돼요.',
+    text: '요즘 힘들어하는 사람 한 명에게 HopeBegins를 보내 주세요. 그렇게만 해도 도움이 돼요.',
     button: 'HopeBegins 공유하기',
     copied: '링크를 복사했어요.',
     copyThis: (url) => `이 링크를 복사하세요: ${url}`,

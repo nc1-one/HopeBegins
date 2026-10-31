@@ -32,7 +32,7 @@ export const esFeelingPages: FeelingPage[] = [
     faq: [
       {
         q: '¿Es normal cansarse de todo?',
-        a: 'Todos nos agotamos de vez en cuando. Pero si durante dos semanas o más, la mayoría de los días, sientes cansancio y falta de interés en casi todo, puede ser depresión o burnout. Habla con un médico o con un psicólogo.',
+        a: 'Todos nos agotamos de vez en cuando. Pero si durante dos semanas o más, la mayoría de los días, sientes cansancio y falta de interés en casi todo, puede ser depresión o burnout. Busca atención médica o psicológica.',
       },
       {
         q: '¿Por qué siento cansancio todo el tiempo, aunque descanse?',
@@ -107,7 +107,7 @@ export const esFeelingPages: FeelingPage[] = [
     tools: ['breathe', 'ground', 'game'],
     tip: {
       title: 'Por qué ayuda la respiración',
-      body: 'Cuando sueltas el aire durante más tiempo del que tardas en tomarlo, el corazón late más despacio y el cuerpo empieza a calmarse. Si esto te pasa con frecuencia, te puede ayudar tener un plan y hablar con un psicólogo.',
+      body: 'Cuando sueltas el aire durante más tiempo del que tardas en tomarlo, el corazón late más despacio y el cuerpo empieza a calmarse. Si esto te pasa con frecuencia, te puede ayudar tener un plan y buscar atención psicológica.',
     },
     related: ['panic-attack-what-to-do', 'bible-verses-for-anxiety'],
     faq: [
@@ -117,11 +117,11 @@ export const esFeelingPages: FeelingPage[] = [
       },
       {
         q: '¿Por qué siento ansiedad sin motivo?',
-        a: 'La ansiedad se puede ir acumulando por el estrés, por dormir mal, por la cafeína o por preocupaciones que todavía no has puesto en palabras, y por eso parece salir de la nada. Si te pasa casi todos los días, habla con un médico o con un psicólogo.',
+        a: 'La ansiedad se puede ir acumulando por el estrés, por dormir mal, por la cafeína o por preocupaciones que todavía no has puesto en palabras, y por eso parece salir de la nada. Si te pasa casi todos los días, busca atención médica o psicológica.',
       },
       {
         q: '¿Qué ayuda con la ansiedad en el día a día?',
-        a: 'Practica la respiración lenta cuando estés en calma, así te saldrá fácil cuando la necesites. Duerme lo suficiente, toma menos café y escribe tus preocupaciones a una hora fija cada día. Si la ansiedad interfiere con tu trabajo, tus estudios o tu sueño, consulta a un médico o a un psicólogo.',
+        a: 'Practica la respiración lenta cuando estés en calma, así te saldrá fácil cuando la necesites. Duerme lo suficiente, toma menos café y escribe tus preocupaciones a una hora fija cada día. Si la ansiedad interfiere con tu trabajo, tus estudios o tu sueño, busca atención médica o psicológica.',
       },
     ],
     firstStep: 'plan',
@@ -204,7 +204,7 @@ export const esFeelingPages: FeelingPage[] = [
         'no ver esperanza en el futuro',
         'tener pensamientos de muerte o de quitarte la vida',
       ],
-      note: 'La depresión es común y tiene tratamiento. Un médico, un psicólogo o un terapeuta pueden ayudarte a entender qué necesitas. Si no sabes por dónde empezar, llama a una línea de ayuda gratuita de tu país.',
+      note: 'La depresión es común y tiene tratamiento. En una consulta médica o psicológica pueden ayudarte a entender qué necesitas. Si no sabes por dónde empezar, una línea de ayuda gratuita de tu país puede orientarte.',
     },
     tip: {
       title: 'Por qué ayuda una cosa pequeña',
@@ -233,7 +233,7 @@ export const esFeelingPages: FeelingPage[] = [
       },
       {
         q: '¿Por qué siento depresión sin motivo?',
-        a: 'La depresión no siempre tiene una causa clara. Puede venir del estrés, de una pérdida, de dormir mal, de la salud o de cambios en el cuerpo, a veces de todo junto. Un médico o un psicólogo pueden ayudarte a entenderlo, y la depresión tiene tratamiento.',
+        a: 'La depresión no siempre tiene una causa clara. Puede venir del estrés, de una pérdida, de dormir mal, de la salud o de cambios en el cuerpo, a veces de todo junto. En una consulta médica o psicológica pueden ayudarte a entenderlo, y la depresión tiene tratamiento.',
       },
       {
         q: '¿Qué hago si tengo depresión y siento que no tengo a nadie?',
@@ -280,7 +280,7 @@ export const esFeelingPages: FeelingPage[] = [
         'hormigueo o entumecimiento en las manos o la cara',
         'la sensación de que algo terrible va a pasar, o de que pierdes el control',
       ],
-      note: 'Se siente peligroso, pero el ataque de pánico en sí no le hace daño a tu cuerpo, y pasa. Si los ataques se repiten, o empiezas a evitar lugares por miedo a que vuelvan, habla con un médico o con un psicólogo. Los ataques de pánico tienen tratamiento.',
+      note: 'Se siente peligroso, pero el ataque de pánico en sí no le hace daño a tu cuerpo, y pasa. Si los ataques se repiten, o empiezas a evitar lugares por miedo a que vuelvan, busca atención médica o psicológica. Los ataques de pánico tienen tratamiento.',
     },
     tip: {
       title: 'Por qué ayuda soltar el aire despacio',
@@ -308,7 +308,7 @@ export const esFeelingPages: FeelingPage[] = [
       },
       {
         q: '¿Cómo puedo detener rápido un ataque de pánico?',
-        a: 'Respira más despacio, inhalando en 4 tiempos y exhalando en 6, apoya bien los pies en el piso y repítete que es un ataque de pánico y que va a pasar. Para tener menos ataques, practica la respiración todos los días y habla con un médico o con un psicólogo.',
+        a: 'Respira más despacio, inhalando en 4 tiempos y exhalando en 6, apoya bien los pies en el piso y repítete que es un ataque de pánico y que va a pasar. Para tener menos ataques, practica la respiración todos los días y busca atención médica o psicológica.',
       },
     ],
     firstStep: 'plan',
@@ -341,7 +341,7 @@ export const esFeelingPages: FeelingPage[] = [
     explain: {
       title: 'Cuándo pedir ayuda',
       intro:
-        'Sentir que no tienes rumbo de vez en cuando es parte de la vida, sobre todo en los grandes cambios, como graduarte, empezar un trabajo nuevo o terminar una relación. Habla con un médico o con un psicólogo si, durante dos semanas o más:',
+        'Sentir que no tienes rumbo de vez en cuando es parte de la vida, sobre todo en los grandes cambios, como graduarte, empezar un trabajo nuevo o terminar una relación. Busca atención médica o psicológica si, durante dos semanas o más:',
       points: [
         'sientes un vacío casi todo el día',
         'has perdido el interés en casi todo',
@@ -364,7 +364,7 @@ export const esFeelingPages: FeelingPage[] = [
     faq: [
       {
         q: '¿Por qué siento un vacío por dentro?',
-        a: 'Esa sensación de vacío puede venir del estrés, de la soledad, de una pérdida o un cambio grande, o de la depresión. Si dura dos semanas o más, o viene con pérdida de interés en casi todo, habla con un médico o con un psicólogo.',
+        a: 'Esa sensación de vacío puede venir del estrés, de la soledad, de una pérdida o un cambio grande, o de la depresión. Si dura dos semanas o más, o viene con pérdida de interés en casi todo, busca atención médica o psicológica.',
       },
       {
         q: '¿Qué hago si siento que no tengo rumbo en la vida?',
@@ -393,7 +393,7 @@ export const esFeelingPages: FeelingPage[] = [
     label: 'Burnout laboral',
     heading: 'Creo que tengo burnout.',
     intro:
-      'Cuando el trabajo, los estudios o cuidar de otros te dejan sin fuerzas, ni el descanso se siente como descanso. Empieza hoy con una pausa de verdad, aunque sea de diez minutos.',
+      'Cuando el trabajo, los estudios o cuidar a otras personas te dejan sin fuerzas, ni el descanso se siente como descanso. Empieza hoy con una pausa de verdad, aunque sea de diez minutos.',
     toolsHeading: 'Haz una pausa',
     tools: ['breathe', 'one-thing'],
     explain: {
@@ -405,7 +405,7 @@ export const esFeelingPages: FeelingPage[] = [
         'sentir distancia de tu trabajo, o una actitud negativa y cínica hacia él',
         'rendir menos, aunque te esfuerces mucho',
       ],
-      note: 'El burnout tiene que ver con el trabajo y con largos periodos de estrés. Si además sientes tristeza casi todo el día, o has perdido el interés en cosas fuera del trabajo, también puede ser depresión. Habla con un médico o con un psicólogo.',
+      note: 'El burnout tiene que ver con el trabajo y con largos periodos de estrés. Si además sientes tristeza casi todo el día, o has perdido el interés en cosas fuera del trabajo, también puede ser depresión. Busca atención médica o psicológica.',
     },
     tip: {
       title: 'Un límite para esta semana',
@@ -421,11 +421,11 @@ export const esFeelingPages: FeelingPage[] = [
     faq: [
       {
         q: '¿El burnout es lo mismo que la depresión?',
-        a: 'No. El burnout viene del estrés crónico en el trabajo y afecta sobre todo cómo te sientes con tu trabajo. La depresión afecta todas las áreas de la vida. Los dos pueden darse al mismo tiempo, así que si sientes tristeza casi todo el día, habla con un médico o con un psicólogo.',
+        a: 'No. El burnout viene del estrés crónico en el trabajo y afecta sobre todo cómo te sientes con tu trabajo. La depresión afecta todas las áreas de la vida. Los dos pueden darse al mismo tiempo, así que si sientes tristeza casi todo el día, busca atención médica o psicológica.',
       },
       {
         q: '¿Cómo se dice burnout en español?',
-        a: 'Se le llama síndrome de desgaste profesional o síndrome del trabajador quemado, aunque mucha gente dice simplemente burnout: un cansancio que no se quita con descanso, junto con hartazgo del trabajo y un rendimiento más bajo.',
+        a: 'Se le llama síndrome de desgaste profesional o síndrome del trabajador quemado, aunque mucha gente dice burnout, sin traducir: un cansancio que no se quita con descanso, junto con hartazgo del trabajo y un rendimiento más bajo.',
       },
     ],
     firstStep: 'plan',

@@ -76,7 +76,7 @@ const copy = {
     previous: 'Bumalik',
     warningPrompt:
       'Napansin mo ba ang mga warning sign mo sa nakaraang 2 linggo?',
-    yourSigns: 'Ang sa iyo:',
+    yourSigns: 'Mga warning sign mo:',
     warningOptions: { no: 'Hindi', little: 'Kaunti', often: 'Oo, madalas' },
     scores: (mood: number, worry: number) =>
       `Mababang mood ${mood} sa 6 · Pag-aalala ${worry} sa 6`,
@@ -96,8 +96,8 @@ const copy = {
         text: 'Nalampasan mo na ito dati, at alam mo kung ano ang nakatulong. Magsimula ulit ng 4 na linggo gamit ang tool mo, sabihan ang isa sa mga tao mo, at kumausap ng e-coach ngayong linggo. Kung mataas pa rin ang scores mo, magpatingin sa counselor.',
       },
       safety: {
-        title: 'Kumausap ng isang tao ngayon.',
-        text: 'Sinabi mong naiisip mong tapusin ang buhay mo o saktan ang sarili mo. Tumawag ngayon sa isang crisis line. Libre ito at may sumasagot araw at gabi.',
+        title: 'Kumausap ka ng isang tao ngayon.',
+        text: 'Sinabi mong naiisip mong tapusin ang buhay mo o saktan ang sarili mo. Tumawag ngayon sa isang crisis hotline. Libre ito at may sumasagot araw at gabi.',
       },
     },
     ecoach: 'Kausapin ang e-coach',
@@ -138,7 +138,7 @@ const copy = {
       },
       safety: {
         title: 'Parle à quelqu’un maintenant.',
-        text: 'Tu as dit avoir pensé à mettre fin à ta vie ou à te faire du mal. Appelle une ligne de crise maintenant, s’il te plaît. C’est gratuit, et quelqu’un répond jour et nuit.',
+        text: 'Tu as dit avoir pensé à mettre fin à ta vie ou à te faire du mal. Appelle une ligne d’écoute maintenant, s’il te plaît. C’est gratuit, et quelqu’un répond jour et nuit.',
       },
     },
     ecoach: 'Parler à quelqu’un',
@@ -165,7 +165,7 @@ const copy = {
       `Letztes Mal: gedrückte Stimmung ${mood}, Sorgen ${worry}.`,
     results: {
       steady: {
-        title: 'Es geht dir stabil.',
+        title: 'Es geht dir weiterhin gut.',
         text: 'Behalte deine Übung für die Tage, an denen du sie brauchst. Nächsten Monat schauen wir wieder, wie es dir geht.',
       },
       watch: {
@@ -174,7 +174,7 @@ const copy = {
       },
       returning: {
         title: 'Es sieht so aus, als käme es zurück.',
-        text: 'Du hast das schon einmal geschafft, und du weißt, was geholfen hat. Starte noch einmal 4 Wochen mit deiner Übung, erzähl einem deiner beiden Menschen davon und ruf diese Woche bei einer kostenlosen Telefonberatung an. Wenn deine Werte hoch bleiben, hol dir psychologische Hilfe.',
+        text: 'Du hast das schon einmal geschafft, und du weißt, was geholfen hat. Starte noch einmal 4 Wochen mit deiner Übung, erzähl es einem der beiden Menschen auf deiner Hoffnungskarte und ruf diese Woche bei einem kostenlosen Hilfetelefon an. Wenn deine Werte hoch bleiben, hol dir psychologische Hilfe.',
       },
       safety: {
         title: 'Bitte sprich jetzt mit jemandem.',
@@ -190,7 +190,7 @@ const copy = {
     toPlan: 'Zurück zu meinem Plan',
   },
   es: {
-    title: 'Check-in de 1 minuto',
+    title: 'Chequeo de 1 minuto',
     questionOf: (n: number, total: number) => `Pregunta ${n} de ${total}`,
     previous: 'Anterior',
     warningPrompt:
@@ -216,7 +216,7 @@ const copy = {
       },
       returning: {
         title: 'Parece que está regresando.',
-        text: 'Ya has salido de esto antes y sabes qué te ayudó. Empieza otras 4 semanas con tu herramienta, cuéntale a una de tus dos personas y habla esta semana con alguien de una línea de ayuda gratuita. Si tus puntajes siguen altos, busca a un psicólogo.',
+        text: 'Ya has salido de esto antes y sabes qué te ayudó. Empieza otras 4 semanas con tu herramienta, cuéntale a una de tus dos personas y habla esta semana con alguien de una línea de ayuda gratuita. Si tus puntajes siguen altos, busca atención psicológica.',
       },
       safety: {
         title: 'Por favor, habla con alguien ahora.',
@@ -227,7 +227,7 @@ const copy = {
     openCard: 'Abrir mi tarjeta de esperanza',
     yourTool: 'Tu herramienta',
     restart: 'Empezar otras 4 semanas',
-    fullCheckIn: 'Hacer el check-in completo y un plan de seguridad',
+    fullCheckIn: 'Hacer el chequeo completo y un plan de seguridad',
     toPlan: 'Volver a mi plan',
   },
   ko: {
@@ -247,7 +247,7 @@ const copy = {
       `지난번: 가라앉은 기분 ${mood}, 걱정 ${worry}.`,
     results: {
       steady: {
-        title: '잘 버티고 있어요.',
+        title: '안정적으로 잘 지내고 있어요.',
         text: '필요한 날을 위해 내 도구를 계속 챙겨 두세요. 다음 달에 다시 확인해요.',
       },
       watch: {
@@ -255,12 +255,12 @@ const copy = {
         text: '더 무거워지기 전에 내 도구를 다시 쓸 때예요. 이번 주에는 매일 해 보세요.',
       },
       returning: {
-        title: '다시 시작되는 것 같아요.',
+        title: '다시 힘들어지는 것 같아요.',
         text: '전에도 이겨 낸 적이 있고, 무엇이 도움이 됐는지도 알고 있어요. 내 도구로 4주를 다시 시작하고, 정해 둔 두 사람 중 한 명에게 이야기하고, 이번 주에 무료 상담 전화로 이야기해 보세요. 점수가 계속 높으면 상담사를 만나 보세요.',
       },
       safety: {
         title: '지금 누군가와 이야기해 주세요.',
-        text: '스스로 목숨을 끊거나 자신을 해치는 생각을 했다고 답했어요. 지금 위기 상담 전화에 연락해 주세요. 무료이고, 밤낮으로 전화를 받아요.',
+        text: '스스로 목숨을 끊거나 자신을 해치는 생각을 했다고 답했어요. 지금 바로 위기 상담 전화에 전화해 주세요. 무료이고, 밤낮없이 받아요.',
       },
     },
     ecoach: '누군가와 이야기하기',
