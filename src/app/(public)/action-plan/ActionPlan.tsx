@@ -1579,9 +1579,8 @@ function CheckInCard({
 }) {
   const [firstName, setFirstName] = useState(saved.name);
   const [email, setEmail] = useState('');
-  // For the crisis line in the emails: "ZZ" when the phone is somewhere the
-  // site has no line for, so the email points to Find A Helpline.
-  const country = useCountry(lang) ?? 'ZZ';
+  // Where they are, for the crisis line in the emails.
+  const country = useCountry(lang);
   const [checkIn, setCheckIn] = useState(false);
   const [sendPlan, setSendPlan] = useState(false);
   const [website, setWebsite] = useState('');

@@ -1,6 +1,7 @@
 import { fetchWithAuth } from './api';
 import { config } from '@/config';
 import { currentLanguage } from '@/lib/pageLanguage';
+import { detectCountry } from '@/lib/detectLocale';
 
 /**
  * Every count carries the language of the page it happened on, after two
@@ -48,5 +49,22 @@ export const analyticsService = {
       // Storage blocked: count it anyway.
     }
     analyticsService.recordClick(`visit_${page}`);
+  },
+  /**
+   * Counts a visit's country once per browser session ("country_kr"), by
+   * the phone's time zone; "country_other" when it's somewhere the site has
+   * no lines for or doesn't say. Nothing else about the person is sent.
+   */
+  recordCountry: () => {
+    const key = 'hopebegins.visited.country';
+    try {
+      if (sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key, '1');
+    } catch {
+      // Storage blocked: count it anyway.
+    }
+    analyticsService.recordClick(
+      `country_${(detectCountry() ?? 'other').toLowerCase()}`
+    );
   },
 };
