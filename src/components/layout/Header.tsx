@@ -93,7 +93,7 @@ const navCopy: PerLang<{
     checkIn: '체크인',
     tools: '도구',
     blog: '블로그',
-    approach: '우리의 방식',
+    approach: '돕는 방식',
     give: '후원하기',
     menu: '메뉴 열기 또는 닫기',
   },

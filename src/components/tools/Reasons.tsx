@@ -121,7 +121,7 @@ const copy = {
     add: '추가',
     listTitle: '나의 이유',
     remove: (reason: string) => `“${reason}” 삭제`,
-    saved: '이 휴대폰에만 저장돼요. Hope Card에도 보여요.',
+    saved: '이 휴대폰에만 저장돼요. 희망 카드에도 보여요.',
     done: '완료',
     close: '닫기',
     doneTitle: '이유를 저장했어요',

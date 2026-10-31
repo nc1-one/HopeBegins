@@ -161,7 +161,7 @@ const copy = {
     monthlyTitle: '월간 체크인',
     due: '한 달이 지났어요. 1분 체크인을 해 보세요.',
     next: (date: string) => `다음 체크인은 ${date}쯤이에요.`,
-    take: '1분 체크인 하기',
+    take: '1분 체크인하기',
     remind: '6개월 동안 한 달에 한 번 알림 받기',
     otherCalendar: 'iPhone 또는 Outlook',
     cardTitle: '내 희망 카드',
@@ -170,7 +170,7 @@ const copy = {
     restart: '4주 다시 시작하기',
     ecoach: '누군가와 이야기하기',
     giveTitle: '다른 사람 돕기',
-    shareText: '힘들어하는 사람을 알고 있나요? HopeBegins를 알려 주세요.',
+    shareText: '주변에 힘들어하는 사람이 있나요? HopeBegins를 알려 주세요.',
     share: 'HopeBegins 공유하기',
     copied: '링크를 복사했어요: https://hopebegins.today',
     carrierText:

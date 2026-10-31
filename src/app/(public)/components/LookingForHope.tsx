@@ -88,7 +88,7 @@ const feelings: ({ id: string; photo: PhotoId } & PerLang<{
       href: '/tired-of-everything',
     },
     ko: {
-      label: '모든 것에 지쳤어요',
+      label: '모든 게 지쳐요',
       href: '/tired-of-everything',
     },
   },
@@ -346,7 +346,7 @@ const menuCopy: PerLang<MenuCopy> = {
     },
     ecoachTitle: '누군가 곁에 있어 주면 좋겠어요',
     ecoachText:
-      '지금 있는 곳의 무료 상담 전화에서 실제 사람과 이야기할 수 있어요.',
+      '내가 있는 나라의 무료 상담 전화로 실제 사람과 이야기할 수 있어요.',
     ecoachButton: '누군가와 이야기하기',
     moreWays: '이런 것도 있어요:',
     donate: '후원하러 오셨나요?',

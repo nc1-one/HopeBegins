@@ -78,17 +78,17 @@ const copy: PerLangNoTl<{
   },
   ko: {
     shareText:
-      '괜찮지 않을 때 받을 수 있는 무료 도움: 나만의 계획, 마음을 가라앉히는 도구, 그리고 기도.',
+      '힘들 때 받을 수 있는 무료 도움: 나만의 계획, 마음을 가라앉히는 도구, 기도.',
     title: '후원해 주셔서 감사해요',
     subtitle:
-      '다음에 도움이 필요한 사람에게도 HopeBegins가 무료일 수 있게 해 줘요.',
+      '후원 덕분에 다음에 도움이 필요한 사람도 HopeBegins를 무료로 쓸 수 있어요.',
     receipt:
       'Donorbox에서 영수증을 이메일로 보냈어요. 금액은 필리핀 페소(₱)로 적혀 있어요.',
-    know: '힘든 시간을 보내는 사람을 알고 있나요? 그 사람에게 HopeBegins를 알려 주세요.',
+    know: '주변에 힘든 시간을 보내는 사람이 있나요? HopeBegins를 알려 주세요.',
     share: 'HopeBegins 공유하기',
     home: '홈으로 가기',
     copied: (url) => `링크를 복사했어요: ${url}`,
-    needSupport: '나도 도움이 필요하다면? 여기서 시작하세요',
+    needSupport: '나도 도움이 필요하다면 여기서 시작해 보세요',
   },
 };
 

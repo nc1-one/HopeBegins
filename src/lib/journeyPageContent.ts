@@ -668,7 +668,7 @@ const INTL_JOURNEY_PAGE_CONTENT: Record<IntlLang, IntlJourneyPageContent> = {
       ],
       good_news_title: '기쁜 소식',
       good_news_body:
-        '하나님은 지금 모습 그대로의 당신을 사랑하세요. 그 사랑은 당신이 무엇을 했는지에 달려 있지 않아요. 하나님은 아들 예수님을 보내셔서, 가장 어두운 날에도 당신과 함께하게 하셨어요. 오늘 바로 하나님께 이야기할 수 있어요.',
+        '하나님은 지금 모습 그대로 우리를 사랑하세요. 그 사랑은 우리가 무엇을 했는지에 달려 있지 않아요. 하나님은 아들 예수님을 보내셔서 가장 어두운 날에도 우리와 함께하게 하셨어요. 오늘 바로 하나님께 이야기할 수 있어요.',
       reflection_title: '생각해 보세요',
       reflection_prompt:
         '내일은 다를 수 있다고 조금이라도 믿는다면, 무엇이 달라질까요?',
@@ -682,12 +682,12 @@ const INTL_JOURNEY_PAGE_CONTENT: Record<IntlLang, IntlJourneyPageContent> = {
       actions: [
         { title: '기도 부탁하기', href: '/prayers', icon: 'heart' },
         {
-          title: 'Daily Hope 이메일 받기 (영어)',
+          title: 'Daily Hope 이메일 받기',
           href: '/daily-hope',
           icon: 'mail',
         },
         {
-          title: 'Hope AI와 대화하기',
+          title: 'Hope AI와 이야기하기',
           href: '/hope-ai',
           icon: 'message-square',
         },

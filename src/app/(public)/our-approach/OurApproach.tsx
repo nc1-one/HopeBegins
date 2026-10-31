@@ -106,16 +106,16 @@ const copy: PerLangNoTl<{
   ko: {
     title: '이겨낼 때까지 곁에서 함께 걸을게요',
     intro:
-      'HopeBegins는 신앙에 뿌리를 둔 무료 마음 건강 지원이에요. 필리핀에서 시작해 이제 한국어로도 만날 수 있어요. 뭔가 잘못됐다고 느끼는 순간 바로 도움을 받고, 계속 쓸 수 있는 도구를 하나 갖게 돼요.',
-    whyTitle: '우리가 시작한 이유',
+      'HopeBegins는 신앙에 뿌리를 둔 무료 마음 건강 지원이에요. 필리핀에서 시작해 이제 한국어로도 만날 수 있어요. 마음이 힘들다고 느끼는 바로 그때 도움을 받고, 앞으로도 계속 쓸 수 있는 도구 하나를 챙겨 가요.',
+    whyTitle: '저희가 시작한 이유',
     why: [
       'HopeBegins는 필리핀에서 사람들을 위해 기도하던 작은 모임으로 시작했어요. 지금은 많은 사람이 이곳에서 기도를 부탁하고, 한 주 계획을 세우고, 이야기할 사람을 찾아요.',
-      '가장 힘들 때 도움은 손 닿는 곳에 있어야 해요. 불안하거나 마음이 가라앉은 누구나 휴대폰에서 도움을 찾을 수 있기를 바라요. 이제 한국어로도요.',
+      '가장 힘들 때 도움은 손 닿는 곳에 있어야 해요. 불안하거나 마음이 가라앉은 사람 누구나 휴대폰에서, 이제는 한국어로도 도움을 찾을 수 있기를 바라요.',
     ],
-    goalsTitle: '우리가 바라는 것',
+    goalsTitle: '저희가 바라는 것',
     stepsTitle: '첫 검색부터 몇 달 뒤까지, 한 걸음씩',
-    offersTitle: '무료로 쓸 수 있는 모든 것',
-    howTitle: '우리가 일하는 방식',
+    offersTitle: '모두 무료로 쓸 수 있어요',
+    howTitle: '저희가 일하는 방식',
     notOkay: ['', '오늘', ' 괜찮지 않나요?'],
     thatsMe: '제 얘기예요',
     makePlan: '무료 계획 만들기',
@@ -141,7 +141,7 @@ const GOALS: PerLangNoTl<{ title: string; text: string }>[] = [
       text: 'Cada página sobre una emoción empieza con algo que puedes hacer ahora mismo.',
     },
     ko: {
-      title: '첫 1분 안에 도움',
+      title: '첫 1분 안에 받는 도움',
       text: '감정별 페이지는 모두 지금 바로 할 수 있는 일로 시작해요.',
     },
   },
@@ -186,7 +186,7 @@ const GOALS: PerLangNoTl<{ title: string; text: string }>[] = [
     },
     ko: {
       title: '계속 쓰는 도구',
-      text: '4주 동안의 연습, 그리고 간직할 희망 카드.',
+      text: '4주 동안 연습하고, 희망 카드를 간직해요.',
     },
   },
   {
@@ -208,7 +208,7 @@ const GOALS: PerLangNoTl<{ title: string; text: string }>[] = [
     },
     ko: {
       title: '기댈 수 있는 사람',
-      text: '무료 상담 전화, Hope Carrier, 그리고 모든 페이지에 있는 위기 상담 번호.',
+      text: '기도해 주는 Hope Carrier와 모든 페이지에 있는 위기 상담 전화.',
     },
   },
 ];
@@ -382,7 +382,7 @@ const STAGES: (Pick<ApproachStep, 'photo' | 'offset'> & {
       },
       ko: {
         name: '그 후에',
-        text: '매달 1분 체크인, 그리고 다시 힘들어지면 바로 닿는 도움.',
+        text: '매달 1분 체크인을 하고, 다시 힘들어지면 바로 도움을 받을 수 있어요.',
       },
     },
   },
@@ -584,7 +584,7 @@ const OFFERS: {
             text: 'Un video (en inglés), una oración y una lectura de la Biblia.',
           },
           ko: {
-            title: '희망이 보이지 않을 때, 다섯 걸음',
+            title: '희망이 보이지 않는 날을 위한 다섯 걸음',
             text: '영상(영어), 기도, 성경 읽기.',
           },
         },
@@ -610,7 +610,7 @@ const OFFERS: {
           },
           ko: {
             title: 'Daily Hope',
-            text: '21일 동안 매일 받는 격려 메일(영어).',
+            text: '21일 동안 매일 받는 격려 이메일.',
           },
         },
       },
@@ -725,7 +725,7 @@ const HOW: PerLangNoTl<{ title: string; text: string; line?: boolean }>[] = [
     },
     ko: {
       title: '위기 상황이라면',
-      text: '모든 페이지 맨 위에서 내 나라의 위기 상담 전화로 바로 연결돼요.',
+      text: '모든 페이지 맨 위에서 내가 있는 나라의 24시간 무료 위기 상담 전화로 바로 연결돼요.',
       line: true,
     },
   },

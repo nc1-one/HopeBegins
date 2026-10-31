@@ -35,8 +35,8 @@ const copy: PerLangNoTl<{ title: string; intro: string; words: string }> = {
   ko: {
     title: '희망 나누기',
     intro:
-      'HopeBegins는 불안하거나 우울하거나 외로운 누구에게나 무료예요. 후원으로, 또는 사람들을 위해 기도하는 Hope Carrier로 시간을 내어 계속 무료로 지켜 주세요.',
-    words: '그들이 직접 전하는 이야기',
+      'HopeBegins는 불안하거나 우울하거나 외로운 사람 누구나 무료로 쓸 수 있어요. 후원으로, 또는 Hope Carrier로 사람들을 위해 기도하는 시간으로 이 일이 계속되게 함께해 주세요.',
+    words: '직접 들려준 이야기',
   },
 };
 

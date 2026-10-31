@@ -117,7 +117,7 @@ const MISSIONS = [
     fr: 'Respire lentement 5 fois',
     de: 'Atme 5-mal langsam ein und aus',
     es: 'Respira despacio 5 veces',
-    ko: '천천히 5번 숨쉬기',
+    ko: '천천히 다섯 번 숨쉬기',
   },
   {
     en: 'Fix one small corner of your room',

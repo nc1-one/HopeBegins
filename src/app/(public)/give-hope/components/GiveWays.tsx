@@ -94,7 +94,7 @@ const copy: PerLangNoTl<{
     ways: {
       gift: {
         title: '후원하기',
-        text: '다음 사람에게도 HopeBegins가 무료일 수 있도록.',
+        text: '다음 사람도 HopeBegins를 무료로 쓸 수 있게 해 주세요.',
       },
       time: {
         title: '마음과 시간 나누기',
@@ -102,7 +102,7 @@ const copy: PerLangNoTl<{
       },
     },
     everyGift:
-      '크든 작든 모든 후원이 계획, 도구, 기도, Daily Hope를 필요한 누구에게나 무료로 지켜 줘요. 후원 금액은 필리핀 페소(₱) 기준이에요.',
+      '크든 작든 모든 후원 덕분에 필요한 누구나 계획, 도구, 기도, Daily Hope를 무료로 받을 수 있어요. 후원 금액은 필리핀 페소(₱) 기준이에요.',
     signUp: 'Hope Carrier 신청하기',
   },
 };

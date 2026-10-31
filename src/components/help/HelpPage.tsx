@@ -143,7 +143,7 @@ const copy: PerLang<{
   ko: {
     title: '무료로 이야기할 수 있는 곳',
     intro:
-      '실제 사람이 들어 주는 무료 상담 전화예요. 내 나라가 아니라면 바꿔 주세요.',
+      '실제 사람이 들어 주는 무료 상담 전화예요. 표시된 나라가 내 나라가 아니면 바꿔 주세요.',
     country: '나라',
     pick: '나라 선택',
     crisisHeading: '위기 상황이라면',
@@ -155,10 +155,10 @@ const copy: PerLang<{
     elsewhere: '목록에 내 나라가 없나요? 무료 상담 전화 찾기:',
     chat: '채팅이나 문자로 상담하기',
     moreHeading: '이야기할 수 있는 다른 방법',
-    aiTitle: 'Hope AI와 대화하기',
+    aiTitle: 'Hope AI와 이야기하기',
     aiText:
       '언제든 메시지를 보낼 수 있는 AI 도우미예요. 상담을 대신하거나 응급 상황을 도울 수는 없어요.',
-    prayerTitle: '기도를 부탁하기',
+    prayerTitle: '기도 부탁하기',
     checked: (date) => `${date}에 번호를 확인했어요.`,
   },
 };

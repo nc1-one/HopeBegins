@@ -954,7 +954,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           fr: 'je vais prendre mon quart d’heure des soucis',
           de: 'nehme ich mir meine 15 Minuten Sorgenzeit',
           es: 'voy a tomar mis 15 minutos de tiempo para preocuparme',
-          ko: '15분 걱정 시간을 가질게요',
+          ko: '15분 걱정 시간을 지킬게요',
         }),
         defaultTime: 'evening',
         title: t({
@@ -1109,7 +1109,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           fr: 'Utilise tes 5 sens (5-4-3-2-1)',
           de: 'Nutze deine 5 Sinne (5-4-3-2-1)',
           es: 'Usa tus 5 sentidos (5-4-3-2-1)',
-          ko: '다섯 감각 쓰기 (5-4-3-2-1)',
+          ko: '오감 사용하기 (5-4-3-2-1)',
         }),
         detail: t({
           en: 'When worry or panic builds, name 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell and 1 you can taste.',
@@ -1148,7 +1148,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           fr: 'Une marche dehors, ça compte. La lumière du jour et le mouvement remontent le moral et aident à dormir.',
           de: 'Ein Spaziergang draußen zählt schon. Tageslicht und Bewegung heben die Stimmung und helfen beim Schlafen.',
           es: 'Una caminata afuera cuenta. La luz del día y el movimiento levantan el ánimo y ayudan a dormir.',
-          ko: '밖에서 걷는 것도 좋아요. 햇빛과 움직임은 기분을 끌어올리고 잠도 도와줘요.',
+          ko: '밖에서 걷기만 해도 돼요. 햇빛과 움직임은 기분을 끌어올리고 잠드는 데도 도움이 돼요.',
         }),
       },
     ],
@@ -1180,7 +1180,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           fr: 'Quand une pensée difficile t’accroche, nomme-la : « J’ai la pensée que je ne suis pas à la hauteur. » Puis ramène ton attention sur ce que tu fais.',
           de: 'Wenn dich ein schwerer Gedanke packt, benenne ihn: „Ich habe den Gedanken, dass ich nicht gut genug bin.“ Dann richte deine Aufmerksamkeit wieder auf das, was du gerade tust.',
           es: 'Cuando un pensamiento difícil te atrape, ponle nombre: “Estoy teniendo el pensamiento de que no soy suficiente”. Luego vuelve a poner tu atención en lo que estás haciendo.',
-          ko: '힘든 생각이 나를 붙잡을 때 이름을 붙여 보세요. “나는 내가 부족하다는 생각을 하고 있구나.” 그런 다음 지금 하고 있는 일로 주의를 다시 가져와요.',
+          ko: '힘든 생각이 나를 붙잡을 때 이름을 붙여 보세요. “나는 내가 부족하다는 생각을 하고 있구나.” 그런 다음 지금 하고 있는 일로 주의를 돌려요.',
         }),
       },
     ],
@@ -1343,7 +1343,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           fr: 'Note tes questions de santé',
           de: 'Schreib deine Gesundheitsfragen auf',
           es: 'Anota tus preguntas de salud',
-          ko: '건강에 대한 질문 적어 두기',
+          ko: '궁금한 건강 문제 적어 두기',
         }),
         detail: t({
           en: 'List what worries you, then book one appointment to ask about it.',
@@ -1386,7 +1386,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           fr: 'Contacte quelqu’un chaque jour',
           de: 'Jeden Tag ein kleiner Kontakt',
           es: 'Un pequeño contacto cada día',
-          ko: '매일 작은 연락 한 번',
+          ko: '매일 짧게 한 번 연락하기',
         }),
         detail: t({
           en: 'A message, a call or a hello. This month, join one group: a class, a faith group or volunteering.',
@@ -1516,7 +1516,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
             fr: 'Prends 5 minutes de calme chaque matin',
             de: 'Nimm dir jeden Morgen 5 ruhige Minuten',
             es: 'Toma 5 minutos de calma cada mañana',
-            ko: '매일 아침 5분 조용한 시간 갖기',
+            ko: '매일 아침 5분 조용히 보내기',
           }),
           detail:
             answers.faith === 'yes'
@@ -1601,7 +1601,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         fr: 'D’après tes réponses, c’est le bon moment pour voir un médecin ou un psy. Un bilan rapide comme celui-ci peut seulement repérer des signes. Une personne formée peut t’aider avec ce qu’il y a derrière. Ce plan ne remplace pas cette aide.',
         de: 'Nach deinen Antworten ist jetzt ein guter Zeitpunkt für einen Termin in der Hausarztpraxis oder bei einer Beratungsstelle. Ein kurzer Check-in wie dieser kann nur Anzeichen erkennen. Eine Fachperson kann dir bei dem helfen, was dahintersteckt. Dieser Plan ersetzt das nicht.',
         es: 'Por tus respuestas, es un buen momento para buscar atención médica o psicológica. Un chequeo rápido como este solo puede detectar señales. Una persona preparada puede ayudarte con lo que hay detrás. Este plan no reemplaza esa ayuda.',
-        ko: '답을 보면 지금 의사나 상담사를 만나 보면 좋겠어요. 이런 짧은 체크인은 신호를 알아차리는 데까지만 할 수 있어요. 훈련받은 사람은 그 신호 뒤에 있는 것을 함께 다룰 수 있어요. 이 계획이 그 도움을 대신하지는 못해요.',
+        ko: '답을 보면 지금 의사나 상담사를 만나 보는 게 좋겠어요. 이런 짧은 체크인은 신호를 알아차리는 데까지만 할 수 있어요. 훈련받은 사람은 그 신호 뒤에 있는 것을 함께 다룰 수 있어요. 이 계획이 그 도움을 대신하지는 못해요.',
       }),
     });
   }
@@ -1630,7 +1630,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
       fr: 'Discuter avec Hope AI',
       de: 'Mit Hope AI chatten',
       es: 'Chatear con Hope AI',
-      ko: 'Hope AI와 대화하기',
+      ko: 'Hope AI와 이야기하기',
     }),
   });
   if (wantsFaith) {
@@ -1679,7 +1679,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
       fr: 'Un message par e-mail chaque jour pendant 21 jours.',
       de: 'Jeden Tag eine Nachricht per E-Mail, 21 Tage lang.',
       es: 'Un mensaje en tu correo cada día durante 21 días.',
-      ko: '21일 동안 매일 이메일로 메시지가 와요. 메시지는 영어로 되어 있어요.',
+      ko: '21일 동안 매일 이메일로 짧은 글이 와요.',
     }),
     href: '/daily-hope',
     linkLabel: t({

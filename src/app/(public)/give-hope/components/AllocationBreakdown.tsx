@@ -36,7 +36,7 @@ const ALLOCATIONS: { percent: string; label: PerLangNoTl<string> }[] = [
       fr: 'aide plus de personnes en difficulté aux Philippines à nous trouver',
       de: 'hilft mehr Menschen auf den Philippinen, die es schwer haben, uns zu finden',
       es: 'ayuda a que más personas en Filipinas que la están pasando mal nos encuentren',
-      ko: '힘든 시간을 보내는 더 많은 필리핀 사람들이 우리를 찾도록 도와요',
+      ko: '힘든 시간을 보내는 더 많은 필리핀 사람들이 저희를 찾을 수 있게 해요',
     },
   },
   {

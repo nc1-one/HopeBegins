@@ -491,5 +491,5 @@ export const VERSE_ATTRIBUTION = {
   fr: 'Les citations bibliques sont tirées de la Bible Louis Segond (1910), domaine public.',
   de: 'Die Bibelzitate stammen aus der Lutherbibel (1912), gemeinfrei.',
   es: 'Las citas bíblicas son tomadas de la Reina-Valera (1909), de dominio público.',
-  ko: '성경 구절은 퍼블릭 도메인인 개역한글판(1961)에서 인용했어요.',
+  ko: '성경 구절은 저작권 보호 기간이 끝난 개역한글판(1961)에서 인용했어요.',
 };

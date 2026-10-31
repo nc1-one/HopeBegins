@@ -189,7 +189,7 @@ const copy: PerLangNoTl<StoryCopy> = {
     send: '내 이야기 보내기',
     cancel: '취소',
     thanks: '고마워요. 게시하기 전에 먼저 읽어 볼게요.',
-    failed: '이야기가 전송되지 않았어요. 다시 시도해 주세요.',
+    failed: '이야기를 보내지 못했어요. 다시 시도해 주세요.',
     nameTooShort: '이름은 2자 이상이어야 해요',
     storyTooShort: '10자 이상 써 주세요.',
     storyTooLong: (max) => `${max}단어 이하로 써 주세요.`,

@@ -290,7 +290,7 @@ const copy = {
     doneHeading: (name: string) =>
       `${name ? `${name}님, ` : ''}4주를 해냈어요.`,
     doneIntro: '달라진 점과 꾸준히 해 온 것들이에요.',
-    daysTitle: '도구별로 한 날',
+    daysTitle: '도구별로 실천한 날',
     daysOf: (n: number) => `${PLAN_DAYS}일 중 ${n}일`,
     calmerOf: (calmer: number, total: number) =>
       `${total}번 중 ${calmer}번은 하고 나서 더 차분해졌어요`,
@@ -300,7 +300,7 @@ const copy = {
     cardTitle: '희망 카드 만들기',
     cardIntro:
       '다시 힘들어지는 날을 위한 작은 카드예요. 이 휴대폰에만 저장되고, HopeBegins는 볼 수 없어요.',
-    signsLabel: '다시 시작된다는 걸 무엇으로 알 수 있나요?',
+    signsLabel: '다시 힘들어지기 시작할 때 어떤 신호가 보이나요?',
     signsHint:
       '내 경고 신호를 적어 보세요. 잠을 못 자거나, 끼니를 거르거나, 사람들을 피하는 것처럼요.',
     peopleLabel: '연락할 수 있는 두 사람',
@@ -311,7 +311,7 @@ const copy = {
     yourCard: '내 희망 카드',
     cardName: '나의 희망 카드',
     toolHeading: '나의 도구',
-    signsHeading: '다시 시작되면 이런 게 보여요',
+    signsHeading: '다시 힘들어지면 이런 게 보여요',
     reasonsHeading: '계속 나아갈 이유',
     peopleHeading: '연락할 수 있는 사람',
     crisisHeading: '위기 상황이라면',
@@ -321,14 +321,14 @@ const copy = {
     making: '이미지를 만드는 중…',
     download: '이미지 다운로드',
     imageHint:
-      'iPhone에서는 그림을 길게 누른 다음 사진 앱에 저장하세요. 다른 사람이 잠금 화면을 볼 수 있다면, 홈 화면 배경으로 쓰는 게 좋아요.',
+      'iPhone에서는 이미지를 길게 누른 다음 사진 앱에 저장하세요. 다른 사람이 잠금 화면을 볼 수 있다면 홈 화면 배경으로 쓰는 게 좋아요.',
     imageAlt: '휴대폰 배경 화면으로 만든 내 희망 카드',
-    comesBackTitle: '다시 시작된다면',
+    comesBackTitle: '다시 힘들어진다면',
     comesBack: [
       '오늘부터 다시 매일 내 도구를 써요.',
       '정해 둔 두 사람 중 한 명에게 말해요.',
       '체크인을 해요. 2주 동안 점수가 계속 높으면 상담사와 이야기하거나 무료 상담 전화에 연락해요.',
-      '스스로 목숨을 끊을 생각이 든다면, 지금 바로 위기 상담 전화에 연락해요.',
+      '스스로 목숨을 끊을 생각이 든다면 지금 바로 위기 상담 전화에 전화해요.',
     ],
     restart: '이 도구로 4주 다시 시작하기',
     edit: '내 희망 카드 수정하기',

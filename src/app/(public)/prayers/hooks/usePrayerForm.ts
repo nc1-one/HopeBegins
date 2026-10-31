@@ -36,8 +36,8 @@ const messages: PerLang<{ sent: string; failed: string }> = {
     failed: 'Tu petición no se envió. Inténtalo de nuevo.',
   },
   ko: {
-    sent: '기도 요청을 보냈어요. Hope Carrier가 당신을 위해 기도할 거예요.',
-    failed: '요청이 전송되지 않았어요. 다시 시도해 주세요.',
+    sent: '기도 제목을 보냈어요. Hope Carrier가 기도해 줄 거예요.',
+    failed: '기도 제목을 보내지 못했어요. 다시 시도해 주세요.',
   },
 };
 

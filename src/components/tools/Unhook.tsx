@@ -125,16 +125,16 @@ const copy = {
   ko: {
     label: '무거운 생각에서 한 걸음 물러나기',
     pickLabel: '어떤 생각이 나를 붙잡고 있나요? 눌러 보세요.',
-    thoughtLabel: '아니면 몇 단어로 적어 보세요',
+    thoughtLabel: '아니면 짧게 적어 보세요',
     privacy: '여기에 쓴 내용은 어디에도 저장되지 않아요.',
     next: '다음',
-    readTitle: '한 번, 천천히 읽어 보세요:',
+    readTitle: '천천히 한 번 읽어 보세요:',
     // The reader's own inner voice, so plain speech, like the thoughts.
     frame: (thought: string) => `‘${thought}’ 하는 생각이 드는구나.`,
     readHint:
       '생각과 다투거나 그 말대로 하지 않고도, 그 생각을 알아차릴 수 있어요.',
     backLabel:
-      '이제 주의를 다시 데려와요. 무엇을 하고 있었나요? 아니면 다음에 무엇을 할 건가요?',
+      '이제 하던 일로 주의를 돌려 보세요. 무엇을 하고 있었나요? 아니면 다음에 무엇을 할 건가요?',
     finish: '다 했어요',
     stop: '그만하기',
     doneTitle: '생각에 이름을 붙였어요.',

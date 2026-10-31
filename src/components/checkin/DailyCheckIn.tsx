@@ -606,8 +606,8 @@ const copy: PerLang<Copy> = {
       '다음 꽃이 피기',
     ],
     neverWilts:
-      '하루 놓쳤나요? 여기서는 식물이 절대 시들지 않아요. 다시 오는 하루하루가 모두 소중해요.',
-    verseNew: '당신을 위한 말씀',
+      '하루 놓쳤나요? 여기서는 식물이 절대 시들지 않아요. 다시 오는 날은 모두 그대로 쌓여요.',
+    verseNew: '오늘의 말씀',
     versesTitle: (n: number) => `모은 말씀 (${n})`,
     recentTitle: '최근 체크인',
     change: '오늘 답 바꾸기',

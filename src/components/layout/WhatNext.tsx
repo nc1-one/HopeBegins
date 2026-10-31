@@ -69,7 +69,7 @@ const options: Record<
       fr: 'Parler à Hope AI',
       de: 'Mit Hope AI reden',
       es: 'Hablar con Hope AI',
-      ko: 'Hope AI와 대화하기',
+      ko: 'Hope AI와 이야기하기',
     },
     href: '/hope-ai',
   },

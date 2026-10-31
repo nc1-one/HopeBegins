@@ -36,7 +36,7 @@ const copy: PerLang<{ title: string; subtitle: string }> = {
   ko: {
     title: '오늘의 체크인',
     subtitle:
-      '몇 번만 누르면 돼요. 20초 정도 걸려요. 매일 다시 와서 재스민이 자라는 모습을 지켜보세요.',
+      '몇 번만 누르면 20초쯤에 끝나요. 매일 들러서 재스민이 자라는 걸 지켜보세요.',
   },
 };
 
