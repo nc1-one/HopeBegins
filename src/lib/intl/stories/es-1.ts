@@ -1180,8 +1180,7 @@ export const esStories1: Story[] = [
           'Se quedó tres horas. En el colectivo de vuelta a casa notó que el miedo se había achicado. Esa noche todavía repasó algunos momentos incómodos, pero también se acordó de las risas.',
           'En los meses siguientes siguió practicando con cosas pequeñas: pedir en un mostrador, hacer una pregunta en una entrevista, saludar primero. Fue a una psicóloga de su ciudad que la ayudó con ese ensayo interminable. Antes de los días difíciles oraba pensando en Juan 14:27 y pedía paz para la hora siguiente, nada más.',
         ],
-        pullQuote:
-          'El corazón le seguía latiendo fuerte, y aun así entró.',
+        pullQuote: 'El corazón le seguía latiendo fuerte, y aun así entró.',
       },
       {
         kind: 'hope',

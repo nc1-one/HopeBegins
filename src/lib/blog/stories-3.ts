@@ -68,7 +68,7 @@ export const stories3: Story[] = [
           'Ang pagtulong sa pamilya ay pagmamahal. Ang pag-aalaga sa sarili mo, pagmamahal din, para may lakas ka pang tumulong bukas.',
           'Subukan mong magsabi sa isang tao sa bahay, kahit isa lang. Ilista ninyo ang gastos nang magkakasama. Pumili ng isang maliit na "hindi" ngayong linggo, at isang oras ng pahinga para sa sarili mo lang.',
           "Kung higit dalawang linggo ka nang ganito, o nakakaapekto na ito sa trabaho at tulog mo, kausapin ang isang doktor o counselor. Normal na hakbang 'yan, at nakakatulong.",
-          "Kung gusto mo ng masisimulan ngayon, libre ang [HopeBegins](/). Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw. May mga calming tool din, may magdarasal para sa iyo, at may e-coach na puwede mong i-message sa Messenger. Basahin din ang [Pagod na ako](/pagod-na-ako) para sa mga araw na ubos ka na.",
+          'Kung gusto mo ng masisimulan ngayon, libre ang [HopeBegins](/). Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw. May mga calming tool din, may magdarasal para sa iyo, at may e-coach na puwede mong i-message sa Messenger. Basahin din ang [Pagod na ako](/pagod-na-ako) para sa mga araw na ubos ka na.',
         ],
       },
     ],

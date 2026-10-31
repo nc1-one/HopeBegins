@@ -58,7 +58,7 @@ const STORIES: {
         excerpt:
           'Durch dieses Programm habe ich gelernt, meine Gedanken richtig zu prüfen, die Lügen, die ich mir selbst einrede, bewusster zu erkennen und sie durch das zu ersetzen, was wahr ist.',
         content:
-          'Durch dieses Programm habe ich gelernt, meine Gedanken richtig zu prüfen, die Lügen, die ich mir selbst einrede, bewusster zu erkennen und sie durch das zu ersetzen, was wahr ist. Und das Wichtigste: Diesmal geht die Wahrheit über das hinaus, was ich weiß. Sie gründet auf der höchsten Wahrheit, auf dem, was Gottes Wort sagt. Coach Hope hat mich an den Vers Philipper 2,13 erinnert, der jetzt einer meiner Lieblingsverse ist: „Denn Gott ist\'s, der in euch wirkt beides, das Wollen und das Vollbringen, nach seinem Wohlgefallen.“ Das ist eine schöne Erinnerung daran, dass Gott auch in unseren seelischen Kämpfen in uns wirkt. Er schenkt uns beides, den Wunsch, uns zu verändern, und die Kraft dazu, zu Seiner Ehre.',
+          "Durch dieses Programm habe ich gelernt, meine Gedanken richtig zu prüfen, die Lügen, die ich mir selbst einrede, bewusster zu erkennen und sie durch das zu ersetzen, was wahr ist. Und das Wichtigste: Diesmal geht die Wahrheit über das hinaus, was ich weiß. Sie gründet auf der höchsten Wahrheit, auf dem, was Gottes Wort sagt. Coach Hope hat mich an den Vers Philipper 2,13 erinnert, der jetzt einer meiner Lieblingsverse ist: „Denn Gott ist's, der in euch wirkt beides, das Wollen und das Vollbringen, nach seinem Wohlgefallen.“ Das ist eine schöne Erinnerung daran, dass Gott auch in unseren seelischen Kämpfen in uns wirkt. Er schenkt uns beides, den Wunsch, uns zu verändern, und die Kraft dazu, zu Seiner Ehre.",
         role: 'Hat bei HopeBegins mitgemacht',
       },
       es: {

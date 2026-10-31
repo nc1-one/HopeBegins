@@ -105,7 +105,8 @@ const copy = {
     add: 'Agregar',
     listTitle: 'Mis razones',
     remove: (reason: string) => `Quitar “${reason}”`,
-    saved: 'Se guardan solo en este celular. También aparecen en tu tarjeta de esperanza.',
+    saved:
+      'Se guardan solo en este celular. También aparecen en tu tarjeta de esperanza.',
     done: 'Listo',
     close: 'Cerrar',
     doneTitle: 'Tus razones quedaron guardadas.',

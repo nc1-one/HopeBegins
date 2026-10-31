@@ -131,7 +131,7 @@ export const translations3: Story[] = [
           'Para kay Rico, higit pa sa sweldo ang trabaho. Ito ang paraan niya para buhayin ang pamilya, ang sagot niya sa "Ano\'ng trabaho mo?" tuwing may handaan, at ang sukatan niya kung mabuting asawa at ama siya. Nang mawala ito, pakiramdam niya sumama na rin lahat ng iyon.',
           'Dahil sa hiya, nagtago siya. Takot siyang madismaya si Joanne, takot siyang mag-alala ang mga magulang niya, takot siyang ungkatin ito ng bayaw niya sa susunod na birthday. Nakakapagod magtago, at ang tulog niya ang nagbabayad. Gising siya ng alas-tres halos gabi-gabi, nagkukuwenta sa isip.',
           'Mas mabilis tumakbo ang takot kaysa sa totoo. Sa isip niya, ang isang lay-off ay naging ilang buwang walang trabaho, tapos hindi nababayarang hulog, tapos paglipat ng school ng mga bata. Wala pa ni isa roon ang nangyayari. Tuwing alas-tres ng madaling-araw, parang sigurado na lahat.',
-          'Pakiramdam din niya, naligaw siya. Siyam na taong malinaw ang takbo ng araw niya: alarm, biyahe, warehouse, uwi. Ngayon, walang simula\'t katapusan ang mga araw niya, at hindi niya alam kung saan magsisimula.',
+          "Pakiramdam din niya, naligaw siya. Siyam na taong malinaw ang takbo ng araw niya: alarm, biyahe, warehouse, uwi. Ngayon, walang simula't katapusan ang mga araw niya, at hindi niya alam kung saan magsisimula.",
         ],
       },
       {

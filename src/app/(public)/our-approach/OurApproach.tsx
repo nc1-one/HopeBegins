@@ -224,7 +224,10 @@ const STAGES: (Pick<ApproachStep, 'photo' | 'offset'> & {
       en: {
         name: 'The moment you realize',
         text: 'You search "tired of everything" late at night and land on a page with something to do right now.',
-        link: { href: '/tired-of-everything', label: 'See "Tired of everything"' },
+        link: {
+          href: '/tired-of-everything',
+          label: 'See "Tired of everything"',
+        },
       },
       // The same feeling page in each language, once it is written there.
       fr: {

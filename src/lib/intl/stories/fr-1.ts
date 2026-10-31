@@ -686,7 +686,8 @@ export const frStories1: Story[] = [
           '1 Pierre 5:7 est devenu sa prière avant chaque journée. Un par un, il confiait ses soucis à Dieu : la cantine, les médicaments, le séjour à Barcelone. Puis il essayait de les laisser là, même juste quelques heures.',
           'Certaines semaines sont encore dures, et certaines semaines l’argent manque toujours. C’est différent quand quelqu’un d’autre y réfléchit avec toi.',
         ],
-        pullQuote: 'Il a été nerveux toute la journée, et rien ne s’est écroulé.',
+        pullQuote:
+          'Il a été nerveux toute la journée, et rien ne s’est écroulé.',
       },
       {
         kind: 'hope',

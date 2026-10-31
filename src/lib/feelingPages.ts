@@ -1041,8 +1041,7 @@ export const feelingUi = {
     planTitle: '나만의 계획 만들기',
     planText: '질문 9개, 무료예요. 이번 주에 해 볼 작은 걸음을 알려 드려요.',
     prayerTitle: '저희가 기도해 드려도 될까요?',
-    prayerText:
-      '기도 제목을 보내 주세요. Hope Carrier가 기도해 줄 거예요.',
+    prayerText: '기도 제목을 보내 주세요. Hope Carrier가 기도해 줄 거예요.',
     seeAll: '저희가 도울 수 있는 모든 방법 보기',
     allTools: '모든 도구 보기',
     alsoRead: '함께 읽어 보세요:',

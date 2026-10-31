@@ -338,8 +338,7 @@ const ui = {
     deletePlan: 'Burahin ang plano ko sa device na ito',
     deleteConfirm: 'Burahin ang plano at progress mo sa device na ito?',
     weekSection: 'Ang 4 na linggo mo',
-    weekSectionDetail:
-      'Gawin ito halos araw-araw sa susunod na 4 na linggo.',
+    weekSectionDetail: 'Gawin ito halos araw-araw sa susunod na 4 na linggo.',
     todayTitle: 'Ngayong araw',
     doneToday: 'Nagawa ko ngayon',
     didToday: 'Nagawa',
@@ -812,7 +811,8 @@ const ui = {
     lowMood: '가라앉은 기분',
     worry: '걱정',
     scoreNote: '낮을수록 좋아요. 각 점수는 6점 만점이에요.',
-    better: '첫 체크인 이후 점수가 내려갔어요. 지금 도움이 되는 걸 계속 이어 가세요.',
+    better:
+      '첫 체크인 이후 점수가 내려갔어요. 지금 도움이 되는 걸 계속 이어 가세요.',
     same: '첫 체크인과 거의 비슷해요. 처음 몇 주에는 흔한 일이에요. 계속해 보고, 막힌 느낌이 들면 무료 상담 전화로 이야기해 보세요.',
     worse:
       '첫 체크인 이후 점수가 올라갔어요. 이번 주에 꼭 누군가와 이야기해 주세요. 무료 상담 전화, 상담사, 믿을 수 있는 사람 모두 좋아요.',
