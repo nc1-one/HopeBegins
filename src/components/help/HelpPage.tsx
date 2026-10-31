@@ -74,7 +74,7 @@ const copy: PerLang<{
     aiTitle: 'Kausapin si Hope AI',
     aiText:
       'AI assistant na puwede mong i-message anumang oras. Hindi siya makakapag-counsel o makakatulong sa emergency.',
-    prayerTitle: 'Magpaipanalangin',
+    prayerTitle: 'Magpadasal',
     checked: (date) => `Huling sinuri ang mga numero noong ${date}.`,
   },
   fr: {

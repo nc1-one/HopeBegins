@@ -11,8 +11,8 @@ export const translations1: Story[] = [
     metaTitle: 'Paano tumigil sa overthinking sa gabi: kuwento ni Mika',
     metaDescription:
       'Halos isang taon, gabi-gabing nire-replay ni Mika ang bawat usapan. Ano ang nakatulong sa overthinking niya sa gabi, at isang bagay na masusubukan mo.',
-    title: 'Paano natigil ni Mika ang overthinking sa gabi',
-    dek: 'Halos isang taon, pagpatay pa lang ng ilaw, nire-replay na ng isip niya ang bawat usapan. Isa-isang maliit na habit ang nagpabago nito.',
+    title: 'Paano natigil ang overthinking ni Mika sa gabi',
+    dek: 'Halos isang taon, pagpatay pa lang ng ilaw, nire-replay na ng isip niya ang bawat usapan. Paisa-isang maliit na habit ang nakatulong sa kanya.',
     who: 'Mika, 27, IT support sa Cebu',
     photo: {
       src: `${photos}/sleep-dim.jpg`,
@@ -25,12 +25,12 @@ export const translations1: Story[] = [
         heading: 'Ang replay na nagsisimula ng 11:48',
         paragraphs: [
           'Alas-nuwebe natatapos ang shift ni Mika sa isang IT help desk sa Cebu. Pagdating ng alas-onse y medya, nakahiga na siya, patay ang ilaw, nakataob ang phone sa side table. Pagdating ng 11:48, gising na gising siya, nire-replay ang isang call kaninang hapon.',
-          'Medyo masungit sa kanya ang isang client. Naayos naman niya ang problema, sinara ang ticket at nag-move on na, akala niya. Pero sa dilim, bumalik ang call nang salita por salita, tapos lumaki pa. Bastos ba ang dating ko? Magrereklamo kaya sila? Babanggitin ba ito ng team lead ko sa Lunes? Paano kung ito na ang dahilan para tanggalin ako?',
-          'Pagdating ng ala-una ng madaling-araw, tatlong usapan na ang na-rehearse niya na hindi naman mangyayari, at may resignation email na siyang nabuo sa isip. Pagdating ng alas-dos, nag-i-scroll na siya ng job posts. Alas-sais y medya, tumunog ang alarm, at pagod na siya bago pa magsimula ang araw.',
+          'Medyo masungit sa kanya ang isang client. Naayos naman niya ang problema, sinara ang ticket at nag-move on na, akala niya. Pero sa dilim, bumalik ang call, word for word, tapos lumaki pa. Bastos ba ang dating ko? Magrereklamo kaya sila? Babanggitin ba ito ng team lead ko sa Lunes? Paano kung ito na ang dahilan para tanggalin ako?',
+          'Ala-una na ng madaling-araw, nakapag-rehearse na siya ng tatlong usapang hindi naman mangyayari, at may resignation email na siyang nabuo sa isip. Alas-dos, nag-i-scroll na siya ng job posts. Alas-sais y medya, tumunog ang alarm, at pagod na siya bago pa magsimula ang araw.',
           '"Hindi ako makatulog sa kakaisip," sabi niya minsan sa ate niya, pabiro. Tumawa ang ate niya at sinabing lahat naman nag-o-overthink. Tumawa rin si Mika, at ilang buwan bago niya ulit binanggit iyon.',
         ],
         pullQuote:
-          'Pero sa dilim, bumalik ang call nang salita por salita, tapos lumaki pa.',
+          'Pero sa dilim, bumalik ang call, word for word, tapos lumaki pa.',
       },
       {
         kind: 'struggle',
@@ -38,7 +38,7 @@ export const translations1: Story[] = [
         paragraphs: [
           'Sa araw, busy ang isip. May tickets, chats, tao at ingay. Sa gabi, tumatahimik lahat iyon, at ang mga alalahaning naghintay buong araw, sila naman ang nagsasalita.',
           'May pattern ang mga alalahanin ni Mika. Nagsisimula sa maliit na bagay na totoong nangyari, tapos tumatakbo papunta sa pinakamasamang bersyon ng bukas. Bawat "paano kung" ay parang problemang kailangan niyang lutasin agad, ala-una ng madaling-araw, kahit wala namang paraan para lutasin iyon.',
-          'Lalong lumala dahil sa pagod. Kapag kulang ang tulog, mas lumalaki ang maliliit na bagay at mas mahirap bitawan. Kaya habang kumukonti ang tulog niya, lumalakas ang ingay ng isip niya sa sumunod na gabi. At ang pagpilit matulog habang nakahiga lang, lalo lang nagpapahigpit sa ikot.',
+          'Lalong lumala dahil sa pagod. Kapag kulang ang tulog, mas lumalaki ang maliliit na bagay at mas mahirap bitawan. Kaya habang kumukonti ang tulog niya, lumalakas ang ingay ng isip niya sa sumunod na gabi. At habang pinipilit niyang makatulog, lalo lang siyang hindi makatulog.',
           'Nahihiya rin siya. Wala namang malaking problema sa buhay niya. May trabaho siya, may pamilyang nagmamahal sa kanya, at may church na pinupuntahan niya halos tuwing Linggo. Paulit-ulit niyang sinasabi sa sarili na wala siyang dahilan para maramdaman ito, at nadagdag pa iyon sa mga iniisip niya sa gabi.',
         ],
       },
@@ -48,12 +48,12 @@ export const translations1: Story[] = [
           'Ano ang nakatulong kay Mika para tumigil sa overthinking sa gabi',
         paragraphs: [
           'Walang isang gabing biglang naayos ang lahat. Ilang maliliit na pagbabago, ginagawa halos gabi-gabi, ang dahan-dahang nagpahina ng ingay.',
-          'Una, worry list. Alas-otso, bago maghapunan, sampung minutong isinusulat ni Mika ang lahat ng nasa isip niya. Sa tabi ng bawat alalahanin, isinusulat niya ang susunod na maliit na hakbang, kung meron. "Tanungin si team lead tungkol sa client call" ang napunta sa listahan. Iba ang note sa "Paano kung matanggal ako": hindi problema ngayong araw. Kaya pagbalik ng call sa isip niya pagdating ng hatinggabi, nasasabi niya sa sarili, "Nasa listahan na \'yan. Bukas ko na titingnan."',
-          'Pangalawa, bumabangon siya. Kapag parang dalawampung minuto na siyang gising, hindi na niya pinipilit. Pumupunta siya sa kusina, umiinom ng isang basong tubig, at nagbabasa ng boring na libro sa madilim na ilaw hanggang antukin ulit. Napansin niyang kapag nakikipagbuno siya sa isip habang nakahiga, nagiging lugar na ng pag-aalala ang kama mismo.',
+          'Una, worry list. Alas-otso, bago maghapunan, sampung minutong isinusulat ni Mika ang lahat ng nasa isip niya. Sa tabi ng bawat alalahanin, isinusulat niya ang susunod na maliit na hakbang, kung meron. "Tanungin si team lead tungkol sa client call" ang napunta sa listahan. Iba ang isinulat niya sa tabi ng "Paano kung matanggal ako": hindi problema ngayong araw. Kaya pagbalik ng call sa isip niya pagdating ng hatinggabi, nasasabi niya sa sarili, "Nasa listahan na \'yan. Bukas ko na titingnan."',
+          'Pangalawa, bumabangon siya. Kapag parang dalawampung minuto na siyang gising, hindi na niya pinipilit. Pumupunta siya sa kusina, umiinom ng isang basong tubig, at nagbabasa ng boring na libro sa madilim na ilaw hanggang antukin ulit. Napansin niyang kapag matagal siyang nakahiga habang paikot-ikot ang isip, parang naging lugar na ng pag-aalala ang kama mismo.',
           'Pangatlo, ang paghinga niya. Kapag sumisikip ang dibdib niya, humihinga siya papasok nang 4 bilang at palabas nang 6, mga dalawang minuto. Nandoon pa rin ang mga alalahanin pagkatapos. Pero lumiliit sila, sapat para mabitawan.',
-          'Pang-apat ang pinakamahirap. Sa pagkakataong ito, hindi na siya nagbiro. Habang nagkakape sila ng isang kaibigan mula sa small group niya, sinabi niya nang diretso: "Ilang buwan na akong hindi nakakatulog nang maayos. Ayaw tumigil ng isip ko." Walang sagot ang kaibigan niya. Ang sabi lang nito, "Ako rin, actually," tapos, "Ipagdasal natin, at check-in tayo sa isa\'t isa this week." Medyo mas nakatulog si Mika nang gabing iyon, siguro kasi hindi na niya ito binubuhat nang mag-isa.',
+          'Pang-apat ang pinakamahirap. Sa pagkakataong ito, hindi na siya nagbiro. Habang nagkakape sila ng isang kaibigan mula sa small group niya, sinabi niya nang diretso: "Ilang buwan na akong hindi nakakatulog nang maayos. Ayaw tumigil ng isip ko." Walang maipayo ang kaibigan niya. Ang sabi lang nito, "Ako rin, actually," tapos, "Ipagdasal natin, at mag-check in tayo sa isa\'t isa this week." Medyo mas nakatulog si Mika nang gabing iyon, siguro kasi hindi na niya ito binubuhat nang mag-isa.',
           'Nagbago rin ang paraan ng pagdarasal niya. Isa-isa niyang sinasabi sa Diyos ang bawat alalahanin, at iniisip na ipinapatong niya ito sa mesa. Ang Awit 94:19 ang naging bedtime verse niya.',
-          'Nang mahirap pa rin ang mga gabi pagkalipas ng ilang buwan, nag-book siya ng session sa isang counselor sa pamamagitan ng kumpanya nila. Sa pag-uusap nila, nakita niya kung saan nanggagaling ang mga "paano kung," at kung bakit laging sa gabi sila lumalabas.',
+          'Nang mahirap pa rin ang mga gabi pagkalipas ng ilang buwan, nag-book siya ng session sa counselor ng kumpanya nila. Sa pag-uusap nila, nakita niya kung saan nanggagaling ang mga "paano kung," at kung bakit laging sa gabi sila lumalabas.',
         ],
         pullQuote: "Nasa listahan na 'yan. Bukas ko na titingnan.",
       },
@@ -61,10 +61,10 @@ export const translations1: Story[] = [
         kind: 'hope',
         heading: 'Kung ayaw tumigil ng isip mo ngayong gabi',
         paragraphs: [
-          'Baka binabasa mo ito ng ala-una ng madaling-araw. Kung oo, walang mali sa iyo dahil gising ka pa. Sinusubukan ka lang protektahan ng isip mo sa pamamagitan ng paglutas sa lahat nang sabay-sabay. Ang pinakamasamang oras lang ang napili niya.',
+          'Baka binabasa mo ito ng ala-una ng madaling-araw. Kung oo, walang mali sa iyo dahil gising ka pa. Sinusubukan ka lang protektahan ng isip mo. Gusto nitong lutasin ang lahat nang sabay-sabay, sa pinakamasamang oras pa.',
           'Ngayong gabi, subukan ang isang bagay mula sa listahan ni Mika, isa lang muna. Isulat ang mga alalahanin. Bumangon kung ayaw dumating ng antok. Huminga papasok nang 4 at palabas nang 6. Tapos bukas, sabihin sa isang tao kung kumusta ang mga gabi mo.',
           'Kung ilang linggo ka nang halos gabi-gabing pinupuyat ng overthinking, o nadadala na nito pati ang mga araw mo, kausapin ang doktor o counselor. Normal na hakbang iyan, at nakakatulong ito.',
-          'At kung gusto mo ng mauumpisahan ngayon, libre ang [HopeBegins](/). Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw, mga calming tool para sa mga gabing ganito, taong magdarasal para sa iyo, at e-coach na puwede mong i-message. May dalawang minutong breathing exercise sa [Hindi makatulog sa kakaisip](/hindi-makatulog-sa-kakaisip) na puwede mong gawin habang nakahiga.',
+          'At kung gusto mo ng mauumpisahan ngayon, libre ang [HopeBegins](/). Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw. May mga calming tool din para sa mga gabing ganito, may magdarasal para sa iyo, at may e-coach na puwede mong i-message. May dalawang minutong breathing exercise sa [Hindi makatulog sa kakaisip](/hindi-makatulog-sa-kakaisip) na puwede mong gawin habang nakahiga.',
         ],
       },
     ],
@@ -74,7 +74,7 @@ export const translations1: Story[] = [
         'Bago maghapunan, isulat ang lahat ng nasa isip mo. Huwag munang ayusin.',
         'Sa tabi ng bawat alalahanin, isulat ang isang maliit na susunod na hakbang, o "hindi problema ngayong araw".',
         'Isara ang notebook. Kapag bumalik ang alalahanin habang nakahiga ka, sabihin sa sarili na nasa listahan na iyon.',
-        'Gising pa rin pagkalipas ng ilang sandali? Bumangon, uminom ng tubig, at umupo sa madilim na lugar hanggang antukin ka.',
+        'Gising pa rin pagkalipas ng ilang sandali? Bumangon, uminom ng tubig, at umupo sa lugar na mahina ang ilaw hanggang antukin ka.',
       ],
     },
     verse: 'psa-94-19',
@@ -200,7 +200,7 @@ export const translations1: Story[] = [
     metaDescription:
       'Mag-isang sumasakay ng metro si Arnel pauwi at wala siya sa bawat birthday. Paano niya hinarap ang lungkot ng OFW, at isang bagay na masusubukan mo.',
     title: 'Lungkot ng OFW: ang mga gabi ni Arnel sa Dubai',
-    dek: 'Labindalawang oras na shift, bakanteng tren pauwi, at mga video call na laging bitin. Ito ang nakatulong para gumaan ang layo.',
+    dek: 'Labindalawang oras na shift, bakanteng tren pauwi, at mga video call na laging bitin. Ito ang nakatulong para mas makaya niya ang pagiging malayo.',
     who: 'Arnel, 33, warehouse worker sa Dubai',
     photo: {
       src: `${photos}/alone-train.jpg`,
@@ -214,8 +214,8 @@ export const translations1: Story[] = [
         paragraphs: [
           'Alas-siyete ng gabi natatapos ang shift ni Arnel sa isang warehouse sa Dubai. Pagsakay niya ng metro, halos walang tao sa bagon. Umuupo siya sa tabi ng bintana, nag-i-scroll ng mga litrato ng mga anak niya, at pinapanood ang mga ilaw ng siyudad na dumadaan.',
           'Sa Batangas, alas-onse na ng gabi. Kadalasan, gising pa ang asawa niyang si Joan. Tulog na ang mga bata. Ganito ang karamihan ng video call nila: naiilawan ng phone ang mukha ni Joan, mahina ang boses para hindi magising ang mga bata, umuugong ang electric fan sa likod niya.',
-          'Apat na taon na siyang nasa abroad. Sa loob ng panahong iyon, apat na birthday ng anak niyang babae ang hindi niya nadaluhan, pati ang unang araw sa school ng anak niyang lalaki at ang operasyon ng tatay niya. Pinanood niya ang mga birthday party sa video, kumakanta nang isang segundong huli sa lahat dahil sa lag.',
-          '"Okay lang ako dito," sabi niya kay Joan gabi-gabi. Sa dalas niyang sabihin, halos maniwala na rin siya. Tapos matatapos ang call, tatahimik ang kuwarto sa accommodation na kasama ang iba, at nakahiga siya sa itaas ng double deck, nakatitig sa kisame.',
+          'Apat na taon na siyang nasa abroad. Sa loob ng panahong iyon, wala siya sa apat na birthday ng anak niyang babae, sa unang araw sa school ng anak niyang lalaki, at sa operasyon ng tatay niya. Pinanood niya ang mga birthday party sa video, kumakanta nang isang segundong huli sa lahat dahil sa lag.',
+          '"Okay lang ako dito," sabi niya kay Joan gabi-gabi. Sa dalas niyang sabihin, halos maniwala na rin siya. Tapos matatapos ang call, tatahimik ang kuwarto nila sa shared accommodation, at nakahiga siya sa itaas ng double deck, nakatitig sa kisame.',
         ],
         pullQuote:
           'Pinanood niya ang mga birthday party sa video, kumakanta nang isang segundong huli sa lahat dahil sa lag.',
@@ -226,7 +226,7 @@ export const translations1: Story[] = [
         paragraphs: [
           'Mula sa Pilipinas, mukhang ayos ang buhay niya. Nagpapadala siya tuwing sweldo. Nagpo-post siya ng mga litrato sa beach tuwing day off. Siya raw ang successful sa pamilya.',
           'Walang nakakakita sa kabilang bahagi. Iba-iba ang shift ng anim na lalaki sa kuwarto nila, kaya laging may natutulog at walang talagang nag-uusap. Umuwi na ang pinakamalapit niyang kaibigan noong unang taon niya. Pakiramdam niya, bisita siya sa dalawang lugar: trabahador sa Dubai, at boses sa phone sa Batangas.',
-          'Para kay Arnel, ang pagka-homesick ay ang pagkamiss sa mga ordinaryong araw. Ang marinig ang tungkol sa teacher na ayaw ng anak niya. Ang nandoon kapag tumutulo ang bubong. Ang kumain ng sinigang na tama ang lasa. Bawat "okay lang ako" ay lalong nagpapalayo sa kanila, kasi ang alam lang ng pamilya niya ay ang bersyon niyang pinili niyang ipakita.',
+          'Para kay Arnel, ang pagka-homesick ay pagka-miss sa mga ordinaryong araw: ang marinig ang kuwento tungkol sa teacher na ayaw ng anak niya, ang makasama sila kapag tumutulo ang bubong, ang makakain ng sinigang na tama ang lasa. Bawat "okay lang ako" ay lalong nagpapalayo sa kanila, kasi ang kilala lang ng pamilya niya ay ang Arnel na pinili niyang ipakita.',
           'Nakokonsensya rin siya na nalulungkot siya. Nandoon siya para sa pamilya niya. Parang kawalan ng utang na loob ang magreklamo, kaya kinikimkim niya. Tuwing rest day, halos tulog lang siya, at pagkagising niya, nandoon pa rin ang lungkot.',
         ],
       },
@@ -237,9 +237,9 @@ export const translations1: Story[] = [
           'Nagsimula ang pagbabago sa isang tapat na tawag. Isang gabi, nagtanong si Joan, "Kumusta ka talaga?" Masyadong matagal bago siya sumagot, at narinig iyon ni Joan. Kaya sinabi niya: malungkot siya, pagod siya, at hindi niya alam kung ilang taon pa niya itong kaya. Medyo umiyak si Joan. Tapos sinabi niya, "Sana sinabi mo agad. Mag-asawa tayo."',
           'Mula noon, nagbago ang paraan ng pag-uusap nila. May isang mahabang call sila tuwing rest day niya, habang gising ang mga bata. Sa loob ng linggo, nagpapadala sila ng voice message tungkol sa maliliit na bagay: ano ang ulam niya sa lunch, ano ang ginawa ng aso, isang kantang narinig sa radyo. Dahil sa maliliit na message, pakiramdam niya kasama na ulit siya sa mga araw nila.',
           'Naghanap din siya ng mga tao. Inimbitahan siya ng isang katrabahong taga-Pampanga sa isang Filipino fellowship tuwing Biyernes ng umaga, na weekend doon. Muntik na siyang hindi bumangon. Pumunta siya, umupo sa likod, at kumain ng pancit kasama ang mga hindi niya kakilala na agad nakaintindi nang sabihin niyang miss na niya ang ulan. Sa loob ng ilang linggo, may maliit na siyang grupo na sabay nagdarasal at kumakain.',
-          'Binigyan niya ng hugis ang rest day niya. Matulog nang medyo matagal, tumawag sa bahay, maglakad o mag-basketball, tapos fellowship. Dahil may inaabangan siya, parang umiikli ang mahahabang linggo.',
+          'Nilagyan niya ng routine ang rest day niya: matulog nang medyo matagal, tumawag sa bahay, maglakad o mag-basketball, tapos fellowship. Dahil may inaabangan siya, parang umiikli ang mahahabang linggo.',
           'Nagsimula siyang kausapin ang Diyos sa tren pauwi, minsan isang linya lang. Ang Isaias 41:10 ang ginawa niyang wallpaper sa phone, kaya nakikita niya ito tuwing titingnan niya ang oras.',
-          'Nang ilang linggo nang hindi nawawala ang bigat, iminungkahi ng leader ng fellowship nila ang isang counselor na puwede niyang kausapin online. Nakatulong kay Arnel ang makausap ang isang taong trained para makita kung alin ang kaya niyang baguhin at alin ang kailangan na lang niyang iluksa.',
+          'Nang ilang linggo nang hindi nawawala ang bigat, ni-recommend ng leader ng fellowship nila ang isang counselor na puwede niyang makausap online. Nakatulong kay Arnel ang makausap ang isang taong trained para makita kung alin ang kaya niyang baguhin at alin ang kailangan na lang niyang iluksa.',
         ],
         pullQuote: 'Sana sinabi mo agad. Mag-asawa tayo.',
       },
@@ -247,10 +247,10 @@ export const translations1: Story[] = [
         kind: 'hope',
         heading: 'Kung malayo ka sa bahay ngayong gabi',
         paragraphs: [
-          'Kung binabasa mo ito sa double deck, habang naka-break, o sa tren na malayo sa bahay, may dahilan ang sakit na nararamdaman mo. Mahal mo ang mga taong isang eroplano ang layo. Bahagi ng pagmamahal sa kanila ang pagkamiss sa kanila.',
+          'Kung binabasa mo ito sa double deck, habang naka-break, o sa tren na malayo sa bahay, may dahilan ang sakit na nararamdaman mo. Mahal mo ang mga taong ilang oras na flight ang layo. Bahagi ng pagmamahal sa kanila ang pagkamiss sa kanila.',
           'Subukan ang isang bagay ngayong linggo. Sabihin sa isang tao sa bahay kung kumusta ka talaga. Maghanap ng isang Filipino group na malapit sa iyo: fellowship, basketball, church. Magpadala ng voice message tungkol sa isang maliit na bagay.',
           'Kung higit dalawang linggo na ang lungkot, o nahihirapan ka nang matulog, kumain o magtrabaho, kausapin ang doktor o counselor. Marami ang puwedeng kausapin online, at normal na hakbang iyan.',
-          'Kung gusto mo ng mauumpisahan ngayong gabi, libre ang [HopeBegins](/) at magagamit mo kahit nasaan ka. Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw, mga calming tool, taong magdarasal para sa iyo, at e-coach na puwede mong i-message sa Messenger. Basahin din ang [Wala akong kausap](/wala-akong-kausap) para sa ilang bagay na nakakatulong sa mga araw na malungkot.',
+          'Kung gusto mo ng mauumpisahan ngayong gabi, libre ang [HopeBegins](/) at magagamit mo kahit nasaan ka. Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw. May mga calming tool din, may magdarasal para sa iyo, at may e-coach na puwede mong i-message sa Messenger. Basahin din ang [Wala akong kausap](/wala-akong-kausap) para sa ilang bagay na nakakatulong sa mga araw na malungkot.',
         ],
       },
     ],
@@ -292,7 +292,7 @@ export const translations1: Story[] = [
     metaDescription:
       'Bumagsak si Carla sa nursing board exam at hindi niya maharap ang pamilya niya. Ano ang nakatulong para bumangon siya, at ano ang puwede mong gawin ngayon.',
     title: 'Bumagsak sa board exam: paano bumangon ulit si Carla',
-    dek: 'Wala ang pangalan niya sa listahan. Ilang linggo siyang nagtago sa pamilya, sa batchmates at sa phone niya. Ganito niya unti-unting nahanap ulit ang tapak niya.',
+    dek: 'Wala ang pangalan niya sa listahan. Ilang linggo siyang nagtago sa pamilya, sa batchmates at sa phone niya. Ganito siya unti-unting nakabangon.',
     who: 'Carla, 23, nursing graduate sa Iloilo',
     photo: {
       src: '/assets/images/stories/studying-stressed.jpg',
@@ -315,7 +315,7 @@ export const translations1: Story[] = [
         kind: 'struggle',
         heading: 'Bakit ang sakit bumagsak sa board exam',
         paragraphs: [
-          'Para sa maraming Pilipinong graduate, higit pa sa lisensya ang board exam. Dala nito ang perang ginastos ng pamilya, ang pag-asa ng mga kamag-anak, at ang mga planong binuo ng lahat sa paligid ng kinabukasan mo.',
+          'Para sa maraming Pilipinong graduate, higit pa sa lisensya ang board exam. Dala nito ang perang ginastos ng pamilya, ang pag-asa ng mga kamag-anak, at ang mga planong nakasalalay sa kinabukasan mo.',
           'Kaya nang bumagsak si Carla, pakiramdam niya binigo niya ang lahat. Ni-mute niya ang group chat at tumigil siyang mag-post. Kapag may bumibisitang kamag-anak, nasa kuwarto lang siya. Sa church, umuupo siya malapit sa pinto para makaalis bago pa may magtanong.',
           'Ang ingay ng isip niya. Baka hindi talaga ako para maging nurse. Baka sinayang ko lang ang pera nila. Baka pinag-uusapan na ako ng lahat. Gising siya sa gabi, kinukuwenta kung magkano ang nagastos sa review school.',
           'Ramdam din ng katawan niya. Late na siyang gumigising, halos hindi kumakain, at pagod kahit wala namang ginagawa. Lumipas ang mga linggo, at nasa kahon pa rin sa may pinto ang mga review book niya.',
@@ -325,11 +325,11 @@ export const translations1: Story[] = [
         kind: 'helped',
         heading: 'Ano ang ginawa ni Carla pagkatapos bumagsak sa board exam',
         paragraphs: [
-          'Galing sa tatay niya ang unang hakbang. Isang gabi, umupo ito sa paanan ng kama niya at sinabing, "Anak, pinag-aral ka namin kasi mahal ka namin. Mahal ka pa rin namin ngayon." Matagal siyang umiyak. Iyon ang unang beses na hinayaan niya ang sarili.',
+          'Galing sa tatay niya ang unang hakbang. Isang gabi, umupo ito sa paanan ng kama niya at sinabing, "Anak, pinag-aral ka namin kasi mahal ka namin. Mahal ka pa rin namin ngayon." Matagal siyang umiyak. Noon lang niya hinayaang umiyak ang sarili.',
           'Ang pangalawa, sinabi niya ang totoo sa isang kaibigan. Nag-message siya kay Patricia, isang batchmate na bumagsak noong nakaraang taon at pumasa sa pangalawang subok. "Paano mo kinaya?" Tumawag agad si Patricia at isang oras silang nag-usap. Lumiit ang hiya nang may nagsabing, "Napagdaanan ko rin \'yan."',
-          'Tapos tiningnan niya nang tapat ang exam. Sinilip niya ang ratings niya at nakita kung aling subjects ang nagpababa sa kanya. Ang malaki at malabong pagkabigo, naging dalawang mahinang area na puwede niyang pagtrabahuhan.',
-          'Binigyan niya ng panahon ang sarili bago magsimula ulit: dalawang linggong pahinga, tulog, at paglalakad sa tabi ng ilog tuwing hapon. Tapos gumawa siya ng maliit na schedule, tatlong oras na review bawat araw at pahinga tuwing Linggo. Dalawang beses isang linggo silang nag-aaral ni Patricia sa video call.',
-          'Nagdasal ulit siya, tapat na ngayon. May mga gabing ang buong dasal niya ay, "Lord, natatakot akong sumubok ulit." Minsan, sinasamahan siya ng nanay niya at nagdarasal din. Idinikit niya sa mesa niya ang 2 Corinto 4:8-9.',
+          'Tapos tiningnan niya nang tapat ang exam. Sinilip niya ang ratings niya at nakita kung aling subjects ang nagpababa sa kanya. Ang dating parang napakalaking pagkabigo, naging dalawang subject na kailangan lang niyang pag-aralan nang mabuti.',
+          'Binigyan niya ng panahon ang sarili bago magsimula ulit: dalawang linggong pahinga, tulog, at paglalakad sa tabi ng ilog tuwing hapon. Tapos gumawa siya ng maliit na schedule, tatlong oras na review bawat araw at pahinga tuwing Linggo. Dalawang beses sa isang linggo silang nag-aaral ni Patricia sa video call.',
+          'Nagsimula ulit siyang magdasal, at tapat na siya ngayon. May mga gabing ang buong dasal niya ay, "Lord, natatakot akong sumubok ulit." Minsan, sinasamahan siya ng nanay niya at nagdarasal din. Idinikit niya sa mesa niya ang 2 Corinto 4:8-9.',
           'Kumuha ulit si Carla ng exam sa sumunod na schedule, at pumasa siya. Ang pinakatanda niya ay ang gabing nagdesisyon siyang magsimula ulit, bago pa niya alam kung paano ito matatapos.',
         ],
         pullQuote: 'Anak, pinag-aral ka namin kasi mahal ka namin.',
@@ -341,7 +341,7 @@ export const translations1: Story[] = [
           'Kung wala ang pangalan mo sa listahan, bigyan mo ng panahon ang sarili mong maramdaman ito. Normal ang pagkadismaya, hiya at lungkot pagkatapos ng isang bagay na pinaghirapan mo nang husto. Para sa karamihan, humihina ang mga ito habang tumatagal.',
           'Kapag handa ka na, gumawa ng isang maliit na hakbang. Sabihin ang totoo sa isang tao. Tingnan ang ratings mo para makita kung ano ang pagtatrabahuhan. Gumawa ng schedule na may puwang para magpahinga. Marami ang pumapasa sa pangalawa o pangatlong subok.',
           'Kung ilang linggo na at hindi ka pa rin makatulog, makakain o makabangon, o pakiramdam mo wala nang pag-asa, kausapin ang doktor o counselor. Normal na hakbang iyan, at nakakatulong ito.',
-          'At kung gusto mo ng mauumpisahan ngayon, libre ang [HopeBegins](/). Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw, mga calming tool, taong magdarasal para sa iyo, at e-coach na puwede mong i-message sa Messenger. Kung hindi mo alam ang susunod, may ilang maliliit na hakbang sa [Hindi ko alam gagawin ko](/hindi-ko-alam-gagawin-ko-sa-buhay).',
+          'At kung gusto mo ng mauumpisahan ngayon, libre ang [HopeBegins](/). Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw. May mga calming tool din, may magdarasal para sa iyo, at may e-coach na puwede mong i-message sa Messenger. Kung hindi mo alam ang susunod, may ilang maliliit na hakbang sa [Hindi ko alam gagawin ko](/hindi-ko-alam-gagawin-ko-sa-buhay).',
         ],
       },
     ],
@@ -383,7 +383,7 @@ export const translations1: Story[] = [
     metaDescription:
       'Akala ni Rina inaatake siya sa puso sa jeep habang umuulan. Ano ang pakiramdam ng unang panic attack, ang mga sintomas, at ang nakatulong sa kanya.',
     title: 'Ang unang panic attack ni Rina, sa jeep habang umuulan',
-    dek: 'Kumakabog ang dibdib niya, namamanhid ang mga kamay, at sigurado siyang may masamang nangyayari. Binigyan siya ng ER doctor ng pangalan para dito, at doon nagsimulang gumaan.',
+    dek: 'Kumakabog ang dibdib niya, namamanhid ang mga kamay, at sigurado siyang may masamang nangyayari. Sinabi ng ER doctor kung ano iyon, at doon nagsimulang gumaan.',
     who: 'Rina, 26, accountant sa Quezon City',
     photo: {
       src: `${photos}/anxious-jeepney-rain.jpg`,
@@ -395,8 +395,8 @@ export const translations1: Story[] = [
         kind: 'story',
         heading: 'Naipit sa traffic sa Commonwealth',
         paragraphs: [
-          'Umuulan na mula tanghali. Pagdating ng alas-sais, mahabang pila na ng pulang ilaw ang Commonwealth Avenue, at nakaupo si Rina sa likod ng jeep, nakapatong sa kandungan ang laptop bag, iniisip ang audit deadline sa Biyernes.',
-          'Nagsimula sa puso niya. Biglang kumabog, malakas at mabilis, nang walang dahilang makita niya. Tapos sumikip ang dibdib niya. Nangimay at nanlamig ang mga kamay niya. Biglang naging masyadong maliit ang jeep, masyadong malakas ang ulan, masyadong makapal ang hangin para huminga.',
+          'Umuulan na mula tanghali. Pagdating ng alas-sais, puro pulang ilaw na ng mga sasakyan ang Commonwealth Avenue, at nakaupo si Rina sa likod ng jeep, nakapatong sa kandungan ang laptop bag, iniisip ang audit deadline sa Biyernes.',
+          'Nagsimula sa puso niya. Biglang kumabog, malakas at mabilis, nang walang dahilang makita niya. Tapos sumikip ang dibdib niya. Nangimay at nanlamig ang mga kamay niya. Biglang parang sumikip ang jeep, lumakas ang ulan, at parang kulang ang hangin.',
           'Sigurado siyang may masamang nangyayari. Heart attack, naisip niya. Sa edad na 26. Sa gitna ng traffic. Kumapit siya sa hawakan at sinabi sa babaeng katabi niya, "Ate, parang hindi po ako makahinga." Hinawakan ng babae ang braso niya at pinakiusapan ang driver na huminto malapit sa ospital.',
           'Sa emergency room, tiningnan nila ang puso niya, ang blood pressure at ang paghinga niya. Normal lahat. Humila ng upuan ang doktor at sinabing, "Sa tingin ko, panic attack ang nangyari sa iyo."',
         ],
@@ -406,10 +406,10 @@ export const translations1: Story[] = [
         kind: 'struggle',
         heading: 'Mga sintomas ng panic attack na parang mas malala pa',
         paragraphs: [
-          'Sabay na nakahinga nang maluwag at napahiya si Rina. Nakahinga dahil maayos ang puso niya. Napahiya dahil nag-eksena siya dahil sa tinawag ng Tita niya na "nerbiyos lang."',
-          'Walang maliit sa naramdaman niya. Puwedeng magdala ang panic attack ng kumakabog na puso, masikip na dibdib, hirap huminga, panginginig, pagpapawis, pagkahilo, pangingimay ng kamay, at matinding pakiramdam na may masamang mangyayari. Marami ang nag-aakalang heart attack ito sa unang beses.',
+          'Sabay na nakahinga nang maluwag at napahiya si Rina. Nakahinga dahil maayos ang puso niya. Napahiya kasi nag-eksena siya sa bagay na tinawag ng Tita niya na "nerbiyos lang."',
+          'Pero hindi biro ang naramdaman niya. Puwedeng magdala ang panic attack ng kumakabog na puso, masikip na dibdib, hirap huminga, panginginig, pagpapawis, pagkahilo, pangingimay ng kamay, at matinding pakiramdam na may masamang mangyayari. Marami ang nag-aakalang heart attack ito sa unang beses.',
           'Ang pinakamahirap ay ang sumunod. Natakot siya sa susunod na atake. Iniwasan niya ang jeep at nag-Grab kahit hindi naman talaga kaya ng budget niya. Tsine-check niya ang pulso niya habang nasa desk. Bawat kabog sa dibdib, napapaisip siya, "Ito na naman ba?"',
-          'Pagbalik-tanaw niya, ilang buwan nang nabubuo ang mga senyales: audit season, mahahabang gabi, laktaw na kain, maraming kape at halos walang pahinga. Matagal nang naka-alarm mode ang katawan niya.',
+          'Pagbalik-tanaw niya, ilang buwan nang nabubuo ang mga senyales: audit season, puyat, laktaw na kain, sobrang kape, at halos walang pahinga. Matagal nang naka-alarm mode ang katawan niya.',
         ],
       },
       {
@@ -417,10 +417,10 @@ export const translations1: Story[] = [
         heading: 'Ano ang nakatulong kay Rina pagkatapos ng unang panic attack',
         paragraphs: [
           'Dalawang bagay ang sinabi ng ER doctor na pinanghawakan niya. Nakakatakot ang panic attack, at lumilipas ito, kadalasan sa loob ng 5 hanggang 20 minuto. At kung paulit-ulit ang atake, dapat siyang magpatingin sa doktor para sa follow-up. Nag-book siya ng check-up nang linggo ring iyon.',
-          'Ipinaliwanag ng doktor niya ang nangyayari sa katawan kapag nagpa-panic, at iminungkahi ang mabagal na paghinga. Pinraktis ito ni Rina habang kalmado siya, para madali na lang kapag kailangan: papasok sa ilong nang 4 bilang, palabas sa bibig nang 6, sa loob ng dalawang minuto. Ginagawa niya ito tuwing umaga bago pumasok, parang pagsisipilyo.',
-          'Natuto siyang kausapin ang panic kapag dumarating. "Panic attack ito. Ang pangit ng pakiramdam, at lilipas din." Itatapak niya nang buo ang mga paa sa sahig at magbabanggit ng limang bagay na nakikita niya. Nang maulit ito, sa isang meeting, masama pa rin ang pakiramdam. Mas mabilis lang itong natapos.',
+          'Ipinaliwanag ng doktor niya ang nangyayari sa katawan kapag nagpa-panic, at pinasubukan sa kanya ang mabagal na paghinga. Prinactice ito ni Rina habang kalmado siya, para madali na lang kapag kailangan: papasok sa ilong nang 4 bilang, palabas sa bibig nang 6, sa loob ng dalawang minuto. Ginagawa niya ito tuwing umaga bago pumasok, parang pagsisipilyo.',
+          'Natuto siyang kausapin ang panic kapag dumarating. "Panic attack ito. Ang pangit ng pakiramdam, at lilipas din." Itatapak niya nang buo ang mga paa sa sahig at magbabanggit ng limang bagay na nakikita niya. Nang maulit ito, sa isang meeting, masama pa rin ang pakiramdam. Pero mas mabilis itong natapos.',
           'Sumakay ulit siya ng jeep, paunti-unti. Una, maiikling biyahe kasama ang nakababatang kapatid niya. Tapos ang buong biyahe pauwi sa araw na walang ulan. Tapos sa araw na umuulan. Bawat biyaheng natapos nang maayos, mas napapadali ang susunod.',
-          'Kinausap niya ang manager niya tungkol sa dami ng trabaho sa audit, binawasan ang kape sa isang tasa kada araw, at nagsimulang kumain ng lunch nang malayo sa desk. Tuwing Linggo ng gabi, nagdarasal sila ng nanay niya sa phone. Ang Awit 56:3 ang naging talatang ibinubulong niya sa traffic.',
+          'Kinausap niya ang manager niya tungkol sa dami ng trabaho sa audit, binawasan ang kape sa isang tasa kada araw, at nagsimulang kumain ng lunch nang malayo sa desk. Tuwing Linggo ng gabi, nagdarasal sila ng nanay niya sa phone. Ang Awit 56:3 ang naging verse na paulit-ulit niyang sinasabi sa sarili sa traffic.',
           'Nang ilang buwan na at nandoon pa rin ang takot sa susunod na atake, ni-refer siya ng doktor niya sa isang counselor. Nakatulong iyon para maintindihan niya ang pag-aalalang nasa ilalim ng panic, at kung ano ang gagawin dito.',
         ],
         pullQuote:
@@ -430,15 +430,15 @@ export const translations1: Story[] = [
         kind: 'hope',
         heading: 'Kung kakatapos lang ng unang panic attack mo',
         paragraphs: [
-          'Kung kumakabog ang puso mo habang binabasa mo ito, itapak ang mga paa mo sa sahig. Huminga papasok nang 4, palabas nang 6. Tumataas ang panic, umaabot sa rurok, tapos lumilipas. Kaya mong lampasan ito.',
-          'Kung unang beses mong makaramdam ng sakit sa dibdib o hirap huminga, magpatingin sa doktor o pumunta sa ER. Tama ang ginawa ni Rina, at tama rin iyon para sa iyo. Kapag na-rule out na ang ibang dahilan, matutugunan mo ang panic bilang panic.',
+          'Kung kumakabog ang puso mo habang binabasa mo ito, itapak ang mga paa mo sa sahig. Huminga papasok nang 4, palabas nang 6. Lumalakas muna ang panic, tapos humuhupa at lumilipas. Kaya mong lampasan ito.',
+          'Kung unang beses mong makaramdam ng sakit sa dibdib o hirap huminga, magpatingin sa doktor o pumunta sa ER. Tama ang ginawa ni Rina, at tama rin iyon para sa iyo. Kapag na-rule out na ang ibang dahilan, puwede mo nang tutukan ang panic mismo.',
           'Kung paulit-ulit ang panic attack, o nagsisimula ka nang umiwas sa mga lugar dahil dito, kausapin ang doktor o counselor. Nagagamot ang panic attack, at normal na hakbang ang magpatingin.',
-          'Para sa susunod na pagkakataon, may dalawang minutong paghinga, hakbang-hakbang, sa [May panic attack ka ba? Huminga kasama namin](/panic-attack-ano-gagawin). At libre ang [HopeBegins](/): piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw, mga calming tool, taong magdarasal para sa iyo, at e-coach na puwede mong i-message sa Messenger.',
+          'Para sa susunod na pagkakataon, may dalawang minutong paghinga, hakbang-hakbang, sa [May panic attack ka ba? Huminga kasama namin](/panic-attack-ano-gagawin). At libre ang [HopeBegins](/). Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw. May mga calming tool din, may magdarasal para sa iyo, at may e-coach na puwede mong i-message sa Messenger.',
         ],
       },
     ],
     tryThis: {
-      title: 'Ngayon: praktisin ang paghinga bago mo kailanganin',
+      title: 'Ngayon: i-practice ang paghinga bago mo pa kailanganin',
       steps: [
         'Umupo nang nakatapak ang dalawang paa sa sahig.',
         'Huminga papasok sa ilong nang 4 bilang.',
@@ -475,7 +475,7 @@ export const translations1: Story[] = [
     metaDescription:
       'Tuwing umaga, may kape at pandesal ang Lola ni Ella. Nang pumanaw siya, tumahimik ang bahay. Paano hinarap ni Ella ang pagluluksa, at ang nakatulong sa kanya.',
     title: 'Ang umagang wala nang pandesal: pagluluksa kay Lola',
-    dek: "Dalawampu't limang taon, kape ni Lola ang gumigising kay Ella. Pagkatapos ng libing, nanatiling madilim ang kusina. Ganito siya natutong buhatin ang lungkot.",
+    dek: "Dalawampu't limang taon, kape ni Lola ang gumigising kay Ella. Pagkatapos ng libing, nanatiling madilim ang kusina. Ganito siya natutong mabuhay kasama ang lungkot.",
     who: 'Ella, 25, teacher sa Batangas',
     photo: {
       src: `${photos}/morning-pandesal.jpg`,
@@ -497,22 +497,22 @@ export const translations1: Story[] = [
         kind: 'struggle',
         heading: 'Bakit mas mabigat ang lungkot pagkatapos ng libing',
         paragraphs: [
-          'Habang may lamay, laging may gagawin. Pagkatapos ng libing, natigil ang pagkaabala, at lumipat ang pagkawala sa mga ordinaryong sandali. Ang upuang laging inuupuan ni Lola. Ang tsinelas niya sa may pinto. Ang number niya, nasa phone pa rin ni Ella bilang "Lola Ising."',
+          'Habang may lamay, laging may gagawin. Pagkatapos ng libing, wala nang inaasikaso, at sa mga ordinaryong sandali na niya nararamdaman ang pagkawala. Ang upuang laging inuupuan ni Lola. Ang tsinelas niya sa may pinto. Ang number niya, nasa phone pa rin ni Ella bilang "Lola Ising."',
           'Bumalik si Ella sa pagtuturo pagkalipas ng isang linggo. Nakangiti siya sa Grade 4 class niya at umiiyak sa CR ng faculty tuwing lunch. Nasusungitan niya ang nanay niya, tapos nakokonsensya siya. May mga araw na wala siyang maramdaman, at iyon ang mas nakakatakot sa kanya.',
-          'Mabuti naman ang intensyon ng mga tao. "Nasa mabuting lugar na siya." "At least hindi na siya naghihirap." Pinaniniwalaan ni Ella ang dalawang iyon, at hindi pa rin nito napupunan ang bakanteng puwang sa mga umaga niya.',
-          'Pakiramdam din niya, dapat okay na siya ngayon. 84 na si Lola. May ibang nawalan ng magulang, ng anak pa nga. Sino siya para bumigay dahil sa isang lola? Kaya pinaliit niya at tinahimik ang lungkot niya, at nanatili itong mabigat.',
+          'Mabuti naman ang intensyon ng mga tao. "Nasa mabuting lugar na siya." "At least hindi na siya naghihirap." Pinaniniwalaan ni Ella ang dalawang iyon, pero hindi pa rin nito napupunan ang kulang sa mga umaga niya.',
+          'Pakiramdam din niya, dapat okay na siya ngayon. 84 na si Lola. May ibang nawalan ng magulang, ng anak pa nga. Sino siya para bumigay dahil sa isang lola? Kaya kinimkim niya ang lungkot niya, at nanatili itong mabigat.',
         ],
       },
       {
         kind: 'helped',
         heading: 'Paano natutong harapin ni Ella ang pagluluksa',
         paragraphs: [
-          'Ang unang nakatulong ay ang hayaang maging kasinlaki ng totoo ang lungkot. Bumisita ang pastor nila isang gabi at sinabing, "Dalawampu\'t limang taon mo siyang kasama tuwing umaga. Siyempre masakit ito." Umiyak si Ella sa harap ng ibang tao sa unang beses mula noong libing.',
+          'Ang unang nakatulong: hinayaan niyang maramdaman ang lungkot nang buo. Bumisita ang pastor nila isang gabi at sinabing, "Dalawampu\'t limang taon mo siyang kasama tuwing umaga. Siyempre masakit ito." Noon lang ulit umiyak si Ella sa harap ng ibang tao mula noong libing.',
           'Ibinalik niya ang mga umaga sa bagong paraan. Isang Sabado, bumili siya ng pandesal, nagtimpla ng barako sa lumang kettle ni Lola, at umupo sa mesa kasama ang nanay niya. Pinag-usapan nila si Lola: ang mga corny niyang joke, ang pagsesermon niya, ang paghuni niya ng mga hymn habang nagwawalis sa bakuran. Tumawa sila, umiyak, tapos tumawa ulit. Naging Sabado ritual na nila iyon.',
           'Sumulat siya kay Lola sa isang maliit na notebook, ang mga bagay na sasabihin sana niya habang nagkakape sila. "Lola, ang kulit ng Grade 4 ngayong taon." "Lola, miss na kita ngayon." May mga araw na wala siyang naisusulat. Nandoon lang ang notebook kapag kailangan niya.',
-          'Hinayaan din niyang magluksa ang katawan niya. Natutulog siya kapag pagod, naglalakad sa plaza tuwing hapon, at tumanggi muna sa mga extra activity sa school.',
+          'Inalagaan din niya ang katawan niya habang nagluluksa. Natutulog siya kapag pagod, naglalakad sa plaza tuwing hapon, at tumanggi muna sa mga extra activity sa school.',
           'At nagdasal siya nang tapat. May mga gabing galit siya. May mga gabing ang nasasabi lang niya ay, "Lord, miss ko na siya." Naging totoo sa kanya ang Awit 34:18 sa paraang hindi niya naramdaman dati.',
-          'Pagkalipas ng ilang buwan, nandoon pa rin ang lungkot, at iba na ang itsura nito. Dumarating na ito nang paalon-alon. Sa magagandang araw, naiisip niya si Lola at napapangiti. Sa mahihirap na araw, alam niya kung sino ang tatawagan.',
+          'Pagkalipas ng ilang buwan, nandoon pa rin ang lungkot, pero iba na ito. Dumarating na ito nang paalon-alon. Sa magagandang araw, naiisip niya si Lola at napapangiti. Sa mahihirap na araw, alam niya kung sino ang tatawagan.',
         ],
         pullQuote:
           "Dalawampu't limang taon mo siyang kasama tuwing umaga. Siyempre masakit ito.",
@@ -524,7 +524,7 @@ export const translations1: Story[] = [
           'Kung may minamiss ka ngayon, walang schedule para dito. Dumarating ang lungkot nang paalon-alon, madalas sa maliliit na bagay na pinagsaluhan ninyo araw-araw. Bahagi ng pagmamahal sa kanila ang maramdaman ito.',
           'Subukan ang isang maliit na bagay ngayong linggo. Magkuwento sa isang tao tungkol sa nawala sa iyo. Ituloy ang isa sa mga nakasanayan niya: isang recipe, isang kanta, isang tasa ng kape sa umaga. Sumulat sa kanya ng maikling note.',
           'Kung ilang linggo ka nang hirap matulog, kumain, magtrabaho o lampasan ang araw dahil sa lungkot, o pakiramdam mo wala nang pag-asa, kausapin ang doktor o counselor. Normal na hakbang ang humingi ng suporta sa pagluluksa.',
-          'At kung gusto mo ng mauumpisahan ngayon, libre ang [HopeBegins](/). Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw, mga calming tool, taong magdarasal para sa iyo, at e-coach na puwede mong i-message sa Messenger. Para sa mabibigat na araw, may ilang talata at maikling panalangin sa [Bible verse para sa malungkot](/bible-verse-para-sa-malungkot).',
+          'At kung gusto mo ng mauumpisahan ngayon, libre ang [HopeBegins](/). Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw. May mga calming tool din, may magdarasal para sa iyo, at may e-coach na puwede mong i-message sa Messenger. Para sa mabibigat na araw, may ilang Bible verse at maikling dasal sa [Bible verse para sa malungkot](/bible-verse-para-sa-malungkot).',
         ],
       },
     ],

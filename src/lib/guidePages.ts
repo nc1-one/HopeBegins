@@ -167,8 +167,8 @@ export const guides: Guide[] = [
         sayings: [
           'Napansin kong parang malungkot ka nitong mga nakaraang araw. Kumusta ka talaga?',
           'Nandito lang ako. Gusto mo bang mag-usap, o samahan lang kita?',
-          'Dahan-dahan lang. Nakikinig ako.',
-          'May maitutulong ba ako ngayon, gaya ng pagkain o hatid?',
+          'Sige lang, take your time. Nakikinig ako.',
+          'May maitutulong ba ako ngayon? Dalhan kita ng pagkain, o ihatid kita kung may pupuntahan ka?',
           'Makakatulong kaya kung makipag-usap ka sa counselor? Tutulungan kitang maghanap.',
         ],
         paragraphs: [
@@ -179,9 +179,9 @@ export const guides: Guide[] = [
         title: 'Ano ang dapat iwasan',
         list: [
           '"Kulang ka lang sa dasal." Nakakatulong ang dasal, pero sa mga salitang ito, parang sinisisi ang tao sa nararamdaman niya.',
-          '"Think positive" o "Kaya mo yan, ngiti lang." Hindi pinipili ang depression.',
+          '"Think positive" o "Kaya mo \'yan, ngiti lang." Hindi pinipili ang depression.',
           '"Mas malala pa ang iba." Parang sinasabing wala siyang karapatang mahirapan.',
-          'Maraming payo agad. Makinig muna, at magtanong bago magmungkahi.',
+          'Maraming payo agad. Makinig muna, at magtanong bago mag-suggest.',
         ],
       },
       {
@@ -193,7 +193,7 @@ export const guides: Guide[] = [
         ],
       },
       {
-        title: 'Patuloy na kumustahin',
+        title: 'Kumustahin siya ulit',
         paragraphs: [
           'Malaking bagay ang isang message pagkalipas ng ilang araw, gaya ng "Naiisip kita. Kape tayo this week?" Imbitahan pa rin siya kahit tumatanggi siya.',
           'Mabigat din ang pagtulong sa iba. Makipag-usap ka rin sa isang tao: may e-coach na puwedeng makinig sa iyo sa Messenger, nang libre.',
@@ -273,7 +273,7 @@ export const guides: Guide[] = [
             term: 'Burnout',
             words: 'pagkaubos ng lakas dahil sa trabaho',
             meaning:
-              'Bunga ng matagal na stress sa trabaho: laging pagod, nagiging negatibo sa trabaho, at kaunti na lang ang natatapos.',
+              'Galing sa matagal na stress sa trabaho: laging pagod, nagiging negatibo sa trabaho, at kaunti na lang ang natatapos.',
             link: { href: '/burnout-sa-trabaho', label: 'Burnout sa trabaho' },
           },
           {
@@ -431,9 +431,9 @@ export const guides: Guide[] = [
     slug: 'bible-verse-para-sa-anxiety',
     lang: 'tl',
     pair: 'bible-verses-for-anxiety',
-    metaTitle: 'Bible verse para sa anxiety: 8 talata at maikling panalangin',
+    metaTitle: 'Bible verse para sa anxiety: 8 verse at maikling dasal',
     metaDescription:
-      'Mga talata sa Biblia para sa oras na balisa o natatakot ka, may maikling panalangin, at libreng tulong kung hindi nawawala ang pag-aalala. Tagalog at English.',
+      'Mga Bible verse para sa oras na balisa o natatakot ka, may maikling dasal, at libreng tulong kung hindi nawawala ang pag-aalala. Tagalog at English.',
     keywords: [
       'Bible verse para sa anxiety',
       'talata sa Biblia para sa anxiety',
@@ -444,11 +444,11 @@ export const guides: Guide[] = [
     label: 'Bible verse para sa anxiety',
     heading: 'Bible verse para sa anxiety',
     intro:
-      'Kapag hindi mawala ang pag-aalala, ipinapaalala ng mga talatang ito na malapit ang Diyos. Basahin nang dahan-dahan ang isa, tapos huminga nang malalim.',
+      'Kapag hindi mawala ang pag-aalala, basahin ang isa sa mga verse na ito tungkol sa Diyos na malapit sa iyo. Basahin nang mabagal, tapos huminga palabas nang mahaba.',
     photo: 'hope',
     sections: [
       {
-        title: 'Walong talata para sa mga araw na balisa ka',
+        title: 'Walong verse para sa mga araw na balisa ka',
         verses: [
           {
             text: 'Huwag kayong mangabalisa sa anomang bagay; kundi sa lahat ng mga bagay sa pamamagitan ng panalangin at daing na may pagpapasalamat ay ipakilala ninyo ang inyong mga kahilingan sa Dios. At ang kapayapaan ng Dios, na di masayod ng pagiisip, ay magiingat ng inyong mga puso at ng inyong mga pagiisip kay Cristo Jesus.',
@@ -485,27 +485,27 @@ export const guides: Guide[] = [
         ],
       },
       {
-        title: 'Maikling panalangin',
+        title: 'Maikling dasal',
         paragraphs: [
-          'Panginoon, nakikita Mo ang dinadala ko ngayon. Ibinibigay ko sa Iyo ang mga alalahanin ko, isa-isa. Pakalmahin Mo ang puso at isip ko, at tulungan Mo akong gawin ang susunod na maliit na hakbang. Salamat dahil may malasakit Ka sa akin. Amen.',
+          'Panginoon, nakikita Mo ang dinadala ko ngayon. Ibinibigay ko sa Iyo ang mga alalahanin ko, isa-isa. Pakalmahin Mo ang puso at isip ko, at tulungan Mo akong gawin ang susunod na maliit na hakbang. Salamat dahil may malasakit Ka sa akin. Sa pangalan ni Jesus, amen.',
         ],
       },
       {
         title: 'Kung hindi nawawala ang pag-aalala',
         paragraphs: [
-          'Nakakatulong ang dasal at ang Salita ng Diyos, at nakakatulong din ang pakikipag-usap sa isang tao. Kung halos araw-araw kang balisa, subukan ang 2-minute na paghinga, gumawa ng libreng plano, o kausapin ang isang e-coach. Puwede ka ring magpadasal sa aming mga Hope Carrier.',
+          'Nakakatulong ang dasal at ang Salita ng Diyos, at nakakatulong din ang pakikipag-usap sa isang tao. Kung halos araw-araw kang balisa, subukan ang 2 minutong paghinga, gumawa ng libreng plano, o kausapin ang isang e-coach. Puwede ka ring magpadasal sa mga Hope Carrier namin.',
         ],
       },
     ],
     faq: [
       {
         q: 'Ano ang sinasabi ng Biblia tungkol sa anxiety?',
-        a: 'Sa Filipos 4:6-7, sinasabing idulog sa Diyos ang lahat sa panalangin na may pasasalamat, at iingatan ng Kanyang kapayapaan ang ating puso at isip. Sa 1 Pedro 5:7, sinasabing ilagak sa Kanya ang lahat ng alalahanin, dahil may malasakit Siya sa atin.',
+        a: 'Sa Filipos 4:6-7, sinasabing dalhin sa Diyos ang lahat sa dasal, kasama ang pasasalamat, at babantayan ng Kanyang kapayapaan ang puso at isip natin. Sa 1 Pedro 5:7, sinasabing ilagak sa Kanya ang lahat ng alalahanin, dahil may malasakit Siya sa atin.',
       },
     ],
     related: ['paano-mawala-ang-anxiety', 'bible-verse-para-sa-malungkot'],
     attribution:
-      'Ang mga talata ay mula sa Ang Dating Biblia (1905), public domain.',
+      'Galing ang mga verse sa Ang Dating Biblia (1905), public domain.',
   },
   {
     slug: 'bible-verses-when-you-feel-down',
@@ -597,9 +597,9 @@ export const guides: Guide[] = [
     lang: 'tl',
     pair: 'bible-verses-when-you-feel-down',
     metaTitle:
-      'Bible verse para sa malungkot: mga talata para sa mabibigat na araw',
+      'Bible verse para sa malungkot: mga verse para sa mabibigat na araw',
     metaDescription:
-      'Mga talata sa Biblia para sa malungkot, pagod o nawawalan ng pag-asa, may maikling panalangin, at libreng tulong kung hindi gumagaan ang loob mo.',
+      'Mga Bible verse para sa malungkot, pagod o nawawalan ng pag-asa, may maikling dasal, at libreng tulong kung hindi gumagaan ang loob mo.',
     keywords: [
       'Bible verse para sa malungkot',
       'talata sa Biblia para sa malungkot',
@@ -610,11 +610,11 @@ export const guides: Guide[] = [
     label: 'Bible verse para sa malungkot',
     heading: 'Bible verse para sa malungkot',
     intro:
-      'Sa mabibigat na araw, mahirap kahit ang magdasal. Magsimula sa isa sa mga talatang ito. Basahin nang dahan-dahan, kahit ilang ulit.',
+      'Sa mabibigat na araw, mahirap kahit ang magdasal. Magsimula sa isa sa mga verse na ito. Basahin nang mabagal, kahit ilang ulit.',
     photo: 'morning',
     sections: [
       {
-        title: 'Walong talata para sa mabibigat na araw',
+        title: 'Walong verse para sa mabibigat na araw',
         verses: [
           {
             text: 'Ang Panginoon ay malapit sa kanila na may bagbag na puso, at inililigtas ang mga may pagsisising diwa.',
@@ -651,32 +651,32 @@ export const guides: Guide[] = [
         ],
       },
       {
-        title: 'Maikling panalangin',
+        title: 'Maikling dasal',
         paragraphs: [
-          'Panginoon, mabigat ang loob ko ngayon. Malapit Ka sa mga may bagbag na puso, kaya samahan Mo ako ngayon. Bigyan Mo ako ng lakas para sa araw na ito, at ng mga taong makakasama ko. Amen.',
+          'Panginoon, mabigat ang loob ko ngayon. Malapit Ka sa mga may bagbag na puso, kaya samahan Mo ako ngayon. Bigyan Mo ako ng lakas para sa araw na ito, at ng mga taong makakasama ko. Sa pangalan ni Jesus, amen.',
         ],
       },
       {
         title: 'Kung hindi gumagaan ang loob mo',
         safety: true,
         paragraphs: [
-          'Kung halos araw-araw kang malungkot nang dalawang linggo o higit pa, puwedeng depression ito, at nagagamot ito. Kausapin ang doktor o counselor, o magsimula sa isang e-coach. Kung naiisip mong tapusin ang buhay mo, tumawag sa NCMH Crisis Hotline sa 1553, bukas 24/7.',
+          'Kung halos araw-araw kang malungkot nang dalawang linggo o higit pa, puwedeng depression ito, at nagagamot ito. Kausapin ang doktor o counselor, o mag-message muna sa e-coach. Kung naiisip mong tapusin ang buhay mo, tumawag ngayon sa NCMH Crisis Hotline sa 1553, bukas 24/7.',
         ],
       },
     ],
     faq: [
       {
         q: 'Anong Bible verse ang para sa malungkot?',
-        a: 'Sa Awit 34:18, sinasabing malapit ang Panginoon sa mga may bagbag na puso. Sa Awit 42:11, may tapat na tanong sa kaluluwang nanlulumo, at paanyaya na umasa sa Diyos. Marami rin ang kumakapit sa Panaghoy 3:22-23: bago tuwing umaga ang Kanyang mga habag.',
+        a: 'Sa Awit 34:18, sinasabing malapit ang Panginoon sa mga may bagbag na puso. Sa Awit 42:11, tinatanong ng sumulat ang kaluluwa niya kung bakit ito nanlulumo, tapos sinasabi niyang umasa sa Diyos. Marami rin ang kumakapit sa Panaghoy 3:22-23: bago tuwing umaga ang Kanyang mga habag.',
       },
       {
         q: 'Ano ang sinasabi ng Biblia kapag nawawalan ka ng pag-asa?',
-        a: 'Sa Awit 42, kinakausap ng sumulat ang kaluluwa niyang nanglulumo at sinasabi niya, "Umasa ka sa Dios." Sa Panaghoy 3:22-23, bago tuwing umaga ang habag ng Panginoon. Kung ilang linggo ka nang nawawalan ng pag-asa, kausapin ang isang tao, at kung naiisip mong tapusin ang buhay mo, tumawag sa NCMH Crisis Hotline sa 1553.',
+        a: 'Sa Awit 42, kinakausap ng sumulat ang kaluluwa niyang nanlulumo at sinasabi niya, "Umasa ka sa Dios." Sa Panaghoy 3:22-23, bago tuwing umaga ang habag ng Panginoon. Kung ilang linggo ka nang nawawalan ng pag-asa, puwedeng senyales din ito ng depression, kaya kausapin ang isang tao. Kung naiisip mong tapusin ang buhay mo, tumawag sa NCMH Crisis Hotline sa 1553.',
       },
     ],
     related: ['depressed-ako', 'bible-verse-para-sa-anxiety'],
     attribution:
-      'Ang mga talata ay mula sa Ang Dating Biblia (1905), public domain.',
+      'Galing ang mga verse sa Ang Dating Biblia (1905), public domain.',
   },
   {
     slug: 'free-mental-health-help-philippines',

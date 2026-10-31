@@ -181,7 +181,7 @@ const TAGLISH: AboutCopy = {
   ...COPY.en,
   aside: {
     lang: 'tl',
-    text: 'Libre ang HopeBegins para sa sinumang nababalisa, malungkot, pagod o pakiramdam ay mag-isa. Piliin kung ano ang nararamdaman mo, at may isang maliit na bagay kang masusubukan ngayon.',
+    text: 'Libre ang HopeBegins para sa sinumang kinakabahan, malungkot, pagod, o parang mag-isa. Piliin kung ano ang nararamdaman mo, at may isang maliit na bagay kang masusubukan ngayon.',
   },
   feelings: [
     { href: '/pagod-na-ako', label: 'Pagod na ako', lang: 'tl' },

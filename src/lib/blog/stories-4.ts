@@ -287,7 +287,7 @@ export const stories4: Story[] = [
     metaTitle: 'Walang gana sa lahat? Ang kuwento ni Migs',
     metaDescription:
       'Ilang linggong walang gana si Migs sa pagkain, sa laro at sa barkada. Ano ang nakatulong sa kanya, at kailan dapat kumausap ng doktor o counselor.',
-    title: 'Walang gana sa lahat: paano bumalik ang kulay sa mga araw ni Migs',
+    title: 'Walang gana sa lahat: paano unti-unting bumalik ang sigla ni Migs',
     dek: 'Ilang linggo siyang nakahiga lang, walang gana kahit sa mga paborito niya. Ito ang maliliit na hakbang na nakatulong sa kanya.',
     who: 'Migs, 28, freelancer sa Baguio',
     photo: {
@@ -298,7 +298,7 @@ export const stories4: Story[] = [
     parts: [
       {
         kind: 'story',
-        heading: 'Ang mga araw na kulay abo',
+        heading: 'Ang mga araw na nakahiga lang',
         paragraphs: [
           "Freelance video editor si Migs sa Baguio. Dati, siya 'yung unang nagyayaya mag-ukay sa Session Road o mag-late-night games kasama ang barkada online. Noong Agosto, unti-unti siyang nawalan ng gana.",
           'Una, sa pagkain. Isang pandesal sa umaga, kape, tapos wala na hanggang gabi. Sumunod, sa paglalaro. Binubuksan niya ang laptop, tinititigan ang game, tapos isinasara ulit. Kahit ang mga project niya, na dati enjoy na enjoy siya, parang pasan na lang.',
@@ -325,11 +325,11 @@ export const stories4: Story[] = [
         paragraphs: [
           'Ang unang hakbang ay isang text kay Kevin, ang pinakamatagal niyang kaibigan: "Pre, parang may mali sa\'kin. Ilang linggo na akong walang gana sa lahat." Walang sermon si Kevin. Pumunta siya kinabukasan na may dalang lugaw, at umupo lang sila sa terrace habang may hamog pa.',
           'Si Kevin din ang nagsabi, "Pa-check ka kaya, pre? Baka higit pa \'to sa pagod." Nahiya si Migs, pero pumayag siya. Nagpa-appointment siya sa isang doktor. Tinanong siya tungkol sa tulog, sa pagkain, at kung gaano na katagal. Ni-refer siya sa isang psychiatrist, at nagsimula siya ng treatment at counseling.',
-          'Unti-unti ang ginhawa. Pagkalipas ng ilang linggo, napansin niyang mas madali nang bumangon. Bumalik ang lasa ng kape. Natawa siya sa isang meme sa group chat, at nagulat siya sa sarili niya.',
-          'Habang hinihintay niyang umepekto ang treatment, maliliit na bagay ang ginawa niya. Isang lakad bawat umaga, kahit sampung minuto lang, sa daan na may pine trees malapit sa bahay. Isang tunay na pagkain bawat araw, kahit simple. Isang mensahe sa group chat, kahit emoji lang.',
+          'Hindi agad gumaan ang pakiramdam niya. Pagkalipas ng ilang linggo, napansin niyang mas madali nang bumangon. Bumalik ang lasa ng kape. Natawa siya sa isang meme sa group chat, at nagulat siya sa sarili niya.',
+          'Habang hinihintay niyang umepekto ang treatment, maliliit na bagay ang ginawa niya. Isang lakad bawat umaga, kahit sampung minuto lang, sa daan na may pine trees malapit sa bahay. Isang maayos na kain bawat araw, kahit simple. Isang mensahe sa group chat, kahit emoji lang.',
           'Tuwing Sabado, nagme-message si Kevin: "Lakad tayo?" Minsan oo, minsan hindi. Tuloy pa rin ang yaya ni Kevin bawat linggo, at doon naramdaman ni Migs na may naghihintay sa kanya.',
           'Nagdasal din siya, kahit maikli. Minsan ang buong dasal niya ay, "Lord, wala akong gana. Samahan Mo ako." Binasa niya ang Awit 42:11, kung saan kinakausap ng sumulat ang sarili niyang kaluluwa. Doon niya naramdaman na kilala ng Diyos ang ganitong klaseng bigat.',
-          'Nagpaalam din siya sa dalawang kliyente na kailangan niya ng mas mahabang deadline. Pumayag silang pareho, at isa pa sa kanila ang nag-message ulit makalipas ang isang linggo para mangumusta.',
+          'Sinabihan din niya ang dalawang kliyente na kailangan niya ng mas mahabang deadline. Pumayag silang pareho, at isa pa sa kanila ang nag-message ulit makalipas ang isang linggo para mangumusta.',
         ],
         pullQuote: 'Lord, wala akong gana. Samahan Mo ako.',
       },
@@ -338,10 +338,10 @@ export const stories4: Story[] = [
         heading: 'Kung walang gana ka rin sa lahat ngayon',
         paragraphs: [
           "Kung ikaw 'to ngayon, nakahiga, walang gana kahit sa paborito mong pagkain o laro, totoo ang nararamdaman mo kahit wala kang maituro na dahilan. May tulong para dito, at puwede kang magsimula sa maliit.",
-          'Ngayong araw, pumili ng isa: lumabas nang sampung minuto, kumain ng isang tunay na pagkain, o mag-text sa isang tao ng totoong nararamdaman mo. At kung may kaibigan kang tahimik nitong mga nakaraang linggo, i-text mo rin siya. Minsan, isang "Kumusta ka talaga?" ang kailangan para makapagsalita ang isang tao.',
-          'Kung dalawang linggo na o higit pa na ganito, o nahihirapan ka na sa trabaho, sa pag-aaral o sa pag-aalaga sa sarili mo, kumausap ng doktor o counselor. Normal na susunod na hakbang ito, at gumagana ang tulong.',
+          'Ngayong araw, pumili ng isa: lumabas nang sampung minuto, kumain nang maayos kahit isang beses, o mag-text sa isang tao ng totoong nararamdaman mo. At kung may kaibigan kang tahimik nitong mga nakaraang linggo, i-text mo rin siya. Minsan, isang "Kumusta ka talaga?" ang kailangan para makapagsalita ang isang tao.',
+          'Kung dalawang linggo na o higit pa na ganito, o nahihirapan ka na sa trabaho, sa pag-aaral o sa pag-aalaga sa sarili mo, kumausap ng doktor o counselor. Normal na hakbang ito, at nakakatulong ito.',
           'Kung naiisip mong tapusin ang buhay mo, tumawag sa NCMH Crisis Hotline, 24/7: 1553 o 0917 899 8727. Kung nasa panganib ka ngayon, tumawag sa 911.',
-          "Kung gusto mo ng masisimulan ngayon, libre ang [HopeBegins](/). Piliin kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwedeng subukan ngayon, mga calming tool, may magdarasal para sa'yo, at e-coach na puwede mong i-message sa Messenger. Basahin din ang [Depressed ako](/depressed-ako) para sa mga susunod na hakbang.",
+          "Kung gusto mo ng masisimulan ngayon, libre ang [HopeBegins](/). Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw. May mga calming tool din, may magdarasal para sa iyo, at may e-coach na puwede mong i-message sa Messenger. Basahin din ang [Depressed ako](/depressed-ako) para sa mga susunod na hakbang.",
         ],
       },
     ],
@@ -349,7 +349,7 @@ export const stories4: Story[] = [
       title: 'Ngayong araw: tatlong maliit na bagay',
       steps: [
         'Lumabas nang sampung minuto, kahit sa harap lang ng bahay.',
-        'Kumain ng isang tunay na pagkain, kahit simple lang.',
+        'Kumain nang maayos kahit isang beses, kahit simple lang ang ulam.',
         'I-text ang isang kaibigan: "Medyo hirap ako ngayon."',
         'Kung dalawang linggo mo nang nararamdaman ito, magpa-appointment sa doktor o counselor.',
       ],
@@ -363,7 +363,7 @@ export const stories4: Story[] = [
       },
       {
         q: 'Ano ang puwedeng gawin kapag walang gana sa lahat?',
-        a: 'Magsimula sa maliit: isang lakad, isang tunay na pagkain, isang mensahe sa taong pinagkakatiwalaan mo. Kung matagal na, humingi ng tulong sa doktor o counselor.',
+        a: 'Magsimula sa maliit: isang lakad, isang maayos na kain, isang mensahe sa taong pinagkakatiwalaan mo. Kung matagal na, humingi ng tulong sa doktor o counselor.',
       },
     ],
     keywords: [
@@ -502,10 +502,10 @@ export const stories4: Story[] = [
         kind: 'struggle',
         heading: 'Bakit sobrang bigat ng stress sa utang',
         paragraphs: [
-          'Para kay Ramon, may kasamang hiya ang bawat piso ng utang. Padre de pamilya siya, at pakiramdam niya, palpak siya bilang tagapagbigay ng pamilya.',
-          'Dahil itinatago niya, mag-isa niyang pinapasan ang lahat. Hindi siya makatulog. Sumasakit ang batok niya. Mainit ang ulo niya sa mga anak niya. Habang nagmamaneho, paulit-ulit sa isip niya ang mga numero, at minsan muntik na siyang lumampas sa pulang ilaw.',
+          'Para kay Ramon, may kasamang hiya ang bawat piso ng utang. Siya ang haligi ng tahanan, at pakiramdam niya, palpak siya.',
+          'Dahil itinatago niya, mag-isa niyang pinapasan ang lahat. Hindi siya makatulog. Sumasakit ang batok niya. Mainit ang ulo niya sa mga anak niya. Habang nagmamaneho, paulit-ulit sa isip niya ang mga numero, at minsan, muntik na siyang lumusot sa red light.',
           'Ramdam din ito ng katawan niya. Pagod na siya bago pa magsimula ang pasada. Nawawalan siya ng gana kumain, at kapag may pasaherong nagbayad ng buong limandaan, naiisip agad niya kung saang utang ito mapupunta.',
-          'Ang pag-utang para pambayad sa ibang utang ay parang paghukay ng bagong butas para matakpan ang luma. Lalong lumalalim. At bawat bagong utang, may kasamang bagong takot.',
+          'Ang pag-utang para ipambayad sa ibang utang, parang paghuhukay ng bagong butas para tabunan ang luma. Lalong lumalalim. At bawat bagong utang, may kasamang bagong takot.',
           'Ang pinakamabigat, pakiramdam niya wala siyang malalapitan. "Problema ko \'to," sabi niya sa sarili. "Ako ang may kasalanan, ako ang aayos."',
         ],
       },
@@ -514,13 +514,13 @@ export const stories4: Story[] = [
         heading: 'Paano hinarap ni Ramon ang stress sa utang',
         paragraphs: [
           'Isang gabi, nabasa ni Lorna ang isang text sa cellphone niya. Wala na siyang maitago. Umupo sila sa kusina pagkatulog ng mga bata, at inamin ni Ramon ang lahat. Inasahan niyang magagalit si Lorna. Nagalit nga, nang kaunti. Pagkatapos, hinawakan nito ang kamay niya: "Bakit mo pinasan nang mag-isa? Mag-asawa tayo."',
-          'Kinabukasan, kumuha sila ng kuwaderno. Inilista nila ang bawat utang: kanino, magkano, kailan ang due date, at magkano ang patong. Nakakatakot tingnan. Sa unang pagkakataon, nakita nila ang buong larawan, at may hangganan pala ito.',
+          'Kinabukasan, kumuha sila ng kuwaderno. Inilista nila ang bawat utang: kanino, magkano, kailan ang due date, at magkano ang patong. Nakakatakot tingnan. Pero noon lang nila nakita nang buo ang utang nila, at may katapusan pala ito.',
           'Tiningnan din nila kung alin ang may pinakamataas na patong at alin ang pinakamadalas tumawag. Doon nila sinimulan ang pakikipag-usap. Hindi kakayanin ang lahat nang sabay, kaya pinag-usapan nila kung alin ang uunahin bawat linggo.',
-          'Isa-isa nilang kinausap ang mga pinagkakautangan. Tinawagan ni Ramon ang kumpare niya at humingi ng mas mahabang palugit. Nakipag-usap sila sa iba para sa payment plan na kaya ng kita niya. May mga tumanggi, at karamihan ay pumayag. Nagdesisyon din silang mag-asawa: wala nang bagong utang para pambayad sa lumang utang.',
-          'May isang app na patuloy na nagte-text nang may pananakot. Tinigilan na ni Ramon ang pagsagot sa mga tawag na nambabastos. Nagbabayad siya ayon sa napag-usapan, at sabay na nilang binabasa ni Lorna ang mga text, para walang nag-iisa sa takot.',
+          'Isa-isa nilang kinausap ang mga pinagkakautangan. Tinawagan ni Ramon ang kumpare niya at humingi ng mas mahabang palugit. Nakipag-usap sila sa iba para sa payment plan na kaya ng kita niya. May mga tumanggi, pero karamihan pumayag. Nagdesisyon din silang mag-asawa: wala nang bagong utang para pambayad sa lumang utang.',
+          'May isang app na panay ang text na may kasamang pananakot. Tinigilan na ni Ramon ang pagsagot sa mga tawag na nambabastos. Nagbabayad siya ayon sa napag-usapan, at sabay na nilang binabasa ni Lorna ang mga text, para walang nag-iisa sa takot.',
           'Binago rin nila ang gastos sa bahay. Baon na lang imbes na kain sa labas, at isang lumang lata ng biskwit para sa ipon, kahit bente pesos lang kada araw.',
-          'Sinabi rin ni Ramon sa mga kasamahan niyang driver sa terminal. Akala niya pagtatawanan siya. Dalawa sa kanila ang umamin na may utang din sila sa mga app. Mula noon, nagkakamustahan sila habang naghihintay ng pasahero.',
-          'At nagdasal siya, sa loob ng jeep, bago pumasada. Ang 1 Pedro 5:7 ang naging panalangin niya: inilalagak niya sa Diyos ang kabalisahan niya, bawat umaga. May utang pa rin sila ngayon, at mas magaan na ang dala ni Ramon. Natutulog na siya nang diretso, at hindi na siya napapatalon sa bawat vibrate.',
+          'Sinabi rin ni Ramon sa mga kasamahan niyang driver sa terminal. Akala niya pagtatawanan siya. Dalawa sa kanila ang umamin na may utang din sila sa mga app. Mula noon, nagkukumustahan sila habang naghihintay ng pasahero.',
+          'At nagdasal siya, sa loob ng jeep, bago pumasada. Ang 1 Pedro 5:7 ang naging dasal niya: inilalagak niya sa Diyos ang kabalisahan niya, bawat umaga. May utang pa rin sila ngayon, pero mas magaan na ang dala ni Ramon. Natutulog na siya nang diretso, at hindi na siya napapatalon sa bawat vibrate.',
         ],
         pullQuote: 'Bakit mo pinasan nang mag-isa? Mag-asawa tayo.',
       },
@@ -531,7 +531,7 @@ export const stories4: Story[] = [
           "Kung binabasa mo 'to habang may mga text na hindi mo mabuksan, huminga ka muna. Maraming Pilipino ang may utang, at may paraan para harapin ito nang paisa-isang hakbang.",
           'Ngayong araw, sabihin sa isang taong pinagkakatiwalaan mo. Tapos ilista ang lahat ng utang mo sa isang papel. Mas madaling harapin ang problemang nakikita mo nang buo. Kung may asawa ka o kasama sa bahay, isama mo sila. Mas magaan ang pasan kapag dalawa o tatlo kayong may hawak.',
           'Kung ilang linggo ka nang hindi makatulog, lagi kang kinakabahan, o pakiramdam mo wala nang pag-asa, kumausap ng doktor o counselor. Normal na hakbang ito, at makakatulong ito para mas malinaw kang makapag-isip.',
-          "Kung gusto mo ng masisimulan ngayon, libre ang [HopeBegins](/). Piliin kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwedeng subukan ngayon, mga calming tool para sa kaba, may magdarasal para sa'yo, at e-coach na puwede mong i-message sa Messenger. Kung kinakabahan ka ngayon mismo, subukan ang [Paano mawala ang anxiety](/paano-mawala-ang-anxiety).",
+          "Kung gusto mo ng masisimulan ngayon, libre ang [HopeBegins](/). Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw. May mga calming tool din para sa kaba, may magdarasal para sa iyo, at may e-coach na puwede mong i-message sa Messenger. Kung kinakabahan ka ngayon mismo, subukan ang [Paano mawala ang anxiety](/paano-mawala-ang-anxiety).",
         ],
       },
     ],

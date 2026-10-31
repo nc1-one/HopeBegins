@@ -36,7 +36,7 @@ const copy: PerLang<{
     or: 'o',
     danger: (n) => `Kung nasa panganib ka ngayon, tumawag sa ${n}.`,
     call: (n) => `Tumawag sa ${n}`,
-    nowhere: 'Maghanap ng libreng crisis line kung nasaan ka:',
+    nowhere: 'Maghanap ng libreng crisis hotline kung nasaan ka:',
     nowhereDanger:
       'Kung nasa panganib ka ngayon, tumawag sa emergency number ng lugar mo.',
   },

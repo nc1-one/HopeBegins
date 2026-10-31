@@ -89,16 +89,16 @@ const copy = {
     rateAgain: 'Ngayon, gaano katotoo ang una mong iniisip?',
     lighterTitle: 'Gumaan.',
     lighterText: (from: string, to: string) =>
-      `Mula "${from}" naging "${to}". Puwedeng bumalik ang isip na iyon. Kapag bumalik, alam mo na kung paano ito suriin.`,
+      `Mula "${from}" naging "${to}". Puwedeng bumalik ang iniisip na iyon. Kapag bumalik, alam mo na kung paano ito suriin.`,
     sameTitle: 'Ganoon pa rin.',
     sameText:
-      'Nangyayari iyan sa mga isip na matagal mo nang dala. Mas dumadali ito habang sinasanay. Subukan ulit bukas.',
+      'Nangyayari iyan sa mga iniisip na matagal mo nang dala. Mas dumadali ang pagsuri habang sinasanay. Subukan ulit bukas.',
     heavierTitle: 'Mas mabigat ito ngayon.',
     heavierText:
-      'Salamat sa pagiging tapat. May mga isip na sobrang bigat para suriin nang mag-isa. Kausapin ang isang tao tungkol dito.',
-    keep: 'Ang mas mabait mong isip:',
+      'Salamat sa pagiging tapat. May mga iniisip na sobrang bigat para suriin nang mag-isa. Kausapin ang isang tao tungkol dito.',
+    keep: 'Ang mas magaan mong pagtingin:',
     ecoach: 'Kausapin ang e-coach',
-    nextTime: 'paulit-ulit na bumabalik ang isang mabigat na isip',
+    nextTime: 'paulit-ulit na bumabalik ang isang mabigat na iniisip',
   },
   fr: {
     label: 'Vérifier une pensée',

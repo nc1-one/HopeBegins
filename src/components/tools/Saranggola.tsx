@@ -36,8 +36,8 @@ const copy = {
   },
   tl: {
     label: 'Larong saranggola',
-    how: 'I-hold para tumaas ang saranggola. Bitawan para dumausdos. Hulihin ang mga bituin.',
-    tip: 'Subukang mag-inhale habang tumataas at mag-exhale habang bumababa.',
+    how: 'Pindutin nang matagal para tumaas ang saranggola. Bitawan para dumausdos. Hulihin ang mga bituin.',
+    tip: 'Subukang huminga papasok habang tumataas ito, at palabas habang bumababa.',
     start: 'Paliparin ang saranggola',
     resume: 'Ituloy ang lipad',
     pause: 'I-pause',

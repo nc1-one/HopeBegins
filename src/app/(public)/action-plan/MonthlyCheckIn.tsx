@@ -76,7 +76,7 @@ const copy = {
     previous: 'Bumalik',
     warningPrompt:
       'Napansin mo ba ang mga warning sign mo sa nakaraang 2 linggo?',
-    yourSigns: 'Ang sa iyo:',
+    yourSigns: 'Mga warning sign mo:',
     warningOptions: { no: 'Hindi', little: 'Kaunti', often: 'Oo, madalas' },
     scores: (mood: number, worry: number) =>
       `Mababang mood ${mood} sa 6 · Pag-aalala ${worry} sa 6`,
@@ -96,8 +96,8 @@ const copy = {
         text: 'Nalampasan mo na ito dati, at alam mo kung ano ang nakatulong. Magsimula ulit ng 4 na linggo gamit ang tool mo, sabihan ang isa sa mga tao mo, at kumausap ng e-coach ngayong linggo. Kung mataas pa rin ang scores mo, magpatingin sa counselor.',
       },
       safety: {
-        title: 'Kumausap ng isang tao ngayon.',
-        text: 'Sinabi mong naiisip mong tapusin ang buhay mo o saktan ang sarili mo. Tumawag ngayon sa isang crisis line. Libre ito at may sumasagot araw at gabi.',
+        title: 'Kumausap ka ng isang tao ngayon.',
+        text: 'Sinabi mong naiisip mong tapusin ang buhay mo o saktan ang sarili mo. Tumawag ngayon sa isang crisis hotline. Libre ito at may sumasagot araw at gabi.',
       },
     },
     ecoach: 'Kausapin ang e-coach',

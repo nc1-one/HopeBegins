@@ -56,7 +56,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     text: {
       en: 'Breathe in for 4 and out for 6, following a circle.',
-      tl: 'Inhale nang 4, exhale nang 6, habang sinusundan ang bilog.',
+      tl: 'Huminga papasok nang 4 na bilang at palabas nang 6, habang sinusundan ang bilog.',
       fr: 'Inspire pendant 4 secondes et expire pendant 6, en suivant un cercle.',
       de: 'Atme 4 Sekunden lang ein und 6 Sekunden lang aus und folge dabei einem Kreis.',
       es: 'Inhala durante 4 segundos y exhala durante 6, siguiendo un círculo.',
@@ -64,7 +64,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     why: {
       en: 'A longer breath out slows your heart and helps your body settle.',
-      tl: 'Kapag mas mahaba ang exhale, bumabagal ang tibok ng puso at kumakalma ang katawan.',
+      tl: 'Kapag mas mahaba ang hinga palabas, bumabagal ang tibok ng puso at kumakalma ang katawan.',
       fr: 'Une expiration plus longue ralentit ton cœur et aide ton corps à s’apaiser.',
       de: 'Längeres Ausatmen verlangsamt deinen Herzschlag und hilft deinem Körper, zur Ruhe zu kommen.',
       es: 'Exhalar por más tiempo hace que tu corazón lata más despacio y ayuda a tu cuerpo a calmarse.',
@@ -132,7 +132,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     why: {
       en: 'Keeping a few cards in mind leaves less room for the thoughts going round.',
-      tl: 'Kapag may ilang card kang tinatandaan, nababawasan ang puwang ng paulit-ulit na isip.',
+      tl: 'Kapag may ilang card kang tinatandaan, nababawasan ang puwang para sa paulit-ulit na iniisip.',
       fr: 'Garder quelques cartes en tête laisse moins de place aux pensées qui tournent en boucle.',
       de: 'Wenn du dir ein paar Karten merkst, bleibt weniger Platz für die Gedanken, die sich im Kreis drehen.',
       es: 'Recordar algunas cartas deja menos espacio a los pensamientos que dan vueltas.',
@@ -158,7 +158,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     text: {
       en: 'Fly a kite from morning to sunset and catch the stars. Hold to lift, let go to glide.',
-      tl: 'Paliparin ang saranggola mula umaga hanggang paglubog ng araw at hulihin ang mga bituin. I-hold para tumaas, bitawan para dumausdos.',
+      tl: 'Paliparin ang saranggola mula umaga hanggang paglubog ng araw at hulihin ang mga bituin. Pindutin nang matagal para tumaas, bitawan para dumausdos.',
       fr: 'Fais voler un cerf-volant du matin au coucher du soleil et attrape les étoiles. Maintiens le doigt appuyé pour monter, relâche pour planer.',
       de: 'Lass einen Drachen vom Morgen bis zum Sonnenuntergang steigen und fang die Sterne. Halte gedrückt, damit er steigt, lass los, damit er gleitet.',
       es: 'Vuela una cometa desde la mañana hasta el atardecer y atrapa las estrellas. Mantén presionado para subir y suelta para planear.',
@@ -192,7 +192,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     text: {
       en: 'Tap the thought that sounds like yours, spot the thinking trap, then pick a kinder, truer way to see it.',
-      tl: 'I-tap ang isip na kahawig ng sa iyo, kilalanin ang thinking trap, tapos pumili ng mas mabait at mas totoong pagtingin.',
+      tl: 'I-tap ang iniisip na kahawig ng sa iyo, kilalanin ang thinking trap, tapos pumili ng mas magaan at mas totoong pagtingin.',
       fr: 'Touche la pensée qui ressemble à la tienne, repère le piège de pensée, puis choisis une façon plus douce et plus juste de voir les choses.',
       de: 'Tippe auf den Gedanken, der wie deiner klingt, erkenne die Denkfalle und wähle dann eine freundlichere, ehrlichere Sicht darauf.',
       es: 'Toca el pensamiento que se parece al tuyo, descubre la trampa de pensamiento y elige una forma más amable y más real de verlo.',
@@ -200,7 +200,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     why: {
       en: 'Heavy thoughts feel like facts. Checking one, the way CBT counselors teach, often makes it lighter. Nothing you pick is saved.',
-      tl: 'Parang totoo ang mabibigat na isip. Kapag sinuri mo ito, gaya ng itinuturo sa CBT, madalas itong gumagaan. Walang naka-save sa pipiliin mo.',
+      tl: 'Parang totoo ang mabibigat na iniisip. Kapag sinuri mo ang isa, gaya ng itinuturo ng mga CBT counselor, madalas itong gumagaan. Walang naka-save sa pipiliin mo.',
       fr: 'Les pensées lourdes ont l’air de faits. En vérifier une, comme on l’apprend en TCC, la rend souvent plus légère. Rien de ce que tu choisis n’est enregistré.',
       de: 'Schwere Gedanken fühlen sich wie Tatsachen an. Einen davon zu prüfen, wie man es in der kognitiven Verhaltenstherapie lernt, macht ihn oft leichter. Nichts, was du auswählst, wird gespeichert.',
       es: 'Los pensamientos pesados se sienten como hechos. Revisar uno, como se enseña en la terapia cognitivo-conductual, muchas veces lo aligera. Nada de lo que eliges se guarda.',
@@ -218,7 +218,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     title: {
       en: 'Step back from a heavy thought',
-      tl: 'Lumayo nang kaunti sa mabigat na isip',
+      tl: 'Lumayo nang kaunti sa mabigat na iniisip',
       fr: 'Prendre du recul face à une pensée lourde',
       de: 'Von einem schweren Gedanken Abstand nehmen',
       es: 'Tomar distancia de un pensamiento pesado',
@@ -226,7 +226,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     text: {
       en: 'Tap the thought that has hold of you, read it back in a new way, then return to what you were doing.',
-      tl: 'I-tap ang isip na kumakapit sa iyo, basahin ito sa bagong paraan, tapos bumalik sa ginagawa mo.',
+      tl: 'I-tap ang iniisip na kumakapit sa iyo, basahin ito sa bagong paraan, tapos bumalik sa ginagawa mo.',
       fr: 'Touche la pensée qui a prise sur toi, relis-la d’une nouvelle façon, puis reviens à ce que tu faisais.',
       de: 'Tippe auf den Gedanken, der dich festhält, lies ihn auf eine neue Art und kehr dann zu dem zurück, was du gerade gemacht hast.',
       es: 'Toca el pensamiento que no te suelta, reléelo de una forma nueva y vuelve a lo que estabas haciendo.',
@@ -234,7 +234,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     why: {
       en: 'Noticing a thought as a thought puts a little space between you and it. Nothing you pick or type is saved.',
-      tl: 'Kapag napansin mong isip lang ito, nagkakaroon ng kaunting distansya. Walang naka-save sa pinili o itina-type mo.',
+      tl: 'Kapag napansin mong naiisip mo lang ito, nagkakaroon ng kaunting distansya sa pagitan mo at nito. Walang naka-save sa pinili o itina-type mo.',
       fr: 'Voir une pensée comme une simple pensée met un peu de distance entre elle et toi. Rien de ce que tu choisis ou écris n’est enregistré.',
       de: 'Einen Gedanken als Gedanken zu bemerken, schafft ein wenig Abstand zwischen dir und ihm. Nichts, was du auswählst oder schreibst, wird gespeichert.',
       es: 'Darte cuenta de que un pensamiento es solo un pensamiento pone un poco de distancia entre tú y él. Nada de lo que eliges o escribes se guarda.',
@@ -294,7 +294,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     text: {
       en: "Tap or write what's keeping you up, then set it aside until morning.",
-      tl: 'I-tap o isulat kung bakit gising ka pa, tapos itabi muna hanggang umaga.',
+      tl: 'I-tap o isulat ang nagpapapuyat sa iyo, tapos itabi muna hanggang umaga.',
       fr: 'Touche ou écris ce qui t’empêche de dormir, puis mets-le de côté jusqu’au matin.',
       de: 'Tippe an oder schreib auf, was dich wach hält, und leg es dann bis zum Morgen beiseite.',
       es: 'Toca o escribe lo que no te deja dormir y déjalo a un lado hasta la mañana.',
@@ -336,7 +336,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     },
     why: {
       en: 'When you feel low, the energy often comes after you start, rarely before.',
-      tl: 'Kapag malungkot ka, kadalasang dumarating ang gana pagkatapos mong magsimula, bihira bago.',
+      tl: 'Kapag malungkot ka, kadalasang sumusunod ang gana kapag nakapagsimula ka na. Bihira itong mauna.',
       fr: 'Quand le moral est bas, l’envie vient souvent après avoir commencé, rarement avant.',
       de: 'Wenn du niedergeschlagen bist, kommt der Antrieb oft erst, wenn du angefangen hast, selten vorher.',
       es: 'Cuando estás sin ánimo, las ganas suelen llegar después de empezar, casi nunca antes.',
@@ -543,7 +543,7 @@ const GROUPS: {
     id: 'alone',
     label: {
       en: 'Feel alone',
-      tl: 'Parang mag-isa',
+      tl: 'Parang mag-isa ako',
       fr: 'La solitude pèse',
       de: 'Fühle mich allein',
       es: 'Siento soledad',
@@ -777,7 +777,7 @@ const copy = {
   tl: {
     title: 'Mga tool para sa mabibigat na sandali',
     subtitle:
-      'Ilang tap at ilang minuto lang ang karamihan. Walang umaalis sa phone mo sa mga pipiliin mo.',
+      'Ilang tap at ilang minuto lang ang karamihan. Hindi umaalis sa phone mo ang anumang pipiliin mo.',
     pick: 'Ano ang nangyayari?',
     needsPlan:
       'Naka-save ang mga dahilan mo kasama ng plano mo sa phone na ito.',

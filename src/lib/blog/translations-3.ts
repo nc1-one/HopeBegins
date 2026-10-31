@@ -27,7 +27,7 @@ export const translations3: Story[] = [
           'Martes noon, lampas hatinggabi, nang makita ni Trish ang pangatlong engagement post ngayong linggo. Blockmate niya noong college, may singsing, sa isang beach sa El Nido, dalawandaang comments. Nag-type si Trish ng "Congrats!!" na may tatlong heart, tapos humiga siya sa kuwarto niya sa Pasig na parang may mabigat na bumagsak sa dibdib niya.',
           'Tuloy ang scroll. Na-promote bilang manager ang dati niyang officemate. Nasa Seoul na ang pinsan niya. Nagbukas ng milk tea shop ang kaklase niya noong high school. Magandang balita ang bawat post para sa mga taong gusto niya, at bawat isa, parang maliit na hatol sa kanya: naiiwan ka na.',
           '26 na si Trish, marketing associate na may stable na trabaho, maliit na kuwartong siya mismo ang nagbabayad, at pamilya sa Batangas na proud sa kanya. Wala ni isa roon ang lumalabas sa feed tuwing hatinggabi. Ang lumalabas, ang pinakamagandang araw ng ibang tao.',
-          'Pagsapit ng ala-una ng madaling-araw, binuksan niya ang sarili niyang profile at tiningnan ito na parang estranghero. Huling post: walong buwan na ang nakalipas, isang plato ng pancit. Isinara niya ang app, binuksan ulit, at nagpatuloy hanggang humapdi ang mga mata niya.',
+          'Pagsapit ng ala-una ng madaling-araw, binuksan niya ang sarili niyang profile at tiningnan ito na parang ibang tao ang tumitingin. Huling post: walong buwan na ang nakalipas, isang plato ng pancit. Isinara niya ang app, binuksan ulit, at nagpatuloy hanggang humapdi ang mga mata niya.',
         ],
         pullQuote: 'Ang lumalabas, ang pinakamagandang araw ng ibang tao.',
       },
@@ -45,11 +45,11 @@ export const translations3: Story[] = [
         kind: 'helped',
         heading: 'Ano ang nakatulong kay Trish para tumigil sa pagkukumpara',
         paragraphs: [
-          'Maliit at medyo nakakahiya ang unang pagbabago. Inilipat niya ang mga app mula sa home screen papunta sa isang folder sa huling page, at sa kusina na niya chine-charge ang phone. Hinukay niya ang lumang alarm clock para wala nang dahilan na nasa kama ang phone. Nang wala na ito sa tabi niya, halos tumigil na ang midnight scroll.',
+          'Maliit at medyo nakakahiya ang unang pagbabago. Inilipat niya ang mga app mula sa home screen papunta sa isang folder sa huling page, at sa kusina na niya chine-charge ang phone. Hinanap niya ang luma niyang alarm clock para wala nang dahilan na nasa kama ang phone. Nang wala na ito sa tabi niya, halos tumigil na ang midnight scroll.',
           'Nag-mute din siya ng ilang account na laging nagpaparamdam sa kanya na maliit siya. Walang sinabihan, walang in-unfriend. Puwede niyang i-unmute ang mga ito kapag mas steady na siya.',
-          'Tapos sinubukan niya ang payo ng ate niya. Bago magbukas ng kahit anong app, nagsusulat siya ng tatlong bagay mula sa sarili niyang araw. Kasama kahit maliliit: ang guard sa building na naaalala ang pangalan niya, ang report na natapos niya nang maaga, ang voice message ng mama niya tungkol sa ampalayang tumutubo sa garden. Corny ang pakiramdam noong una. Pagkalipas ng dalawang linggo, napansin niyang hinahanap na niya ang mga ganoong bagay sa buong araw.',
-          'Ang pinakamalaking pagbabago, nanggaling sa isang kuwentuhan. Sa wakas, sumama si Trish sa lunch ng barkada at inamin niyang iniiwasan niya sila. Tumawa ang isang kaibigan at nagsabing, "Girl, ikaw nga ang kinukumpara ko sa sarili ko." Walang kaalam-alam si Trish. Inamin naman ng isa pang kaibigan na sa likod ng engagement photos niya, isang taon ng pressure mula sa pamilya. Lumabas na lahat sila sa mesang iyon, may binibilangang score laban sa iba.',
-          'Sa church, Filipos ang binabasa ng small group niya. Sinimulang ipagdasal ni Trish ang mismong pagkukumpara. Pinangalanan niya ang mga post na tumatama sa kanya, hiniling sa Diyos na tulungan siyang maging masaya para sa iba, at humingi siya ng kapayapaan tungkol sa sarili niyang bilis. Ang Filipos 4:6-7 ang binabasa niya bago matulog, nakasulat sa papel, sa kusina, malayo sa phone.',
+          'Tapos sinubukan niya ang payo ng ate niya. Bago magbukas ng kahit anong app, nagsusulat siya ng tatlong bagay mula sa sarili niyang araw. Pasok kahit maliliit: ang guard sa building na naaalala ang pangalan niya, ang report na natapos niya nang maaga, ang voice message ng mama niya tungkol sa ampalayang tumutubo sa garden. Corny ang pakiramdam noong una. Pagkalipas ng dalawang linggo, napansin niyang hinahanap na niya ang mga ganoong bagay sa buong araw.',
+          'Ang pinakamalaking pagbabago, nanggaling sa isang kuwentuhan. Sa wakas, sumama si Trish sa lunch ng barkada at inamin niyang iniiwasan niya sila. Tumawa ang isang kaibigan at nagsabing, "Girl, ikaw nga ang kinukumpara ko sa sarili ko." Walang kaalam-alam si Trish. Inamin naman ng isa pang kaibigan na may isang taon ng pressure mula sa pamilya sa likod ng engagement photos niya. Lumabas na lahat pala sila sa mesang iyon, may kinukumparahan.',
+          'Sa church, Filipos ang binabasa ng small group niya. Sinimulang ipagdasal ni Trish ang mismong pagkukumpara. Pinangalanan niya ang mga post na tumatama sa kanya, hiniling sa Diyos na tulungan siyang maging masaya para sa iba, at humingi siya ng kapayapaan sa sarili niyang takbo ng buhay. Ang Filipos 4:6-7 ang binabasa niya bago matulog, nakasulat sa papel, sa kusina, malayo sa phone.',
           'May mga linggo pa ring mabigat. Sa mga panahong iyon, nagte-text siya sa isang kaibigan imbes na mag-scroll. "Na-trigger ako ulit," isusulat niya, at may tatawag.',
         ],
         pullQuote: 'Girl, ikaw nga ang kinukumpara ko sa sarili ko.',
@@ -58,10 +58,10 @@ export const translations3: Story[] = [
         kind: 'hope',
         heading: 'Kung pakiramdam mo naiiwan ka dahil sa feed',
         paragraphs: [
-          "Kung binabasa mo 'to sa kama pagkatapos ng mahabang scroll, maging mabait ka sa sarili mo. Karaniwan lang na makaramdam na maliit ka pagkatapos makita ang pinakamagagandang araw ng maraming tao, gabing-gabi na, mag-isa ka pa. Pareho pa rin ang halaga mo, mag-post ka man o hindi.",
+          "Kung binabasa mo 'to sa kama pagkatapos ng mahabang scroll, karaniwan lang na maramdaman mong maliit ka. Nakita mo ang pinakamagagandang araw ng napakaraming tao, gabing-gabi na, mag-isa ka pa. Pareho pa rin ang halaga mo, mag-post ka man o hindi.",
           "Sumubok ng isang bagay ngayong linggo. I-charge ang phone sa labas ng kuwarto, i-mute ang tatlong account na laging masakit sa loob, o isulat ang tatlong magandang bagay mula sa araw mo bago ka magbukas ng app. Tapos sabihin sa isang kaibigan kung ano ang epekto ng feed sa'yo. Baka ramdam din niya iyon.",
-          'Kung naging bigat na ito na nandiyan halos araw-araw, o lagpas dalawang linggo na at nakakaapekto na sa trabaho o tulog mo, kumausap ng doktor o counselor. Normal na susunod na hakbang ito, at gumagana ang tulong.',
-          "Kung gusto mo ng masisimulan ngayong gabi, libre ang [HopeBegins](/). Piliin kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwedeng subukan ngayon, mga calming tool, may magdarasal para sa'yo, at e-coach na puwede mong i-message sa Messenger. Kung kumalat na ang bigat lampas sa phone mo, magandang simulan ang [Pagod na ako](/pagod-na-ako).",
+          'Kung naging bigat na itong nandiyan halos araw-araw, o lagpas dalawang linggo na at nakakaapekto na sa trabaho o tulog mo, kumausap ng doktor o counselor. Normal na hakbang iyan, at marami na itong natulungan.',
+          "Kung gusto mo ng masisimulan ngayong gabi, libre ang [HopeBegins](/). Piliin kung ano ang nararamdaman mo at bibigyan ka nito ng isang maliit na bagay na masusubukan mo ngayong araw. May mga calming tool din, may magdarasal para sa'yo, at may e-coach na puwede mong i-message sa Messenger. Kung hindi na lang sa phone mo nararamdaman ang bigat, magandang simulan ang [Pagod na ako](/pagod-na-ako).",
         ],
       },
     ],
@@ -69,8 +69,8 @@ export const translations3: Story[] = [
       title: 'Ngayong linggo: tatlong magandang bagay mula sa araw mo',
       steps: [
         'Ngayong gabi, i-charge ang phone mo sa labas ng kuwarto.',
-        'I-mute ang tatlong account na laging nagpaparamdam na naiiwan ka. Puwede mo silang i-unmute mamaya.',
-        'Bukas, bago ka magbukas ng kahit anong app, isulat ang tatlong magandang bagay mula sa araw mo. Kasama ang maliliit.',
+        'I-mute ang tatlong account na laging nagpaparamdam na naiiwan ka. Puwede mo silang i-unmute kalaunan.',
+        'Bukas, bago ka magbukas ng kahit anong app, isulat ang tatlong magandang bagay mula sa araw mo. Pasok kahit maliliit.',
         "Sabihin sa isang kaibigan kung ano ang epekto ng feed sa'yo.",
       ],
     },
@@ -119,7 +119,7 @@ export const translations3: Story[] = [
           'Labing-isang minuto lang ang meeting. Nagbabawas ng gastos ang logistics company sa Cavite kung saan siyam na taon nang nagtatrabaho si Rico, at isasama na ang warehouse team niya sa ibang site. Wala na ang posisyon niya bilang supervisor. May taga-HR na nag-abot ng folder sa mesa at nagsabing, "Sorry talaga, Rico." Nagpasalamat siya, kasi hindi niya alam kung ano pa ang sasabihin.',
           'Alas-dos ng hapon siya lumabas ng gate, at hindi siya umuwi. Pumarada siya sa isang fast-food malapit sa highway, umorder ng kape, at umupo roon hanggang alas-sais, ang oras na karaniwan siyang umuuwi galing trabaho. Saka siya umuwi, kumain kasama si Joanne, ang asawa niya, at ang dalawa nilang anak, at sinabing okay lang ang trabaho.',
           'Ganoon din kinabukasan, at sa sumunod pang araw. Tuwing hapon, binubuksan niya ang mga job site sa phone, nag-i-scroll, isinasara, tapos tinititigan ang parking lot. 35 na siya, may car loan, at papasok na sa Grade 1 ang anak niyang lalaki. Iisang tanong ang paikot-ikot: "Paano ko sasabihin?"',
-          'Sa ikatlong gabi, nagtanong si Joanne kung bakit parang hindi na kailangang labhan ang uniform niya. Sinubukan niyang tumawa. Tapos isinubsob niya ang mukha sa mga palad niya sa hapag, at pinapunta muna ang mga bata sa sala para manood ng TV.',
+          'Sa ikatlong gabi, nagtanong si Joanne kung bakit parang hindi na kailangang labhan ang uniform niya. Sinubukan niyang tumawa. Tapos isinubsob niya ang mukha sa mga palad niya sa mesa, at pinapunta muna ang mga bata sa sala para manood ng TV.',
         ],
         pullQuote:
           'Nagpasalamat siya, kasi hindi niya alam kung ano pa ang sasabihin.',
@@ -128,10 +128,10 @@ export const translations3: Story[] = [
         kind: 'struggle',
         heading: 'Bakit ang bigat mawalan ng trabaho',
         paragraphs: [
-          'Para kay Rico, higit pa sa sweldo ang trabaho. Ito ang paraan niya ng pagbibigay sa pamilya, ang sagot niya sa "Ano\'ng trabaho mo?" tuwing may handaan, at ang sukatan niya kung mabuting asawa at ama siya. Nang mawala ito, pakiramdam niya sumama na rin lahat ng iyon.',
+          'Para kay Rico, higit pa sa sweldo ang trabaho. Ito ang paraan niya para buhayin ang pamilya, ang sagot niya sa "Ano\'ng trabaho mo?" tuwing may handaan, at ang sukatan niya kung mabuting asawa at ama siya. Nang mawala ito, pakiramdam niya sumama na rin lahat ng iyon.',
           'Dahil sa hiya, nagtago siya. Takot siyang madismaya si Joanne, takot siyang mag-alala ang mga magulang niya, takot siyang ungkatin ito ng bayaw niya sa susunod na birthday. Nakakapagod magtago, at ang tulog niya ang nagbabayad. Gising siya ng alas-tres halos gabi-gabi, nagkukuwenta sa isip.',
           'Mas mabilis tumakbo ang takot kaysa sa totoo. Sa isip niya, ang isang lay-off ay naging ilang buwang walang trabaho, tapos hindi nababayarang hulog, tapos paglipat ng school ng mga bata. Wala pa ni isa roon ang nangyayari. Tuwing alas-tres ng madaling-araw, parang sigurado na lahat.',
-          'Pakiramdam din niya, naligaw siya. Siyam na taong malinaw ang hugis ng araw niya: alarm, biyahe, warehouse, uwi. Ngayon, walang hangganan ang mga araw, at hindi niya alam kung saan magsisimula.',
+          'Pakiramdam din niya, naligaw siya. Siyam na taong malinaw ang takbo ng araw niya: alarm, biyahe, warehouse, uwi. Ngayon, walang simula\'t katapusan ang mga araw niya, at hindi niya alam kung saan magsisimula.',
         ],
       },
       {
@@ -141,7 +141,7 @@ export const translations3: Story[] = [
         paragraphs: [
           'Ang pagsasabi kay Joanne ang naging turning point. Umiyak siya nang kaunti, tapos kumuha ng kuwaderno. "Okay," sabi niya. "Ano\'ng meron tayo?" Walang naayos nang gabing iyon. Pero sa unang pagkakataon sa loob ng tatlong araw, nakatulog nang diretso si Rico hanggang umaga.',
           'Nakatulong din ang kuwaderno. Magkasama nilang isinulat kung ano ang meron sila: ang final pay niya, kaunting ipon, ang sweldo ni Joanne bilang teacher. Tapos ang mga bayarin bawat buwan, at kung alin ang puwedeng maghintay. Nakakatakot makita ang totoong numero, at mas maliit pala ito kaysa sa bersyon sa isip niya. Kung mag-iingat sila, may mga apat na buwan sila.',
-          'Sunod, binigyan ulit ni Rico ng hugis ang mga araw niya. Gumigising siya sa dating oras, nagkakape sa labas, at itinuring niyang parang shift ang paghahanap ng trabaho. Sa umaga, mga application at mensahe sa mga dating kakilala. Sa hapon, may ginagawang kapaki-pakinabang sa bahay, gaya ng pag-ayos sa gate na isang taon na niyang hindi pinapansin. Tumitigil siya ng alas-singko.',
+          'Sunod, inayos ulit ni Rico ang takbo ng mga araw niya. Gumigising siya sa dating oras, nagkakape sa labas, at itinuring niyang parang shift ang paghahanap ng trabaho. Sa umaga, mga application at mensahe sa mga dating kakilala. Sa hapon, may ginagawang kapaki-pakinabang sa bahay, gaya ng pag-ayos sa gate na isang taon na niyang hindi pinapansin. Tumitigil siya ng alas-singko.',
           'Sinabihan niya ang mga tao, at ito ang pinakamahirap. Nag-message siya sa dating boss, sa dalawang batchmate, at sa men\'s group sa church: "Na-lay off ako. Kung may alam kayo sa logistics o warehouse ops, naghahanap ako." Dalawa ang sumagot nang araw ding iyon. May nagbigay ng lead. Ang isa, nag-text lang ng "Kape tayo," at nakinig nang isang oras.',
           'Nagdasal siya nang tapat, at para kay Rico, ibig sabihin noon ay aminin na takot siya. Ipinaalala ng pastor niya ang Panaghoy 3:22-23, na bago tuwing umaga ang mga habag ng Diyos. Isinulat ni Rico ang reference sa unang pahina ng kuwaderno, sa itaas ng mga numero.',
           'Inabot ng labing-isang linggo. Natanggap si Rico bilang operations lead sa isang mas maliit na kumpanya sa Laguna, mas mababa nang kaunti ang sweldo at mas malayo ang biyahe. May mga araw na nami-miss pa rin niya ang dating team. Alam na rin niya ngayon na hindi nakasalalay sa job title ang halaga niya.',
@@ -151,22 +151,22 @@ export const translations3: Story[] = [
       },
       {
         kind: 'hope',
-        heading: 'Kung kakawala mo lang ng trabaho',
+        heading: 'Kung ngayon ka lang nawalan ng trabaho',
         paragraphs: [
-          "Kung nangyari ito sa'yo ngayong linggo, may dahilan ang gulat na nararamdaman mo. Puwedeng yanigin ng pagkawala ng trabaho ang pagkakakilala mo sa sarili mo, lalo na kung may pamilyang umaasa sa'yo. Bigyan mo ang sarili mo ng isang araw para maramdaman ito.",
-          "Tapos gumawa ng isang hakbang. Sabihin sa taong pinakamalapit sa'yo. Isulat ang totoong numero. Bigyan ng simpleng hugis ang bukas: oras ng gising, ilang application, isang mensahe sa taong maaaring may alam na bakante, at oras ng pagtigil.",
-          'Kung ilang linggo ka nang hindi makatulog, halos araw-araw kang walang pag-asa, o sinasakop na ng pag-aalala ang lahat, kumausap ng doktor o counselor. Normal na susunod na hakbang ito, at makakatulong ito para mas kayanin mo ang paghahanap.',
-          "Kung gusto mo ng masisimulan ngayon, libre ang [HopeBegins](/). Piliin kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwedeng subukan ngayon, mga calming tool para sa pagkukuwenta tuwing alas-tres, may magdarasal para sa'yo, at e-coach na puwede mong i-message sa Messenger. Kung hindi mo alam kung saan pupunta mula rito, basahin ang [Hindi ko alam gagawin ko](/hindi-ko-alam-gagawin-ko-sa-buhay).",
+          "Kung nangyari ito sa'yo ngayong linggo, maiintindihan ang gulat na nararamdaman mo. Puwedeng yanigin ng pagkawala ng trabaho ang pagkakakilala mo sa sarili mo, lalo na kung may pamilyang umaasa sa'yo. Bigyan mo ang sarili mo ng isang araw para maramdaman ito.",
+          "Tapos gumawa ng isang hakbang. Sabihin sa taong pinakamalapit sa'yo. Isulat ang totoong numero. Ayusin ang takbo ng bukas: oras ng gising, ilang application, isang mensahe sa taong baka may alam na bakante, at oras ng pagtigil.",
+          'Kung ilang linggo ka nang hindi makatulog, halos araw-araw kang walang pag-asa, o sinasakop na ng pag-aalala ang lahat, kumausap ng doktor o counselor. Normal na hakbang iyan, at makakatulong ito para mas kayanin mo ang paghahanap.',
+          "Kung gusto mo ng masisimulan ngayon, libre ang [HopeBegins](/). Piliin kung ano ang nararamdaman mo at bibigyan ka nito ng isang maliit na bagay na masusubukan mo ngayong araw. May mga calming tool din para sa pagkukuwenta tuwing alas-tres, may magdarasal para sa'yo, at may e-coach na puwede mong i-message sa Messenger. Kung hindi mo alam kung saan pupunta mula rito, basahin ang [Hindi ko alam gagawin ko](/hindi-ko-alam-gagawin-ko-sa-buhay).",
         ],
       },
     ],
     tryThis: {
-      title: 'Ngayong araw: bigyan ng hugis ang bukas',
+      title: 'Ngayong araw: planuhin ang takbo ng bukas',
       steps: [
         'Sabihin sa isang taong pinagkakatiwalaan mo ang nangyari.',
         'Isulat kung ano ang meron ka, ang bayarin mo bawat buwan, at kung alin ang puwedeng maghintay.',
-        'Magtakda ng oras ng gising at oras ng pagtigil para bukas.',
-        'Magpadala ng isang mensahe sa taong maaaring may alam na bakante.',
+        'Mag-set ng oras ng gising at oras ng pagtigil para bukas.',
+        'Mag-message sa isang taong baka may alam na bakante.',
       ],
     },
     verse: 'lam-3-22-23',
@@ -198,7 +198,7 @@ export const translations3: Story[] = [
     metaDescription:
       'Inalagaan ni Grace ang mama niya pagkatapos ma-stroke, at hindi na siya nagpahinga hanggang napasigaw siya. Ano ang nakatulong sa caregiver burnout niya.',
     title: 'Pagod mag-alaga ng magulang: paano natutong magpahinga si Grace',
-    dek: 'Pagkatapos ma-stroke ng mama niya, si Grace ang gumawa ng lahat at hindi kailanman nagpahinga. Ito ang nakatulong para patuloy siyang makapag-alaga nang hindi nauubos.',
+    dek: 'Pagkatapos ma-stroke ng mama niya, si Grace na ang gumawa ng lahat, at hindi na siya nagpapahinga. Ito ang nakatulong para patuloy siyang makapag-alaga nang hindi nauubos.',
     who: 'Grace, 41, nag-aalaga sa mama niya sa Quezon City',
     photo: {
       src: `${photos}/care-embrace.jpg`,
@@ -208,12 +208,12 @@ export const translations3: Story[] = [
     parts: [
       {
         kind: 'story',
-        heading: 'Ilang oras lang ang pagitan, sa loob ng walong buwan',
+        heading: 'Kada ilang oras, sa loob ng walong buwan',
         paragraphs: [
           'Na-stroke ang mama ni Grace isang Linggo ng Marso, pagkatapos mismo ng tanghalian. Nakaligtas siya, at makalipas ang dalawang linggo, umuwi siya sa bahay nila sa Quezon City na mahina ang kanang bahagi ng katawan, mabagal magsalita, at may mahabang listahan ng gamot.',
-          'Si Grace, 41, single at ang anak na pinakamalapit ang tirahan, ang naging pangunahing tagapag-alaga. Ang bunso nilang si Joy, dumadalaw tuwing weekend kapag kaya at siya ang nagbabayad sa therapist. Si Grace na ang bahala sa iba pa: gamot tuwing alas-sais, alas-diyes, alas-dos at alas-otso, pagpapaling kay Mama sa kama, malalambot na pagkain, ang mga therapy exercise, at pagpapa-check up sakay ng Grab.',
-          'Tuloy din ang part-time bookkeeping niya, na ginagawa niya sa hapag kainan tuwing hatinggabi. Sa loob ng walong buwan, putol-putol ang tulog niya at halos hindi siya lumalabas ng bahay maliban sa botika.',
-          'Isang hapon, natabig ng mama niya ang isang basong tubig, at napasigaw si Grace. Mas tunog kaysa salita ang lumabas, sobrang lakas na tumahol ang aso ng kapitbahay. Umiyak ang mama niya. Pumasok si Grace sa banyo, umupo sa takip ng inidoro, at mas malakas pa siyang umiyak.',
+          'Si Grace, 41, single at ang anak na pinakamalapit ang tirahan, ang naging main caregiver. Ang bunso nilang si Joy, dumadalaw tuwing weekend kapag kaya at siya ang nagbabayad sa therapist. Si Grace na ang bahala sa iba pa: gamot tuwing alas-sais, alas-diyes, alas-dos at alas-otso, pagbiling kay Mama sa kama, malalambot na pagkain, ang mga therapy exercise, at pagpapa-check up sakay ng Grab.',
+          'Tuloy din ang part-time bookkeeping niya, na ginagawa niya sa dining table tuwing hatinggabi. Sa loob ng walong buwan, putol-putol ang tulog niya at halos hindi siya lumalabas ng bahay maliban sa botika.',
+          'Isang hapon, natabig ng mama niya ang isang basong tubig, at napasigaw si Grace. Mas tunog kaysa salita ang lumabas, at sa sobrang lakas, tumahol ang aso ng kapitbahay. Umiyak ang mama niya. Pumasok si Grace sa banyo, umupo sa takip ng inidoro, at mas malakas pa siyang umiyak.',
         ],
         pullQuote:
           'Sa loob ng walong buwan, putol-putol ang tulog niya at halos hindi siya lumalabas ng bahay maliban sa botika.',
@@ -221,11 +221,11 @@ export const translations3: Story[] = [
       {
         kind: 'struggle',
         heading:
-          'Ang mga palatandaan ng caregiver burnout na hindi napansin ni Grace',
+          'Ang mga senyales ng caregiver burnout na hindi napansin ni Grace',
         paragraphs: [
-          'Kung babalikan, ilang buwan nang nandoon ang mga senyales. Lagi siyang pagod, kahit nakatulog. Nasisinghalan niya si Joy sa maliliit na bagay, gaya ng kung anong brand ng adult diaper ang bibilhin. Hindi na niya sinasagot ang mga message ng mga kaibigan niya. Dalawang beses siyang nagkasakit sa isang buwan at nagtrabaho pa rin.',
-          'Guilty siya sa lahat. Guilty kapag naiinip siya, guilty kapag umuupo siya, guilty dahil minsan, hiniling niyang may ibang humalili. "Anak ako," sabi niya sa sarili. "Responsibilidad ko \'to." Para sa kanya, ang pagpapahinga ay parang pag-iwan sa mama niya.',
-          'Pagmamahal na isinasabuhay ang pag-aalaga sa magulang na may sakit, at mabigat din itong trabaho sa katawan at damdamin na walang day off. Kapag iisang tao ang may pasan nito nang ilang buwan, nauubos ang katawan at isip. Patuloy na nagbibigay si Grace mula sa tangke na wala nang laman, at sinisisi niya ang sarili kapag tuluyan na itong naubos.',
+          'Kung babalikan, ilang buwan nang nandoon ang mga senyales. Lagi siyang pagod, kahit nakatulog naman siya. Nasisinghalan niya si Joy sa maliliit na bagay, gaya ng kung anong brand ng adult diaper ang bibilhin. Hindi na niya sinasagot ang mga message ng mga kaibigan niya. Dalawang beses siyang nagkasakit sa isang buwan at nagtrabaho pa rin.',
+          'Guilty siya sa lahat. Guilty kapag naiinip siya, guilty kapag umuupo siya, guilty dahil minsan, hiniling niyang may ibang humalili. "Anak ako," sabi niya sa sarili. "Responsibilidad ko \'to." Para sa kanya, kapag nagpahinga siya, parang iniwan na niya ang mama niya.',
+          'Pagmamahal ang pag-aalaga sa magulang na may sakit, pero mabigat din itong trabaho sa katawan at loob, at walang day off. Kapag iisang tao ang may pasan nito nang ilang buwan, nauubos ang katawan at isip. Bigay nang bigay si Grace kahit ubos na siya, tapos sinisisi pa niya ang sarili kapag wala na talaga siyang maibigay.',
           'Tahimik din siyang nagluluksa. Buhay ang mama niya at nandiyan lang, pero mas mahirap nang abutin ang Mama na dating nanunukso sa kanya at nagluluto ng sinigang tuwing Linggo. Walang puwang si Grace para maramdaman iyon.',
         ],
       },
@@ -235,10 +235,10 @@ export const translations3: Story[] = [
         paragraphs: [
           'Ang unang hakbang ay sabihin kay Joy ang totoo. Nang gabing iyon, tinawagan ni Grace ang kapatid niya at sinabing, "Hindi ko na kaya nang mag-isa." Natahimik sandali si Joy, tapos nagtanong, "Bakit ngayon mo lang sinabi?" Akala niya kinakaya ni Grace, kasi iyon lagi ang sinasabi ni Grace.',
           'Gumawa sila ng plano sa papel. Darating si Joy tuwing Biyernes ng gabi hanggang Linggo ng gabi, para may dalawang buong gabing tulog si Grace. Pumayag ang isang pinsan na malapit lang ang bahay na samahan si Mama dalawang hapon bawat linggo. Kumuha sila ng part-time caregiver para sa tatlong umaga. Kinailangan nilang pagkasyahin ang pera para dito, at naibalik nito kay Grace ang mga umaga niya.',
-          'Sinimulan ni Grace na bantayan ang maliliit na piraso ng pahinga. Dalawampung minuto sa labas pagkatapos ng tanghalian habang natutulog si Mama. Mabagal na lakad papunta sa bakery sa kanto. Isang hapon bawat linggo sa church, kung saan ipinagdarasal siya ng small group niya at may isang babae na nagsimulang magdala ng ulam para sa buong linggo.',
-          'Kinausap niya ang doktor ng mama niya tungkol sa pinakamahihirap na parte: paano ligtas na ilipat si Mama, aling exercise ang pinakamahalaga, at ano ang puwede na niyang bitawan. Tinanong din ng doktor kung kumusta ang tulog ni Grace, at iminungkahing magpatingin din siya sa sarili niyang doktor. Nagpatingin siya, at nalaman niyang tumaas na ang blood pressure niya.',
+          'Sinimulan ni Grace na ingatan ang maliliit na oras ng pahinga. Dalawampung minuto sa labas pagkatapos ng tanghalian habang natutulog si Mama. Mabagal na lakad papunta sa bakery sa kanto. Isang hapon bawat linggo sa church, kung saan ipinagdarasal siya ng small group niya at may isang babae na nagsimulang magdala ng ulam para sa buong linggo.',
+          'Kinausap niya ang doktor ng mama niya tungkol sa pinakamahihirap na parte: paano ligtas na ilipat si Mama, aling exercise ang pinakamahalaga, at ano ang puwede na niyang bitawan. Tinanong din ng doktor kung kumusta ang tulog ni Grace, at sinabihan siyang magpatingin din sa sarili niyang doktor. Nagpatingin siya, at nalaman niyang tumaas na ang blood pressure niya.',
           'Idinikit ni Grace sa pader sa itaas ng lamesa ng mga gamot ang Mateo 11:28-30. Binabasa niya ito tuwing mabigat ang gabi, at hinayaan niyang maging dasal ito para sa sarili niya, gaya ng para kay Mama.',
-          'Unti-unti pa ring gumagaling si Mama. May mabibigat na araw pa rin si Grace. Tumatawa na ulit sila ng mama niya, kasi hindi na siya tumatakbo nang ubos na bawat oras.',
+          'Unti-unti pa ring gumagaling si Mama. May mabibigat na araw pa rin si Grace. Tumatawa na ulit sila ng mama niya, kasi hindi na siya ubos na ubos bawat oras.',
         ],
         pullQuote: 'Hindi ko na kaya nang mag-isa.',
       },
@@ -247,16 +247,16 @@ export const translations3: Story[] = [
         heading: 'Kung nag-aalaga ka at ubos na ubos ka na',
         paragraphs: [
           'Kung may inaalagaan kang magulang, asawa o anak na may sakit, totoo ang pagod mo, at totoo rin ang pagmamahal mo. Walang nababawas sa pagmamahal mo kapag kailangan mong magpahinga. Tao ka rin, at mas tumatagal ang caregiver na nakakapagpahinga.',
-          'Ngayong linggo, humingi ng isang tiyak na bagay sa isang tiyak na tao: dalawang oras sa Sabado, isang ulam, isang gabing tulog. Madalas, gustong tumulong ng mga tao pero hindi nila alam kung paano. Tapos bantayan ang isang maliit na piraso ng pahinga araw-araw, kahit dalawampung minuto lang.',
-          'Kung halos araw-araw kang pagod nang ilang linggo, lagi mong nasisinghalan ang mga mahal mo, o manhid o walang pag-asa ang pakiramdam mo, kumausap ng doktor o counselor. Kailangan din ng alaga ng mga caregiver, at normal na susunod na hakbang ang paghingi nito.',
-          "Kung gusto mo ng masisimulan ngayon, libre ang [HopeBegins](/). Piliin kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwedeng subukan ngayon, mga calming tool para sa mabibigat na gabi, may magdarasal para sa'yo at sa pamilya mo, at e-coach na puwede mong i-message sa Messenger. May dagdag na tulong sa page tungkol sa [burnout](/burnout-sa-trabaho) kapag ubos na ubos ka na.",
+          'Ngayong linggo, humingi ng isang tiyak na bagay sa isang tiyak na tao: dalawang oras sa Sabado, isang ulam, isang gabing tulog. Madalas, gustong tumulong ng mga tao pero hindi nila alam kung paano. Tapos maglaan ng kahit maliit na pahinga araw-araw, kahit dalawampung minuto lang.',
+          'Kung halos araw-araw kang pagod nang ilang linggo, lagi mong nasisinghalan ang mga mahal mo, o manhid o walang pag-asa ang pakiramdam mo, kumausap ng doktor o counselor. Kailangan din ng alaga ng mga caregiver, at normal na hakbang ang humingi nito.',
+          "Kung gusto mo ng masisimulan ngayon, libre ang [HopeBegins](/). Piliin kung ano ang nararamdaman mo at bibigyan ka nito ng isang maliit na bagay na masusubukan mo ngayong araw. May mga calming tool din para sa mabibigat na gabi, may magdarasal para sa'yo at sa pamilya mo, at may e-coach na puwede mong i-message sa Messenger. May dagdag na tulong sa page tungkol sa [burnout](/burnout-sa-trabaho) kapag ubos na ubos ka na.",
         ],
       },
     ],
     tryThis: {
       title: 'Ngayong linggo: isang hiling, isang pahinga',
       steps: [
-        'Isulat ang lahat ng gawaing pag-aalaga na ginagawa mo sa isang linggo.',
+        'Isulat ang lahat ng ginagawa mo sa pag-aalaga sa loob ng isang linggo.',
         'Pumili ng isang gawain na puwedeng gawin ng iba, at hingin ito sa isang tiyak na tao.',
         'Pumili ng 20 minutong pahinga na gagawin mo araw-araw, at ilagay ito sa calendar ng phone mo.',
         'Sabihin sa isang kaibigan kung kumusta ka talaga.',
@@ -266,12 +266,12 @@ export const translations3: Story[] = [
     related: 'burnout-sa-trabaho',
     faq: [
       {
-        q: 'Ano ang mga palatandaan ng caregiver burnout?',
+        q: 'Ano ang mga senyales ng caregiver burnout?',
         a: 'Karaniwang senyales ang laging pagod, madaling mainis sa mga tao, paglayo sa mga kaibigan, madalas na pagkakasakit, at guilt tuwing nagpapahinga. Kung ilang linggo na itong nangyayari, kumausap ng doktor o counselor.',
       },
       {
         q: 'Paano aalagaan ang sarili habang nag-aalaga ng maysakit na magulang?',
-        a: "Hatiin ang pasan sa pamamagitan ng paghingi ng tiyak na tulong sa pamilya o kapitbahay, at bantayan ang maliliit na pahinga araw-araw. Magpatingin din sa sarili mong doktor, at magkaroon ng kahit isang lugar kung saan may nagdarasal at nangungumusta sa'yo.",
+        a: "Hatiin ang bigat: humingi ng tiyak na tulong sa pamilya o kapitbahay, at maglaan ng maliliit na pahinga araw-araw. Magpatingin din sa sarili mong doktor, at magkaroon ng kahit isang lugar kung saan may nagdarasal at nangungumusta sa'yo.",
       },
     ],
     keywords: [
@@ -386,7 +386,7 @@ export const translations3: Story[] = [
     metaDescription:
       'Napansin ni Jen na lumalayo ang best friend niyang si Kat. Paano niya tinulungan ang kaibigang depressed: pagdalaw, pakikinig, pagtatanong, paghingi ng tulong.',
     title: 'Paano tinulungan ni Jen ang best friend niya sa depression',
-    dek: 'Tumigil sumagot si Kat, tapos tumigil na ring sumipot. Walang perpektong salita si Jen, kaya nagdala siya ng milk tea at nanatili.',
+    dek: 'Tumigil sumagot si Kat, tapos tumigil na ring sumipot. Walang perpektong salita si Jen, kaya nagdala na lang siya ng milk tea at sinamahan si Kat.',
     who: 'Jen, 25, best friend ni Kat sa Cebu',
     photo: {
       src: `${photos}/talk-phone.jpg`,
@@ -401,17 +401,17 @@ export const translations3: Story[] = [
           'Mag-best friend na sina Jen at Kat mula Grade 7 sa Cebu. May running joke sila: kung sino ang huling sumagot, may utang na milk tea sa isa. Ilang taon, ilang minuto lang bago dumating ang reply.',
           'Bandang Hunyo, bumagal ang mga reply ni Kat. Ilang oras, tapos isang araw, tapos heart na lang sa mga message ni Jen. Hindi sumipot si Kat sa isang birthday dinner, tapos sa buwanang Sunday brunch nila. "Busy lang sa work," sabi niya.',
           'Noong una, medyo nagtampo si Jen. Tapos nakita niya si Kat sa church at napansin ang maliliit na bagay. Pumayat si Kat. Sa likod siya umupo at umalis bago ang huling kanta. Nang yakapin siya ni Jen, isang segundong mas matagal bago siya bumitaw.',
-          'Nang gabing iyon, limang message ang tinype at binura ni Jen. Masyadong magaan o masyadong madrama ang lahat. Sa huli, ipinadala niya: "Hey, miss na kita. Okay ka ba, totoo? Pupunta ako sa Sabado, may dalang milk tea. Ako na ang taya."',
+          'Nang gabing iyon, limang message ang tinype at binura ni Jen. Masyadong magaan o masyadong madrama ang lahat. Sa huli, ipinadala niya: "Hey, miss na kita. Okay ka ba talaga? Pupunta ako sa Sabado, may dalang milk tea. Ako na ang taya."',
         ],
-        pullQuote: 'Hey, miss na kita. Okay ka ba, totoo?',
+        pullQuote: 'Hey, miss na kita. Okay ka ba talaga?',
       },
       {
         kind: 'struggle',
         heading: 'Bakit mahirap tulungan ang kaibigang depressed',
         paragraphs: [
           'Takot si Jen na magkamali ng sasabihin. Narinig na niya ang mga nagsasabi sa kaibigan na "think positive" o "magdasal ka pa," at alam niyang puwedeng makasakit ang mga salitang iyon. Wala siyang ideya kung ano ang tamang sasabihin.',
-          "Si Kat naman, lumalayo kasi pakiramdam niya pabigat siya. Kayang ipadama ng depression na masyadong mabigat ang lungkot mo para ibahagi, kahit sa mga taong nagmamahal sa'yo. Kaya ngumingiti siya sa church, sinasabing busy siya, at nagtatago.",
-          'Nandoon din ang takot na baka lumala pa. Naisip ni Jen, baka kapag tinanong niya ang tungkol sa madidilim na isipin, magkaroon pa ng ideya si Kat. Ang ganitong pag-aalala ang nagpapatahimik sa maraming tao, at karaniwang maling akala ito. Ligtas na tanungin nang direkta at mahinahon ang isang tao kung naiisip niyang tapusin ang buhay niya, at kadalasan ginhawa pa ito sa kanila, kasi nagbubukas ito ng pinto para makapagkuwento.',
+          "Si Kat naman, lumalayo kasi pakiramdam niya pabigat siya. Kayang ipadama ng depression na sobrang bigat ng lungkot mo para ikuwento pa, kahit sa mga taong nagmamahal sa'yo. Kaya ngumingiti siya sa church, sinasabing busy siya, at nagtatago.",
+          'Nandoon din ang takot na baka lumala pa. Naisip ni Jen, baka kapag tinanong niya ang tungkol sa madidilim na naiisip ni Kat, magkaroon pa ito ng ideya. Ang ganitong pag-aalala ang nagpapatahimik sa maraming tao, at karaniwang maling akala ito. Ligtas na tanungin nang direkta at mahinahon ang isang tao kung naiisip niyang tapusin ang buhay niya, at kadalasan ginhawa pa ito sa kanila, kasi nabibigyan sila ng pagkakataong magkuwento.',
           'Kaya nagdesisyon si Jen na pumunta, kahit walang script. Ang pagsipot lang ang alam niyang gawin.',
         ],
       },
@@ -419,13 +419,13 @@ export const translations3: Story[] = [
         kind: 'helped',
         heading: 'Paano tinulungan ni Jen ang kaibigan niyang depressed',
         paragraphs: [
-          'Sabado, dumating si Jen na may dalawang milk tea at walang plano. Umupo sila sa kama ni Kat at nanood ng kalahating pelikula. Tapos pinause ni Jen at sinabing, "Napansin ko parang ang bigat ng pinagdadaanan mo nitong mga nakaraan. Kumusta ka, totoo?"',
-          'Matagal na natahimik si Kat. Tapos umiyak siya, at nagkuwento. Tungkol sa trabaho, sa pakiramdam na wala nang laman, sa hindi makatulog, sa pakiramdam na walang saysay ang lahat. Halos nakinig lang si Jen. Ilang beses niyang sinabing "Ang hirap niyan," at hinayaan niya ang mga katahimikan.',
-          'Tapos itinanong ni Jen ang pinakakinatatakutan niyang tanong, kasing hinahon ng kaya niya: "Kat, iniisip mo bang tapusin ang buhay mo?" Tumingin si Kat sa mga kamay niya at sinabing, "Minsan sana hindi na lang ako magising." Kumakabog ang dibdib ni Jen, at pinanatili niyang steady ang boses niya. "Salamat at sinabi mo. Hindi kita iiwan, at sabay tayong hihingi ng tulong."',
-          'Sabay nilang tinawagan ang NCMH Crisis Hotline, naka-speaker, hawak ni Jen ang kamay ni Kat. Mahinahon at mabait ang kausap nila sa linya. Kinausap nila si Kat, tinulungan siyang pag-isipan ang susunod na ilang araw, at hinikayat siyang magpatingin sa isang propesyonal sa lalong madaling panahon. Doon natulog si Jen nang gabing iyon.',
+          'Sabado, dumating si Jen na may dalawang milk tea at walang plano. Umupo sila sa kama ni Kat at nanood ng kalahating pelikula. Tapos ini-pause ni Jen at sinabing, "Napansin ko parang ang bigat ng pinagdadaanan mo nitong mga nakaraan. Kumusta ka talaga?"',
+          'Matagal na natahimik si Kat. Tapos umiyak siya, at nagkuwento. Tungkol sa trabaho, sa pakiramdam na wala nang laman, sa hindi makatulog, sa pakiramdam na walang saysay ang lahat. Halos puro pakikinig lang ang ginawa ni Jen. Ilang beses niyang sinabing "Ang hirap niyan," at hinayaan niya ang mga katahimikan.',
+          'Tapos itinanong ni Jen ang pinakakinatatakutan niyang tanong, nang mahinahon hangga\'t kaya niya: "Kat, naiisip mo bang tapusin ang buhay mo?" Tumingin si Kat sa mga kamay niya at sinabing, "Minsan sana hindi na lang ako magising." Kumakabog ang dibdib ni Jen, at pinanatili niyang steady ang boses niya. "Salamat at sinabi mo. Hindi kita iiwan, at sabay tayong hihingi ng tulong."',
+          'Sabay nilang tinawagan ang NCMH Crisis Hotline, naka-speaker, hawak ni Jen ang kamay ni Kat. Mahinahon at mabait ang kausap nila sa linya. Kinausap nito si Kat, tinulungan siyang pag-isipan ang susunod na ilang araw, at hinikayat siyang magpatingin agad sa isang professional. Doon natulog si Jen nang gabing iyon.',
           'Nang sumunod na linggo, tinulungan ni Jen si Kat na magpa-appointment sa isang psychiatrist at sinamahan niya ito sa unang check-up. Nang pumayag si Kat, sinabihan din ni Jen ang ate ni Kat, para higit sa isang tao ang nangungumusta.',
-          'Tuloy ang pagsipot ni Jen. Isang text bawat ilang araw: "Naiisip kita. Kain tayo?" Isang lakad pagkatapos ng church. Minsan humihindi si Kat, at muling nag-iimbita si Jen sa sumunod na linggo. Makalipas ang ilang buwan, sinabi ni Kat sa kanya, "Noong Sabadong iyon, dumating ka noong hindi ko kayang humingi."',
-          'Mabigat din kay Jen ang pagtulong. Kinausap niya ang small group leader niya, at sabay nilang ipinagdasal si Kat. Ang Awit 34:18 ang naging talatang ipinagdarasal ni Jen para sa kaibigan niya.',
+          'Tuloy ang pagsipot ni Jen. Isang text bawat ilang araw: "Naiisip kita. Kain tayo?" Isang lakad pagkatapos ng church. Minsan humihindi si Kat, at nag-iimbita ulit si Jen sa sumunod na linggo. Makalipas ang ilang buwan, sinabi ni Kat sa kanya, "Noong Sabadong iyon, dumating ka noong hindi ko kayang humingi."',
+          'Mabigat din kay Jen ang pagtulong. Kinausap niya ang small group leader niya, at sabay nilang ipinagdasal si Kat. Ang Awit 34:18 ang naging verse na ipinagdarasal ni Jen para sa kaibigan niya.',
         ],
         pullQuote:
           'Salamat at sinabi mo. Hindi kita iiwan, at sabay tayong hihingi ng tulong.',
@@ -437,8 +437,8 @@ export const translations3: Story[] = [
           'Kung may mahal kang biglang tumahimik, sapat na ang simpleng salita. Sumipot, sabihin ang napansin mo, at mas makinig kaysa magsalita.',
           'Iwasan ang mabilisang solusyon gaya ng "think positive" o "mas malala pa ang iba." Patuloy na mag-imbita, kahit humihindi sila. Kung nag-aalala ka, tanungin nang direkta at mahinahon kung naiisip nilang tapusin ang buhay nila. Kung oo ang sagot, samahan sila at sabay kayong humingi ng tulong.',
           'Kung naiisip mong tapusin ang buhay mo, tumawag sa NCMH Crisis Hotline, 24/7: 1553 o 0917 899 8727. Kung nasa panganib ka ngayon, tumawag sa 911. Puwede rin itong tawagan kasama ang isang kaibigan, gaya ng ginawa nina Jen at Kat.',
-          'Kung lagpas dalawang linggo na ang lungkot ng kaibigan mo, dahan-dahan siyang hikayating kumausap ng doktor o counselor, at mag-alok na tumulong mag-book o samahan siya. Alagaan mo rin ang sarili mo. Mabigat ang pagsuporta sa isang tao, kaya kumausap ka rin ng taong pinagkakatiwalaan mo.',
-          "Kung gusto mo ng masisimulan, libre ang [HopeBegins](/), para sa kaibigan mo o para sa'yo. Piliin kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwedeng subukan ngayon, mga calming tool, may magdarasal para sa'yo, at e-coach na puwede mong i-message sa Messenger. Para sa mga salitang nakakatulong, basahin ang [Ano ang sasabihin sa kaibigang depressed](/ano-ang-sasabihin-sa-kaibigang-depressed).",
+          'Kung lagpas dalawang linggo na ang lungkot ng kaibigan mo, hikayatin siyang kumausap ng doktor o counselor, at mag-alok na tumulong mag-book o samahan siya. Alagaan mo rin ang sarili mo. Mabigat ang pagsuporta sa isang tao, kaya kumausap ka rin ng taong pinagkakatiwalaan mo.',
+          "Kung gusto mo ng masisimulan, libre ang [HopeBegins](/), para sa kaibigan mo o para sa'yo. Piliin kung ano ang nararamdaman mo at bibigyan ka nito ng isang maliit na bagay na masusubukan mo ngayong araw. May mga calming tool din, may magdarasal para sa'yo, at may e-coach na puwede mong i-message sa Messenger. Para sa mga salitang nakakatulong, basahin ang [Ano ang sasabihin sa kaibigang depressed](/ano-ang-sasabihin-sa-kaibigang-depressed).",
         ],
       },
     ],
@@ -446,7 +446,7 @@ export const translations3: Story[] = [
       title: 'Ngayong araw: kumustahin ang isang kaibigan',
       steps: [
         'Isipin ang isang kaibigang tumahimik nitong mga nakaraan.',
-        'Magpadala ng simpleng message: "Miss na kita. Kumusta ka, totoo?"',
+        'Magpadala ng simpleng message: "Miss na kita. Kumusta ka talaga?"',
         'Mag-alok ng isang tiyak na bagay, gaya ng kape, lakad o kain ngayong linggo.',
         'Kung nag-aalala ka, magtanong nang direkta at mahinahon, at maging handang tumawag sa 1553 nang magkasama.',
       ],
@@ -456,7 +456,7 @@ export const translations3: Story[] = [
     faq: [
       {
         q: 'Paano tutulungan ang kaibigang may depression?',
-        a: 'Sumipot, sabihin ang napansin mo, at makinig nang hindi nagmamadaling ayusin ito. Patuloy na mangumusta, at dahan-dahang hikayatin siyang magpatingin sa doktor o counselor, na may alok na tumulong mag-book.',
+        a: 'Sumipot, sabihin ang napansin mo, at makinig nang hindi nagmamadaling ayusin ito. Patuloy na mangumusta, at hikayatin siyang magpatingin sa doktor o counselor, na may alok na tumulong mag-book.',
       },
       {
         q: 'Dapat ko bang tanungin ang kaibigan ko kung naiisip niyang tapusin ang buhay niya?',

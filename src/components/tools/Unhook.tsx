@@ -41,8 +41,8 @@ const copy = {
     nextTime: 'a hard thought grabs you',
   },
   tl: {
-    label: 'Lumayo nang kaunti sa mabigat na isip',
-    pickLabel: 'Aling isip ang kumakapit sa iyo? I-tap ito.',
+    label: 'Lumayo nang kaunti sa mabigat na iniisip',
+    pickLabel: 'Aling iniisip ang kumakapit sa iyo? I-tap ito.',
     thoughtLabel: 'O isulat ito sa ilang salita',
     privacy: 'Hindi naka-save kahit saan ang itina-type mo dito.',
     next: 'Susunod',
@@ -56,8 +56,8 @@ const copy = {
     stop: 'Itigil',
     doneTitle: 'Napangalanan mo na.',
     doneText:
-      'Puwedeng bumalik ang isip na iyon. Kapag bumalik, pangalanan ulit at bumalik sa ginagawa mo.',
-    nextTime: 'may mabigat na isip na kumapit sa iyo',
+      'Puwedeng bumalik ang iniisip na iyon. Kapag bumalik, pangalanan ulit ito at ituloy ang ginagawa mo.',
+    nextTime: 'may mabigat na iniisip na kumapit sa iyo',
   },
   fr: {
     label: 'Prendre du recul face à une pensée lourde',

@@ -282,7 +282,7 @@ const ui = {
     trackerIntro:
       'I-tick ang bawat araw na nagawa mo. May araw na hindi mo nagawa? Ituloy lang kinabukasan. Hindi nabubura ang progress mo dahil doon.',
     trackerHabit:
-      'Ilang linggo bago masanay. Okay na kung karamihan ng araw mo itong nagawa.',
+      'Ilang linggo bago masanay sa isang habit. Okay na kung nagawa mo ito halos araw-araw.',
     trackerEmpty:
       'Piliin ang "Idagdag sa 4 na linggo ko" sa 1 o 2 tool sa itaas. Lalabas sila dito para ma-tick mo araw-araw.',
     daysDone: (done: number) => `${done} sa ${PLAN_DAYS} araw`,
@@ -339,7 +339,7 @@ const ui = {
     deleteConfirm: 'Burahin ang plano at progress mo sa device na ito?',
     weekSection: 'Ang 4 na linggo mo',
     weekSectionDetail:
-      'Gawin ito sa karamihan ng araw sa susunod na 4 na linggo.',
+      'Gawin ito halos araw-araw sa susunod na 4 na linggo.',
     todayTitle: 'Ngayong araw',
     doneToday: 'Nagawa ko ngayon',
     didToday: 'Nagawa',

@@ -31,7 +31,7 @@ export const BLOG_COPY: BlogCopy = {
     title: 'Mga Kuwento ng Pag-asa',
     intro:
       'Mga tapat na kuwento tungkol sa mabibigat na panahon, at sa maliliit na bagay na nakatulong para malampasan ito.',
-    note: 'Ni Anonymous. Composite ang bawat kuwento.',
+    note: 'Ni Anonymous. Pinagsamang karanasan ng ilang tao ang bawat kuwento.',
     find: 'Humanap ng kuwentong kahawig ng sa iyo',
     all: 'Lahat ng kuwento',
   },

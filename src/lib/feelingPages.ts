@@ -71,7 +71,7 @@ export const feelingPages: FeelingPage[] = [
     pair: 'tired-of-everything',
     metaTitle: 'Pagod na ako: ano ang gagawin kapag pagod ka na sa lahat',
     metaDescription:
-      'Pagod na sa lahat? Subukan ang 2-minute na paghinga, kausapin ang isang e-coach sa Messenger, o gumawa ng libreng plano para sa linggong ito.',
+      'Pagod na sa lahat? Subukan ang 2 minutong paghinga, mag-message sa e-coach sa Messenger, o gumawa ng libreng plano para sa linggong ito.',
     keywords: [
       'pagod na ako',
       'pagod na sa lahat',
@@ -84,7 +84,7 @@ export const feelingPages: FeelingPage[] = [
     label: 'Pagod na ako',
     heading: 'Pagod na ako.',
     intro:
-      'Kapag pagod ka na sa lahat, mabigat gawin kahit ang maliliit na bagay. Magsimula sa isang maliit na bagay, o sa dalawang minutong paghinga.',
+      'Kapag pagod ka na sa lahat, mabigat gawin kahit ang maliliit na bagay. Magsimula sa isang maliit na bagay, o sa dalawang minutong mabagal na paghinga.',
     safetyFirst:
       'Kung pagod ka na sa buhay o naiisip mong ayaw mo nang mabuhay, kausapin mo ang isang tao ngayon.',
     toolsHeading: 'Magsimula sa maliit',
@@ -93,15 +93,15 @@ export const feelingPages: FeelingPage[] = [
     faq: [
       {
         q: 'Normal lang bang mapagod sa lahat?',
-        a: 'Normal mapagod paminsan-minsan. Pero kung halos araw-araw kang pagod at walang gana nang dalawang linggo o higit pa, puwedeng senyales na ito ng depression o burnout. Kausapin ang isang doktor o counselor.',
+        a: 'Normal lang mapagod paminsan-minsan. Pero kung halos araw-araw kang pagod at walang gana nang dalawang linggo o higit pa, puwedeng senyales na ito ng depression o burnout. Kausapin ang isang doktor o counselor.',
       },
       {
         q: 'Ano ang gagawin kapag pagod na ako sa buhay?',
-        a: 'Magsimula sa isang maliit na bagay ngayon: uminom ng tubig, lumabas nang dalawang minuto, o huminga nang dahan-dahan. Sabihin sa isang taong pinagkakatiwalaan mo kung gaano ka na kapagod. Kung ang ibig sabihin nito para sa iyo ay naiisip mong ayaw mo nang mabuhay, tumawag ngayon sa NCMH Crisis Hotline sa 1553, bukas 24/7.',
+        a: 'Magsimula sa isang maliit na bagay ngayon: uminom ng tubig, lumabas nang dalawang minuto, o huminga nang dahan-dahan. Sabihin sa isang taong pinagkakatiwalaan mo kung gaano ka na kapagod. Kung umaabot na sa puntong ayaw mo nang mabuhay, tumawag ngayon sa NCMH Crisis Hotline sa 1553, bukas 24/7.',
       },
       {
         q: 'Bakit pagod ako kahit wala naman akong ginagawa?',
-        a: 'Puwedeng galing ang pagod sa isip at damdamin: stress, sobrang pag-iisip, kulang sa tulog, o lungkot na matagal mo nang dala. Kung halos araw-araw ka nang ganito nang dalawang linggo o higit pa, magpatingin sa doktor o counselor.',
+        a: 'Puwedeng galing ang pagod sa stress, sobrang pag-iisip, kulang na tulog, o lungkot na matagal mo nang dala. Puwede ring galing ito sa katawan mo mismo. Kung halos araw-araw ka nang ganito nang dalawang linggo o higit pa, magpatingin sa doktor para matingnan pareho.',
       },
     ],
     firstStep: 'ecoach',
@@ -113,7 +113,7 @@ export const feelingPages: FeelingPage[] = [
     pair: 'i-feel-alone',
     metaTitle: 'Wala akong kausap: may makakausap ka ngayon',
     metaDescription:
-      'Pakiramdam mo ba wala kang makausap? Kausapin ang isang e-coach sa Messenger, si Hope AI anumang oras, o magpadala ng mensahe sa taong pinagkakatiwalaan mo.',
+      'Pakiramdam mo ba wala kang makausap? Mag-message sa e-coach sa Messenger, i-chat si Hope AI anumang oras, o mag-text sa taong pinagkakatiwalaan mo.',
     keywords: [
       'wala akong kausap',
       'walang makausap',
@@ -137,15 +137,15 @@ export const feelingPages: FeelingPage[] = [
     faq: [
       {
         q: 'Saan ako puwedeng makipag-usap nang libre?',
-        a: 'Puwede kang mag-message nang libre sa isang e-coach mula sa Himala Everyday sa Messenger. Kung krisis ito, tumawag sa NCMH Crisis Hotline sa 1553, bukas 24/7.',
+        a: 'Puwede kang mag-message nang libre sa isang e-coach mula sa Himala Everyday sa Messenger. Kung nasa crisis ka ngayon, tumawag sa NCMH Crisis Hotline sa 1553, bukas 24/7.',
       },
       {
         q: 'Paano kung pakiramdam ko walang nakakaintindi sa akin?',
-        a: 'Mabigat iyan. Sapat na ang isang taong handang makinig, kahit hindi niya alam ang tamang sasabihin. Magsimula sa isang maikling mensahe gaya ng "Puwede ba tayong mag-usap?", o kausapin ang isang e-coach sa Messenger nang libre.',
+        a: 'Sapat na ang isang taong handang makinig, kahit hindi niya alam ang tamang sasabihin. Magpadala ng maikling message sa isang tao, gaya ng "Puwede ba tayong mag-usap this week?" Kung wala kang maisip, mag-message nang libre sa e-coach sa Messenger. Kung naiisip mong tapusin ang buhay mo, tumawag ngayon sa NCMH Crisis Hotline sa 1553, bukas 24/7.',
       },
       {
         q: 'Saan ako puwedeng mag-chat kapag gabi na at gising pa ako?',
-        a: 'Puwedeng i-chat si Hope AI anumang oras, kahit hatinggabi. AI assistant si Hope AI, kaya kung krisis ito, tumawag sa NCMH Crisis Hotline sa 1553, bukas 24/7.',
+        a: 'Puwedeng i-chat si Hope AI anumang oras, kahit hatinggabi. Pero AI assistant lang si Hope AI. Kung nasa crisis ka, tumawag sa NCMH Crisis Hotline sa 1553, bukas 24/7.',
       },
     ],
     related: ['free-mental-health-help-philippines'],
@@ -172,7 +172,7 @@ export const feelingPages: FeelingPage[] = [
     label: 'Paano mawala ang anxiety',
     heading: 'Paano mawala ang anxiety?',
     intro:
-      'Kapag kumakabog ang dibdib at hindi mapakali ang isip, subukan ang isa sa mga ito. Nakakatulong ang paghinga at ang 5-4-3-2-1 para kumalma ang katawan mo. Ang laro naman, bibigyan ng ibang gagawin ang isip mo.',
+      'Kapag kumakabog ang dibdib at hindi mapakali ang isip, subukan ang isa sa mga ito. Nakakatulong ang paghinga at ang 5-4-3-2-1 para kumalma ang katawan mo. Ang laro naman, binibigyan ng ibang mapagkakaabalahan ang isip mo.',
     toolsHeading: 'Subukan natin ito ngayon',
     tools: ['breathe', 'ground', 'game'],
     tip: {
@@ -199,7 +199,7 @@ export const feelingPages: FeelingPage[] = [
       },
       {
         q: 'Paano kontrolin ang anxiety araw-araw?',
-        a: 'Sanayin ang paghinga habang kalmado ka pa, para madali itong magamit kapag kinakabahan ka. Matulog nang sapat, bawasan ang kape, at isulat ang mga inaalala mo sa isang takdang oras. Kung nakakaabala na ang anxiety sa trabaho, pag-aaral o tulog, magpatingin sa doktor o counselor.',
+        a: 'Sanayin ang paghinga habang kalmado ka pa, para madali itong magamit kapag kinakabahan ka. Matulog nang sapat, bawasan ang kape, at isulat ang mga inaalala mo sa parehong oras araw-araw. Kung nakakaabala na ang anxiety sa trabaho, pag-aaral o tulog, magpatingin sa doktor o counselor.',
       },
     ],
     firstStep: 'plan',
@@ -440,13 +440,13 @@ export const feelingPages: FeelingPage[] = [
         'hirap mag-focus o magdesisyon',
         'pakiramdam mo wala kang kwenta o lagi kang may kasalanan',
         'wala kang nakikitang pag-asa sa hinaharap',
-        'naiisip mo ang kamatayan o ang pagtapos ng buhay mo',
+        'naiisip mo ang kamatayan, o naiisip mong tapusin ang buhay mo',
       ],
-      note: 'Karaniwan ang depression at nagagamot ito. Matutulungan ka ng doktor, psychologist o counselor na alamin kung ano ang kailangan mo. Kung hindi mo alam kung saan magsisimula, tumawag sa NCMH Crisis Hotline (1553), bukas 24/7.',
+      note: 'Karaniwan ang depression at nagagamot ito. Matutulungan ka ng doktor, psychologist o counselor na alamin kung ano ang kailangan mo. Kung hindi mo alam kung saan magsisimula, tumawag sa NCMH Crisis Hotline (1553). Libre ito, bukas 24/7, at masasabi nila kung saan ka puwedeng magpatingin.',
     },
     tip: {
       title: 'Bakit nakakatulong ang isang maliit na bagay',
-      body: 'Sa depression, parang hinihintay mo munang gumaan ang pakiramdam bago kumilos. Kapag gumawa ka muna ng isang maliit na kayang gawin, gaya ng maligo o maglakad sandali, kadalasang gumagaan nang kaunti ang loob mo, at mas madali na ang susunod.',
+      body: 'Sa depression, parang hinihintay mo munang gumaan ang pakiramdam bago kumilos. Kapag gumawa ka muna ng isang maliit na bagay na kaya mo, gaya ng maligo o maglakad sandali, kadalasang gumagaan nang kaunti ang loob mo, at mas madali na ang susunod.',
     },
     related: [
       'pagod-na-ako',
@@ -468,7 +468,7 @@ export const feelingPages: FeelingPage[] = [
       },
       {
         q: 'Nawawala ba ang depression nang kusa?',
-        a: 'Minsan gumagaan ito, pero mas mabilis at mas sigurado ang paggaling kapag may tulong. Nagagamot ang depression sa pamamagitan ng counseling, at minsan ng gamot na irereseta ng doktor.',
+        a: 'Minsan gumagaan ito, pero mas mabilis at mas sigurado ang paggaling kapag may tulong. Nagagamot ang depression sa counseling, at minsan sa gamot na nireseta ng doktor.',
       },
       {
         q: 'Paano malalaman kung depressed na ako?',
@@ -489,7 +489,7 @@ export const feelingPages: FeelingPage[] = [
     pair: 'panic-attack-what-to-do',
     metaTitle: 'Panic attack: ano ang gagawin ngayon, hakbang-hakbang',
     metaDescription:
-      'Kumakabog ang dibdib, hirap huminga, at parang may masamang mangyayari? Puwedeng panic attack ito. Huminga kasama namin nang 2 minuto habang lumilipas ito.',
+      'Kumakabog ang dibdib, hirap huminga, at parang may masamang mangyayari? Puwedeng panic attack ito. Sabayan kami sa paghinga nang 2 minuto habang lumilipas ito.',
     keywords: [
       'panic attack ano gagawin',
       'panic attack sa Tagalog',
@@ -513,14 +513,14 @@ export const feelingPages: FeelingPage[] = [
         'hirap huminga o masikip ang dibdib',
         'nanginginig, pinagpapawisan, o naiinitan o nilalamig',
         'nahihilo o parang mahihimatay',
-        'nangingilig o namamanhid ang kamay o mukha',
+        'parang tinutusok-tusok o namamanhid ang kamay o mukha',
         'pakiramdam mo may masamang mangyayari o mawawalan ka ng kontrol',
       ],
       note: 'Parang delikado ang pakiramdam, pero hindi nakakasama sa katawan mo ang panic attack mismo, at lumilipas ito. Kung paulit-ulit itong nangyayari, o umiiwas ka na sa mga lugar dahil dito, kausapin ang isang doktor o counselor. Nagagamot ang panic attacks.',
     },
     tip: {
       title: 'Bakit nakakatulong ang mabagal na pagbuga ng hangin',
-      body: 'Sa panic attack, mabilis ang paghinga mo, at lalo nitong pinapalala ang hilo at pangingilig. Kapag mas mahaba ang pagbuga kaysa paghinga papasok, bumabagal ang tibok ng puso at kumakalma ang katawan.',
+      body: 'Sa panic attack, mabilis ang paghinga mo, at lalo nitong pinapalala ang hilo at pamamanhid. Kapag mas mahaba ang pagbuga kaysa paghinga papasok, bumabagal ang tibok ng puso at kumakalma ang katawan.',
     },
     related: ['paano-mawala-ang-anxiety'],
     sources: [
@@ -727,7 +727,7 @@ export const feelingPages: FeelingPage[] = [
         'sobra o kulang ang tulog o kain mo',
         'hirap ka nang makaraos sa trabaho, pag-aaral o bahay',
       ],
-      note: 'Puwedeng senyales ito ng depression, na nagagamot. May mas mahabang paliwanag sa page namin tungkol sa depression.',
+      note: 'Puwedeng senyales ito ng depression, at nagagamot iyon. Mas mahaba ang paliwanag sa page namin tungkol sa depression.',
     },
     tip: {
       title: 'Isang paraan para magsimula',
@@ -777,7 +777,7 @@ export const feelingPages: FeelingPage[] = [
     explain: {
       title: 'Mga senyales ng burnout',
       intro:
-        'Ayon sa World Health Organization, ang burnout ay bunga ng matagal na stress sa trabaho na hindi naaayos. Kadalasang ganito ito:',
+        'Ayon sa World Health Organization, galing ang burnout sa matagal na stress sa trabaho na hindi naaayos. Kadalasang ganito ito:',
       points: [
         'laging ubos ang lakas at pagod',
         'lumalayo ang loob mo sa trabaho, o nagiging negatibo ka tungkol dito',
@@ -786,7 +786,7 @@ export const feelingPages: FeelingPage[] = [
       note: 'Tungkol sa trabaho at matagal na stress ang burnout. Kung halos buong araw ka ring malungkot, o wala ka nang gana kahit sa labas ng trabaho, puwedeng depression na rin ito. Kausapin ang isang doktor o counselor.',
     },
     tip: {
-      title: 'Isang limitasyon ngayong linggo',
+      title: 'Isang limit ngayong linggo',
       body: 'Pumili ng isang bagay na iingatan mo: totoong lunch break, oras na titigil ka sa pagtingin ng messages, o isang araw na pahinga. Sabihin sa isang tao para mas madali mo itong masunod.',
     },
     related: ['pagod-na-ako', 'depressed-ako'],
@@ -942,7 +942,7 @@ export const feelingUi = {
       '9 na tanong, libre. Makakakuha ka ng mga hakbang para sa linggong ito.',
     prayerTitle: 'Gusto mo bang ipagdasal ka namin?',
     prayerText:
-      'Magpadala ng prayer request. May Hope Carrier na magdarasal para sa iyo.',
+      'Magpadala ng prayer request. Ipagdadasal ka ng isang Hope Carrier.',
     seeAll: 'Tingnan lahat ng maitutulong namin',
     allTools: 'Tingnan lahat ng tool',
     alsoRead: 'Basahin din:',

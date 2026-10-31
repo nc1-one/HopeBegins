@@ -523,8 +523,8 @@ export const stories5: Story[] = [
         kind: 'story',
         heading: 'Ang mga buwan na parang naka-pause',
         paragraphs: [
-          'Barista si Lia sa isang maliit na coffee shop sa Session Road, Baguio. Dati, siya yung pinaka-maagang dumarating. Bubuksan niya ang shop, ise-set up ang espresso machine, at babatiin ang mga suki sa pangalan nila.',
-          'Tapos dumating yung taon na sunod-sunod. Lumipat sa Manila ang best friend niya. Nagsara ang shop nang tatlong buwan para sa renovation. Naubos ang ipon niya. Nung nagbukas ulit ang shop, bumalik siya sa trabaho, pero parang iba na siya.',
+          'Barista si Lia sa isang maliit na coffee shop sa Session Road, Baguio. Dati, siya yung pinakamaagang dumarating. Bubuksan niya ang shop, ise-set up ang espresso machine, at babatiin ang mga suki sa pangalan nila.',
+          'Tapos dumating yung taon na sunod-sunod ang problema. Lumipat sa Manila ang best friend niya. Nagsara ang shop nang tatlong buwan para sa renovation. Naubos ang ipon niya. Nung nagbukas ulit ang shop, bumalik siya sa trabaho, pero parang iba na siya.',
           'Gising siya ng alas-nuwebe, late na. Kape na lang ang almusal. Pagkatapos ng shift, diretso sa kama, scroll hanggang madaling-araw. Pag weekend, hindi na siya lumalabas. "Pagod lang ako," sabi niya sa mama niya sa video call. Alam niyang higit pa doon.',
           'May mga araw na malungkot siya. Pero mas madalas, wala lang. Walang gana, walang direksyon, parang naka-pause ang buhay habang tuloy-tuloy ang mundo sa labas.',
         ],
@@ -549,7 +549,7 @@ export const stories5: Story[] = [
           'Si Tita Baby, ang may-ari ng shop, ang unang nakapansin. Isang hapon, habang naglilinis sila, tinanong niya si Lia, "Anak, okay ka lang ba talaga? Parang ang layo mo lately." Umiyak si Lia sa may lababo. First time niyang inamin na hindi siya okay.',
           'Tumango lang si Tita Baby, saka nagtanong: "Isang maliit na bagay bukas. Isa lang. Ano yun?"',
           'Pinag-isipan ni Lia. Gustong-gusto niya dati ang umaga sa Baguio, yung lamig at hamog. Kaya ito ang pinili niya: gigising nang alas-siyete, magtitimpla ng kape, at iinumin ito sa labas ng boarding house habang nakatingin sa bundok. Walang phone. Sampung minuto lang.',
-          'Kinabukasan, ginawa niya. Malamig, inaantok pa siya, pero nandun siya sa labas, hawak ang dilaw na mug, pinapanood ang hamog na unti-unting nawawala sa mga pine tree. Simple lang, pero may nagawa na siya, at alas-siyete pa lang.',
+          'Kinabukasan, ginawa niya. Malamig, inaantok pa siya, pero nandun siya sa labas, hawak ang dilaw na mug, pinapanood ang hamog na unti-unting nawawala sa mga pine tree. Maliit na bagay lang, pero may nagawa na siya, at alas-siyete pa lang.',
         ],
       },
       {
@@ -558,8 +558,8 @@ export const stories5: Story[] = [
         paragraphs: [
           'Pagkatapos ng isang linggo ng kape sa umaga, nagdagdag siya ng isa pa: maglakad papunta sa trabaho imbes na mag-jeep, labinlimang minuto dumadaan sa Burnham Park. Pagkalipas ng dalawang linggo, isa pa: tawagan ang best friend niya tuwing Linggo ng gabi.',
           'May mga araw na wala siyang nagawa kahit isa. Natuto siyang huwag bilangin yun bilang failure. Bukas, kape ulit.',
-          'Bumalik din siya sa church, sa isang small group ng mga young professional. Sa simula, nakikinig lang siya. Isang gabi, may nag-share tungkol sa Isaiah 40:31, at naisip ni Lia na okay lang maglakad muna bago tumakbo.',
-          'Nung napansin niyang ilang linggo pa ring mabigat ang loob niya kahit may maliliit na progress, nagpa-check up siya sa health center. Ni-refer siya ng doktor sa isang counselor. Doon niya natutunang maging mas mabait sa sarili.',
+          'Bumalik din siya sa church, sa isang small group ng mga young professional. Sa simula, nakikinig lang siya. Isang gabi, may nag-share tungkol sa Isaias 40:31, at naisip ni Lia na okay lang maglakad muna bago tumakbo.',
+          'Nung napansin niyang ilang linggo pa ring mabigat ang loob niya kahit may maliliit na progress, nagpa-check up siya sa health center. Ni-refer siya ng doktor sa isang counselor. Doon niya natutunang tigilan ang paninisi sa sarili.',
           'Ngayon, makalipas ang anim na buwan, si Lia ulit ang unang dumarating sa shop. Hindi pa perfect ang lahat. Pero tuwing umaga, may dilaw na mug, may bundok, at may isang maliit na bagay na nagawa na niya bago pa magsimula ang araw.',
         ],
         pullQuote:
@@ -571,9 +571,9 @@ export const stories5: Story[] = [
         paragraphs: [
           'Kung stuck ka ngayon, walang gana, at hindi mo alam kung saan magsisimula, isang bagay lang muna ang pakay mo ngayong linggo.',
           'Pumili ng isang maliit na bagay para bukas ng umaga. Kape sa labas. Limang minutong lakad. Isang text sa kaibigan. Gawin mo yun, at bilangin mo bilang panalo. Kumikilos muna tayo, saka sumusunod ang gana.',
-          'May mga araw na wala kang magagawa kahit isa. Ayos lang yun. Bukas, subukan ulit. Hindi nabubura ng isang mabigat na araw ang progress mo.',
-          'Kung higit dalawang linggo ka nang walang gana o mabigat ang loob, o nahihirapan ka nang kumilos sa araw-araw, kausapin ang doktor o counselor. Normal na next step yan, at nakakatulong.',
-          'Kung gusto mo ng tulong ngayon din, libre ang [HopeBegins](/). Piliin kung ano ang nararamdaman mo at may isang maliit na bagay kang pwedeng subukan ngayon, may calming tools, may magdadasal para sa iyo, at may e-coach kang pwedeng i-message sa Messenger. Kung hindi mo alam kung saan ka papunta, basahin ang [Hindi ko alam gagawin ko](/hindi-ko-alam-gagawin-ko-sa-buhay).',
+          'May mga araw na wala kang magagawa kahit isa. Bukas, subukan ulit. Hindi nabubura ng isang mabigat na araw ang progress mo.',
+          'Kung higit dalawang linggo ka nang walang gana o mabigat ang loob, o nahihirapan ka nang kumilos sa araw-araw, kausapin ang doktor o counselor. Normal na hakbang yan, at nakakatulong ito.',
+          'Kung gusto mo ng tulong ngayon din, libre ang [HopeBegins](/). Piliin mo kung ano ang nararamdaman mo at bibigyan ka ng isang maliit na bagay na puwede mong subukan ngayong araw. May mga calming tool din, may magdarasal para sa iyo, at may e-coach na puwede mong i-message sa Messenger. Kung hindi mo alam kung saan ka papunta, basahin ang [Hindi ko alam gagawin ko](/hindi-ko-alam-gagawin-ko-sa-buhay).',
         ],
       },
     ],

@@ -25,7 +25,7 @@ const copy: PerLang<{
     tally: (days: number, week: number) =>
       `${days} araw · ${week} ngayong linggo`,
     go: 'Mag-check in ngayon',
-    done: 'Tapos na ngayon',
+    done: 'Tapos na ngayong araw',
   },
   fr: {
     title: 'Bilan du jour',

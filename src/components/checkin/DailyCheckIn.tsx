@@ -248,7 +248,7 @@ const copy: PerLang<Copy> = {
     weekLabel: 'Ngayong linggo',
     weekCount: (n: number) => `${n} araw ngayong linggo`,
     stageNames: [
-      'Walang lamang paso',
+      'Bakanteng paso',
       'Binhi',
       'Usbong',
       'Mga unang dahon',
@@ -268,8 +268,8 @@ const copy: PerLang<Copy> = {
     ],
     neverWilts:
       'May araw kang nakaligtaan? Hindi nalalanta ang halaman mo dito. Bilang ang bawat araw na bumabalik ka.',
-    verseNew: 'Isang talata para sa iyo',
-    versesTitle: (n: number) => `Ang mga talata mo (${n})`,
+    verseNew: 'Isang verse para sa iyo',
+    versesTitle: (n: number) => `Ang mga verse mo (${n})`,
     recentTitle: 'Ang mga huling check-in mo',
     change: 'Palitan ang sagot ngayong araw',
     clear: 'Burahin ang mga check-in ko sa phone na ito',
@@ -280,8 +280,8 @@ const copy: PerLang<Copy> = {
       1: 'Mabigat ang mga araw na bumabagyo. Magsimula sa paghinga, at sabihin sa isang tao ang kalagayan mo ngayon.',
       2: 'Pumili ng isa rito para sa ilang minuto. Nakakatulong ang maliliit na hakbang sa maulang araw.',
       3: 'Ilang minuto sa isa sa mga ito, at puwedeng lumiwanag nang kaunti.',
-      4: 'Ituloy ang maganda.',
-      5: 'Ituloy ang maganda.',
+      4: 'Ituloy mo lang ang magandang takbo.',
+      5: 'Ituloy mo lang ang magandang takbo.',
     } as Record<Weather, string>,
     tools: {
       breathe: 'Dahan-dahang paghinga, 2 min',
@@ -294,7 +294,7 @@ const copy: PerLang<Copy> = {
     story: 'Magbasa ng kuwento ng pag-asa',
     ecoach: 'Kausapin ang e-coach',
     heavyRun:
-      'Mabigat ang huling ilang check-in mo. Kumausap ng isang tao ngayong linggo. Puwedeng makinig ang isang e-coach, libre.',
+      'Mabigat ang huling ilang check-in mo. Kumausap ka ng isang tao ngayong linggo. Puwedeng makinig ang isang e-coach nang libre.',
   },
   // The plant is a jasmine in these languages. There are no e-coaches here:
   // the talk button goes to free helplines in the visitor's country.

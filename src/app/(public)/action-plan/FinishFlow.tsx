@@ -123,7 +123,7 @@ const copy = {
       'Gamitin ulit ang tool mo araw-araw, simula ngayon.',
       'Sabihan ang isa sa dalawang taong napili mo.',
       'Sagutan ang check-in. Kung mataas pa rin ang scores mo pagkalipas ng dalawang linggo, kumausap ng counselor o e-coach.',
-      'Kung naiisip mong tapusin ang buhay mo, tumawag agad sa isang crisis line.',
+      'Kung naiisip mong tapusin ang buhay mo, tumawag agad sa isang crisis hotline.',
     ],
     restart: 'Magsimula ng panibagong 4 na linggo gamit ang tool na ito',
     edit: 'Baguhin ang Hope Card ko',

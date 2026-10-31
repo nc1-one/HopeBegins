@@ -37,14 +37,14 @@ const copy = {
     close: 'Close',
   },
   tl: {
-    question: 'Kumpara bago ka nagsimula, kumusta ang pakiramdam mo?',
+    question: 'Kumpara noong bago ka nagsimula, kumusta ang pakiramdam mo?',
     felt: { calmer: 'Mas kalmado', same: 'Ganoon pa rin', worse: 'Mas malala' },
     when: {
       breathe: 'sumikip ang dibdib mo o bumilis ang isip mo',
       ground: 'nagsisimula ang kaba o panic',
     },
     calmer: (when: string) => `Mabuti. Balikan ito sa susunod na ${when}.`,
-    same: 'Nangyayari iyan. Mas gumagana ang mga tool pagkatapos ng ilang araw na pagsasanay. Subukan ulit mamaya.',
+    same: 'Nangyayari iyan. Kadalasan, mas nakakatulong ang mga tool pagkatapos ng ilang araw na practice. Subukan ulit mamaya.',
     worse:
       'Salamat sa pagsabi. Itigil muna at gumawa ng isang bagay na magaan. Kung sobra na, kumausap ng isang tao.',
     keep: 'Idagdag sa 4 na linggo ko',

@@ -252,7 +252,7 @@ export const TRAPS: Record<TrapId, Trap> = {
       },
       {
         en: "I'm a person who is still learning.",
-        tl: 'Tao ako na natututo pa.',
+        tl: 'Tao lang ako, at natututo pa.',
         fr: 'Je suis quelqu’un qui apprend encore.',
         de: 'Ich bin ein Mensch, der noch lernt.',
         es: 'Soy una persona que todavía está aprendiendo.',
@@ -288,7 +288,7 @@ export const TRAPS: Record<TrapId, Trap> = {
     balanced: [
       {
         en: "I'd like to do better, and I can be patient with myself.",
-        tl: 'Gusto kong mas gumaling pa, at kaya kong maging pasensyoso sa sarili ko.',
+        tl: 'Gusto kong mas gumaling pa, at kaya kong habaan ang pasensya ko sa sarili ko.',
         fr: 'J’aimerais faire mieux, et je peux m’accorder de la patience.',
         de: 'Ich möchte es besser machen, und ich kann geduldig mit mir sein.',
         es: 'Me gustaría hacerlo mejor, y puedo tenerme paciencia.',
@@ -296,7 +296,7 @@ export const TRAPS: Record<TrapId, Trap> = {
       },
       {
         en: 'My pace is my own.',
-        tl: 'May sarili akong bilis.',
+        tl: 'May sarili akong takbo.',
         fr: 'J’avance à mon rythme.',
         de: 'Ich gehe in meinem eigenen Tempo.',
         es: 'Voy a mi propio ritmo.',
@@ -586,7 +586,7 @@ export const THOUGHTS: Thought[] = [
       },
       {
         en: "If something hard happens, I'll find a way through it, with help.",
-        tl: 'Kung may mahirap na mangyari, makakahanap ako ng paraan, kasama ang ibang tao.',
+        tl: 'Kung may mahirap na mangyari, makakahanap ako ng paraan, sa tulong ng iba.',
         fr: 'Si quelque chose de dur arrive, je trouverai un moyen de m’en sortir, avec de l’aide.',
         de: 'Wenn etwas Schweres passiert, finde ich mit Hilfe einen Weg hindurch.',
         es: 'Si pasa algo difícil, voy a encontrar la manera de salir adelante, con ayuda.',

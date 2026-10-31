@@ -76,8 +76,8 @@ const copy = {
     stop: 'Itigil',
     doneTitle: 'Nagawa mo.',
     doneText:
-      'Mahalaga ang maliliit na bagay. Gumawa muna, at madalas sumusunod ang gaan ng pakiramdam.',
-    nextTime: 'pakiramdam mo ay stuck ka o mabigat ang loob mo',
+      'Pasok ang maliliit na bagay. Madalas, gumagaan ang pakiramdam pagkatapos kumilos.',
+    nextTime: 'stuck ka o mabigat ang loob mo',
   },
   fr: {
     label: 'Une petite chose',

@@ -438,7 +438,7 @@ const questionText: {
     key: 'support',
     prompt: {
       en: 'Is there someone you can talk to openly?',
-      tl: 'May tao ka bang nakakausap nang bukas ang loob?',
+      tl: 'May napagsasabihan ka ba ng totoong nararamdaman mo?',
       fr: 'As-tu quelqu’un à qui parler librement ?',
       de: 'Gibt es jemanden, mit dem du offen reden kannst?',
       es: '¿Tienes a alguien con quien hablar con confianza?',
@@ -477,7 +477,7 @@ const questionText: {
     key: 'faith',
     prompt: {
       en: 'Should faith be part of your plan?',
-      tl: 'Gusto mo bang kasama ang faith sa plano mo?',
+      tl: 'Gusto mo bang isama ang pananampalataya sa plano mo?',
       fr: 'Veux-tu que la foi fasse partie de ton plan ?',
       de: 'Soll der Glaube Teil deines Plans sein?',
       es: '¿Quieres que la fe sea parte de tu plan?',
@@ -583,7 +583,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
     summary.push(
       t({
         en: 'Some days of low mood.',
-        tl: 'May mga araw na mababa ang mood.',
+        tl: 'May mga araw na malungkot ka.',
         fr: 'Quelques jours avec le moral bas.',
         de: 'Einige Tage mit gedrückter Stimmung.',
         es: 'Algunos días con el ánimo bajo.',
@@ -606,7 +606,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
     summary.push(
       t({
         en: 'Some days of worry or nerves.',
-        tl: 'May mga araw ng pag-aalala o kaba.',
+        tl: 'May mga araw na nag-aalala o kinakabahan ka.',
         fr: 'Quelques jours d’inquiétude ou de nervosité.',
         de: 'Einige Tage mit Sorgen oder Nervosität.',
         es: 'Algunos días de preocupación o nervios.',
@@ -646,7 +646,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
     summary.push(
       t({
         en: "You're doing okay most days. This plan helps keep it that way.",
-        tl: "Kaya mo naman halos araw-araw. Makakatulong ang planong ito para tuloy-tuloy 'yan.",
+        tl: 'Okay ka naman halos araw-araw. Makakatulong ang planong ito para manatiling ganyan.',
         fr: 'La plupart des jours, ça va. Ce plan t’aide à garder le cap.',
         de: 'An den meisten Tagen geht es dir ganz gut. Dieser Plan hilft, dass es so bleibt.',
         es: 'La mayoría de los días estás bien. Este plan te ayuda a que siga así.',
@@ -689,7 +689,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           }),
           detail: t({
             en: 'Write down the thoughts, feelings or situations that come before your worst moments.',
-            tl: 'Isulat ang mga naiisip, pakiramdam, o sitwasyon na nauuna bago ang pinakamabibigat mong sandali.',
+            tl: 'Isulat ang mga naiisip, nararamdaman, o sitwasyon na dumarating bago ang pinakamabibigat mong sandali.',
             fr: 'Note les pensées, les émotions ou les situations qui arrivent avant tes pires moments.',
             de: 'Schreib die Gedanken, Gefühle oder Situationen auf, die vor deinen schlimmsten Momenten kommen.',
             es: 'Escribe los pensamientos, sentimientos o situaciones que aparecen antes de tus peores momentos.',
@@ -719,7 +719,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           id: 'be-around-people',
           title: t({
             en: '3. People and places that distract you',
-            tl: '3. Mga tao at lugar na nakakatulong mag-distract',
+            tl: '3. Mga tao at lugar na nakakalibang sa iyo',
             fr: '3. Des personnes et des lieux qui te changent les idées',
             de: '3. Menschen und Orte, die dich ablenken',
             es: '3. Personas y lugares que te distraen',
@@ -757,7 +757,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           id: 'professionals',
           title: t({
             en: '5. Crisis lines, open 24/7',
-            tl: '5. Crisis lines, bukas 24/7',
+            tl: '5. Crisis hotlines, bukas 24/7',
             fr: '5. Lignes d’écoute, 24h/24 et 7j/7',
             de: '5. Krisentelefone, rund um die Uhr',
             es: '5. Líneas de crisis, abiertas las 24 horas',
@@ -827,7 +827,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         }),
         detail: t({
           en: "With low mood, waiting to feel like it doesn't work. Start small. The energy often comes after.",
-          tl: 'Kapag malungkot ka, bihirang dumating ang gana kung hihintayin mo. Kumilos muna nang kaunti, madalas sumusunod ang gaan.',
+          tl: 'Kapag malungkot ka, bihirang dumating ang gana kung hihintayin mo. Magsimula sa maliit. Madalas, kasunod na ang lakas.',
           fr: 'Quand le moral est bas, attendre d’en avoir envie ne marche pas. Commence petit. L’élan vient souvent après.',
           de: 'Bei gedrückter Stimmung bringt es nichts, auf die Lust zu warten. Fang klein an. Der Antrieb kommt oft erst danach.',
           es: 'Con el ánimo bajo, esperar a tener ganas no funciona. Empieza con algo pequeño. El impulso suele llegar después.',
@@ -934,7 +934,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           }),
           t({
             en: 'Practice once a day when calm.',
-            tl: 'Mag-practice isang beses araw-araw kahit kalmado ka.',
+            tl: 'Mag-practice isang beses isang araw habang kalmado ka.',
             fr: 'Entraîne-toi une fois par jour, quand tu es calme.',
             de: 'Üb sie einmal am Tag, wenn du ruhig bist.',
             es: 'Practícala una vez al día, cuando estés en calma.',
@@ -1064,7 +1064,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         id: 'sleep',
         action: t({
           en: 'get up with my alarm and get daylight',
-          tl: 'babangon ako sa alarm at magpapaaraw',
+          tl: 'babangon ako pagtunog ng alarm at magpapaaraw',
           fr: 'je vais me lever dès que mon réveil sonne et chercher la lumière du jour',
           de: 'stehe ich mit dem Wecker auf und gehe raus ans Tageslicht',
           es: 'voy a levantarme con la alarma y salir a la luz del día',
@@ -1127,7 +1127,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         id: 'move',
         action: t({
           en: 'move for 10 minutes',
-          tl: 'gagalaw ako nang 10 minuto',
+          tl: 'igagalaw ko ang katawan ko nang 10 minuto',
           fr: 'je vais bouger pendant 10 minutes',
           de: 'bewege ich mich 10 Minuten lang',
           es: 'voy a moverme durante 10 minutos',
@@ -1136,7 +1136,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         defaultTime: 'midday',
         title: t({
           en: 'Move for 10 minutes a day',
-          tl: 'Gumalaw nang 10 minuto araw-araw',
+          tl: 'Igalaw ang katawan nang 10 minuto araw-araw',
           fr: 'Bouge 10 minutes par jour',
           de: 'Beweg dich 10 Minuten am Tag',
           es: 'Muévete 10 minutos al día',
@@ -1144,7 +1144,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         }),
         detail: t({
           en: 'A walk outside counts. Daylight and movement both lift mood and help sleep.',
-          tl: 'Pasok na ang paglalakad sa labas. Ang pagpapaaraw at paggalaw ay parehong nakakagaan ng mood at nakakatulong sa tulog.',
+          tl: 'Pasok na ang paglalakad sa labas. Parehong nakakagaan ng mood at nakakatulong sa tulog ang sikat ng araw at ang paggalaw.',
           fr: 'Une marche dehors, ça compte. La lumière du jour et le mouvement remontent le moral et aident à dormir.',
           de: 'Ein Spaziergang draußen zählt schon. Tageslicht und Bewegung heben die Stimmung und helfen beim Schlafen.',
           es: 'Una caminata afuera cuenta. La luz del día y el movimiento levantan el ánimo y ayudan a dormir.',
@@ -1159,7 +1159,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         exercise: 'unhook',
         action: t({
           en: 'notice and name one heavy thought',
-          tl: 'papansinin at papangalanan ko ang isang mabigat na isip',
+          tl: 'papansinin at papangalanan ko ang isang mabigat na iniisip',
           fr: 'je vais repérer et nommer une pensée lourde',
           de: 'bemerke ich einen schweren Gedanken und benenne ihn',
           es: 'voy a notar y nombrar un pensamiento pesado',
@@ -1168,7 +1168,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         defaultTime: 'midday',
         title: t({
           en: 'Step back from a heavy thought',
-          tl: 'Lumayo nang kaunti sa mabigat na isip',
+          tl: 'Lumayo nang kaunti sa mabigat na iniisip',
           fr: 'Prends du recul face à une pensée lourde',
           de: 'Geh auf Abstand zu einem schweren Gedanken',
           es: 'Toma distancia de un pensamiento pesado',
@@ -1176,7 +1176,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         }),
         detail: t({
           en: 'When a hard thought grabs you, name it: "I\'m having the thought that I\'m not good enough." Then bring your attention back to what you are doing.',
-          tl: 'Kapag may mabigat na isip na kumapit sa iyo, pangalanan ito: "Napapansin kong iniisip ko na hindi ako sapat." Tapos ibalik ang atensyon mo sa ginagawa mo.',
+          tl: 'Kapag may mabigat na iniisip na kumapit sa iyo, pangalanan ito: "Napapansin kong iniisip ko na hindi ako sapat." Tapos ibalik ang atensyon mo sa ginagawa mo.',
           fr: 'Quand une pensée difficile t’accroche, nomme-la : « J’ai la pensée que je ne suis pas à la hauteur. » Puis ramène ton attention sur ce que tu fais.',
           de: 'Wenn dich ein schwerer Gedanke packt, benenne ihn: „Ich habe den Gedanken, dass ich nicht gut genug bin.“ Dann richte deine Aufmerksamkeit wieder auf das, was du gerade tust.',
           es: 'Cuando un pensamiento difícil te atrape, ponle nombre: “Estoy teniendo el pensamiento de que no soy suficiente”. Luego vuelve a poner tu atención en lo que estás haciendo.',
@@ -1244,7 +1244,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
     }),
     intro: t({
       en: 'Start with one or two. Use them on most days for 4 weeks.',
-      tl: 'Magsimula sa isa o dalawa. Gamitin ang mga ito sa karamihan ng araw sa loob ng 4 na linggo.',
+      tl: 'Magsimula sa isa o dalawa. Gamitin ang mga ito halos araw-araw sa loob ng 4 na linggo.',
       fr: 'Commence par un ou deux. Utilise-les la plupart des jours pendant 4 semaines.',
       de: 'Fang mit einer oder zwei an. Mach sie 4 Wochen lang an den meisten Tagen.',
       es: 'Empieza con una o dos. Úsalas la mayoría de los días durante 4 semanas.',
@@ -1326,7 +1326,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         }),
         detail: t({
           en: 'Choose a calm moment. Start with "I feel ... when ... I need ...". Stick to one thing for now.',
-          tl: 'Pumili ng kalmadong pagkakataon. Isang bagay lang muna ang pag-usapan. Simulan sa: "Nasasaktan ako kapag ... Sana ..."',
+          tl: 'Pumili ng kalmadong pagkakataon. Simulan sa "Ang pakiramdam ko ... kapag ... Ang kailangan ko ...". Isang bagay lang muna ang pag-usapan.',
           fr: 'Choisis un moment calme. Commence par : « Je me sens… quand… J’ai besoin de… » Tiens-toi à un seul sujet pour l’instant.',
           de: 'Such dir einen ruhigen Moment aus. Fang so an: „Ich fühle mich …, wenn … Ich brauche …“ Bleib erst mal bei einem Thema.',
           es: 'Elige un momento tranquilo. Empieza con: “Me siento… cuando… Necesito…”. Por ahora, quédate con un solo tema.',
@@ -1446,7 +1446,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
       exercise: 'message',
       title: t({
         en: 'Reach out to one person',
-        tl: 'Kumausap ng isang tao',
+        tl: 'Lumapit sa isang tao',
         fr: 'Contacte une personne',
         de: 'Melde dich bei einem Menschen',
         es: 'Escríbele a una persona',
@@ -1522,7 +1522,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
             answers.faith === 'yes'
               ? t({
                   en: 'Pray or read a Psalm before you check your phone. Psalm 23 and Psalm 46 are good places to start.',
-                  tl: 'Magdasal o magbasa ng isang Psalm bago mo tingnan ang phone mo. Magandang simula ang Psalm 23 at Psalm 46.',
+                  tl: 'Magdasal o magbasa ng Awit bago mo tingnan ang phone mo. Magandang simula ang Awit 23 at Awit 46.',
                   fr: 'Prie ou lis un psaume avant de regarder ton téléphone. Les Psaumes 23 et 46 sont un bon point de départ.',
                   de: 'Bete oder lies einen Psalm, bevor du aufs Handy schaust. Psalm 23 und Psalm 46 sind ein guter Anfang.',
                   es: 'Ora o lee un salmo antes de mirar tu celular. El Salmo 23 y el Salmo 46 son un buen comienzo.',
@@ -1530,7 +1530,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
                 })
               : t({
                   en: 'Sit quietly before you check your phone. If you like, read Psalm 23 or say a short prayer.',
-                  tl: 'Umupo nang tahimik bago mo tingnan ang phone mo. Kung gusto mo, basahin ang Psalm 23 o magdasal nang maikli.',
+                  tl: 'Umupo nang tahimik bago mo tingnan ang phone mo. Kung gusto mo, basahin ang Awit 23 o magdasal nang maikli.',
                   fr: 'Assieds-toi au calme avant de regarder ton téléphone. Si tu veux, lis le Psaume 23 ou dis une courte prière.',
                   de: 'Setz dich in Ruhe hin, bevor du aufs Handy schaust. Wenn du magst, lies Psalm 23 oder sprich ein kurzes Gebet.',
                   es: 'Siéntate en silencio antes de mirar tu celular. Si quieres, lee el Salmo 23 o haz una oración corta.',
@@ -1646,7 +1646,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
       }),
       detail: t({
         en: 'Send a prayer request. You choose what to share.',
-        tl: 'Magpadala ng prayer request. Ikaw ang bahala kung ano ang ibabahagi mo.',
+        tl: 'Magpadala ng prayer request. Ikaw ang bahala kung ano ang ikukuwento mo.',
         fr: 'Envoie une demande de prière. C’est toi qui choisis ce que tu partages.',
         de: 'Schick ein Gebetsanliegen. Du entscheidest, was du teilst.',
         es: 'Envía una petición de oración. Tú eliges qué compartir.',
@@ -1695,7 +1695,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
     id: 'support',
     heading: t({
       en: 'More support',
-      tl: 'Iba pang suporta',
+      tl: 'Iba pang tulong',
       fr: 'D’autres aides',
       de: 'Mehr Unterstützung',
       es: 'Más apoyo',

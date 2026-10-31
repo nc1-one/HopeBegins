@@ -8,7 +8,7 @@ const TWIN = TAGLISH_TWINS.tools;
 // The page's own heading, shown in the tab until the search lines are in.
 const HEADING = {
   title: 'Mga tool para sa mabibigat na sandali',
-  description: 'Sa phone mo lang naiiwan ang anumang i-type mo dito.',
+  description: 'Ilang tap at ilang minuto lang ang karamihan. Hindi umaalis sa phone mo ang anumang pipiliin mo.',
 };
 
 export const metadata = twinMetadata(TWIN, HEADING);
