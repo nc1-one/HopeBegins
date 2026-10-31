@@ -47,31 +47,34 @@ export default function EmailTemplatesPage() {
   const [editingSubject, setEditingSubject] = useState('');
   const [saving, setSaving] = useState(false);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
-
-  const fetchTemplates = useCallback(async () => {
-    try {
-      setLoading(true);
-      const data = await dailyHopeService.getEmailTemplates();
-      setTemplates(data);
-      if (data.length > 0 && !selectedTemplate) {
-        handleSelectTemplate(data[0]);
-      }
-    } catch {
-      toast.error('Failed to load email templates');
-    } finally {
-      setLoading(false);
-    }
-  }, [selectedTemplate]);
-
-  useEffect(() => {
-    fetchTemplates();
-  }, [fetchTemplates]);
+  // A built-in day shows its email; writing opens the editor for a custom one.
+  const [writing, setWriting] = useState(false);
 
   const handleSelectTemplate = (template: EmailTemplate) => {
     setSelectedTemplate(template);
     setEditingContent(template.html_content);
     setEditingSubject(template.subject);
+    setWriting(false);
   };
+
+  // Loads the days and keeps the one being looked at selected.
+  const fetchTemplates = useCallback(async (keepId?: number) => {
+    try {
+      setLoading(true);
+      const data = await dailyHopeService.getEmailTemplates();
+      setTemplates(data);
+      const next = data.find((t) => t.id === keepId) ?? data[0];
+      if (next) handleSelectTemplate(next);
+    } catch {
+      toast.error('Failed to load email templates');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchTemplates();
+  }, [fetchTemplates]);
 
   const handleSave = async () => {
     if (!selectedTemplate) return;
@@ -82,14 +85,43 @@ export default function EmailTemplatesPage() {
         subject: editingSubject,
         html_content: editingContent,
       });
-      toast.success(`Day ${selectedTemplate.day_number} template updated!`);
-      fetchTemplates();
+      toast.success(
+        `Day ${selectedTemplate.day_number} now sends your custom version in English.`
+      );
+      fetchTemplates(selectedTemplate.id);
     } catch {
       toast.error('Failed to save changes');
     } finally {
       setSaving(false);
     }
   };
+
+  const handleUseBuiltIn = async () => {
+    if (!selectedTemplate) return;
+
+    try {
+      setSaving(true);
+      await dailyHopeService.updateEmailTemplate(selectedTemplate.id, {
+        is_active: false,
+      });
+      toast.success(
+        `Day ${selectedTemplate.day_number} sends the built-in email again.`
+      );
+      fetchTemplates(selectedTemplate.id);
+    } catch {
+      toast.error('Failed to save changes');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const showsBuiltIn =
+    !!selectedTemplate && !selectedTemplate.is_active && !writing;
+  const dayTitle = (t: EmailTemplate) =>
+    (t.is_active ? t.subject : (t.builtin_subject ?? t.subject))
+      .split(':')
+      .pop()
+      ?.trim();
 
   if (loading && templates.length === 0) {
     return (
@@ -128,8 +160,9 @@ export default function EmailTemplatesPage() {
             <DailyHopeNav />
           </div>
           <p className="mt-2 text-zinc-500 font-medium text-sm sm:text-base max-w-2xl">
-            Edit the content and design of the 21-day automated email campaign.
-            Changes apply immediately to all active participants.
+            Every day sends a built-in email, written and reviewed in all six
+            languages. Save a custom version of a day to replace its English
+            email; the other languages keep the built-in one.
           </p>
         </div>
 
@@ -142,18 +175,20 @@ export default function EmailTemplatesPage() {
           >
             <Eye className="h-4 w-4" /> Preview
           </Button>
-          <Button
-            onClick={handleSave}
-            disabled={saving || !selectedTemplate}
-            className="h-11 px-8 rounded-2xl bg-brand hover:bg-brand-hover text-brand-foreground font-black uppercase tracking-widest text-xs shadow-xl shadow-brand/20 transition-all gap-2"
-          >
-            {saving ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
-            ) : (
-              <Save className="h-4 w-4" />
-            )}
-            Save Changes
-          </Button>
+          {!showsBuiltIn && (
+            <Button
+              onClick={handleSave}
+              disabled={saving || !selectedTemplate}
+              className="h-11 px-8 rounded-2xl bg-brand hover:bg-brand-hover text-brand-foreground font-black uppercase tracking-widest text-xs shadow-xl shadow-brand/20 transition-all gap-2"
+            >
+              {saving ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <Save className="h-4 w-4" />
+              )}
+              Save Changes
+            </Button>
+          )}
         </div>
       </header>
 
@@ -190,8 +225,13 @@ export default function EmailTemplatesPage() {
                     >
                       {t.day_number}
                     </div>
-                    <span className="font-bold text-sm truncate max-w-[120px]">
-                      {t.subject.split(':').pop()?.trim()}
+                    <span className="min-w-0">
+                      <span className="block font-bold text-sm truncate max-w-[120px]">
+                        {dayTitle(t)}
+                      </span>
+                      <span className="block text-[10px] font-black uppercase tracking-widest opacity-70">
+                        {t.is_active ? 'Custom' : 'Built-in'}
+                      </span>
                     </span>
                   </div>
                   {selectedTemplate?.id === t.id && (
@@ -221,7 +261,41 @@ export default function EmailTemplatesPage() {
 
         {/* ── Main Editor ── */}
         <main className="lg:col-span-9 space-y-6">
-          {selectedTemplate ? (
+          {selectedTemplate && showsBuiltIn ? (
+            <div className="bg-white dark:bg-zinc-900 rounded-3xl border border-zinc-100 dark:border-zinc-800 shadow-2xl shadow-zinc-200/50 dark:shadow-none overflow-hidden">
+              <div className="p-8 border-b border-zinc-100 dark:border-zinc-800 space-y-2">
+                <p className="text-[10px] font-black uppercase tracking-widest text-zinc-400 flex items-center gap-2">
+                  <Mail className="h-3 w-3" /> Built-in email, as it goes out
+                </p>
+                <p className="text-xl font-black italic tracking-tight">
+                  {selectedTemplate.builtin_subject}
+                </p>
+                <p className="text-sm text-zinc-500">
+                  Subscribers get this day in their own language. This is the
+                  English one.
+                </p>
+              </div>
+              <iframe
+                title={`Day ${selectedTemplate.day_number} built-in email`}
+                srcDoc={selectedTemplate.builtin_html}
+                sandbox=""
+                className="w-full h-[640px] bg-zinc-50"
+              />
+              <div className="p-8 bg-zinc-50 dark:bg-zinc-800/30 flex flex-wrap items-center justify-between gap-4">
+                <p className="text-sm text-zinc-500 max-w-md">
+                  Want different words in English for this day? Write a custom
+                  version. It starts from the last one saved here.
+                </p>
+                <Button
+                  variant="outline"
+                  onClick={() => setWriting(true)}
+                  className="h-11 px-6 rounded-2xl border-zinc-200 font-black uppercase tracking-widest text-xs"
+                >
+                  Write a custom version
+                </Button>
+              </div>
+            </div>
+          ) : selectedTemplate ? (
             <div className="bg-white dark:bg-zinc-900 rounded-3xl border border-zinc-100 dark:border-zinc-800 shadow-2xl shadow-zinc-200/50 dark:shadow-none overflow-hidden">
               {/* Subject Input */}
               <div className="p-8 border-b border-zinc-100 dark:border-zinc-800 space-y-2">
@@ -266,7 +340,26 @@ export default function EmailTemplatesPage() {
                 </div>
               </div>
 
-              <div className="p-8 bg-zinc-50 dark:bg-zinc-800/30 flex justify-end">
+              <div className="p-8 bg-zinc-50 dark:bg-zinc-800/30 flex flex-wrap justify-end gap-3">
+                {selectedTemplate.is_active ? (
+                  <Button
+                    variant="outline"
+                    onClick={handleUseBuiltIn}
+                    disabled={saving}
+                    className="h-11 px-6 rounded-2xl border-zinc-200 font-black uppercase tracking-widest text-xs"
+                  >
+                    Go back to the built-in email
+                  </Button>
+                ) : (
+                  <Button
+                    variant="outline"
+                    onClick={() => setWriting(false)}
+                    disabled={saving}
+                    className="h-11 px-6 rounded-2xl border-zinc-200 font-black uppercase tracking-widest text-xs"
+                  >
+                    Cancel
+                  </Button>
+                )}
                 <Button
                   onClick={handleSave}
                   disabled={saving}
@@ -315,7 +408,13 @@ export default function EmailTemplatesPage() {
 
           <div className="flex-1 overflow-y-auto p-8 bg-zinc-50 dark:bg-zinc-950/50">
             <div className="max-w-[600px] mx-auto bg-white dark:bg-zinc-900 rounded-3xl shadow-2xl shadow-zinc-200/50 dark:shadow-none overflow-hidden ring-1 ring-zinc-100 dark:ring-zinc-800">
-              <div dangerouslySetInnerHTML={{ __html: editingContent }} />
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: showsBuiltIn
+                    ? (selectedTemplate?.builtin_html ?? '')
+                    : editingContent,
+                }}
+              />
             </div>
           </div>
 
@@ -324,7 +423,9 @@ export default function EmailTemplatesPage() {
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
                 <span className="text-[10px] font-bold uppercase tracking-widest">
-                  {editingSubject}
+                  {showsBuiltIn
+                    ? selectedTemplate?.builtin_subject
+                    : editingSubject}
                 </span>
               </div>
             </div>

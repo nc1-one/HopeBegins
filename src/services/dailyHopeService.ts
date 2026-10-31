@@ -18,9 +18,13 @@ export interface EmailTemplate {
   day_number: number;
   subject: string;
   html_content: string;
+  /** On: this day sends the custom version. Off: the built-in day. */
   is_active: boolean;
   created_at: string;
   updated_at: string;
+  /** The built-in English email for this day, as it goes out. */
+  builtin_subject?: string;
+  builtin_html?: string;
 }
 
 const authHeader = (): Record<string, string> => {
