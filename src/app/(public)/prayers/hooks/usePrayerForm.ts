@@ -11,6 +11,7 @@ import { notify } from '@/lib/notifications';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import type { PerLang } from '@/lib/i18n';
 import { usePageLanguage } from '@/lib/pageLanguage';
+import { useCountry } from '@/lib/country';
 
 // Our own words in the page's language; the server's are in English.
 const messages: PerLang<{ sent: string; failed: string }> = {
@@ -88,6 +89,8 @@ export function usePrayerForm() {
   const lang = usePageLanguage();
   const t = messages[lang];
   const english = lang === 'en' || lang === 'tl';
+  // For the crisis line in the email back; "ZZ" points to Find A Helpline.
+  const country = useCountry(lang) ?? 'ZZ';
   const mutation = useMutation({
     mutationFn: prayerService.createPrayer,
     onSuccess: (data: any) => {
@@ -104,6 +107,8 @@ export function usePrayerForm() {
     // Handle "none" organization selection
     const payload = {
       ...data,
+      lang,
+      country,
       organizationId:
         data.organizationId === 'none' ? null : data.organizationId,
     };

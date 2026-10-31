@@ -1,6 +1,7 @@
 import { fetchWithAuth } from './api';
 import { config } from '@/config';
 import type { Plan, PlanLang } from '@/lib/actionPlan';
+import { localizeHref } from '@/lib/intlRoutes';
 
 interface EmailPlanItem {
   title: string;
@@ -16,6 +17,8 @@ export interface EmailActionPlanPayload {
   summary: string[];
   sections: { heading: string; intro?: string; items: EmailPlanItem[] }[];
   lang: PlanLang;
+  /** The phone's country, for the crisis line in the email. */
+  country: string;
   website: string;
   startTime: number;
 }
@@ -27,6 +30,7 @@ export const actionPlanService = {
     firstName: string,
     plan: Plan,
     lang: PlanLang,
+    country: string,
     antiSpam: { website: string; startTime: number },
     // The tools they added, written as commitments in the plan's language.
     week: { heading: string; detail: string; items: string[] }
@@ -35,6 +39,7 @@ export const actionPlanService = {
       email,
       first_name: firstName || undefined,
       lang,
+      country,
       website: antiSpam.website,
       startTime: antiSpam.startTime,
       summary: plan.summary,
@@ -57,8 +62,9 @@ export const actionPlanService = {
             title: item.title,
             detail: item.detail,
             steps: item.steps,
-            // Site paths stay relative; the backend adds its own site URL.
-            link: item.href,
+            // Site paths stay relative, in the plan's language; the backend
+            // adds its own site URL.
+            link: item.href && localizeHref(item.href, lang),
             link_label: item.linkLabel,
           })),
         })),
@@ -77,6 +83,7 @@ export const actionPlanService = {
     email: string,
     firstName: string,
     lang: PlanLang,
+    country: string,
     antiSpam: { website: string; startTime: number }
   ): Promise<void> => {
     await fetchWithAuth(`${config.API_URL}/action-plans/check-in/`, {
@@ -85,6 +92,7 @@ export const actionPlanService = {
         email,
         first_name: firstName || undefined,
         lang,
+        country,
         website: antiSpam.website,
         startTime: antiSpam.startTime,
       }),

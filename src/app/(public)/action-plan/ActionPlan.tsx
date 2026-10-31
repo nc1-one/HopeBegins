@@ -77,7 +77,7 @@ import { MonthlyCheckIn } from './MonthlyCheckIn';
 import { AfterwardsPanel } from './AfterwardsPanel';
 import { UseMyTool, canTickToday, toolButtonClass } from './UseMyTool';
 import { CallCrisisButton, CrisisList } from '@/components/help/Crisis';
-import { isIntlLang } from '@/lib/i18n';
+import { useCountry } from '@/lib/country';
 
 type EmailStatus = 'idle' | 'sending' | 'sent' | 'error';
 
@@ -1579,6 +1579,9 @@ function CheckInCard({
 }) {
   const [firstName, setFirstName] = useState(saved.name);
   const [email, setEmail] = useState('');
+  // For the crisis line in the emails: "ZZ" when the phone is somewhere the
+  // site has no line for, so the email points to Find A Helpline.
+  const country = useCountry(lang) ?? 'ZZ';
   const [checkIn, setCheckIn] = useState(false);
   const [sendPlan, setSendPlan] = useState(false);
   const [website, setWebsite] = useState('');
@@ -1604,10 +1607,10 @@ function CheckInCard({
     const antiSpam = { website, startTime: formStartedAt ?? 0 };
     const [checkInResult, planResult] = await Promise.allSettled([
       checkIn
-        ? actionPlanService.requestCheckIn(email, name, lang, antiSpam)
+        ? actionPlanService.requestCheckIn(email, name, lang, country, antiSpam)
         : Promise.resolve(),
       sendPlan
-        ? actionPlanService.emailPlan(email, name, plan, lang, antiSpam, {
+        ? actionPlanService.emailPlan(email, name, plan, lang, country, antiSpam, {
             heading: t.weekSection,
             detail: t.weekSectionDetail,
             items: weekSentences,
@@ -2457,19 +2460,14 @@ export default function ActionPlan({
               .filter((section) => section.id === 'week')
               .map(renderSection)}
 
-            {/* The plan and check-in emails are written in English and
-                Taglish only, with the Philippines' crisis lines, so the
-                other languages skip them until the emails speak theirs. */}
-            {!isIntlLang(lang) && (
-              <CheckInCard
-                key={saved.startedAt}
-                saved={saved}
-                plan={plan}
-                weekSentences={weekSentences}
-                lang={lang}
-                t={t}
-              />
-            )}
+            <CheckInCard
+              key={saved.startedAt}
+              saved={saved}
+              plan={plan}
+              weekSentences={weekSentences}
+              lang={lang}
+              t={t}
+            />
 
             <SavePlanCard saved={saved} t={t} />
 

@@ -3,8 +3,11 @@ import { config } from '@/config';
 
 export interface HopeJourneySubscription {
   first_name: string;
-  last_name: string;
   email: string;
+  /** The emails come in the page's language. */
+  lang: string;
+  /** The phone's country, for the crisis line in each email. */
+  country: string;
   website?: string;
   last_name_honey?: string;
   start_time?: number;

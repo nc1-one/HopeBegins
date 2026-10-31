@@ -9,6 +9,7 @@ import { dailyHopeService } from '@/services/dailyHopeService';
 import { toast } from 'sonner';
 import type { PerLang } from '@/lib/i18n';
 import { usePageLanguage } from '@/lib/pageLanguage';
+import { useCountry } from '@/lib/country';
 
 // Our own words, in the page's language. The server's error messages are
 // in English, so the other languages show their own.
@@ -18,8 +19,8 @@ const messages: PerLang<{ done: string; failed: string }> = {
     failed: 'Something went wrong. Please try again.',
   },
   tl: {
-    done: "You're signed up for 21 days of Daily Hope. Check your email for day 1.",
-    failed: 'Something went wrong. Please try again.',
+    done: 'Naka-sign up ka na sa 21 araw ng Daily Hope. Tingnan ang email mo para sa day 1.',
+    failed: 'May nagka-problema. Subukan ulit.',
   },
   fr: {
     done: 'C’est fait\u00a0: 21 jours de Daily Hope t’attendent. Regarde tes e-mails pour le premier jour.',
@@ -41,7 +42,6 @@ const messages: PerLang<{ done: string; failed: string }> = {
 
 const dailyHopeSchema = z.object({
   firstName: z.string().min(2, { message: 'Please enter your first name.' }),
-  lastName: z.string().min(1, { message: 'Please enter your last name.' }),
   email: z
     .string()
     .email({ message: "That email doesn't look right. Please check it." }),
@@ -55,11 +55,12 @@ type DailyHopeFormValues = z.infer<typeof dailyHopeSchema>;
 export function useDailyHopeForm() {
   const lang = usePageLanguage();
   const t = messages[lang];
+  // For the crisis line in the emails; "ZZ" points them to Find A Helpline.
+  const country = useCountry(lang) ?? 'ZZ';
   const form = useForm<DailyHopeFormValues>({
     resolver: zodResolver(dailyHopeSchema),
     defaultValues: {
       firstName: '',
-      lastName: '',
       email: '',
       website: '',
       lastNameHoney: '',
@@ -75,13 +76,14 @@ export function useDailyHopeForm() {
     mutationFn: (data: DailyHopeFormValues) =>
       dailyHopeService.subscribe({
         first_name: data.firstName,
-        last_name: data.lastName,
         email: data.email,
+        lang,
+        country,
         website: data.website,
         last_name_honey: data.lastNameHoney,
         start_time: data.startTime,
       }),
-    // Our own words, not the server's ("Hope Journey!").
+    // Our own words, in the page's language.
     onSuccess: () => {
       toast.success(t.done);
       form.reset();
