@@ -6,16 +6,27 @@ import {
   siteSettingsService,
   PopoutItem,
 } from '@/services/siteSettingsService';
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import { X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { isCalmPage } from '@/lib/calmPages';
+import { noTl, type PerLangNoTl } from '@/lib/i18n';
+import { usePageLanguage } from '@/lib/pageLanguage';
 
 import { useQuery } from '@tanstack/react-query';
 
 // Shown at most once per visit, and never on the pages for people who are
 // struggling right now.
 const SHOWN_KEY = 'hopebegins.popout.shown';
+
+// The message and button come from the admin; only the close button is ours.
+const closeLabel: PerLangNoTl<string> = {
+  en: 'Close',
+  fr: 'Fermer',
+  de: 'Schließen',
+  es: 'Cerrar',
+  ko: '닫기',
+};
 
 // Button words set in the admin as "PRAY" read as shouting: "Pray".
 const sentenceCase = (text: string) =>
@@ -33,6 +44,7 @@ const alreadyShown = () => {
 
 const EngagementPopout = () => {
   const pathname = usePathname();
+  const lang = usePageLanguage();
   const [currentItem, setCurrentItem] = useState<PopoutItem | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -97,7 +109,7 @@ const EngagementPopout = () => {
 
             <button
               type="button"
-              aria-label="Close"
+              aria-label={noTl(closeLabel, lang)}
               onClick={() => setIsVisible(false)}
               className="absolute top-1 right-1 inline-flex h-11 w-11 items-center justify-center rounded-full text-[#6E5F47] transition-colors hover:bg-[#EFF3E7]"
             >

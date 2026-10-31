@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { adminService } from '@/services/adminService';
 import { subDays, format } from 'date-fns';
+import { clicksIn, type LanguageFilter } from '@/lib/clickLanguages';
 
 /** The last 30 days, as yyyy-MM-dd. */
 export const defaultDateRange = () => ({
@@ -38,8 +39,10 @@ export function useDashboard(initialRange?: {
       adminService.getAnalytics(dateRange.startDate, dateRange.endDate),
   });
 
+  // One language, or all of them, under plain event names.
+  const [language, setLanguage] = useState<LanguageFilter>('all');
   const {
-    data: clicks,
+    data: rawClicks,
     isLoading: isClicksLoading,
     refetch: refetchClicks,
   } = useQuery({
@@ -47,6 +50,11 @@ export function useDashboard(initialRange?: {
     queryFn: () =>
       adminService.getClickAnalytics(dateRange.startDate, dateRange.endDate),
   });
+
+  const clicks = useMemo(
+    () => rawClicks && clicksIn(rawClicks, language),
+    [rawClicks, language]
+  );
 
   const handleDateChange = (start: string, end: string) => {
     setDateRange({ startDate: start, endDate: end });
@@ -56,6 +64,9 @@ export function useDashboard(initialRange?: {
     stats,
     analytics,
     clicks,
+    rawClicks,
+    language,
+    setLanguage,
     isClicksLoading,
     dateRange,
     handleDateChange,

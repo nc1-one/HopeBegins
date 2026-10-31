@@ -1,3 +1,4 @@
+import { hreflang } from '@/lib/hreflang';
 import { PageJsonLd } from '@/components/layout/PageJsonLd';
 import { pageMetadata } from '@/lib/pageMetadata';
 
@@ -13,6 +14,7 @@ export const metadata = pageMetadata(PATH, TITLE, DESCRIPTION, {
     'prayer volunteer confidentiality',
     'crisis response',
   ],
+  languages: hreflang(PATH),
 });
 
 export default function Layout({ children }: { children: React.ReactNode }) {

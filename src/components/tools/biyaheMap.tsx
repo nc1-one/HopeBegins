@@ -11,15 +11,66 @@ import { PAIR_ICONS } from './pairIcons';
 type Point = readonly [number, number];
 type Curve = readonly [Point, Point, Point, Point];
 
+// Each language has its own ordinary stops on the way to the sea: the corner
+// shop, the market, the square or park, the church, the fields, the hills.
 export const STOP_NAMES = [
-  { en: 'Home', tl: 'Bahay' },
-  { en: 'Sari-sari store', tl: 'Sari-sari store' },
-  { en: 'Market', tl: 'Palengke' },
-  { en: 'Plaza', tl: 'Plaza' },
-  { en: 'Chapel', tl: 'Kapilya' },
-  { en: 'Rice fields', tl: 'Palayan' },
-  { en: 'Hills', tl: 'Burol' },
-  { en: 'The sea', tl: 'Dagat' },
+  {
+    en: 'Home',
+    tl: 'Bahay',
+    fr: 'Maison',
+    de: 'Zuhause',
+    es: 'Casa',
+    ko: '집',
+  },
+  {
+    en: 'Sari-sari store',
+    tl: 'Sari-sari store',
+    fr: 'Boulangerie',
+    de: 'Bäckerei',
+    es: 'Tienda',
+    ko: '편의점',
+  },
+  {
+    en: 'Market',
+    tl: 'Palengke',
+    fr: 'Marché',
+    de: 'Markt',
+    es: 'Mercado',
+    ko: '시장',
+  },
+  { en: 'Plaza', tl: 'Plaza', fr: 'Parc', de: 'Park', es: 'Plaza', ko: '공원' },
+  {
+    en: 'Chapel',
+    tl: 'Kapilya',
+    fr: 'Église',
+    de: 'Kirche',
+    es: 'Iglesia',
+    ko: '교회',
+  },
+  {
+    en: 'Rice fields',
+    tl: 'Palayan',
+    fr: 'Champs',
+    de: 'Felder',
+    es: 'Campos',
+    ko: '논밭',
+  },
+  {
+    en: 'Hills',
+    tl: 'Burol',
+    fr: 'Collines',
+    de: 'Hügel',
+    es: 'Cerros',
+    ko: '언덕',
+  },
+  {
+    en: 'The sea',
+    tl: 'Dagat',
+    fr: 'La mer',
+    de: 'Meer',
+    es: 'El mar',
+    ko: '바다',
+  },
 ] as const;
 
 export const STOP_COUNT = STOP_NAMES.length;

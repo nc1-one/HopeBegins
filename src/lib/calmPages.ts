@@ -1,6 +1,6 @@
 import { feelingSlugs } from './feelingPages';
 import { guideSlugs } from './guidePages';
-import { englishPath } from './taglishTwins';
+import { englishPathOf } from './intlRoutes';
 
 /**
  * Pages for people who are struggling right now: the door and menu, the
@@ -21,6 +21,7 @@ const CALM_PAGES = new Set([
   '/daily-hope',
   '/give-hope',
   '/give-hope/success',
+  '/help',
   '/be-carrier',
   '/login/carrier',
   '/forgot-password',
@@ -30,4 +31,6 @@ const CALM_PAGES = new Set([
 ]);
 
 export const isCalmPage = (pathname: string | null) =>
-  pathname !== null && CALM_PAGES.has(englishPath(pathname));
+  // The same page in any language: /fr/tools and /mga-tool-para-kumalma
+  // are /tools.
+  pathname !== null && CALM_PAGES.has(englishPathOf(pathname));

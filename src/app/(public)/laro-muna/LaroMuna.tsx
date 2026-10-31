@@ -17,26 +17,59 @@ type Text = Record<FeelingLang, string>;
 const GAMES: { id: Game; title: Text; text: Text }[] = [
   {
     id: 'pair',
-    title: { en: 'Find the pair', tl: 'Hanapin ang kapares' },
+    title: {
+      en: 'Find the pair',
+      tl: 'Hanapin ang kapares',
+      fr: 'Trouve la paire',
+      de: 'Paare finden',
+      es: 'Encuentra las parejas',
+      ko: '짝 맞추기',
+    },
     text: {
       en: 'Match jeepneys, mangoes and parols. No timer.',
       tl: 'Ipares ang mga dyip, mangga at parol. Walang timer.',
+      fr: 'Retrouve les paires de bus, de mangues et d’étoiles de Noël. Sans chrono.',
+      de: 'Finde Paare aus Bussen, Mangos und Weihnachtssternen. Ohne Zeitdruck.',
+      es: 'Encuentra parejas de autobuses, mangos y estrellas navideñas. Sin límite de tiempo.',
+      ko: '버스, 망고, 크리스마스 별의 짝을 맞춰요. 시간 제한은 없어요.',
     },
   },
   {
     id: 'kite',
-    title: { en: 'Saranggola', tl: 'Saranggola' },
+    title: {
+      en: 'Saranggola',
+      tl: 'Saranggola',
+      fr: 'Le cerf-volant',
+      de: 'Der Drachen',
+      es: 'La cometa',
+      ko: '연날리기',
+    },
     text: {
       en: 'Fly a kite from morning to sunset and catch the stars. One minute.',
       tl: 'Paliparin ang saranggola mula umaga hanggang dapithapon at hulihin ang mga bituin. Isang minuto.',
+      fr: 'Fais voler un cerf-volant du matin au coucher du soleil et attrape les étoiles. Une minute.',
+      de: 'Lass einen Drachen vom Morgen bis zum Sonnenuntergang fliegen und sammle Sterne. Eine Minute.',
+      es: 'Vuela una cometa desde la mañana hasta el atardecer y atrapa las estrellas. Un minuto.',
+      ko: '아침부터 해 질 녘까지 연을 날리며 별을 잡아요. 1분이면 돼요.',
     },
   },
   {
     id: 'trip',
-    title: { en: 'The trip', tl: 'Biyahe' },
+    title: {
+      en: 'The trip',
+      tl: 'Biyahe',
+      fr: 'Le trajet',
+      de: 'Die Fahrt',
+      es: 'El paseo en autobús',
+      ko: '여행길',
+    },
     text: {
       en: 'Do tiny real-life missions to drive a jeepney from home to the sea.',
       tl: 'Gawin ang maliliit na misyon para makarating ang dyip mula bahay hanggang dagat.',
+      fr: 'Accomplis de toutes petites missions dans la vraie vie pour emmener le bus de la maison jusqu’à la mer.',
+      de: 'Erledige winzige Missionen im echten Leben und bring den Bus von zu Hause bis ans Meer.',
+      es: 'Cumple misiones pequeñitas en la vida real para llevar el autobús de tu casa hasta el mar.',
+      ko: '일상 속 작은 미션을 하나씩 해내며 버스를 집에서 바다까지 데려가요.',
     },
   },
 ];
@@ -49,6 +82,22 @@ const copy = {
   tl: {
     title: 'Laro muna.',
     subtitle: 'Maiikling laro para sa mga oras na puno ang isip mo.',
+  },
+  fr: {
+    title: 'Une pause jeu.',
+    subtitle: 'De petits jeux pour quand ta tête est trop pleine.',
+  },
+  de: {
+    title: 'Kurz spielen.',
+    subtitle: 'Kurze Spiele für Momente, in denen dein Kopf zu voll ist.',
+  },
+  es: {
+    title: 'Un rato de juego.',
+    subtitle: 'Juegos cortos para cuando tu cabeza está demasiado llena.',
+  },
+  ko: {
+    title: '잠깐 놀이',
+    subtitle: '머릿속이 너무 복잡할 때 하는 짧은 게임이에요.',
   },
 };
 

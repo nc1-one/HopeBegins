@@ -20,6 +20,30 @@ const copy = {
     ground: 'Gamitin ang 5 senses mo',
     game: 'Maglaro',
   },
+  fr: {
+    prompt: 'Besoin d’une minute d’abord ?',
+    breathe: 'Respirer',
+    ground: 'Utiliser tes 5 sens',
+    game: 'Jouer',
+  },
+  de: {
+    prompt: 'Brauchst du erst mal eine Pause?',
+    breathe: 'Durchatmen',
+    ground: 'Deine 5 Sinne nutzen',
+    game: 'Spielen',
+  },
+  es: {
+    prompt: '¿Necesitas un minuto primero?',
+    breathe: 'Respirar',
+    ground: 'Usar tus 5 sentidos',
+    game: 'Jugar',
+  },
+  ko: {
+    prompt: '먼저 잠깐 쉬어 갈까요?',
+    breathe: '숨쉬기',
+    ground: '오감 사용하기',
+    game: '게임하기',
+  },
 };
 
 type Exercise = 'breathe' | 'ground' | 'game';

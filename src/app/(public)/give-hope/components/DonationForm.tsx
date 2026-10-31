@@ -2,6 +2,40 @@
 
 import { useEffect, useState } from 'react';
 import Script from 'next/script';
+import { noTl, type Lang, type PerLangNoTl } from '@/lib/i18n';
+
+const copy: PerLangNoTl<{
+  form: string;
+  loading: string;
+  /** "If it doesn't show up, [give on Donorbox] instead." */
+  missing: [string, string, string];
+}> = {
+  en: {
+    form: 'Donation form',
+    loading: 'Loading the donation form…',
+    missing: ["If it doesn't show up, ", 'give on Donorbox', ' instead.'],
+  },
+  fr: {
+    form: 'Formulaire de don',
+    loading: 'Chargement du formulaire de don…',
+    missing: ['S’il ne s’affiche pas, ', 'fais ton don sur Donorbox', '.'],
+  },
+  de: {
+    form: 'Spendenformular',
+    loading: 'Das Spendenformular wird geladen…',
+    missing: ['Falls es nicht erscheint, ', 'spende direkt bei Donorbox', '.'],
+  },
+  es: {
+    form: 'Formulario de donación',
+    loading: 'Cargando el formulario de donación…',
+    missing: ['Si no aparece, ', 'dona directamente en Donorbox', '.'],
+  },
+  ko: {
+    form: '후원 양식',
+    loading: '후원 양식을 불러오는 중…',
+    missing: ['양식이 보이지 않으면 ', 'Donorbox에서 바로 후원하세요', '.'],
+  },
+};
 
 const FORM_URL = 'https://donorbox.org/embed/hope-begins-plant-a-hope-seed';
 // The same campaign on Donorbox's own site, for when the frame is blocked.
@@ -52,31 +86,30 @@ function useAfterPageLoad(enabled: boolean) {
  * sizes the frame to the form's real height; the 900px is only the size
  * until then.
  */
-export function DonationForm({ shown }: { shown: boolean }) {
+export function DonationForm({ shown, lang }: { shown: boolean; lang: Lang }) {
+  const t = noTl(copy, lang);
   const ready = useAfterPageLoad(shown);
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <section aria-label="Donation form" className="relative min-w-0">
+    <section aria-label={t.form} className="relative min-w-0">
       {!isLoaded && (
         <div
           role="status"
           className="absolute inset-x-0 top-0 max-w-[500px] rounded-2xl border border-[#E6EBDD] bg-[#F7F9F3] px-5 py-6 text-[#6E5F47]"
         >
-          <p className="font-poppins font-semibold">
-            Loading the donation form…
-          </p>
+          <p className="font-poppins font-semibold">{t.loading}</p>
           <p className="mt-2 text-sm leading-relaxed">
-            If it doesn&apos;t show up,{' '}
+            {t.missing[0]}
             <a
               href={CAMPAIGN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="font-bold underline underline-offset-4"
             >
-              give on Donorbox
-            </a>{' '}
-            instead.
+              {t.missing[1]}
+            </a>
+            {t.missing[2]}
           </p>
         </div>
       )}
@@ -85,7 +118,7 @@ export function DonationForm({ shown }: { shown: boolean }) {
           <Script src="https://donorbox.org/widget.js" />
           <iframe
             src={FORM_URL}
-            title="Donation form"
+            title={t.form}
             name="donorbox"
             {...{ allowpaymentrequest: 'true' }}
             seamless

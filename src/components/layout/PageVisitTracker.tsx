@@ -4,11 +4,12 @@ import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { feelingSlugs } from '@/lib/feelingPages';
 import { BLOG_PATH, storySlugAt } from '@/lib/blog/meta';
-import { englishPath } from '@/lib/taglishTwins';
+import { englishPathOf } from '@/lib/intlRoutes';
 import { analyticsService } from '@/services/analyticsService';
 
 // Pages whose visits show on the admin dashboard, by the name they are
-// counted under. A Taglish address counts with its English page.
+// counted under. The same page in another language counts under its
+// English page's name; the language goes with the count (analyticsService).
 const TRACKED: Record<string, string> = {
   '/': 'home',
   '/action-plan': 'action_plan',
@@ -22,6 +23,7 @@ const TRACKED: Record<string, string> = {
   '/laro-muna': 'laro_muna',
   '/tools': 'tools',
   '/check-in': 'check_in',
+  '/help': 'help',
   [BLOG_PATH]: 'blog',
   ...Object.fromEntries(
     feelingSlugs.map((path) => [path, `feeling_${path.slice(1)}`])
@@ -33,8 +35,9 @@ export function PageVisitTracker() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const story = storySlugAt(pathname);
-    const page = TRACKED[englishPath(pathname)] ?? (story && `story_${story}`);
+    const english = englishPathOf(pathname ?? '/');
+    const story = storySlugAt(english);
+    const page = TRACKED[english] ?? (story && `story_${story}`);
     if (page) analyticsService.recordVisit(page);
   }, [pathname]);
 

@@ -3,6 +3,7 @@
 import { useRef, useSyncExternalStore } from 'react';
 import { FadeImage } from '@/components/ui/FadeImage';
 import { usePhoto } from '@/components/ui/PhotoTurn';
+import { noTl, type Lang, type PerLangNoTl } from '@/lib/i18n';
 import { analyticsService } from '@/services/analyticsService';
 import { CarrierForm } from '../../be-carrier/components/CarrierForm';
 import { CarrierSteps } from '../../be-carrier/components/CarrierSteps';
@@ -10,6 +11,101 @@ import { AllocationBreakdown } from './AllocationBreakdown';
 import { DonationForm } from './DonationForm';
 
 type Way = 'gift' | 'time';
+
+const copy: PerLangNoTl<{
+  title: string;
+  tabs: string;
+  ways: Record<Way, { title: string; text: string }>;
+  /** What a gift keeps free; on the four new languages, also the currency. */
+  everyGift: string;
+  signUp: string;
+}> = {
+  en: {
+    title: 'Two ways to give',
+    tabs: 'Ways to give',
+    ways: {
+      gift: {
+        title: 'Give a gift',
+        text: 'Keep HopeBegins free for the next person.',
+      },
+      time: {
+        title: 'Give your heart and time',
+        text: 'Pray for people as a Hope Carrier.',
+      },
+    },
+    everyGift:
+      'Every gift, big or small, keeps the plan, the tools, prayer and Daily Hope free for anyone who needs them.',
+    signUp: 'Sign up to be a Hope Carrier',
+  },
+  fr: {
+    title: 'Deux façons de donner',
+    tabs: 'Façons de donner',
+    ways: {
+      gift: {
+        title: 'Faire un don',
+        text: 'Pour que HopeBegins reste gratuit pour la prochaine personne.',
+      },
+      time: {
+        title: 'Donner ton cœur et ton temps',
+        text: 'Prie pour les autres comme Hope Carrier.',
+      },
+    },
+    everyGift:
+      'Chaque don, petit ou grand, garde gratuits le plan, les outils, la prière et Daily Hope pour toutes les personnes qui en ont besoin. Les dons se font en pesos philippins (₱).',
+    signUp: 'Devenir Hope Carrier',
+  },
+  de: {
+    title: 'Zwei Wege, etwas zu geben',
+    tabs: 'Wege zu geben',
+    ways: {
+      gift: {
+        title: 'Spenden',
+        text: 'Damit HopeBegins für den nächsten Menschen kostenlos bleibt.',
+      },
+      time: {
+        title: 'Dein Herz und deine Zeit schenken',
+        text: 'Bete als Hope Carrier für andere.',
+      },
+    },
+    everyGift:
+      'Jede Spende, ob groß oder klein, hält den Plan, die Übungen, das Gebet und Daily Hope kostenlos für alle, die sie brauchen. Gespendet wird in philippinischen Pesos (₱).',
+    signUp: 'Als Hope Carrier anmelden',
+  },
+  es: {
+    title: 'Dos formas de dar',
+    tabs: 'Formas de dar',
+    ways: {
+      gift: {
+        title: 'Hacer una donación',
+        text: 'Para que HopeBegins siga siendo gratis para la próxima persona.',
+      },
+      time: {
+        title: 'Dar tu corazón y tu tiempo',
+        text: 'Ora por otras personas como Hope Carrier.',
+      },
+    },
+    everyGift:
+      'Cada donación, grande o pequeña, mantiene gratis el plan, las herramientas, la oración y Daily Hope para quien lo necesite. Las donaciones son en pesos filipinos (₱).',
+    signUp: 'Inscríbete como Hope Carrier',
+  },
+  ko: {
+    title: '나눌 수 있는 두 가지 방법',
+    tabs: '나누는 방법',
+    ways: {
+      gift: {
+        title: '후원하기',
+        text: '다음 사람에게도 HopeBegins가 무료일 수 있도록.',
+      },
+      time: {
+        title: '마음과 시간 나누기',
+        text: 'Hope Carrier가 되어 사람들을 위해 기도해요.',
+      },
+    },
+    everyGift:
+      '크든 작든 모든 후원이 계획, 도구, 기도, Daily Hope를 필요한 누구에게나 무료로 지켜 줘요. 후원 금액은 필리핀 페소(₱) 기준이에요.',
+    signUp: 'Hope Carrier 신청하기',
+  },
+};
 
 // Picking a way rewrites the address without a jump, then says so here.
 const PICKED = 'hopebegins:give-way';
@@ -27,7 +123,8 @@ const subscribeToHash = (onChange: () => void) => {
  * The two ways to give, as two photos to pick from: a gift, or your heart
  * and time as a Hope Carrier. /give-hope#time opens straight on the second.
  */
-export function GiveWays() {
+export function GiveWays({ lang }: { lang: Lang }) {
+  const t = noTl(copy, lang);
   const hash = useSyncExternalStore(
     subscribeToHash,
     () => window.location.hash,
@@ -41,18 +138,8 @@ export function GiveWays() {
   const timePhoto = usePhoto('care');
 
   const ways = [
-    {
-      id: 'gift' as const,
-      title: 'Give a gift',
-      text: 'Keep HopeBegins free for the next person.',
-      photo: giftPhoto,
-    },
-    {
-      id: 'time' as const,
-      title: 'Give your heart and time',
-      text: 'Pray for people as a Hope Carrier.',
-      photo: timePhoto,
-    },
+    { id: 'gift' as const, ...t.ways.gift, photo: giftPhoto },
+    { id: 'time' as const, ...t.ways.time, photo: timePhoto },
   ];
 
   const pick = (way: Way) => {
@@ -81,12 +168,12 @@ export function GiveWays() {
         id="ways-title"
         className="font-playfair text-3xl md:text-5xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]"
       >
-        Two ways to give
+        {t.title}
       </h2>
 
       <div
         role="tablist"
-        aria-label="Ways to give"
+        aria-label={t.tabs}
         onKeyDown={onKey}
         className="mt-8 grid grid-cols-2 gap-4 md:gap-6"
       >
@@ -142,13 +229,10 @@ export function GiveWays() {
       >
         <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-14">
           {/* Volunteers on the other tab never load the payment form. */}
-          <DonationForm shown={active === 'gift'} />
+          <DonationForm shown={active === 'gift'} lang={lang} />
           <div className="space-y-6">
-            <AllocationBreakdown />
-            <p className="text-[#6E5F47] leading-relaxed">
-              Every gift, big or small, keeps the plan, the tools, prayer and
-              Daily Hope free for anyone who needs them.
-            </p>
+            <AllocationBreakdown lang={lang} />
+            <p className="text-[#6E5F47] leading-relaxed">{t.everyGift}</p>
           </div>
         </div>
       </div>
@@ -163,7 +247,7 @@ export function GiveWays() {
           <CarrierSteps headingLevel="h3" />
           <div>
             <h3 className="font-playfair text-2xl md:text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]">
-              Sign up to be a Hope Carrier
+              {t.signUp}
             </h3>
             <div className="mt-6">
               <CarrierForm />

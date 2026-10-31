@@ -9,12 +9,17 @@ import { StatCards } from './components/StatCards';
 import { DashboardCharts } from './components/DashboardCharts';
 import { RecentPrayers } from './components/RecentPrayers';
 import { JourneyByStage } from './components/JourneyByStage';
+import { ByLanguage } from './components/ByLanguage';
+import { LANGUAGE_FILTERS, type LanguageFilter } from '@/lib/clickLanguages';
 
 export default function AdminDashboard() {
   const {
     stats,
     analytics,
     clicks,
+    rawClicks,
+    language,
+    setLanguage,
     isClicksLoading,
     dateRange,
     handleDateChange,
@@ -64,6 +69,23 @@ export default function AdminDashboard() {
             endDate={dateRange.endDate}
             onChange={handleDateChange}
           />
+          {/* The journey below, for one language or all of them. */}
+          <label className="flex h-12 items-center gap-2 rounded-2xl border border-zinc-200 bg-white px-4 text-sm font-bold dark:border-zinc-800 dark:bg-zinc-900">
+            <span className="sr-only">Language</span>
+            <select
+              value={language}
+              onChange={(event) =>
+                setLanguage(event.target.value as LanguageFilter)
+              }
+              className="bg-transparent font-bold outline-none"
+            >
+              {LANGUAGE_FILTERS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
           {/* The same dates, as a PDF report. */}
           <Link
             href={`/admin/dashboard/report?start=${dateRange.startDate}&end=${dateRange.endDate}&print=1`}
@@ -80,6 +102,9 @@ export default function AdminDashboard() {
 
       {/* ── The journey, stage by stage ── */}
       <JourneyByStage clicks={clicks} isLoading={isClicksLoading} />
+
+      {/* ── Each language side by side ── */}
+      <ByLanguage clicks={rawClicks} isLoading={isClicksLoading} />
 
       {/* ── Charts ── */}
       <DashboardCharts analytics={analytics} isLoading={isLoading} />

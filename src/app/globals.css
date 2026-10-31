@@ -415,3 +415,23 @@
     transform: none !important;
   }
 }
+
+/*
+ * Korean pages: Hangul in Noto Serif KR where the site uses Playfair, and
+ * Noto Sans KR for everything else. Hangul needs looser line height than
+ * Playfair's tight headings, and breaks lines between words (keep-all).
+ * Outside any layer, so these win over the font utilities.
+ */
+:lang(ko) {
+  font-family: var(--font-noto-sans-kr), var(--font-dm-sans), sans-serif;
+  word-break: keep-all;
+}
+:lang(ko) .font-poppins,
+:lang(ko) .font-dm-sans {
+  font-family: var(--font-noto-sans-kr), sans-serif;
+}
+:lang(ko) .font-playfair {
+  font-family: var(--font-noto-serif-kr), serif;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}

@@ -2,33 +2,113 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import { usePathname } from 'next/navigation';
 import headerLogo from '@/assets/images/header-logo.png';
 import { Menu, Phone, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { usePageLanguage } from '@/lib/pageLanguage';
 import { pathIn } from '@/lib/taglishTwins';
+import { localizeHref } from '@/lib/intlRoutes';
+import { FIND_A_HELPLINE } from '@/lib/helplines';
+import type { PerLang } from '@/lib/i18n';
+import { useCrisisLine } from '@/components/help/Crisis';
+import { LanguagePicker } from './LanguagePicker';
 import { analyticsService } from '@/services/analyticsService';
 import { START_HASH, closeStartMenu } from '@/lib/startMenu';
 
-const crisisCopy = {
+const crisisWord: PerLang<string> = {
+  en: 'Crisis?',
+  tl: 'Crisis?',
+  fr: 'Crise\u00a0?',
+  de: 'Krise?',
+  es: '¿Crisis?',
+  ko: '위기?',
+};
+const callWord: PerLang<(number: string) => string> = {
+  en: (n) => `Call ${n}`,
+  tl: (n) => `Tumawag sa ${n}`,
+  fr: (n) => `Appelle le ${n}`,
+  de: (n) => `Ruf ${n} an`,
+  es: (n) => `Llama al ${n}`,
+  ko: (n) => `${n}에 전화`,
+};
+
+const navCopy: PerLang<{
+  home: string;
+  checkIn: string;
+  tools: string;
+  blog: string;
+  approach: string;
+  give: string;
+  menu: string;
+}> = {
   en: {
-    short: 'Crisis? 1553',
-    long: 'Crisis? Call 1553',
-    hotline: 'NCMH Crisis Hotline',
+    home: 'Home',
+    checkIn: 'Check-in',
+    tools: 'Tools',
+    blog: 'Blogs',
+    approach: 'Our approach',
+    give: 'Give',
+    menu: 'Toggle menu',
   },
   tl: {
-    short: 'Crisis? 1553',
-    long: 'Crisis? Tumawag sa 1553',
-    hotline: 'NCMH Crisis Hotline',
+    home: 'Home',
+    checkIn: 'Check-in',
+    tools: 'Tools',
+    blog: 'Blogs',
+    approach: 'Our approach',
+    give: 'Give',
+    menu: 'Buksan o isara ang menu',
+  },
+  fr: {
+    home: 'Accueil',
+    checkIn: 'Bilan du jour',
+    tools: 'Outils',
+    blog: 'Blog',
+    approach: 'Notre approche',
+    give: 'Faire un don',
+    menu: 'Ouvrir ou fermer le menu',
+  },
+  de: {
+    home: 'Start',
+    checkIn: 'Check-in',
+    tools: 'Übungen',
+    blog: 'Blog',
+    approach: 'Unser Ansatz',
+    give: 'Spenden',
+    menu: 'Menü öffnen oder schließen',
+  },
+  es: {
+    home: 'Inicio',
+    checkIn: 'Check-in',
+    tools: 'Herramientas',
+    blog: 'Blog',
+    approach: 'Nuestro enfoque',
+    give: 'Donar',
+    menu: 'Abrir o cerrar el menú',
+  },
+  ko: {
+    home: '홈',
+    checkIn: '체크인',
+    tools: '도구',
+    blog: '블로그',
+    approach: '우리의 방식',
+    give: '후원하기',
+    menu: '메뉴 열기 또는 닫기',
   },
 };
 
 export function Header() {
   const pathname = usePathname();
   const lang = usePageLanguage();
-  const crisis = crisisCopy[lang];
+  const nav = navCopy[lang];
+  const { line } = useCrisisLine(lang);
+  // A long number reads "Krise?" on a phone; the full number shows wider.
+  const crisisShort =
+    line && line.number.length <= 6
+      ? `${crisisWord[lang]} ${line.number}`
+      : crisisWord[lang];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -45,16 +125,17 @@ export function Header() {
 
   // On Taglish pages, Tools and Blog go to their Taglish addresses.
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/check-in', label: 'Check-in' },
-    { href: pathIn('/tools', lang), label: 'Tools' },
-    { href: pathIn('/blog', lang), label: 'Blogs' },
-    { href: '/our-approach', label: 'Our approach' },
-    { href: '/give-hope', label: 'Give' },
+    { href: '/', label: nav.home },
+    { href: '/check-in', label: nav.checkIn },
+    { href: pathIn('/tools', lang), label: nav.tools },
+    { href: pathIn('/blog', lang), label: nav.blog },
+    { href: '/our-approach', label: nav.approach },
+    { href: '/give-hope', label: nav.give },
   ];
+  const home = localizeHref('/', lang);
 
   const handleHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    if (pathname !== '/') return;
+    if (pathname !== home) return;
 
     event.preventDefault();
     setIsMenuOpen(false);
@@ -100,7 +181,7 @@ export function Header() {
         <div className="max-w-[67rem] mx-auto px-6 py-4 flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <Link
-              href="/"
+              href={home}
               className="flex items-center gap-2"
               onClick={handleHomeClick}
             >
@@ -144,23 +225,29 @@ export function Header() {
           <div className="flex items-center gap-2 lg:ml-6">
             {/* One tap to the crisis line from every page. */}
             <a
-              href="tel:1553"
+              href={line ? `tel:${line.tel}` : FIND_A_HELPLINE}
               lang={lang}
+              {...(!line && { target: '_blank', rel: 'noopener noreferrer' })}
               onClick={() => analyticsService.recordClick('header_crisis_call')}
               className="inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap rounded-full border border-[#DFE7CF] bg-[#EFF3E7] px-3 text-sm font-bold text-[#6E5F47] transition-colors hover:bg-[#DFE7CF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
             >
               <Phone className="h-4 w-4 shrink-0" />
-              <span className="sm:hidden">{crisis.short}</span>
-              <span className="hidden sm:inline">{crisis.long}</span>
-              <span className="sr-only">, {crisis.hotline}</span>
+              <span className="sm:hidden">{crisisShort}</span>
+              <span className="hidden sm:inline">
+                {crisisWord[lang]}{' '}
+                {line ? callWord[lang](line.number) : 'findahelpline.com'}
+              </span>
+              {line && <span className="sr-only">, {line.name}</span>}
             </a>
+
+            <LanguagePicker />
 
             {/* Mobile Menu Button */}
             <button
               ref={toggleRef}
               className="lg:hidden inline-flex h-11 w-11 items-center justify-center text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
+              aria-label={nav.menu}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
             >

@@ -9,6 +9,36 @@ import { prayerService } from '@/services/prayerService';
 import { organizationService } from '@/services/organizationService';
 import { notify } from '@/lib/notifications';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import type { PerLang } from '@/lib/i18n';
+import { usePageLanguage } from '@/lib/pageLanguage';
+
+// Our own words in the page's language; the server's are in English.
+const messages: PerLang<{ sent: string; failed: string }> = {
+  en: {
+    sent: 'Your prayer request was sent. A Hope Carrier will pray for you.',
+    failed: "Your request didn't go through. Please try again.",
+  },
+  tl: {
+    sent: 'Your prayer request was sent. A Hope Carrier will pray for you.',
+    failed: "Your request didn't go through. Please try again.",
+  },
+  fr: {
+    sent: 'Ta demande de prière est envoyée. Un Hope Carrier va prier pour toi.',
+    failed: 'Ta demande n’est pas partie. Réessaie.',
+  },
+  de: {
+    sent: 'Dein Gebetsanliegen ist angekommen. Ein Hope Carrier wird für dich beten.',
+    failed: 'Dein Anliegen wurde nicht gesendet. Bitte versuch es noch einmal.',
+  },
+  es: {
+    sent: 'Tu petición de oración se envió. Un Hope Carrier va a orar por ti.',
+    failed: 'Tu petición no se envió. Inténtalo de nuevo.',
+  },
+  ko: {
+    sent: '기도 요청을 보냈어요. Hope Carrier가 당신을 위해 기도할 거예요.',
+    failed: '요청이 전송되지 않았어요. 다시 시도해 주세요.',
+  },
+};
 
 export function usePrayerForm() {
   const queryClient = useQueryClient();
@@ -55,20 +85,18 @@ export function usePrayerForm() {
     }
   }, [form, linkedOrganization]);
 
+  const lang = usePageLanguage();
+  const t = messages[lang];
+  const english = lang === 'en' || lang === 'tl';
   const mutation = useMutation({
     mutationFn: prayerService.createPrayer,
     onSuccess: (data: any) => {
       queryClient.invalidateQueries({ queryKey: ['prayers'] });
-      notify.success(
-        data?.message ||
-        'Your prayer request was sent. A Hope Carrier will pray for you.'
-      );
+      notify.success((english && data?.message) || t.sent);
       form.reset();
     },
     onError: (error: any) => {
-      notify.error(
-        error.message || "Your request didn't go through. Please try again."
-      );
+      notify.error((english && error.message) || t.failed);
     },
   });
 
@@ -76,7 +104,8 @@ export function usePrayerForm() {
     // Handle "none" organization selection
     const payload = {
       ...data,
-      organizationId: data.organizationId === 'none' ? null : data.organizationId,
+      organizationId:
+        data.organizationId === 'none' ? null : data.organizationId,
     };
     mutation.mutate(payload);
   };

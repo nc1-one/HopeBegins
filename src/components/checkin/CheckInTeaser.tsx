@@ -3,10 +3,16 @@
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { growth, thisWeek, useCheckIns } from '@/lib/checkIns';
 import type { FeelingLang } from '@/lib/feelingPages';
+import type { PerLang } from '@/lib/i18n';
 import { localDay } from '@/lib/toolNotes';
 import { Sampaguita } from './Sampaguita';
 
-const copy = {
+const copy: PerLang<{
+  title: string;
+  tally: (days: number, week: number) => string;
+  go: string;
+  done: string;
+}> = {
   en: {
     title: 'Daily check-in',
     tally: (days: number, week: number) =>
@@ -20,6 +26,33 @@ const copy = {
       `${days} araw · ${week} ngayong linggo`,
     go: 'Mag-check in ngayon',
     done: 'Tapos na ngayon',
+  },
+  fr: {
+    title: 'Bilan du jour',
+    tally: (days: number, week: number) =>
+      `${days === 1 ? '1 jour' : `${days} jours`} · ${week} cette semaine`,
+    go: 'Faire mon bilan du jour',
+    done: 'Fait pour aujourd’hui',
+  },
+  de: {
+    title: 'Täglicher Check-in',
+    tally: (days: number, week: number) =>
+      `${days === 1 ? '1 Tag' : `${days} Tage`} · ${week} diese Woche`,
+    go: 'Heute einchecken',
+    done: 'Heute erledigt',
+  },
+  es: {
+    title: 'Check-in diario',
+    tally: (days: number, week: number) =>
+      `${days === 1 ? '1 día' : `${days} días`} · ${week} esta semana`,
+    go: 'Hacer el check-in de hoy',
+    done: 'Listo por hoy',
+  },
+  ko: {
+    title: '오늘의 체크인',
+    tally: (days: number, week: number) => `${days}일 · 이번 주 ${week}일`,
+    go: '오늘 체크인하기',
+    done: '오늘 완료',
   },
 };
 

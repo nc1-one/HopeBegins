@@ -71,7 +71,7 @@ export const pathIn = (path: string, lang: FeelingLang) =>
   (lang === 'tl' && twins.find((twin) => twin.en === path)?.tl) || path;
 
 /** Both addresses, for a language switch that links between them. */
-export const twinLinks = (twin: TaglishTwin): Record<FeelingLang, string> => ({
+export const twinLinks = (twin: TaglishTwin): Record<'en' | 'tl', string> => ({
   en: twin.en,
   tl: twin.tl,
 });

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import {
   ArrowLeft,
   Cloud,
@@ -35,10 +35,12 @@ import {
   type Weather,
 } from '@/lib/checkIns';
 import type { FeelingLang } from '@/lib/feelingPages';
+import { LANG_INFO, type PerLang } from '@/lib/i18n';
 import { pathIn } from '@/lib/taglishTwins';
 import { localDay } from '@/lib/toolNotes';
 import { analyticsService } from '@/services/analyticsService';
 import { Sampaguita } from './Sampaguita';
+import { CrisisSentence } from '@/components/help/Crisis';
 
 /**
  * The daily check-in, in taps: the weather inside you today and what is on
@@ -88,9 +90,45 @@ function versesUnlocked(stage: number, extraBlooms: number): VerseKey[] {
   ];
 }
 
-type Copy = (typeof copy)['en'];
+interface Copy {
+  weatherTitle: string;
+  weatherHint: string;
+  weather: Record<Weather, string>;
+  areasTitle: string;
+  areas: Record<Area, string>;
+  save: string;
+  back: string;
+  privacy: string;
+  firstTitle: string;
+  backTitle: string;
+  grewTitle: string;
+  doneTitle: string;
+  againTitle: string;
+  days: (n: number) => string;
+  daysLabel: string;
+  weekLabel: string;
+  weekCount: (n: number) => string;
+  /** One per stage of the plant, empty pot first. */
+  stageNames: string[];
+  /** "N more days until" what comes next at each stage. */
+  toNext: (n: number, what: string) => string;
+  nextWhat: string[];
+  neverWilts: string;
+  verseNew: string;
+  versesTitle: (n: number) => string;
+  recentTitle: string;
+  change: string;
+  clear: string;
+  clearConfirm: string;
+  suggestTitle: string;
+  suggest: Record<Weather, string>;
+  tools: Partial<Record<ToolKind, string>>;
+  story: string;
+  ecoach: string;
+  heavyRun: string;
+}
 
-const copy = {
+const copy: PerLang<Copy> = {
   en: {
     weatherTitle: 'How are you today?',
     weatherHint: 'Pick the weather closest to how you feel.',
@@ -174,9 +212,6 @@ const copy = {
     ecoach: 'Talk to an e-coach',
     heavyRun:
       'Your last few check-ins have been heavy. Please talk to someone this week. An e-coach can listen, free.',
-    crisis:
-      'In crisis or thinking of ending your life? Call the NCMH Crisis Hotline, 24/7:',
-    or: 'or',
   },
   tl: {
     weatherTitle: 'Kumusta ka ngayon?',
@@ -260,9 +295,344 @@ const copy = {
     ecoach: 'Kausapin ang e-coach',
     heavyRun:
       'Mabigat ang huling ilang check-in mo. Kumausap ng isang tao ngayong linggo. Puwedeng makinig ang isang e-coach, libre.',
-    crisis:
-      'Nasa crisis ka ba o naiisip mong tapusin ang buhay mo? Tumawag sa NCMH Crisis Hotline, 24/7:',
-    or: 'o',
+  },
+  // The plant is a jasmine in these languages. There are no e-coaches here:
+  // the talk button goes to free helplines in the visitor's country.
+  fr: {
+    weatherTitle: 'Comment ça va aujourd’hui ?',
+    weatherHint: 'Choisis la météo la plus proche de ce que tu ressens.',
+    weather: {
+      1: 'Orage',
+      2: 'Pluie',
+      3: 'Nuages',
+      4: 'Éclaircies',
+      5: 'Soleil',
+    },
+    areasTitle:
+      'Qu’est-ce qui occupe tes pensées ? Touche tout ce qui correspond.',
+    areas: {
+      work: 'Travail ou études',
+      family: 'Famille',
+      money: 'Argent',
+      love: 'Vie amoureuse',
+      friends: 'Amis',
+      health: 'Santé',
+      sleep: 'Sommeil',
+      faith: 'Foi',
+      lonely: 'Solitude',
+    },
+    save: 'Valider',
+    back: 'Retour',
+    privacy: 'Tes bilans restent sur ce téléphone.',
+    firstTitle: 'Tu as planté une graine.',
+    backTitle: 'Te revoilà.',
+    grewTitle: 'Ton jasmin a grandi.',
+    doneTitle: 'C’est fait pour aujourd’hui.',
+    againTitle: 'Tu as déjà fait ton bilan aujourd’hui.',
+    days: (n: number) => (n === 1 ? '1 jour' : `${n} jours`),
+    daysLabel: 'où tu as fait ton bilan',
+    weekLabel: 'Cette semaine',
+    weekCount: (n: number) =>
+      n <= 1 ? `${n} jour cette semaine` : `${n} jours cette semaine`,
+    stageNames: [
+      'Un pot vide',
+      'Une graine',
+      'Une pousse',
+      'Premières feuilles',
+      'En pleine croissance',
+      'Première fleur',
+      'En fleurs',
+    ],
+    toNext: (n: number, what: string) =>
+      `Encore ${n} ${n === 1 ? 'jour' : 'jours'} avant ${what}.`,
+    nextWhat: [
+      'de planter ta graine',
+      'qu’il germe',
+      'ses premières feuilles',
+      'qu’il ait plus de feuilles',
+      'sa première fleur',
+      'qu’il soit en pleine floraison',
+      'une nouvelle fleur',
+    ],
+    neverWilts:
+      'Tu as manqué un jour ? Ici, ta plante ne fane jamais. Chaque jour où tu reviens compte.',
+    verseNew: 'Un verset pour toi',
+    versesTitle: (n: number) => `Tes versets (${n})`,
+    recentTitle: 'Tes derniers bilans',
+    change: 'Modifier ma réponse d’aujourd’hui',
+    clear: 'Effacer mes bilans de ce téléphone',
+    clearConfirm: 'Effacer tous tes bilans et ta plante de ce téléphone ?',
+    suggestTitle: 'Quelque chose pour aujourd’hui',
+    suggest: {
+      1: 'Les jours d’orage sont lourds. Commence par ta respiration, et dis à quelqu’un comment tu vas aujourd’hui.',
+      2: 'Choisis l’une de ces idées pour quelques minutes. Les jours de pluie, les petits pas font du bien.',
+      3: 'Quelques minutes avec l’une de ces idées peuvent éclaircir un peu le ciel.',
+      4: 'Continue sur cette lancée.',
+      5: 'Continue sur cette lancée.',
+    },
+    tools: {
+      breathe: 'Respiration lente, 2 min',
+      'thought-check': 'Vérifier une pensée, 3 min',
+      'one-thing': 'Une petite chose, 10 min',
+      'worry-note': 'Mettre tes soucis de côté, 2 min',
+      message: 'Écrire à quelqu’un, 1 min',
+      kite: 'Le cerf-volant, un jeu d’une minute',
+    },
+    story: 'Lire une histoire d’espoir',
+    ecoach: 'Parler à quelqu’un',
+    heavyRun:
+      'Tes derniers bilans ont été lourds. S’il te plaît, parle à quelqu’un cette semaine. Une ligne d’écoute gratuite est là pour toi.',
+  },
+  de: {
+    weatherTitle: 'Wie geht es dir heute?',
+    weatherHint: 'Wähl das Wetter, das am besten zu deinem Gefühl passt.',
+    weather: {
+      1: 'Gewitter',
+      2: 'Regen',
+      3: 'Wolken',
+      4: 'Etwas Sonne',
+      5: 'Sonne',
+    },
+    areasTitle: 'Was beschäftigt dich? Tippe alles an, was passt.',
+    areas: {
+      work: 'Arbeit oder Schule',
+      family: 'Familie',
+      money: 'Geld',
+      love: 'Liebe',
+      friends: 'Freunde',
+      health: 'Gesundheit',
+      sleep: 'Schlaf',
+      faith: 'Glaube',
+      lonely: 'Einsamkeit',
+    },
+    save: 'Einchecken',
+    back: 'Zurück',
+    privacy: 'Deine Check-ins bleiben auf diesem Handy.',
+    firstTitle: 'Du hast einen Samen gesät.',
+    backTitle: 'Schön, dass du wieder da bist.',
+    grewTitle: 'Dein Jasmin ist gewachsen.',
+    doneTitle: 'Für heute eingecheckt.',
+    againTitle: 'Du hast heute schon eingecheckt.',
+    days: (n: number) => (n === 1 ? '1 Tag' : `${n} Tage`),
+    daysLabel: 'eingecheckt',
+    weekLabel: 'Diese Woche',
+    weekCount: (n: number) =>
+      n === 1 ? '1 Tag diese Woche' : `${n} Tage diese Woche`,
+    stageNames: [
+      'Ein leerer Topf',
+      'Ein Samenkorn',
+      'Ein Keimling',
+      'Erste Blätter',
+      'Er wächst',
+      'Erste Blüte',
+      'In voller Blüte',
+    ],
+    toNext: (n: number, what: string) =>
+      `Noch ${n} ${n === 1 ? 'Tag' : 'Tage'} bis ${what}.`,
+    nextWhat: [
+      'zum Aussäen',
+      'zum Keimen',
+      'zu den ersten Blättern',
+      'zu neuen Blättern',
+      'zur ersten Blüte',
+      'zur vollen Blüte',
+      'zur nächsten Blüte',
+    ],
+    neverWilts:
+      'Einen Tag verpasst? Deine Pflanze welkt hier nie. Jeder Tag, an dem du wiederkommst, zählt.',
+    verseNew: 'Ein Bibelvers für dich',
+    versesTitle: (n: number) => `Deine Bibelverse (${n})`,
+    recentTitle: 'Deine letzten Check-ins',
+    change: 'Meine Antwort von heute ändern',
+    clear: 'Meine Check-ins von diesem Handy löschen',
+    clearConfirm:
+      'Alle deine Check-ins und deine Pflanze von diesem Handy löschen?',
+    suggestTitle: 'Etwas für heute',
+    suggest: {
+      1: 'Gewittertage sind schwer. Fang mit deinem Atem an und erzähl heute jemandem, wie es dir geht.',
+      2: 'Nimm dir ein paar Minuten für eins davon. Kleine Schritte helfen an Regentagen.',
+      3: 'Ein paar Minuten mit einem davon können den Himmel ein bisschen aufhellen.',
+      4: 'Halte das Gute fest.',
+      5: 'Halte das Gute fest.',
+    },
+    tools: {
+      breathe: 'Langsames Atmen, 2 Min.',
+      'thought-check': 'Gedanken-Check, 3 Min.',
+      'one-thing': 'Eine kleine Sache, 10 Min.',
+      'worry-note': 'Sorgenzettel, 2 Min.',
+      message: 'Jemandem schreiben, 1 Min.',
+      kite: 'Der Drachen, ein 1-Minuten-Spiel',
+    },
+    story: 'Eine Geschichte der Hoffnung lesen',
+    ecoach: 'Mit jemandem reden',
+    heavyRun:
+      'Deine letzten Check-ins waren schwer. Bitte sprich diese Woche mit jemandem. Ein kostenloses Hilfetelefon hört dir zu.',
+  },
+  es: {
+    weatherTitle: '¿Cómo estás hoy?',
+    weatherHint: 'Elige el clima que más se parezca a cómo te sientes.',
+    weather: {
+      1: 'Tormenta',
+      2: 'Lluvia',
+      3: 'Nublado',
+      4: 'Algo de sol',
+      5: 'Soleado',
+    },
+    areasTitle: '¿Qué ocupa tu mente? Toca todo lo que encaje.',
+    areas: {
+      work: 'Trabajo o estudios',
+      family: 'Familia',
+      money: 'Dinero',
+      love: 'Vida amorosa',
+      friends: 'Amigos',
+      health: 'Salud',
+      sleep: 'Sueño',
+      faith: 'Fe',
+      lonely: 'Soledad',
+    },
+    save: 'Hacer check-in',
+    back: 'Volver',
+    privacy: 'Tus check-ins se quedan en este celular.',
+    firstTitle: 'Plantaste una semilla.',
+    backTitle: 'Qué bueno verte de nuevo.',
+    grewTitle: 'Tu jazmín creció.',
+    doneTitle: 'Check-in de hoy listo.',
+    againTitle: 'Ya hiciste tu check-in de hoy.',
+    days: (n: number) => (n === 1 ? '1 día' : `${n} días`),
+    daysLabel: 'de check-in',
+    weekLabel: 'Esta semana',
+    weekCount: (n: number) =>
+      n === 1 ? '1 día esta semana' : `${n} días esta semana`,
+    stageNames: [
+      'Una maceta vacía',
+      'Una semilla',
+      'Un brote',
+      'Primeras hojas',
+      'Creciendo',
+      'Primera flor',
+      'En flor',
+    ],
+    toNext: (n: number, what: string) =>
+      `${n === 1 ? 'Falta 1 día' : `Faltan ${n} días`} para ${what}.`,
+    nextWhat: [
+      'plantar tu semilla',
+      'que brote',
+      'sus primeras hojas',
+      'que le salgan más hojas',
+      'su primera flor',
+      'que florezca por completo',
+      'otra flor',
+    ],
+    neverWilts:
+      '¿Te saltaste un día? Aquí tu planta nunca se marchita. Cada día que vuelves cuenta.',
+    verseNew: 'Un versículo para ti',
+    versesTitle: (n: number) => `Tus versículos (${n})`,
+    recentTitle: 'Tus últimos check-ins',
+    change: 'Cambiar mi respuesta de hoy',
+    clear: 'Borrar mis check-ins de este celular',
+    clearConfirm: '¿Borrar todos tus check-ins y tu planta de este celular?',
+    suggestTitle: 'Algo para hoy',
+    suggest: {
+      1: 'Los días de tormenta pesan. Empieza por tu respiración y cuéntale a alguien cómo estás hoy.',
+      2: 'Elige uno de estos por unos minutos. Los pasos pequeños ayudan en los días de lluvia.',
+      3: 'Unos minutos con uno de estos pueden despejar un poco el cielo.',
+      4: 'Que siga lo bueno.',
+      5: 'Que siga lo bueno.',
+    },
+    tools: {
+      breathe: 'Respiración lenta, 2 min',
+      'thought-check': 'Revisar un pensamiento, 3 min',
+      'one-thing': 'Una cosa pequeña, 10 min',
+      'worry-note': 'Nota de preocupaciones, 2 min',
+      message: 'Escribirle a alguien, 1 min',
+      kite: 'La cometa, un juego de 1 minuto',
+    },
+    story: 'Leer una historia de esperanza',
+    ecoach: 'Hablar con alguien',
+    heavyRun:
+      'Tus últimos check-ins han sido pesados. Por favor, habla con alguien esta semana. Una línea de ayuda gratuita puede escucharte.',
+  },
+  ko: {
+    weatherTitle: '오늘 기분이 어때요?',
+    weatherHint: '지금 마음과 가장 가까운 날씨를 골라 보세요.',
+    weather: {
+      1: '폭풍우',
+      2: '비',
+      3: '흐림',
+      4: '햇살 조금',
+      5: '맑음',
+    },
+    areasTitle: '마음에 걸리는 게 있나요? 해당하는 걸 모두 눌러 보세요',
+    areas: {
+      work: '일이나 공부',
+      family: '가족',
+      money: '돈',
+      love: '연애',
+      friends: '친구',
+      health: '건강',
+      sleep: '잠',
+      faith: '신앙',
+      lonely: '외로움',
+    },
+    save: '체크인하기',
+    back: '뒤로',
+    privacy: '체크인 기록은 이 휴대폰에만 저장돼요.',
+    firstTitle: '씨앗을 심었어요',
+    backTitle: '다시 만나서 반가워요',
+    grewTitle: '재스민이 자랐어요',
+    doneTitle: '오늘 체크인 완료',
+    againTitle: '오늘은 이미 체크인했어요',
+    days: (n: number) => `${n}일`,
+    daysLabel: '체크인한 날',
+    weekLabel: '이번 주',
+    weekCount: (n: number) => `이번 주 ${n}일`,
+    stageNames: [
+      '빈 화분',
+      '씨앗',
+      '새싹',
+      '첫 잎',
+      '자라는 중',
+      '첫 꽃',
+      '활짝 핀 꽃',
+    ],
+    toNext: (n: number, what: string) => `${what}까지 ${n}일 남았어요.`,
+    nextWhat: [
+      '씨앗을 심기',
+      '싹이 트기',
+      '첫 잎이 나기',
+      '잎이 더 나기',
+      '첫 꽃이 피기',
+      '꽃이 활짝 피기',
+      '다음 꽃이 피기',
+    ],
+    neverWilts:
+      '하루 놓쳤나요? 여기서는 식물이 절대 시들지 않아요. 다시 오는 하루하루가 모두 소중해요.',
+    verseNew: '당신을 위한 말씀',
+    versesTitle: (n: number) => `모은 말씀 (${n})`,
+    recentTitle: '최근 체크인',
+    change: '오늘 답 바꾸기',
+    clear: '이 휴대폰에서 내 체크인 삭제하기',
+    clearConfirm: '이 휴대폰에서 모든 체크인과 식물을 삭제할까요?',
+    suggestTitle: '오늘 해 볼 만한 것',
+    suggest: {
+      1: '폭풍우 치는 날은 마음이 무거워요. 숨부터 천천히 쉬어 보고, 오늘 어떤지 누군가에게 말해 보세요.',
+      2: '이 중 하나를 골라 몇 분만 해 보세요. 비 오는 날엔 작은 걸음이 도움이 돼요.',
+      3: '이 중 하나로 몇 분을 보내면 하늘이 조금 갤 수 있어요.',
+      4: '지금의 좋은 기분을 이어 가요.',
+      5: '지금의 좋은 기분을 이어 가요.',
+    },
+    tools: {
+      breathe: '천천히 숨쉬기, 2분',
+      'thought-check': '생각 점검, 3분',
+      'one-thing': '작은 일 하나, 10분',
+      'worry-note': '걱정 메모, 2분',
+      message: '누군가에게 메시지 보내기, 1분',
+      kite: '연날리기, 1분 게임',
+    },
+    story: '희망 이야기 읽기',
+    ecoach: '누군가와 이야기하기',
+    heavyRun:
+      '최근 체크인이 계속 무거웠어요. 이번 주에는 꼭 누군가와 이야기해 보세요. 무료 상담 전화에서 이야기를 들어 줄 거예요.',
   },
 };
 
@@ -277,20 +647,10 @@ function toolsFor(weather: Weather, areas: Area[]): ToolKind[] {
 
 type Outcome = 'first' | 'back' | 'grew' | 'done' | 'again';
 
-function CrisisLine({ t }: { t: Copy }) {
+function CrisisLine({ lang }: { lang: FeelingLang }) {
   return (
     <p className="text-sm leading-relaxed">
-      {t.crisis}{' '}
-      <a href="tel:1553" className="font-bold underline underline-offset-4">
-        1553
-      </a>{' '}
-      {t.or}{' '}
-      <a
-        href="tel:+639178998727"
-        className="whitespace-nowrap font-bold underline underline-offset-4"
-      >
-        0917 899 8727
-      </a>
+      <CrisisSentence lang={lang} lead />
     </p>
   );
 }
@@ -533,10 +893,9 @@ export function DailyCheckIn({ lang }: { lang: FeelingLang }) {
         <ol className="mt-3 grid grid-cols-7 gap-1.5">
           {week.map((day) => {
             const item = checkIns.find((check) => check.day === day.day);
-            const label = day.date.toLocaleDateString(
-              lang === 'tl' ? 'fil-PH' : 'en-PH',
-              { weekday: 'short' }
-            );
+            const label = day.date.toLocaleDateString(LANG_INFO[lang].locale, {
+              weekday: 'short',
+            });
             return (
               <li
                 key={day.day}
@@ -632,7 +991,7 @@ export function DailyCheckIn({ lang }: { lang: FeelingLang }) {
           )}
           {entry.weather === 1 && (
             <div className="mt-5 rounded-2xl border border-[#AEC488] bg-[#EFF3E7] p-5 text-[#6E5F47]">
-              <CrisisLine t={t} />
+              <CrisisLine lang={lang} />
             </div>
           )}
         </section>
@@ -655,7 +1014,7 @@ export function DailyCheckIn({ lang }: { lang: FeelingLang }) {
                 />
                 <span>
                   {new Date(`${item.day}T00:00:00`).toLocaleDateString(
-                    lang === 'tl' ? 'fil-PH' : 'en-PH',
+                    LANG_INFO[lang].locale,
                     { month: 'short', day: 'numeric' }
                   )}
                   <span className="sr-only">: {t.weather[item.weather]}</span>

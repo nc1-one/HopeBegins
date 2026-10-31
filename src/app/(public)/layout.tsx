@@ -6,6 +6,7 @@ import { WhatNext } from '@/components/layout/WhatNext';
 import { InstallPromptCatcher } from '@/components/layout/InstallPromptCatcher';
 import { PageVisitTracker } from '@/components/layout/PageVisitTracker';
 import { OfflineSupport } from '@/components/layout/OfflineSupport';
+import { LanguageRedirect } from '@/components/layout/LanguageRedirect';
 import { PhotoTurnProvider } from '@/components/ui/PhotoTurn';
 import { photoTurn } from '@/lib/photos';
 
@@ -30,6 +31,7 @@ export default function PublicLayout({
       <InstallPromptCatcher />
       <PageVisitTracker />
       <OfflineSupport />
+      <LanguageRedirect />
     </div>
   );
 }

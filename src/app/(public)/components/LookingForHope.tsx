@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { TrackedLink } from '@/components/ui/TrackedLink';
@@ -13,6 +13,7 @@ import { useCheckIns } from '@/lib/checkIns';
 import { localDay } from '@/lib/toolNotes';
 import { PLAN_DAYS } from '@/lib/actionPlan';
 import type { FeelingLang } from '@/lib/feelingPages';
+import type { PerLang } from '@/lib/i18n';
 import { useLanguage } from '@/lib/languagePreference';
 import { isGuidedTool, useLastTool, type GuidedTool } from '@/lib/myTool';
 import { type PhotoId } from '@/lib/photos';
@@ -26,9 +27,15 @@ import {
 } from '@/lib/startMenu';
 import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
 import { analyticsService } from '@/services/analyticsService';
+import { CrisisSentence } from '@/components/help/Crisis';
 
 // Each answer opens the page written for that feeling, in the chosen language.
-const feelings = [
+// French, German, Spanish and Korean link to the English page's address,
+// and the link takes the reader to the page in their language when it has one.
+const feelings: ({ id: string; photo: PhotoId } & PerLang<{
+  label: string;
+  href: string;
+}>)[] = [
   {
     id: 'anxious',
     photo: 'anxious' as PhotoId,
@@ -39,6 +46,22 @@ const feelings = [
     tl: {
       label: 'Kinakabahan ako',
       href: '/paano-mawala-ang-anxiety',
+    },
+    fr: {
+      label: 'J’angoisse',
+      href: '/how-to-calm-anxiety',
+    },
+    de: {
+      label: 'Ich habe Angst',
+      href: '/how-to-calm-anxiety',
+    },
+    es: {
+      label: 'Tengo ansiedad',
+      href: '/how-to-calm-anxiety',
+    },
+    ko: {
+      label: '불안해요',
+      href: '/how-to-calm-anxiety',
     },
   },
   {
@@ -52,6 +75,22 @@ const feelings = [
       label: 'Pagod na ako',
       href: '/pagod-na-ako',
     },
+    fr: {
+      label: 'Tout me fatigue',
+      href: '/tired-of-everything',
+    },
+    de: {
+      label: 'Ich bin müde von allem',
+      href: '/tired-of-everything',
+    },
+    es: {
+      label: 'Ya me cansé de todo',
+      href: '/tired-of-everything',
+    },
+    ko: {
+      label: '모든 것에 지쳤어요',
+      href: '/tired-of-everything',
+    },
   },
   {
     id: 'alone',
@@ -63,6 +102,22 @@ const feelings = [
     tl: {
       label: 'Wala akong kausap',
       href: '/wala-akong-kausap',
+    },
+    fr: {
+      label: 'La solitude me pèse',
+      href: '/i-feel-alone',
+    },
+    de: {
+      label: 'Ich fühle mich allein',
+      href: '/i-feel-alone',
+    },
+    es: {
+      label: 'Siento que no tengo a nadie',
+      href: '/i-feel-alone',
+    },
+    ko: {
+      label: '외로워요',
+      href: '/i-feel-alone',
     },
   },
   {
@@ -76,6 +131,22 @@ const feelings = [
       label: 'Hindi ako makatulog sa kakaisip',
       href: '/hindi-makatulog-sa-kakaisip',
     },
+    fr: {
+      label: 'Mes pensées m’empêchent de dormir',
+      href: '/cant-sleep-overthinking',
+    },
+    de: {
+      label: 'Ich kann vor lauter Grübeln nicht schlafen',
+      href: '/cant-sleep-overthinking',
+    },
+    es: {
+      label: 'No puedo dormir de tanto pensar',
+      href: '/cant-sleep-overthinking',
+    },
+    ko: {
+      label: '생각이 많아서 잠이 안 와요',
+      href: '/cant-sleep-overthinking',
+    },
   },
   {
     id: 'hopeless',
@@ -88,16 +159,59 @@ const feelings = [
       label: 'Wala na akong pag-asa',
       href: '/get-started',
     },
+    fr: {
+      label: 'Je n’ai plus d’espoir',
+      href: '/get-started',
+    },
+    de: {
+      label: 'Ich habe keine Hoffnung mehr',
+      href: '/get-started',
+    },
+    es: {
+      label: 'Ya no tengo esperanza',
+      href: '/get-started',
+    },
+    ko: {
+      label: '희망이 없어요',
+      href: '/get-started',
+    },
   },
 ];
 
-const notSure = {
+const notSure: PerLang<string> = {
   en: "I'm not sure what I feel",
   tl: 'Hindi ko alam kung ano ang nararamdaman ko',
+  fr: 'Je ne sais pas trop ce que je ressens',
+  de: 'Ich weiß nicht genau, was ich fühle',
+  es: 'No sé bien qué siento',
+  ko: '제 마음이 어떤지 잘 모르겠어요',
 };
 
-const menuCopy = {
+interface MenuCopy {
+  /** "Not okay today?", with "today" set apart. */
+  notOkay: { before: string; today: string; after: string };
+  thatsMe: string;
+  heading: string;
+  back: string;
+  welcomeBack: string;
+  planDay: (day: number) => string;
+  planSaved: string;
+  afterSaved: string;
+  openPlan: string;
+  checkIn: string;
+  myCheckIns: string;
+  startMy: Record<GuidedTool, string>;
+  ecoachTitle: string;
+  ecoachText: string;
+  ecoachButton: string;
+  moreWays: string;
+  donate: string;
+}
+
+const menuCopy: PerLang<MenuCopy> = {
   en: {
+    notOkay: { before: 'Not okay ', today: 'today', after: '?' },
+    thatsMe: "That's me",
     heading: 'How are you feeling right now?',
     back: 'Back',
     welcomeBack: 'Welcome back',
@@ -116,6 +230,9 @@ const menuCopy = {
     donate: 'Here to donate instead?',
   },
   tl: {
+    // The first screen stays in English on the Taglish home, as before.
+    notOkay: { before: 'Not okay ', today: 'today', after: '?' },
+    thatsMe: "That's me",
     heading: 'Ano ang nararamdaman mo ngayon?',
     back: 'Bumalik',
     welcomeBack: 'Welcome back',
@@ -136,29 +253,166 @@ const menuCopy = {
     moreWays: 'Nandito rin:',
     donate: 'Gusto mo bang mag-donate?',
   },
+  // No e-coaches in these languages: the button goes to free helplines.
+  fr: {
+    notOkay: {
+      before: 'Ça ne va pas ',
+      today: 'aujourd’hui',
+      after: ' ?',
+    },
+    thatsMe: 'C’est moi',
+    heading: 'Comment te sens-tu en ce moment ?',
+    back: 'Retour',
+    welcomeBack: 'Te revoilà',
+    planDay: (day: number) => `Tu en es au jour ${day} de ton plan.`,
+    planSaved: 'Ton plan est enregistré sur ce téléphone.',
+    afterSaved: 'Ta carte d’espoir et ton bilan du mois t’attendent ici.',
+    openPlan: 'Ouvrir mon plan',
+    checkIn: 'Faire mon bilan du jour',
+    myCheckIns: 'Mes bilans',
+    startMy: {
+      breathe: 'Commencer ma respiration lente',
+      ground: 'Commencer mon ancrage 5-4-3-2-1',
+    },
+    ecoachTitle: 'Je veux quelqu’un pour m’accompagner',
+    ecoachText:
+      'Parle à une vraie personne, sur une ligne d’écoute gratuite là où tu vis.',
+    ecoachButton: 'Parler à quelqu’un',
+    moreWays: 'Et aussi :',
+    donate: 'Tu es là pour faire un don ?',
+  },
+  de: {
+    notOkay: { before: '', today: 'Heute', after: ' nicht okay?' },
+    thatsMe: 'Das bin ich',
+    heading: 'Wie fühlst du dich gerade?',
+    back: 'Zurück',
+    welcomeBack: 'Schön, dass du wieder da bist',
+    planDay: (day: number) => `Heute ist Tag ${day} deines Plans.`,
+    planSaved: 'Dein Plan ist auf diesem Handy gespeichert.',
+    afterSaved:
+      'Deine Hoffnungskarte und dein monatlicher Check-in warten hier auf dich.',
+    openPlan: 'Meinen Plan öffnen',
+    checkIn: 'Heute einchecken',
+    myCheckIns: 'Meine Check-ins',
+    startMy: {
+      breathe: 'Meine Atemübung starten',
+      ground: 'Meine 5-4-3-2-1-Übung starten',
+    },
+    ecoachTitle: 'Ich möchte, dass mich jemand begleitet',
+    ecoachText:
+      'Bei einem kostenlosen Hilfetelefon in deinem Land hört dir ein echter Mensch zu.',
+    ecoachButton: 'Mit jemandem reden',
+    moreWays: 'Außerdem:',
+    donate: 'Möchtest du lieber spenden?',
+  },
+  es: {
+    notOkay: { before: '¿No estás bien ', today: 'hoy', after: '?' },
+    thatsMe: 'Así me siento',
+    heading: '¿Cómo te sientes en este momento?',
+    back: 'Volver',
+    welcomeBack: 'Qué bueno verte de nuevo',
+    planDay: (day: number) => `Vas en el día ${day} de tu plan.`,
+    planSaved: 'Tu plan está guardado en este celular.',
+    afterSaved: 'Tu tarjeta de esperanza y tu check-in mensual están aquí.',
+    openPlan: 'Abrir mi plan',
+    checkIn: 'Hacer el check-in de hoy',
+    myCheckIns: 'Mis check-ins',
+    startMy: {
+      breathe: 'Empezar mi respiración lenta',
+      ground: 'Empezar mi ejercicio 5-4-3-2-1',
+    },
+    ecoachTitle: 'Quiero que alguien me acompañe',
+    ecoachText:
+      'Habla con una persona real en una línea de ayuda gratuita de tu país.',
+    ecoachButton: 'Hablar con alguien',
+    moreWays: 'Además:',
+    donate: '¿Vienes a donar?',
+  },
+  ko: {
+    notOkay: { before: '', today: '오늘', after: ' 괜찮지 않나요?' },
+    thatsMe: '제 얘기예요',
+    heading: '지금 마음이 어때요?',
+    back: '뒤로',
+    welcomeBack: '다시 만나서 반가워요',
+    planDay: (day: number) => `계획 ${day}일째예요.`,
+    planSaved: '계획은 이 휴대폰에 저장되어 있어요.',
+    afterSaved: '희망 카드와 월간 체크인이 여기 있어요.',
+    openPlan: '내 계획 열기',
+    checkIn: '오늘 체크인하기',
+    myCheckIns: '내 체크인',
+    startMy: {
+      breathe: '천천히 숨쉬기 시작하기',
+      ground: '5-4-3-2-1 그라운딩 시작하기',
+    },
+    ecoachTitle: '누군가 곁에 있어 주면 좋겠어요',
+    ecoachText:
+      '지금 있는 곳의 무료 상담 전화에서 실제 사람과 이야기할 수 있어요.',
+    ecoachButton: '누군가와 이야기하기',
+    moreWays: '이런 것도 있어요:',
+    donate: '후원하러 오셨나요?',
+  },
 };
 
-const morePaths = [
-  { title: { en: 'Daily check-in', tl: 'Daily check-in' }, href: '/check-in' },
-  { title: { en: 'Prayer', tl: 'Dasal' }, href: '/prayers' },
-  { title: { en: 'Hope AI', tl: 'Hope AI' }, href: '/hope-ai' },
-  { title: { en: 'HopeCasts', tl: 'HopeCasts' }, href: '/hopecasts' },
-  { title: { en: 'Daily Hope', tl: 'Daily Hope' }, href: '/daily-hope' },
+const morePaths: { title: PerLang<string>; href: string }[] = [
+  {
+    title: {
+      en: 'Daily check-in',
+      tl: 'Daily check-in',
+      fr: 'Bilan du jour',
+      de: 'Täglicher Check-in',
+      es: 'Check-in diario',
+      ko: '오늘의 체크인',
+    },
+    href: '/check-in',
+  },
+  {
+    title: {
+      en: 'Prayer',
+      tl: 'Dasal',
+      fr: 'Prière',
+      de: 'Gebet',
+      es: 'Oración',
+      ko: '기도',
+    },
+    href: '/prayers',
+  },
+  {
+    title: {
+      en: 'Hope AI',
+      tl: 'Hope AI',
+      fr: 'Hope AI',
+      de: 'Hope AI',
+      es: 'Hope AI',
+      ko: 'Hope AI',
+    },
+    href: '/hope-ai',
+  },
+  {
+    title: {
+      en: 'HopeCasts',
+      tl: 'HopeCasts',
+      fr: 'HopeCasts',
+      de: 'HopeCasts',
+      es: 'HopeCasts',
+      ko: 'HopeCasts',
+    },
+    href: '/hopecasts',
+  },
+  {
+    title: {
+      en: 'Daily Hope',
+      tl: 'Daily Hope',
+      fr: 'Daily Hope',
+      de: 'Daily Hope',
+      es: 'Daily Hope',
+      ko: 'Daily Hope',
+    },
+    href: '/daily-hope',
+  },
 ];
 
 const heroSecondaryClass =
   'inline-flex min-h-11 items-center justify-center rounded-2xl border border-white/70 px-5 font-poppins font-bold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50';
-
-const crisisCopy = {
-  en: {
-    lead: 'In crisis or thinking of ending your life? Call the NCMH Crisis Hotline, 24/7:',
-    or: 'or',
-  },
-  tl: {
-    lead: 'Nasa crisis ka ba o naiisip mong tapusin ang buhay mo? Tumawag sa NCMH Crisis Hotline, 24/7:',
-    or: 'o',
-  },
-};
 
 function CrisisLine({
   className,
@@ -168,21 +422,8 @@ function CrisisLine({
   lang?: FeelingLang;
 }) {
   return (
-    <p lang={lang} className={`text-sm leading-relaxed ${className ?? ''}`}>
-      {crisisCopy[lang].lead}{' '}
-      <a
-        href="tel:1553"
-        className="font-bold underline underline-offset-4 whitespace-nowrap"
-      >
-        1553
-      </a>{' '}
-      {crisisCopy[lang].or}{' '}
-      <a
-        href="tel:+639178998727"
-        className="font-bold underline underline-offset-4 whitespace-nowrap"
-      >
-        0917 899 8727
-      </a>
+    <p className={`text-sm leading-relaxed ${className ?? ''}`}>
+      <CrisisSentence lang={lang} lead danger={false} />
     </p>
   );
 }
@@ -251,7 +492,9 @@ export function LookingForHope({ about }: { about?: React.ReactNode }) {
               id="looking-for-hope-title"
               className="text-balance font-playfair text-5xl md:text-8xl text-white leading-[0.95] tracking-[-0.04em] drop-shadow-lg"
             >
-              Not okay <em className="text-[#EFF3E7]">today</em>?
+              {t.notOkay.before}
+              <em className="text-[#EFF3E7]">{t.notOkay.today}</em>
+              {t.notOkay.after}
             </h1>
 
             <button
@@ -259,7 +502,7 @@ export function LookingForHope({ about }: { about?: React.ReactNode }) {
               onClick={handleStart}
               className="mt-10 inline-flex items-center justify-center rounded-2xl bg-white px-10 py-4 font-poppins text-lg font-bold text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50"
             >
-              That&apos;s me
+              {t.thatsMe}
               <ArrowRight className="ml-2 w-5 h-5" />
             </button>
 

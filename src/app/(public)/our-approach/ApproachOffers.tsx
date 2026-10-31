@@ -1,10 +1,19 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import { ChevronRight } from 'lucide-react';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { groupClass, rowClass } from '@/components/ui/listStyles';
+import { noTl, type Lang, type PerLangNoTl } from '@/lib/i18n';
+
+const tabsLabel: PerLangNoTl<string> = {
+  en: 'What you can use',
+  fr: 'Ce que tu peux utiliser',
+  de: 'Was du nutzen kannst',
+  es: 'Lo que puedes usar',
+  ko: '쓸 수 있는 것',
+};
 
 export interface Offer {
   title: string;
@@ -17,8 +26,10 @@ export interface Offer {
 /** What people can use, in three tabs, so only one short list shows. */
 export function ApproachOffers({
   groups,
+  lang,
 }: {
   groups: { title: string; items: Offer[] }[];
+  lang: Lang;
 }) {
   const [active, setActive] = useState(0);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -56,7 +67,7 @@ export function ApproachOffers({
     <div className="mt-8">
       <div
         role="tablist"
-        aria-label="What you can use"
+        aria-label={noTl(tabsLabel, lang)}
         onKeyDown={onKey}
         className="flex gap-6 border-b border-[#E2DFDA]"
       >

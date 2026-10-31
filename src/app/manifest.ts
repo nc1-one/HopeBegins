@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: 'HopeBegins',
     short_name: 'HopeBegins',
     description:
-      'Free support when you are not okay: a personal plan, calming tools and e-coaches on Messenger.',
+      'Free, faith-driven support when you are not okay: calming tools, a personal plan, prayer and the free helplines where you live.',
     start_url: '/action-plan',
     scope: '/',
     display: 'standalone',

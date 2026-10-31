@@ -2,13 +2,16 @@
 
 import { Fragment, useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import { EcoachLink } from '@/components/ui/EcoachLink';
+import { CrisisList } from '@/components/help/Crisis';
 import {
   primaryClass,
   quietClass,
   secondaryClass,
 } from '@/components/tools/toolStyles';
+import { isIntlLang, noTl, type Lang, type PerLangNoTl } from '@/lib/i18n';
+import { usePageLanguage } from '@/lib/pageLanguage';
 import { cn } from '@/lib/utils';
 import { dailyHopeService } from '@/services/dailyHopeService';
 import {
@@ -17,6 +20,7 @@ import {
 } from '@/services/siteSettingsService';
 import {
   getDefaultJourneyPageContent,
+  getIntlJourneyPageContent,
   JourneyCrisisSection,
   JourneyDevotionalSection,
   JourneyNextStepsSection,
@@ -27,6 +31,67 @@ import {
 } from '@/lib/journeyPageContent';
 
 type Step = JourneyStepKey;
+
+// The words around the page's own content. In French, German, Spanish and
+// Korean the person link goes to the help page's free lines, not to an
+// e-coach (see EcoachLink).
+const ui: PerLangNoTl<{
+  steps: string;
+  stepOf: (step: number, count: number, label: string) => string;
+  stepLabel: (step: number, label: string) => string;
+  /** Read after a prayer step's number: "1 of 5". */
+  of: (count: number) => string;
+  quote: (text: string) => string;
+  person: string;
+  plan: string;
+}> = {
+  en: {
+    steps: 'Steps',
+    stepOf: (step, count, label) => `Step ${step} of ${count}: ${label}`,
+    stepLabel: (step, label) => `Step ${step}: ${label}`,
+    of: (count) => ` of ${count}`,
+    quote: (text) => `“${text}”`,
+    person: 'Talk to a real person',
+    plan: 'Make your free plan',
+  },
+  fr: {
+    steps: 'Étapes',
+    stepOf: (step, count, label) =>
+      `Étape ${step} sur ${count}\u00a0: ${label}`,
+    stepLabel: (step, label) => `Étape ${step}\u00a0: ${label}`,
+    of: (count) => ` sur ${count}`,
+    quote: (text) => `«\u00a0${text}\u00a0»`,
+    person: 'Parler à quelqu’un sur une ligne d’écoute gratuite',
+    plan: 'Faire ton plan gratuit',
+  },
+  de: {
+    steps: 'Schritte',
+    stepOf: (step, count, label) => `Schritt ${step} von ${count}: ${label}`,
+    stepLabel: (step, label) => `Schritt ${step}: ${label}`,
+    of: (count) => ` von ${count}`,
+    quote: (text) => `„${text}“`,
+    person: 'Kostenlos mit jemandem am Telefon reden',
+    plan: 'Deinen kostenlosen Plan machen',
+  },
+  es: {
+    steps: 'Pasos',
+    stepOf: (step, count, label) => `Paso ${step} de ${count}: ${label}`,
+    stepLabel: (step, label) => `Paso ${step}: ${label}`,
+    of: (count) => ` de ${count}`,
+    quote: (text) => `“${text}”`,
+    person: 'Hablar con alguien en una línea de ayuda gratuita',
+    plan: 'Haz tu plan gratis',
+  },
+  ko: {
+    steps: '단계',
+    stepOf: (step, count, label) => `${count}단계 중 ${step}단계: ${label}`,
+    stepLabel: (step, label) => `${step}단계: ${label}`,
+    of: (count) => `번째 (총 ${count}개)`,
+    quote: (text) => `“${text}”`,
+    person: '무료 상담 전화로 누군가와 이야기하기',
+    plan: '무료로 나만의 계획 만들기',
+  },
+};
 
 const h2Class =
   'text-balance font-playfair text-2xl md:text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]';
@@ -50,13 +115,21 @@ function renderMultilineText(text: string) {
 }
 
 export default function GetStartedPage() {
+  const lang = usePageLanguage();
+  const t = noTl(ui, lang);
+  // The admin edits this page in English, so French, German, Spanish and
+  // Korean keep their own words instead of the saved ones.
+  const ownWords = isIntlLang(lang);
   const [currentStep, setCurrentStep] = useState<Step>('welcome');
   const [prayerSubStep, setPrayerSubStep] = useState(1);
-  const [pageContent, setPageContent] = useState<JourneyPageContent>(
-    getDefaultJourneyPageContent
+  const [pageContent, setPageContent] = useState<JourneyPageContent>(() =>
+    isIntlLang(lang)
+      ? getIntlJourneyPageContent(lang)
+      : getDefaultJourneyPageContent()
   );
 
   useEffect(() => {
+    if (ownWords) return;
     const fetchContent = async () => {
       try {
         const data = await siteSettingsService.getJourneyPageContent();
@@ -67,7 +140,7 @@ export default function GetStartedPage() {
     };
 
     fetchContent();
-  }, []);
+  }, [ownWords]);
 
   const steps = pageContent.steps.map((step) => ({
     id: step.key,
@@ -130,10 +203,13 @@ export default function GetStartedPage() {
           </div>
 
           {/* Where they are in the five steps; finished steps can be revisited. */}
-          <nav aria-label="Steps" className="mb-8">
+          <nav aria-label={t.steps} className="mb-8">
             <p className="font-poppins text-sm font-medium text-[#6E5F47]">
-              Step {stepOrder.indexOf(currentStep) + 1} of {steps.length}:{' '}
-              {steps.find((step) => step.id === currentStep)?.label}
+              {t.stepOf(
+                stepOrder.indexOf(currentStep) + 1,
+                steps.length,
+                steps.find((step) => step.id === currentStep)?.label ?? ''
+              )}
             </p>
             <ol className="mt-3 flex gap-1.5">
               {steps.map((step, index) => {
@@ -145,7 +221,7 @@ export default function GetStartedPage() {
                       type="button"
                       disabled={!canOpen}
                       aria-current={status === 'active' ? 'step' : undefined}
-                      aria-label={`Step ${index + 1}: ${step.label}`}
+                      aria-label={t.stepLabel(index + 1, step.label)}
                       onClick={() => setCurrentStep(step.id)}
                       className="flex h-11 w-full items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA] rounded-md disabled:cursor-default"
                     >
@@ -184,6 +260,7 @@ export default function GetStartedPage() {
                 )}
                 {currentStep === 'word' && (
                   <WordStep
+                    lang={lang}
                     content={pageContent.word_section}
                     onBack={handlePrevious}
                     onNext={handleNext}
@@ -191,6 +268,7 @@ export default function GetStartedPage() {
                 )}
                 {currentStep === 'prayer' && (
                   <PrayerStep
+                    lang={lang}
                     content={pageContent.prayer_section}
                     subStep={prayerSubStep}
                     onBack={handlePrevious}
@@ -199,6 +277,7 @@ export default function GetStartedPage() {
                 )}
                 {currentStep === 'devotional' && (
                   <DevotionalStep
+                    lang={lang}
                     content={pageContent.devotional_section}
                     onBack={handlePrevious}
                     onNext={handleNext}
@@ -206,6 +285,7 @@ export default function GetStartedPage() {
                 )}
                 {currentStep === 'next-steps' && (
                   <NextStepsStep
+                    lang={lang}
                     content={pageContent.next_steps_section}
                     crisis={pageContent.crisis_section}
                   />
@@ -261,11 +341,22 @@ function StepIntro({ title, text }: { title: string; text?: string }) {
   );
 }
 
-function Verse({ text, reference }: { text: string; reference: string }) {
+function Verse({
+  lang,
+  text,
+  reference,
+}: {
+  lang: Lang;
+  text: string;
+  reference: string;
+}) {
+  // No verse text, no quote: in French, German, Spanish and Korean a verse
+  // shows only once verses.ts has it in that language.
+  if (!text) return null;
   return (
     <figure>
       <blockquote className="font-playfair text-2xl italic leading-[1.25] tracking-[-0.02em] text-[#6E5F47]">
-        &ldquo;{text}&rdquo;
+        {noTl(ui, lang).quote(text)}
       </blockquote>
       <figcaption className="mt-2 text-sm text-[#6E5F47]/85">
         {reference}
@@ -305,10 +396,12 @@ function WelcomeStep({
 }
 
 function WordStep({
+  lang,
   content,
   onNext,
   onBack,
 }: {
+  lang: Lang;
   content: JourneyWordSection;
   onNext: () => void;
   onBack: () => void;
@@ -330,7 +423,11 @@ function WordStep({
         />
       </div>
 
-      <Verse text={content.verse_text} reference={content.verse_reference} />
+      <Verse
+        lang={lang}
+        text={content.verse_text}
+        reference={content.verse_reference}
+      />
 
       <StepButtons
         backText={content.previous_button_text}
@@ -343,11 +440,13 @@ function WordStep({
 }
 
 function PrayerStep({
+  lang,
   content,
   subStep,
   onNext,
   onBack,
 }: {
+  lang: Lang;
   content: JourneyPrayerSection;
   subStep: number;
   onNext: () => void;
@@ -362,7 +461,9 @@ function PrayerStep({
       <div className="flex gap-4">
         <p className="w-8 shrink-0 font-playfair text-3xl leading-[0.95] text-[#6E5F47]/85">
           {subStep}
-          <span className="sr-only"> of {content.steps.length}</span>
+          <span className="sr-only">
+            {noTl(ui, lang).of(content.steps.length)}
+          </span>
         </p>
         <div className="space-y-3">
           <h3 className={h3Class}>{current.title}</h3>
@@ -385,10 +486,12 @@ function PrayerStep({
 }
 
 function DevotionalStep({
+  lang,
   content,
   onNext,
   onBack,
 }: {
+  lang: Lang;
   content: JourneyDevotionalSection;
   onNext: () => void;
   onBack: () => void;
@@ -403,7 +506,11 @@ function DevotionalStep({
         ))}
       </div>
 
-      <Verse text={content.verse_text} reference={content.verse_reference} />
+      <Verse
+        lang={lang}
+        text={content.verse_text}
+        reference={content.verse_reference}
+      />
 
       <div className="space-y-3">
         <h3 className={h3Class}>{content.good_news_title}</h3>
@@ -428,12 +535,15 @@ function DevotionalStep({
 }
 
 function NextStepsStep({
+  lang,
   content,
   crisis,
 }: {
+  lang: Lang;
   content: JourneyNextStepsSection;
   crisis: JourneyCrisisSection;
 }) {
+  const t = noTl(ui, lang);
   return (
     <div className="space-y-8">
       <StepIntro title={content.title} text={content.description} />
@@ -442,12 +552,12 @@ function NextStepsStep({
         {/* Always a person and a plan first, whatever the editable steps say. */}
         <li className="hb-step-in">
           <EcoachLink linkName="ecoach_get_started" className={nextLinkClass}>
-            Talk to a real person
+            {t.person}
           </EcoachLink>
         </li>
         <li className="hb-step-in" style={{ animationDelay: '60ms' }}>
           <Link href="/action-plan" className={nextLinkClass}>
-            Make your free plan
+            {t.plan}
           </Link>
         </li>
         {content.actions.map((action, idx) => (
@@ -468,19 +578,27 @@ function NextStepsStep({
         <h2 className="font-playfair text-2xl leading-[0.95] tracking-[-0.04em]">
           {crisis.heading}
         </h2>
-        <ul className="mt-4 space-y-4">
-          {crisis.contacts.map((contact, index) => (
-            <li key={index}>
-              <p className="font-poppins font-medium">{contact.title}</p>
-              {contact.lines.map((line, lineIndex) => (
-                <p key={lineIndex} className="mt-1">
-                  {line.label}{' '}
-                  <span className="font-bold tabular-nums">{line.value}</span>
-                </p>
-              ))}
-            </li>
-          ))}
-        </ul>
+        {isIntlLang(lang) ? (
+          // The admin's lines are the Philippines'; these are the lines of
+          // the country the visitor is in.
+          <p className="mt-4 leading-relaxed">
+            <CrisisList lang={lang} className="block space-y-2" />
+          </p>
+        ) : (
+          <ul className="mt-4 space-y-4">
+            {crisis.contacts.map((contact, index) => (
+              <li key={index}>
+                <p className="font-poppins font-medium">{contact.title}</p>
+                {contact.lines.map((line, lineIndex) => (
+                  <p key={lineIndex} className="mt-1">
+                    {line.label}{' '}
+                    <span className="font-bold tabular-nums">{line.value}</span>
+                  </p>
+                ))}
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
 
       <Link href="/" className={cn(quietClass, '-ml-5')}>

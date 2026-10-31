@@ -96,6 +96,142 @@ const copy = {
     stepsTitle: 'Ang mga hakbang mo',
     nextTime: 'paulit-ulit na bumabalik ang pag-aalala sa maghapon',
   },
+  fr: {
+    label: 'Le moment pour s’inquiéter',
+    intro:
+      'Note tes soucis quand ils arrivent. Ensuite, occupe-t’en pendant le moment pour s’inquiéter : 15 minutes, à la même heure chaque jour.',
+    topicsLabel: 'Qu’est-ce qui te tracasse ? Touche pour le garder.',
+    addLabel: 'Ou écris avec tes mots',
+    add: 'Le garder pour le moment prévu',
+    count: (n: number) =>
+      n === 0
+        ? 'Aucun souci gardé pour l’instant.'
+        : `${n} ${n === 1 ? 'souci' : 'soucis'} en attente de ton moment pour t’inquiéter.`,
+    privacy: 'Tout reste sur ce téléphone.',
+    start: 'Commencer mon moment pour m’inquiéter',
+    clear: 'Vider la liste',
+    close: 'Fermer',
+    reviewOf: (i: number, n: number) => `Souci ${i} sur ${n}`,
+    ask: 'Est-ce que tu peux y faire quelque chose ?',
+    yes: 'Oui',
+    no: 'Non, je laisse tomber pour aujourd’hui',
+    stepLabel: 'Un petit pas que tu peux faire',
+    stepIdeas: [
+      'Noter la première étape',
+      'Demander de l’aide à quelqu’un',
+      'Vérifier une information',
+      'Choisir un moment pour s’en occuper',
+      'Prier pour ça',
+    ],
+    saveStep: 'Suivant',
+    doneTitle: 'Le moment pour s’inquiéter est terminé.',
+    doneText:
+      'Quand de nouveaux soucis arrivent, note-les ici et laisse-les attendre jusqu’au moment pour s’inquiéter de demain.',
+    stepsTitle: 'Tes prochains pas',
+    nextTime: 'l’inquiétude revient sans cesse dans la journée',
+  },
+  de: {
+    label: 'Sorgenzeit',
+    intro:
+      'Schreib Sorgen auf, wenn sie kommen. Kümmere dich dann in deiner Sorgenzeit darum, jeden Tag 15 Minuten zur gleichen Uhrzeit.',
+    topicsLabel: 'Was beschäftigt dich? Tippe an, um es zu speichern.',
+    addLabel: 'Oder schreib selbst etwas',
+    add: 'Für die Sorgenzeit speichern',
+    count: (n: number) =>
+      n === 0
+        ? 'Noch keine Sorgen gespeichert.'
+        : `${n} ${n === 1 ? 'Sorge' : 'Sorgen'} für deine Sorgenzeit gespeichert.`,
+    privacy: 'Nur auf diesem Handy gespeichert.',
+    start: 'Meine Sorgenzeit starten',
+    clear: 'Liste leeren',
+    close: 'Schließen',
+    reviewOf: (i: number, n: number) => `Sorge ${i} von ${n}`,
+    ask: 'Kannst du etwas daran ändern?',
+    yes: 'Ja',
+    no: 'Nein, für heute loslassen',
+    stepLabel: 'Ein kleiner Schritt, den du gehen kannst',
+    stepIdeas: [
+      'Den ersten Schritt aufschreiben',
+      'Jemanden um Hilfe bitten',
+      'Eine Sache herausfinden',
+      'Eine Zeit festlegen, um es anzugehen',
+      'Dafür beten',
+    ],
+    saveStep: 'Weiter',
+    doneTitle: 'Die Sorgenzeit ist vorbei.',
+    doneText:
+      'Wenn neue Sorgen kommen, schreib sie hier auf und lass sie bis zur Sorgenzeit morgen liegen.',
+    stepsTitle: 'Deine Schritte',
+    nextTime: 'die Sorgen tagsüber immer wiederkommen',
+  },
+  es: {
+    label: 'Tiempo para preocuparte',
+    intro:
+      'Escribe tus preocupaciones cuando lleguen. Luego atiéndelas en tu tiempo para preocuparte: 15 minutos, a la misma hora cada día.',
+    topicsLabel: '¿Qué te preocupa? Tócalo para guardarlo.',
+    addLabel: 'O escribe con tus palabras',
+    add: 'Guardar para ese momento',
+    count: (n: number) =>
+      n === 0
+        ? 'Todavía no hay preocupaciones guardadas.'
+        : `${n} ${n === 1 ? 'preocupación espera' : 'preocupaciones esperan'} tu tiempo para preocuparte.`,
+    privacy: 'Se guarda solo en este celular.',
+    start: 'Empezar mi tiempo para preocuparme',
+    clear: 'Borrar la lista',
+    close: 'Cerrar',
+    reviewOf: (i: number, n: number) => `Preocupación ${i} de ${n}`,
+    ask: '¿Puedes hacer algo al respecto?',
+    yes: 'Sí',
+    no: 'No, soltarlo por hoy',
+    stepLabel: 'Un pasito que puedes dar',
+    stepIdeas: [
+      'Escribir el primer paso',
+      'Pedirle ayuda a alguien',
+      'Averiguar un dato',
+      'Elegir un momento para resolverlo',
+      'Orar por esto',
+    ],
+    saveStep: 'Siguiente',
+    doneTitle: 'Terminó tu tiempo para preocuparte.',
+    doneText:
+      'Cuando lleguen nuevas preocupaciones, escríbelas aquí y déjalas para tu tiempo para preocuparte de mañana.',
+    stepsTitle: 'Tus pasos',
+    nextTime: 'la preocupación vuelva una y otra vez durante el día',
+  },
+  ko: {
+    label: '걱정 시간',
+    intro:
+      '걱정이 떠오르면 적어 두세요. 그리고 매일 같은 시간에 15분 동안, 걱정 시간에 다뤄요.',
+    topicsLabel: '무슨 걱정이 있나요? 누르면 저장돼요.',
+    addLabel: '아니면 직접 적어 보세요',
+    add: '걱정 시간까지 저장하기',
+    count: (n: number) =>
+      n === 0
+        ? '아직 저장한 걱정이 없어요.'
+        : `걱정 시간을 위해 걱정 ${n}개를 저장했어요.`,
+    privacy: '이 휴대폰에만 저장돼요.',
+    start: '걱정 시간 시작하기',
+    clear: '목록 지우기',
+    close: '닫기',
+    reviewOf: (i: number, n: number) => `걱정 ${n}개 중 ${i}번째`,
+    ask: '이 걱정에 대해 할 수 있는 일이 있나요?',
+    yes: '네',
+    no: '아니요, 오늘은 내려놓을래요',
+    stepLabel: '내가 할 수 있는 작은 한 걸음',
+    stepIdeas: [
+      '첫 단계 적어 보기',
+      '누군가에게 도움 청하기',
+      '사실 하나 알아보기',
+      '해결할 시간 정하기',
+      '이 일을 두고 기도하기',
+    ],
+    saveStep: '다음',
+    doneTitle: '걱정 시간이 끝났어요.',
+    doneText:
+      '새로운 걱정이 생기면 여기에 적고, 내일 걱정 시간까지 놓아두세요.',
+    stepsTitle: '해 볼 일',
+    nextTime: '낮 동안 걱정이 자꾸 되돌아올 때',
+  },
 };
 
 export function WorryTime({

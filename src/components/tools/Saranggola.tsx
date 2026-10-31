@@ -54,6 +54,86 @@ const copy = {
     again: 'Lipad ulit',
     close: 'Isara',
   },
+  fr: {
+    label: 'Jeu du cerf-volant',
+    how: 'Maintiens appuyé pour faire monter le cerf-volant. Relâche pour planer. Attrape les étoiles.',
+    tip: 'Essaie d’inspirer quand il monte et d’expirer quand il plane.',
+    start: 'Faire voler le cerf-volant',
+    resume: 'Reprendre le vol',
+    pause: 'Pause',
+    paused: 'En pause',
+    canvas:
+      'Un cerf-volant au-dessus de rizières en terrasses et de cocotiers, du matin au coucher du soleil.',
+    stars: (n: number) => `${n} ${n > 1 ? 'étoiles' : 'étoile'}`,
+    doneTitle: (n: number) =>
+      n === 0
+        ? 'Le soleil s’est couché.'
+        : `Quel beau vol. Tu as attrapé ${n} ${n > 1 ? 'étoiles' : 'étoile'}.`,
+    newBest: 'Nouveau record sur ce téléphone.',
+    best: (n: number) =>
+      `Ton record sur ce téléphone : ${n} ${n > 1 ? 'étoiles' : 'étoile'}.`,
+    again: 'Rejouer',
+    close: 'Fermer',
+  },
+  de: {
+    label: 'Drachenspiel',
+    how: 'Halte gedrückt, damit der Drachen steigt. Lass los, damit er gleitet. Sammle die Sterne.',
+    tip: 'Versuch mal, einzuatmen, während er steigt, und auszuatmen, während er gleitet.',
+    start: 'Drachen steigen lassen',
+    resume: 'Weiterfliegen',
+    pause: 'Pause',
+    paused: 'Pausiert',
+    canvas:
+      'Ein Drachen fliegt über Reisterrassen und Kokospalmen, vom Morgen bis zum Sonnenuntergang.',
+    stars: (n: number) => `${n} ${n === 1 ? 'Stern' : 'Sterne'}`,
+    doneTitle: (n: number) =>
+      n === 0
+        ? 'Die Sonne ist untergegangen.'
+        : `Was für ein Flug. Du hast ${n} ${n === 1 ? 'Stern' : 'Sterne'} gefangen.`,
+    newBest: 'Neuer Rekord auf diesem Handy.',
+    best: (n: number) =>
+      `Dein Rekord auf diesem Handy: ${n} ${n === 1 ? 'Stern' : 'Sterne'}.`,
+    again: 'Noch mal fliegen',
+    close: 'Schließen',
+  },
+  es: {
+    label: 'Juego de la cometa',
+    how: 'Mantén presionado para que la cometa suba. Suelta para que planee. Atrapa las estrellas.',
+    tip: 'Intenta inhalar mientras sube y exhalar mientras planea.',
+    start: 'Volar la cometa',
+    resume: 'Seguir volando',
+    pause: 'Pausar',
+    paused: 'En pausa',
+    canvas:
+      'Una cometa vuela sobre terrazas de arroz y cocoteros, desde la mañana hasta el atardecer.',
+    stars: (n: number) => `${n} ${n === 1 ? 'estrella' : 'estrellas'}`,
+    doneTitle: (n: number) =>
+      n === 0
+        ? 'Ya se puso el sol.'
+        : `Qué buen vuelo. Atrapaste ${n} ${n === 1 ? 'estrella' : 'estrellas'}.`,
+    newBest: 'Es tu nuevo récord en este celular.',
+    best: (n: number) =>
+      `Tu récord en este celular: ${n} ${n === 1 ? 'estrella' : 'estrellas'}.`,
+    again: 'Volar otra vez',
+    close: 'Cerrar',
+  },
+  ko: {
+    label: '연날리기 게임',
+    how: '누르고 있으면 연이 올라가요. 손을 떼면 천천히 내려와요. 별을 잡아 보세요.',
+    tip: '연이 올라갈 때 숨을 들이마시고, 내려올 때 내쉬어 보세요.',
+    start: '연 날리기',
+    resume: '계속 날리기',
+    pause: '일시정지',
+    paused: '일시정지됨',
+    canvas: '아침부터 해 질 녘까지 계단식 논과 야자수 위를 나는 연.',
+    stars: (n: number) => `별 ${n}개`,
+    doneTitle: (n: number) =>
+      n === 0 ? '해가 졌어요' : `별 ${n}개를 잡은 멋진 비행이었어요`,
+    newBest: '이 휴대폰에서 낸 최고 기록이에요.',
+    best: (n: number) => `이 휴대폰 최고 기록: 별 ${n}개.`,
+    again: '다시 날리기',
+    close: '닫기',
+  },
 };
 
 type Phase = 'ready' | 'flying' | 'paused' | 'done';

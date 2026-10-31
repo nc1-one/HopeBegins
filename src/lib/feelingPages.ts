@@ -15,7 +15,10 @@ export type FeelingTool =
   | 'game'
   | 'message'
   | 'worry-note';
-export type FeelingLang = 'tl' | 'en';
+import type { Lang } from './i18n';
+
+/** Every language the site speaks; see i18n.ts. */
+export type FeelingLang = Lang;
 
 /** Which of the real photos in photos.ts heads the page. */
 export type FeelingPhoto = 'anxious' | 'tired' | 'alone' | 'sleep' | 'unsure';
@@ -310,11 +313,11 @@ export const feelingPages: FeelingPage[] = [
     faq: [
       {
         q: 'Where can I talk to someone for free?',
-        a: 'You can message an e-coach from Himala Everyday on Messenger, for free. In a crisis, call the NCMH Crisis Hotline on 1553, open 24/7.',
+        a: 'You can message an e-coach from Himala Everyday on Messenger, for free. In a crisis, call the crisis line in your country now: in the Philippines, the NCMH Crisis Hotline on 1553, open 24/7.',
       },
       {
         q: 'What can I do when it feels like nobody cares about me?',
-        a: 'Send one short message to someone, even "Can we talk this week?" If no one comes to mind right now, an e-coach on Messenger can listen, free. If you are thinking of ending your life, call the NCMH Crisis Hotline on 1553, open 24/7.',
+        a: 'Send one short message to someone, even "Can we talk this week?" If no one comes to mind right now, an e-coach on Messenger can listen, free. If you are thinking of ending your life, call the crisis line in your country now: in the Philippines, the NCMH Crisis Hotline on 1553, open 24/7.',
       },
     ],
     related: ['free-mental-health-help-philippines'],
@@ -584,7 +587,7 @@ export const feelingPages: FeelingPage[] = [
         'feeling hopeless about the future',
         'thoughts of death or of ending your life',
       ],
-      note: "Depression is common and it can be treated. A doctor, psychologist or counselor can help you work out what you need. If you're not sure where to start, call the NCMH Crisis Hotline (1553), open 24/7.",
+      note: "Depression is common and it can be treated. A doctor, psychologist or counselor can help you work out what you need. If you're not sure where to start, a free helpline in your country can point you to help: in the Philippines, the NCMH Crisis Hotline (1553), open 24/7.",
     },
     tip: {
       title: 'Why one small thing helps',
@@ -617,7 +620,7 @@ export const feelingPages: FeelingPage[] = [
       },
       {
         q: 'What should I do if I feel depressed and alone?',
-        a: 'Tell one person today, even in a short message. If no one comes to mind, message an e-coach on Messenger, free. If you are thinking of ending your life, call the NCMH Crisis Hotline on 1553, open 24/7.',
+        a: 'Tell one person today, even in a short message. If no one comes to mind, message an e-coach on Messenger, free. If you are thinking of ending your life, call the crisis line in your country now: in the Philippines, the NCMH Crisis Hotline on 1553, open 24/7.',
       },
     ],
     firstStep: 'ecoach',
@@ -643,7 +646,7 @@ export const feelingPages: FeelingPage[] = [
     intro:
       "A panic attack is frightening, but it passes, usually within 5 to 20 minutes. Let's breathe now: in for 4, out for 6.",
     medicalNote:
-      "If this is your first time, or you have chest pain that spreads to your arm or jaw, or trouble breathing that isn't easing, call 911 or go to the nearest emergency room.",
+      "If this is your first time, or you have chest pain that spreads to your arm or jaw, or trouble breathing that isn't easing, call your emergency number (911 in the Philippines) or go to the nearest emergency room.",
     toolsHeading: 'Breathe with us now',
     tools: ['breathe', 'ground'],
     explain: {
@@ -930,9 +933,6 @@ export const feelingUi = {
     htmlLang: 'tl',
     switchLabel: 'Read in English',
     talkNow: 'Kausapin ang isang e-coach ngayon',
-    crisisCall: 'Tumawag ngayon sa NCMH Crisis Hotline, bukas 24/7:',
-    or: 'o',
-    danger: 'Kung nasa panganib ka ngayon, tumawag sa 911.',
     hopeAi: 'Kausapin si Hope AI',
     nextHeading: 'Ano ang susunod?',
     ecoachTitle: 'Kausapin ang isang e-coach',
@@ -953,9 +953,6 @@ export const feelingUi = {
     htmlLang: 'en',
     switchLabel: 'Basahin sa Taglish',
     talkNow: 'Talk to an e-coach now',
-    crisisCall: 'Call the NCMH Crisis Hotline now, open 24/7:',
-    or: 'or',
-    danger: 'If you are in immediate danger, call 911.',
     hopeAi: 'Talk to Hope AI',
     nextHeading: 'What next?',
     ecoachTitle: 'Talk to an e-coach',
@@ -969,6 +966,89 @@ export const feelingUi = {
     alsoRead: 'Also read:',
     sources: 'Sources:',
     faqHeading: 'Common questions',
+  },
+  // French, German, Spanish and Korean have no e-coach: their e-coach links
+  // go to the help page, so these lines offer someone to talk to at a free
+  // helpline. switchLabel is not shown on their pages.
+  fr: {
+    htmlLang: 'fr',
+    switchLabel: 'Lire en anglais',
+    talkNow: 'Parler à quelqu’un maintenant',
+    hopeAi: 'Parler à Hope AI',
+    nextHeading: 'Et maintenant ?',
+    ecoachTitle: 'Parler à quelqu’un',
+    ecoachText:
+      'Une ligne gratuite de ton pays, où une vraie personne t’écoute.',
+    planTitle: 'Faire ton propre plan',
+    planText:
+      '9 questions, gratuit. Tu recevras de petites étapes pour cette semaine.',
+    prayerTitle: 'Veux-tu qu’on prie pour toi ?',
+    prayerText:
+      'Envoie une demande de prière. Un Hope Carrier priera pour toi.',
+    seeAll: 'Voir toutes les façons dont on peut t’aider',
+    allTools: 'Voir tous les outils',
+    alsoRead: 'À lire aussi :',
+    sources: 'Sources :',
+    faqHeading: 'Questions fréquentes',
+  },
+  de: {
+    htmlLang: 'de',
+    switchLabel: 'Auf Englisch lesen',
+    talkNow: 'Jetzt mit jemandem reden',
+    hopeAi: 'Mit Hope AI schreiben',
+    nextHeading: 'Wie geht es weiter?',
+    ecoachTitle: 'Mit jemandem reden',
+    ecoachText:
+      'Kostenlose Telefonhilfe in deinem Land, bei der ein echter Mensch zuhört.',
+    planTitle: 'Deinen eigenen Plan machen',
+    planText:
+      '9 Fragen, kostenlos. Du bekommst kleine Schritte für diese Woche.',
+    prayerTitle: 'Sollen wir für dich beten?',
+    prayerText:
+      'Schick uns dein Gebetsanliegen. Ein Hope Carrier betet für dich.',
+    seeAll: 'Alle Wege ansehen, wie wir helfen können',
+    allTools: 'Alle Übungen ansehen',
+    alsoRead: 'Lies auch:',
+    sources: 'Quellen:',
+    faqHeading: 'Häufige Fragen',
+  },
+  es: {
+    htmlLang: 'es-419',
+    switchLabel: 'Leer en inglés',
+    talkNow: 'Hablar con alguien ahora',
+    hopeAi: 'Hablar con Hope AI',
+    nextHeading: '¿Y ahora qué?',
+    ecoachTitle: 'Hablar con alguien',
+    ecoachText:
+      'Una línea gratuita de tu país, donde una persona real te escucha.',
+    planTitle: 'Haz tu propio plan',
+    planText: '9 preguntas, gratis. Recibirás pasos pequeños para esta semana.',
+    prayerTitle: '¿Quieres que oremos por ti?',
+    prayerText: 'Envía una petición de oración. Un Hope Carrier orará por ti.',
+    seeAll: 'Ver todas las formas en que podemos ayudarte',
+    allTools: 'Ver todas las herramientas',
+    alsoRead: 'Lee también:',
+    sources: 'Fuentes:',
+    faqHeading: 'Preguntas frecuentes',
+  },
+  ko: {
+    htmlLang: 'ko',
+    switchLabel: '영어로 읽기',
+    talkNow: '지금 누군가와 이야기하기',
+    hopeAi: 'Hope AI와 대화하기',
+    nextHeading: '이제 무엇을 해 볼까요?',
+    ecoachTitle: '누군가와 이야기하기',
+    ecoachText: '실제 사람이 이야기를 들어 주는 무료 상담 전화예요.',
+    planTitle: '나만의 계획 만들기',
+    planText: '질문 9개, 무료예요. 이번 주에 해 볼 작은 걸음을 알려 드려요.',
+    prayerTitle: '우리가 당신을 위해 기도해도 될까요?',
+    prayerText:
+      '기도 제목을 보내 주세요. Hope Carrier가 당신을 위해 기도해 줄 거예요.',
+    seeAll: '우리가 도울 수 있는 모든 방법 보기',
+    allTools: '모든 도구 보기',
+    alsoRead: '함께 읽어 보세요:',
+    sources: '출처:',
+    faqHeading: '자주 묻는 질문',
   },
 } as const;
 

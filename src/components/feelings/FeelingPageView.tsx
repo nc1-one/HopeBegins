@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import Link from '@/components/ui/LocalLink';
 import { Languages } from 'lucide-react';
+import { CrisisSentence } from '@/components/help/Crisis';
 import { OptionPageHeader } from '@/components/layout/OptionPageHeader';
 import { EcoachLink } from '@/components/ui/EcoachLink';
 import { Reveal } from '@/components/ui/Reveal';
@@ -9,68 +9,42 @@ import { StoriesLikeThis } from '@/components/blog/StoriesLikeThis';
 import { ExerciseLauncher } from '@/components/tools/ExerciseLauncher';
 import { MessageSomeone } from '@/components/tools/MessageSomeone';
 import { WorryNote } from '@/components/tools/WorryNote';
-import { feelingPages, feelingUi, getFeelingPage } from '@/lib/feelingPages';
-import { pageMetadata } from '@/lib/pageMetadata';
-import { pathIn } from '@/lib/taglishTwins';
-import { jsonLdHtml, webPageJsonLd } from '@/lib/structuredData';
-import { getGuide } from '@/lib/guidePages';
-import { photo, photoTurn } from '@/lib/photos';
 import { primaryClass } from '@/components/tools/toolStyles';
-
-// Only the phrases in feelingPages exist; any other root path is a 404.
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return feelingPages.map((page) => ({ feeling: page.slug }));
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ feeling: string }>;
-}) {
-  const page = getFeelingPage((await params).feeling);
-  if (!page) return {};
-  const pair = getFeelingPage(page.pair);
-  const tagalog = page.lang === 'tl' ? page : pair;
-  const english = page.lang === 'en' ? page : pair;
-  const path = `/${page.slug}`;
-  return {
-    ...pageMetadata(path, page.metaTitle, page.metaDescription, {
-      image: { url: `/og/feelings/${page.slug}.jpg`, alt: page.heading },
-      keywords: page.keywords,
-      lang: page.lang,
-    }),
-    // The Taglish and English pages are language versions of each other.
-    alternates: {
-      canonical: path,
-      languages: {
-        ...(tagalog && { 'tl-PH': `/${tagalog.slug}` }),
-        ...(english && { 'en-PH': `/${english.slug}` }),
-        // Anyone else gets the English page.
-        ...(english && { 'x-default': `/${english.slug}` }),
-      },
-    },
-  };
-}
+import {
+  feelingUi,
+  getFeelingPage,
+  type FeelingPage,
+} from '@/lib/feelingPages';
+import { getGuide } from '@/lib/guidePages';
+import { isIntlLang, withLocale } from '@/lib/i18n';
+import { intlPageFor } from '@/lib/intl';
+import { photo, photoTurn } from '@/lib/photos';
+import { jsonLdHtml, webPageJsonLd } from '@/lib/structuredData';
+import { pathIn } from '@/lib/taglishTwins';
 
 // Next steps read as plain links: no boxes, no icons.
 const nextLinkClass =
   'inline-flex min-h-12 items-center font-poppins text-lg font-medium text-[#6E5F47] underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none';
 
-export default async function FeelingPage({
-  params,
-}: {
-  params: Promise<{ feeling: string }>;
-}) {
-  const page = getFeelingPage((await params).feeling);
-  if (!page) notFound();
+/**
+ * A feeling page in any language. French, German, Spanish and Korean pages
+ * live at /xx/slug, have no e-coach (EcoachLink sends them to local help)
+ * and name their English page in `pair`.
+ */
+export function FeelingPageView({ page }: { page: FeelingPage }) {
+  const intl = isIntlLang(page.lang) ? page.lang : undefined;
   const ui = feelingUi[page.lang];
-  const topPhoto = photo(page.photo, photoTurn());
-  // Related pages can be other feelings or guides.
+  const path = intl ? withLocale(intl, `/${page.slug}`) : `/${page.slug}`;
+  const topPhoto = photo(page.photo, photoTurn(), 0, page.lang);
+  // Related pages can be other feelings or guides, named by their English
+  // slug on the French, German, Spanish and Korean pages.
   const related = (page.related ?? [])
-    .map((slug) => getFeelingPage(slug) ?? getGuide(slug))
+    .map((slug) =>
+      intl ? intlPageFor(intl, slug) : (getFeelingPage(slug) ?? getGuide(slug))
+    )
     .filter((other) => other !== undefined);
+  const hrefOf = (other: { slug: string }) =>
+    intl ? withLocale(intl, `/${other.slug}`) : `/${other.slug}`;
 
   const ecoach = (
     <EcoachLink
@@ -102,12 +76,12 @@ export default async function FeelingPage({
   ).map((step) => <li key={step.key}>{step}</li>);
 
   const structuredData = webPageJsonLd({
-    path: `/${page.slug}`,
+    path,
     name: page.metaTitle,
     description: page.metaDescription,
     lang: page.lang,
-    image: `/og/feelings/${page.slug}.jpg`,
-    crumb: page.heading.replace(/[.?]$/, ''),
+    image: `/og/feelings/${intl ? page.pair : page.slug}.jpg`,
+    crumb: page.heading.replace(/^¿/, '').replace(/[\s\u00a0]*[.?]$/, ''),
     faq: page.faq,
   });
 
@@ -119,14 +93,16 @@ export default async function FeelingPage({
       />
       <div className="max-w-5xl mx-auto">
         <div className="max-w-2xl">
-          <Link
-            href={`/${page.pair}`}
-            hrefLang={page.lang === 'tl' ? 'en' : 'tl'}
-            className="mb-6 inline-flex min-h-11 items-center gap-2 -ml-3 rounded-xl px-3 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
-          >
-            <Languages className="h-4 w-4" />
-            {ui.switchLabel}
-          </Link>
+          {!intl && (
+            <Link
+              href={`/${page.pair}`}
+              hrefLang={page.lang === 'tl' ? 'en' : 'tl'}
+              className="mb-6 inline-flex min-h-11 items-center gap-2 -ml-3 rounded-xl px-3 text-sm font-medium text-[#6E5F47] transition-colors hover:bg-[#EFF3E7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
+            >
+              <Languages className="h-4 w-4" />
+              {ui.switchLabel}
+            </Link>
+          )}
           <div className="relative mb-8 aspect-[4/3] overflow-hidden rounded-xl bg-[#EFF3E7] md:aspect-[16/9]">
             <Image
               src={topPhoto.src}
@@ -164,21 +140,7 @@ export default async function FeelingPage({
             <div className="mt-8 rounded-2xl border border-[#AEC488] bg-[#EFF3E7] p-5 text-[#6E5F47]">
               <p>{page.safetyFirst}</p>
               <p className="mt-2">
-                {ui.crisisCall}{' '}
-                <a
-                  href="tel:1553"
-                  className="font-bold underline underline-offset-4"
-                >
-                  1553
-                </a>{' '}
-                {ui.or}{' '}
-                <a
-                  href="tel:+639178998727"
-                  className="font-bold underline underline-offset-4 whitespace-nowrap"
-                >
-                  0917 899 8727
-                </a>
-                . {ui.danger}
+                <CrisisSentence lang={page.lang} />
               </p>
             </div>
           )}
@@ -272,7 +234,10 @@ export default async function FeelingPage({
               </div>
             </Reveal>
           )}
-          <StoriesLikeThis pageSlug={page.slug} lang={page.lang} />
+          <StoriesLikeThis
+            pageSlug={intl ? page.pair : page.slug}
+            lang={page.lang}
+          />
         </div>
 
         <Reveal
@@ -296,7 +261,7 @@ export default async function FeelingPage({
                   <span className="whitespace-nowrap">
                     {index > 0 && <span aria-hidden>· </span>}
                     <Link
-                      href={`/${other.slug}`}
+                      href={hrefOf(other)}
                       className="py-2.5 underline underline-offset-4 hover:text-[#5c4f3b]"
                     >
                       {other.label}

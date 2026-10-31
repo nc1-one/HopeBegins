@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/ui/LocalLink';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { Languages } from 'lucide-react';
@@ -13,6 +13,10 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import { photo, photoTurn } from '@/lib/photos';
 import { jsonLdHtml, webPageJsonLd } from '@/lib/structuredData';
 import { pathIn } from '@/lib/taglishTwins';
+import type { FeelingLang } from '@/lib/feelingPages';
+import { isIntlLang, withLocale } from '@/lib/i18n';
+import { intlPageFor } from '@/lib/intl';
+import { hreflang } from '@/lib/intlMetadata';
 
 const h2Class =
   'font-playfair text-3xl text-[#6E5F47] leading-[0.95] tracking-[-0.04em]';
@@ -20,7 +24,7 @@ const nextLinkClass =
   'inline-flex min-h-12 items-center font-poppins text-lg font-medium text-[#6E5F47] underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none';
 const inlineLinkClass = 'underline underline-offset-4 hover:text-[#5c4f3b]';
 
-const checkedLabel = {
+const checkedLabel: Partial<Record<FeelingLang, string>> = {
   en: 'Numbers checked on',
   tl: 'Huling sinuri ang mga numero noong',
 };
@@ -32,7 +36,6 @@ export function guideMetadata(slug: string): Metadata {
   const path = `/${guide.slug}`;
   const pair = guide.pair ? getGuide(guide.pair) : undefined;
   const english = guide.lang === 'en' ? guide : pair;
-  const tagalog = guide.lang === 'tl' ? guide : pair;
   return {
     ...pageMetadata(path, guide.metaTitle, guide.metaDescription, {
       image: { url: `/og/guides/${guide.slug}.jpg`, alt: guide.heading },
@@ -41,24 +44,44 @@ export function guideMetadata(slug: string): Metadata {
     }),
     alternates: {
       canonical: path,
-      ...(pair && {
-        languages: {
-          ...(tagalog && { 'tl-PH': `/${tagalog.slug}` }),
-          ...(english && { 'en-PH': `/${english.slug}` }),
-          ...(english && { 'x-default': `/${english.slug}` }),
-        },
-      }),
+      ...(english && { languages: hreflang(`/${english.slug}`) }),
     },
   };
 }
 
-/** Any feeling page or guide, as a link. */
-function sitePage(slug: string) {
+/**
+ * Any feeling page or guide, as a link. French, German, Spanish and Korean
+ * guides name them by their English slug.
+ */
+function sitePage(slug: string, lang: FeelingLang) {
+  if (isIntlLang(lang)) {
+    const page = intlPageFor(lang, slug);
+    return (
+      page && { href: withLocale(lang, `/${page.slug}`), label: page.label }
+    );
+  }
   const page = getFeelingPage(slug) ?? getGuide(slug);
   return page && { href: `/${page.slug}`, label: page.label };
 }
 
-function Section({ section }: { section: Guide['sections'][number] }) {
+// Quotation marks as each language writes them.
+const QUOTES: Record<FeelingLang, [string, string]> = {
+  en: ['\u201c', '\u201d'],
+  tl: ['\u201c', '\u201d'],
+  fr: ['\u00ab\u00a0', '\u00a0\u00bb'],
+  de: ['\u201e', '\u201c'],
+  es: ['\u201c', '\u201d'],
+  ko: ['\u201c', '\u201d'],
+};
+
+function Section({
+  section,
+  lang,
+}: {
+  section: Guide['sections'][number];
+  lang: FeelingLang;
+}) {
+  const [open, close] = QUOTES[lang];
   const body = (
     <>
       <h2
@@ -77,7 +100,9 @@ function Section({ section }: { section: Guide['sections'][number] }) {
               key={saying}
               className="border-l-4 border-[#AEC488] pl-4 font-playfair text-xl leading-snug text-[#6E5F47]"
             >
-              &ldquo;{saying}&rdquo;
+              {open}
+              {saying}
+              {close}
             </li>
           ))}
         </ul>
@@ -190,21 +215,31 @@ function Section({ section }: { section: Guide['sections'][number] }) {
   );
 }
 
-/** A guide page: photo, the answer in sections, then where to go next. */
-export function GuidePage({ slug }: { slug: string }) {
-  const guide = getGuide(slug);
+/**
+ * A guide page: photo, the answer in sections, then where to go next. Pass
+ * `guide` for a French, German, Spanish or Korean guide.
+ */
+export function GuidePage({
+  slug,
+  guide: given,
+}: {
+  slug?: string;
+  guide?: Guide;
+}) {
+  const guide = given ?? (slug ? getGuide(slug) : undefined);
   if (!guide) notFound();
+  const intl = isIntlLang(guide.lang) ? guide.lang : undefined;
   const ui = feelingUi[guide.lang];
-  const topPhoto = photo(guide.photo, photoTurn());
+  const topPhoto = photo(guide.photo, photoTurn(), 0, guide.lang);
   const related = (guide.related ?? [])
-    .map(sitePage)
+    .map((other) => sitePage(other, guide.lang))
     .filter((link) => link !== undefined);
   const structuredData = webPageJsonLd({
-    path: `/${guide.slug}`,
+    path: intl ? withLocale(intl, `/${guide.slug}`) : `/${guide.slug}`,
     name: guide.metaTitle,
     description: guide.metaDescription,
     lang: guide.lang,
-    image: `/og/guides/${guide.slug}.jpg`,
+    image: `/og/guides/${intl ? guide.pair : guide.slug}.jpg`,
     crumb: guide.label,
     faq: guide.faq,
   });
@@ -217,7 +252,7 @@ export function GuidePage({ slug }: { slug: string }) {
       />
       <div className="max-w-5xl mx-auto">
         <div className="max-w-2xl">
-          {guide.pair && (
+          {guide.pair && !intl && (
             <Link
               href={`/${guide.pair}`}
               hrefLang={guide.lang === 'tl' ? 'en' : 'tl'}
@@ -242,7 +277,7 @@ export function GuidePage({ slug }: { slug: string }) {
           <OptionPageHeader title={guide.heading} subtitle={guide.intro} />
 
           {guide.sections.map((section) => (
-            <Section key={section.title} section={section} />
+            <Section key={section.title} section={section} lang={guide.lang} />
           ))}
 
           {guide.faq && (
@@ -264,7 +299,10 @@ export function GuidePage({ slug }: { slug: string }) {
               </div>
             </Reveal>
           )}
-          <StoriesLikeThis pageSlug={guide.slug} lang={guide.lang} />
+          <StoriesLikeThis
+            pageSlug={intl ? (guide.pair ?? guide.slug) : guide.slug}
+            lang={guide.lang}
+          />
         </div>
 
         <Reveal
@@ -324,7 +362,8 @@ export function GuidePage({ slug }: { slug: string }) {
             <div className="mt-6 space-y-2 text-sm text-[#6E5F47]/85 leading-relaxed">
               {guide.checkedOn && (
                 <p>
-                  {checkedLabel[guide.lang]} {guide.checkedOn}.
+                  {checkedLabel[guide.lang] ?? checkedLabel.en}{' '}
+                  {guide.checkedOn}.
                 </p>
               )}
               {guide.sources && (

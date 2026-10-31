@@ -12,7 +12,14 @@ const YELLOW = '#F4C152';
 
 export const PAIR_ICONS = {
   mango: {
-    name: { en: 'mango', tl: 'mangga' },
+    name: {
+      en: 'mango',
+      tl: 'mangga',
+      fr: 'mangue',
+      de: 'Mango',
+      es: 'mango',
+      ko: '망고',
+    },
     art: (
       <>
         <path
@@ -38,7 +45,14 @@ export const PAIR_ICONS = {
     ),
   },
   parol: {
-    name: { en: 'parol', tl: 'parol' },
+    name: {
+      en: 'parol',
+      tl: 'parol',
+      fr: 'étoile de Noël',
+      de: 'Weihnachtsstern',
+      es: 'estrella navideña',
+      ko: '크리스마스 별',
+    },
     art: (
       <>
         <path d="M32 2v6" stroke={BROWN} strokeWidth="2" />
@@ -70,7 +84,14 @@ export const PAIR_ICONS = {
     ),
   },
   jeepney: {
-    name: { en: 'jeepney', tl: 'dyip' },
+    name: {
+      en: 'jeepney',
+      tl: 'dyip',
+      fr: 'bus',
+      de: 'Bus',
+      es: 'autobús',
+      ko: '버스',
+    },
     art: (
       <>
         <rect x="16" y="13" width="45" height="4" rx="2" fill={BROWN} />
@@ -93,7 +114,14 @@ export const PAIR_ICONS = {
     ),
   },
   tsinelas: {
-    name: { en: 'tsinelas', tl: 'tsinelas' },
+    name: {
+      en: 'tsinelas',
+      tl: 'tsinelas',
+      fr: 'tongs',
+      de: 'Flip-Flops',
+      es: 'chanclas',
+      ko: '슬리퍼',
+    },
     art: (
       <>
         <g transform="rotate(-9 22 33)">
@@ -122,7 +150,14 @@ export const PAIR_ICONS = {
     ),
   },
   'halo-halo': {
-    name: { en: 'halo-halo', tl: 'halo-halo' },
+    name: {
+      en: 'halo-halo',
+      tl: 'halo-halo',
+      fr: 'coupe glacée',
+      de: 'Eisbecher',
+      es: 'copa de helado',
+      ko: '빙수',
+    },
     art: (
       <>
         <path d="M18 24h28l-4 32H22Z" fill={CREAM} />
@@ -148,7 +183,14 @@ export const PAIR_ICONS = {
     ),
   },
   'bahay-kubo': {
-    name: { en: 'bahay kubo', tl: 'bahay kubo' },
+    name: {
+      en: 'bahay kubo',
+      tl: 'bahay kubo',
+      fr: 'cabane',
+      de: 'Hütte',
+      es: 'cabaña',
+      ko: '오두막',
+    },
     art: (
       <>
         <path
@@ -185,7 +227,14 @@ export const PAIR_ICONS = {
     ),
   },
   tabo: {
-    name: { en: 'tabo', tl: 'tabo' },
+    name: {
+      en: 'tabo',
+      tl: 'tabo',
+      fr: 'écope',
+      de: 'Schöpfkelle',
+      es: 'cucharón',
+      ko: '바가지',
+    },
     art: (
       <>
         <path
@@ -208,7 +257,14 @@ export const PAIR_ICONS = {
     ),
   },
   kape: {
-    name: { en: 'coffee', tl: 'kape' },
+    name: {
+      en: 'coffee',
+      tl: 'kape',
+      fr: 'café',
+      de: 'Kaffee',
+      es: 'café',
+      ko: '커피',
+    },
     art: (
       <>
         <path

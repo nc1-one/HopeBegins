@@ -48,6 +48,75 @@ const copy = {
     doneText:
       'Pansinin ang pakiramdam ng katawan mo ngayon kumpara noong nagsimula ka.',
   },
+  fr: {
+    label: 'Respiration lente',
+    breatheIn: 'Inspire',
+    breatheOut: 'Expire',
+    round: (round: number, rounds: number) =>
+      `Cycle ${round} sur ${rounds}. Inspire par le nez, expire par la bouche.`,
+    pause: 'Pause',
+    resume: 'Reprendre',
+    stop: 'Arrêter',
+    shorter: 'Réduire à 1 minute',
+    buzz: 'Vibrer à chaque respiration',
+    buzzHint: 'Ferme les yeux si tu veux, et suis les vibrations.',
+    doneTitle: (rounds: number) =>
+      rounds === SHORT_ROUNDS ? '1 minute terminée.' : '2 minutes terminées.',
+    doneText:
+      'Observe ce que tu ressens dans ton corps maintenant, par rapport au début.',
+  },
+  de: {
+    label: 'Langsames Atmen',
+    breatheIn: 'Einatmen',
+    breatheOut: 'Ausatmen',
+    round: (round: number, rounds: number) =>
+      `Runde ${round} von ${rounds}. Atme durch die Nase ein und durch den Mund aus.`,
+    pause: 'Pause',
+    resume: 'Weiter',
+    stop: 'Beenden',
+    shorter: 'Auf 1 Minute kürzen',
+    buzz: 'Bei jedem Atemzug vibrieren',
+    buzzHint: 'Schließ die Augen, wenn du magst, und folge dem Vibrieren.',
+    doneTitle: (rounds: number) =>
+      rounds === SHORT_ROUNDS ? '1 Minute geschafft.' : '2 Minuten geschafft.',
+    doneText:
+      'Spür mal, wie sich dein Körper jetzt anfühlt, verglichen mit vorhin.',
+  },
+  es: {
+    label: 'Respiración lenta',
+    breatheIn: 'Inhala',
+    breatheOut: 'Exhala',
+    round: (round: number, rounds: number) =>
+      `Ronda ${round} de ${rounds}. Inhala por la nariz y exhala por la boca.`,
+    pause: 'Pausar',
+    resume: 'Continuar',
+    stop: 'Detener',
+    shorter: 'Reducir a 1 minuto',
+    buzz: 'Vibrar con cada respiración',
+    buzzHint: 'Cierra los ojos si quieres y sigue la vibración.',
+    doneTitle: (rounds: number) =>
+      rounds === SHORT_ROUNDS
+        ? 'Completaste 1 minuto.'
+        : 'Completaste 2 minutos.',
+    doneText:
+      'Fíjate en cómo se siente tu cuerpo ahora, comparado con cuando empezaste.',
+  },
+  ko: {
+    label: '천천히 숨쉬기',
+    breatheIn: '들이마셔요',
+    breatheOut: '내쉬어요',
+    round: (round: number, rounds: number) =>
+      `${rounds}번 중 ${round}번째예요. 코로 들이마시고 입으로 내쉬어요.`,
+    pause: '일시정지',
+    resume: '계속하기',
+    stop: '그만하기',
+    shorter: '1분으로 줄이기',
+    buzz: '숨 쉴 때마다 진동하기',
+    buzzHint: '원하면 눈을 감고 진동을 따라가 보세요.',
+    doneTitle: (rounds: number) =>
+      rounds === SHORT_ROUNDS ? '1분 끝났어요' : '2분 끝났어요',
+    doneText: '처음과 비교해서 지금 몸이 어떻게 느껴지는지 살펴보세요.',
+  },
 };
 
 export function BreathingExercise({
