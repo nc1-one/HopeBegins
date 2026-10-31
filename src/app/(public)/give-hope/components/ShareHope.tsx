@@ -24,7 +24,7 @@ const copy: PerLangNoTl<{
 }> = {
   en: {
     shareText:
-      'Free help for Filipinos who feel anxious or low, in English or Taglish.',
+      'Free, faith-driven help for anyone who feels anxious, low or alone.',
     title: "Can't give right now?",
     text: 'Send HopeBegins to one person who has been having a hard time. That helps too.',
     button: 'Share HopeBegins',

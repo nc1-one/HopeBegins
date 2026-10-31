@@ -32,7 +32,7 @@ const ALLOCATIONS: { percent: string; label: PerLangNoTl<string> }[] = [
   {
     percent: '20%',
     label: {
-      en: 'helps more Filipinos who are struggling find us',
+      en: 'helps more people who are struggling find us',
       fr: 'aide plus de personnes en difficulté aux Philippines à nous trouver',
       de: 'hilft mehr Menschen auf den Philippinen, die es schwer haben, uns zu finden',
       es: 'ayuda a que más personas en Filipinas que la están pasando mal nos encuentren',

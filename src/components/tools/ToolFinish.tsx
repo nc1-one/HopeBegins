@@ -29,7 +29,7 @@ const copy = {
     calmer: (when: string) => `Good. Come back to it next time ${when}.`,
     same: 'That happens. Tools often work better after a few days of practice. Try it again later today.',
     worse:
-      'Thank you for telling us. Stop for now and do something gentle. If it feels like too much, talk to someone.',
+      'Thank you for telling us. Stop for now and rest for a few minutes. If it feels like too much, talk to someone.',
     keep: 'Add to my 4 weeks',
     kept: 'Added to your 4 weeks.',
     makePlan: 'Make a free plan with this tool',

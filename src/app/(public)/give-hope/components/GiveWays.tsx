@@ -29,7 +29,7 @@ const copy: PerLangNoTl<{
         text: 'Keep HopeBegins free for the next person.',
       },
       time: {
-        title: 'Give your heart and time',
+        title: 'Give your time',
         text: 'Pray for people as a Hope Carrier.',
       },
     },

@@ -766,7 +766,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           // Not shown on the page (see crisisLines below), but it goes out
           // in the emailed plan: the lines from the translation guide.
           detail: t({
-            en: 'NCMH Crisis Hotline: 1553 from a landline or 0917 899 8727 from a mobile. Hopeline: (02) 8804-4673. If you are in immediate danger, call 911.',
+            en: 'In the Philippines: NCMH Crisis Hotline, 1553 from a landline or 0917 899 8727 from a mobile, or Hopeline, (02) 8804-4673. If you are in immediate danger, call 911. In other countries, find your free lines at hopebegins.today/help, and in immediate danger call your local emergency number.',
             tl: 'NCMH Crisis Hotline: 1553 mula sa landline o 0917 899 8727 mula sa mobile. Hopeline: (02) 8804-4673. Kung nasa panganib ka ngayon, tumawag sa 911.',
             fr: 'Le 3114, numéro national de prévention du suicide, gratuit, 24h/24 et 7j/7. En cas de danger immédiat, appelle le 112 ou le 15. Hors de France, les numéros de ton pays sont sur hopebegins.today/fr/help.',
             de: 'TelefonSeelsorge, kostenlos und rund um die Uhr: 0800 111 0 111 oder 0800 111 0 222. In Österreich: 142, in der Schweiz: 143. Bei akuter Gefahr ruf die 112 an.',
@@ -933,7 +933,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
             ko: '긴장될 때 써 보세요.',
           }),
           t({
-            en: 'Practise once a day when calm.',
+            en: 'Practice once a day when calm.',
             tl: 'Mag-practice isang beses araw-araw kahit kalmado ka.',
             fr: 'Entraîne-toi une fois par jour, quand tu es calme.',
             de: 'Üb sie einmal am Tag, wenn du ruhig bist.',
@@ -1674,7 +1674,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
       ko: 'Daily Hope 이메일로 받기',
     }),
     detail: t({
-      en: 'A message in your email every day for 21 days.',
+      en: 'A short email every day for 21 days.',
       tl: 'Isang mensahe sa email mo araw-araw sa loob ng 21 araw. Nasa English.',
       fr: 'Un message par e-mail chaque jour pendant 21 jours. Les messages sont en anglais.',
       de: 'Jeden Tag eine Nachricht per E-Mail, 21 Tage lang.',

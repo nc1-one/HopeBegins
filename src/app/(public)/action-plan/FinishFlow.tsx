@@ -72,7 +72,7 @@ const copy = {
       'Use your tool every day again, starting today.',
       'Tell one of your two people.',
       'Take the check-in. If your scores stay high for two weeks, talk to a counselor or an e-coach.',
-      'If you think about ending your life, call a crisis line now.',
+      'If you are thinking of ending your life, call a crisis line now.',
     ],
     restart: 'Start another 4 weeks with this tool',
     edit: 'Edit my Hope Card',

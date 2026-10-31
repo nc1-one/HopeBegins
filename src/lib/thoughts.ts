@@ -708,7 +708,7 @@ export const THOUGHTS: Thought[] = [
         ko: '나를 아끼는 사람들이 알게 되면 돕고 싶어 할 거야.',
       },
       {
-        en: "I've been there for others. It's okay to be the one helped now.",
+        en: "I've been there for others. Now I can let them be there for me.",
         tl: 'Nandiyan din ako dati para sa iba. Okay lang na ako naman ang tulungan ngayon.',
         fr: 'J’ai été là pour les autres. Maintenant, c’est mon tour de recevoir de l’aide.',
         de: 'Ich war für andere da. Jetzt darf mir auch geholfen werden.',

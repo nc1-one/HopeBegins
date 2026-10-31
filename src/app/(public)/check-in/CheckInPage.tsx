@@ -10,7 +10,7 @@ const copy: PerLang<{ title: string; subtitle: string }> = {
   en: {
     title: 'Daily check-in',
     subtitle:
-      'A few taps, about 20 seconds. Come back each day and watch your sampaguita grow.',
+      'A few taps, about 20 seconds. Come back each day and watch your sampaguita flower grow.',
   },
   tl: {
     title: 'Daily check-in',

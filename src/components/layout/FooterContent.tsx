@@ -40,7 +40,7 @@ const copy: PerLangNoTl<{
   en: {
     freeHelp: 'Free help',
     tools: 'Tools',
-    blog: 'Blogs',
+    blog: 'Blog',
     games: 'Games',
     approach: 'Our approach',
     give: 'Give',
@@ -50,7 +50,7 @@ const copy: PerLangNoTl<{
     beCarrier: 'Be a Hope Carrier',
     carrierLogin: 'Hope Carrier login',
     social: (network) => `HopeBegins on ${network}`,
-    logo: 'HopeBegins Logo',
+    logo: 'HopeBegins logo',
   },
   fr: {
     freeHelp: 'Aide gratuite',

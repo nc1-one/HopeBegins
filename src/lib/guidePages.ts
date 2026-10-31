@@ -83,7 +83,7 @@ export const guides: Guide[] = [
     pair: 'ano-ang-sasabihin-sa-kaibigang-depressed',
     metaTitle: 'What to say to a friend who is depressed, and what to avoid',
     metaDescription:
-      'Worried about a friend? What to say, what not to say, and what to do if they talk about not wanting to live. Plain, practical words, in English or Taglish.',
+      'Worried about a friend? What to say, what not to say, and what to do if they talk about not wanting to live. Plain, practical words.',
     keywords: [
       'what to say to a depressed friend',
       'how to help a friend with depression',
@@ -112,7 +112,7 @@ export const guides: Guide[] = [
       {
         title: 'What to avoid',
         list: [
-          '"Kulang ka lang sa dasal." Prayer can help, but these words make people feel blamed for being unwell.',
+          '"You just need to pray more." Prayer can help, but these words make people feel blamed for being unwell.',
           '"Think positive" or "Snap out of it." Depression isn\'t a choice.',
           '"Others have it worse." It tells them they have no right to struggle.',
           'Lots of advice straight away. Listen first, and ask before you suggest.',
@@ -696,7 +696,7 @@ export const guides: Guide[] = [
     label: 'Free mental health help in the Philippines',
     heading: 'Free mental health help in the Philippines',
     intro:
-      "Where to call, chat or book for free, checked against each organisation's own information. If you are in danger right now, call 911.",
+      "Where to call, chat or book for free, checked against each organization's own information. If you are in danger right now, call 911.",
     photo: 'talk',
     sections: [
       {
@@ -813,13 +813,13 @@ export const guides: Guide[] = [
           {
             name: 'PhilHealth mental health cover',
             detail:
-              'PhilHealth members and dependents aged 10 and up can get outpatient mental health care covered at PhilHealth-contracted facilities: up to ₱9,000 a year for general care, or ₱16,000 for specialised care, including check-ups, therapy and medicines.',
+              'PhilHealth members and dependents aged 10 and up can get outpatient mental health care covered at PhilHealth-contracted facilities: up to ₱9,000 a year for general care, or ₱16,000 for specialized care, including check-ups, therapy and medicines.',
             href: 'https://www.philhealth.gov.ph/news/up/article/2025/news_67ce834b70a58.php',
           },
           {
             name: 'Quezon City residents',
             detail:
-              'Free screening, counseling, referral and maintenance medicines at QC health centres, and a free 24/7 mental health line through QC Helpline 122.',
+              'Free screening, counseling, referral and maintenance medicines at QC health centers, and a free 24/7 mental health line through QC Helpline 122.',
             href: 'https://quezoncity.gov.ph/mental-health-hotline-now-integrated-in-qcs-helpline-122/',
             numbers: [
               {

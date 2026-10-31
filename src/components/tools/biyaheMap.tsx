@@ -23,7 +23,7 @@ export const STOP_NAMES = [
     ko: '집',
   },
   {
-    en: 'Sari-sari store',
+    en: 'Corner store',
     tl: 'Sari-sari store',
     fr: 'Boulangerie',
     de: 'Bäckerei',

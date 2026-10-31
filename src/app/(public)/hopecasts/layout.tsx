@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 const PATH = '/hopecasts';
 const TITLE = 'HopeCasts: listen to messages of hope';
 const DESCRIPTION =
-  'Listen to HopeCasts on anxiety, healing, family, grief and faith, whenever you need to hear hope.';
+  'Listen to HopeCasts on anxiety, healing, family, grief and faith, whenever you need some encouragement.';
 
 export const metadata = pageMetadata(PATH, TITLE, DESCRIPTION, {
   keywords: [

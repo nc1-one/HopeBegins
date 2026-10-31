@@ -24,7 +24,7 @@ export default function BeCarrierPage() {
         <div className="max-w-2xl">
           <OptionPageHeader
             title="Become a Hope Carrier"
-            subtitle="Give your heart and time: pray for the people who send prayer requests to HopeBegins."
+            subtitle="Volunteer to pray for the people who send prayer requests to HopeBegins."
           />
         </div>
         <div className="mt-12 grid gap-12 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] md:gap-14">

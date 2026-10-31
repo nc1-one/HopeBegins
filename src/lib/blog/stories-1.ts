@@ -27,7 +27,7 @@ export const stories1: Story[] = [
           "Mika's shift at an IT help desk in Cebu ended at nine. By half past eleven she was in bed, lights off, phone face down on the side table. By 11:48 she was wide awake, replaying a call from that afternoon.",
           'A client had been short with her. She had fixed the problem, closed the ticket and moved on, or so she thought. In the dark the call came back word for word, and then it grew. Did I sound rude? Will they complain? Will my team lead bring it up on Monday? What if this is the thing that gets me let go?',
           'By one in the morning she had rehearsed three conversations that would never happen and written a resignation email in her head. By two she was scrolling job posts. At 6:30 her alarm went off and she started the day already tired.',
-          '"Hindi ako makatulog sa kakaisip," she told her older sister once, half joking. Her sister laughed and said everyone overthinks. Mika laughed too, and she didn\'t bring it up again for months.',
+          '"Hindi ako makatulog sa kakaisip," she told her older sister once, half joking: she couldn\'t sleep for all the thinking. Her sister laughed and said everyone overthinks. Mika laughed too, and she didn\'t bring it up again for months.',
         ],
         pullQuote:
           'In the dark the call came back word for word, and then it grew.',

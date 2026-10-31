@@ -122,7 +122,7 @@ export const stories2: Story[] = [
           "Arnel's shift at a warehouse in Dubai ends at seven at night. By the time he boards the metro, the carriage is almost empty. He sits by the window, scrolls through photos of his kids, and watches the lights of the city slide past.",
           "Back in Batangas it is eleven at night. His wife, Joan, is usually still awake. The kids are not. Most of their video calls happen like this: her face lit by the phone, her voice low so the children won't wake up, the electric fan humming behind her.",
           "He has been abroad for four years. In that time he has missed four of his daughter's birthdays, his son's first day of school and his father's operation. He watched the birthday parties on video, singing along a second behind everyone else because of the lag.",
-          '"Okay lang ako dito," he tells Joan every night. He says it so often that he almost believes it. Then the call ends, the room in the shared accommodation goes quiet, and he lies on the top bunk staring at the ceiling.',
+          'He tells Joan every night that he is fine there: "Okay lang ako dito." He says it so often that he almost believes it. Then the call ends, the room in the shared accommodation goes quiet, and he lies on the top bunk staring at the ceiling.',
         ],
         pullQuote:
           'He watched the birthday parties on video, singing along a second behind everyone else because of the lag.',
@@ -133,7 +133,7 @@ export const stories2: Story[] = [
         paragraphs: [
           'From home, his life looked fine. He sent money every payday. He posted photos from the beach on his day off. Relatives called him the successful one.',
           'Nobody saw the other side. The six men in his room worked different shifts, so someone was always sleeping and nobody really talked. His closest friend from his first year had gone home. He felt like a visitor in two places: a worker in Dubai and a voice on a phone in Batangas.',
-          'For Arnel, homesickness meant missing ordinary days. Hearing about the teacher his son disliked. Being there when the roof leaked. Eating sinigang that tasted right. Every "okay lang ako" widened the gap a little more, because his family only knew the version of him he chose to show.',
+          'For Arnel, homesickness meant missing ordinary days: hearing about the teacher his son disliked, being there when the roof leaked, eating sinigang that tasted the way it did at home. Every "okay lang ako" widened the gap a little more, because his family only knew the version of him he chose to show.',
           'He also felt guilty for feeling sad at all. He was there for his family. Complaining felt ungrateful, so he kept it in. On his rest days he mostly slept, and when he woke up, the loneliness was still there.',
         ],
       },
@@ -141,14 +141,14 @@ export const stories2: Story[] = [
         kind: 'helped',
         heading: 'How Arnel dealt with homesickness, one step at a time',
         paragraphs: [
-          'The change started with an honest call. One night Joan asked, "Kumusta ka talaga?" He paused too long, and she heard it. So he told her: he was lonely, he was tired, and he didn\'t know how many more years he could do this. She cried a little. Then she said, "Sana sinabi mo agad. Mag-asawa tayo."',
+          'The change started with an honest call. One night Joan asked how he really was. "Kumusta ka talaga?" He paused too long, and she heard it. So he told her: he was lonely, he was tired, and he didn\'t know how many more years he could do this. She cried a little. Then she said, "Sana sinabi mo agad. Mag-asawa tayo." You should have told me sooner. We\'re married.',
           'After that, they changed how they talked. They kept one long call on his rest day, with the kids awake. During the week they sent voice messages about small things: what he ate for lunch, what the dog did, a song on the radio. The small messages made him feel part of their days again.',
           'He looked for people too. A coworker from Pampanga invited him to a Filipino fellowship that met on Friday mornings, which is the weekend there. He almost stayed in bed. He went, sat at the back, and ate pancit with strangers who understood exactly what he meant when he said he missed the rain. Within a few weeks he had a small group that met to pray and eat together.',
           'He gave his rest day a shape. Sleep in, call home, then a walk or a game of basketball, then fellowship. Having something to look forward to made the long weeks feel shorter.',
           'He started talking to God on the train home, sometimes just one line. Isaiah 41:10 became his phone wallpaper, so he saw it every time he checked the time.',
-          'When the heaviness stayed for weeks, his fellowship leader suggested a counselor he could see online. Talking to someone trained helped Arnel sort out what he could change and what he simply had to grieve.',
+          'When the heaviness stayed for weeks, his fellowship leader suggested a counselor he could see online. Talking to someone trained helped Arnel sort out what he could change and what he had to grieve.',
         ],
-        pullQuote: 'Sana sinabi mo agad. Mag-asawa tayo.',
+        pullQuote: 'The small messages made him feel part of their days again.',
       },
       {
         kind: 'hope',
@@ -164,7 +164,7 @@ export const stories2: Story[] = [
     tryThis: {
       title: 'This week: close the distance a little',
       steps: [
-        'Answer "Kumusta ka?" honestly with one person at home.',
+        'Answer "How are you?" honestly with one person at home.',
         'Swap one rushed call for a longer one on your rest day, when the kids are awake.',
         'Send a voice message about something small: your lunch, the weather, a song.',
         'Look up one Filipino fellowship or group near you and go once.',
@@ -232,14 +232,14 @@ export const stories2: Story[] = [
         kind: 'helped',
         heading: 'What Carla did after she failed the board exam',
         paragraphs: [
-          'The first step came from her father. One evening he sat at the foot of her bed and said, "Anak, pinag-aral ka namin kasi mahal ka namin. Mahal ka pa rin namin ngayon." She cried for a long time. It was the first time she had let herself.',
-          'The second was telling the truth to one friend. She messaged Patricia, a batchmate who had failed the year before and passed on her second try. "Paano mo kinaya?" Patricia called her right away and talked for an hour. Hearing someone say "I\'ve been there" made the shame smaller.',
+          'The first step came from her father. One evening he sat at the foot of her bed and said, "Anak, pinag-aral ka namin kasi mahal ka namin. Mahal ka pa rin namin ngayon." We sent you to school because we love you. We still love you now. She cried for a long time. It was the first time she had let herself.',
+          'The second was telling the truth to one friend. She messaged Patricia, a batchmate who had failed the year before and passed on her second try, and asked how she had gotten through it. "Paano mo kinaya?" Patricia called her right away and talked for an hour. Hearing someone say "I\'ve been there" made the shame smaller.',
           'Then she looked at the exam honestly. She checked her ratings and saw which subjects had pulled her down. The giant, vague failure became two weak areas she could work on.',
           'She gave herself time before starting again: two weeks of rest, sleep, and afternoon walks along the river. Then she made a small schedule, three hours of review a day with Sundays off. She studied with Patricia twice a week by video call.',
           'She started praying again, honestly this time. Some nights the whole prayer was, "Lord, I\'m scared to try again." Her mother sometimes sat with her and prayed too. She taped 2 Corinthians 4:8-9 to her desk.',
           'Carla retook the exam the next time it was offered, and she passed. What she remembers most is the night she decided to start again, before she knew how it would end.',
         ],
-        pullQuote: 'Anak, pinag-aral ka namin kasi mahal ka namin.',
+        pullQuote: 'We sent you to school because we love you.',
       },
       {
         kind: 'hope',
@@ -304,10 +304,10 @@ export const stories2: Story[] = [
         paragraphs: [
           'It had been raining since lunch. By six, Commonwealth Avenue was a long line of red lights, and Rina sat at the back of a jeepney with her laptop bag on her lap, thinking about the audit deadline on Friday.',
           'It started with her heart. It began to pound, hard and fast, for no reason she could see. Then her chest felt tight. Her hands tingled and went cold. The jeepney suddenly felt too small, the rain too loud, the air too thick to breathe.',
-          'She was sure something terrible was happening. Heart attack, she thought. At 26. In traffic. She grabbed the handrail and told the woman beside her, "Ate, parang hindi po ako makahinga." The woman held her arm and asked the driver to stop near a hospital.',
+          'She was sure something terrible was happening. Heart attack, she thought, at 26, in traffic. She grabbed the handrail and told the woman beside her that she couldn\'t breathe: "Ate, parang hindi po ako makahinga." The woman held her arm and asked the driver to stop near a hospital.',
           'In the emergency room they checked her heart, her blood pressure and her breathing. Everything came back normal. The doctor pulled up a chair and said, "I think you had a panic attack."',
         ],
-        pullQuote: 'Ate, parang hindi po ako makahinga.',
+        pullQuote: 'I think you had a panic attack.',
       },
       {
         kind: 'struggle',
@@ -324,10 +324,10 @@ export const stories2: Story[] = [
         heading: 'What helped Rina after her first panic attack',
         paragraphs: [
           'The ER doctor had told her two things she held on to. A panic attack is frightening, and it passes, often within 5 to 20 minutes. And if the attacks kept coming, she should see a doctor for follow-up. She booked a check-up that week.',
-          "Her doctor explained what happens in the body during panic and suggested slow breathing. Rina practised it while she was calm, so it would come easily when she wasn't: in through the nose for 4 counts, out through the mouth for 6, for two minutes. She did it every morning before work, like brushing her teeth.",
+          "Her doctor explained what happens in the body during panic and suggested slow breathing. Rina practiced it while she was calm, so it would come easily when she wasn't: in through the nose for 4 counts, out through the mouth for 6, for two minutes. She did it every morning before work, like brushing her teeth.",
           'She learned to talk to the panic when it came. "This is a panic attack. It feels awful, and it will pass." She would put her feet flat on the floor and name five things she could see. The second time it happened, in a meeting, it still felt bad. It ended faster.',
           'She also started riding jeepneys again, a little at a time. First short trips with her younger sister. Then the full ride home on a dry day. Then a rainy one. Each ride that ended fine made the next one easier.',
-          'She told her manager about the audit workload, cut her coffee to one cup a day, and started eating lunch away from her desk. Her mother prayed with her over the phone on Sunday nights. Psalm 56:3 became the verse she whispered in traffic.',
+          'She told her manager about the audit workload, cut her coffee to one cup a day, and started eating lunch away from her desk. Her mother prayed with her over the phone on Sunday nights. Psalm 56:3 became the verse she prayed under her breath in traffic.',
           'When the fear of another attack still hung over her after a few months, her doctor referred her to a counselor. That helped her understand the worry underneath the panic, and what to do with it.',
         ],
         pullQuote: 'This is a panic attack. It feels awful, and it will pass.',
@@ -344,7 +344,7 @@ export const stories2: Story[] = [
       },
     ],
     tryThis: {
-      title: 'Today: practise the breath before you need it',
+      title: 'Today: practice the breath before you need it',
       steps: [
         'Sit with both feet flat on the floor.',
         'Breathe in through your nose for 4 counts.',
@@ -385,7 +385,7 @@ export const stories2: Story[] = [
     who: 'Ella, 25, teacher in Batangas',
     photo: {
       src: `${photos}/morning-pandesal.jpg`,
-      alt: 'Coffee being poured beside pandesal',
+      alt: 'Coffee being poured beside pandesal, Filipino bread rolls',
     },
     published: '2026-10-23',
     parts: [
@@ -393,11 +393,11 @@ export const stories2: Story[] = [
         kind: 'story',
         heading: 'Coffee and pandesal at six',
         paragraphs: [
-          'For as long as Ella could remember, her Lola was up before everyone else. By six the kitchen of their house in Batangas smelled of barako coffee, and a paper bag of warm pandesal sat on the table. Lola would pour Ella a cup and ask the same question every day: "O, ano\'ng plano mo ngayong araw?"',
+          'For as long as Ella could remember, her Lola was up before everyone else. By six the kitchen of their house in Batangas smelled of barako coffee, and a paper bag of warm pandesal sat on the table. Lola would pour Ella a cup and ask the same question every day, what Ella\'s plan was for the day: "O, ano\'ng plano mo ngayong araw?"',
           'Lola got sick in June. By August she was gone. Then came the wake: songs and prayers each night, relatives from Manila and Mindoro, a long table of food, coffee for whoever stayed up. Ella served guests and kept busy. She barely cried.',
-          'Then everyone went home. On the first Monday after the burial, Ella woke at six out of habit and walked into the kitchen. It was dark. No coffee. No pandesal. She stood there in her house clothes and finally broke down.',
+          'Then everyone went home. On the first Monday after the burial, Ella woke at six out of habit and walked into the kitchen. It was dark, and there was no coffee and no pandesal. She stood there in her house clothes and finally broke down.',
         ],
-        pullQuote: 'It was dark. No coffee. No pandesal.',
+        pullQuote: 'It was dark, and there was no coffee and no pandesal.',
       },
       {
         kind: 'struggle',
@@ -405,7 +405,7 @@ export const stories2: Story[] = [
         paragraphs: [
           'During the wake there was always something to do. After the funeral the busyness stopped, and the loss moved into the ordinary moments. The chair Lola always sat in. Her slippers by the door. Her number, still in Ella\'s phone under "Lola Ising."',
           'Ella went back to teaching after a week. She smiled for her Grade 4 class and cried in the faculty restroom at lunch. She snapped at her mother, then felt guilty. Some days she felt nothing at all, which scared her more.',
-          'People meant well. "Nasa mabuting lugar na siya." "At least hindi na siya naghihirap." Ella believed both, and they still didn\'t touch the empty space in her mornings.',
+          'People meant well. She was in a better place now, they said, and at least she wasn\'t suffering anymore. "Nasa mabuting lugar na siya." "At least hindi na siya naghihirap." Ella believed both, and they still didn\'t touch the empty space in her mornings.',
           'She also felt she should be over it by now. Lola was 84. Other people had lost parents, even children. Who was she to fall apart over a grandmother? So she kept her grief small and quiet, and it stayed heavy.',
         ],
       },

@@ -222,7 +222,7 @@ const menuCopy: PerLang<MenuCopy> = {
     checkIn: 'Check in today',
     myCheckIns: 'My check-ins',
     startMy: { breathe: 'Start my breathing', ground: 'Start my 5-4-3-2-1' },
-    ecoachTitle: 'I Want Someone to Journey With Me',
+    ecoachTitle: 'I want someone to go through this with me',
     ecoachText:
       'Chat with a real person, an e-coach from Himala Everyday, on Messenger.',
     ecoachButton: 'Talk to an e-coach',

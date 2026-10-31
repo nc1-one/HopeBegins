@@ -26,7 +26,7 @@ const GAMES: { id: Game; title: Text; text: Text }[] = [
       ko: '짝 맞추기',
     },
     text: {
-      en: 'Match jeepneys, mangoes and parols. No timer.',
+      en: 'Match jeepneys, mangoes and parol lanterns. No timer.',
       tl: 'Ipares ang mga dyip, mangga at parol. Walang timer.',
       fr: 'Retrouve les paires de bus, de mangues et d’étoiles de Noël. Sans chrono.',
       de: 'Finde Paare aus Bussen, Mangos und Weihnachtssternen. Ohne Zeitdruck.',

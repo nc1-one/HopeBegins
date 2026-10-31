@@ -36,13 +36,13 @@ const copy: PerLangNoTl<{
   makePlan: string;
 }> = {
   en: {
-    title: "We walk with you until you're through it.",
+    title: 'Help in the first minute, and in the months after.',
     intro:
-      'HopeBegins is free, faith-driven mental health support for Filipinos. You get help the moment something feels wrong, and you leave with a tool you can keep using.',
+      'HopeBegins is free, faith-driven mental health support. You get help the moment something feels wrong, and you leave with a tool you can keep using.',
     whyTitle: 'Why we started',
     why: [
       'HopeBegins started as a small group that prayed for people. Today people come to ask for prayer, make a plan for the week and talk to an e-coach.',
-      "When you're at your lowest, help should be one tap away. We want anyone who feels anxious or low to find it on their phone, in English or Taglish.",
+      "When you're at your lowest, help should be one tap away. We want anyone who feels anxious or low to find it on their phone, in their own language.",
     ],
     goalsTitle: 'What we aim for',
     stepsTitle: 'Step by step, from the first search to months later',
@@ -314,7 +314,7 @@ const STAGES: (Pick<ApproachStep, 'photo' | 'offset'> & {
     words: {
       en: {
         name: 'The weeks after',
-        text: 'You practise your tool most days for 4 weeks, with reminders on your phone.',
+        text: 'You practice your tool most days for 4 weeks, with reminders on your phone.',
       },
       fr: {
         name: 'Les semaines suivantes',

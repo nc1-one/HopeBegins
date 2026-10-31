@@ -101,7 +101,7 @@ const SETS: Record<PhotoId, Photo[]> = {
     // Pexels 38354745
     {
       src: `${dir}/hope-bangka.jpg`,
-      alt: 'A bangka on calm water at sunrise',
+      alt: 'A small outrigger boat on calm water at sunrise',
     },
   ],
   unsure: [
@@ -142,7 +142,7 @@ const SETS: Record<PhotoId, Photo[]> = {
     // Pexels 34276362
     {
       src: `${dir}/morning-pandesal.jpg`,
-      alt: 'Coffee being poured beside pandesal',
+      alt: 'Coffee being poured beside pandesal, Filipino bread rolls',
     },
     // Pexels 36903832, Baguio
     {
@@ -166,7 +166,7 @@ const SETS: Record<PhotoId, Photo[]> = {
     // Pexels 13067145
     {
       src: `${dir}/care-lola.jpg`,
-      alt: 'A lola laughing with the baby in her arms',
+      alt: 'A grandmother laughing with the baby in her arms',
     },
   ],
 };

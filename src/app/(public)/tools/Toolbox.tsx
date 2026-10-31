@@ -123,7 +123,7 @@ const TOOLS: Record<ToolKind, Tool> = {
       ko: '짝 맞추기',
     },
     text: {
-      en: 'Match jeepneys, mangoes and parols. No timer.',
+      en: 'Match jeepneys, mangoes and parol lanterns. No timer.',
       tl: 'Ipares ang mga dyip, mangga at parol. Walang timer.',
       fr: 'Retrouve les paires de mangues, d’étoiles de Noël et de bus. Pas de chrono.',
       de: 'Finde Paare aus Mangos, Weihnachtssternen und Bussen. Ohne Zeitdruck.',
@@ -199,7 +199,7 @@ const TOOLS: Record<ToolKind, Tool> = {
       ko: '내 생각과 비슷한 생각을 누르고, 생각의 함정을 알아본 다음, 더 다정하고 더 사실에 가까운 시각을 골라요.',
     },
     why: {
-      en: 'Heavy thoughts feel like facts. Checking one, the way CBT counsellors teach, often makes it lighter. Nothing you pick is saved.',
+      en: 'Heavy thoughts feel like facts. Checking one, the way CBT counselors teach, often makes it lighter. Nothing you pick is saved.',
       tl: 'Parang totoo ang mabibigat na isip. Kapag sinuri mo ito, gaya ng itinuturo sa CBT, madalas itong gumagaan. Walang naka-save sa pipiliin mo.',
       fr: 'Les pensées lourdes ont l’air de faits. En vérifier une, comme on l’apprend en TCC, la rend souvent plus légère. Rien de ce que tu choisis n’est enregistré.',
       de: 'Schwere Gedanken fühlen sich wie Tatsachen an. Einen davon zu prüfen, wie man es in der kognitiven Verhaltenstherapie lernt, macht ihn oft leichter. Nichts, was du auswählst, wird gespeichert.',

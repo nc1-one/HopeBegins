@@ -8,7 +8,7 @@ const PATH = '/tools';
 // hard moments".
 const TITLE = 'Free tools for anxiety, stress and overthinking';
 const DESCRIPTION =
-  'Free tools for anxiety, overthinking and low days: slow breathing, 5-4-3-2-1 grounding, worry time and games, plus prayer and Hope AI. English or Taglish.';
+  'Free tools for anxiety, overthinking and low days: slow breathing, 5-4-3-2-1 grounding, worry time and games, plus prayer and Hope AI.';
 
 export const metadata = pageMetadata(PATH, TITLE, DESCRIPTION, {
   keywords: [

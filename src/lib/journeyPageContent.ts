@@ -176,7 +176,7 @@ export const DEFAULT_JOURNEY_PAGE_CONTENT: JourneyPageContent = {
       },
       {
         title: 'Receive',
-        text: 'I receive Your peace that passes understanding. I receive Your love that never fails. I receive the hope that You are working all things together for my good.',
+        text: 'I receive Your peace, which passes understanding, and Your love, which never fails. I hold on to the hope that You are working all things together for my good.',
       },
       {
         title: 'Rest',
@@ -233,7 +233,7 @@ export const DEFAULT_JOURNEY_PAGE_CONTENT: JourneyPageContent = {
     home_link_text: 'Back to home',
   },
   crisis_section: {
-    heading: 'In crisis? Call one of these lines:',
+    heading: 'In crisis in the Philippines? Call one of these lines:',
     contacts: [
       {
         title: 'National Center for Mental Health 24/7 Crisis Hotline',

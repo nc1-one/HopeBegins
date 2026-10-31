@@ -362,7 +362,7 @@ export const feelingPages: FeelingPage[] = [
       },
       {
         q: 'What helps with anxiety every day?',
-        a: 'Practise slow breathing while you are calm, so it comes easily when you need it. Sleep enough, cut back on coffee, and write your worries down at a set time each day. If anxiety gets in the way of work, school or sleep, see a doctor or counselor.',
+        a: 'Practice slow breathing while you are calm, so it comes easily when you need it. Sleep enough, cut back on coffee, and write your worries down at a set time each day. If anxiety gets in the way of work, school or sleep, see a doctor or counselor.',
       },
     ],
     firstStep: 'plan',
@@ -688,7 +688,7 @@ export const feelingPages: FeelingPage[] = [
       },
       {
         q: 'How do I stop a panic attack fast?',
-        a: 'Slow your breathing, in for 4 and out for 6, put your feet flat on the floor, and tell yourself it is a panic attack and it will pass. To have fewer of them, practise the breathing every day and talk to a doctor or counselor.',
+        a: 'Slow your breathing, in for 4 and out for 6, put your feet flat on the floor, and tell yourself it is a panic attack and it will pass. To have fewer of them, practice the breathing every day and talk to a doctor or counselor.',
       },
     ],
     firstStep: 'plan',
@@ -815,7 +815,7 @@ export const feelingPages: FeelingPage[] = [
     pair: 'hindi-ko-alam-gagawin-ko-sa-buhay',
     metaTitle: 'I feel lost and empty: what to do when nothing makes sense',
     metaDescription:
-      'Feel lost in life or empty inside? Start with one small step today, and talk to someone who can help you sort it out. Free, in English or Taglish.',
+      'Feel lost in life or empty inside? Start with one small step today, and talk to someone who can help you sort it out. It is free.',
     keywords: [
       'I feel lost',
       'feeling lost in life',
