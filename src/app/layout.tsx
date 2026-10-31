@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
-import {
-  Poppins,
-  DM_Sans,
-  Playfair_Display,
-  Noto_Sans_KR,
-  Noto_Serif_KR,
-} from 'next/font/google';
+import { Poppins, DM_Sans, Playfair_Display } from 'next/font/google';
+// Hangul for the Korean pages: Noto Serif KR stands in for Playfair, Noto
+// Sans KR for Poppins and DM Sans (see globals.css). Served with the site,
+// since fetching their 620 files from Google on each build kept failing.
+import '@/assets/fonts/korean.css';
 import './globals.css';
 import Providers from '@/components/Providers';
 import { BonfireBubbleChat } from '@/components/bonfire/BonfireBubbleChat';
@@ -25,23 +23,6 @@ const dmSans = DM_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
   variable: '--font-dm-sans',
-});
-
-// Hangul for the Korean pages: Noto Serif KR stands in for Playfair, Noto
-// Sans KR for Poppins and DM Sans (see globals.css). Not preloaded, so
-// other pages never fetch them.
-const notoSansKr = Noto_Sans_KR({
-  weight: ['400', '500', '700'],
-  variable: '--font-noto-sans-kr',
-  preload: false,
-  display: 'swap',
-});
-
-const notoSerifKr = Noto_Serif_KR({
-  weight: ['400', '600'],
-  variable: '--font-noto-serif-kr',
-  preload: false,
-  display: 'swap',
 });
 
 const SITE_DESCRIPTION =
@@ -98,7 +79,7 @@ export default function RootLayout({
     // switches it on /fr, /de, /es and /ko pages.
     <html
       lang="en"
-      className={`${poppins.variable} ${dmSans.variable} ${playfair.variable} ${notoSansKr.variable} ${notoSerifKr.variable}`}
+      className={`${poppins.variable} ${dmSans.variable} ${playfair.variable}`}
       suppressHydrationWarning
     >
       <body className={dmSans.className} suppressHydrationWarning>
