@@ -50,7 +50,7 @@ const navCopy: PerLang<{
     blog: 'Blog',
     approach: 'Our approach',
     give: 'Give',
-    menu: 'Toggle menu',
+    menu: 'Menu',
   },
   tl: {
     home: 'Home',
