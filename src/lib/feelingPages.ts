@@ -995,11 +995,11 @@ export const feelingUi = {
     htmlLang: 'de',
     switchLabel: 'Auf Englisch lesen',
     talkNow: 'Jetzt mit jemandem reden',
-    hopeAi: 'Mit Hope AI schreiben',
+    hopeAi: 'Mit Hope AI reden',
     nextHeading: 'Wie geht es weiter?',
     ecoachTitle: 'Mit jemandem reden',
     ecoachText:
-      'Kostenlose Telefonhilfe in deinem Land, bei der ein echter Mensch zuhört.',
+      'Kostenlose Hilfetelefone in deinem Land, bei denen ein echter Mensch zuhört.',
     planTitle: 'Deinen eigenen Plan machen',
     planText:
       '9 Fragen, kostenlos. Du bekommst kleine Schritte für diese Woche.',

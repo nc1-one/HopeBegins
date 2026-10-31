@@ -423,7 +423,7 @@ const INTL_JOURNEY_PAGE_CONTENT: Record<IntlLang, IntlJourneyPageContent> = {
     prayer_section: {
       title: 'Ein Gebet zum Mitbeten',
       description:
-        'Lies jeden Schritt langsam. Bete die Worte mit oder lies sie einfach nur.',
+        'Lies jeden Schritt langsam. Bete die Worte mit, oder lies sie nur.',
       steps: [
         {
           title: 'Still werden',
@@ -477,12 +477,12 @@ const INTL_JOURNEY_PAGE_CONTENT: Record<IntlLang, IntlJourneyPageContent> = {
           icon: 'heart',
         },
         {
-          title: 'Daily Hope per E-Mail bekommen (auf Englisch)',
+          title: 'Daily Hope per E-Mail bekommen',
           href: '/daily-hope',
           icon: 'mail',
         },
         {
-          title: 'Mit Hope AI schreiben',
+          title: 'Mit Hope AI reden',
           href: '/hope-ai',
           icon: 'message-square',
         },

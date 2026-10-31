@@ -101,7 +101,7 @@ const copy: PerLang<{
   de: {
     title: 'Jemand zum Reden, kostenlos',
     intro:
-      'Kostenlose Telefone, bei denen ein echter Mensch zuhört. Ist das nicht dein Land, wähl deins aus.',
+      'Kostenlose Hilfetelefone, bei denen ein echter Mensch zuhört. Ist das nicht dein Land, wähl deins aus.',
     country: 'Land',
     pick: 'Land wählen',
     crisisHeading: 'Wenn du in einer Krise bist',
@@ -110,10 +110,10 @@ const copy: PerLang<{
     hours: 'Erreichbar:',
     free: 'Kostenlos',
     emergency: (n) => `Bei akuter Gefahr ruf die ${n} an.`,
-    elsewhere: 'Dein Land fehlt? Hier findest du kostenlose Hilfe:',
+    elsewhere: 'Dein Land fehlt? Hier findest du ein kostenloses Hilfetelefon:',
     chat: 'Chatten oder schreiben',
     moreHeading: 'Weitere Wege zum Reden',
-    aiTitle: 'Mit Hope AI schreiben',
+    aiTitle: 'Mit Hope AI reden',
     aiText:
       'Ein KI-Assistent, dem du jederzeit schreiben kannst. Er ersetzt keine Beratung und hilft nicht im Notfall.',
     prayerTitle: 'Jemanden bitten, für dich zu beten',

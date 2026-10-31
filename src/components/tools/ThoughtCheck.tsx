@@ -138,7 +138,7 @@ const copy = {
     label: 'Gedanken-Check',
     pickTitle: 'Welcher Gedanke ist gerade am lautesten?',
     other: 'Etwas anderes',
-    otherLabel: 'In ein paar Worten (freiwillig)',
+    otherLabel: 'In ein paar Worten (optional)',
     privacy: 'Was du hier schreibst, wird nirgends gespeichert.',
     next: 'Weiter',
     stop: 'Aufhören',
@@ -163,7 +163,7 @@ const copy = {
     heavierTitle: 'Er fühlt sich gerade stärker an.',
     heavierText:
       'Danke, dass du ehrlich bist. Manche Gedanken sind zu schwer, um sie allein zu prüfen. Sprich mit jemandem darüber.',
-    keep: 'Dein ausgewogener Gedanke:',
+    keep: 'Dein freundlicherer Gedanke:',
     ecoach: 'Mit jemandem reden',
     nextTime: 'ein schwerer Gedanke immer wiederkommt',
   },

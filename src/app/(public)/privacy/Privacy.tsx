@@ -201,7 +201,7 @@ const copy: PerLangNoTl<PrivacyCopy> = {
         title: 'Deine Rechte',
         items: [
           'Nach dem philippinischen Datenschutzgesetz (Data Privacy Act of 2012, Republic Act No. 10173) kannst du darum bitten, deine persönlichen Daten einzusehen, zu korrigieren oder zu löschen, und du kannst deine Einwilligung widerrufen.',
-          'Du kannst dich jederzeit über den Link in jeder E-Mail von unseren E-Mails abmelden.',
+          'Von unseren E-Mails kannst du dich jederzeit abmelden. Der Link dazu steht in jeder E-Mail.',
           'Wenn du glaubst, dass deine Rechte verletzt wurden, kannst du dich bei der National Privacy Commission der Philippinen beschweren (privacy.gov.ph).',
         ],
       },

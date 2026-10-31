@@ -20,7 +20,7 @@ export const deGuides: Guide[] = [
     label: 'Was man einem depressiven Menschen sagen kann',
     heading: 'Was sage ich einem Menschen mit Depressionen?',
     intro:
-      'Es kommt weniger auf die perfekten Worte an als darauf, da zu sein. Hör zu, bleib da und melde dich wieder. Hier steht, was hilft und was du besser vermeidest.',
+      'Am meisten hilft es, da zu sein: Hör zu, bleib in der Nähe und melde dich wieder. Hier steht, was hilft und was du besser vermeidest.',
     photo: 'care',
     sections: [
       {
@@ -141,7 +141,7 @@ export const deGuides: Guide[] = [
     pair: 'bible-verses-when-you-feel-down',
     metaTitle: 'Bibelverse für Trost und Hoffnung, wenn du traurig bist',
     metaDescription:
-      'Bibelverse für schwere Tage, wenn du traurig, niedergeschlagen oder müde von allem bist, mit einem kurzen Gebet und kostenloser Hilfe, wenn es schwer bleibt.',
+      'Bibelverse für schwere Tage, wenn du traurig oder niedergeschlagen bist oder dir alles zu viel ist, mit einem kurzen Gebet und kostenloser Hilfe, wenn es schwer bleibt.',
     keywords: [
       'Bibelverse Trost',
       'Bibelverse Hoffnung',
@@ -180,7 +180,7 @@ export const deGuides: Guide[] = [
         title: 'Wenn es schwer bleibt',
         safety: true,
         paragraphs: [
-          'Wenn du dich seit zwei Wochen oder länger an den meisten Tagen niedergeschlagen fühlst, kann das eine Depression sein, und sie lässt sich behandeln. Wende dich an eine Ärztin, einen Arzt oder eine Beratungsstelle, oder fang mit einem kostenlosen Gespräch am Telefon an. Wenn du daran denkst, dir das Leben zu nehmen, ruf die TelefonSeelsorge an: 0800 111 0 111 oder 0800 111 0 222, kostenlos und rund um die Uhr. In Österreich hilft die 142, in der Schweiz die 143.',
+          'Wenn du dich seit zwei Wochen oder länger an den meisten Tagen niedergeschlagen fühlst, kann das eine Depression sein, und sie lässt sich behandeln. Wende dich an deine Hausarztpraxis oder eine Beratungsstelle, oder fang mit einem kostenlosen Gespräch am Telefon an. Wenn du daran denkst, dir das Leben zu nehmen, ruf die TelefonSeelsorge an: 0800 111 0 111 oder 0800 111 0 222, kostenlos und rund um die Uhr. In Österreich hilft die 142, in der Schweiz die 143.',
         ],
       },
     ],

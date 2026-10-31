@@ -77,7 +77,7 @@ const copy = {
   },
   de: {
     label: 'Drachenspiel',
-    how: 'Halte gedrückt, damit der Drachen steigt. Lass los, damit er gleitet. Sammle die Sterne.',
+    how: 'Halte gedrückt, damit der Drachen steigt. Lass los, damit er gleitet. Fang die Sterne.',
     tip: 'Versuch mal, einzuatmen, während er steigt, und auszuatmen, während er gleitet.',
     start: 'Drachen steigen lassen',
     resume: 'Weiterfliegen',

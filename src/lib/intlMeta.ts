@@ -310,9 +310,9 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
       crumb: 'Lignes d’écoute',
     },
     de: {
-      title: 'Kostenlose Telefonhilfe: jetzt mit jemandem reden',
+      title: 'Kostenlose Hilfetelefone: jetzt mit jemandem reden',
       description:
-        'Kostenlose Krisen- und Sorgentelefone in deinem Land, die meisten rund um die Uhr, dazu Hope AI und Gebet. Wähl dein Land, um die Nummern zu sehen.',
+        'Kostenlose Krisen- und Hilfetelefone in deinem Land, die meisten rund um die Uhr, dazu Hope AI und Gebet. Wähl dein Land, um die Nummern zu sehen.',
       keywords: [
         'TelefonSeelsorge',
         'Krisentelefon',
@@ -320,7 +320,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
         'jemanden zum Reden',
         'kostenlose Beratung am Telefon',
       ],
-      crumb: 'Telefonhilfe',
+      crumb: 'Hilfetelefone',
     },
     es: {
       title: 'Líneas de ayuda gratis: alguien con quien hablar ahora',
@@ -526,9 +526,9 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
       crumb: 'Hope AI',
     },
     de: {
-      title: 'Schreib mit Hope AI, jederzeit',
+      title: 'Rede mit Hope AI, jederzeit',
       description:
-        'Schreib mit Hope AI, einem KI-Assistenten, wenn du etwas loswerden musst, Tag und Nacht. Lieber ein echter Mensch? Finde kostenlose Telefonhilfe in deinem Land.',
+        'Rede mit Hope AI, einem KI-Assistenten, wenn du etwas loswerden musst, Tag und Nacht. Lieber ein echter Mensch? Finde ein kostenloses Hilfetelefon in deinem Land.',
       keywords: [
         'Hope AI',
         'mit jemandem reden',
@@ -690,7 +690,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     de: {
       title: 'Daily Hope: 21 Tage Ermutigung per E-Mail',
       description:
-        '21 Tage lang jeden Tag eine kurze, ermutigende E-Mail, wenn Angst, Traurigkeit oder Müdigkeit dich runterziehen. Kostenlos. Die E-Mails sind auf Englisch.',
+        '21 Tage lang jeden Tag eine kurze, ermutigende E-Mail, wenn Angst, Traurigkeit oder Müdigkeit dich runterziehen. Kostenlos.',
       keywords: [
         'Daily Hope',
         'tägliche Ermutigung',

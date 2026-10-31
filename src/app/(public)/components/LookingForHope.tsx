@@ -80,7 +80,7 @@ const feelings: ({ id: string; photo: PhotoId } & PerLang<{
       href: '/tired-of-everything',
     },
     de: {
-      label: 'Ich bin müde von allem',
+      label: 'Mir ist alles zu viel',
       href: '/tired-of-everything',
     },
     es: {
@@ -298,7 +298,7 @@ const menuCopy: PerLang<MenuCopy> = {
       breathe: 'Meine Atemübung starten',
       ground: 'Meine 5-4-3-2-1-Übung starten',
     },
-    ecoachTitle: 'Ich möchte, dass mich jemand begleitet',
+    ecoachTitle: 'Ich möchte mit jemandem reden',
     ecoachText:
       'Bei einem kostenlosen Hilfetelefon in deinem Land hört dir ein echter Mensch zu.',
     ecoachButton: 'Mit jemandem reden',

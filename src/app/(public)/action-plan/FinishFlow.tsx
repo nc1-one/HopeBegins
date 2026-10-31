@@ -224,8 +224,8 @@ const copy = {
     comesBackTitle: 'Wenn es zurückkommt',
     comesBack: [
       'Mach deine Übung wieder jeden Tag, ab heute.',
-      'Erzähl es einem deiner beiden Menschen.',
-      'Mach den Check-in. Wenn deine Werte zwei Wochen lang hoch bleiben, hol dir psychologische Hilfe oder ruf bei einer kostenlosen Telefonberatung an.',
+      'Erzähl es einem der beiden Menschen auf deiner Karte.',
+      'Mach den Check-in. Wenn deine Werte zwei Wochen lang hoch bleiben, hol dir psychologische Hilfe oder ruf bei einem kostenlosen Hilfetelefon an.',
       'Wenn du daran denkst, dir das Leben zu nehmen, ruf sofort ein Krisentelefon an.',
     ],
     restart: 'Noch einmal 4 Wochen mit dieser Übung starten',

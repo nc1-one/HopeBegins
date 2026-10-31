@@ -423,7 +423,7 @@ const copy: PerLang<Copy> = {
       'Ein Samenkorn',
       'Ein Keimling',
       'Erste Blätter',
-      'Er wächst',
+      'Im Wachstum',
       'Erste Blüte',
       'In voller Blüte',
     ],

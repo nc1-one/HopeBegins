@@ -542,12 +542,12 @@ const ui = {
     scoreNote: 'Niedriger ist besser. Jeder Wert geht bis 6.',
     better:
       'Deine Werte sind seit deinem ersten Check-in gesunken. Mach weiter mit dem, was dir hilft.',
-    same: 'Ungefähr wie bei deinem ersten Check-in. Das ist in den ersten Wochen häufig. Bleib dran, und ruf bei einer kostenlosen Telefonberatung an, wenn du nicht weiterkommst.',
+    same: 'Ungefähr wie bei deinem ersten Check-in. Das ist in den ersten Wochen häufig. Bleib dran, und ruf bei einem kostenlosen Hilfetelefon an, wenn du nicht weiterkommst.',
     worse:
-      'Deine Werte sind seit deinem ersten Check-in gestiegen. Bitte sprich diese Woche mit jemandem: bei einer kostenlosen Telefonberatung, in einer Beratungsstelle oder mit einem Menschen, dem du vertraust.',
-    ecoachTitle: 'Möchtest du, dass dich jemand dabei begleitet?',
+      'Deine Werte sind seit deinem ersten Check-in gestiegen. Bitte sprich diese Woche mit jemandem: bei einem kostenlosen Hilfetelefon, in einer Beratungsstelle oder mit einem Menschen, dem du vertraust.',
+    ecoachTitle: 'Möchtest du mit jemandem darüber reden?',
     ecoachText:
-      'Bei kostenlosen Telefonen in deinem Land hört dir jemand zu. Und Hope AI ist rund um die Uhr da.',
+      'Bei den kostenlosen Hilfetelefonen in deinem Land hört dir jemand zu. Und Hope AI ist rund um die Uhr da.',
     ecoachButton: 'Mit jemandem reden',
     toolsHint:
       'Probier jetzt eine aus. Nimm dann 1 oder 2 in deine 4 Wochen auf und wähl eine Uhrzeit.',
@@ -560,7 +560,7 @@ const ui = {
     trackerIntro:
       'Hak jeden Tag ab, an dem du sie gemacht hast. Einen Tag verpasst? Mach am nächsten Tag weiter. Verpasste Tage machen deinen Fortschritt nicht zunichte.',
     trackerHabit:
-      'Gewohnheiten brauchen Wochen. Die meisten Tage reichen völlig.',
+      'Gewohnheiten brauchen Wochen. Es reicht, wenn du sie an den meisten Tagen machst.',
     trackerEmpty:
       'Wähl oben bei 1 oder 2 Übungen „Zu meinen 4 Wochen hinzufügen“. Dann erscheinen sie hier, und du kannst sie jeden Tag abhaken.',
     daysDone: (done: number) => `${done} von ${PLAN_DAYS} Tagen`,

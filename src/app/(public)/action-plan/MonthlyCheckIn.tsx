@@ -165,7 +165,7 @@ const copy = {
       `Letztes Mal: gedrückte Stimmung ${mood}, Sorgen ${worry}.`,
     results: {
       steady: {
-        title: 'Es geht dir stabil.',
+        title: 'Es geht dir weiterhin gut.',
         text: 'Behalte deine Übung für die Tage, an denen du sie brauchst. Nächsten Monat schauen wir wieder, wie es dir geht.',
       },
       watch: {
@@ -174,7 +174,7 @@ const copy = {
       },
       returning: {
         title: 'Es sieht so aus, als käme es zurück.',
-        text: 'Du hast das schon einmal geschafft, und du weißt, was geholfen hat. Starte noch einmal 4 Wochen mit deiner Übung, erzähl einem deiner beiden Menschen davon und ruf diese Woche bei einer kostenlosen Telefonberatung an. Wenn deine Werte hoch bleiben, hol dir psychologische Hilfe.',
+        text: 'Du hast das schon einmal geschafft, und du weißt, was geholfen hat. Starte noch einmal 4 Wochen mit deiner Übung, erzähl es einem der beiden Menschen auf deiner Hoffnungskarte und ruf diese Woche bei einem kostenlosen Hilfetelefon an. Wenn deine Werte hoch bleiben, hol dir psychologische Hilfe.',
       },
       safety: {
         title: 'Bitte sprich jetzt mit jemandem.',

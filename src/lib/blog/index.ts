@@ -267,7 +267,7 @@ export const storyUi: Record<
     verse: 'Ein Bibelvers für heute',
     ctaTitle: 'Heute nicht okay?',
     ctaText:
-      'HopeBegins ist kostenlos. Wähl aus, wie es dir geht, und du bekommst eine kleine Sache, die du heute ausprobieren kannst, Übungen zur Beruhigung, jemanden, der für dich betet, und kostenlose Telefonhilfe in deinem Land.',
+      'HopeBegins ist kostenlos. Wähl aus, wie es dir geht, und du bekommst eine kleine Sache, die du heute ausprobieren kannst, Übungen zur Beruhigung, jemanden, der für dich betet, und kostenlose Hilfetelefone in deinem Land.',
     ctaButton: 'Das bin ich',
     ctaHome: 'Oder zur Startseite von HopeBegins',
     faq: 'Was andere fragen',

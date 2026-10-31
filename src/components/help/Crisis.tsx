@@ -56,7 +56,7 @@ const copy: PerLang<{
     or: 'oder',
     danger: (n) => `Bei akuter Gefahr ruf die ${n} an.`,
     call: (n) => `${n} anrufen`,
-    nowhere: 'Finde eine kostenlose Krisenhotline in deinem Land:',
+    nowhere: 'Finde ein kostenloses Krisentelefon in deinem Land:',
     nowhereDanger: 'Bei akuter Gefahr ruf den Notruf deines Landes an.',
   },
   es: {

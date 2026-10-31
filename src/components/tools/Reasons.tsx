@@ -78,7 +78,7 @@ const copy = {
       'Relis-les les jours difficiles. Tu peux en ajouter d’autres quand tu veux.',
   },
   de: {
-    label: 'Meine Gründe weiterzumachen',
+    label: 'Meine Gründe zum Weitermachen',
     intro:
       'Schreib die Menschen, Pläne und kleinen Dinge auf, die dir wichtig sind. Lies sie an schweren Tagen.',
     example:
@@ -88,7 +88,7 @@ const copy = {
     listTitle: 'Meine Gründe',
     remove: (reason: string) => `„${reason}“ entfernen`,
     saved:
-      'Nur auf diesem Handy gespeichert. Sie erscheinen auch auf deiner Hope Card.',
+      'Nur auf diesem Handy gespeichert. Sie erscheinen auch auf deiner Hoffnungskarte.',
     done: 'Fertig',
     close: 'Schließen',
     doneTitle: 'Deine Gründe sind gespeichert.',

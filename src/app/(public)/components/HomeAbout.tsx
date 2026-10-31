@@ -99,7 +99,7 @@ const COPY: PerLangNoTl<AboutCopy> = {
   },
   de: {
     title: 'Kostenlose Hilfe für deine psychische Gesundheit',
-    body: 'HopeBegins ist kostenlose, christlich geprägte Unterstützung für alle in Deutschland, Österreich und der Schweiz, die sich ängstlich, niedergeschlagen, erschöpft oder allein fühlen. Wähl aus, wie es dir geht, und du bekommst eine kleine Sache, die du heute ausprobieren kannst, einen kostenlosen persönlichen Plan, Übungen zur Beruhigung, jemanden, der für dich betet, und die kostenlose Telefonhilfe in deinem Land.',
+    body: 'HopeBegins ist kostenlose, christlich geprägte Unterstützung für alle in Deutschland, Österreich und der Schweiz, die sich ängstlich, niedergeschlagen, erschöpft oder allein fühlen. Wähl aus, wie es dir geht. Dann bekommst du eine kleine Sache für heute, einen kostenlosen persönlichen Plan, Übungen zur Beruhigung, jemanden, der für dich betet, und die kostenlosen Hilfetelefone in deinem Land.',
     story:
       'Angefangen hat HopeBegins auf den Philippinen. Jetzt spricht es auch Deutsch, damit es Menschen in Deutschland, Österreich und der Schweiz erreicht.',
     feelingsTitle: 'Fang bei dem an, was du fühlst',
@@ -116,7 +116,7 @@ const COPY: PerLangNoTl<AboutCopy> = {
     numberAsk: 'Brauchst du eine Nummer?',
     numberLink: {
       href: '/help',
-      label: 'Kostenlose Telefonhilfe in deinem Land',
+      label: 'Kostenlose Hilfetelefone in deinem Land',
     },
     storiesAsk:
       'Möchtest du lesen, wie andere durch eine schwere Zeit gekommen sind?',

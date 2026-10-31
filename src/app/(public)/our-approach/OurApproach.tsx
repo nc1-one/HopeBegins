@@ -200,7 +200,7 @@ const GOALS: PerLangNoTl<{ title: string; text: string }>[] = [
     },
     de: {
       title: 'Jemand, an den du dich wenden kannst',
-      text: 'Kostenlose Telefonhilfe in deinem Land, Hope Carriers und die Krisennummer auf jeder Seite.',
+      text: 'Kostenlose Hilfetelefone in deinem Land, Hope Carrier und das Krisentelefon auf jeder Seite.',
     },
     es: {
       title: 'Alguien a quien acudir',
@@ -478,7 +478,7 @@ const OFFERS: {
           },
           de: {
             title: 'Mit jemandem reden',
-            text: 'Kostenlose Telefonhilfe in deinem Land.',
+            text: 'Kostenlose Hilfetelefone in deinem Land.',
           },
           es: {
             title: 'Hablar con alguien',
@@ -502,7 +502,7 @@ const OFFERS: {
             text: 'Des bénévoles qui prient pour ta demande.',
           },
           de: {
-            title: 'Hope Carriers',
+            title: 'Hope Carrier',
             text: 'Ehrenamtliche, die für dein Anliegen beten.',
           },
           es: {
@@ -576,7 +576,7 @@ const OFFERS: {
             text: 'Une vidéo (en anglais), une prière et une lecture de la Bible.',
           },
           de: {
-            title: 'Fünf kleine Schritte, wenn dir die Hoffnung fehlt',
+            title: 'Fünf Schritte für hoffnungslose Tage',
             text: 'Ein Video (auf Englisch), ein Gebet und ein Bibeltext.',
           },
           es: {
@@ -602,7 +602,7 @@ const OFFERS: {
           },
           de: {
             title: 'Daily Hope',
-            text: '21 Tage lang jeden Tag eine ermutigende E-Mail, auf Englisch.',
+            text: '21 Tage lang jeden Tag eine ermutigende E-Mail.',
           },
           es: {
             title: 'Daily Hope',
@@ -715,7 +715,7 @@ const HOW: PerLangNoTl<{ title: string; text: string; line?: boolean }>[] = [
     },
     de: {
       title: 'In einer Krise',
-      text: 'Die Krisennummer deines Landes ist oben auf jeder Seite nur einen Fingertipp entfernt.',
+      text: 'Das kostenlose Krisentelefon deines Landes erreichst du auf jeder Seite mit einem Fingertipp, rund um die Uhr.',
       line: true,
     },
     es: {

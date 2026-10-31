@@ -67,7 +67,7 @@ const options: Record<
       en: 'Talk to Hope AI',
       tl: 'Kausapin si Hope AI',
       fr: 'Parler à Hope AI',
-      de: 'Mit Hope AI schreiben',
+      de: 'Mit Hope AI reden',
       es: 'Hablar con Hope AI',
       ko: 'Hope AI와 대화하기',
     },

@@ -48,7 +48,7 @@ const GAMES: { id: Game; title: Text; text: Text }[] = [
       en: 'Fly a kite from morning to sunset and catch the stars. One minute.',
       tl: 'Paliparin ang saranggola mula umaga hanggang dapithapon at hulihin ang mga bituin. Isang minuto.',
       fr: 'Fais voler un cerf-volant du matin au coucher du soleil et attrape les étoiles. Une minute.',
-      de: 'Lass einen Drachen vom Morgen bis zum Sonnenuntergang fliegen und sammle Sterne. Eine Minute.',
+      de: 'Lass einen Drachen vom Morgen bis zum Sonnenuntergang steigen und fang Sterne. Eine Minute.',
       es: 'Vuela una cometa desde la mañana hasta el atardecer y atrapa las estrellas. Un minuto.',
       ko: '아침부터 해 질 녘까지 연을 날리며 별을 잡아요. 1분이면 돼요.',
     },

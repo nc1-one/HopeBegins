@@ -155,7 +155,7 @@ const copy = {
       'Jemanden um Hilfe bitten',
       'Eine Sache herausfinden',
       'Eine Zeit festlegen, um es anzugehen',
-      'Dafür beten',
+      'Darüber beten',
     ],
     saveStep: 'Weiter',
     doneTitle: 'Die Sorgenzeit ist vorbei.',

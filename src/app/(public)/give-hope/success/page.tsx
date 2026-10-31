@@ -53,7 +53,7 @@ const copy: PerLangNoTl<{
       'Kostenlose Hilfe, wenn es dir nicht gut geht: ein persönlicher Plan, Übungen zum Ruhigwerden und Gebet.',
     title: 'Danke für deine Spende',
     subtitle:
-      'Deine Spende trägt dazu bei, dass HopeBegins für den nächsten Menschen, der es braucht, kostenlos bleibt.',
+      'Damit bleibt HopeBegins kostenlos für den nächsten Menschen, der es braucht.',
     receipt:
       'Donorbox hat dir eine Quittung per E-Mail geschickt. Der Betrag steht dort in philippinischen Pesos (₱).',
     know: 'Kennst du jemanden, der es gerade schwer hat? Teil HopeBegins mit dieser Person.',
