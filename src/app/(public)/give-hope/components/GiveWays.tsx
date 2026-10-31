@@ -4,6 +4,7 @@ import { useRef, useSyncExternalStore } from 'react';
 import { FadeImage } from '@/components/ui/FadeImage';
 import { usePhoto } from '@/components/ui/PhotoTurn';
 import { noTl, type Lang, type PerLangNoTl } from '@/lib/i18n';
+import { distinctPhotos } from '@/lib/photos';
 import { analyticsService } from '@/services/analyticsService';
 import { CarrierForm } from '../../be-carrier/components/CarrierForm';
 import { CarrierSteps } from '../../be-carrier/components/CarrierSteps';
@@ -133,9 +134,13 @@ export function GiveWays({ lang }: { lang: Lang }) {
   // The address decides the tab, so a shared link opens on the same one.
   const active: Way = hash === '#time' ? 'time' : 'gift';
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
-  // The two photos of people caring for each other, never the same one.
-  const giftPhoto = usePhoto('care', 1);
-  const timePhoto = usePhoto('care');
+  // The two photos of people caring for each other: never the same one,
+  // nor the page's own photo above.
+  const hero = usePhoto('hope');
+  const wanted = [usePhoto('care', 1), usePhoto('care')];
+  const [giftPhoto, timePhoto] = distinctPhotos(wanted, lang, [hero.src]).map(
+    (photo, index) => photo ?? wanted[index]
+  );
 
   const ways = [
     { id: 'gift' as const, ...t.ways.gift, photo: giftPhoto },

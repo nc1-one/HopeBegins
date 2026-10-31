@@ -488,3 +488,32 @@ export const photoSet = (theme: PhotoId, lang?: Lang) => setFor(theme, lang);
  */
 export const storyPhoto = (lang: Lang, theme: PhotoId): Photo =>
   setFor(theme, lang)[0];
+
+const THEME_IDS = Object.keys(SETS) as PhotoId[];
+
+/**
+ * Photos for several spots on one page, never the same one twice. Each spot
+ * keeps its own photo if no earlier spot (or `taken`) has it; else it gets
+ * another photo of the page's language not shown yet, from its own theme
+ * first; else none (null), when the language has no photo left.
+ */
+export function distinctPhotos(
+  photos: Photo[],
+  lang: Lang = 'en',
+  taken: Iterable<string> = []
+): (Photo | null)[] {
+  const used = new Set(taken);
+  return photos.map((wanted) => {
+    const theme = THEME_IDS.find((id) =>
+      setFor(id, lang).some((p) => p.src === wanted.src)
+    );
+    const pick =
+      [
+        wanted,
+        ...(theme ? setFor(theme, lang) : []),
+        ...THEME_IDS.flatMap((id) => setFor(id, lang)),
+      ].find((p) => !used.has(p.src)) ?? null;
+    if (pick) used.add(pick.src);
+    return pick;
+  });
+}

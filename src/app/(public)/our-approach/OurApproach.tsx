@@ -6,7 +6,7 @@ import { CrisisSentence } from '@/components/help/Crisis';
 import { HopeStoriesSection } from '@/components/sections/HopeStoriesSection';
 import { Reveal } from '@/components/ui/Reveal';
 import { localizeHref } from '@/lib/intlRoutes';
-import { photo, photoTurn } from '@/lib/photos';
+import { distinctPhotos, photo, photoTurn } from '@/lib/photos';
 import { ApproachOffers, type Offer } from './ApproachOffers';
 import { ApproachSteps, type ApproachStep } from './ApproachSteps';
 
@@ -747,13 +747,22 @@ const h2Class =
 export function OurApproach({ lang }: { lang: Lang }) {
   const t = noTl(copy, lang);
   const turn = photoTurn();
-  const hero = photo('hope', turn);
+  // The hero, the six steps and the dawn at the end, in the page's
+  // language, and never the same photo twice.
+  const [hero, dawn, ...stepPhotos] = distinctPhotos(
+    [
+      photo('hope', turn, 0, lang),
+      photo('dawn', turn, 0, lang),
+      ...STAGES.map((stage) => photo(stage.photo, turn, stage.offset, lang)),
+    ],
+    lang
+  );
   const goals = GOALS.map((goal) => noTl(goal, lang));
-  const steps: ApproachStep[] = STAGES.map(({ words, ...stage }) => {
+  const steps: ApproachStep[] = STAGES.map(({ words, ...stage }, index) => {
     const step = noTl(words, lang);
     const link =
       step.link && inLanguage(step.link.href, lang) ? step.link : undefined;
-    return { ...stage, ...step, link };
+    return { ...stage, ...step, link, image: stepPhotos[index] };
   });
   const offers = OFFERS.map((group) => ({
     title: noTl(group.title, lang),
@@ -778,16 +787,18 @@ export function OurApproach({ lang }: { lang: Lang }) {
             {t.intro}
           </p>
           <div className="relative mt-10 aspect-[4/3] overflow-hidden rounded-xl bg-[#EFF3E7] md:aspect-[21/9]">
-            <Image
-              src={hero.src}
-              alt={hero.alt}
-              fill
-              preload
-              fetchPriority="high"
-              loading="eager"
-              sizes="(min-width: 1024px) 1024px, 100vw"
-              className="object-cover hb-photo-settle"
-            />
+            {hero && (
+              <Image
+                src={hero.src}
+                alt={hero.alt}
+                fill
+                preload
+                fetchPriority="high"
+                loading="eager"
+                sizes="(min-width: 1024px) 1024px, 100vw"
+                className="object-cover hb-photo-settle"
+              />
+            )}
           </div>
 
           <Reveal
@@ -832,7 +843,7 @@ export function OurApproach({ lang }: { lang: Lang }) {
                 {t.stepsTitle}
               </h2>
             </Reveal>
-            <ApproachSteps steps={steps} turn={turn} lang={lang} />
+            <ApproachSteps steps={steps} lang={lang} />
           </section>
 
           <section aria-labelledby="offers-title" className="mt-20 md:mt-28">
@@ -879,13 +890,15 @@ export function OurApproach({ lang }: { lang: Lang }) {
 
       {/* The end: a real dawn, and the same first step as the home page. */}
       <section className="relative isolate overflow-hidden">
-        <Image
-          src={photo('dawn', turn).src}
-          alt=""
-          fill
-          sizes="100vw"
-          className="-z-10 object-cover hb-photo-settle"
-        />
+        {dawn && (
+          <Image
+            src={dawn.src}
+            alt=""
+            fill
+            sizes="100vw"
+            className="-z-10 object-cover hb-photo-settle"
+          />
+        )}
         <div className="absolute inset-0 -z-10 bg-black/55" />
         <Reveal className="px-6 py-24 text-center md:py-32">
           <h2 className="text-balance font-playfair text-5xl md:text-7xl text-white leading-[0.95] tracking-[-0.04em]">

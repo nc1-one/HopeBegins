@@ -15,8 +15,8 @@ import { useSavedPlan } from '@/lib/actionPlanStore';
 import type { FeelingLang } from '@/lib/feelingPages';
 import { setLanguage, useLanguage } from '@/lib/languagePreference';
 import { pathIn, TAGLISH_TWINS, twinLinks } from '@/lib/taglishTwins';
-import { type PhotoId } from '@/lib/photos';
 import { usePhotoPicker } from '@/components/ui/PhotoTurn';
+import { distinctPhotos, type PhotoId } from '@/lib/photos';
 import { CrisisSentence } from '@/components/help/Crisis';
 
 /**
@@ -987,6 +987,14 @@ export function Toolbox({ lang: pageLang }: { lang?: FeelingLang } = {}) {
   const t = copy[lang];
   const [active, setActive] = useState(GROUPS[0].id);
   const pickPhoto = usePhotoPicker();
+  // The tiles' photos, and a different one for each tile's large photo:
+  // never the same picture twice on the page.
+  const tilePhotos = GROUPS.map((item) => pickPhoto(item.photo));
+  const largePhotos = distinctPhotos(
+    GROUPS.map((item) => pickPhoto(item.photo, 1)),
+    lang,
+    tilePhotos.map((photo) => photo.src)
+  );
   const [open, setOpen] = useState<ToolKind | null>(null);
   const tabs = useRef<Record<string, HTMLButtonElement | null>>({});
   const group = GROUPS.find((item) => item.id === active) ?? GROUPS[0];
@@ -1075,7 +1083,7 @@ export function Toolbox({ lang: pageLang }: { lang?: FeelingLang } = {}) {
                   }`}
                 >
                   <Image
-                    src={pickPhoto(item.photo).src}
+                    src={tilePhotos[GROUPS.indexOf(item)].src}
                     alt=""
                     fill
                     sizes="(min-width: 768px) 160px, 112px"
@@ -1103,18 +1111,23 @@ export function Toolbox({ lang: pageLang }: { lang?: FeelingLang } = {}) {
           {/* The picked photo, large, crossfading from the last one: a
               second picture of the same moment, not the tab's own. */}
           <div className="relative hidden aspect-[4/5] overflow-hidden rounded-xl bg-[#EFF3E7] md:sticky md:top-28 md:block md:self-start">
-            {GROUPS.map((item) => (
-              <Image
-                key={item.id}
-                src={pickPhoto(item.photo, 1).src}
-                alt=""
-                fill
-                sizes="400px"
-                className={`object-cover transition-opacity duration-[var(--hb-slow)] ease-[var(--hb-ease-out)] ${
-                  item.id === active ? 'opacity-100' : 'opacity-0'
-                }`}
-              />
-            ))}
+            {GROUPS.map((item, index) => {
+              const large = largePhotos[index];
+              return (
+                large && (
+                  <Image
+                    key={item.id}
+                    src={large.src}
+                    alt=""
+                    fill
+                    sizes="400px"
+                    className={`object-cover transition-opacity duration-[var(--hb-slow)] ease-[var(--hb-ease-out)] ${
+                      item.id === active ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                )
+              );
+            })}
           </div>
 
           <div key={group.id}>

@@ -14,6 +14,7 @@ import {
 import { isIntlLang } from '@/lib/i18n';
 import { intlStories } from '@/lib/intl';
 import type { FeelingLang } from '@/lib/feelingPages';
+import { distinctPhotos, type Photo } from '@/lib/photos';
 import { blogJsonLd, jsonLdHtml } from '@/lib/structuredData';
 
 export const BLOG_COPY: BlogCopy = {
@@ -104,14 +105,31 @@ export function BlogIndex({
         .map((story) => ({ [intl]: story }))
     : storyPairs;
   const [featured, ...rest] = pairs;
+  // Each language's list shows a photo only once; a story whose photo is
+  // already above gets another, or its theme on a plain cover.
+  const photos = new Map<string, Photo | null>();
+  for (const key of new Set(pairs.flatMap((pair) => Object.keys(pair)))) {
+    const list = pairs
+      .map((pair) => pair[key as FeelingLang])
+      .filter((story) => story !== undefined);
+    distinctPhotos(
+      list.map((story) => story.photo),
+      key as FeelingLang
+    ).forEach((photo, index) => photos.set(list[index].slug, photo));
+  }
   const cards = (pair: Partial<Record<FeelingLang, Story>>, big = false) =>
     Object.fromEntries(
       Object.entries(pair).map(([key, story]) => [
         key,
         big ? (
-          <StoryCard story={story} featured headingLevel="h2" />
+          <StoryCard
+            story={story}
+            photo={photos.get(story.slug)}
+            featured
+            headingLevel="h2"
+          />
         ) : (
-          <StoryCard story={story} />
+          <StoryCard story={story} photo={photos.get(story.slug)} />
         ),
       ])
     );

@@ -48,7 +48,7 @@ const copy: PerLangNoTl<{ title: string; intro: string; words: string }> = {
 export function GiveHope({ lang }: { lang: Lang }) {
   const t = noTl(copy, lang);
   const turn = photoTurn();
-  const hero = photo('hope', turn);
+  const hero = photo('hope', turn, 0, lang);
   // One participant's words, taking turns with the photos.
   const stories = storiesIn(lang);
   const story = stories[turn % stories.length];
