@@ -1,9 +1,9 @@
 # syntax=docker/dockerfile:1
 
-# The image that is live now, to keep its built files (see below). Pass
-# it as a build arg (PREVIOUS_IMAGE=user/hope-frontend:latest); without
-# it nothing is kept.
-ARG PREVIOUS_IMAGE=node:20-alpine
+# The image that is live now (the one the deploy workflow pushes), to keep
+# its built files (see below). Build with PREVIOUS_IMAGE=node:20-alpine to
+# keep nothing.
+ARG PREVIOUS_IMAGE=rpascualiii/hope-frontend:latest
 FROM ${PREVIOUS_IMAGE} AS previous
 
 # Build stage
