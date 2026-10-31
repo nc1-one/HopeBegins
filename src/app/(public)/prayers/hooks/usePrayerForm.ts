@@ -88,8 +88,8 @@ export function usePrayerForm() {
   const lang = usePageLanguage();
   const t = messages[lang];
   const english = lang === 'en' || lang === 'tl';
-  // For the crisis line in the email back; "ZZ" points to Find A Helpline.
-  const country = useCountry(lang) ?? 'ZZ';
+  // Where they are, for the crisis line in the email back.
+  const country = useCountry(lang);
   const mutation = useMutation({
     mutationFn: prayerService.createPrayer,
     onSuccess: (data: any) => {

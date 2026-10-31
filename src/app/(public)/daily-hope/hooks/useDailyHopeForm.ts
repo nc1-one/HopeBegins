@@ -55,8 +55,8 @@ type DailyHopeFormValues = z.infer<typeof dailyHopeSchema>;
 export function useDailyHopeForm() {
   const lang = usePageLanguage();
   const t = messages[lang];
-  // For the crisis line in the emails; "ZZ" points them to Find A Helpline.
-  const country = useCountry(lang) ?? 'ZZ';
+  // Where they are, for the crisis line in the emails.
+  const country = useCountry(lang);
   const form = useForm<DailyHopeFormValues>({
     resolver: zodResolver(dailyHopeSchema),
     defaultValues: {

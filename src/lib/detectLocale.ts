@@ -2,8 +2,9 @@ import { LANG_INFO, type Lang } from './i18n';
 
 /*
  * The visitor's language and country, read from the phone's own settings:
- * its languages and its time zone. Nothing is looked up online and nothing
- * leaves the phone.
+ * its languages and its time zone. Nothing is looked up online. Only the
+ * country leaves the phone, as one anonymous count per visit
+ * (analyticsService.recordCountry) and with an email someone asks for.
  */
 
 const BY_LANGUAGE: Record<string, Lang> = {

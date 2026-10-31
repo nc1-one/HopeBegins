@@ -69,9 +69,9 @@ export default function AdminDashboard() {
             endDate={dateRange.endDate}
             onChange={handleDateChange}
           />
-          {/* The journey below, for one language or all of them. */}
+          {/* The stage cards below, for one language or all of them. */}
           <label className="flex h-12 items-center gap-2 rounded-2xl border border-zinc-200 bg-white px-4 text-sm font-bold dark:border-zinc-800 dark:bg-zinc-900">
-            <span className="sr-only">Language</span>
+            <span className="text-zinc-500">Stage details</span>
             <select
               value={language}
               onChange={(event) =>
@@ -100,11 +100,27 @@ export default function AdminDashboard() {
       {/* ── Stat Cards ── */}
       <StatCards stats={stats} isLoading={isLoading} />
 
-      {/* ── The journey, stage by stage ── */}
-      <JourneyByStage clicks={clicks} isLoading={isClicksLoading} />
-
-      {/* ── Each language side by side ── */}
+      {/* ── Every stage and page, each language side by side, and countries ── */}
       <ByLanguage clicks={rawClicks} isLoading={isClicksLoading} />
+
+      {/* ── The journey, stage by stage, for the language picked above ── */}
+      <section className="space-y-4" aria-labelledby="stage-details-title">
+        <div>
+          <h2
+            id="stage-details-title"
+            className="text-2xl font-black italic tracking-tighter uppercase"
+          >
+            Stage details
+          </h2>
+          <p className="mt-1 text-sm font-medium text-zinc-500">
+            Showing:{' '}
+            {LANGUAGE_FILTERS.find((option) => option.value === language)
+              ?.label ?? 'All languages'}
+            . Pick another language with Stage details at the top.
+          </p>
+        </div>
+        <JourneyByStage clicks={clicks} isLoading={isClicksLoading} />
+      </section>
 
       {/* ── Charts ── */}
       <DashboardCharts analytics={analytics} isLoading={isLoading} />

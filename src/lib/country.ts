@@ -7,8 +7,8 @@ import { LANG_INFO, type Lang } from './i18n';
 
 /**
  * The country whose helplines to show: the one the visitor picked on the
- * help page, or else the one their phone's time zone is in. Remembered in
- * this browser only.
+ * help page, or else the one their phone's time zone is in (see
+ * useCountry). Remembered in this browser only.
  */
 const KEY = 'hopebegins.country';
 const CHANGE_EVENT = 'hopebegins-country-change';
@@ -42,17 +42,24 @@ function subscribe(onChange: () => void) {
 }
 
 /**
- * The visitor's country code, or null when their phone is somewhere the
- * site has no helplines for. Before the phone is asked (on the server),
- * the page language's usual country.
+ * The country whose lines a page shows. Where the visitor is wins: the
+ * country picked on the help page, or else the one their phone's time zone
+ * is in, when the site has lines for it. A Korean page read in Manila shows
+ * the Philippines' lines, and an English page read in Seoul shows Korea's.
+ * When the phone is somewhere else or doesn't say, the page language's
+ * usual country (LANG_INFO): the Philippines for English and Taglish,
+ * France, Germany, Mexico and Korea for the others. That is also the
+ * answer on the server, before the phone is asked.
  */
-export function useCountry(lang: Lang): string | null {
-  const country = useSyncExternalStore(
+export function useCountry(lang: Lang): string {
+  return useSyncExternalStore(
     subscribe,
-    () => savedCountry() ?? phoneCountry(),
+    () => {
+      const here = savedCountry() ?? phoneCountry();
+      return here && here in COUNTRY_HELP ? here : LANG_INFO[lang].country;
+    },
     () => LANG_INFO[lang].country
   );
-  return country === NOWHERE ? null : country;
 }
 
 export function setCountry(code: string) {

@@ -114,6 +114,8 @@ export function CrisisSentence({
   const t = copy[lang];
   const { help, line } = useCrisisLine(lang);
   const record = () => analyticsService.recordClick('crisis_call');
+  // The country's other line, such as a mental health line, after the first.
+  const second = help?.lines.find((other) => other !== line);
 
   return (
     <span lang={lang} className={className}>
@@ -142,7 +144,23 @@ export function CrisisSentence({
               </a>
             </>
           )}
-          .{danger && ` ${t.danger(help.emergency)}`}
+          .
+          {second && (
+            <>
+              {' '}
+              {second.name}
+              {second.allDay && ` (${t.allDay})`}:{' '}
+              <a
+                href={`tel:${second.tel}`}
+                onClick={record}
+                className={linkClassName}
+              >
+                {second.number}
+              </a>
+              .
+            </>
+          )}
+          {danger && ` ${t.danger(help.emergency)}`}
         </>
       ) : (
         <>

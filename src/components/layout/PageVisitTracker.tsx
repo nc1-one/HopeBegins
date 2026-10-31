@@ -30,7 +30,10 @@ const TRACKED: Record<string, string> = {
   ),
 };
 
-/** Counts one visit per page per browser session. Nothing personal is sent. */
+/**
+ * Counts one visit per page per browser session, and the visit's country
+ * once. Nothing personal is sent.
+ */
 export function PageVisitTracker() {
   const pathname = usePathname();
 
@@ -39,6 +42,8 @@ export function PageVisitTracker() {
     const story = storySlugAt(english);
     const page = TRACKED[english] ?? (story && `story_${story}`);
     if (page) analyticsService.recordVisit(page);
+    // Once per visit, on whichever page it starts.
+    analyticsService.recordCountry();
   }, [pathname]);
 
   return null;

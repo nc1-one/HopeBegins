@@ -28,7 +28,7 @@ interface PrivacyCopy {
 const copy: PerLangNoTl<PrivacyCopy> = {
   en: {
     title: 'Privacy and confidentiality',
-    updated: 'Last updated October 15, 2026',
+    updated: 'Last updated October 31, 2026',
     intro:
       'People share personal and painful things with HopeBegins. This page explains what we collect, who can see it, how we protect it, and the choices you have.',
     sections: [
@@ -44,7 +44,7 @@ const copy: PerLangNoTl<PrivacyCopy> = {
           'Hope Carrier applications: the details you give when you apply to volunteer.',
           'Donations: Donorbox processes donations. Your card details go to Donorbox and its payment partners, not to HopeBegins.',
           'Hope AI: chats run on Bonfire (heybonfire.com), a third-party service that processes your messages.',
-          'Site usage: our own count of page visits and of taps on links and tools. It has no cookies, no names and nothing you type, and we use no outside analytics.',
+          'Site usage: our own count of page visits and of taps on links and tools, and of the country each visit comes from, worked out from your phone’s time zone. It has no cookies, no names and nothing you type, and we use no outside analytics.',
         ],
       },
       {
@@ -91,7 +91,7 @@ const copy: PerLangNoTl<PrivacyCopy> = {
   },
   fr: {
     title: 'Vie privée et confidentialité',
-    updated: 'Dernière mise à jour : 15 octobre 2026',
+    updated: 'Dernière mise à jour : 31 octobre 2026',
     intro:
       'Les gens confient à HopeBegins des choses personnelles et douloureuses. Cette page explique ce que nous collectons, qui peut le voir, comment nous le protégeons et ce que tu peux choisir.',
     sections: [
@@ -107,7 +107,7 @@ const copy: PerLangNoTl<PrivacyCopy> = {
           'Candidatures Hope Carrier : les informations que tu donnes quand tu postules pour devenir bénévole.',
           'Dons : Donorbox traite les dons. Les données de ta carte vont à Donorbox et à ses partenaires de paiement. HopeBegins ne les reçoit pas.',
           'Hope AI : les conversations passent par Bonfire (heybonfire.com), un service tiers qui traite tes messages.',
-          'Utilisation du site : notre propre comptage des visites de pages et des clics sur les liens et les outils. Il n’utilise aucun cookie, ne contient aucun nom ni rien de ce que tu écris, et nous n’utilisons aucun outil d’analyse externe.',
+          'Utilisation du site : notre propre comptage des visites de pages et des clics sur les liens et les outils, ainsi que du pays d’où vient chaque visite, d’après le fuseau horaire de ton téléphone. Il n’utilise aucun cookie, ne contient aucun nom ni rien de ce que tu écris, et nous n’utilisons aucun outil d’analyse externe.',
         ],
       },
       {
@@ -154,7 +154,7 @@ const copy: PerLangNoTl<PrivacyCopy> = {
   },
   de: {
     title: 'Datenschutz und Vertraulichkeit',
-    updated: 'Zuletzt aktualisiert am 15. Oktober 2026',
+    updated: 'Zuletzt aktualisiert am 31. Oktober 2026',
     intro:
       'Menschen vertrauen HopeBegins Persönliches und Schmerzhaftes an. Hier erfährst du, was wir sammeln, wer es sehen kann, wie wir es schützen und was du selbst entscheiden kannst.',
     sections: [
@@ -170,7 +170,7 @@ const copy: PerLangNoTl<PrivacyCopy> = {
           'Bewerbungen als Hope Carrier: die Angaben, die du machst, wenn du dich für ein Ehrenamt bewirbst.',
           'Spenden: Donorbox wickelt die Spenden ab. Deine Kartendaten gehen an Donorbox und seine Zahlungspartner. HopeBegins bekommt sie nicht.',
           'Hope AI: Die Chats laufen über Bonfire (heybonfire.com), einen externen Dienst, der deine Nachrichten verarbeitet.',
-          'Nutzung der Website: unsere eigene Zählung von Seitenaufrufen und von Klicks auf Links und Übungen. Diese Zählung kommt ohne Cookies und ohne Namen aus, enthält nichts, was du eingibst, und wir nutzen keine externen Analysedienste.',
+          'Nutzung der Website: unsere eigene Zählung von Seitenaufrufen und von Klicks auf Links und Übungen sowie des Landes, aus dem ein Besuch kommt, nach der Zeitzone deines Handys. Diese Zählung kommt ohne Cookies und ohne Namen aus, enthält nichts, was du eingibst, und wir nutzen keine externen Analysedienste.',
         ],
       },
       {
@@ -217,7 +217,7 @@ const copy: PerLangNoTl<PrivacyCopy> = {
   },
   es: {
     title: 'Privacidad y confidencialidad',
-    updated: 'Última actualización: 15 de octubre de 2026',
+    updated: 'Última actualización: 31 de octubre de 2026',
     intro:
       'Las personas comparten con HopeBegins cosas personales y dolorosas. Esta página explica qué recopilamos, quién puede verlo, cómo lo protegemos y qué opciones tienes.',
     sections: [
@@ -233,7 +233,7 @@ const copy: PerLangNoTl<PrivacyCopy> = {
           'Solicitudes para ser Hope Carrier: los datos que das cuando te postulas para el voluntariado.',
           'Donaciones: Donorbox procesa las donaciones. Los datos de tu tarjeta van a Donorbox y a sus socios de pago. HopeBegins no los recibe.',
           'Hope AI: los chats funcionan con Bonfire (heybonfire.com), un servicio externo que procesa tus mensajes.',
-          'Uso del sitio: nuestro propio conteo de visitas a las páginas y de toques en enlaces y herramientas. No usa cookies, no guarda nombres ni nada de lo que escribes, y no usamos herramientas de analítica externas.',
+          'Uso del sitio: nuestro propio conteo de visitas a las páginas y de toques en enlaces y herramientas, y del país desde donde llega cada visita, según la zona horaria de tu celular. No usa cookies, no guarda nombres ni nada de lo que escribes, y no usamos herramientas de analítica externas.',
         ],
       },
       {
@@ -280,7 +280,7 @@ const copy: PerLangNoTl<PrivacyCopy> = {
   },
   ko: {
     title: '개인정보 보호와 비밀 유지',
-    updated: '마지막 업데이트: 2026년 10월 15일',
+    updated: '마지막 업데이트: 2026년 10월 31일',
     intro:
       '사람들은 HopeBegins에 개인적이고 아픈 이야기를 털어놓아요. 이 페이지에서는 저희가 무엇을 수집하는지, 누가 볼 수 있는지, 어떻게 보호하는지, 어떤 선택을 할 수 있는지 설명해요.',
     sections: [
@@ -296,7 +296,7 @@ const copy: PerLangNoTl<PrivacyCopy> = {
           'Hope Carrier 지원서: 봉사자로 지원할 때 적은 정보.',
           '후원: 후원금은 Donorbox가 처리해요. 카드 정보는 Donorbox와 결제 협력사로 전달되며, HopeBegins는 받지 않아요.',
           'Hope AI: 대화는 메시지를 처리하는 외부 서비스인 Bonfire(heybonfire.com)에서 이뤄져요.',
-          '사이트 이용: 페이지 방문 수와 링크·도구를 누른 횟수를 자체적으로 집계해요. 여기에 쿠키나 이름, 입력한 내용은 쓰지 않고, 외부 분석 도구도 쓰지 않아요.',
+          '사이트 이용: 페이지 방문 수와 링크·도구를 누른 횟수, 그리고 휴대폰 시간대로 알 수 있는 방문 국가를 자체적으로 집계해요. 여기에 쿠키나 이름, 입력한 내용은 쓰지 않고, 외부 분석 도구도 쓰지 않아요.',
         ],
       },
       {

@@ -412,6 +412,18 @@ export const COUNTRY_HELP: Record<string, CountryHelp> = {
         chat: 'https://www.129.go.kr/etc/madlan',
         source: 'https://www.129.go.kr/109',
       },
+      {
+        // The Ministry's mental health crisis line, answered day and night
+        // by the nearest mental health welfare center. 1577 numbers are
+        // charged as normal calls.
+        name: '정신건강위기상담전화',
+        number: '1577-0199',
+        tel: '15770199',
+        allDay: true,
+        kind: 'crisis',
+        free: false,
+        source: 'https://www.mohw.go.kr/menu.es?mid=a10706040100',
+      },
     ],
   },
 };
