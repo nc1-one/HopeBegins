@@ -9,7 +9,7 @@ import { Menu, Phone, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { usePageLanguage } from '@/lib/pageLanguage';
 import { pathIn } from '@/lib/taglishTwins';
-import { localizeHref } from '@/lib/intlRoutes';
+import { englishPathOf, localizeHref } from '@/lib/intlRoutes';
 import { FIND_A_HELPLINE } from '@/lib/helplines';
 import type { PerLang } from '@/lib/i18n';
 import { useCrisisLine } from '@/components/help/Crisis';
@@ -133,6 +133,9 @@ export function Header() {
     { href: '/give-hope', label: nav.give },
   ];
   const home = localizeHref('/', lang);
+  // The page they are on, in any language, is marked in the menu.
+  const here = englishPathOf(pathname ?? '/');
+  const isHere = (href: string) => englishPathOf(href) === here;
 
   const handleHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     if (pathname !== home) return;
@@ -182,12 +185,12 @@ export function Header() {
           <div className="flex items-center gap-2">
             <Link
               href={home}
-              className="flex items-center gap-2"
+              className="flex min-h-11 items-center gap-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
               onClick={handleHomeClick}
             >
               <Image
                 src={headerLogo}
-                alt="HopeBegins Logo"
+                alt="HopeBegins"
                 width={170}
                 height={62}
                 // At the top of every page, so never lazy.
@@ -210,7 +213,8 @@ export function Header() {
                     ? 'noopener noreferrer'
                     : undefined
                 }
-                className="flex items-center text-sm font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins"
+                aria-current={isHere(link.href) ? 'page' : undefined}
+                className="flex min-h-11 items-center rounded-md text-sm font-semibold text-zinc-500 hover:text-zinc-900 aria-[current=page]:text-[#6E5F47] aria-[current=page]:underline aria-[current=page]:decoration-[#AEC488] aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-8 dark:hover:text-zinc-100 transition-colors font-poppins focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
                 onClick={(e) => {
                   if (link.href === '/') {
                     handleHomeClick(e as any);
@@ -284,7 +288,8 @@ export function Header() {
                         ? 'noopener noreferrer'
                         : undefined
                     }
-                    className="flex min-h-12 items-center text-base font-semibold text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-poppins"
+                    aria-current={isHere(link.href) ? 'page' : undefined}
+                    className="flex min-h-12 items-center rounded-lg px-2 -mx-2 text-base font-semibold text-zinc-600 hover:text-zinc-900 aria-[current=page]:bg-[#EFF3E7] aria-[current=page]:text-[#6E5F47] dark:hover:text-zinc-100 transition-colors font-poppins focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#91AFAA]"
                     onClick={(e) => {
                       if (link.href === '/') {
                         handleHomeClick(e as any);
