@@ -138,7 +138,7 @@ const copy = {
       },
       safety: {
         title: 'Parle à quelqu’un maintenant.',
-        text: 'Tu as dit avoir pensé à mettre fin à ta vie ou à te faire du mal. Appelle une ligne de crise maintenant, s’il te plaît. C’est gratuit, et quelqu’un répond jour et nuit.',
+        text: 'Tu as dit avoir pensé à mettre fin à ta vie ou à te faire du mal. Appelle une ligne d’écoute maintenant, s’il te plaît. C’est gratuit, et quelqu’un répond jour et nuit.',
       },
     },
     ecoach: 'Parler à quelqu’un',

@@ -196,7 +196,7 @@ const GOALS: PerLangNoTl<{ title: string; text: string }>[] = [
     },
     fr: {
       title: 'Quelqu’un vers qui te tourner',
-      text: 'Des lignes d’écoute gratuites dans ton pays, des Hope Carriers, et le numéro de crise sur chaque page.',
+      text: 'Des lignes d’écoute gratuites dans ton pays, des Hope Carriers et, sur chaque page, le numéro à appeler en cas de crise.',
     },
     de: {
       title: 'Jemand, an den du dich wenden kannst',
@@ -412,7 +412,7 @@ const OFFERS: {
           },
           fr: {
             title: 'Des outils pour les moments difficiles',
-            text: 'La respiration lente, l’ancrage 5-4-3-2-1, le moment pour s’inquiéter et d’autres encore.',
+            text: 'La respiration lente, l’ancrage 5-4-3-2-1, le quart d’heure des soucis et d’autres encore.',
           },
           de: {
             title: 'Übungen für schwere Momente',
@@ -598,7 +598,7 @@ const OFFERS: {
           },
           fr: {
             title: 'Daily Hope',
-            text: 'Un e-mail d’encouragement par jour pendant 21 jours, en anglais.',
+            text: 'Un e-mail d’encouragement par jour pendant 21 jours.',
           },
           de: {
             title: 'Daily Hope',
@@ -710,7 +710,7 @@ const HOW: PerLangNoTl<{ title: string; text: string; line?: boolean }>[] = [
     },
     fr: {
       title: 'En cas de crise',
-      text: 'La ligne de crise de ton pays est à portée de main, en haut de chaque page.',
+      text: 'Le numéro gratuit à appeler en cas de crise dans ton pays est en haut de chaque page, 24h/24.',
       line: true,
     },
     de: {

@@ -97,18 +97,18 @@ const copy = {
     nextTime: 'paulit-ulit na bumabalik ang pag-aalala sa maghapon',
   },
   fr: {
-    label: 'Le moment pour s’inquiéter',
+    label: 'Le quart d’heure des soucis',
     intro:
-      'Note tes soucis quand ils arrivent. Ensuite, occupe-t’en pendant le moment pour s’inquiéter : 15 minutes, à la même heure chaque jour.',
+      'Note tes soucis quand ils arrivent. Ensuite, occupe-t’en pendant ton quart d’heure des soucis, à la même heure chaque jour.',
     topicsLabel: 'Qu’est-ce qui te tracasse ? Touche pour le garder.',
     addLabel: 'Ou écris avec tes mots',
-    add: 'Le garder pour le moment prévu',
+    add: 'Le garder pour mon quart d’heure',
     count: (n: number) =>
       n === 0
         ? 'Aucun souci gardé pour l’instant.'
-        : `${n} ${n === 1 ? 'souci' : 'soucis'} en attente de ton moment pour t’inquiéter.`,
+        : `${n} ${n === 1 ? 'souci gardé' : 'soucis gardés'} pour ton quart d’heure.`,
     privacy: 'Tout reste sur ce téléphone.',
-    start: 'Commencer mon moment pour m’inquiéter',
+    start: 'Commencer mon quart d’heure',
     clear: 'Vider la liste',
     close: 'Fermer',
     reviewOf: (i: number, n: number) => `Souci ${i} sur ${n}`,
@@ -124,9 +124,9 @@ const copy = {
       'Prier pour ça',
     ],
     saveStep: 'Suivant',
-    doneTitle: 'Le moment pour s’inquiéter est terminé.',
+    doneTitle: 'Ton quart d’heure des soucis est terminé.',
     doneText:
-      'Quand de nouveaux soucis arrivent, note-les ici et laisse-les attendre jusqu’au moment pour s’inquiéter de demain.',
+      'Quand de nouveaux soucis arrivent, note-les ici et garde-les pour le quart d’heure de demain.',
     stepsTitle: 'Tes prochains pas',
     nextTime: 'l’inquiétude revient sans cesse dans la journée',
   },

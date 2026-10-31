@@ -518,7 +518,7 @@ const questionText: {
     prompt: {
       en: 'Thoughts that you would be better off dead, or of hurting yourself',
       tl: 'Mga isip na mas mabuti pang mamatay ka na, o saktan ang sarili mo',
-      fr: 'Penser qu’il vaudrait mieux mourir, ou penser à te faire du mal',
+      fr: 'Penser qu’il vaudrait mieux mourir, ou envisager de te faire du mal',
       de: 'Gedanken, dass du lieber tot wärst oder dir Leid zufügen möchtest',
       es: 'Pensar que sería mejor morir, o pensar en hacerte daño',
       ko: '죽는 것이 더 낫겠다는 생각이나 자신을 해치는 생각',
@@ -758,7 +758,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           title: t({
             en: '5. Crisis lines, open 24/7',
             tl: '5. Crisis lines, bukas 24/7',
-            fr: '5. Lignes de crise, 24h/24 et 7j/7',
+            fr: '5. Lignes d’écoute, 24h/24 et 7j/7',
             de: '5. Krisentelefone, rund um die Uhr',
             es: '5. Líneas de crisis, abiertas las 24 horas',
             ko: '5. 위기 상담 전화, 24시간',
@@ -951,7 +951,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         action: t({
           en: 'take my 15-minute worry time',
           tl: 'gagawin ko ang 15-minute worry time ko',
-          fr: 'je vais prendre mes 15 minutes pour m’inquiéter',
+          fr: 'je vais prendre mon quart d’heure des soucis',
           de: 'nehme ich mir meine 15 Minuten Sorgenzeit',
           es: 'voy a tomar mis 15 minutos de tiempo para preocuparme',
           ko: '15분 걱정 시간을 가질게요',
@@ -993,7 +993,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
           t({
             en: 'In your worry time, ask of each one: can I do something about this? If yes, plan one step. If no, let it go for today.',
             tl: 'Sa worry time mo, tanungin ang sarili sa bawat isa: may magagawa ba ako dito? Kung oo, magplano ng isang hakbang. Kung wala, bitawan muna ito ngayong araw.',
-            fr: 'Pendant ton moment pour t’inquiéter, demande-toi pour chacune : est-ce que je peux y faire quelque chose ? Si oui, prévois une étape. Si non, laisse-la de côté pour aujourd’hui.',
+            fr: 'Pendant ton quart d’heure des soucis, demande-toi pour chacune : est-ce que je peux y faire quelque chose ? Si oui, prévois une étape. Si non, laisse-la de côté pour aujourd’hui.',
             de: 'Frag dich in deiner Sorgenzeit bei jeder Sorge: Kann ich etwas dagegen tun? Wenn ja, plane einen Schritt. Wenn nein, lass sie für heute los.',
             es: 'En tu tiempo para preocuparte, pregúntate con cada una: ¿puedo hacer algo con esto? Si la respuesta es sí, planea un paso. Si es no, déjala ir por hoy.',
             ko: '걱정 시간에는 걱정 하나하나에 물어봐요. ‘이건 내가 뭔가 할 수 있는 일일까?’ 할 수 있다면 한 걸음을 계획하고, 아니라면 오늘은 내려놓아요.',
@@ -1065,7 +1065,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         action: t({
           en: 'get up with my alarm and get daylight',
           tl: 'babangon ako sa alarm at magpapaaraw',
-          fr: 'je vais me lever dès mon réveil et prendre la lumière du jour',
+          fr: 'je vais me lever dès que mon réveil sonne et chercher la lumière du jour',
           de: 'stehe ich mit dem Wecker auf und gehe raus ans Tageslicht',
           es: 'voy a levantarme con la alarma y salir a la luz del día',
           ko: '알람이 울리면 일어나서 햇빛을 쬘게요',
@@ -1383,7 +1383,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         title: t({
           en: 'Make one small contact each day',
           tl: 'Mag-message o kumustahin ang isang tao araw-araw',
-          fr: 'Un petit contact chaque jour',
+          fr: 'Contacte quelqu’un chaque jour',
           de: 'Jeden Tag ein kleiner Kontakt',
           es: 'Un pequeño contacto cada día',
           ko: '매일 작은 연락 한 번',
@@ -1391,7 +1391,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         detail: t({
           en: 'A message, a call or a hello. This month, join one group: a class, a faith group or volunteering.',
           tl: 'Isang message, tawag, o hello. Ngayong buwan, sumali sa isang grupo: isang class, faith group, o volunteering.',
-          fr: 'Un message, un appel ou un simple bonjour. Ce mois-ci, rejoins un groupe : un cours, un groupe dans une église évangélique ou du bénévolat.',
+          fr: 'Un message, un appel ou un simple bonjour. Ce mois-ci, rejoins un groupe : un cours, un groupe biblique ou du bénévolat.',
           de: 'Eine Nachricht, ein Anruf oder ein kurzes Hallo. Schließ dich diesen Monat einer Gruppe an: einem Kurs, einer Gemeindegruppe oder einem Ehrenamt.',
           es: 'Un mensaje, una llamada o un saludo. Este mes, únete a un grupo: una clase, un grupo de una iglesia evangélica o un voluntariado.',
           ko: '메시지, 전화, 짧은 인사도 좋아요. 이번 달에는 수업, 교회 소그룹, 봉사 활동 같은 모임 하나에 참여해 보세요.',
@@ -1433,7 +1433,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
         detail: t({
           en: 'Rate your mood from 1 to 10 and write one word for why. Patterns show up within a week.',
           tl: 'I-rate ang mood mo mula 1 hanggang 10 at isulat ang isang salita kung bakit. Makikita mo ang pattern sa loob ng isang linggo.',
-          fr: 'Note ton humeur de 1 à 10 et écris un mot pour dire pourquoi. Des tendances apparaissent en une semaine.',
+          fr: 'Note ton humeur de 1 à 10 et écris un mot pour dire pourquoi. En une semaine, tu commences à voir des tendances.',
           de: 'Bewerte deine Stimmung von 1 bis 10 und schreib in einem Wort dazu, warum. Nach einer Woche erkennst du Muster.',
           es: 'Califica tu ánimo del 1 al 10 y escribe una palabra sobre el porqué. En una semana empiezas a ver patrones.',
           ko: '기분을 1부터 10까지 점수로 매기고, 이유를 한 단어로 적어요. 일주일이면 패턴이 보여요.',
@@ -1555,7 +1555,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
     heading: t({
       en: "See what's changed",
       tl: 'Silipin kung ano na ang nagbago',
-      fr: 'Vois ce qui a changé',
+      fr: 'Regarde ce qui a changé',
       de: 'Sieh, was sich verändert hat',
       es: 'Mira lo que ha cambiado',
       ko: '달라진 점 살펴보기',
@@ -1676,7 +1676,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
     detail: t({
       en: 'A short email every day for 21 days.',
       tl: 'Isang mensahe sa email mo araw-araw sa loob ng 21 araw. Nasa English.',
-      fr: 'Un message par e-mail chaque jour pendant 21 jours. Les messages sont en anglais.',
+      fr: 'Un message par e-mail chaque jour pendant 21 jours.',
       de: 'Jeden Tag eine Nachricht per E-Mail, 21 Tage lang.',
       es: 'Un mensaje en tu correo cada día durante 21 días.',
       ko: '21일 동안 매일 이메일로 메시지가 와요. 메시지는 영어로 되어 있어요.',
@@ -1696,7 +1696,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
     heading: t({
       en: 'More support',
       tl: 'Iba pang suporta',
-      fr: 'Plus de soutien',
+      fr: 'D’autres aides',
       de: 'Mehr Unterstützung',
       es: 'Más apoyo',
       ko: '더 많은 도움',

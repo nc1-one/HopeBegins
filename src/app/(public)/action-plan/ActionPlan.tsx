@@ -370,8 +370,8 @@ const ui = {
     progress: 'Progression',
     previous: 'Retour',
     welcomeDay: (name: string, day: number) =>
-      `Bon retour${name ? `, ${name}` : ''}. C’est le jour ${day} de tes 4 semaines.`,
-    welcomeBack: (name: string) => `Bon retour${name ? `, ${name}` : ''}.`,
+      `Te revoilà${name ? `, ${name}` : ''}. C’est le jour ${day} de tes 4 semaines.`,
+    welcomeBack: (name: string) => `Te revoilà${name ? `, ${name}` : ''}.`,
     checkInDueTitle: (name: string) =>
       `Ton dernier bilan date d’il y a une semaine${name ? `, ${name}` : ''}.`,
     checkInDueText: 'Refais-le pour voir ce qui a changé.',
@@ -407,7 +407,7 @@ const ui = {
       'Tes scores ont augmenté depuis ton premier bilan. Parle à quelqu’un cette semaine, s’il te plaît : une ligne d’écoute gratuite, un psy ou une personne de confiance.',
     ecoachTitle: 'Envie que quelqu’un t’accompagne ?',
     ecoachText:
-      'Une ligne d’écoute gratuite de ton pays peut t’écouter. Hope AI est là aussi, à toute heure.',
+      'Sur une ligne d’écoute gratuite de ton pays, une vraie personne te répond. Hope AI est là aussi, à toute heure.',
     ecoachButton: 'Parler à quelqu’un',
     toolsHint:
       'Essaie-en un maintenant. Puis ajoute-en 1 ou 2 à tes 4 semaines et choisis un moment.',

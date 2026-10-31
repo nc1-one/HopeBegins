@@ -70,7 +70,7 @@ const copy = {
     listTitle: 'Mes raisons',
     remove: (reason: string) => `Retirer « ${reason} »`,
     saved:
-      'Enregistrées seulement sur ce téléphone. Elles apparaissent aussi sur ta Hope Card.',
+      'Enregistrées seulement sur ce téléphone. Elles apparaissent aussi sur ta carte d’espoir.',
     done: 'Terminé',
     close: 'Fermer',
     doneTitle: 'Tes raisons sont enregistrées.',

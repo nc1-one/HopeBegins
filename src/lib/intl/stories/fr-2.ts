@@ -21,8 +21,8 @@ export const frStories2: Story[] = [
         kind: 'story',
         heading: 'Minuit, et tout le monde se fiançait',
         paragraphs: [
-          'C’était un mardi, un peu après minuit, quand Lucie a vu la troisième annonce de fiançailles de la semaine. Une ancienne camarade de fac, une bague, une crique en Grèce, deux cents commentaires. Lucie a tapé « Félicitations !! » avec trois cœurs, puis elle est restée allongée dans son studio à Lyon, avec l’impression que quelque chose de lourd venait de se poser sur sa poitrine.',
-          'Elle a continué à faire défiler. Un ancien collègue venait de passer manager. Une cousine venait d’atterrir à Sydney. Un garçon du lycée lançait son food truck. Chaque publication était une bonne nouvelle pour quelqu’un qu’elle aimait bien, et chacune tombait sur elle comme un petit verdict : tu es en retard.',
+          'C’était un mardi, un peu après minuit, quand Lucie a vu la troisième annonce de fiançailles de la semaine. Une ancienne camarade de fac, une bague, une crique en Grèce, deux cents commentaires. Lucie a tapé « Félicitations » suivi de trois cœurs, puis elle est restée allongée dans son studio à Lyon, avec l’impression que quelque chose de lourd venait de se poser sur sa poitrine.',
+          'Elle a continué à faire défiler. Un ancien collègue venait de passer manager, une cousine venait d’atterrir à Sydney, un garçon du lycée lançait son food truck. Chaque publication était une bonne nouvelle pour quelqu’un qu’elle aimait bien, et chacune tombait sur elle comme un petit verdict : tu es en retard.',
           'Lucie avait 26 ans, un CDI, un petit studio qu’elle payait elle-même et des parents en Auvergne qui étaient fiers d’elle. Rien de tout ça n’apparaissait sur le fil à minuit. Ce qui s’affichait, c’étaient les plus beaux jours de tous les autres.',
           'Vers une heure du matin, elle a ouvert son propre profil et l’a regardé comme l’aurait fait une inconnue. Dernière publication : il y a huit mois, une part de galette des rois. Elle a fermé l’appli, l’a rouverte, et elle a continué jusqu’à avoir les yeux qui piquent.',
         ],
@@ -57,10 +57,10 @@ export const frStories2: Story[] = [
         heading:
           'Si ton fil d’actualité te donne l’impression d’être en retard',
         paragraphs: [
-          'Si tu lis ces lignes dans ton lit après un long moment à faire défiler, accorde-toi un peu de douceur. Se sentir minuscule après les réseaux sociaux est une réaction fréquente quand on voit défiler les plus beaux jours des autres, tard le soir, sans personne à côté. Ta valeur reste la même, que tu publies ou non.',
+          'Si tu lis ces lignes dans ton lit après un long moment à faire défiler, ne t’en veux pas. Se sentir minuscule après les réseaux sociaux est une réaction fréquente quand on voit défiler les plus beaux jours des autres, tard le soir, sans personne à côté. Ta valeur reste la même, que tu publies ou non.',
           'Essaie une chose cette semaine. Charge ton téléphone hors de ta chambre, mets en sourdine trois comptes qui te font toujours mal, ou note trois bonnes choses de ta propre journée avant d’ouvrir une appli. Puis confie à quelqu’un de proche ce que ton fil te fait ressentir. Cette personne vit peut-être la même chose.',
           'Si la comparaison est devenue un poids qui reste la plupart des jours, ou si ça dure plus de deux semaines et que ça gêne ton travail ou ton sommeil, parles-en à ton médecin ou à un psychologue. C’est une étape normale, et se faire aider, ça marche.',
-          'Si tu veux commencer quelque part ce soir, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Si ce poids déborde bien au-delà de ton téléphone, la page [quand tout te pèse](/tired-of-everything) est un bon point de départ.',
+          'Si tu veux commencer quelque part ce soir, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Si ce poids déborde bien au-delà de ton téléphone, la page [Marre de tout](/tired-of-everything) est un bon point de départ.',
         ],
       },
     ],
@@ -134,23 +134,23 @@ export const frStories2: Story[] = [
         heading: 'Que faire après un licenciement : ce qui a aidé Guillaume',
         paragraphs: [
           'Le dire à Sophie a tout fait basculer. Elle a un peu pleuré, puis elle est allée chercher un cahier. « Bon, a-t-elle dit. Qu’est-ce qu’on a ? » Rien n’était réglé ce soir-là. Pourtant, pour la première fois depuis trois jours, Guillaume a dormi jusqu’au matin.',
-          'Le cahier a aidé, lui aussi. Ensemble, ils ont noté ce qu’ils avaient : son indemnité de licenciement, un peu d’épargne, le salaire de Sophie, professeure des écoles, et les allocations chômage à venir. Puis ce qu’ils devaient chaque mois, et ce qui pouvait attendre. Voir les vrais chiffres faisait peur, et c’était moins grave que la version qu’il avait dans la tête. En faisant attention, ils pouvaient tenir plusieurs mois.',
-          'Ensuite, Guillaume a redonné une forme à ses journées. Dès le lundi, il a fait son inscription comme demandeur d’emploi. Il se levait à l’heure habituelle, prenait son café dehors et traitait sa recherche comme une journée de boulot. Le matin, les candidatures et les messages aux anciens contacts. L’après-midi, quelque chose d’utile à la maison, comme réparer le portail qu’il laissait grincer depuis un an. Il s’arrêtait à dix-sept heures.',
+          'Le cahier a aidé, lui aussi. Ensemble, ils ont noté ce qu’ils avaient : son indemnité de licenciement, un peu d’épargne, le salaire de Sophie, professeure des écoles, et les allocations chômage à venir. Puis ce qu’ils devaient chaque mois, et ce qui pouvait attendre. Voir les vrais chiffres faisait peur, mais c’était moins grave que la version qu’il avait dans la tête. En faisant attention, ils pouvaient tenir plusieurs mois.',
+          'Ensuite, Guillaume a redonné une forme à ses journées. Dès le lundi, il a fait son inscription comme demandeur d’emploi. Il se levait à l’heure habituelle, prenait son café dehors et traitait sa recherche comme une journée de boulot. Le matin, il envoyait des candidatures et écrivait à ses anciens contacts. L’après-midi, il faisait quelque chose d’utile à la maison, comme réparer le portail qu’il laissait grincer depuis un an. Il s’arrêtait à dix-sept heures.',
           'Il en a parlé autour de lui, et c’était le plus dur. Il a écrit à un ancien chef, à deux anciens collègues et au groupe d’hommes de son église : « J’ai été licencié. Si quelqu’un entend parler d’un poste en logistique ou en entrepôt, je cherche. » Deux personnes ont répondu le jour même. L’une lui a envoyé une piste. L’autre a juste écrit : « On se prend un café ? », et l’a écouté pendant une heure.',
           'Il a prié honnêtement, ce qui, pour Guillaume, voulait dire admettre qu’il avait peur. Son pasteur lui a rappelé Lamentations 3:22-23 : chaque matin, la bonté de Dieu est neuve. Guillaume a écrit la référence sur la première page du cahier, au-dessus des chiffres.',
           'Il a fallu onze semaines. Guillaume a été embauché comme responsable d’exploitation dans une plus petite entreprise, du côté de Blois, un peu moins bien payé et avec plus de route. Certains jours, son ancienne équipe lui manque encore. Il sait aussi, maintenant, que sa valeur n’a jamais tenu à un intitulé de poste.',
         ],
         pullQuote:
-          'Voir les vrais chiffres faisait peur, et c’était moins grave que la version qu’il avait dans la tête.',
+          'Voir les vrais chiffres faisait peur, mais c’était moins grave que la version qu’il avait dans la tête.',
       },
       {
         kind: 'hope',
         heading: 'Si tu viens de perdre ton emploi',
         paragraphs: [
           'Si ça t’est arrivé cette semaine, le choc que tu ressens est logique. Perdre son emploi peut ébranler l’idée qu’on se fait de soi, surtout quand une famille compte sur toi. Accorde-toi une journée pour le ressentir.',
-          'Ensuite, fais un pas. Dis-le à la personne la plus proche de toi. Note les vrais chiffres. Donne une forme simple à demain : une heure de réveil, quelques candidatures, un message à quelqu’un qui pourrait connaître une offre, et une heure pour t’arrêter.',
+          'Ensuite, fais un premier pas. Dis-le à la personne la plus proche de toi et note les vrais chiffres. Puis donne une forme simple à demain : une heure de réveil, quelques candidatures, un message à quelqu’un qui pourrait connaître une offre, et une heure pour t’arrêter.',
           'Si tu n’arrives plus à dormir depuis des semaines, si tu te sens sans espoir la plupart des jours ou si l’inquiétude prend toute la place, parles-en à ton médecin ou à un psychologue. C’est une étape normale, et ça peut rendre la recherche plus facile à porter.',
-          'Si tu veux commencer quelque part dès maintenant, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser face aux calculs de trois heures du matin, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Si l’avenir te paraît flou, lis aussi [quand on ne sait plus où aller](/i-feel-lost).',
+          'Si tu veux commencer quelque part dès maintenant, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser face aux calculs de trois heures du matin, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Si l’avenir te paraît flou, lis aussi la page [Je ne sais plus où j’en suis](/i-feel-lost).',
         ],
       },
     ],
@@ -215,7 +215,7 @@ export const frStories2: Story[] = [
         heading: 'Les signes d’épuisement de l’aidant qu’Aurélie n’a pas vus',
         paragraphs: [
           'Avec le recul, les signes étaient là depuis des mois. Elle était fatiguée tout le temps, même après avoir dormi. Elle s’énervait contre Julie pour des broutilles, comme la marque de protections pour adultes à acheter. Elle ne répondait plus aux messages de ses amies. Elle est tombée malade deux fois dans le même mois et a continué à travailler les deux fois.',
-          'Elle se sentait coupable de tout. Coupable quand elle manquait de patience, coupable quand elle s’asseyait, coupable d’avoir souhaité, une fois, que quelqu’un d’autre prenne le relais. « Je suis sa fille, se répétait-elle. C’est à moi de le faire. » Se reposer lui donnait l’impression d’abandonner sa mère.',
+          'Elle se sentait coupable de tout : de manquer de patience, de s’asseoir, et même d’avoir souhaité, une fois, que quelqu’un d’autre prenne le relais. « Je suis sa fille, se répétait-elle. C’est à moi de le faire. » Se reposer lui donnait l’impression d’abandonner sa mère.',
           'S’occuper d’un parent malade, c’est de l’amour en actes, et c’est aussi un travail physique et émotionnel très lourd, sans jour de congé. Quand une seule personne le porte pendant des mois, le corps et la tête finissent par tourner à vide. Aurélie continuait de donner avec un réservoir vide, puis s’en voulait quand il ne restait plus rien.',
           'Elle vivait aussi un deuil silencieux. Sa mère était vivante, là, juste à côté, et pourtant la maman qui la taquinait et faisait le poulet rôti tous les dimanches était plus difficile à rejoindre. Aurélie n’avait aucune place pour ressentir ça.',
         ],
@@ -226,10 +226,10 @@ export const frStories2: Story[] = [
         paragraphs: [
           'La première étape a été de dire la vérité à Julie. Ce soir-là, Aurélie a appelé sa sœur : « Je n’y arrive plus toute seule. » Julie est restée silencieuse un moment, puis elle a demandé : « Pourquoi tu ne me l’as pas dit plus tôt ? » Elle pensait qu’Aurélie s’en sortait, parce qu’Aurélie disait toujours que ça allait.',
           'Elles ont fait un plan, sur papier. Julie viendrait chaque semaine du vendredi soir au dimanche soir, pour qu’Aurélie ait deux vraies nuits de sommeil. Une cousine qui habitait à deux rues a accepté de rester avec Maman deux après-midi par semaine. Elles ont fait venir une auxiliaire de vie trois matins par semaine. Même avec les aides, il restait une partie à payer, qu’elles ont trouvée en se serrant la ceinture, et Aurélie a récupéré ses matinées.',
-          'Aurélie a commencé à protéger de petits moments de repos. Vingt minutes dehors après le déjeuner, pendant la sieste de Maman. Un tour tranquille jusqu’à la boulangerie du coin. Un après-midi par semaine à l’église, où son groupe de maison priait pour elle et où l’une des femmes s’est mise à lui apporter des plats cuisinés pour la semaine.',
+          'Aurélie a commencé à protéger de petits moments de repos : vingt minutes dehors après le déjeuner, pendant la sieste de Maman, un tour tranquille jusqu’à la boulangerie du coin, et un après-midi par semaine à l’église, où son groupe de maison priait pour elle et où l’une des femmes s’est mise à lui apporter des plats cuisinés pour la semaine.',
           'Elle a parlé au médecin de sa mère des moments les plus durs : comment déplacer Maman sans risque, quels exercices comptaient le plus, et ce qu’elle pouvait laisser de côté. Le médecin lui a aussi demandé comment elle dormait, et lui a conseillé d’aller voir son propre médecin. Elle y est allée, et elle a découvert que sa tension avait grimpé.',
-          'Matthieu 11:28-30 a rejoint le mur, au-dessus de la table des médicaments. Aurélie le lisait les nuits difficiles et en faisait une prière pour elle-même autant que pour Maman.',
-          'Maman se remet encore, doucement. Aurélie a toujours des jours difficiles. Elle rit de nouveau avec sa mère, aussi, parce qu’elle ne tourne plus à vide à chaque heure de la journée.',
+          'Elle a affiché Matthieu 11:28-30 au mur, au-dessus de la table des médicaments. Aurélie le lisait les nuits difficiles et en faisait une prière pour elle-même autant que pour Maman.',
+          'Maman se remet petit à petit. Aurélie a toujours des jours difficiles. Elle rit de nouveau avec sa mère, aussi, parce qu’elle ne tourne plus à vide à chaque heure de la journée.',
         ],
         pullQuote: 'Je n’y arrive plus toute seule.',
       },
@@ -237,7 +237,7 @@ export const frStories2: Story[] = [
         kind: 'hope',
         heading: 'Si tu prends soin de quelqu’un et que tu tournes à vide',
         paragraphs: [
-          'Si tu t’occupes d’un parent, d’un conjoint ou d’un enfant malade, la fatigue que tu ressens est réelle, et l’amour aussi. Avoir besoin de repos n’enlève rien à ton attachement. Toi aussi, tu comptes, et quelqu’un qui se repose peut tenir plus longtemps.',
+          'Si tu t’occupes d’un parent, d’un conjoint ou d’un enfant malade, la fatigue que tu ressens est réelle, et l’amour aussi. Avoir besoin de repos n’enlève rien à ton attachement. Tu as des besoins, toi aussi, et un aidant reposé tient plus longtemps.',
           'Cette semaine, demande une chose précise à une personne précise : deux heures le samedi, un repas, une nuit de sommeil. Les gens ont souvent envie d’aider sans savoir comment. Ensuite, protège un petit moment de repos chaque jour, même s’il ne dure que vingt minutes.',
           'Si tu es à bout la plupart des jours depuis des semaines, si tu t’emportes sans cesse contre ceux que tu aimes, ou si tu ne ressens plus rien ni aucun espoir, parles-en à ton médecin ou à un psychologue. Les aidants ont besoin de soin, eux aussi, et en demander est une étape normale. Ton médecin peut aussi t’orienter vers des solutions de répit près de chez toi.',
           'Si tu veux commencer quelque part aujourd’hui, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser les nuits difficiles, quelqu’un qui prie pour toi et ta famille, et des lignes d’écoute gratuites pour parler à quelqu’un. La page sur [le burn-out](/burnout) en dit plus sur ce qu’on peut faire quand on tourne à vide.',
@@ -319,7 +319,7 @@ export const frStories2: Story[] = [
           'La première étape a été un message à Bastien, son plus vieux pote : « Je crois que quelque chose cloche chez moi. Ça fait des semaines que je n’ai plus envie de rien. » Bastien ne lui a fait aucune leçon de morale. Il est passé le lendemain avec une soupe maison, et ils se sont assis sur le balcon, encore dans la brume du matin.',
           'C’est Bastien qui a dit : « Tu devrais peut-être consulter, non ? C’est peut-être plus que de la fatigue. » Hugo s’est senti gêné, et il a accepté quand même. Il a pris rendez-vous chez son médecin traitant, qui lui a posé des questions sur son sommeil, son alimentation et depuis combien de temps ça durait. Le médecin l’a orienté vers un psychiatre, et Hugo a commencé un traitement et un suivi avec une psychologue.',
           'Le soulagement est venu lentement. Au bout de quelques semaines, il a remarqué qu’il se levait plus facilement. Le café avait de nouveau du goût. Il a ri à une vidéo dans le groupe et ça l’a surpris lui-même.',
-          'En attendant que le traitement fasse effet, il a fait de petites choses. Une marche chaque matin, même dix minutes, le long des quais de l’Isère, près de chez lui. Un vrai repas par jour, même simple. Un message dans le groupe, même juste un pouce levé.',
+          'En attendant que le traitement fasse effet, il a fait de petites choses. Chaque matin, il marchait au moins dix minutes le long des quais de l’Isère, près de chez lui. Il prenait un vrai repas par jour, même simple, et envoyait un message dans le groupe, même juste un pouce levé.',
           'Chaque samedi, Bastien envoyait : « On va marcher ? » Parfois Hugo disait oui, parfois non. Bastien redemandait chaque semaine, et c’est comme ça qu’Hugo a su que quelqu’un l’attendait.',
           'Il priait aussi, même brièvement. Certains jours, toute sa prière tenait en une phrase : « Seigneur, je n’ai envie de rien. Reste avec moi, s’il te plaît. » Il a lu Psaumes 42:12, où celui qui écrit parle à sa propre âme, et il a senti que Dieu connaît ce genre de poids.',
           'Il a aussi demandé à deux clients des délais plus longs. Les deux ont accepté, et l’un d’eux lui a même écrit une semaine plus tard pour prendre de ses nouvelles.',
@@ -335,7 +335,7 @@ export const frStories2: Story[] = [
           'Aujourd’hui, choisis une chose : sortir dix minutes, manger un vrai repas, ou écrire à quelqu’un ce que tu ressens vraiment. Et si quelqu’un de ta bande se fait discret depuis quelques semaines, écris-lui aussi. Parfois, un simple « Ça va, vraiment ? » suffit pour qu’une personne commence à parler.',
           'Si ça dure depuis deux semaines ou plus, ou si travailler, étudier ou prendre soin de toi devient difficile, parles-en à ton médecin ou à un psychologue. C’est une étape normale, et se faire aider, ça marche.',
           'Si tu penses à mettre fin à ta vie, appelle le 3114, le numéro national de prévention du suicide, gratuit, 24h/24 et 7j/7 : des professionnels formés te répondent. En cas de danger immédiat, appelle le 112 (ou le 15).',
-          'Si tu veux commencer quelque part aujourd’hui, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Lis [quand la déprime s’installe](/i-feel-depressed) pour savoir quoi faire ensuite.',
+          'Si tu veux commencer quelque part aujourd’hui, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Lis la page [Je déprime](/i-feel-depressed) pour savoir quoi faire ensuite.',
         ],
       },
     ],
@@ -408,11 +408,11 @@ export const frStories2: Story[] = [
         heading: 'Comment Margaux a aidé son amie en dépression',
         paragraphs: [
           'Le samedi, Margaux est arrivée avec deux cafés glacés et aucun plan. Elles se sont assises sur le lit de Sarah et ont regardé la moitié d’un film. Puis Margaux a mis sur pause : « J’ai remarqué que tu avais l’air d’aller mal ces derniers temps. Comment tu vas, vraiment ? »',
-          'Sarah est restée silencieuse longtemps. Puis elle s’est mise à pleurer, et à parler. Du travail, de ce vide qu’elle ressentait, du sommeil qui ne venait plus, de l’impression que plus rien n’avait de sens. Margaux a surtout écouté. Elle a dit « Ça a l’air vraiment dur » plus d’une fois, et elle a laissé les silences exister.',
+          'Sarah est restée silencieuse longtemps. Puis elle s’est mise à pleurer, et à parler : du travail, de ce vide qu’elle ressentait, du sommeil qui ne venait plus, de l’impression que plus rien n’avait de sens. Margaux a surtout écouté. Elle a dit « Ça a l’air vraiment dur » plus d’une fois, et elle a laissé les silences exister.',
           'Ensuite, Margaux a posé la question qui lui faisait le plus peur, aussi calmement qu’elle le pouvait : « Sarah, est-ce que tu penses à mettre fin à ta vie ? » Sarah a regardé ses mains : « Des fois, je voudrais ne pas me réveiller. » Le cœur de Margaux battait fort, et elle a gardé une voix posée. « Merci de me l’avoir dit. Je reste avec toi, et on va chercher de l’aide ensemble. »',
           'Elles ont appelé le 3114 ensemble, sur haut-parleur, et Margaux tenait la main de Sarah. La personne au bout du fil était calme et bienveillante. Elle a parlé avec Sarah, l’a aidée à réfléchir aux prochains jours et l’a encouragée à voir un professionnel rapidement. Margaux est restée dormir chez elle.',
           'La semaine suivante, Margaux a aidé Sarah à prendre rendez-vous chez une psychiatre et l’a accompagnée au premier rendez-vous. Avec l’accord de Sarah, elle a aussi prévenu sa grande sœur, pour que plus d’une personne prenne de ses nouvelles.',
-          'Margaux a continué d’être là. Un message tous les deux ou trois jours : « Je pense à toi. On mange ensemble ? » Une balade après le culte. Parfois Sarah disait non, et Margaux la réinvitait la semaine suivante. Des mois plus tard, Sarah lui a dit : « Ce samedi-là, tu es venue quand je n’arrivais pas à demander. »',
+          'Margaux a continué d’être là. Elle envoyait un message tous les deux ou trois jours : « Je pense à toi. On mange ensemble ? » Elle proposait une balade après le culte. Parfois Sarah disait non, et Margaux la réinvitait la semaine suivante. Des mois plus tard, Sarah lui a dit : « Ce samedi-là, tu es venue quand je n’arrivais pas à demander. »',
           'Aider pesait lourd pour Margaux aussi. Elle en a parlé à la responsable de son groupe de maison, et elles ont prié ensemble pour Sarah. Psaumes 34:19 est devenu le verset que Margaux priait pour son amie.',
         ],
         pullQuote:
@@ -425,8 +425,8 @@ export const frStories2: Story[] = [
           'Si quelqu’un que tu aimes ne donne plus de nouvelles, des mots simples suffisent. Va le voir, dis ce que tu as remarqué, et écoute plus que tu ne parles.',
           'Évite les solutions toutes faites comme « pense positif » ou « il y a pire ailleurs ». Continue d’inviter cette personne, même quand elle dit non. Si tu t’inquiètes, demande-lui directement et calmement si elle pense à mettre fin à sa vie. Si elle répond oui, reste avec elle et cherche de l’aide avec elle.',
           'Si tu penses à mettre fin à ta vie, appelle le 3114, le numéro national de prévention du suicide, gratuit, 24h/24 et 7j/7 : des professionnels formés te répondent. En cas de danger immédiat, appelle le 112 (ou le 15). Tu peux aussi passer cet appel avec quelqu’un de confiance à tes côtés, comme Margaux et Sarah.',
-          'Si cette baisse de moral dure depuis plus de deux semaines, encourage doucement la personne à voir un médecin ou un psychologue, et propose de l’aider à prendre rendez-vous ou de l’accompagner. Prends soin de toi aussi. Soutenir quelqu’un peut être lourd, alors parles-en à une personne de confiance.',
-          'Si tu veux un point de départ, [HopeBegins](/) est gratuit, pour la personne qui t’inquiète comme pour toi. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Pour savoir quels mots aident, lis [que dire à un ami déprimé](/what-to-say-to-a-depressed-friend).',
+          'Si cette baisse de moral dure depuis plus de deux semaines, encourage la personne, sans la brusquer, à voir un médecin ou un psychologue, et propose de l’aider à prendre rendez-vous ou de l’accompagner. Pense à toi aussi : soutenir quelqu’un peut être lourd, alors parles-en à une personne de confiance.',
+          'Si tu veux un point de départ, [HopeBegins](/) est gratuit, pour la personne qui t’inquiète comme pour toi. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Pour savoir quels mots aident, lis [Que dire à un ami en dépression](/what-to-say-to-a-depressed-friend).',
         ],
       },
     ],
@@ -444,7 +444,7 @@ export const frStories2: Story[] = [
     faq: [
       {
         q: 'Comment aider un ami en dépression ?',
-        a: 'Sois là, dis-lui ce que tu as remarqué et écoute sans chercher à tout régler. Continue de prendre de ses nouvelles, et encourage-le doucement à voir un médecin ou un psychologue, en proposant de l’aider à prendre rendez-vous.',
+        a: 'Sois là, dis-lui ce que tu as remarqué et écoute sans chercher à tout régler. Continue de prendre de ses nouvelles, et encourage-le à voir un médecin ou un psychologue, sans le brusquer, en proposant de l’aider à prendre rendez-vous.',
       },
       {
         q: 'Faut-il demander à un ami s’il pense au suicide ?',
@@ -479,7 +479,7 @@ export const frStories2: Story[] = [
         paragraphs: [
           'Mickaël était chauffeur-livreur à son compte, en banlieue parisienne. Il se levait à quatre heures pour être au dépôt avant le chargement des camionnettes. Ces derniers mois, il avait une nouvelle peur, plus lourde que les bouchons du périphérique : son téléphone.',
           'Ça a commencé petit. L’argent a manqué quand leur plus jeune est tombé malade et que sa femme a dû s’arrêter de travailler plusieurs semaines pour rester avec lui. Mickaël a pris un mini-crédit en ligne. Quand il n’a pas pu rembourser à temps, il a ouvert un crédit renouvelable pour payer le premier. Puis il a emprunté à son meilleur ami. Puis il a payé les courses en quatre fois.',
-          'Il n’avait rien gaspillé. Les médicaments, la facture d’électricité, la rentrée de l’aînée. Chaque emprunt avait une raison, et chaque raison comptait.',
+          'Il n’avait rien gaspillé. Tout était passé dans les médicaments, la facture d’électricité, la rentrée de l’aînée. Chaque emprunt avait une raison, et chaque raison comptait.',
           'En septembre, chaque vibration du téléphone pendant qu’il conduisait lui faisait l’effet d’un coup de poing dans la poitrine. « Rappel : échéance impayée. » Certains jours, une société de recouvrement appelait plusieurs fois de suite.',
           'Il n’en a parlé à personne, même pas à Sandra, sa femme. Chaque fin de semaine, il versait sur le compte commun moins que d’habitude, parce qu’il remboursait des échéances en cachette. « C’est calme en ce moment », disait-il.',
         ],
@@ -491,9 +491,9 @@ export const frStories2: Story[] = [
         heading: 'Pourquoi le stress des dettes pèse si lourd',
         paragraphs: [
           'Pour Mickaël, chaque euro de dette venait avec de la honte. Il se voyait comme celui qui fait vivre la famille, et il avait l’impression d’avoir échoué.',
-          'Comme il cachait tout, il portait tout seul. Il ne dormait plus. Sa nuque lui faisait mal. Il s’énervait contre les enfants. Au volant, les chiffres tournaient en boucle dans sa tête, et une fois, il a failli griller un feu rouge.',
+          'Comme il cachait tout, il portait tout seul. Il ne dormait plus, sa nuque lui faisait mal, et il s’énervait contre les enfants. Au volant, les chiffres tournaient en boucle dans sa tête, et une fois, il a failli griller un feu rouge.',
           'Son corps le sentait aussi. Il était fatigué avant même sa première livraison. Il avait perdu l’appétit, et dès qu’une journée rapportait un peu plus, sa première pensée allait à la dette que cet argent servirait à payer.',
-          'Emprunter pour rembourser d’autres crédits, c’est creuser un nouveau trou pour boucher l’ancien. Le trou ne fait que grandir. Et chaque nouveau crédit apporte une nouvelle peur.',
+          'Emprunter pour rembourser d’autres crédits, c’est creuser un nouveau trou pour boucher l’ancien. Le trou ne fait que grandir, et chaque nouveau crédit apporte une nouvelle peur.',
           'Le plus lourd, c’était l’impression de n’avoir personne vers qui se tourner. « C’est mon problème, se disait-il. C’est moi qui ai fait ça, c’est à moi de réparer. »',
         ],
       },
@@ -506,7 +506,7 @@ export const frStories2: Story[] = [
           'Ils ont aussi regardé quelles dettes avaient les taux les plus élevés et quels créanciers relançaient le plus. C’est par là qu’ils ont commencé. Impossible de tout régler d’un coup, alors ils se sont mis d’accord sur celles à traiter chaque semaine.',
           'Un par un, ils ont contacté les créanciers. Mickaël a appelé son meilleur ami pour lui demander un peu plus de temps. Avec les autres, ils ont négocié des échéanciers adaptés à ses revenus. Certains ont dit non, la plupart ont dit oui. Et ils ont pris une décision à deux : plus aucun nouveau crédit pour en rembourser un ancien.',
           'Une société de recouvrement continuait d’envoyer des messages menaçants. Mickaël a arrêté de répondre aux appels agressifs. Il payait ce qui avait été convenu, et Sandra et lui lisaient les messages ensemble, pour que ni l’un ni l’autre n’affronte la peur seul.',
-          'Ils ont aussi changé leurs dépenses à la maison. La gamelle préparée la veille au lieu du sandwich acheté en route, et une vieille boîte à biscuits pour l’épargne, même deux euros par jour.',
+          'Ils ont aussi changé leurs dépenses à la maison. Mickaël emportait une gamelle préparée la veille au lieu d’acheter un sandwich en route, et ils mettaient de l’argent de côté dans une vieille boîte à biscuits, même deux euros par jour.',
           'Mickaël en a aussi parlé aux autres chauffeurs, au dépôt, pendant le chargement du matin. Il pensait qu’ils allaient se moquer de lui. Deux d’entre eux ont avoué qu’ils avaient eux aussi des crédits en ligne sur le dos. Depuis, ils prennent des nouvelles les uns des autres en attendant leurs colis.',
           'Et il priait, dans la camionnette, avant chaque tournée. 1 Pierre 5:7 est devenu sa prière : chaque matin, il déposait ses soucis devant Dieu. Ils ont encore des dettes aujourd’hui, et Mickaël les porte plus légèrement. Il dort de nouveau ses nuits, et il ne sursaute plus à chaque vibration.',
         ],
@@ -519,7 +519,7 @@ export const frStories2: Story[] = [
           'Si tu lis ces lignes avec des messages que tu n’oses pas ouvrir, commence par respirer. Beaucoup de familles vivent avec des dettes, et on peut y faire face, une étape à la fois.',
           'Aujourd’hui, parles-en à une personne de confiance. Puis note toutes tes dettes sur une feuille. Un problème est plus facile à affronter quand on le voit en entier. Si tu as un conjoint ou quelqu’un avec qui tu vis, mets cette personne dans la confidence. La charge est plus légère quand on est deux ou trois à la porter.',
           'Si tu dors mal depuis des semaines, si l’angoisse ne te lâche plus ou si tout te semble sans issue, parles-en à ton médecin ou à un psychologue. C’est une étape normale, et ça peut t’aider à y voir plus clair.',
-          'Si tu veux commencer quelque part aujourd’hui, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour calmer l’inquiétude, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Si l’angoisse monte maintenant, essaie [comment calmer l’angoisse](/how-to-calm-anxiety).',
+          'Si tu veux commencer quelque part aujourd’hui, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour calmer l’inquiétude, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Si l’angoisse monte maintenant, essaie la page [Comment calmer son anxiété](/how-to-calm-anxiety).',
         ],
       },
     ],
@@ -584,7 +584,7 @@ export const frStories2: Story[] = [
         heading:
           'Pourquoi repartir de zéro semble impossible après une grosse perte',
         paragraphs: [
-          'Perdre les claires, c’était dur. Ce qui a suivi l’était encore plus. Frédéric avait toujours su qui il était : celui qui travaille, celui qui fait vivre la maison, celui qu’on appelle quand une digue cède chez le voisin. Assis devant la porte, il ne savait plus qui c’était.',
+          'Perdre les claires, c’était dur. Ce qui a suivi l’était encore plus. Frédéric avait toujours su qui il était : celui qui travaille et fait vivre la maison, celui qu’on appelle quand une digue cède chez le voisin. Assis devant la porte, il ne savait plus qui c’était.',
           'Il ne répondait plus aux messages de ses copains. Il s’est emporté contre son fils pour une assiette cassée. La nuit, éveillé, il refaisait les comptes : la dette, les études des enfants, le prix des jeunes huîtres, les années avant de pouvoir vendre. Dans tous les sens, les chiffres disaient qu’il avait perdu vingt ans en une nuit.',
           'Virginie le voyait. « Mange un peu », disait-elle en poussant une assiette vers lui. Il mangeait un peu et retournait à sa chaise. Quand elle lui demandait à quoi il pensait, il répondait : « À rien. » En vérité, il avait l’impression d’avoir tout raté, et il ne savait pas comment le dire à voix haute.',
           'Pour Frédéric, repartir voulait dire tout récupérer d’un coup : les claires, l’argent, ses forces, sa place. Comme il ne pouvait pas tout faire, il ne faisait rien.',
@@ -597,7 +597,7 @@ export const frStories2: Story[] = [
         paragraphs: [
           'Le déclic est venu de son vieil ami Gérard, qui est passé un matin avec des croissants et s’est assis sur la chaise d’à côté sans rien demander. Ils ont parlé du temps et du prix du gasoil. Puis Gérard a dit : « Et toi, comment tu vas, vraiment ? », et il a attendu.',
           'Frédéric s’est surpris lui-même. Il lui a parlé des comptes de la nuit, de la honte, de l’impression d’avoir laissé tomber sa famille. Gérard a hoché la tête. « Moi aussi, quand mon bateau a brûlé. Il m’a fallu un an pour m’en remettre. » Pour la première fois, Frédéric a senti que ce qu’il traversait avait une forme, et une fin.',
-          'Gérard lui a demandé de venir l’aider sur son chaland quelques matins par semaine, à retourner les poches et à tenir la barre. Ça ne payait pas beaucoup. Ça le sortait de sa chaise avant l’aube et le mettait sur l’eau au lever du soleil. Pour la première fois depuis des mois, il rentrait avec la bonne fatigue.',
+          'Gérard lui a demandé de venir l’aider sur son chaland quelques matins par semaine, à retourner les poches et à tenir la barre. Ça ne payait pas beaucoup, mais ça le sortait de sa chaise avant l’aube et le mettait sur l’eau au lever du soleil. Pour la première fois depuis des mois, il rentrait avec la bonne fatigue.',
           'Quand il était petit, sa mère aimait citer Lamentations 3:22-23 au petit-déjeuner. Sur l’eau, à l’aube, il a enfin compris pourquoi elle l’aimait tant.',
           'Un dimanche soir, Virginie et lui ont tout écrit sur une seule feuille : ce qu’ils devaient, ce qui rentrait, ce qui pouvait attendre. Écrit noir sur blanc, c’était plus petit que la version qu’il avait dans la tête. Ils sont allés ensemble voir leur conseiller à la banque, ont demandé un report d’échéances et l’ont obtenu.',
         ],
@@ -607,7 +607,7 @@ export const frStories2: Story[] = [
         heading:
           'Comment repartir de zéro quand on ne peut pas tout faire d’un coup',
         paragraphs: [
-          'Au lieu d’un grand plan, Frédéric a fait une petite liste, du genre que comprend un homme qui travaille de ses mains. Remonter dix mètres de digue cette semaine. Sortir avec Gérard trois matins. Prendre le petit-déjeuner avec les enfants. Prier avant de dormir, même une seule phrase.',
+          'Au lieu d’un grand plan, Frédéric a fait une petite liste, du genre que comprend un homme qui travaille de ses mains : remonter dix mètres de digue cette semaine, sortir avec Gérard trois matins, prendre le petit-déjeuner avec les enfants, et prier avant de dormir, même une seule phrase.',
           'Certaines semaines, il faisait tout. D’autres, une seule chose. Virginie lui a appris à compter cette seule chose comme une victoire.',
           'Il est retourné à l’église, aussi. Après le culte, le pasteur a posé une main sur son épaule : « On va prier pour toi. » Le samedi suivant, quelques hommes de l’église sont venus l’aider à remonter une partie de la digue.',
           'Comme les nuits blanches continuaient, Virginie l’a poussé à retourner chez le médecin, cette fois pour l’inquiétude et le moral en berne. Le médecin l’a écouté, lui a posé des questions sur son sommeil et sur l’alcool, et l’a orienté vers une psychologue qui consultait deux fois par mois dans la commune voisine. Frédéric y est allé pour faire plaisir à Virginie. Il a continué parce que ça l’aidait.',
@@ -621,9 +621,9 @@ export const frStories2: Story[] = [
         heading: 'Si toi aussi, tu dois repartir de zéro',
         paragraphs: [
           'Ta tempête avait peut-être une autre forme : une entreprise qui a fermé, une relation qui s’est terminée, une année qui a pris plus qu’elle n’a donné. Repartir peut donner l’impression qu’il faut tout reconstruire avant d’avoir le droit d’aller mieux.',
-          'Tu peux commencer plus petit que ça. Choisis une chose faisable cette semaine, de la taille de dix mètres de digue. Dis la vérité sur ton état à une personne. Note ce que tu dois et ce que tu as, pour que ça vive sur le papier au lieu de grossir dans ta tête.',
+          'Tu peux commencer plus petit que ça. Choisis une chose faisable cette semaine, de la taille de dix mètres de digue. Dis à une personne comment tu vas vraiment, et note ce que tu dois et ce que tu as, pour que ça vive sur le papier au lieu de grossir dans ta tête.',
           'Si ce poids dure plus de deux semaines, ou si tu n’arrives plus à dormir, à manger ou à tenir la journée, parles-en à ton médecin ou à un psychologue. C’est une étape normale, et ça a aidé Frédéric bien plus qu’il ne l’imaginait.',
-          'Si tu veux de l’aide pour commencer aujourd’hui, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Si tu as l’impression d’avoir perdu ton cap, [quand on ne sait plus où aller](/i-feel-lost) est un bon point de départ.',
+          'Si tu veux de l’aide pour commencer aujourd’hui, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Si tu as l’impression d’avoir perdu ton cap, la page [Je ne sais plus où j’en suis](/i-feel-lost) est un bon point de départ.',
         ],
       },
     ],
@@ -677,7 +677,7 @@ export const frStories2: Story[] = [
         paragraphs: [
           'Thierry tient un petit garage près de Limoges depuis presque trente ans. Des utilitaires, des voitures de famille, et de temps en temps une vieille 205 qu’un petit-fils refuse de vendre parce que c’était celle du grand-père. Si ça a un moteur, Thierry peut te dire ce qui cloche rien qu’au bruit.',
           'Son père était mécanicien, lui aussi, et lui avait appris deux choses : écouter un moteur, et qu’un homme ne se plaint pas. « T’es un homme. Serre les dents. » Quand son père est mort, Thierry n’a pas pleuré à l’enterrement. Le lendemain, il était de retour à l’atelier.',
-          'L’an dernier, les choses ont commencé à lui échapper. Son aîné est parti vivre à Montréal. Sa femme, Sylvie, a eu une alerte de santé. Le travail a ralenti quand un grand centre auto s’est installé dans la zone commerciale. Thierry n’en a parlé à personne. Il est juste devenu plus silencieux, et plus sec avec tout le monde.',
+          'L’an dernier, les choses ont commencé à lui échapper : son aîné est parti vivre à Montréal, sa femme, Sylvie, a eu une alerte de santé, et le travail a ralenti quand un grand centre auto s’est installé dans la zone commerciale. Thierry n’en a parlé à personne. Il est juste devenu plus silencieux, et plus sec avec tout le monde.',
           'Il dormait quatre heures par nuit. Les deux bières après le travail sont devenues quatre. Un après-midi, il a crié sur son apprenti pour une clé tombée par terre, puis il est allé s’asseoir au fond de l’atelier, la tête entre les mains, sans savoir pourquoi il était si en colère.',
         ],
         pullQuote:
@@ -699,8 +699,8 @@ export const frStories2: Story[] = [
         heading: 'La question autour de la table',
         paragraphs: [
           'Chaque vendredi soir, son ami Pascal passait au garage après la fermeture. Ils s’asseyaient à la table pliante devant l’atelier, avec un saucisson, et parlaient de foot. Ce vendredi-là, Pascal n’a pas parlé de foot.',
-          '« Dis donc, ça va vraiment, toi ? T’es plus le même ces temps-ci. » Thierry a dit que ça allait. Pascal n’a pas lâché. « Parce que moi, l’an dernier, ça n’allait pas. Je suis allé voir quelqu’un. Je croyais que ça voulait dire que j’étais faible, et ça m’a aidé. »',
-          'Thierry connaissait Pascal depuis vingt ans et ne l’avait jamais entendu dire une chose pareille. Quelque chose s’est desserré dans sa poitrine. Il a commencé à parler, lentement d’abord. De son fils parti. De Sylvie. Du garage. Des nuits passées éveillé, avec l’impression d’échouer dans le seul rôle qu’il avait.',
+          '« Dis donc, ça va vraiment, toi ? T’es plus le même ces temps-ci. » Thierry a dit que ça allait. Pascal n’a pas lâché. « Parce que moi, l’an dernier, ça n’allait pas. Je suis allé voir quelqu’un. Je croyais que ça voulait dire que j’étais faible, mais ça m’a aidé. »',
+          'Thierry connaissait Pascal depuis vingt ans et ne l’avait jamais entendu dire une chose pareille. Quelque chose s’est desserré dans sa poitrine. Il a commencé à parler, lentement d’abord : de son fils parti, de Sylvie, du garage, des nuits passées éveillé avec l’impression d’échouer dans le seul rôle qu’il avait.',
           'Pascal a juste écouté. Quand Thierry n’a plus trouvé de mots, Pascal a dit : « T’as bien fait de me le dire. Je vais t’aider. »',
         ],
         pullQuote:
@@ -722,10 +722,10 @@ export const frStories2: Story[] = [
         heading: 'Si c’est toi, le pilier de ta famille',
         paragraphs: [
           'Si tu es un homme et que tu lis ces lignes, tu te reconnais peut-être un peu dans Thierry : les nerfs à vif, les verres en plus, les nuits blanches, l’impression que personne ne voit que tu galères. En parler est l’une des choses les plus courageuses que tu puisses faire pour ta famille.',
-          'Commence par une personne. Un ami, ta femme, un frère, un pasteur. Tu peux le dire comme Thierry : « Ça ne va pas, depuis quelques mois. » Cette seule phrase ouvre une porte.',
+          'Commence par une personne : un ami, ta femme, un frère, un pasteur. Tu peux le dire comme Thierry : « Ça ne va pas, depuis quelques mois. » Cette seule phrase ouvre une porte.',
           'Si tu as le moral à plat, les nerfs à vif ou un sommeil en miettes depuis plus de deux semaines, ou si tu bois plus pour tenir, parles-en à ton médecin ou à un psychologue. C’est une étape normale, comme amener une voiture au garage dès qu’elle fait un drôle de bruit.',
           'Si tu t’inquiètes pour un homme de ton entourage, sois son Pascal. Assieds-toi avec lui, pose la question deux fois, et écoute.',
-          'Si tu préfères commencer quelque part en toute discrétion, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Si l’histoire de Thierry ressemble à la tienne, [quand la déprime s’installe](/i-feel-depressed) est un bon point de départ.',
+          'Si tu préfères commencer quelque part en toute discrétion, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Si l’histoire de Thierry ressemble à la tienne, la page [Je déprime](/i-feel-depressed) est un bon point de départ.',
         ],
       },
     ],
@@ -793,7 +793,7 @@ export const frStories2: Story[] = [
           'Dès que des nuages noirs arrivaient, la poitrine de Karine se serrait. Pendant les grosses pluies, elle ne tenait pas en place. Elle vérifiait le niveau de la rivière sur son téléphone toutes les dix minutes, toute la nuit. Elle gardait des sacs prêts près de la porte, même en plein été.',
           'Son corps était encore en alerte depuis cette nuit-là. Ça peut arriver après un événement effrayant, surtout quand il peut se reproduire. La peur réagit au bruit de la pluie comme elle a réagi à l’eau dans l’escalier.',
           'Les enfants le ressentaient aussi. Jade, neuf ans, a commencé à dormir dans le lit de sa mère chaque fois qu’il pleuvait. Lucas, treize ans, se mettait en colère et refusait d’en parler. Karine culpabilisait. C’était elle qui était censée rester calme.',
-          'Elle avait aussi l’impression de ne pas avoir le droit d’être secouée. Certaines familles de sa rue avaient perdu bien plus. « Nous, on s’en est bien sortis », répétait-elle, et elle ravalait sa peur. Elle revenait à chaque alerte météo.',
+          'Elle avait aussi l’impression de ne pas avoir le droit d’être secouée. Certaines familles de sa rue avaient perdu bien plus. « Nous, on s’en est bien sortis », répétait-elle, et elle ravalait sa peur. La peur revenait à chaque alerte météo.',
         ],
       },
       {
@@ -801,8 +801,8 @@ export const frStories2: Story[] = [
         heading: 'Ce qui a aidé Karine à ne plus avoir peur de la pluie',
         paragraphs: [
           'La première chose qui a aidé, c’était un plan. Sa voisine et amie, Martine, s’est assise avec elle et elles ont écrit précisément ce que Karine et les enfants feraient si l’eau remontait : quand monter les affaires, où aller, qui appeler, quoi mettre dans le sac d’urgence. Elles ont collé la liste sur le frigo. Quand il pleuvait, Karine pouvait la regarder et savoir qu’elle était prête.',
-          'La deuxième, une limite aux vérifications. Pendant un orage, elle regardait le niveau de la rivière une fois par heure, et laissait le téléphone dans la cuisine entre deux. La première nuit a été difficile. Au troisième orage, c’était plus facile.',
-          'La troisième, respirer avec les enfants. Quand la pluie devenait forte, ils s’asseyaient tous les trois et respiraient ensemble : inspirer sur 4 temps, expirer sur 6, en comptant à voix haute. Jade adorait compter. Lucas levait les yeux au ciel, puis il le faisait quand même.',
+          'La deuxième, c’était de limiter les vérifications. Pendant un orage, elle regardait le niveau de la rivière une fois par heure, et laissait le téléphone dans la cuisine entre deux. La première nuit a été difficile. Au troisième orage, c’était plus facile.',
+          'La troisième, c’était de respirer avec les enfants. Quand la pluie devenait forte, ils s’asseyaient tous les trois et respiraient ensemble : inspirer sur 4 temps, expirer sur 6, en comptant à voix haute. Jade adorait compter. Lucas levait les yeux au ciel, puis il le faisait quand même.',
           'Elle a laissé les enfants parler de cette nuit-là. À table, elle a demandé à chacun : « De quoi tu te souviens le plus ? » Jade se souvenait de la lampe de poche. Lucas se souvenait d’avoir eu peur que sa mère soit blessée. Karine leur a dit qu’elle aussi avait eu peur, et qu’ils s’en étaient sortis ensemble. Le dire à voix haute a rendu tout ça plus petit, pour tous les trois.',
           'Leur pasteur est passé prier avec eux avant la saison des grosses pluies d’automne. Ésaïe 41:10 a été accroché au mur de l’escalier, à la marche exacte où l’eau s’était arrêtée.',
           'Comme la peur restait forte au bout de quelques mois, Karine en a parlé à son médecin traitant. Il lui a dit que ce qu’elle ressentait était fréquent après une catastrophe, et l’a orientée vers une psychologue, qui les a aidés, elle et Lucas.',
@@ -817,7 +817,7 @@ export const frStories2: Story[] = [
           'Si tu as vécu une inondation, une tempête ou un incendie, c’est logique que ton corps réagisse quand le ciel s’assombrit. Ta peur essaie de te protéger. Elle n’a pas encore compris qu’aujourd’hui est un autre jour.',
           'Commence par ce que tu peux maîtriser. Écris un plan familial et mets-le là où tout le monde peut le voir. Prépare le sac d’urgence une fois, puis laisse-le tranquille. Fixe des heures pour regarder les infos pendant un orage. Inspire sur 4 temps et expire sur 6, avec tes enfants s’ils ont peur eux aussi.',
           'Si la peur reste forte des semaines après une catastrophe, si tu n’arrives plus à dormir, si tu revis sans cesse cette nuit-là ou si tu évites de sortir quand il pleut, parles-en à ton médecin ou à un psychologue. C’est une étape normale, et ça aide les enfants autant que les adultes.',
-          'Si tu veux de l’aide aujourd’hui, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. La page [comment calmer l’angoisse](/how-to-calm-anxiety) propose un exercice de respiration à faire en famille quand la pluie devient forte.',
+          'Si tu veux de l’aide aujourd’hui, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. La page [Comment calmer son anxiété](/how-to-calm-anxiety) propose un exercice de respiration à faire en famille quand la pluie devient forte.',
         ],
       },
     ],
@@ -871,7 +871,7 @@ export const frStories2: Story[] = [
         heading: 'Bien au travail, vide à la maison',
         paragraphs: [
           'Maxime était chef d’équipe de nuit dans un centre de tri de colis, près de Lille. Son équipe l’aimait bien. Il se souvenait des anniversaires, remplaçait les collègues au pied levé et avait toujours une blague prête pendant les nuits difficiles. Personne n’aurait deviné ce qu’il ressentait en rentrant chez lui.',
-          'Ça s’est installé sur une année. Une rupture. La maladie de son père, resté dans les Ardennes. Une promotion qui venait avec plus d’heures et moins de sommeil. Il a arrêté d’aller déjeuner chez son frère le dimanche. Il a arrêté de répondre dans le groupe de discussion. Il rentrait à sept heures du matin, fermait les rideaux et restait au lit avec son téléphone, trop fatigué pour dormir et trop fatigué pour se lever.',
+          'Ça s’est installé sur une année : une rupture, la maladie de son père, resté dans les Ardennes, puis une promotion qui venait avec plus d’heures et moins de sommeil. Il a arrêté d’aller déjeuner chez son frère le dimanche. Il a arrêté de répondre dans le groupe de discussion. Il rentrait à sept heures du matin, fermait les rideaux et restait au lit avec son téléphone, trop fatigué pour dormir et trop fatigué pour se lever.',
           'Quelque part dans ces mois-là, une pensée a commencé à revenir : il ne voulait plus se réveiller. Il voulait que tout s’arrête.',
           'Ça lui a fait peur. Il n’en a parlé à personne, parce qu’il ne savait pas comment le dire, et parce que c’était sur lui que les autres s’appuyaient.',
         ],
@@ -901,7 +901,7 @@ export const frStories2: Story[] = [
         kind: 'helped',
         heading: 'Ce qui a aidé Maxime à retrouver l’espoir',
         paragraphs: [
-          'Aller mieux a pris du temps, avec des hauts et des bas. Ça a commencé par un médecin, qui a tout écouté et lui a prescrit un traitement. Puis une psychologue, une fois par semaine, qui l’a aidé à démêler l’année qu’il venait de vivre et à trouver des mots pour ce qu’il ressentait.',
+          'Aller mieux a pris du temps, avec des hauts et des bas. Ça a commencé par un médecin, qui a tout écouté et lui a prescrit un traitement. Puis il a vu une psychologue, une fois par semaine, qui l’a aidé à démêler l’année qu’il venait de vivre et à trouver des mots pour ce qu’il ressentait.',
           'Sa famille a fait quelques promesses simples. Thomas lui enverrait un message chaque matin, même juste un pouce levé. Sa mère l’appellerait le mercredi. Maxime a accepté de prévenir l’un d’eux chaque fois que les pensées sombres reviendraient. Elles sont revenues quelques fois. Chaque fois qu’il en a parlé, c’est devenu plus facile.',
           'Il est retourné au déjeuner du dimanche, puis, quelques semaines plus tard, au culte avec sa famille. Au début, il ne ressentait pas grand-chose. Il y allait quand même. Un dimanche, le pasteur a lu Psaumes 23:4, et Maxime l’a entendu autrement. Il connaissait cette vallée. Il marchait encore, et quelqu’un marchait avec lui.',
           'Au travail, il a vu le médecin du travail et parlé de ses horaires aux RH. Il est passé en horaires de jour. Il a recommencé à dormir la nuit, la plupart des nuits.',
@@ -915,10 +915,10 @@ export const frStories2: Story[] = [
         heading: 'Si tu as envie de tout abandonner en ce moment',
         paragraphs: [
           'Si tu lis ces lignes parce que tu ressens ce que Maxime ressentait, merci d’être encore là. La douleur que tu ressens est réelle, et l’aide aussi.',
-          'Parles-en à une personne ce soir. Un frère, une sœur, un ami, un parent, un pasteur. Tu peux reprendre les mots de Maxime : « Ça ne va pas. » Si le dire te paraît impossible, écris-le.',
+          'Parles-en à une personne ce soir : un frère, une sœur, un ami, un parent, un pasteur. Tu peux reprendre les mots de Maxime : « Ça ne va pas. » Si le dire te paraît impossible, écris-le.',
           'Si tu penses à mettre fin à ta vie, appelle le 3114, le numéro national de prévention du suicide, gratuit, 24h/24 et 7j/7 : des professionnels formés te répondent. En cas de danger immédiat, appelle le 112 (ou le 15).',
-          'Si tu te sens au plus bas ou vide depuis plus de deux semaines, parles-en à ton médecin ou à un psychologue. C’est une étape normale, et les soins aident.',
-          'Si tu veux plus de soutien aujourd’hui, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. La page [quand la déprime s’installe](/i-feel-depressed) t’en dit plus sur la suite.',
+          'Si tu te sens au plus bas ou vide depuis plus de deux semaines, parles-en à ton médecin ou à un psychologue. C’est une étape normale, et se soigner, ça aide.',
+          'Si tu veux plus de soutien aujourd’hui, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. La page [Je déprime](/i-feel-depressed) t’en dit plus sur la suite.',
         ],
       },
     ],
@@ -927,7 +927,7 @@ export const frStories2: Story[] = [
       steps: [
         'Choisis une personne de confiance : un frère, une sœur, un ami, un parent ou un pasteur.',
         'Envoie une phrase honnête : « Ça ne va pas. On peut parler ? »',
-        'Si tu n’arrives à joindre personne, appelle le 3114. Il répond 24h/24 et 7j/7.',
+        'Si tu n’arrives à joindre personne, appelle le 3114. On y répond 24h/24 et 7j/7.',
         'Demain, demande à cette personne de t’aider à prendre rendez-vous avec un médecin ou un psychologue.',
       ],
     },
@@ -998,7 +998,7 @@ export const frStories2: Story[] = [
           'Christelle n’a pas cherché à la contredire. Elle lui a dit : « Moi, des fois, c’est une seule phrase. “Seigneur Jésus, aide-moi.” Et ça suffit. »',
           'Le lendemain matin, dans le tram, Émilie a essayé. Coincée entre un étudiant et un ouvrier en tenue de chantier, elle a regardé par la fenêtre et a dit dans sa tête : « Seigneur, j’ai peur pour l’argent. Aide-moi aujourd’hui. » C’était toute la prière. Ça a pris cinq secondes.',
           'Elle a recommencé sur le trajet du retour : « Merci, Seigneur, la journée s’est bien passée. » Et encore à trois heures du matin : « Seigneur, tiens-moi. »',
-          'Au fil des semaines, le tram est devenu son lieu de prière. Elle a commencé à prier pour ce qu’elle voyait : les collégiens avec leurs sacs, le conducteur, la femme qui pleurait doucement au fond de la rame. Ses prières étaient courtes et honnêtes, et pour la première fois depuis des mois, elles lui ressemblaient.',
+          'Au fil des semaines, le tram est devenu son lieu de prière. Elle a commencé à prier pour ce qu’elle voyait : les collégiens avec leurs sacs, le conducteur, la femme qui pleurait en silence au fond de la rame. Ses prières étaient courtes et honnêtes, et pour la première fois depuis des mois, elles lui ressemblaient.',
         ],
         pullQuote:
           'Au fil des semaines, le tram est devenu son lieu de prière.',
@@ -1017,11 +1017,11 @@ export const frStories2: Story[] = [
         kind: 'hope',
         heading: 'Si tu ne trouves plus les mots pour prier',
         paragraphs: [
-          'Si tu priais facilement avant et que tu n’y arrives plus, ta foi n’a rien de cassé. L’angoisse rend le calme difficile. Dieu entend les prières courtes, les prières fatiguées et les prières qui ne sont qu’un soupir.',
-          'Essaie une phrase aujourd’hui. Dis-la dans le tram, aux toilettes, pendant que les pâtes cuisent. « Seigneur, aide-moi. » « Merci, Seigneur. » « Seigneur, j’ai peur. » Chacune est une vraie prière.',
-          'Laisse quelqu’un prier pour toi aussi. Sur [la page de prière](/prayers), tu peux envoyer une demande de prière, et quelqu’un priera pour toi.',
+          'Si tu priais facilement avant et que tu n’y arrives plus, ta foi n’a rien de cassé. L’angoisse rend le calme difficile. Dieu entend aussi les prières courtes et fatiguées, même quand elles ne sont qu’un soupir.',
+          'Essaie une phrase aujourd’hui. Dis-la dans le tram, aux toilettes, pendant que les pâtes cuisent, par exemple : « Seigneur, aide-moi », « Merci, Seigneur » ou « Seigneur, j’ai peur ». Chacune est une vraie prière.',
+          'Laisse quelqu’un prier pour toi aussi. Sur la page [Demandes de prière](/prayers), tu peux envoyer une demande de prière, et quelqu’un priera pour toi.',
           'Si l’angoisse te réveille la nuit depuis plus de deux semaines, ou si elle gêne tes journées, parles-en à ton médecin ou à un psychologue. La foi et de bons soins vont ensemble.',
-          'Si tu veux plus de soutien, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Pour des versets à garder avec toi, va voir [les versets bibliques contre l’angoisse](/bible-verses-for-anxiety).',
+          'Si tu veux plus de soutien, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Pour des versets à garder avec toi, va voir la page [Versets bibliques contre l’anxiété](/bible-verses-for-anxiety).',
         ],
       },
     ],
@@ -1043,7 +1043,7 @@ export const frStories2: Story[] = [
       },
       {
         q: 'Ne plus arriver à prier, est-ce un signe de foi faible ?',
-        a: 'Non. L’angoisse rend le calme difficile, et beaucoup de personnes à la foi solide traversent des périodes où prier semble dur. Les prières courtes comptent, et laisser les autres prier pour toi aussi.',
+        a: 'Non. L’angoisse rend le calme difficile, et beaucoup de personnes à la foi solide traversent des périodes où prier semble dur. Les prières courtes comptent, et tu peux aussi laisser d’autres personnes prier pour toi.',
       },
     ],
     keywords: [
@@ -1073,7 +1073,7 @@ export const frStories2: Story[] = [
         heading: 'Les mois sur pause',
         paragraphs: [
           'Clémence est barista dans un petit café de la vieille ville d’Annecy. Avant, c’était toujours elle qui arrivait la première. Elle ouvrait la boutique, lançait la machine à espresso et saluait les habitués par leur prénom.',
-          'Puis il y a eu l’année où tout est arrivé en même temps. Sa meilleure amie est partie vivre à Paris. Le café a fermé trois mois pour travaux. Ses économies ont fondu. Quand le café a rouvert, elle a repris le travail, et elle avait l’impression d’être devenue une autre personne.',
+          'Puis il y a eu l’année où tout est arrivé en même temps. Sa meilleure amie est partie vivre à Paris, le café a fermé trois mois pour travaux, et ses économies ont fondu. Quand le café a rouvert, elle a repris le travail, et elle avait l’impression d’être devenue une autre personne.',
           'Elle se réveillait à neuf heures, en retard. Un café faisait office de petit-déjeuner. Après son service, elle allait directement au lit et faisait défiler son téléphone jusqu’au milieu de la nuit. Le week-end, elle ne sortait plus. « Je suis juste fatiguée », disait-elle à sa mère en appel vidéo. Elle savait que c’était plus que ça.',
           'Certains jours, elle était triste. Plus souvent, elle ne ressentait rien du tout. Pas de motivation, pas de direction, sa vie sur pause pendant que le monde continuait de tourner dehors.',
         ],
@@ -1084,7 +1084,7 @@ export const frStories2: Story[] = [
         kind: 'struggle',
         heading: 'Pourquoi c’est si dur de se relever',
         paragraphs: [
-          'Le plus dur, pour Clémence, c’est qu’elle connaissait par cœur tous ses « il faut ». Faire du sport. Se coucher tôt. Épargner de nouveau. Appeler ses amis. Retourner à l’église. Chercher un meilleur poste. Quand elle regardait la liste en entier, elle se sentait submergée, et elle finissait par ne rien faire.',
+          'Le plus dur, pour Clémence, c’est qu’elle connaissait par cœur tous ses « il faut » : faire du sport, se coucher tôt, épargner de nouveau, appeler ses amis, retourner à l’église, chercher un meilleur poste. Quand elle regardait la liste en entier, elle se sentait submergée, et elle finissait par ne rien faire.',
           'Ensuite, elle s’en voulait. « Quelle flemmarde. » « J’ai perdu tellement de temps. » Chaque jour où rien ne se passait rendait le suivant plus lourd.',
           'Elle avait honte d’en parler, aussi. Sur les réseaux sociaux, tous ceux qu’elle connaissait semblaient aller bien : nouveaux postes, nouveaux appartements, séjours à l’étranger. Elle, elle n’arrivait toujours pas à sortir de son lit.',
           'C’est fréquent quand on est à l’arrêt depuis longtemps. Quand la tête est fatiguée, même un petit pas ressemble à une montagne. Et si on attend que la motivation revienne avant de bouger, on peut attendre longtemps. Souvent, on bouge d’abord, et la motivation suit.',
@@ -1096,8 +1096,8 @@ export const frStories2: Story[] = [
         heading: 'Comment Clémence s’est relevée : une petite chose',
         paragraphs: [
           'C’est Brigitte, la patronne du café, qui l’a remarqué la première. Un après-midi, pendant le rangement, elle lui a demandé : « Ma belle, ça va vraiment ? Tu as l’air tellement loin ces temps-ci. » Clémence a pleuré au-dessus de l’évier. C’était la première fois qu’elle admettait que ça n’allait pas.',
-          'Brigitte a simplement hoché la tête, puis elle a demandé : « Une petite chose demain. Juste une. Ce serait quoi ? »',
-          'Clémence a réfléchi. Avant, elle adorait les matins à Annecy, le froid et la brume sur le lac. Alors c’est ça qu’elle a choisi : se lever à sept heures, se faire un café, et le boire sur le petit balcon de son studio en regardant les montagnes. Sans téléphone. Juste dix minutes.',
+          'Brigitte a juste hoché la tête, puis elle a demandé : « Une petite chose demain. Juste une. Ce serait quoi ? »',
+          'Clémence a réfléchi. Avant, elle adorait les matins à Annecy, le froid et la brume sur le lac. Alors c’est ça qu’elle a choisi : se lever à sept heures, se faire un café, et le boire sur le petit balcon de son studio en regardant les montagnes, sans téléphone, juste dix minutes.',
           'Le lendemain, elle l’a fait. Il faisait froid et elle était encore à moitié endormie, et elle était là, dehors, sa tasse jaune entre les mains, à regarder la brume se lever lentement sur le lac. C’était simple, et à sept heures du matin, elle avait déjà fait quelque chose.',
         ],
       },
@@ -1108,7 +1108,7 @@ export const frStories2: Story[] = [
           'Après une semaine de café du matin, elle a ajouté une chose : aller au travail à pied au lieu de prendre le bus, quinze minutes le long du lac. Deux semaines plus tard, une autre : appeler sa meilleure amie chaque dimanche soir.',
           'Certains jours, elle ne faisait rien de tout ça. Elle a appris à ne plus compter ces jours-là comme des échecs. Demain, café à nouveau.',
           'Elle est retournée à l’église aussi, dans un petit groupe de jeunes actifs. Au début, elle écoutait seulement. Un soir, quelqu’un a partagé sur Ésaïe 40:31, et Clémence s’est dit qu’elle avait le droit de marcher un moment avant d’essayer de courir.',
-          'Comme son cœur restait lourd pendant des semaines malgré ces petits progrès, elle est allée voir son médecin traitant pour faire le point. Le médecin l’a orientée vers une psychologue. C’est là qu’elle a appris à être plus douce avec elle-même.',
+          'Comme son cœur restait lourd pendant des semaines malgré ces petits progrès, elle est allée voir son médecin traitant pour faire le point. Le médecin l’a orientée vers une psychologue. C’est là qu’elle a appris à se parler moins durement.',
           'Aujourd’hui, six mois plus tard, Clémence est de nouveau la première arrivée au café. Elle a encore des jours difficiles. Chaque matin, il y a une tasse jaune, une montagne, et une petite chose déjà faite avant que la journée commence.',
         ],
         pullQuote:
@@ -1119,10 +1119,10 @@ export const frStories2: Story[] = [
         heading: 'Si toi aussi, tu veux te relever',
         paragraphs: [
           'Si tu te sens à l’arrêt en ce moment, sans motivation et sans savoir par où commencer, vise une seule chose cette semaine.',
-          'Choisis une petite chose pour demain matin. Un café dehors. Une marche de cinq minutes. Un message à un ami. Fais-la, et compte-la comme une victoire. On bouge d’abord, et la motivation suit.',
+          'Choisis une petite chose pour demain matin : un café dehors, une marche de cinq minutes ou un message à un ami. Fais-la, et compte-la comme une victoire. On bouge d’abord, et la motivation suit.',
           'Certains jours, tu n’arriveras même pas à faire cette chose-là. Ça arrive. Réessaie demain. Une journée lourde n’efface pas tes progrès.',
           'Si tu n’as plus de motivation ou si tu as le cœur lourd depuis plus de deux semaines, ou si tenir la journée devient difficile, parles-en à ton médecin ou à un psychologue. C’est une étape normale, et ça aide.',
-          'Si tu veux de l’aide aujourd’hui, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Si tu ne sais pas vers où tu vas, lis [quand on ne sait plus où aller](/i-feel-lost).',
+          'Si tu veux de l’aide aujourd’hui, [HopeBegins](/) est gratuit. Choisis ce que tu ressens et tu reçois une petite chose à essayer aujourd’hui, des outils pour t’apaiser, quelqu’un qui prie pour toi et des lignes d’écoute gratuites pour parler à quelqu’un. Si tu ne sais pas vers où tu vas, lis la page [Je ne sais plus où j’en suis](/i-feel-lost).',
         ],
       },
     ],

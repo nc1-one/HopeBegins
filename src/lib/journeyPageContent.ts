@@ -322,7 +322,7 @@ const INTL_JOURNEY_PAGE_CONTENT: Record<IntlLang, IntlJourneyPageContent> = {
     prayer_section: {
       title: 'Prière guidée',
       description:
-        'Lis chaque étape lentement. Prie avec ces mots, ou lis-les simplement.',
+        'Lis chaque étape lentement. Prie avec ces mots, ou contente-toi de les lire.',
       steps: [
         {
           title: 'Pose-toi',
@@ -375,7 +375,7 @@ const INTL_JOURNEY_PAGE_CONTENT: Record<IntlLang, IntlJourneyPageContent> = {
           icon: 'heart',
         },
         {
-          title: 'Recevoir Daily Hope par e-mail (en anglais)',
+          title: 'Recevoir Daily Hope par e-mail',
           href: '/daily-hope',
           icon: 'mail',
         },
@@ -388,7 +388,7 @@ const INTL_JOURNEY_PAGE_CONTENT: Record<IntlLang, IntlJourneyPageContent> = {
       ],
       home_link_text: 'Retour à l’accueil',
     },
-    crisis_section: { heading: 'Si tu es en crise', contacts: [] },
+    crisis_section: { heading: 'En cas de crise', contacts: [] },
   },
   de: {
     page_title: 'Ein hoffnungsvoller Anfang',

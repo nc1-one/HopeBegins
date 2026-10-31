@@ -381,7 +381,7 @@ const copy: PerLang<Copy> = {
     story: 'Lire une histoire d’espoir',
     ecoach: 'Parler à quelqu’un',
     heavyRun:
-      'Tes derniers bilans ont été lourds. S’il te plaît, parle à quelqu’un cette semaine. Une ligne d’écoute gratuite est là pour toi.',
+      'Tes derniers bilans ont été lourds. S’il te plaît, parle à quelqu’un cette semaine. Tu peux appeler une ligne d’écoute, c’est gratuit.',
   },
   de: {
     weatherTitle: 'Wie geht es dir heute?',

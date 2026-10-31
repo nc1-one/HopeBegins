@@ -83,7 +83,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     fr: {
       title: 'Outils gratuits contre l’anxiété et les ruminations',
       description:
-        'Pour l’anxiété, les ruminations et les jours où tout pèse : respiration lente, ancrage 5-4-3-2-1, moment pour s’inquiéter, jeux, prière et Hope AI. Gratuit.',
+        'Pour l’anxiété, les ruminations et les jours où tout pèse : respiration lente, ancrage 5-4-3-2-1, quart d’heure des soucis, jeux, prière et Hope AI. Gratuit.',
       keywords: [
         'exercice de respiration anxiété',
         'ancrage 5-4-3-2-1',
@@ -299,7 +299,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     fr: {
       title: 'Lignes d’écoute gratuites : quelqu’un à qui parler',
       description:
-        'Des lignes de crise et d’écoute gratuites dans ton pays, souvent ouvertes jour et nuit, plus Hope AI et la prière. Choisis ton pays pour voir ses numéros.',
+        'Des lignes d’écoute gratuites dans ton pays, dont des numéros de prévention du suicide ouverts jour et nuit, plus Hope AI et la prière. Choisis ton pays pour voir ses numéros.',
       keywords: [
         'ligne d’écoute gratuite',
         'numéro national de prévention du suicide',
@@ -677,7 +677,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     fr: {
       title: 'Daily Hope : 21 jours d’encouragement par e-mail',
       description:
-        'Un court e-mail encourageant chaque jour pendant 21 jours, quand l’anxiété, la tristesse ou la fatigue pèsent. Gratuit. Les e-mails sont en anglais.',
+        'Un court e-mail encourageant chaque jour pendant 21 jours, quand l’anxiété, la tristesse ou la fatigue pèsent. Gratuit.',
       keywords: [
         'Daily Hope',
         'encouragement quotidien',

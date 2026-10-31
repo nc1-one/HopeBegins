@@ -41,12 +41,12 @@ const copy: PerLang<{
       'Kung nasa panganib ka ngayon, tumawag sa emergency number ng lugar mo.',
   },
   fr: {
-    lead: 'En crise ou tu penses à mettre fin à ta vie ?',
+    lead: 'Tu es en crise ou tu penses à mettre fin à ta vie ?',
     allDay: '24h/24',
     or: 'ou',
     danger: (n) => `En cas de danger immédiat, appelle le ${n}.`,
     call: (n) => `Appeler le ${n}`,
-    nowhere: 'Trouve une ligne d’aide gratuite là où tu es :',
+    nowhere: 'Trouve une ligne d’écoute gratuite là où tu es :',
     nowhereDanger:
       'En cas de danger immédiat, appelle le numéro d’urgence de ton pays.',
   },

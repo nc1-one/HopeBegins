@@ -68,7 +68,7 @@ const copy = {
       `Bien. La prochaine fois, reviens-y quand ${when}.`,
     same: 'Ça arrive. Les outils marchent souvent mieux après quelques jours d’entraînement. Réessaie plus tard dans la journée.',
     worse:
-      'Merci de nous le dire. Arrête-toi pour l’instant et fais quelque chose de doux. Si c’est trop lourd, parle à quelqu’un.',
+      'Merci de nous le dire. Arrête-toi pour l’instant et fais quelque chose de calme. Si c’est trop lourd, parle à quelqu’un.',
     keep: 'Ajouter à mes 4 semaines',
     kept: 'Ajouté à tes 4 semaines.',
     makePlan: 'Faire un plan gratuit avec cet outil',

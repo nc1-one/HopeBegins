@@ -58,7 +58,7 @@ export const frGuides: Guide[] = [
         title: 'Continue à prendre des nouvelles',
         paragraphs: [
           'Un message quelques jours plus tard, comme « Je pense à toi. On prend un café cette semaine ? », compte beaucoup. Continue à l’inviter, même quand la réponse est non.',
-          'Aider quelqu’un peut peser lourd. Parle aussi à quelqu’un de ton côté : une ligne d’écoute gratuite peut t’écouter, toi aussi.',
+          'Aider quelqu’un peut peser lourd. Toi aussi, parles-en à quelqu’un, par exemple sur une ligne d’écoute gratuite.',
         ],
       },
     ],
@@ -99,7 +99,7 @@ export const frGuides: Guide[] = [
     label: 'Versets bibliques contre l’anxiété',
     heading: 'Versets bibliques contre l’anxiété',
     intro:
-      'Quand l’inquiétude ne te lâche pas, ces versets rappellent que Dieu est proche. Lis-en un lentement, puis expire doucement.',
+      'Quand l’inquiétude ne te lâche pas, ces versets disent que Dieu est proche. Lis-en un lentement, puis expire lentement.',
     photo: 'hope',
     sections: [
       {
@@ -118,7 +118,7 @@ export const frGuides: Guide[] = [
       {
         title: 'Une courte prière',
         paragraphs: [
-          'Seigneur, Tu vois ce que je porte aujourd’hui. Je Te confie mes soucis, un par un. Apaise mon cœur et mes pensées, et aide-moi à faire le prochain petit pas. Merci de prendre soin de moi. Amen.',
+          'Seigneur, tu vois ce que je porte aujourd’hui. Je te confie mes soucis, un par un. Apaise mon cœur et mes pensées, et aide-moi à faire le prochain petit pas. Merci de prendre soin de moi. Amen.',
         ],
       },
       {
@@ -131,7 +131,7 @@ export const frGuides: Guide[] = [
     faq: [
       {
         q: 'Que dit la Bible sur l’anxiété ?',
-        a: 'En Philippiens 4:6-7, la Bible t’invite à tout présenter à Dieu dans la prière, avec reconnaissance, et promet que Sa paix veillera sur ton cœur et ton esprit. En 1 Pierre 5:7, elle t’invite à Lui remettre tous tes soucis, parce qu’Il se soucie de toi.',
+        a: 'En Philippiens 4:6-7, la Bible t’invite à tout présenter à Dieu dans la prière, avec reconnaissance, et promet que sa paix gardera ton cœur et tes pensées. En 1 Pierre 5:7, elle t’invite à te décharger sur lui de tous tes soucis, parce qu’il prend soin de toi.',
       },
     ],
     related: ['how-to-calm-anxiety', 'bible-verses-when-you-feel-down'],
@@ -189,11 +189,11 @@ export const frGuides: Guide[] = [
     faq: [
       {
         q: 'Quel verset biblique lire quand on est triste ?',
-        a: 'Psaumes 34:19 rappelle que Dieu se tient près des cœurs brisés. Psaumes 42:12 parle avec franchise à une âme abattue et la tourne vers l’espérance en Dieu. Beaucoup s’accrochent aussi à Lamentations 3:22-23 : la bonté du Seigneur est nouvelle chaque matin.',
+        a: 'Psaumes 34:19 dit que l’Éternel est près de ceux qui ont le cœur brisé. Psaumes 42:12 parle avec franchise à une âme abattue et la tourne vers l’espérance en Dieu. Beaucoup s’accrochent aussi à Lamentations 3:22-23 : les bontés de l’Éternel se renouvellent chaque matin.',
       },
       {
         q: 'Que dit la Bible quand on n’a plus d’espoir ?',
-        a: 'En Psaumes 42:12, l’auteur parle à sa propre âme abattue et l’invite à espérer en Dieu. Lamentations 3:22-23 rappelle que la bonté du Seigneur est nouvelle chaque matin. Se sentir sans espoir pendant des semaines peut aussi être un signe de dépression : parles-en à quelqu’un, et si tu penses à mettre fin à ta vie, appelle le 3114.',
+        a: 'En Psaumes 42:12, l’auteur parle à sa propre âme abattue et l’invite à espérer en Dieu. Lamentations 3:22-23 dit que les bontés de l’Éternel se renouvellent chaque matin. Se sentir sans espoir pendant des semaines peut aussi être un signe de dépression : parles-en à quelqu’un, et si tu penses à mettre fin à ta vie, appelle le 3114.',
       },
     ],
     related: ['i-feel-depressed', 'bible-verses-for-anxiety'],

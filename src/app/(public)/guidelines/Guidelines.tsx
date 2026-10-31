@@ -264,7 +264,7 @@ const copy: PerLangNoTl<GuidelinesCopy> = {
     mission: {
       heading: '1. Notre mission',
       text: [
-        'HopeBegins offre un soutien gratuit, porté par la foi, aux personnes qui traversent l’anxiété, la dépression ou le désespoir, à travers la prière, des outils pour s’aider soi-même et des lignes d’écoute pour parler à quelqu’un.',
+        'HopeBegins offre un soutien gratuit, porté par la foi, aux personnes qui traversent l’anxiété, la dépression ou le désespoir, par la prière, des outils pour s’aider soi-même et un accompagnement en ligne.',
         'En tant que bénévole, tu représentes HopeBegins. Sers avec compassion, humilité, intégrité et fidélité quand tu aides des personnes qui traversent peut-être l’anxiété, le découragement ou une perte de sens.',
       ],
     },
@@ -327,7 +327,7 @@ const copy: PerLangNoTl<GuidelinesCopy> = {
         items: [
           'Garder les informations personnelles confidentielles',
           'Ne jamais partager une histoire personnelle sans permission',
-          'Ne pas parler de la situation d’une personne en dehors des cadres prévus par le ministère',
+          'Ne pas parler de la situation d’une personne en dehors des cadres prévus par HopeBegins',
         ],
         outro:
           'La confidentialité protège la confiance et la sécurité émotionnelle.',

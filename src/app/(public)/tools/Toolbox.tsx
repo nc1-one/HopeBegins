@@ -253,7 +253,7 @@ const TOOLS: Record<ToolKind, Tool> = {
     title: {
       en: 'Worry time',
       tl: 'Worry time',
-      fr: 'Le moment pour s’inquiéter',
+      fr: 'Le quart d’heure des soucis',
       de: 'Sorgenzeit',
       es: 'Tiempo para preocuparte',
       ko: '걱정 시간',
