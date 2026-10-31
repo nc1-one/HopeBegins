@@ -223,8 +223,8 @@ const STAGES: (Pick<ApproachStep, 'photo' | 'offset'> & {
     words: {
       en: {
         name: 'The moment you realize',
-        text: 'You search "pagod na ako" late at night and land on a page with something to do right now.',
-        link: { href: '/pagod-na-ako', label: 'See "Pagod na ako"' },
+        text: 'You search "tired of everything" late at night and land on a page with something to do right now.',
+        link: { href: '/tired-of-everything', label: 'See "Tired of everything"' },
       },
       // The same feeling page in each language, once it is written there.
       fr: {
