@@ -766,7 +766,6 @@ export const feelingPages: FeelingPage[] = [
       'pagod sa trabaho',
       'burnout sa Tagalog',
       'ano ang gagawin sa burnout',
-      'burnout sa Tagalog',
     ],
     label: 'Burnout sa trabaho',
     heading: 'Burnout na ako.',

@@ -282,7 +282,7 @@ export const guides: Guide[] = [
             meaning:
               'Ang reaksyon ng katawan at isip sa mabigat na sitwasyon. Normal ito, pero nakakapagod kapag matagal na.',
             link: {
-              href: '/tools',
+              href: '/mga-tool-para-kumalma',
               label: 'Mga tool para sa mabibigat na sandali',
             },
           },

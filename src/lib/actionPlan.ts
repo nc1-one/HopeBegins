@@ -1675,7 +1675,7 @@ export function buildPlan(answers: Answers, lang: PlanLang = 'en'): Plan {
     }),
     detail: t({
       en: 'A short email every day for 21 days.',
-      tl: 'Isang mensahe sa email mo araw-araw sa loob ng 21 araw. Nasa English.',
+      tl: 'Isang mensahe sa email mo araw-araw sa loob ng 21 araw.',
       fr: 'Un message par e-mail chaque jour pendant 21 jours.',
       de: 'Jeden Tag eine Nachricht per E-Mail, 21 Tage lang.',
       es: 'Un mensaje en tu correo cada día durante 21 días.',

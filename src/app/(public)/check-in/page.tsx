@@ -6,7 +6,7 @@ import { CheckInPage } from './CheckInPage';
 const PATH = '/check-in';
 const TITLE = 'Daily check-in: how are you today?';
 const DESCRIPTION =
-  'A 20-second daily check-in in English or Taglish. Tap how you feel, get one small thing to try, and grow a sampaguita flower each day you come back. Free, and it stays on your phone.';
+  'A 20-second daily check-in. Tap how you feel, get one small thing to try, and grow a sampaguita flower each day you come back. Free, and it stays on your phone.';
 
 export const metadata = pageMetadata(PATH, TITLE, DESCRIPTION, {
   keywords: [
