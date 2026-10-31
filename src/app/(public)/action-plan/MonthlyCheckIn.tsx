@@ -190,7 +190,7 @@ const copy = {
     toPlan: 'Zurück zu meinem Plan',
   },
   es: {
-    title: 'Check-in de 1 minuto',
+    title: 'Chequeo de 1 minuto',
     questionOf: (n: number, total: number) => `Pregunta ${n} de ${total}`,
     previous: 'Anterior',
     warningPrompt:
@@ -216,7 +216,7 @@ const copy = {
       },
       returning: {
         title: 'Parece que está regresando.',
-        text: 'Ya has salido de esto antes y sabes qué te ayudó. Empieza otras 4 semanas con tu herramienta, cuéntale a una de tus dos personas y habla esta semana con alguien de una línea de ayuda gratuita. Si tus puntajes siguen altos, busca a un psicólogo.',
+        text: 'Ya has salido de esto antes y sabes qué te ayudó. Empieza otras 4 semanas con tu herramienta, cuéntale a una de tus dos personas y habla esta semana con alguien de una línea de ayuda gratuita. Si tus puntajes siguen altos, busca atención psicológica.',
       },
       safety: {
         title: 'Por favor, habla con alguien ahora.',
@@ -227,7 +227,7 @@ const copy = {
     openCard: 'Abrir mi tarjeta de esperanza',
     yourTool: 'Tu herramienta',
     restart: 'Empezar otras 4 semanas',
-    fullCheckIn: 'Hacer el check-in completo y un plan de seguridad',
+    fullCheckIn: 'Hacer el chequeo completo y un plan de seguridad',
     toPlan: 'Volver a mi plan',
   },
   ko: {

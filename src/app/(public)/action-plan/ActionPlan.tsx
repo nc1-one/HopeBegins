@@ -641,7 +641,7 @@ const ui = {
     introNote:
       'Unos 2 minutos. Gratis. Tus respuestas se quedan en este dispositivo.',
     method:
-      'Los pasos vienen de la TCC (terapia cognitivo-conductual), una terapia muy usada, y de la guía sobre el estrés de la Organización Mundial de la Salud. No es un diagnóstico y no reemplaza la consulta con un médico o un psicólogo.',
+      'Los pasos vienen de la TCC (terapia cognitivo-conductual), una terapia muy usada, y de la guía sobre el estrés de la Organización Mundial de la Salud. No es un diagnóstico y no reemplaza una consulta médica o psicológica.',
     restorePrompt: '¿Ya hiciste un plan y guardaste un respaldo?',
     restore: 'Restaurar desde un respaldo',
     restoreError: 'Ese archivo no es un respaldo de un plan de HopeBegins.',
@@ -653,18 +653,18 @@ const ui = {
     welcomeBack: (name: string) =>
       `Qué bueno verte de nuevo${name ? `, ${name}` : ''}.`,
     checkInDueTitle: (name: string) =>
-      `Ya pasó una semana desde tu último check-in${name ? `, ${name}` : ''}.`,
+      `Ya pasó una semana desde tu último chequeo${name ? `, ${name}` : ''}.`,
     checkInDueText: 'Hazlo de nuevo para ver qué ha cambiado.',
     doneTitle: (name: string) =>
       `Completaste 4 semanas${name ? `, ${name}` : ''}.`,
     doneText:
-      'Termina con un último check-in, elige la herramienta que más te ayudó y haz tu tarjeta de esperanza.',
+      'Termina con un último chequeo, elige la herramienta que más te ayudó y haz tu tarjeta de esperanza.',
     finishButton: 'Terminar mis 4 semanas',
     hopeCardTitle: 'Tu tarjeta de esperanza',
     hopeCardText:
       'Tu herramienta, tus señales de alerta y tus personas, para los días que se vuelvan difíciles otra vez.',
     openCard: 'Abrir mi tarjeta de esperanza',
-    takeAgain: 'Hacer el check-in otra vez',
+    takeAgain: 'Hacer el chequeo otra vez',
     planTitle: (name: string) =>
       name
         ? `Un comienzo con esperanza: el plan de ${name}`
@@ -678,12 +678,12 @@ const ui = {
     changedTitle: 'Lo que ha cambiado',
     lowMood: 'Ánimo bajo',
     worry: 'Preocupación',
-    scoreNote: 'Más bajo es mejor. Cada puntaje es sobre 6.',
+    scoreNote: 'Mientras más bajo, mejor. Cada puntaje es sobre 6.',
     better:
-      'Tus puntajes bajaron desde tu primer check-in. Sigue con lo que te está ayudando.',
-    same: 'Más o menos igual que en tu primer check-in. Es común en las primeras semanas. Sigue adelante, y habla con alguien de una línea de ayuda gratuita si sientes que no avanzas.',
+      'Tus puntajes bajaron desde tu primer chequeo. Sigue con lo que te está ayudando.',
+    same: 'Más o menos igual que en tu primer chequeo. Es común en las primeras semanas. Sigue adelante, y habla con alguien de una línea de ayuda gratuita si sientes que no avanzas.',
     worse:
-      'Tus puntajes subieron desde tu primer check-in. Por favor, habla con alguien esta semana: una línea de ayuda gratuita, un psicólogo o una persona de confianza.',
+      'Tus puntajes subieron desde tu primer chequeo. Por favor, habla con alguien esta semana: una línea de ayuda gratuita, un psicólogo o una persona de confianza.',
     ecoachTitle: '¿Quieres que alguien te acompañe en esto?',
     ecoachText:
       'Las líneas de ayuda gratuitas de tu país pueden escucharte, y Hope AI está disponible a cualquier hora.',
@@ -697,7 +697,7 @@ const ui = {
     whenDo: '¿Cuándo la vas a usar?',
     trackerTitle: 'Tus 4 semanas',
     trackerIntro:
-      'Marca cada día que la uses. ¿Te saltaste un día? Retómala al día siguiente. Los días que faltan no borran tu avance.',
+      'Marca cada día que la uses. ¿Te saltaste un día? Retómala al día siguiente. Los días que te saltes no borran tu avance.',
     trackerHabit:
       'Los hábitos tardan semanas en afianzarse. Con la mayoría de los días basta.',
     trackerEmpty:
@@ -737,7 +737,7 @@ const ui = {
     privacyPolicy: 'política de privacidad',
     saveTitle: 'Guardar mi plan',
     saved:
-      'Guardado en este celular. Tu plan se guarda solo mientras lo usas, y HopeBegins no puede verlo.',
+      'Guardado en este celular. Tu plan se guarda automáticamente mientras lo usas, y HopeBegins no puede verlo.',
     saveWhy:
       'Algunos celulares borran los datos de los sitios web después de una semana sin visitarlos. Para cuidar tus 4 semanas:',
     homeInstalled:
@@ -766,7 +766,7 @@ const ui = {
     tickedToday: 'Marcado por hoy en tus 4 semanas.',
     calmerAfter: (calmer: number, total: number) =>
       `Sentiste más calma después ${calmer} de ${total} ${total === 1 ? 'vez' : 'veces'}.`,
-    todayAfterBreak: 'Qué bueno verte. Empieza con hoy.',
+    todayAfterBreak: 'Qué bueno verte. Empieza por hoy.',
     seeWeeks: 'Ver tus 4 semanas',
   },
   ko: {

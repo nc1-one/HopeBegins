@@ -161,17 +161,17 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
       crumb: 'Täglicher Check-in',
     },
     es: {
-      title: 'Check-in diario: ¿cómo estás hoy?',
+      title: 'Chequeo diario: ¿cómo estás hoy?',
       description:
-        'Un check-in de 20 segundos: elige cómo te sientes y recibe una cosa pequeña para probar. Tu jazmín crece cada día que vuelves. Gratis, y todo se queda en tu celular.',
+        'Un chequeo de 20 segundos: elige cómo te sientes y recibe una cosa pequeña para probar. Tu jazmín crece cada día que vuelves. Gratis, y todo se queda en tu celular.',
       keywords: [
         'registro del estado de ánimo',
         'diario de emociones',
         'cómo me siento hoy',
         'seguimiento del ánimo',
-        'check-in de salud mental',
+        'chequeo emocional',
       ],
-      crumb: 'Check-in diario',
+      crumb: 'Chequeo diario',
     },
     ko: {
       title: '오늘의 체크인: 오늘 기분은 어때요?',
@@ -703,7 +703,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     es: {
       title: 'Daily Hope: 21 días de ánimo por correo',
       description:
-        'Un correo corto y alentador cada día durante 21 días, para cuando la ansiedad, la tristeza o el cansancio pesan. Gratis. Los correos están en inglés.',
+        'Un correo corto y alentador cada día durante 21 días, para cuando la ansiedad, la tristeza o el cansancio pesan. Gratis.',
       keywords: [
         'Daily Hope',
         'mensajes de ánimo diarios',
@@ -865,7 +865,7 @@ export const INTL_META: Record<IntlMetaPage, Record<IntlLang, PageMeta>> = {
     es: {
       title: 'Un rato de juego: juegos cortos para una mente llena',
       description:
-        'Juegos cortos y gratis para cuando tus pensamientos no paran: encuentra los pares, vuela una cometa o cumple pequeñas misiones hasta llegar al mar. Sin registrarte.',
+        'Juegos cortos y gratis para cuando tus pensamientos no paran: encuentra las parejas, vuela una cometa o cumple pequeñas misiones hasta llegar al mar. Sin registrarte.',
       keywords: [
         'juegos para la ansiedad',
         'juegos antiestrés',

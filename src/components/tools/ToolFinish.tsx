@@ -101,7 +101,7 @@ const copy = {
       ground: 'la preocupación o el pánico empiecen a crecer',
     },
     calmer: (when: string) => `Qué bien. Vuelve a esto cada vez que ${when}.`,
-    same: 'Eso pasa. Las herramientas suelen funcionar mejor después de unos días de práctica. Vuelve a intentarlo más tarde hoy.',
+    same: 'Eso pasa. Las herramientas suelen funcionar mejor después de unos días de práctica. Vuelve a intentarlo hoy más tarde.',
     worse:
       'Gracias por decírnoslo. Detente por ahora y haz algo tranquilo. Si sientes que es demasiado, habla con alguien.',
     keep: 'Agregar a mis 4 semanas',

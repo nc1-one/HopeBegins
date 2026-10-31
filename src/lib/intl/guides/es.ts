@@ -9,7 +9,7 @@ export const esGuides: Guide[] = [
     pair: 'what-to-say-to-a-depressed-friend',
     metaTitle: 'Qué decirle a alguien con depresión y qué evitar',
     metaDescription:
-      '¿Te preocupa un amigo o una amiga? Qué decir, qué no decir y qué hacer si habla de no querer vivir. Palabras sencillas y prácticas para acompañar.',
+      '¿Te preocupa alguien cercano? Qué decir, qué no decir y qué hacer si habla de no querer vivir. Palabras sencillas y prácticas para acompañar.',
     keywords: [
       'qué decirle a alguien con depresión',
       'cómo ayudar a un amigo con depresión',
@@ -30,7 +30,7 @@ export const esGuides: Guide[] = [
           'Aquí estoy. ¿Quieres hablar, o prefieres que solo te acompañe?',
           'Tómate tu tiempo. Te escucho.',
           '¿Te puedo ayudar con algo hoy, como traerte comida o llevarte a algún lado?',
-          '¿Te serviría hablar con un psicólogo? Puedo ayudarte a buscar uno.',
+          '¿Te serviría ir a terapia? Puedo ayudarte a buscar dónde.',
         ],
         paragraphs: [
           'Después, escucha más de lo que hablas. Puedes decir “Qué difícil lo que estás viviendo” sin intentar resolverlo.',
@@ -180,7 +180,7 @@ export const esGuides: Guide[] = [
         title: 'Si el peso no se va',
         safety: true,
         paragraphs: [
-          'Si casi todos los días, durante dos semanas o más, has sentido el ánimo bajo, puede ser depresión, y tiene tratamiento. Habla con un médico o con un psicólogo, o empieza llamando a una línea de ayuda gratuita. Si estás pensando en quitarte la vida, llama ahora a la línea de crisis de tu país.',
+          'Si casi todos los días, durante dos semanas o más, has sentido el ánimo bajo, puede ser depresión, y tiene tratamiento. Busca atención médica o psicológica, o empieza llamando a una línea de ayuda gratuita. Si estás pensando en quitarte la vida, llama ahora a la línea de crisis de tu país.',
         ],
       },
     ],

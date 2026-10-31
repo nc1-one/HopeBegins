@@ -21,7 +21,7 @@ export const esStories2: Story[] = [
         kind: 'story',
         heading: 'Medianoche, y todos se estaban comprometiendo',
         paragraphs: [
-          'Era martes, un poco pasada la medianoche, cuando Valeria vio la tercera pedida de mano de la semana. Una compañera de la universidad, un anillo, una playa en Máncora, doscientos comentarios. Valeria escribió “¡Felicidades!” con tres corazones y se quedó acostada en su cuarto en Lince, sintiendo que algo pesado le había caído en el pecho.',
+          'Era martes, un poco pasada la medianoche, cuando Valeria vio la tercera pedida de mano de la semana. Una compañera de la universidad, un anillo, una playa en Máncora, doscientos comentarios. Valeria escribió “Felicidades” con tres corazones y se quedó acostada en su cuarto en Lince, sintiendo que algo pesado le había caído en el pecho.',
           'Siguió bajando por la pantalla. Un excompañero de trabajo acababa de ascender a gerente. Una prima acababa de aterrizar en Madrid. Alguien del colegio había abierto una cafetería. Cada publicación era una buena noticia de alguien a quien ella quería, y cada una le caía como una pequeña sentencia: te estás quedando atrás.',
           'Valeria tenía 26 años, un trabajo estable como asistente de marketing, un cuarto pequeño que pagaba ella misma y una familia en Arequipa orgullosa de ella. Nada de eso aparecía en las redes a medianoche. Lo que aparecía era el mejor día de todos los demás.',
           'A la una de la mañana abrió su propio perfil y lo miró como lo miraría una desconocida. Última publicación: hace ocho meses, un plato de lomo saltado. Cerró la aplicación, la volvió a abrir y siguió hasta que le ardieron los ojos.',
@@ -55,9 +55,9 @@ export const esStories2: Story[] = [
         kind: 'hope',
         heading: 'Si las redes te hacen sentir que vas atrás',
         paragraphs: [
-          'Si estás leyendo esto en la cama después de un buen rato en redes, trátate con cariño. Sentirte poca cosa después de las redes es una reacción común cuando ves los mejores días de mucha gente, tarde en la noche y a solas. Tu valor sigue siendo el mismo, publiques o no.',
-          'Prueba una cosa esta semana. Carga el celular fuera de tu cuarto, silencia tres cuentas que siempre te duelen o anota tres cosas buenas de tu propio día antes de abrir una aplicación. Después cuéntale a un amigo o a una amiga cómo te han estado haciendo sentir las redes. Puede que le pase lo mismo.',
-          'Si la comparación se volvió un peso que se queda casi todos los días, o dura más de dos semanas y te afecta el trabajo o el sueño, habla con un médico o con un psicólogo. Es un paso normal, y la ayuda funciona.',
+          'Si estás leyendo esto en la cama después de un buen rato en redes, no te regañes por eso. Sentirte poca cosa después de las redes es una reacción común cuando ves los mejores días de mucha gente, de noche y a solas. Tu valor sigue siendo el mismo, publiques o no.',
+          'Prueba una cosa esta semana. Carga el celular fuera de tu cuarto, silencia tres cuentas que siempre te duelen o anota tres cosas buenas de tu propio día antes de abrir una aplicación. Después cuéntale a alguien de confianza cómo te han estado haciendo sentir las redes. Puede que le pase lo mismo.',
+          'Si la comparación se volvió un peso que se queda casi todos los días, o dura más de dos semanas y te afecta el trabajo o el sueño, busca atención médica o psicológica. Es un paso normal, y la ayuda funciona.',
           'Si quieres un lugar para empezar esta noche, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes una cosa pequeña para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas donde alguien te escucha. Si el peso ya va más allá del celular, la página [Cuando todo te cansa](/tired-of-everything) es un buen lugar para empezar.',
         ],
       },
@@ -68,7 +68,7 @@ export const esStories2: Story[] = [
         'Esta noche, carga el celular fuera de tu cuarto.',
         'Silencia tres cuentas que siempre te dejan con la sensación de ir atrás. Puedes volver a activarlas después.',
         'Mañana, antes de abrir cualquier aplicación, anota tres cosas buenas de tu propio día. Las pequeñas cuentan.',
-        'Cuéntale a un amigo o a una amiga cómo te han estado haciendo sentir las redes.',
+        'Cuéntale a alguien de confianza cómo te han estado haciendo sentir las redes.',
       ],
     },
     verse: 'php-4-6-7',
@@ -76,15 +76,15 @@ export const esStories2: Story[] = [
     faq: [
       {
         q: '¿Cómo dejar de compararme con los demás en redes sociales?',
-        a: 'Empieza con límites pequeños: deja el celular fuera de la cama, silencia las cuentas que siempre te duelen y fíjate en las cosas buenas de tu propio día antes de abrir las redes. Hablar con sinceridad con tus amigos también ayuda, porque casi todo el mundo se compara con alguien.',
+        a: 'Empieza con límites pequeños: deja el celular fuera de la cama, silencia las cuentas que siempre te duelen y fíjate en las cosas buenas de tu propio día antes de abrir las redes. Hablar con sinceridad con tus amistades también ayuda, porque casi todo el mundo se compara con alguien.',
       },
       {
         q: '¿Por qué me siento mal después de ver redes sociales?',
-        a: 'La mayoría publica sus mejores momentos, así que terminas comparando tu día común con lo mejor de los demás. Ver redes tarde en la noche, con cansancio, hace que esas comparaciones pesen más.',
+        a: 'La mayoría publica sus mejores momentos, así que terminas comparando tu día común con lo mejor de los demás. Ver redes de noche, con cansancio, hace que esas comparaciones pesen más.',
       },
       {
         q: '¿Es normal sentir que todos avanzan menos yo?',
-        a: 'Sí, es muy común, sobre todo cuando ves en redes los logros de mucha gente al mismo tiempo. Cada vida tiene su propio ritmo, y la parte difícil casi nunca se publica. Si ese sentimiento dura más de dos semanas o te quita el sueño, habla con un médico o con un psicólogo.',
+        a: 'Sí, es muy común, sobre todo cuando ves en redes los logros de mucha gente al mismo tiempo. Cada vida tiene su propio ritmo, y la parte difícil casi nunca se publica. Si ese sentimiento dura más de dos semanas o te quita el sueño, busca atención médica o psicológica.',
       },
     ],
     keywords: [
@@ -152,7 +152,7 @@ export const esStories2: Story[] = [
         paragraphs: [
           'Si esto te pasó esta semana, el golpe que sientes tiene sentido. Perder el trabajo puede sacudir la idea que tienes de ti, sobre todo cuando una familia depende de ti. Date un día para sentirlo.',
           'Después, da un paso. Cuéntaselo a la persona más cercana. Anota los números reales. Dale a mañana una forma sencilla: una hora para levantarte, algunas postulaciones, un mensaje a alguien que pueda saber de un trabajo y una hora para parar.',
-          'Si llevas semanas sin poder dormir, casi todos los días sientes que no hay esperanza o la preocupación empieza a ocupar todo lo demás, habla con un médico o con un psicólogo. Es un paso normal, y puede hacer que la búsqueda pese menos.',
+          'Si llevas semanas sin poder dormir, casi todos los días sientes que no hay esperanza o la preocupación empieza a ocupar todo lo demás, busca atención médica o psicológica. Es un paso normal, y puede hacer que la búsqueda pese menos.',
           'Si quieres un lugar para empezar ahora mismo, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes una cosa pequeña para probar hoy, herramientas para calmarte cuando las cuentas no te dejan dormir, alguien que ore por ti y líneas gratuitas donde alguien te escucha. Si no sabes bien hacia dónde ir, [Cuando te sientes sin rumbo](/i-feel-lost) es una buena página para seguir.',
         ],
       },
@@ -171,7 +171,7 @@ export const esStories2: Story[] = [
     faq: [
       {
         q: '¿Qué hacer después de quedarse sin trabajo?',
-        a: 'Date un día para asimilar el golpe. Después cuéntaselo a alguien cercano y anota tus números reales. Dale a tus días una rutina sencilla y deja que la gente que conoces sepa que estás buscando.',
+        a: 'Date un día para asimilar el golpe. Después cuéntaselo a alguien cercano y anota tus números reales. Dale a tus días una rutina sencilla y cuéntale a la gente que conoces que estás buscando.',
       },
       {
         q: '¿Es normal sentir vergüenza después de un despido?',
@@ -233,7 +233,7 @@ export const esStories2: Story[] = [
         paragraphs: [
           'El primer paso fue decirle la verdad a Paula. Esa noche la llamó y le dijo: “Ya no puedo sola con esto”. Paula se quedó callada un momento y después le preguntó: “¿Y por qué no me lo dijiste antes?”. Había dado por hecho que Gabriela podía, porque Gabriela siempre decía que podía.',
           'Armaron un plan en papel. Paula vendría todos los viernes a la noche y se quedaría hasta el domingo a la noche, así Gabriela tenía dos noches completas de sueño. Una prima que vivía cerca aceptó acompañar a su mamá dos tardes por semana. Contrataron a una cuidadora tres mañanas por semana. Les costaba plata que tuvieron que estirar, y le devolvió a Gabriela sus mañanas.',
-          'Gabriela empezó a cuidar pequeños ratos de descanso. Veinte minutos afuera después del almuerzo, mientras su mamá dormía la siesta. Una caminata lenta hasta la panadería de la esquina. Una tarde por semana en su iglesia evangélica, donde su grupo oraba por ella y una de las hermanas empezó a llevarle comida para la semana.',
+          'Gabriela empezó a apartar pequeños ratos de descanso. Veinte minutos afuera después del almuerzo, mientras su mamá dormía la siesta. Una caminata lenta hasta la panadería de la esquina. Una tarde por semana en su iglesia evangélica, donde su grupo oraba por ella y una de las hermanas empezó a llevarle comida para la semana.',
           'Habló con la médica de su mamá sobre lo más difícil: cómo moverla sin lastimarla, qué ejercicios importaban más y qué cosas podía soltar. La médica también le preguntó a Gabriela cómo estaba durmiendo y le sugirió que fuera a ver a su propio médico. Fue, y se enteró de que tenía la presión alta.',
           'Mateo 11:28-30 quedó pegado en la pared, arriba de la mesita de los medicamentos. Gabriela lo leía en las noches difíciles y lo convertía en una oración por ella misma, tanto como por su mamá.',
           'Su mamá sigue recuperándose, despacio. Gabriela todavía tiene días difíciles. También vuelve a reírse con su mamá, porque ya no anda con el tanque vacío a toda hora.',
@@ -245,8 +245,8 @@ export const esStories2: Story[] = [
         heading: 'Si cuidas a alguien y sientes que ya no te queda nada',
         paragraphs: [
           'Si cuidas a tu mamá, a tu papá, a tu pareja o a un hijo con una enfermedad, el cansancio que sientes es real, y el amor también. Necesitar descanso no le quita nada a cuánto te importa. Tú también eres una persona, y quien cuida y descansa puede seguir por más tiempo.',
-          'Esta semana, pídele una cosa concreta a una persona concreta: dos horas el sábado, una comida, una noche de sueño. Mucha gente quiere ayudar y no sabe cómo. Después, cuida un pequeño rato de descanso cada día, aunque sean solo veinte minutos.',
-          'Si hace semanas que casi todos los días sientes agotamiento, sigues contestando mal a la gente que quieres o sientes un vacío o que no hay esperanza, habla con un médico o con un psicólogo. Quien cuida también necesita cuidado, y pedirlo es un paso normal.',
+          'Esta semana, pídele una cosa concreta a una persona concreta: dos horas el sábado, una comida, una noche de sueño. Mucha gente quiere ayudar y no sabe cómo. Después, aparta un pequeño rato de descanso cada día, aunque sean solo veinte minutos.',
+          'Si hace semanas que casi todos los días sientes agotamiento, sigues contestando mal a la gente que quieres o sientes un vacío o que no hay esperanza, busca atención médica o psicológica. Quien cuida también necesita cuidado, y pedirlo es un paso normal.',
           'Si quieres un lugar para empezar hoy, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes una cosa pequeña para probar hoy, herramientas para calmarte en las noches difíciles, alguien que ore por ti y por tu familia, y líneas gratuitas donde alguien te escucha. La página sobre el [agotamiento](/burnout) tiene más ideas para cuando ya no te queda energía.',
         ],
       },
@@ -257,7 +257,7 @@ export const esStories2: Story[] = [
         'Anota todas las tareas de cuidado que haces en una semana.',
         'Elige una que otra persona podría hacer, y pídesela a alguien en concreto.',
         'Elige un descanso de 20 minutos que vas a tomar todos los días y anótalo en el calendario del celular.',
-        'Cuéntale a un amigo o a una amiga cómo estás de verdad.',
+        'Cuéntale a alguien de confianza cómo estás de verdad.',
       ],
     },
     verse: 'mat-11-28-30',
@@ -265,11 +265,11 @@ export const esStories2: Story[] = [
     faq: [
       {
         q: '¿Cuáles son los síntomas del síndrome del cuidador?',
-        a: 'Las señales más comunes son cansancio constante, irritabilidad, alejarte de tus amistades, enfermarte seguido y sentir culpa cuando descansas. Si duran semanas, habla con un médico o con un psicólogo.',
+        a: 'Las señales más comunes son cansancio constante, irritabilidad, alejarte de tus amistades, enfermarte seguido y sentir culpa cuando descansas. Si duran semanas, busca atención médica o psicológica.',
       },
       {
         q: '¿Cómo cuidarme mientras cuido a un familiar enfermo?',
-        a: 'Reparte la carga pidiendo ayuda concreta a tu familia o a tus vecinos, y cuida pequeños ratos de descanso cada día. Ve también a tu propio médico, y busca al menos un lugar donde oren por ti y te pregunten cómo estás.',
+        a: 'Reparte la carga pidiendo ayuda concreta a tu familia o a tus vecinos, y aparta pequeños ratos de descanso cada día. Ve también a tu propio médico, y busca al menos un lugar donde oren por ti y te pregunten cómo estás.',
       },
       {
         q: '¿Es normal sentir culpa por querer descansar de cuidar a mi mamá?',
@@ -339,10 +339,10 @@ export const esStories2: Story[] = [
         kind: 'hope',
         heading: 'Si ahora mismo no tienes ganas de nada',
         paragraphs: [
-          'Si eres tú en este momento, en la cama, sin ganas ni de tu comida ni de tu juego favorito, lo que sientes es real, aunque no encuentres una razón. Hay ayuda para eso, y puedes empezar con poco.',
-          'Hoy, elige una: sal diez minutos, come una comida de verdad o escríbele a una persona cómo te sientes de verdad. Y si tienes un amigo o una amiga que se ha quedado en silencio estas semanas, escríbele también. A veces un “¿Cómo estás de verdad?” es lo que alguien necesita para empezar a hablar.',
-          'Si ya van dos semanas o más, o te está costando trabajar, estudiar o cuidarte, habla con un médico o con un psicólogo. Es un paso normal, y la ayuda funciona.',
-          'Si estás pensando en quitarte la vida, llama hoy a la línea de crisis de tu país: hay personas preparadas para escucharte y ayudarte a pasar este momento. Encuentras el número en [la página de ayuda](/help). Si estás en peligro inmediato, llama al número de emergencias de tu país.',
+          'Si así estás en este momento, en la cama, sin ganas ni de tu comida ni de tu juego favorito, lo que sientes es real, aunque no encuentres una razón. Hay ayuda para eso, y puedes empezar con poco.',
+          'Hoy, elige una: sal diez minutos, come una comida de verdad o escríbele a una persona cómo te sientes de verdad. Y si alguien cercano se ha quedado en silencio estas semanas, escríbele también. A veces un “¿Cómo estás de verdad?” es lo que alguien necesita para empezar a hablar.',
+          'Si ya van dos semanas o más, o te está costando trabajar, estudiar o cuidarte, busca atención médica o psicológica. Es un paso normal, y la ayuda funciona.',
+          'Si estás pensando en quitarte la vida, llama ahora a la línea de crisis de tu país: hay personas preparadas para escucharte y ayudarte a pasar este momento. Encuentras el número en [la página de ayuda](/help). Si estás en peligro inmediato, llama al número de emergencias de tu país.',
           'Si quieres un lugar para empezar hoy, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes una cosa pequeña para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas donde alguien te escucha. Lee [Cuando la tristeza no se va](/i-feel-depressed) para saber qué hacer después.',
         ],
       },
@@ -352,8 +352,8 @@ export const esStories2: Story[] = [
       steps: [
         'Sal diez minutos, aunque sea solo a la puerta de tu casa.',
         'Come una comida de verdad, aunque sea sencilla.',
-        'Escríbele a un amigo o a una amiga: “Estoy pasando por un momento difícil”.',
-        'Si llevas dos semanas así, saca una cita con un médico o con un psicólogo.',
+        'Escríbele a alguien de confianza: “Estoy pasando por un momento difícil”.',
+        'Si llevas dos semanas así, saca una cita para atención médica o psicológica.',
       ],
     },
     verse: 'psa-42-11',
@@ -361,11 +361,11 @@ export const esStories2: Story[] = [
     faq: [
       {
         q: '¿Por qué no tengo ganas de nada?',
-        a: 'Puede venir de un cansancio muy grande, del estrés o de una temporada difícil. Si dura dos semanas o más y viene con cambios en el sueño y el apetito, puede ser una señal de depresión, así que conviene hablar con un médico o con un psicólogo.',
+        a: 'Puede venir de un cansancio muy grande, del estrés o de una temporada difícil. Si dura dos semanas o más y viene con cambios en el sueño y el apetito, puede ser una señal de depresión, así que conviene buscar atención médica o psicológica.',
       },
       {
         q: '¿Qué puedo hacer cuando no tengo interés en nada?',
-        a: 'Empieza con poco: una caminata, una comida de verdad, un mensaje a alguien de confianza. Si ya lleva un tiempo, pide ayuda a un médico o a un psicólogo.',
+        a: 'Empieza con poco: una caminata, una comida de verdad, un mensaje a alguien de confianza. Si ya lleva un tiempo, busca atención médica o psicológica.',
       },
       {
         q: '¿No tener ganas de nada es un síntoma de depresión?',
@@ -432,20 +432,20 @@ export const esStories2: Story[] = [
       },
       {
         kind: 'hope',
-        heading: 'Si te preocupa un amigo o una amiga',
+        heading: 'Si te preocupa alguien cercano',
         paragraphs: [
           'Si alguien que quieres se ha quedado en silencio, las palabras sencillas alcanzan. Ve a ver a esa persona, dile lo que has notado y escucha más de lo que hablas.',
           'Evita las soluciones rápidas como “échale ganas” u “otros están peor”. Sigue invitándola, aunque te diga que no. Si te preocupa, pregúntale de forma directa y con calma si está pensando en quitarse la vida. Si te dice que sí, quédate a su lado y busquen ayuda en ese mismo momento.',
           'Si estás pensando en quitarte la vida, llama a la línea de crisis de tu país: hay personas preparadas para escucharte y ayudarte a pasar este momento. En México es la Línea de la Vida, gratuita y abierta las 24 horas: 800 911 2000. Si estás en peligro inmediato, llama al 911 o al número de emergencias de tu país. También puedes hacer esa llamada con alguien a tu lado, como hicieron Jimena y Karla.',
-          'Si tu amigo o tu amiga lleva más de dos semanas con el ánimo bajo, invita a esa persona con cariño a hablar con un médico o con un psicólogo, y ofrécete a sacar la cita o a ir con ella. Cuídate tú también. Apoyar a alguien puede pesar, así que habla con alguien de confianza.',
-          'Si quieres un lugar para empezar, [HopeBegins](/) es gratis, para tu amigo o tu amiga, o para ti. Elige cómo te sientes y recibes una cosa pequeña para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas donde alguien te escucha. Para saber qué palabras ayudan, lee [Qué decirle a alguien con depresión](/what-to-say-to-a-depressed-friend).',
+          'Si esa persona lleva más de dos semanas con el ánimo bajo, anímala a buscar atención médica o psicológica, y ofrécete a sacar la cita o a ir con ella. Cuídate tú también. Apoyar a alguien puede pesar, así que habla con alguien de confianza.',
+          'Si quieres un lugar para empezar, [HopeBegins](/) es gratis, para esa persona o para ti. Elige cómo te sientes y recibes una cosa pequeña para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas donde alguien te escucha. Para saber qué palabras ayudan, lee [Qué decirle a alguien con depresión](/what-to-say-to-a-depressed-friend).',
         ],
       },
     ],
     tryThis: {
       title: 'Hoy: pregúntale a alguien cómo está de verdad',
       steps: [
-        'Piensa en un amigo o una amiga que se ha quedado en silencio últimamente.',
+        'Piensa en alguien cercano que se ha quedado en silencio últimamente.',
         'Mándale un mensaje sencillo: “Te extraño. ¿Cómo estás, de verdad?”.',
         'Ofrece algo concreto, como un café, una caminata o una comida esta semana.',
         'Si te preocupa, pregúntale de forma directa y con calma, y prepárate para llamar en ese momento a la línea de crisis de tu país (en México, 800 911 2000).',
@@ -456,7 +456,7 @@ export const esStories2: Story[] = [
     faq: [
       {
         q: '¿Cómo ayudar a un amigo con depresión?',
-        a: 'Busca a esa persona, dile lo que has notado y escucha sin apurarte a arreglarlo. Sigue preguntando cómo está, y anímala con cariño a ver a un médico o a un psicólogo, ofreciéndote a ayudar a sacar la cita.',
+        a: 'Busca a esa persona, dile lo que has notado y escucha sin apurarte a arreglarlo. Sigue preguntando cómo está, anímala a buscar atención médica o psicológica y ofrécete a ayudarle a sacar la cita.',
       },
       {
         q: '¿Debo preguntarle a mi amigo si está pensando en el suicidio?',
@@ -535,7 +535,7 @@ export const esStories2: Story[] = [
         paragraphs: [
           'Si estás leyendo esto con mensajes que no te atreves a abrir, primero respira. Muchísimas familias cargan deudas, y hay una manera de enfrentarlas paso a paso.',
           'Hoy, cuéntaselo a una persona de confianza. Después anota en una hoja todas las deudas que tienes. Un problema es más fácil de enfrentar cuando lo ves completo. Si vives con tu pareja o con tu familia, cuéntales y hagan la lista en conjunto. La carga pesa menos cuando la sostienen dos o tres.',
-          'Si llevas semanas durmiendo mal, sientes ansiedad todo el tiempo o todo te parece sin salida, habla con un médico o con un psicólogo. Es un paso normal, y puede ayudarte a pensar con más claridad.',
+          'Si llevas semanas durmiendo mal, sientes ansiedad todo el tiempo o todo te parece sin salida, busca atención médica o psicológica. Es un paso normal, y puede ayudarte a pensar con más claridad.',
           'Si quieres un lugar para empezar hoy, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes una cosa pequeña para probar hoy, herramientas para calmar la preocupación, alguien que ore por ti y líneas gratuitas donde alguien te escucha. Si ahora mismo sientes ansiedad, prueba [Cómo calmar la ansiedad](/how-to-calm-anxiety).',
         ],
       },
@@ -558,7 +558,7 @@ export const esStories2: Story[] = [
       },
       {
         q: '¿Es normal no poder dormir por las deudas?',
-        a: 'Sí, es común cuando los problemas de dinero pesan mucho. Si llevas semanas durmiendo mal o sientes ansiedad todo el tiempo, habla con un médico o con un psicólogo.',
+        a: 'Sí, es común cuando los problemas de dinero pesan mucho. Si llevas semanas durmiendo mal o sientes ansiedad todo el tiempo, busca atención médica o psicológica.',
       },
     ],
     keywords: [
@@ -637,7 +637,7 @@ export const esStories2: Story[] = [
         paragraphs: [
           'Tal vez tu inundación fue distinta: un negocio que cerró, una relación que terminó, un año que se llevó más de lo que dio. Empezar de nuevo puede sentirse como si tuvieras que reconstruirlo todo antes de tener permiso para sentirte bien.',
           'Puedes empezar con algo más pequeño. Elige una cosa que puedas hacer esta semana, del tamaño de diez metros de muro. Cuéntale a una persona la verdad sobre cómo estás. Anota lo que debes y lo que tienes, para que viva en el papel y deje de crecer en tu cabeza.',
-          'Si el peso dura más de dos semanas, o no puedes dormir, comer o sacar adelante el día, habla con un médico o con un psicólogo. Es un paso normal, y a Lino le ayudó más de lo que esperaba.',
+          'Si el peso dura más de dos semanas, o no puedes dormir, comer o sacar adelante el día, busca atención médica o psicológica. Es un paso normal, y a Lino le ayudó más de lo que esperaba.',
           'Si quieres ayuda para empezar hoy, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes una cosa pequeña para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas donde alguien te escucha. Si sientes que perdiste el rumbo, [Cuando te sientes sin rumbo](/i-feel-lost) es un buen lugar para empezar.',
         ],
       },
@@ -660,7 +660,7 @@ export const esStories2: Story[] = [
       },
       {
         q: '¿Es normal sentirse un fracaso después de una gran pérdida?',
-        a: 'Sí, mucha gente lo siente, sobre todo quien suele mantener a otros. Si ese sentimiento dura más de dos semanas o te cuesta dormir, comer o trabajar, habla con un médico o con un psicólogo.',
+        a: 'Sí, mucha gente lo siente, sobre todo quien suele mantener a otros. Si ese sentimiento dura más de dos semanas o te cuesta dormir, comer o trabajar, busca atención médica o psicológica.',
       },
       {
         q: '¿Cómo empezar de cero a los 40?',
@@ -741,7 +741,7 @@ export const esStories2: Story[] = [
         paragraphs: [
           'Si eres hombre y estás leyendo esto, tal vez te reconozcas en Rafael: el mal genio, los tragos de más, las noches sin dormir, la sensación de que nadie ve lo que cargas. Hablar de esto es una de las cosas más fuertes que puedes hacer por tu familia.',
           'Empieza con una persona. Un amigo, tu esposa, un hermano, un pastor. Puedes decirlo como Rafael: “No he estado bien estos últimos meses”. Esa sola frase abre una puerta.',
-          'Si llevas más de dos semanas con el ánimo bajo, de mal genio o sin poder dormir, o estás tomando más para aguantar, habla con un médico o con un psicólogo. Es un paso normal, igual que llevar la camioneta al taller cuando empieza a hacer un ruido raro.',
+          'Si llevas más de dos semanas con el ánimo bajo, de mal genio o sin poder dormir, o estás tomando más para aguantar, busca atención médica o psicológica. Es un paso normal, igual que llevar la camioneta al taller cuando empieza a hacer un ruido raro.',
           'Si te preocupa un hombre de tu vida, sé su Rubén. Siéntate con él, pregúntale dos veces y escucha.',
           'Si prefieres empezar en privado, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes una cosa pequeña para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas donde alguien te escucha. Si la historia de Rafael se parece a la tuya, [Cuando la tristeza no se va](/i-feel-depressed) es un buen lugar para empezar.',
         ],
@@ -765,7 +765,7 @@ export const esStories2: Story[] = [
       },
       {
         q: '¿Cuáles son los síntomas de depresión en los hombres?',
-        a: 'En algunos hombres, el ánimo bajo se nota como irritabilidad, enojo, tomar más, trabajar todo el tiempo, dormir mal o alejarse de la familia. Si estas señales duran más de dos semanas, habla con un médico o con un psicólogo.',
+        a: 'En algunos hombres, el ánimo bajo se nota como irritabilidad, enojo, tomar más, trabajar todo el tiempo, dormir mal o alejarse de la familia. Si estas señales duran más de dos semanas, busca atención médica o psicológica.',
       },
       {
         q: '¿Ir al psicólogo es de débiles?',
@@ -837,7 +837,7 @@ export const esStories2: Story[] = [
         paragraphs: [
           'Si pasaste por un terremoto, una inundación o un huracán, tiene sentido que tu cuerpo reaccione cuando algo se mueve o el cielo se pone oscuro. Tu miedo está tratando de protegerte. Todavía no se ha dado cuenta de que hoy es otro día.',
           'Empieza por lo que sí puedes controlar. Escribe un plan familiar y ponlo donde todos lo vean. Arma la mochila de emergencia una vez y déjala lista. Decide horarios para revisar las noticias después de un sismo. Inhala contando hasta 4 y exhala contando hasta 6, con tus hijos si también tienen miedo.',
-          'Si el miedo sigue fuerte semanas después de un desastre, si no puedes dormir, revives esa noche una y otra vez o evitas ciertos lugares por miedo, habla con un médico o con un psicólogo. Es un paso normal, y ayuda tanto a los niños como a los adultos.',
+          'Si el miedo sigue fuerte semanas después de un desastre, si no puedes dormir, revives esa noche una y otra vez o evitas ciertos lugares por miedo, busca atención médica o psicológica. Es un paso normal, y ayuda tanto a los niños como a los adultos.',
           'Si quieres ayuda hoy, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes una cosa pequeña para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas donde alguien te escucha. [Cómo calmar la ansiedad](/how-to-calm-anxiety) tiene un ejercicio de respiración que pueden hacer en familia cuando el miedo se pone fuerte.',
         ],
       },
@@ -848,7 +848,7 @@ export const esStories2: Story[] = [
         'Siéntate con tu familia y anoten qué hacer cuando tiembla, dónde juntarse y a quién llamar.',
         'Arma una mochila de emergencia y guárdala siempre en el mismo lugar. Revísala una vez al mes.',
         'Pega el plan en el refrigerador, donde todos lo vean.',
-        'Pónganse de acuerdo en horarios para revisar las noticias después de un sismo, por ejemplo una vez por hora, y dejen el celular lejos entre medio.',
+        'Pónganse de acuerdo en horarios para revisar las noticias después de un sismo, por ejemplo una vez por hora, y dejen el celular lejos entre una revisión y otra.',
         'Practiquen la respiración en familia: inhalar contando hasta 4, exhalar contando hasta 6.',
       ],
     },
@@ -857,15 +857,15 @@ export const esStories2: Story[] = [
     faq: [
       {
         q: '¿Es normal tener ansiedad después de un terremoto?',
-        a: 'Sí. Después de algo que da mucho miedo, mucha gente se asusta con cada temblor, duerme mal o revisa las noticias todo el tiempo. Si el miedo sigue fuerte durante semanas o te complica el día a día, habla con un médico o con un psicólogo.',
+        a: 'Sí. Después de algo que da mucho miedo, mucha gente se asusta con cada temblor, duerme mal o revisa las noticias todo el tiempo. Si el miedo sigue fuerte durante semanas o te complica el día a día, busca atención médica o psicológica.',
       },
       {
         q: '¿Cómo ayudar a mis hijos que tienen miedo a los temblores?',
-        a: 'Mantén la calma con ellos, déjalos hablar de lo que recuerdan, hagan un plan familiar entre todos y practiquen la respiración lenta en familia. Si su miedo dura semanas, habla con su pediatra o con un psicólogo.',
+        a: 'Mantén la calma con ellos, déjalos hablar de lo que recuerdan, hagan un plan familiar entre todos y practiquen la respiración lenta en familia. Si su miedo dura semanas, habla con su pediatra o busca atención psicológica infantil.',
       },
       {
         q: '¿Cuánto dura el miedo después de un sismo?',
-        a: 'En muchas personas el miedo va bajando con las semanas, sobre todo con rutinas, un plan y gente cerca. Si después de un mes sigues reviviendo esa noche, evitas lugares o no puedes dormir, habla con un médico o con un psicólogo: hay tratamientos que ayudan.',
+        a: 'En muchas personas el miedo va bajando con las semanas, sobre todo con rutinas, un plan y gente cerca. Si después de un mes sigues reviviendo esa noche, evitas lugares o no puedes dormir, busca atención médica o psicológica: hay tratamientos que ayudan.',
       },
     ],
     keywords: [
@@ -942,7 +942,7 @@ export const esStories2: Story[] = [
           'Si estás leyendo esto porque te sientes como se sentía Nico, gracias por seguir aquí. El dolor que sientes es real, y la ayuda también.',
           'Cuéntaselo a una persona esta noche. Un hermano, una amiga, tu mamá o tu papá, un pastor. Puedes usar las palabras de Nico: “No estoy bien”. Si decirlo te parece imposible, escríbelo.',
           'Si estás pensando en quitarte la vida, llama ahora a la línea de crisis de tu país: hay personas preparadas para escucharte esta misma noche. En México es la Línea de la Vida, gratuita y abierta las 24 horas: 800 911 2000. Si estás en peligro inmediato, llama al 911 o al número de emergencias de tu país. En [la página de ayuda](/help) encuentras la línea de tu país.',
-          'Si llevas más de dos semanas con el ánimo bajo o con una sensación de vacío, habla con un médico o con un psicólogo. Es un paso normal, y el tratamiento ayuda.',
+          'Si llevas más de dos semanas con el ánimo bajo o con una sensación de vacío, busca atención médica o psicológica. Es un paso normal, y el tratamiento ayuda.',
           'Si quieres más apoyo hoy, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes una cosa pequeña para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas donde alguien te escucha. [Cuando la tristeza no se va](/i-feel-depressed) tiene más sobre qué hacer después.',
         ],
       },
@@ -950,10 +950,10 @@ export const esStories2: Story[] = [
     tryThis: {
       title: 'Esta noche: cuéntaselo a una persona',
       steps: [
-        'Elige a una persona de confianza: un hermano o una hermana, un amigo o una amiga, tu mamá o tu papá, o un pastor.',
+        'Elige a una persona de confianza: alguien de tu familia, una amistad o un pastor.',
         'Mándale una frase sincera: “No estoy bien. ¿Podemos hablar?”.',
         'Si no logras hablar con nadie, llama a la línea de crisis de tu país. En México, la Línea de la Vida atiende las 24 horas: 800 911 2000.',
-        'Mañana, pídele a esa persona que te ayude a sacar una cita con un médico o con un psicólogo.',
+        'Mañana, pídele a esa persona que te ayude a sacar una cita para atención médica o psicológica.',
       ],
     },
     verse: 'psa-23-4',
@@ -961,7 +961,7 @@ export const esStories2: Story[] = [
     faq: [
       {
         q: '¿Qué hago cuando siento que ya no puedo más?',
-        a: 'Cuéntale hoy a una persona de confianza cómo te sientes de verdad. Si estás pensando en quitarte la vida, llama a la línea de crisis de tu país, o al número de emergencias si estás en peligro inmediato. Después, busca a un médico o a un psicólogo.',
+        a: 'Cuéntale hoy a una persona de confianza cómo te sientes de verdad. Si estás pensando en quitarte la vida, llama a la línea de crisis de tu país, o al número de emergencias si estás en peligro inmediato. Después, busca atención médica o psicológica.',
       },
       {
         q: '¿Cómo decirle a mi familia que no estoy bien?',
@@ -1044,8 +1044,8 @@ export const esStories2: Story[] = [
         paragraphs: [
           'Si antes orabas con facilidad y ahora no puedes, tu fe no tiene nada de malo. La ansiedad hace difícil quedarse en calma. Dios escucha las oraciones cortas, las oraciones cansadas y las oraciones que son solo un suspiro.',
           'Prueba con una frase hoy. Dila en el bus, en el baño, mientras se cocina el arroz. “Señor, ayúdame”. “Señor, gracias”. “Señor, tengo miedo”. Cada una de esas frases es una oración de verdad.',
-          'Deja que alguien ore por ti también. En [la página de oración](/prayers) puedes enviar una petición, y alguien orará por ti.',
-          'Si la ansiedad te sigue despertando en las noches por más de dos semanas, o te complica el día, habla con un médico o con un psicólogo. La fe y el buen cuidado van juntos.',
+          'Deja que alguien ore por ti también. En [la página de oración](/prayers) puedes enviar una petición de oración, y alguien orará por ti.',
+          'Si la ansiedad te sigue despertando en las noches por más de dos semanas, o te complica el día, busca atención médica o psicológica. La fe y el buen cuidado van juntos.',
           'Si quieres más apoyo, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes una cosa pequeña para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas donde alguien te escucha. Para tener versículos a mano, mira [Versículos de la Biblia para la ansiedad](/bible-verses-for-anxiety).',
         ],
       },
@@ -1056,7 +1056,7 @@ export const esStories2: Story[] = [
         'Camino al trabajo o a clases, ora con una frase sobre lo que más te preocupa.',
         'En el almuerzo, ora con una frase para agradecer algo pequeño.',
         'Antes de dormir, ora con una frase para pedir descanso.',
-        'Pídele a un amigo o a una amiga que ore por ti esta semana, y cuéntale por qué.',
+        'Pídele a alguien de confianza que ore por ti esta semana, y cuéntale por qué.',
       ],
     },
     verse: 'php-4-6-7',
@@ -1072,7 +1072,7 @@ export const esStories2: Story[] = [
       },
       {
         q: '¿Qué oración corta puedo hacer cuando siento angustia?',
-        a: 'Puedes decir algo tan sencillo como “Señor, ayúdame”, “Señor, dame paz” o “Señor, quédate conmigo”. Si la angustia dura semanas o no te deja dormir, habla también con un médico o con un psicólogo.',
+        a: 'Puedes decir algo tan sencillo como “Señor, ayúdame”, “Señor, dame paz” o “Señor, quédate conmigo”. Si la angustia dura semanas o no te deja dormir, busca también atención médica o psicológica.',
       },
     ],
     keywords: [
@@ -1103,7 +1103,7 @@ export const esStories2: Story[] = [
         paragraphs: [
           'Lina es barista en una cafetería pequeña de la avenida Santander, en Manizales. Antes era la primera en llegar. Abría el local, prendía la máquina de espresso y saludaba por su nombre a los clientes de siempre.',
           'Después llegó el año en que todo pasó a la vez. Su mejor amiga se fue a vivir a Bogotá. La cafetería cerró tres meses por remodelación. Se le acabaron los ahorros. Cuando reabrieron, volvió a trabajar, y se sentía otra persona.',
-          'Se despertaba a las nueve, tarde. El café era su desayuno. Después del turno se iba directo a la cama y pasaba publicaciones hasta la madrugada. Los fines de semana dejó de salir. “Es que estoy cansada”, le decía a su mamá por videollamada. Sabía que era más que eso.',
+          'Se despertaba a las nueve, tarde. El café era su desayuno. Después del turno se iba directo a la cama y se quedaba viendo redes hasta la madrugada. Los fines de semana dejó de salir. “Es que estoy cansada”, le decía a su mamá por videollamada. Sabía que era más que eso.',
           'Algunos días se sentía triste. Más seguido no sentía nada. Sin ganas, sin rumbo, con la vida en pausa mientras el mundo de afuera seguía andando.',
         ],
         pullQuote:
@@ -1138,7 +1138,7 @@ export const esStories2: Story[] = [
           'Después de una semana de café en las mañanas, agregó una cosa más: caminar al trabajo en vez de tomar el bus, quince minutos por la avenida. Dos semanas después, otra: llamar a su mejor amiga todos los domingos en la noche.',
           'Algunos días no hacía nada de eso. Aprendió a dejar de contar esos días como fracasos. Mañana, otra vez café.',
           'También volvió a la iglesia, a un grupo pequeño de jóvenes profesionales de su iglesia cristiana. Al principio solo escuchaba. Una noche alguien compartió sobre Isaías 40:31, y Lina decidió que podía caminar un tiempo antes de intentar correr.',
-          'Cuando notó que el corazón le seguía pesando durante semanas, aun con los pequeños avances, pidió una cita médica por la EPS. El médico la remitió a una psicóloga. Ahí aprendió a ser más amable consigo misma.',
+          'Cuando notó que el corazón le seguía pesando durante semanas, aun con los pequeños avances, pidió una cita médica por la EPS. El médico la remitió a una psicóloga. Ahí aprendió a hablarse con menos dureza.',
           'Ahora, seis meses después, Lina vuelve a ser la primera en llegar a la cafetería. Todavía tiene días difíciles. Cada mañana hay una taza amarilla, una montaña y una cosa pequeña ya hecha antes de que empiece el día.',
         ],
         pullQuote:
@@ -1149,9 +1149,9 @@ export const esStories2: Story[] = [
         heading: 'Si tú también quieres volver a levantarte',
         paragraphs: [
           'Si ahora mismo sientes que tu vida está en pausa, sin ganas y sin saber por dónde empezar, apunta a una sola cosa esta semana.',
-          'Elige una cosa pequeña para mañana en la mañana. Un café afuera. Una caminata de cinco minutos. Un mensaje a un amigo o a una amiga. Hazla, y cuéntala como un logro. Primero nos movemos, y las ganas llegan después.',
+          'Elige una cosa pequeña para mañana en la mañana. Un café afuera. Una caminata de cinco minutos. Un mensaje a alguien que quieres. Hazla, y cuéntala como un logro. Primero nos movemos, y las ganas llegan después.',
           'Habrá días en que no logres ni una. Es normal. Vuelve a intentarlo mañana. Un día pesado no borra lo que has avanzado.',
-          'Si llevas más de dos semanas sin ganas o con el corazón pesado, o te está costando sacar adelante el día, habla con un médico o con un psicólogo. Es un paso normal, y ayuda.',
+          'Si llevas más de dos semanas sin ganas o con el corazón pesado, o te está costando sacar adelante el día, busca atención médica o psicológica. Es un paso normal, y ayuda.',
           'Si quieres ayuda hoy, [HopeBegins](/) es gratis. Elige cómo te sientes y recibes una cosa pequeña para probar hoy, herramientas para calmarte, alguien que ore por ti y líneas gratuitas donde alguien te escucha. Si no sabes hacia dónde vas, lee [Cuando te sientes sin rumbo](/i-feel-lost).',
         ],
       },
@@ -1170,7 +1170,7 @@ export const esStories2: Story[] = [
     faq: [
       {
         q: '¿Cómo levantarme de nuevo cuando no tengo ganas de nada?',
-        a: 'Empieza con una cosa pequeña cada día, como un café afuera o una caminata corta, y hazla antes de que vuelvan las ganas. Casi siempre primero nos movemos y las ganas llegan después. Si ya lleva más de dos semanas, habla con un médico o con un psicólogo.',
+        a: 'Empieza con una cosa pequeña cada día, como un café afuera o una caminata corta, y hazla antes de que vuelvan las ganas. Casi siempre primero nos movemos y las ganas llegan después. Si ya lleva más de dos semanas, busca atención médica o psicológica.',
       },
       {
         q: '¿Es normal sentir que mi vida está estancada?',

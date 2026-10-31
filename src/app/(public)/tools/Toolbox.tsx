@@ -746,7 +746,7 @@ const MORE: { id: string; title: Text; links: MoreLink[] }[] = [
           tl: 'Limang hakbang kapag parang wala nang pag-asa',
           fr: 'Cinq étapes pour les jours sans espoir',
           de: 'Fünf Schritte für hoffnungslose Tage',
-          es: 'Cinco pasos para los días sin esperanza',
+          es: 'Cinco pasos cortos para cuando pierdes la esperanza',
           ko: '희망이 보이지 않는 날을 위한 다섯 걸음',
         },
         text: {
@@ -809,7 +809,7 @@ const copy = {
   es: {
     title: 'Herramientas para momentos difíciles',
     subtitle:
-      'La mayoría toma unos cuantos toques y unos minutos. Nada de lo que eliges sale de tu celular.',
+      'Casi todas se usan con unos cuantos toques, en pocos minutos. Nada de lo que eliges sale de tu celular.',
     pick: '¿Qué está pasando?',
     needsPlan: 'Tus razones se guardan junto con tu plan en este celular.',
     makePlan: 'Primero haz tu plan gratuito',

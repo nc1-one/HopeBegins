@@ -29,7 +29,7 @@ const copy: PerLang<{ title: string; subtitle: string }> = {
       'Ein paar Mal tippen, etwa 20 Sekunden. Komm jeden Tag wieder und sieh zu, wie dein Jasmin wächst.',
   },
   es: {
-    title: 'Check-in diario',
+    title: 'Chequeo diario',
     subtitle:
       'Unos toques, unos 20 segundos. Vuelve cada día y mira cómo crece tu jazmín.',
   },

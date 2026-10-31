@@ -42,10 +42,10 @@ const copy: PerLang<{
     done: 'Heute erledigt',
   },
   es: {
-    title: 'Check-in diario',
+    title: 'Chequeo diario',
     tally: (days: number, week: number) =>
       `${days === 1 ? '1 día' : `${days} días`} · ${week} esta semana`,
-    go: 'Hacer el check-in de hoy',
+    go: 'Hacer el chequeo de hoy',
     done: 'Listo por hoy',
   },
   ko: {

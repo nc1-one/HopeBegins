@@ -81,7 +81,7 @@ const navCopy: PerLang<{
   },
   es: {
     home: 'Inicio',
-    checkIn: 'Check-in',
+    checkIn: 'Chequeo',
     tools: 'Herramientas',
     blog: 'Blog',
     approach: 'Nuestro enfoque',

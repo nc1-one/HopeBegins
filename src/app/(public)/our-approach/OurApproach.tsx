@@ -239,7 +239,7 @@ const STAGES: (Pick<ApproachStep, 'photo' | 'offset'> & {
       },
       es: {
         name: 'El momento en que te das cuenta',
-        text: 'Tarde en la noche buscas “ya no puedo más” y llegas a una página con algo que puedes hacer ahora mismo.',
+        text: 'A medianoche buscas “ya no puedo más” y llegas a una página con algo que puedes hacer ahora mismo.',
         link: { href: '/tired-of-everything', label: 'Ver esa página' },
       },
       ko: {
@@ -378,7 +378,7 @@ const STAGES: (Pick<ApproachStep, 'photo' | 'offset'> & {
       },
       es: {
         name: 'Después',
-        text: 'Un check-in de 1 minuto cada mes, y ayuda al alcance de tu mano si vuelves a sentirte mal.',
+        text: 'Un chequeo de 1 minuto cada mes, y ayuda al alcance de tu mano si vuelves a sentirte mal.',
       },
       ko: {
         name: '그 후에',
@@ -606,7 +606,7 @@ const OFFERS: {
           },
           es: {
             title: 'Daily Hope',
-            text: 'Un correo de ánimo al día durante 21 días, en inglés.',
+            text: 'Un correo de ánimo al día durante 21 días.',
           },
           ko: {
             title: 'Daily Hope',

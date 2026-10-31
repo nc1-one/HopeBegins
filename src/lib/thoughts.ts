@@ -825,7 +825,7 @@ export const WORRY_TOPICS: Both[] = [
     tl: 'Trabaho o school',
     fr: 'Le travail ou les études',
     de: 'Arbeit oder Schule',
-    es: 'Trabajo o escuela',
+    es: 'Trabajo o estudios',
     ko: '직장이나 학교',
   },
   {

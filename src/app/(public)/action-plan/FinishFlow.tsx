@@ -276,7 +276,7 @@ const copy = {
     comesBack: [
       'Vuelve a usar tu herramienta cada día, desde hoy.',
       'Cuéntaselo a una de tus dos personas.',
-      'Haz el check-in. Si tus puntajes siguen altos durante dos semanas, habla con un psicólogo o con alguien de una línea de ayuda gratuita.',
+      'Haz el chequeo. Si tus puntajes siguen altos durante dos semanas, busca atención psicológica o llama a una línea de ayuda gratuita.',
       'Si piensas en quitarte la vida, llama ahora mismo a una línea de crisis.',
     ],
     restart: 'Empezar otras 4 semanas con esta herramienta',

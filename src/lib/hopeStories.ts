@@ -65,7 +65,7 @@ const STORIES: {
         excerpt:
           'Gracias a este programa aprendí a revisar bien mis pensamientos, a darme más cuenta de las mentiras con las que me convenzo y a reemplazarlas por lo que es verdad.',
         content:
-          'Gracias a este programa aprendí a revisar bien mis pensamientos, a darme más cuenta de las mentiras con las que me convenzo y a reemplazarlas por lo que es verdad. Y lo más importante: esta vez la verdad va más allá de lo que yo sé. Se basa en la verdad suprema, en lo que dice la Palabra de Dios. Coach Hope me recordó el versículo de Filipenses 2:13, que ahora es uno de mis favoritos: es Dios quien obra en nosotros y nos da tanto el deseo como el poder de hacer lo que a Él le agrada. Es un recordatorio hermoso de que, incluso en nuestras luchas de salud mental, Dios obra en nosotros. Él nos da tanto el deseo de cambiar como el poder para cambiar, para Su gloria.',
+          'Gracias a este programa aprendí a revisar bien mis pensamientos, a darme más cuenta de las mentiras con las que me convenzo y a reemplazarlas por lo que es verdad. Y lo más importante: esta vez la verdad va más allá de lo que yo sé. Se basa en la verdad suprema, en lo que dice la Palabra de Dios. Coach Hope me recordó Filipenses 2:13, que ahora es uno de mis versículos favoritos: “Porque Dios es el que en vosotros obra así el querer como el hacer, por su buena voluntad”. Me encanta, porque me muestra que, incluso en nuestras luchas de salud mental, Dios obra en nosotros. Él nos da tanto el deseo de cambiar como el poder para cambiar, para Su gloria.',
         role: 'Participante de HopeBegins',
       },
       ko: {

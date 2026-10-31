@@ -580,7 +580,7 @@ const INTL_JOURNEY_PAGE_CONTENT: Record<IntlLang, IntlJourneyPageContent> = {
       actions: [
         { title: 'Pedir que oren por ti', href: '/prayers', icon: 'heart' },
         {
-          title: 'Recibir Daily Hope por correo (en inglés)',
+          title: 'Recibir Daily Hope por correo',
           href: '/daily-hope',
           icon: 'mail',
         },
