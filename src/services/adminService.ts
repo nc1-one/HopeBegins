@@ -73,10 +73,10 @@ export const adminService = {
     endDate?: string
   ): Promise<PaginatedResponse<Prayer>> => {
     let url = `${config.API_URL}/prayers/requests/?page=${page}`;
-    if (search) url += `&search=${search}`;
+    if (search) url += `&search=${encodeURIComponent(search)}`;
     if (status !== 'ALL') url += `&status=${status}`;
-    if (startDate) url += `&created_at__gte=${startDate}`;
-    if (endDate) url += `&created_at__lte=${endDate}`;
+    if (startDate) url += `&created_at__date__gte=${startDate}`;
+    if (endDate) url += `&created_at__date__lte=${endDate}`;
 
     return fetchWithAuth(url, {
       headers: authHeader(),
@@ -143,7 +143,7 @@ export const adminService = {
     search = ''
   ): Promise<PaginatedResponse<Hopecast>> => {
     let url = `${config.API_URL}/hopecasts/?page=${page}`;
-    if (search) url += `&search=${search}`;
+    if (search) url += `&search=${encodeURIComponent(search)}`;
 
     return fetchWithAuth(url, {
       headers: authHeader(),
@@ -223,7 +223,7 @@ export const adminService = {
     ordering = '-date_joined'
   ): Promise<PaginatedResponse<HopeCarrier>> => {
     let url = `${config.API_URL}/users/?role=carrier&page=${page}`;
-    if (search) url += `&search=${search}`;
+    if (search) url += `&search=${encodeURIComponent(search)}`;
     if (ordering) url += `&ordering=${ordering}`;
 
     if (status === 'PENDING') url += '&is_approved=0';
@@ -267,7 +267,7 @@ export const adminService = {
     type: 'ALL' | 'ONE_TIME' | 'MONTHLY' = 'ALL'
   ): Promise<PaginatedResponse<Donation>> => {
     let url = `${config.API_URL}/donations/?page=${page}`;
-    if (search) url += `&search=${search}`;
+    if (search) url += `&search=${encodeURIComponent(search)}`;
     if (type !== 'ALL') url += `&donation_type=${type}`;
 
     return fetchWithAuth(url, {
@@ -333,9 +333,9 @@ export const adminService = {
     endDate?: string
   ): Promise<PaginatedResponse<HopeJourney>> => {
     let url = `${config.API_URL}/daily-hope/journeys/?page=${page}`;
-    if (search) url += `&search=${search}`;
-    if (startDate) url += `&created_at__gte=${startDate}`;
-    if (endDate) url += `&created_at__lte=${endDate}`;
+    if (search) url += `&search=${encodeURIComponent(search)}`;
+    if (startDate) url += `&created_at__date__gte=${startDate}`;
+    if (endDate) url += `&created_at__date__lte=${endDate}`;
     return fetchWithAuth(url, {
       headers: authHeader(),
     });

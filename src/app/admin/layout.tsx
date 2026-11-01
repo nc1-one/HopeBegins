@@ -17,8 +17,9 @@ import {
   UserCog,
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { adminService } from '@/services/adminService';
+import { clearStoredAuth } from '@/services/api';
 import { useUserStore } from '@/store/useUserStore';
 import { notify } from '@/lib/notifications';
 import { AdminAuthGuard } from './components/AdminAuthGuard';
@@ -31,17 +32,22 @@ export default function AdminLayout({
   const pathname = usePathname();
   const router = useRouter();
   const { user, logout: clearUserStore } = useUserStore();
+  const queryClient = useQueryClient();
   const isSuperAdmin = (user as { role?: string } | null)?.role === 'admin';
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // The page the mobile menu was opened on: moving to another page, signing
+  // out included, closes it.
+  const [menuOpenOn, setMenuOpenOn] = useState<string | null>(null);
+  const isMobileMenuOpen = menuOpenOn === pathname;
+  const setIsMobileMenuOpen = (open: boolean) =>
+    setMenuOpenOn(open ? pathname : null);
   const isLoginPage = pathname === '/admin/login';
 
   // Prevent scroll when mobile menu is open
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [isMobileMenuOpen]);
 
   const logoutMutation = useMutation({
@@ -51,35 +57,22 @@ export default function AdminLayout({
       return adminService.logout(accessToken, refreshToken);
     },
     onSuccess: () => {
-      // Clear local storage
-      localStorage.removeItem('adminToken');
-      localStorage.removeItem('adminRefreshToken');
-      localStorage.removeItem('adminUser');
-
-      // Clear store
-      clearUserStore();
-
       notify.success('Logged out successfully');
-      router.push('/admin/login');
     },
     onError: (error: any) => {
       console.error('Logout error:', error);
-      // Even if API fails, we should probably clear local state
-      localStorage.removeItem('adminToken');
-      localStorage.removeItem('adminRefreshToken');
-      localStorage.removeItem('adminUser');
-      clearUserStore();
-      router.push('/admin/login');
     },
   });
 
   const handleLogout = () => {
-    // Clear local state immediately to ensure UI responsiveness
+    // Forget the sign-in and everything loaded with it, so the next person
+    // to sign in on this device doesn't see the last one's prayers, team or
+    // financials.
     const clearLocalAuth = () => {
-      localStorage.removeItem('adminToken');
-      localStorage.removeItem('adminRefreshToken');
-      localStorage.removeItem('adminUser');
+      clearStoredAuth('admin');
       clearUserStore();
+      queryClient.clear();
+      setIsMobileMenuOpen(false);
       router.push('/admin/login');
     };
 
