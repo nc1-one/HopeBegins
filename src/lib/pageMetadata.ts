@@ -4,9 +4,27 @@ import { LANG_INFO } from './i18n';
 import { hreflang } from './hreflang';
 import { isTwinReady, type TaglishTwin } from './taglishTwins';
 
-const DEFAULT_IMAGE = {
+const ENGLISH_IMAGE = {
   url: '/og/hopebegins.jpg',
   alt: 'Not okay today? HopeBegins',
+};
+
+/**
+ * The link preview for a page without a picture of its own: "Not okay
+ * today?" in the page's language, over the home page's photo for that part
+ * of the world. Taglish pages share the English card, as the Taglish home's
+ * first screen is in English.
+ */
+const DEFAULT_IMAGES: Record<FeelingLang, { url: string; alt: string }> = {
+  en: ENGLISH_IMAGE,
+  tl: ENGLISH_IMAGE,
+  fr: {
+    url: '/og/hopebegins-fr.jpg',
+    alt: 'Ça ne va pas aujourd’hui ? HopeBegins',
+  },
+  de: { url: '/og/hopebegins-de.jpg', alt: 'Heute nicht okay? HopeBegins' },
+  es: { url: '/og/hopebegins-es.jpg', alt: '¿No estás bien hoy? HopeBegins' },
+  ko: { url: '/og/hopebegins-ko.jpg', alt: '오늘 괜찮지 않나요? HopeBegins' },
 };
 
 /**
@@ -23,7 +41,7 @@ export function pageMetadata(
   title: string,
   description: string,
   {
-    image = DEFAULT_IMAGE,
+    image,
     keywords,
     lang = 'en',
     languages,
@@ -36,6 +54,7 @@ export function pageMetadata(
   } = {}
 ): Metadata {
   const shareTitle = `${title} | HopeBegins`;
+  const shareImage = image ?? DEFAULT_IMAGES[lang];
   return {
     title,
     description,
@@ -48,13 +67,13 @@ export function pageMetadata(
       url: path,
       title: shareTitle,
       description,
-      images: [{ ...image, width: 1200, height: 630 }],
+      images: [{ ...shareImage, width: 1200, height: 630 }],
     },
     twitter: {
       card: 'summary_large_image',
       title: shareTitle,
       description,
-      images: [image.url],
+      images: [shareImage.url],
     },
   };
 }
