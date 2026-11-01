@@ -216,16 +216,41 @@ export interface DateCount {
   count: number;
 }
 
+/** Each language, plus "before" for rows from before languages were saved. */
+export type CountsByLanguage = Record<
+  'en' | 'tl' | 'fr' | 'de' | 'es' | 'ko' | 'before',
+  number
+>;
+
+/**
+ * Prayer requests, HopeCast plays and Daily Hope for a date range. With a
+ * language, prayer requests and Daily Hope are that language's only.
+ */
 export interface AnalyticsData {
   summary: {
     total_prayers: number;
     total_plays: number;
     total_new_subscribers: number;
+    /** The two below added together; older servers send only this. */
     total_completions: number;
+    /** Finished the five steps on /get-started (every language). */
+    hopeful_beginning_completions?: number;
+    /** Got every Daily Hope email. */
+    daily_hope_finished?: number;
   };
   prayers_by_category: CategoryCount[];
   plays_by_category: CategoryCount[];
   subscribers_trend: DateCount[];
+  /** Every language side by side for the dates, whatever language is picked. */
+  by_language?: {
+    prayers: CountsByLanguage;
+    daily_hope_signups: CountsByLanguage;
+    daily_hope_finished: CountsByLanguage;
+  };
+  /** Who gets Daily Hope today, not tied to the dates. */
+  daily_hope_receiving?: CountsByLanguage;
+  /** When prayer requests and Daily Hope started saving their language. */
+  languages_recorded_from?: string;
   date_range: {
     start_date: string;
     end_date: string;

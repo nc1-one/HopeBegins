@@ -14,8 +14,8 @@ export function DateRangePicker({
   onChange,
 }: DateRangePickerProps) {
   return (
-    <div className="flex items-center gap-3 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl px-5 py-2.5 shadow-sm hover:shadow-md transition-all">
-      <div className="p-1.5 bg-brand/10 rounded-lg">
+    <div className="flex max-w-full items-center gap-3 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl px-3 sm:px-5 py-2.5 shadow-sm hover:shadow-md transition-all">
+      <div className="hidden sm:block p-1.5 bg-brand/10 rounded-lg">
         <CalendarIcon className="h-4 w-4 text-brand" />
       </div>
       <div className="flex items-center gap-3">

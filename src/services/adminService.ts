@@ -365,16 +365,19 @@ export const adminService = {
   },
 
   /**
-   * Fetch granular analytics with date filtering.
+   * Fetch granular analytics with date filtering, for one language
+   * ('en', 'ko'...) or every language when lang is left out.
    */
   getAnalytics: async (
     startDate?: string,
-    endDate?: string
+    endDate?: string,
+    lang?: string
   ): Promise<AnalyticsData> => {
     let url = `${config.API_URL}/analytics/`;
     const params = new URLSearchParams();
     if (startDate) params.append('start_date', startDate);
     if (endDate) params.append('end_date', endDate);
+    if (lang) params.append('lang', lang);
     if (params.toString()) url += `?${params.toString()}`;
 
     return fetchWithAuth(url, {

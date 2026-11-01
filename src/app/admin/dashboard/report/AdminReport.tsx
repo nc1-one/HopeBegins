@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
@@ -9,18 +9,28 @@ import { format, isValid, parseISO } from 'date-fns';
 import { ArrowLeft, Download } from 'lucide-react';
 import headerLogo from '@/assets/images/header-logo.png';
 import { DateRangePicker } from '@/components/ui/date-range-picker';
+import {
+  LANGUAGE_FILTERS,
+  LANGUAGE_NAMES,
+  isLanguageFilter,
+  type LanguageFilter,
+} from '@/lib/clickLanguages';
 import { adminService } from '@/services/adminService';
 import { useUserStore } from '@/store/useUserStore';
-import type { CategoryCount, DateCount } from '@/types/admin';
-import { PRAYER_CATEGORY_LABELS } from '../components/DashboardCharts';
-import { JourneyByStage } from '../components/JourneyByStage';
+import { AtAGlance } from '../components/AtAGlance';
 import { ByLanguage } from '../components/ByLanguage';
+import { Journey } from '../components/Journey';
+import { Tools } from '../components/Tools';
+import { Pages } from '../components/Pages';
+import { PrayerAndDailyHope } from '../components/PrayerAndDailyHope';
+import { AllTime } from '../components/AllTime';
+import { Tile } from '../components/parts';
 import { defaultDateRange, useDashboard } from '../hooks/useDashboard';
 
 /*
  * The dashboard as a report to keep or send: every number for the chosen
- * dates, laid out for A4, saved as a PDF through the browser's print
- * dialog. Counts only: no names, emails, messages or prayer requests.
+ * dates and language, laid out for A4, saved as a PDF through the browser's
+ * print dialog. Counts only: no names, emails, messages or prayer requests.
  */
 
 const DAY = /^\d{4}-\d{2}-\d{2}$/;
@@ -30,147 +40,28 @@ const isDay = (value: string | null): value is string =>
 
 const longDate = (day: string) => format(parseISO(day), 'd MMMM yyyy');
 
-const number = (value: number | undefined) =>
-  value === undefined ? '–' : value.toLocaleString();
-
-const sumWhere = (
-  totals: Record<string, number>,
-  test: (name: string) => boolean
-) =>
-  Object.entries(totals).reduce(
-    (total, [name, count]) => (test(name) ? total + count : total),
-    0
-  );
-
-const h2Class =
-  'font-playfair text-2xl text-[#6E5F47] leading-none tracking-[-0.03em]';
-
-function KeyNumbers({
-  items,
-}: {
-  items: { label: string; value: number | undefined; note?: string }[];
-}) {
-  return (
-    <dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4 print:grid-cols-4">
-      {items.map((item) => (
-        <div
-          key={item.label}
-          className="report-block border-t border-[#E2DFDA] pt-2"
-        >
-          <dt className="text-xs text-[#6E5F47]/80">{item.label}</dt>
-          <dd className="font-playfair text-3xl text-[#6E5F47] tabular-nums leading-tight">
-            {number(item.value)}
-          </dd>
-          {item.note && (
-            <dd className="text-xs text-[#6E5F47]/80">{item.note}</dd>
-          )}
-        </div>
-      ))}
-    </dl>
-  );
-}
-
-/** A count per row, with a bar showing its share of the total. */
-function CountTable({
+function ReportSection({
   title,
-  rows,
+  intro,
+  newPage,
+  children,
 }: {
   title: string;
-  rows: { label: string; count: number }[];
+  intro?: string;
+  /** Starts on a new page in the PDF. */
+  newPage?: boolean;
+  children: ReactNode;
 }) {
-  const total = rows.reduce((all, row) => all + row.count, 0);
   return (
-    <div className="report-block">
-      <h3 className="font-poppins text-sm font-semibold text-[#6E5F47]">
-        {title}
-      </h3>
-      {rows.length === 0 ? (
-        <p className="mt-2 text-sm text-[#6E5F47]/80">None in these dates.</p>
-      ) : (
-        <table className="mt-2 w-full text-sm text-[#6E5F47]">
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.label} className="border-b border-[#EEF1E8]">
-                <td className="py-1.5 pr-3">{row.label}</td>
-                <td className="w-40 py-1.5 pr-3">
-                  <span className="block h-2 rounded-full bg-[#EFF3E7]">
-                    <span
-                      className="block h-2 rounded-full bg-[#AEC488]"
-                      style={{
-                        width: `${total ? (row.count / total) * 100 : 0}%`,
-                      }}
-                    />
-                  </span>
-                </td>
-                <td className="w-16 py-1.5 text-right tabular-nums">
-                  {row.count.toLocaleString()}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
-    </div>
-  );
-}
-
-/** One bar per day, for counts that change day to day. */
-function DayBars({ title, days }: { title: string; days: DateCount[] }) {
-  const peak = Math.max(0, ...days.map((day) => day.count));
-  const max = Math.max(1, peak);
-  const width = 680;
-  const height = 120;
-  const gap = days.length > 40 ? 1 : 2;
-  const barWidth = days.length ? width / days.length - gap : 0;
-  const total = days.reduce((all, day) => all + day.count, 0);
-  return (
-    <div className="report-block">
-      <h3 className="font-poppins text-sm font-semibold text-[#6E5F47]">
-        {title}{' '}
-        <span className="font-normal text-[#6E5F47]/80">
-          ({total.toLocaleString()} in total, most in one day{' '}
-          {peak.toLocaleString()})
-        </span>
-      </h3>
-      {days.length === 0 ? (
-        <p className="mt-2 text-sm text-[#6E5F47]/80">None in these dates.</p>
-      ) : (
-        <>
-          <svg
-            viewBox={`0 0 ${width} ${height}`}
-            className="mt-2 h-auto w-full"
-            role="img"
-            aria-label={`${title}, by day`}
-          >
-            <line
-              x1="0"
-              x2={width}
-              y1={height - 0.5}
-              y2={height - 0.5}
-              stroke="#E2DFDA"
-            />
-            {days.map((day, index) => {
-              const barHeight = (day.count / max) * (height - 8);
-              return (
-                <rect
-                  key={day.date}
-                  x={index * (barWidth + gap)}
-                  y={height - barHeight}
-                  width={Math.max(barWidth, 1)}
-                  height={barHeight}
-                  rx={1.5}
-                  fill="#AEC488"
-                />
-              );
-            })}
-          </svg>
-          <div className="mt-1 flex justify-between text-xs text-[#6E5F47]/80">
-            <span>{longDate(days[0].date)}</span>
-            <span>{longDate(days[days.length - 1].date)}</span>
-          </div>
-        </>
-      )}
-    </div>
+    <section className={`space-y-4 ${newPage ? 'report-journey' : ''}`}>
+      <div>
+        <h2 className="font-playfair text-2xl leading-none tracking-[-0.03em] text-[#6E5F47]">
+          {title}
+        </h2>
+        {intro && <p className="mt-1 text-xs text-[#6E5F47]/80">{intro}</p>}
+      </div>
+      {children}
+    </section>
   );
 }
 
@@ -178,6 +69,7 @@ export function AdminReport() {
   const params = useSearchParams();
   const start = params.get('start');
   const end = params.get('end');
+  const lang = params.get('lang');
   const wantsPrint = params.get('print') === '1';
   const { user } = useUserStore();
   const admin = user as {
@@ -197,16 +89,24 @@ export function AdminReport() {
     analytics,
     clicks,
     rawClicks,
-    isClicksLoading,
+    byLanguage,
+    language,
+    setLanguage,
     dateRange,
     handleDateChange,
-    isLoading,
+    isStatsLoading,
+    isAnalyticsLoading,
+    isClicksLoading,
+    isUpdating,
     isError,
-  } = useDashboard(
-    isDay(start) && isDay(end) && start <= end
+  } = useDashboard({
+    ...(isDay(start) && isDay(end) && start <= end
       ? { startDate: start, endDate: end }
-      : defaultDateRange()
-  );
+      : defaultDateRange()),
+    language: isLanguageFilter(lang) ? lang : 'all',
+  });
+  const languageName =
+    language === 'all' ? 'Every language' : LANGUAGE_NAMES[language];
 
   // Financials are for the super admin only, as on the Financials page.
   const { data: donations, isFetched: donationsFetched } = useQuery({
@@ -217,7 +117,7 @@ export function AdminReport() {
 
   // The saved PDF is named after the page title. Next sets the title from
   // the site metadata, so it is swapped in only while printing.
-  const fileName = `HopeBegins report ${dateRange.startDate} to ${dateRange.endDate}`;
+  const fileName = `HopeBegins report ${language === 'all' ? '' : `${LANGUAGE_NAMES[language]} `}${dateRange.startDate} to ${dateRange.endDate}`;
   useEffect(() => {
     let previous = document.title;
     const before = () => {
@@ -235,14 +135,15 @@ export function AdminReport() {
     };
   }, [fileName]);
 
-  // Opened from "Download PDF report": print once everything has loaded
-  // and the charts have drawn.
+  // Opened from "PDF report": print once everything has loaded.
   const ready =
     !!stats &&
     !!analytics &&
     !!clicks &&
-    !isLoading &&
+    !isStatsLoading &&
+    !isAnalyticsLoading &&
     !isClicksLoading &&
+    !isUpdating &&
     (!isSuperAdmin || donationsFetched);
   const printed = useRef(false);
   useEffect(() => {
@@ -251,9 +152,6 @@ export function AdminReport() {
     const timer = setTimeout(() => window.print(), 800);
     return () => clearTimeout(timer);
   }, [wantsPrint, ready]);
-
-  const totals = clicks?.totals ?? {};
-  const n = (name: string) => totals[name] ?? 0;
 
   return (
     <div className="p-4 sm:p-8 lg:p-12 max-w-7xl mx-auto space-y-6 print:max-w-none print:p-0">
@@ -267,8 +165,8 @@ export function AdminReport() {
             <ArrowLeft className="h-4 w-4" /> Back to dashboard
           </Link>
           <p className="max-w-md text-sm text-zinc-500">
-            Pick the dates, then download. In the window that opens, choose{' '}
-            <b>Save as PDF</b> as the destination.
+            Pick the dates and language, then download. In the window that
+            opens, choose <b>Save as PDF</b> as the destination.
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -277,6 +175,22 @@ export function AdminReport() {
             endDate={dateRange.endDate}
             onChange={handleDateChange}
           />
+          <label className="flex h-12 items-center gap-2 rounded-2xl border border-zinc-200 bg-white px-4 text-sm font-bold dark:border-zinc-800 dark:bg-zinc-900">
+            <span className="text-zinc-500">Language</span>
+            <select
+              value={language}
+              onChange={(event) =>
+                setLanguage(event.target.value as LanguageFilter)
+              }
+              className="bg-transparent font-bold outline-none"
+            >
+              {LANGUAGE_FILTERS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
           <button
             type="button"
             onClick={() => window.print()}
@@ -298,9 +212,9 @@ export function AdminReport() {
         // charts are drawn at the size they print.
         <article
           id="admin-report"
-          className="mx-auto max-w-[783px] space-y-8 rounded-2xl bg-white p-6 text-[#6E5F47] shadow-sm sm:p-10 print:max-w-none print:rounded-none print:p-0 print:shadow-none"
+          className="mx-auto max-w-[783px] space-y-10 rounded-2xl bg-white p-6 text-zinc-900 shadow-sm sm:p-10 print:max-w-none print:rounded-none print:p-0 print:shadow-none"
         >
-          <header className="flex flex-wrap items-end justify-between gap-4 border-b border-[#E2DFDA] pb-5">
+          <header className="flex flex-wrap items-end justify-between gap-4 border-b border-[#E2DFDA] pb-5 text-[#6E5F47]">
             <div>
               <Image
                 src={headerLogo}
@@ -314,6 +228,8 @@ export function AdminReport() {
               </h1>
               <p className="mt-2 font-poppins text-base font-medium">
                 {longDate(dateRange.startDate)} to {longDate(dateRange.endDate)}
+                {' · '}
+                {languageName}
               </p>
             </div>
             <p className="text-right text-xs text-[#6E5F47]/80">
@@ -323,160 +239,100 @@ export function AdminReport() {
             </p>
           </header>
 
-          <p className="rounded-xl bg-[#EFF3E7] px-4 py-3 text-sm">
+          <p className="rounded-xl bg-[#EFF3E7] px-4 py-3 text-sm text-[#6E5F47]">
             Counts only, from anonymous events and totals. This report has no
             names, emails, messages or prayer requests. For the HopeBegins team;
             please don&apos;t share it publicly.
           </p>
 
-          <section aria-labelledby="period-title">
-            <h2 id="period-title" className={h2Class}>
-              In these dates
-            </h2>
-            <KeyNumbers
-              items={[
-                { label: 'Homepage visits', value: clicks && n('visit_home') },
-                {
-                  label: 'Feeling page visits',
-                  value:
-                    clicks &&
-                    sumWhere(totals, (name) =>
-                      name.startsWith('visit_feeling_')
-                    ),
-                },
-                { label: 'Plans made', value: clicks && n('plan_done') },
-                {
-                  label: 'E-coach taps',
-                  value:
-                    clicks &&
-                    sumWhere(totals, (name) => name.startsWith('ecoach_')),
-                },
-                {
-                  label: 'Prayer requests',
-                  value: analytics?.summary.total_prayers,
-                },
-                {
-                  label: 'HopeCast plays',
-                  value: analytics?.summary.total_plays,
-                },
-                {
-                  label: 'New Daily Hope sign-ups',
-                  value: analytics?.summary.total_new_subscribers,
-                },
-                {
-                  label: 'Hopeful Beginning finished',
-                  value: analytics?.summary.total_completions,
-                },
-              ]}
+          <ReportSection title="At a glance" intro={languageName}>
+            <AtAGlance
+              clicks={clicks}
+              analytics={analytics}
+              startDate={dateRange.startDate}
             />
-          </section>
+          </ReportSection>
 
-          <section aria-labelledby="alltime-title">
-            <h2 id="alltime-title" className={h2Class}>
-              All time
-            </h2>
-            <KeyNumbers
-              items={[
-                {
-                  label: 'Prayer requests',
-                  value: stats?.total_prayers,
-                  note:
-                    stats &&
-                    `${stats.pending_prayers.toLocaleString()} pending`,
-                },
-                {
-                  label: 'Active Hope Carriers',
-                  value: stats?.total_carriers,
-                },
-                { label: 'Carrier accounts', value: stats?.total_users },
-                { label: 'HopeCast plays', value: stats?.hopecast_plays },
-                {
-                  label: 'Hopeful Beginning finished',
-                  value: stats?.journey_completions,
-                },
-                {
-                  label: 'Crisis line taps',
-                  value: clicks && clicks.all_time['header_crisis_call'],
-                  note: 'the "Crisis? 1553" button',
-                },
-              ]}
+          <ReportSection
+            title="By language"
+            intro="Every key number with each language side by side, by the language of the page it happened on."
+            newPage
+          >
+            <ByLanguage
+              clicks={rawClicks}
+              byLanguage={byLanguage}
+              analytics={analytics}
+              language={language}
             />
-          </section>
+          </ReportSection>
 
-          {analytics && (
-            <section aria-labelledby="detail-title" className="space-y-6">
-              <h2 id="detail-title" className={h2Class}>
-                Prayer, HopeCasts and Daily Hope
-              </h2>
-              <div className="grid gap-6 sm:grid-cols-2 print:grid-cols-2">
-                <CountTable
-                  title="Prayer requests by topic"
-                  rows={analytics.prayers_by_category.map(
-                    (item: CategoryCount) => ({
-                      label:
-                        PRAYER_CATEGORY_LABELS[item.category || ''] ||
-                        item.category ||
-                        'Other',
-                      count: item.count,
-                    })
-                  )}
-                />
-                <CountTable
-                  title="HopeCast plays by category"
-                  rows={analytics.plays_by_category.map(
-                    (item: CategoryCount) => ({
-                      label: item.name || item.category || 'Other',
-                      count: item.count,
-                    })
-                  )}
-                />
-              </div>
-              <DayBars
-                title="New Daily Hope sign-ups by day"
-                days={analytics.subscribers_trend}
-              />
-            </section>
-          )}
+          <ReportSection
+            title="The journey, stage by stage"
+            intro={languageName}
+            newPage
+          >
+            <Journey clicks={clicks} language={language} open />
+          </ReportSection>
+
+          <ReportSection title="Tools and games" intro={languageName} newPage>
+            <Tools clicks={clicks} language={language} />
+          </ReportSection>
+
+          <ReportSection title="Pages and reaching out" intro={languageName}>
+            <Pages clicks={clicks} language={language} />
+          </ReportSection>
+
+          <ReportSection
+            title="Prayer, Daily Hope and HopeCasts"
+            intro={
+              language === 'all'
+                ? undefined
+                : `Prayer requests and Daily Hope for ${languageName}; HopeCasts and the five steps for every language.`
+            }
+            newPage
+          >
+            <PrayerAndDailyHope
+              analytics={analytics}
+              oneLanguage={language !== 'all'}
+            />
+          </ReportSection>
 
           {isSuperAdmin && donations && (
-            <section aria-labelledby="donations-title">
-              <h2 id="donations-title" className={h2Class}>
-                Donations
-              </h2>
-              <p className="mt-1 text-xs text-[#6E5F47]/80">
-                All time, from the Financials page.
-              </p>
-              <KeyNumbers
-                items={[
-                  {
-                    label: 'Total raised (₱)',
-                    value: donations.totalRaised,
-                  },
-                  { label: 'Donors', value: donations.totalDonors },
-                  {
-                    label: 'Monthly gifts (₱ a month)',
-                    value: donations.monthlyTotal,
-                  },
-                  {
-                    label: 'Average gift (₱)',
-                    value: Math.round(donations.avgDonation),
-                  },
-                ]}
-              />
-            </section>
+            <ReportSection
+              title="Donations"
+              intro="All time, from the Financials page."
+            >
+              <dl className="grid grid-cols-2 gap-3 sm:grid-cols-4 print:grid-cols-4">
+                <Tile label="Total raised (₱)" value={donations.totalRaised} />
+                <Tile label="Donors" value={donations.totalDonors} />
+                <Tile
+                  label="Monthly gifts (₱ a month)"
+                  value={donations.monthlyTotal}
+                />
+                <Tile
+                  label="Average gift (₱)"
+                  value={Math.round(donations.avgDonation)}
+                />
+              </dl>
+            </ReportSection>
           )}
 
-          <section className="report-journey">
-            <JourneyByStage clicks={clicks} isLoading={isClicksLoading} />
-          </section>
-
-          <section className="report-journey">
-            <ByLanguage clicks={rawClicks} isLoading={isClicksLoading} />
-          </section>
+          <ReportSection
+            title="All time"
+            intro="Since HopeBegins began, for every language, whatever the dates."
+          >
+            <AllTime
+              stats={stats}
+              analytics={analytics}
+              rawClicks={rawClicks}
+            />
+          </ReportSection>
 
           <footer className="border-t border-[#E2DFDA] pt-4 text-xs text-[#6E5F47]/80">
             HopeBegins · hopebegins.today · Report for{' '}
             {longDate(dateRange.startDate)} to {longDate(dateRange.endDate)}
+            {' · '}
+            {languageName}
           </footer>
         </article>
       )}

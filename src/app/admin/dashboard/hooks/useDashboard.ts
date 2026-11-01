@@ -1,8 +1,12 @@
 import { useMemo, useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import { adminService } from '@/services/adminService';
 import { subDays, format } from 'date-fns';
-import { clicksIn, type LanguageFilter } from '@/lib/clickLanguages';
+import {
+  clicksIn,
+  totalsByLanguage,
+  type LanguageFilter,
+} from '@/lib/clickLanguages';
 
 /** The last 30 days, as yyyy-MM-dd. */
 export const defaultDateRange = () => ({
@@ -10,50 +14,58 @@ export const defaultDateRange = () => ({
   endDate: format(new Date(), 'yyyy-MM-dd'),
 });
 
-export function useDashboard(initialRange?: {
+// Counts change slowly: no refetch on every tab switch, and the old numbers
+// stay on screen while new dates or a new language load.
+const SLOW = { staleTime: 60_000, placeholderData: keepPreviousData };
+
+export function useDashboard(initial?: {
   startDate: string;
   endDate: string;
+  language?: LanguageFilter;
 }) {
-  const [dateRange, setDateRange] = useState(
-    () => initialRange ?? defaultDateRange()
+  const [dateRange, setDateRange] = useState(() =>
+    initial
+      ? { startDate: initial.startDate, endDate: initial.endDate }
+      : defaultDateRange()
+  );
+  // One language, or all of them, for the whole dashboard.
+  const [language, setLanguage] = useState<LanguageFilter>(
+    initial?.language ?? 'all'
   );
 
-  const {
-    data: stats,
-    isLoading: isStatsLoading,
-    isError: isStatsError,
-    refetch: refetchStats,
-  } = useQuery({
+  const statsQuery = useQuery({
     queryKey: ['admin', 'stats'],
     queryFn: () => adminService.getStats(),
+    staleTime: 60_000,
   });
 
-  const {
-    data: analytics,
-    isLoading: isAnalyticsLoading,
-    isError: isAnalyticsError,
-    refetch: refetchAnalytics,
-  } = useQuery({
-    queryKey: ['admin', 'analytics', dateRange],
+  const analyticsQuery = useQuery({
+    queryKey: ['admin', 'analytics', dateRange, language],
     queryFn: () =>
-      adminService.getAnalytics(dateRange.startDate, dateRange.endDate),
+      adminService.getAnalytics(
+        dateRange.startDate,
+        dateRange.endDate,
+        language === 'all' ? undefined : language
+      ),
+    ...SLOW,
   });
 
-  // One language, or all of them, under plain event names.
-  const [language, setLanguage] = useState<LanguageFilter>('all');
-  const {
-    data: rawClicks,
-    isLoading: isClicksLoading,
-    refetch: refetchClicks,
-  } = useQuery({
+  const clicksQuery = useQuery({
     queryKey: ['admin', 'clicks', dateRange],
     queryFn: () =>
       adminService.getClickAnalytics(dateRange.startDate, dateRange.endDate),
+    ...SLOW,
   });
 
+  const rawClicks = clicksQuery.data;
+  // The picked language's counts, and every language's side by side.
   const clicks = useMemo(
     () => rawClicks && clicksIn(rawClicks, language),
     [rawClicks, language]
+  );
+  const byLanguage = useMemo(
+    () => rawClicks && totalsByLanguage(rawClicks.totals),
+    [rawClicks]
   );
 
   const handleDateChange = (start: string, end: string) => {
@@ -61,21 +73,28 @@ export function useDashboard(initialRange?: {
   };
 
   return {
-    stats,
-    analytics,
+    stats: statsQuery.data,
+    analytics: analyticsQuery.data,
     clicks,
     rawClicks,
+    byLanguage,
     language,
     setLanguage,
-    isClicksLoading,
     dateRange,
     handleDateChange,
-    isLoading: isStatsLoading || isAnalyticsLoading,
-    isError: isStatsError || isAnalyticsError,
+    isStatsLoading: statsQuery.isLoading,
+    isAnalyticsLoading: analyticsQuery.isLoading,
+    isClicksLoading: clicksQuery.isLoading,
+    /** New dates or a language are loading over the numbers on screen. */
+    isUpdating:
+      (analyticsQuery.isFetching && analyticsQuery.isPlaceholderData) ||
+      (clicksQuery.isFetching && clicksQuery.isPlaceholderData),
+    isError:
+      statsQuery.isError || analyticsQuery.isError || clicksQuery.isError,
     refetch: () => {
-      refetchStats();
-      refetchAnalytics();
-      refetchClicks();
+      statsQuery.refetch();
+      analyticsQuery.refetch();
+      clicksQuery.refetch();
     },
   };
 }
