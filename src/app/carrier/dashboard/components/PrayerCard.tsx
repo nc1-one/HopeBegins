@@ -113,8 +113,11 @@ export function PrayerCard({
                     className="h-14 px-12 bg-[#b4c392] hover:bg-[#a3b281] text-white font-black text-xs uppercase tracking-[0.2em] rounded-2xl shadow-xl shadow-[#b4c392]/20 transition-all active:scale-95 flex items-center gap-3"
                   >
                     <PlayCircle className="w-4 h-4" />
+                    {/* Their name only if they chose to share it. */}
                     Start Praying for{' '}
-                    {prayer.isAnonymous ? 'Anonymous' : prayer.title}
+                    {prayer.isAnonymous || !prayer.shareFirstName
+                      ? 'this request'
+                      : prayer.title}
                   </Button>
                 </div>
               )}

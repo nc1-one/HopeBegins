@@ -107,14 +107,18 @@ export function TeamList({
                     )}
                   </Button>
                 )}
-                <Button
-                  variant="ghost"
-                  onClick={() => onRemove(person)}
-                  className="h-10 rounded-xl font-bold text-xs text-red-600 hover:bg-red-50 hover:text-red-700"
-                >
-                  <UserX className="mr-2 h-4 w-4" />
-                  Remove access
-                </Button>
+                {/* Super admins can't be added back from here, so they
+                    can't be removed here either. */}
+                {person.role !== 'admin' && (
+                  <Button
+                    variant="ghost"
+                    onClick={() => onRemove(person)}
+                    className="h-10 rounded-xl font-bold text-xs text-red-600 hover:bg-red-50 hover:text-red-700"
+                  >
+                    <UserX className="mr-2 h-4 w-4" />
+                    Remove access
+                  </Button>
+                )}
               </div>
             )}
           </li>

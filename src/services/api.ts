@@ -12,7 +12,10 @@ class ApiError extends Error {
 
 type AuthContext = 'admin' | 'carrier';
 
-let refreshPromise: Promise<string | null> | null = null;
+// One refresh at a time per sign-in, so the admin and carrier never share one.
+const refreshPromises: Partial<
+  Record<AuthContext, Promise<string | null> | null>
+> = {};
 
 function getAuthContext(headers: Record<string, string>): AuthContext | null {
   const authorization = headers.Authorization || headers.authorization;
@@ -26,7 +29,8 @@ function getAuthContext(headers: Record<string, string>): AuthContext | null {
   return null;
 }
 
-function clearStoredAuth(context: AuthContext) {
+/** Forgets a sign-in: its tokens and user, and nothing else on the device. */
+export function clearStoredAuth(context: AuthContext) {
   if (context === 'admin') {
     localStorage.removeItem('adminToken');
     localStorage.removeItem('adminRefreshToken');
@@ -65,7 +69,7 @@ async function refreshAccessToken(context: AuthContext) {
   const refreshToken = getRefreshToken(context);
   if (!refreshToken) return null;
 
-  refreshPromise ??= fetch(`${config.API_URL}/users/token/refresh/`, {
+  refreshPromises[context] ??= fetch(`${config.API_URL}/users/token/refresh/`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ refresh: refreshToken }),
@@ -82,10 +86,10 @@ async function refreshAccessToken(context: AuthContext) {
       return accessToken;
     })
     .finally(() => {
-      refreshPromise = null;
+      refreshPromises[context] = null;
     });
 
-  return refreshPromise;
+  return refreshPromises[context];
 }
 
 export async function fetchWithAuth(url: string, options: RequestInit = {}) {

@@ -44,8 +44,13 @@ export function useAdminLogin() {
         return;
       }
 
+      if (!accessToken) {
+        notify.error('Sign-in failed', 'Please try again.');
+        return;
+      }
+
       if (typeof window !== 'undefined') {
-        localStorage.setItem('adminToken', accessToken || 'mock-token');
+        localStorage.setItem('adminToken', accessToken);
         localStorage.setItem('adminRefreshToken', refreshToken || '');
         localStorage.setItem('adminUser', JSON.stringify(userData));
       }

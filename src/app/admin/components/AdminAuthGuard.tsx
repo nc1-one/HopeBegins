@@ -5,6 +5,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { useUserStore } from '@/store/useUserStore';
 import { Loader2 } from 'lucide-react';
 import { isAdminRole, isSuperAdminPath } from '@/lib/adminRoles';
+import { clearStoredAuth } from '@/services/api';
 
 export function AdminAuthGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -23,15 +24,20 @@ export function AdminAuthGuard({ children }: { children: React.ReactNode }) {
       const token = localStorage.getItem('adminToken');
       const savedUser = localStorage.getItem('adminUser');
 
-      if (!token || !savedUser) {
+      let parsedUser: { role?: string } | null = null;
+      try {
+        parsedUser = savedUser ? JSON.parse(savedUser) : null;
+      } catch {
+        parsedUser = null;
+      }
+
+      if (!token || !parsedUser) {
+        clearStoredAuth('admin');
         router.push('/admin/login');
       } else {
-        const parsedUser = JSON.parse(savedUser);
-
         // Enforce admin role
         if (!isAdminRole(parsedUser.role)) {
-          localStorage.removeItem('adminToken');
-          localStorage.removeItem('adminUser');
+          clearStoredAuth('admin');
           router.push('/admin/login');
           return;
         }

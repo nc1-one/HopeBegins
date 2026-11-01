@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Heart, LogOut } from 'lucide-react';
 import { useCarrierAuth } from '@/hooks/useCarrierAuth';
+import { clearStoredAuth } from '@/services/api';
 
 export default function CarrierLayout({
   children,
@@ -42,7 +43,9 @@ export default function CarrierLayout({
   // Handle redirection
   useEffect(() => {
     if (hasChecked && !isAuthorized) {
-      localStorage.clear();
+      // Only the carrier sign-in: the visitor's check-ins, plan and language
+      // live in the same storage.
+      clearStoredAuth('carrier');
       router.push('/login/carrier');
     }
   }, [hasChecked, isAuthorized, router]);
