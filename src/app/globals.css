@@ -225,6 +225,20 @@
   #admin-report .report-journey {
     break-before: page;
   }
+  /* Wide tables, like every language side by side, fit the page width
+     instead of scrolling sideways, which paper can't do. */
+  #admin-report table {
+    min-width: 0 !important;
+    font-size: 10px;
+  }
+  #admin-report th,
+  #admin-report td {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+  #admin-report .overflow-x-auto {
+    overflow: visible;
+  }
   /* Soft shadows print as grey blocks, so cards get a thin line. */
   #admin-report [class*='shadow'] {
     box-shadow: none !important;

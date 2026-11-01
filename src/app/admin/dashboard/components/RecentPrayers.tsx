@@ -1,66 +1,50 @@
-import { Card, CardHeader, CardTitle } from '@/components/ui/card';
-import { Prayer } from '@/types/admin';
+import Link from 'next/link';
 import { format } from 'date-fns';
+import { Prayer } from '@/types/admin';
+import { STATUS_CONFIG } from '../../manage-prayers/constants';
 
-interface RecentPrayersProps {
-  prayers: Prayer[] | undefined;
-}
-
-export function RecentPrayers({ prayers }: RecentPrayersProps) {
+/** The five newest prayer requests, with a way to the full list. */
+export function RecentPrayers({ prayers }: { prayers: Prayer[] | undefined }) {
   if (!prayers || prayers.length === 0) return null;
 
   return (
-    <Card className="border-none shadow-2xl bg-white dark:bg-zinc-900">
-      <CardHeader className="px-6 pt-6 pb-4 border-b border-zinc-50 dark:border-zinc-800">
-        <CardTitle className="text-lg font-black italic">
-          Recent Prayers
-        </CardTitle>
-        <p className="text-xs text-zinc-500 font-medium mt-0.5">
-          Latest 5 prayer requests submitted.
+    <div className="rounded-2xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
+      <div className="flex items-center justify-between gap-4 border-b border-zinc-100 px-5 py-4 dark:border-zinc-800">
+        <p className="text-sm font-medium text-zinc-500">
+          The 5 newest, whatever the dates.
         </p>
-      </CardHeader>
-      <div className="divide-y divide-zinc-50 dark:divide-zinc-800/50">
-        {prayers.map((prayer) => (
-          <div
-            key={prayer.id}
-            className="flex items-center justify-between px-6 py-4 hover:bg-zinc-50/60 dark:hover:bg-zinc-800/20 transition-colors"
-          >
-            <div className="flex items-center gap-3 min-w-0">
-              <div className="h-8 w-8 rounded-xl bg-brand/5 dark:bg-brand/10 flex items-center justify-center text-brand font-black text-xs flex-shrink-0">
-                {prayer.isAnonymous ? 'A' : prayer.email[0]?.toUpperCase()}
-              </div>
-              <div className="min-w-0">
-                <p className="font-bold text-sm text-zinc-900 dark:text-zinc-100 truncate">
-                  {prayer.title}
-                </p>
-                <p className="text-xs text-zinc-400 font-medium">
-                  {prayer.isAnonymous ? 'Anonymous' : prayer.email}
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 flex-shrink-0 ml-4">
-              <span
-                className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest ${
-                  prayer.status === 'NEW'
-                    ? 'bg-amber-50 text-amber-600 dark:bg-amber-900/20'
-                    : prayer.status === 'COMPLETED'
-                      ? 'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/20'
-                      : prayer.status === 'ASSIGNED'
-                        ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/20'
-                        : prayer.status === 'ON_PROGRESS'
-                          ? 'bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20'
-                          : 'bg-zinc-100 text-zinc-500 dark:bg-zinc-800'
-                }`}
-              >
-                {prayer.status}
-              </span>
-              <span className="text-xs text-zinc-400 font-medium whitespace-nowrap">
-                {format(new Date(prayer.created_at), 'MMM d')}
-              </span>
-            </div>
-          </div>
-        ))}
+        <Link
+          href="/admin/manage-prayers"
+          className="shrink-0 text-sm font-bold text-brand underline-offset-4 hover:underline"
+        >
+          Manage prayers
+        </Link>
       </div>
-    </Card>
+      <ul className="divide-y divide-zinc-100 dark:divide-zinc-800">
+        {prayers.map((prayer) => (
+          <li
+            key={prayer.id}
+            className="flex items-center justify-between gap-4 px-5 py-3"
+          >
+            <div className="min-w-0">
+              <p className="truncate text-sm font-bold">{prayer.title}</p>
+              <p className="truncate text-xs font-medium text-zinc-500">
+                {prayer.isAnonymous ? 'Anonymous' : prayer.email}
+              </p>
+            </div>
+            <div className="flex shrink-0 items-center gap-3">
+              <span
+                className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${STATUS_CONFIG[prayer.status]?.bg ?? ''} ${STATUS_CONFIG[prayer.status]?.color ?? ''}`}
+              >
+                {STATUS_CONFIG[prayer.status]?.label ?? prayer.status}
+              </span>
+              <span className="whitespace-nowrap text-xs font-medium text-zinc-500">
+                {format(new Date(prayer.created_at), 'd MMM')}
+              </span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

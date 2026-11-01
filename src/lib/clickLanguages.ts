@@ -1,5 +1,5 @@
 import type { ClickAnalytics } from '@/types/admin';
-import { LANG_INFO, LANGS, type Lang } from './i18n';
+import { LANGS, type Lang } from './i18n';
 
 /*
  * Counts arrive with the page's language after two underscores
@@ -11,17 +11,33 @@ import { LANG_INFO, LANGS, type Lang } from './i18n';
 const SUFFIX = new RegExp(`__(${LANGS.join('|')})$`);
 
 /** 'before' is counts from before languages were recorded. */
-export type LanguageFilter = 'all' | Lang | 'before';
+export type CountLanguage = Lang | 'before';
+
+/** The whole dashboard, for every language or one. */
+export type LanguageFilter = 'all' | Lang;
+
+/** Each language's name for the team, in English. */
+export const LANGUAGE_NAMES: Record<CountLanguage, string> = {
+  en: 'English',
+  tl: 'Taglish',
+  fr: 'French',
+  de: 'German',
+  es: 'Spanish',
+  ko: 'Korean',
+  before: 'Before',
+};
 
 export const LANGUAGE_FILTERS: { value: LanguageFilter; label: string }[] = [
   { value: 'all', label: 'All languages' },
-  ...LANGS.map((lang) => ({ value: lang, label: LANG_INFO[lang].name })),
-  { value: 'before', label: 'Before languages were counted' },
+  ...LANGS.map((lang) => ({ value: lang, label: LANGUAGE_NAMES[lang] })),
 ];
+
+export const isLanguageFilter = (value: unknown): value is LanguageFilter =>
+  LANGUAGE_FILTERS.some((option) => option.value === value);
 
 export function splitLanguage(name: string): {
   base: string;
-  lang: Lang | 'before';
+  lang: CountLanguage;
 } {
   const match = name.match(SUFFIX);
   return match
@@ -29,10 +45,13 @@ export function splitLanguage(name: string): {
     : { base: name, lang: 'before' };
 }
 
-const keeps = (filter: LanguageFilter, lang: Lang | 'before') =>
+const keeps = (filter: LanguageFilter | 'before', lang: CountLanguage) =>
   filter === 'all' || filter === lang;
 
-function fold(counts: Record<string, number>, filter: LanguageFilter) {
+function fold(
+  counts: Record<string, number>,
+  filter: LanguageFilter | 'before'
+) {
   const folded: Record<string, number> = {};
   for (const [name, count] of Object.entries(counts)) {
     const { base, lang } = splitLanguage(name);
@@ -67,5 +86,5 @@ export function clicksIn(
 export function totalsByLanguage(totals: Record<string, number>) {
   return Object.fromEntries(
     [...LANGS, 'before' as const].map((lang) => [lang, fold(totals, lang)])
-  ) as Record<Lang | 'before', Record<string, number>>;
+  ) as Record<CountLanguage, Record<string, number>>;
 }
